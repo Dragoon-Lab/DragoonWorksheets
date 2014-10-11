@@ -1,0 +1,109 @@
+ <!DOCTYPE html>
+ <html>
+	<head>
+	
+	</head>
+	<body>
+		<h1>Workbook 1</h1>
+		<h1>Modeling Practice (FORM D)</h1>
+		<h4>Key Terms & Concepts</h4>
+		<p><b>A Parameter</b> represents a fixed quantity that never changes. Parameters are used to represent constant values.</p>
+		<p><i>Example: pi is a <b>parameter</b> because it is always 3.1415.</i></p>
+		<p><b>An accumulator</b> represents a quantity that increases of decreases over time based on its previous value and the value of its inputs. Thses take the form: "new value = old value + inputs". It has an initail value tha serves as teh first "old value".</p>
+		<p><i>Example: Population can be an <b>accumulator</b> because its new value is dependent on its old value and its inputs. Current population size = last year's population size + inputs.</i></p>
+		<p><b>A function</b> represents a value that is calculated directly from the values of other quantities, without referencing its previous value. A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value. Thus, a function does not need and does not have a special initial value, whereas an accumulator does.</p>
+		<p><i>Example: Suppose you know 20% of the population dies each year, then the number of deaths is a <b>function</b>, namely population * 0.2. Note that the number of the deaths does not require knowledge of the deaths of the previous year to comute it (if it did, it'd be an <b>accumulator</b>).</i></p>
+		<!--Some kind of bar here, maybe? -->
+		<p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be rewritten in scientific notation to be <b>3.45e+5</b> or <b>3.45x10^5</b>.</p>
+		<p>To do this, move the decimal place from the end of <b>345000</b> in between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponent is +5" or <b>10^5</b>. This indicates how many zeroes there are.</p>
+		<p>Similarly, <b>0.0000000000000000345</b> can be rewritten as <b>3.45e-17</b> or <b>3.45x10^-17</b>.</p>
+		<!-- Pg. 2 -->
+		<h3>Question 1</h3>
+		<p>Suppose you are creating a model of the system described in the italicized paragraph below. Answet the questions below by filling in the blanks from the word bank in the box. Each word (or number) is used once,more than once, or not at all.</p>
+		<!--Picture here -->
+		<p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population<!--because beavers are immortal--> (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of teh beaver population.</i></p>
+		<form>
+		1a. The "beaver population" is an <b>accumulator</b> whose value is calculated by  the following expression: new beaver population = old beaver population + <input type="text" name="beaver1"><br>
+			Initial value: <input type="text" name="beaverno"><br>
+		1b. The "beaver birth rate" is a <b>parameter</b> whose value is equal to <input type="text" name="beaver2"><br>
+		1c. "Beaver births" is a function of whose value is characterized by the following mathematical expression: <input type="text" name="beaver3">
+		</form>
+		<h3>Question 2</h3>
+		<p>Assume you are modeling the system described below in italics.</p>
+		<p>Enter one option (parameter, accumulator, or function) and fill in the blank:</p>
+		<p><i>Brandon has 100 video games.</i></p>
+		<form>
+		2a. The number of video games Brandon buys every week is a(n): <input type="text" name="game1"><br>
+			and is equal to <input type="text" name="game2"> games/week.<br>
+		2b. The number of video games Brandon has each week is teh number of video games he had the preceding week plus the number of games he buys this week. Therefore, the number of video games Brandon has is a(n): <input type="text" name="game3">
+		</form>
+		<!--Pg. 3 -->
+		<p>Although your body burns energy at a more-or-less constant amount per day, the amount of energy primitive humans ingested per day varied greatly depending on how lucky they were at hunting and gathering. Thus, humans developed the ability to store energy from food. When there is surplus energy from ingestion, the body stores it as fat and other tissue. When there is too little energy from ingestion, then the body converts fat and other tissues back to energy.</p>
+		<p>Let's suppose Joe wants to build an accurate model of his weight changes, so he starts with a very simple model, which is that the energy stored (as fat, etc.) changes daily depending on the energy balance. The energy balance is the difference between the energy ingested and the energy burned by the body on that day. When the energy balance is positive on that [articular day (a good hunt!), then energy storage increases by the surplus. When the energy balance is negative (a poor hunt), then stored energy decreases.</p>
+		<p>Joe looks up his current weight in a physiology reference and finds that he has about 345,000 calories stored. To keep things simple while getting started on his modeling project, Joe assumes his energy balance is 100 calories every day. He wants to model how his stored energy increases deaily. Please answer questions below about the model Joe must build.</p>
+		<h2>Question 3</h2>
+		<p>3a. Fill in the blanks.</p>
+		<table>
+			<thead>
+				<tr>
+				<th>Node Name</th>
+				<th>Type</th>
+				<th>Description</th>
+				</tr>				
+			</thead>
+			<tbody>
+				<tr>
+				<td>energy balance</td>
+				<td><form><input type="text" name="joe1"></form></td>
+				<td>Small surplus per day, value= 100 calories</td>
+				</tr>
+				<tr>
+				<td>energy stored</td>
+				<td><form><input type="text" name="joe2"></form></td>
+				<td>energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 245,000 calories<td>
+				</tr>
+			</tbody>
+		</table>
+		<p>3b. How would Joe measure changes to his energy storage?</p>
+		<p><b>Energy stored =</b></p>
+		<table>
+			<thead>
+				<td>time (days)</td>
+				<td>calculation</td>
+				<td>energy stored(call)</td>
+			</thead>
+			<tbody>
+				<tr>
+				<td>0</td>
+				<td><form><input type="text" name="joe3"></form></td>
+				<td><form><input type="text" name="joe4"></form></td>
+				</tr>
+				<tr>
+				<td>1</td>
+				<td><form><input type="text" name="joe5"></form></td>
+				<td>345,100</td>
+				</tr>
+				<tr>
+				<td>2</td>
+				<td><form><input type="text" name="joe6"></form></td>
+				<td>345,200</td>
+				</tr>
+				<tr>
+				<td>3</td>
+				<td>345,200 + 100</td>
+				<td>345,300</td>
+				</tr>
+				<tr>
+				<td>4</td>
+				<td>345,300 + 100</td>
+				<td>345,400</td>
+				</tr>
+				<tr>
+				<td>5</td>
+				<td>345,400 + 100</td>
+				<td>345,500</td>
+				</tr>
+			</tbody>
+		</table>
+		</body>
+ </html>
