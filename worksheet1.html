@@ -9,19 +9,19 @@
 		<h4>Key Terms & Concepts</h4>
 		<p><b>A Parameter</b> represents a fixed quantity that never changes. Parameters are used to represent constant values.</p>
 		<p><i>Example: pi is a <b>parameter</b> because it is always 3.1415.</i></p>
-		<p><b>An accumulator</b> represents a quantity that increases of decreases over time based on its previous value and the value of its inputs. Thses take the form: "new value = old value + inputs". It has an initail value tha serves as teh first "old value".</p>
+		<p><b>An accumulator</b> represents a quantity that increases of decreases over time based on its previous value and the value of its inputs. These take the form: "new value = old value + inputs". It has an initial value that serves as the first "old value".</p>
 		<p><i>Example: Population can be an <b>accumulator</b> because its new value is dependent on its old value and its inputs. Current population size = last year's population size + inputs.</i></p>
 		<p><b>A function</b> represents a value that is calculated directly from the values of other quantities, without referencing its previous value. A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value. Thus, a function does not need and does not have a special initial value, whereas an accumulator does.</p>
-		<p><i>Example: Suppose you know 20% of the population dies each year, then the number of deaths is a <b>function</b>, namely population * 0.2. Note that the number of the deaths does not require knowledge of the deaths of the previous year to comute it (if it did, it'd be an <b>accumulator</b>).</i></p>
+		<p><i>Example: Suppose you know 20% of the population dies each year, then the number of deaths is a <b>function</b>, namely population * 0.2. Note that the number of the deaths does not require knowledge of the deaths of the previous year to comupte it (if it did, it'd be an <b>accumulator</b>).</i></p>
 		<!--Some kind of bar here, maybe? -->
 		<p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be rewritten in scientific notation to be <b>3.45e+5</b> or <b>3.45x10^5</b>.</p>
 		<p>To do this, move the decimal place from the end of <b>345000</b> in between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponent is +5" or <b>10^5</b>. This indicates how many zeroes there are.</p>
 		<p>Similarly, <b>0.0000000000000000345</b> can be rewritten as <b>3.45e-17</b> or <b>3.45x10^-17</b>.</p>
 		<!-- Pg. 2 -->
 		<h3>Question 1</h3>
-		<p>Suppose you are creating a model of the system described in the italicized paragraph below. Answet the questions below by filling in the blanks from the word bank in the box. Each word (or number) is used once,more than once, or not at all.</p>
+		<p>Suppose you are creating a model of the system described in the italicized paragraph below. Answer the questions below by filling in the blanks from the word bank in the box. Each word (or number) is used once, more than once, or not at all.</p>
 		<!--Picture here -->
-		<p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population<!--because beavers are immortal--> (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of teh beaver population.</i></p>
+		<p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population<!--because beavers are immortal--> (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p>
 		<form>
 		1a. The "beaver population" is an <b>accumulator</b> whose value is calculated by  the following expression: new beaver population = old beaver population + <input type="text" name="beaver1"><br>
 			Initial value: <input type="text" name="beaverno"><br>
@@ -35,11 +35,11 @@
 		<form>
 		2a. The number of video games Brandon buys every week is a(n): <input type="text" name="game1"><br>
 			and is equal to <input type="text" name="game2"> games/week.<br>
-		2b. The number of video games Brandon has each week is teh number of video games he had the preceding week plus the number of games he buys this week. Therefore, the number of video games Brandon has is a(n): <input type="text" name="game3">
+		2b. The number of video games Brandon has each week is the number of video games he had the preceding week plus the number of games he buys this week. Therefore, the number of video games Brandon has is a(n): <input type="text" name="game3">
 		</form>
 		<!--Pg. 3 -->
 		<p>Although your body burns energy at a more-or-less constant amount per day, the amount of energy primitive humans ingested per day varied greatly depending on how lucky they were at hunting and gathering. Thus, humans developed the ability to store energy from food. When there is surplus energy from ingestion, the body stores it as fat and other tissue. When there is too little energy from ingestion, then the body converts fat and other tissues back to energy.</p>
-		<p>Let's suppose Joe wants to build an accurate model of his weight changes, so he starts with a very simple model, which is that the energy stored (as fat, etc.) changes daily depending on the energy balance. The energy balance is the difference between the energy ingested and the energy burned by the body on that day. When the energy balance is positive on that [articular day (a good hunt!), then energy storage increases by the surplus. When the energy balance is negative (a poor hunt), then stored energy decreases.</p>
+		<p>Let's suppose Joe wants to build an accurate model of his weight changes, so he starts with a very simple model, which is that the energy stored (as fat, etc.) changes daily depending on the energy balance. The energy balance is the difference between the energy ingested and the energy burned by the body on that day. When the energy balance is positive on that particular day (a good hunt!), then energy storage increases by the surplus. When the energy balance is negative (a poor hunt), then stored energy decreases.</p>
 		<p>Joe looks up his current weight in a physiology reference and finds that he has about 345,000 calories stored. To keep things simple while getting started on his modeling project, Joe assumes his energy balance is 100 calories every day. He wants to model how his stored energy increases deaily. Please answer questions below about the model Joe must build.</p>
 		<h2>Question 3</h2>
 		<p>3a. Fill in the blanks.</p>
@@ -103,6 +103,125 @@
 				<td>345,400 + 100</td>
 				<td>345,500</td>
 				</tr>
+			</tbody>
+		</table>
+		<form>
+		<p>3c. Joe wants to graph his energy balance. What is teh x-axis value (the independent value) and what is the y-axis value (the dependent value)? Write the correct answer on the line and then make a rough graph of it on the plot below.</p>
+		p><b>time </b><input type="text" name="joe7"></p>
+		<p><b>energy stored </b><input type="text" name="joe8"></p>
+		</form>
+		<!--Pg. 4-->
+		<p>Try graphing his weight below using the information from problem 3b.</p>
+		<!--Put in graph here somehow-->
+		<!--Pg. 5-->
+		<p>The enrgy balance of your body is the difference between the energy you addd to your body by ingesting food and the energy you subtract from your body by physical exercies and other activities. When the energy you ingest exactly equals the energy you expend, the energy balance is zero. When the energy you ingest is greater than the energy you expend, the energy balance is positive, and the excess energy is added to your body's stores. When you consume less energy tha you expend, the energy balance is negative and your body makes up the deficit by withdrawing energy from storage. The energy balance can change every day. Thus, if the energy balance is negative, then the energy stored goes down.</p>
+		<p>Joe's next model of his energy balance is more complex. It makes energy balance a function of energy ingested and energy expended. Eventually, this will allow hiim to vary them separately. For instance, he can see what happens if he keeps his diet the same (and hence energy ingested is the same as it is now) but he does more exercise (so his energy expended is higher than it is now). However, for now he assumes that his daily expenditure is  2100 calories and his daily ingestion nets him 1989 calories.</p>
+		<h3>Question 4</h3>
+		<p>4a. Fill in the blanks.</p>
+		<table>
+			<thead>
+			<td>Node Name</td>
+			<td>Type</td>
+			<td>Description</td>
+			</thead>
+			<tbody>
+			<tr>
+			<td>Energy stored</td>
+			<td><form><input type="text" name="joe9"></form></td>
+			<td>energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 345,000 calories</td>
+			</tr>
+			<tr>
+			<td>Energy expended</td>
+			<td><form><input type="text" name="joe10"></form></td>
+			<td>energy expended daily, value = 2100 calories</td>
+			</tr>
+			<tr>
+			<td>Energy balance</td>
+			<td><form><input type="text" name="joe11"></form></td>
+			<td>energy surplus or deficit, value = energy ingested - energy expended</td>
+			</tr>
+			<tr>
+			<td>Enrgy ingested</td>
+			<td><form><input type="text" name="joe12"></form></td>
+			<td>energy ingested daily, value = 1989 calories</td>
+			</tr>
+		</tbody>
+		</table>
+		<!--Pg. 6-->
+		<form><p>4b. The graph on the left is for the <input type="text" name="joe13"> node.</p>
+		<p>4c. The other graph is for the <input type="text" name="joe14"> node.</p></form>
+		<!--image of the graphs?-->
+		<!--Pg.7-->
+		<p>Almost all the body's energy is stored as tissue, such as fat, muscle, internal organs, and skin. roughly speaking, a pound of tissue stores 3500 calories. Create a model that represents stored energy in Joe's body as his weight in pounds.</p>
+		<h3>Question 5</h3>
+		<p>5a. Fill in the blanks.</p>
+		<table>
+			<thead>
+			<td>Node Name</td>
+			<td>Type</td>
+			<td>Description</td>
+			</thead>
+			<tbody>
+			<tr>
+			<td>Energy expended</td>
+			<td><form><input type="text" name="joe15"></form></td>
+			<td>energy expended daily, value = 1200 calories</td>
+			</tr>
+			<tr>
+			<td>Energy balance</td>
+			<td><form><input type="text" name="joe16"</form></td>
+			<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
+			</tr>
+			<tr>
+			<td>Energy ingested</td>
+			<td><form><input type="text" name="joe17"></form></td>
+			<td>energy ingested daily, value = 1989 calories</td>
+			</tr>
+			<tr>
+			<td>Weight</td>
+			<td><form><input type="text" name="joe18"></form></td>
+			<td>The weight of the body as it varies day by day. Its new value is its old value + <form><input type="text" name="joe19"></form>; initial value = 160 lbs</td>
+			</tr>
+			<tr>
+			<td>Weight change</td>
+			<td><form><input type="text" name="joe20"></form></td>
+			<td>weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
+			</tr>
+			<tr>
+			<td>Calories per pound</td>
+			<td><form><input type="text" name="joe21"></form></td>
+			<td>Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
+			</tr>
+			</tbody>
+		</table>
+		<!--Pg. 8-->
+		<!--image of graphs?-->
+		<form>
+		<p>5d. Given the two graphs, 5b and 5c, which one goes with the model in the table above? Why? <input type="text" name="joe22"></p>
+		<p>5e. Suppose Joe ingests 3000 calories a day instead of the 1989 calories a day shown on the table. Which graph would likely go with this situation? Why? <input type="text" name="joe23"></p>
+		</form>
+		<!--Pg. 9-->
+		<p>Exactly how much energy is burned by your body depends on man y factores, including the amount of physical activity you do, your weight, your age, and other factors. in preparation for describing these effects, scientists divide energy expended into three types:</p>
+		<ul>
+		<li>energy burned by physical excercise</li>
+		<li>energy burned by the digestion process, because it takes energy to release the energy in food.</li>
+		<li>energy required just to run all the other bodily functions-- heartbeat, breathing, and so on. This is how much energy you burn if you are doing no exercise and ingesting no food. It is measured while you are lying still, so it is called the "resting energy expenditure" or "resting metabolic rate." It is similar to an older measure, "basal metabolic rate."</li>
+		</ul>
+		<p>Based on his reading of the physiology literature, Joe estimates that his numbers are 400, 1400, and 200 calories, respectively.</p>
+		<h3>Question 6</h3>
+		<p>6a. Fill in the blanks.</p>
+		<table>
+			<thead>
+			<td>Node Name</td>
+			<td>Type</td>
+			<td>Description</td>
+			</thead>
+			<tbody>
+			<tr>
+			<td>physical energy expenditure</td>
+			<td><form><input type="text" name="joe24"></form></td>
+			<td>energy burned by physical exercise; value = 400 calories</td>
+			</tr>
 			</tbody>
 		</table>
 		</body>
