@@ -3,15 +3,17 @@
  
 	<head>
 	<link rel="stylesheet" type="css/text" href="Formatting.css">
-	<script>expand(question1+) {
-	el=document.getElementById(question1+);
-	if (el.style.display==="none") {
-	el.style.display = ""
-	}
+	<script type="text/javascript">
+	onClick= function ExpandCollapse(question1) {
+	var el=document.getElementById(question1);
+	if (el.style.display==='none') {
+		el.style.display='';
+		}
 	else {
-	el.style.display = "none"
+		el.style.display='none';
+		}
 	}
-	return false;}</script>
+	</script>
 	</head>
 	<body>
 		<h1>Workbook 1</h1>
@@ -23,13 +25,13 @@
 		<p><i>Example: Population can be an <b>accumulator</b> because its new value is dependent on its old value and its inputs. Current population size = last year's population size + inputs.</i></p>
 		<p><b>A function</b> represents a value that is calculated directly from the values of other quantities, without referencing its previous value. A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value. Thus, a function does not need and does not have a special initial value, whereas an accumulator does.</p>
 		<p><i>Example: Suppose you know 20% of the population dies each year, then the number of deaths is a <b>function</b>, namely population * 0.2. Note that the number of the deaths does not require knowledge of the deaths of the previous year to comupte it (if it did, it'd be an <b>accumulator</b>).</i></p>
-		<!--Some kind of bar here, maybe? -->
+		<hr/>
 		<p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be rewritten in scientific notation to be <b>3.45e+5</b> or <b>3.45x10<sup>5</sup></b>.</p>
 		<p>To do this, move the decimal place from the end of <b>345000</b> in between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponent is +5" or <b>10<sup>5</sup></b>. This indicates how many zeroes there are.</p>
 		<p>Similarly, <b>0.0000000000000000345</b> can be rewritten as <b>3.45e-17</b> or <b>3.45x10<sup>-17</sup></b>.</p>
-		<p onClick="expand("question1+");">Continue</p>
+		<p id="button">Continue</p>
 		<!-- Pg. 2 -->
-		<div id="question1+" style="display:none">
+		<div id="question1">
 		<h3>Question 1</h3>
 		<p>Suppose you are creating a model of the system described in the italicized paragraph below. Answer the questions below by filling in the blanks from the word bank in the box. Each word (or number) is used once, more than once, or not at all.</p>
 		<!--Picture here -->
@@ -38,7 +40,7 @@
 		1a. The "beaver population" is an <b>accumulator</b> whose value is calculated by  the following expression: new beaver population = old beaver population + <input type="text" name="beaver1"><br>
 			Initial value: <input type="text" name="beaverno"><br>
 		1b. The "beaver birth rate" is a <b>parameter</b> whose value is equal to <input type="text" name="beaver2"><br>
-		1c. "Beaver births" is a function of whose value is characterized by the following mathematical expression: <input type="text" name="beaver3">
+		1c. "Beaver births" is a function whose value is characterized by the following mathematical expression: <input type="text" name="beaver3">
 		</form>
 		<h3>Question 2</h3>
 		<p>Assume you are modeling the system described below in italics.</p>
@@ -57,22 +59,20 @@
 		<p>3a. Fill in the blanks.</p>
 		<table>
 			<thead>
-				<tr>
-				<th style="border: 1pt black solid">Node Name</th>
-				<th style="border: 1pt black solid">Type</th>
-				<th style="border: 1pt black solid">Description</th>
-				</tr>				
+				<td>Node Name</td>
+				<td>Type</td>
+				<td>Description</td>				
 			</thead>
 			<tbody>
 				<tr>
-				<td style="border: 1pt black solid">energy balance</td>
-				<td style="border: 1pt black solid"><form><input type="text" name="joe1"></form></td>
-				<td style="border: 1pt black solid">Small surplus per day, value= 100 calories</td>
+				<td >energy balance</td>
+				<td ><form><input type="text" name="joe1"></form></td>
+				<td >Small surplus per day, value= 100 calories</td>
 				</tr>
 				<tr>
-				<td style="border: 1pt black solid">energy stored</td>
-				<td style="border: 1pt black solid"><form><input type="text" name="joe2"></form></td>
-				<td style="border: 1pt black solid">energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 245,000 calories<td>
+				<td>energy stored</td>
+				<td><form><input type="text" name="joe2"></form></td>
+				<td>energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 245,000 calories<td>
 				</tr>
 			</tbody>
 		</table>
@@ -80,45 +80,45 @@
 		<p><b>Energy stored =</b></p>
 		<table>
 			<thead>
-				<td style="border: 1pt black solid">time (days)</td>
-				<td style="border: 1pt black solid">calculation</td>
-				<td style="border: 1pt black solid">energy stored(call)</td>
+				<td>time (days)</td>
+				<td>calculation</td>
+				<td>energy stored (cal)</td>
 			</thead>
 			<tbody>
 				<tr>
-				<td style="border: 1pt black solid">0</td>
-				<td style="border: 1pt black solid"><form><input type="text" name="joe3"></form></td>
-				<td style="border: 1pt black solid"><form><input type="text" name="joe4"></form></td>
+				<td>0</td>
+				<td><form><input type="text" name="joe3"></form></td>
+				<td><form><input type="text" name="joe4"></form></td>
 				</tr>
 				<tr>
-				<td style="border: 1pt black solid">1</td>
-				<td style="border: 1pt black solid"><form><input type="text" name="joe5"></form></td>
-				<td style="border: 1pt black solid">345,100</td>
+				<td>1</td>
+				<td><form><input type="text" name="joe5"></form></td>
+				<td>345,100</td>
 				</tr>
 				<tr>
-				<td style="border: 1pt black solid">2</td>
-				<td style="border: 1pt black solid"><form><input type="text" name="joe6"></form></td>
-				<td style="border: 1pt black solid">345,200</td>
+				<td>2</td>
+				<td><form><input type="text" name="joe6"></form></td>
+				<td>345,200</td>
 				</tr>
 				<tr>
-				<td style="border: 1pt black solid">3</td>
-				<td style="border: 1pt black solid">345,200 + 100</td>
-				<td style="border: 1pt black solid">345,300</td>
+				<td>3</td>
+				<td>345,200 + 100</td>
+				<td>345,300</td>
 				</tr>
 				<tr>
-				<td style="border: 1pt black solid">4</td>
-				<td style="border: 1pt black solid">345,300 + 100</td>
-				<td style="border: 1pt black solid">345,400</td>
+				<td>4</td>
+				<td>345,300 + 100</td>
+				<td>345,400</td>
 				</tr>
 				<tr>
-				<td style="border: 1pt black solid">5</td>
-				<td style="border: 1pt black solid">345,400 + 100</td>
-				<td style="border: 1pt black solid">345,500</td>
+				<td>5</td>
+				<td>345,400 + 100</td>
+				<td>345,500</td>
 				</tr>
 			</tbody>
 		</table>
 		<form>
-		<p>3c. Joe wants to graph his energy balance. What is teh x-axis value (the independent value) and what is the y-axis value (the dependent value)? Write the correct answer on the line and then make a rough graph of it on the plot below.</p>
+		<p>3c. Joe wants to graph his energy balance. What is the x-axis value (the independent value) and what is the y-axis value (the dependent value)? Write the correct answer on the line and then make a rough graph of it on the plot below.</p>
 		p><b>time </b><input type="text" name="joe7"></p>
 		<p><b>energy stored </b><input type="text" name="joe8"></p>
 		</form>
@@ -132,84 +132,84 @@
 		<p>4a. Fill in the blanks.</p>
 		<table>
 			<thead>
-			<td style="border: 1pt black solid">Node Name</td>
-			<td style="border: 1pt black solid">Type</td>
-			<td style="border: 1pt black solid">Description</td>
+			<td>Node Name</td>
+			<td>Type</td>
+			<td>Description</td>
 			</thead>
 			<tbody>
 			<tr>
-			<td style="border: 1pt black solid">Energy stored</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe9"></form></td>
-			<td style="border: 1pt black solid">energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 345,000 calories</td>
+			<td>Energy stored</td>
+			<td><form><input type="text" name="joe9"></form></td>
+			<td>energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 345,000 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Energy expended</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe10"></form></td>
-			<td style="border: 1pt black solid">energy expended daily, value = 2100 calories</td>
+			<td>Energy expended</td>
+			<td><form><input type="text" name="joe10"></form></td>
+			<td>energy expended daily, value = 2100 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Energy balance</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe11"></form></td>
-			<td style="border: 1pt black solid">energy surplus or deficit, value = energy ingested - energy expended</td>
+			<td>Energy balance</td>
+			<td><form><input type="text" name="joe11"></form></td>
+			<td>energy surplus or deficit, value = energy ingested - energy expended</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Enrgy ingested</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe12"></form></td>
-			<td style="border: 1pt black solid">energy ingested daily, value = 1989 calories</td>
+			<td>Enrgy ingested</td>
+			<td><form><input type="text" name="joe12"></form></td>
+			<td>energy ingested daily, value = 1989 calories</td>
 			</tr>
 		</tbody>
 		</table>
 		<!--Pg. 6-->
 		<form><p>4b. The graph on the left is for the <input type="text" name="joe13"> node.</p>
 		<p>4c. The other graph is for the <input type="text" name="joe14"> node.</p></form>
-		<img src="Graph1.jpeg"/><!--fix this-->
+		<img src="images/Graph1.JPG"/><!--fix this-->
 		<!--Pg.7-->
 		<p>Almost all the body's energy is stored as tissue, such as fat, muscle, internal organs, and skin. roughly speaking, a pound of tissue stores 3500 calories. Create a model that represents stored energy in Joe's body as his weight in pounds.</p>
 		<h3>Question 5</h3>
 		<p>5a. Fill in the blanks.</p>
 		<table>
 			<thead>
-			<td style="border: 1pt black solid">Node Name</td>
-			<td style="border: 1pt black solid">Type</td>
-			<td style="border: 1pt black solid">Description</td>
+			<td>Node Name</td>
+			<td>Type</td>
+			<td>Description</td>
 			</thead>
 			<tbody>
 			<tr>
-			<td style="border: 1pt black solid">Energy expended</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe15"></form></td>
-			<td style="border: 1pt black solid">energy expended daily, value = 1200 calories</td>
+			<td>Energy expended</td>
+			<td><form><input type="text" name="joe15"></form></td>
+			<td>energy expended daily, value = 1200 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Energy balance</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe16"</form></td>
-			<td style="border: 1pt black solid">Energy surplus or deficit daily, value = energy ingested - energy expended</td>
+			<td>Energy balance</td>
+			<td><form><input type="text" name="joe16"</form></td>
+			<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Energy ingested</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe17"></form></td>
-			<td style="border: 1pt black solid">energy ingested daily, value = 1989 calories</td>
+			<td>Energy ingested</td>
+			<td><form><input type="text" name="joe17"></form></td>
+			<td>energy ingested daily, value = 1989 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Weight</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe18"></form></td>
-			<td style="border: 1pt black solid">The weight of the body as it varies day by day. Its new value is its old value + <form><input type="text" name="joe19"></form>; initial value = 160 lbs</td>
+			<td>Weight</td>
+			<td><form><input type="text" name="joe18"></form></td>
+			<td>The weight of the body as it varies day by day. Its new value is its old value + <form><input type="text" name="joe19"></form>; initial value = 160 lbs</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Weight change</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe20"></form></td>
-			<td style="border: 1pt black solid">weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
+			<td>Weight change</td>
+			<td><form><input type="text" name="joe20"></form></td>
+			<td>weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Calories per pound</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe21"></form></td>
-			<td style="border: 1pt black solid">Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
+			<td>Calories per pound</td>
+			<td><form><input type="text" name="joe21"></form></td>
+			<td>Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
 			</tr>
 			</tbody>
 		</table>
 		<!--Pg. 8-->
-		<p style="color: red">Image of graphs here</p>
+		<img src="images/Graph2.JPG"/>
 		<form>
-		<p>5d. Given the two graphs, 5b and 5c, which one goes with the model in the table above? Why? <input type="text" name="joe22"></p>
+		<p>5d. Given the two graphs, 5b and 5c, which one goes with the model in the table above? Why? <input type="text" name="joe22" width="200px" height="100px"></p>
 		<p>5e. Suppose Joe ingests 3000 calories a day instead of the 1989 calories a day shown on the table. Which graph would likely go with this situation? Why? <input type="text" name="joe23"></p>
 		</form>
 		<!--Pg. 9-->
@@ -224,30 +224,30 @@
 		<p>6a. Fill in the blanks.</p>
 		<table>
 			<thead>
-			<td style="border: 1pt black solid">Node Name</td>
-			<td style="border: 1pt black solid">Type</td>
-			<td style="border: 1pt black solid">Description</td>
+			<td>Node Name</td>
+			<td>Type</td>
+			<td>Description</td>
 			</thead>
 			<tbody>
 			<tr>
-			<td style="border: 1pt black solid">physical activity expenditure</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe24"></form></td>
-			<td style="border: 1pt black solid">energy burned by physical exercise; value = 400 calories</td>
+			<td>physical activity expenditure</td>
+			<td><form><input type="text" name="joe24"></form></td>
+			<td>energy burned by physical exercise; value = 400 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">resting energy expenditure</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">energy expended per day by basic body function; value = 1400 calories</td>
+			<td>resting energy expenditure</td>
+			<td>Parameter</td>
+			<td>energy expended per day by basic body function; value = 1400 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">digestive activity expenditure</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">energy burned in order to digest food; value = 200 calories</td>
+			<td>digestive activity expenditure</td>
+			<td>Parameter</td>
+			<td>energy burned in order to digest food; value = 200 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Energy expended</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe25"></form></td>
-			<td style="border: 1pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <form><input type="text" name="joe26"></form></td>
+			<td>Energy expended</td>
+			<td><form><input type="text" name="joe25"></form></td>
+			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <form><input type="text" name="joe26"></form></td>
 			</tr>
 			</tbody>
 		</table>
@@ -272,61 +272,61 @@
 		<p>Instead of using a parameter for "physical activity expenditure" with a value of 400, Joe decides to make it a function whose value is the product of resting energy expenditure anda a new node, physical activity level. Joe does little exercise, so he sets the physical activity level as 0.2. However, his model is now set up so that he can easily see the effect of increasing his exercise level. Here's his whole model, expressed as a table. Fill in the blanks:</p>
 		<table>
 			<thead>
-			<td style="border: 1pt black solid">Node Name</td>
-			<td style="border: 1pt black solid">Type</td>
-			<td style="border: 1pt black solid">Description</td>
+			<td>Node Name</td>
+			<td>Type</td>
+			<td>Description</td>
 			</thead>
 			<tbody>
 			<tr>
-			<td style="border: 1pt black solid">Energy balance</td>
-			<td style="border: 1pt black solid">Function</td>
-			<td style="border: 1pt black solid">Energy surplus or deficit daily, value = energy ingested - energy expended</td>
+			<td>Energy balance</td>
+			<td>Function</td>
+			<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Energy ingested</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">energy ingested daily, value = 1989 calories</td>
+			<td>Energy ingested</td>
+			<td>Parameter</td>
+			<td>energy ingested daily, value = 1989 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Weight</td>
-			<td style="border: 1pt black solid">Accumulator</td>
-			<td style="border: 1pt black solid">The weight of the body as it varies day by day. Its new value is its old value + weight change; initial value = 150 lbs</td>
+			<td>Weight</td>
+			<td>Accumulator</td>
+			<td>The weight of the body as it varies day by day. Its new value is its old value + weight change; initial value = 150 lbs</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Weight change</td>
-			<td style="border: 1pt black solid">Function</td>
-			<td style="border: 1pt black solid">weight of tissue added or subtracted from storage; value = 3500 calories/lbs</td>
+			<td>Weight change</td>
+			<td>Function</td>
+			<td>weight of tissue added or subtracted from storage; value = 3500 calories/lbs</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Calories per pound</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">number of calories in a pound of tissue, value = 3500 calories/lbs</td>
+			<td>Calories per pound</td>
+			<td>Parameter</td>
+			<td>number of calories in a pound of tissue, value = 3500 calories/lbs</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">physical energy expenditure</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe28"></form></td>
-			<td style="border: 1pt black solid">energy burned by physical exercise; value = <form><input type="text" name="joe29">*<input type="text" name="joe30"></form></td>
+			<td>physical energy expenditure</td>
+			<td><form><input type="text" name="joe28"></form></td>
+			<td>energy burned by physical exercise; value = <form><input type="text" name="joe29">*<input type="text" name="joe30"></form></td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">resting energy expenditure</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">energy expended per day by basic bodily function; value = 1400 calories</td>
+			<td>resting energy expenditure</td>
+			<td>Parameter</td>
+			<td>energy expended per day by basic bodily function; value = 1400 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">digestive energy expenditure</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">energy burned in order to digest food; value = 200 calories</td>
+			<td>digestive energy expenditure</td>
+			<td>Parameter</td>
+			<td>energy burned in order to digest food; value = 200 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Energy expended</td>
-			<td style="border: 1pt black solid">function</td>
-			<td style="border: 1pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <form><input type="text" name="joe31"></form></td>
+			<td>Energy expended</td>
+			<td>function</td>
+			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <form><input type="text" name="joe31"></form></td>
 			</tr>
 			<!--Pg. 11-->
 			<tr>
-			<td style="border: 1pt black solid">Physical activity level</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe32"></form></td>
-			<td style="border: 1pt black solid">Amount of physical activity, e.g. 0.2 for little or no exercise, 0.9 for daily hard exercise.</td>
+			<td>Physical activity level</td>
+			<td><form><input type="text" name="joe32"></form></td>
+			<td>Amount of physical activity, e.g. 0.2 for little or no exercise, 0.9 for daily hard exercise.</td>
 			</tr>
 			</tbody>
 		</table>
@@ -349,65 +349,65 @@
 		<p>Since we don't know much about Joe's diet, let's just use the default value of 10%. In the table below, which shows the complete model that Joe has developed so far, fill in the blanks to change the node "digestive energy expenditure" to be the product of "energy ingested" and a parameter "digestive energy factor" with the value 0.10.</p>
 		<table>
 			<thead>
-			<td style="border: 1pt black solid">Node Name</td>
-			<td style="border: 1pt black solid">Type</td>
-			<td style="border: 1pt black solid">Description</td>
+			<td>Node Name</td>
+			<td>Type</td>
+			<td>Description</td>
 			</thead>
 			<tbody>
 			<tr>
-			<td style="border: 1pt black solid">Energy balance</td>
-			<td style="border: 1pt black solid">Function</td>
-			<td style="border: 1pt black solid">Energy surplus or deficit daily, value = energy ingested - energy expended</td>
+			<td>Energy balance</td>
+			<td>Function</td>
+			<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Energy ingested</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">energy ingested daily, value = 1989 calories</td>
+			<td>Energy ingested</td>
+			<td>Parameter</td>
+			<td>energy ingested daily, value = 1989 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Weight</td>
-			<td style="border: 1pt black solid">Accumulator</td>
-			<td style="border: 1pt black solid">The weight of the body as it varies day by day. Its new value is its old value + weight change; inital value = 150 lbs</td>
+			<td>Weight</td>
+			<td>Accumulator</td>
+			<td>The weight of the body as it varies day by day. Its new value is its old value + weight change; inital value = 150 lbs</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Weight change</td>
-			<td style="border: 1pt black solid">Function</td>
-			<td style="border: 1pt black solid">weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
+			<td>Weight change</td>
+			<td>Function</td>
+			<td>weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Calories per pound</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
+			<td>Calories per pound</td>
+			<td>Parameter</td>
+			<td>Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">physical activity expenditure</td>
-			<td style="border: 1pt black solid">Function</td>
-			<td style="border: 1pt black solid">energy burned by physical exercise; value = <form><input type="text" name="joe37">*<input type="text" name="joe38"></form></td>
+			<td>physical activity expenditure</td>
+			<td>Function</td>
+			<td>energy burned by physical exercise; value = <form><input type="text" name="joe37">*<input type="text" name="joe38"></form></td>
 			</tr>
-			<td style="border: 1pt black solid">resting energy expenditure</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">energy expended per day by basic bodily function; value = 1400 calories</td>
-			</tr>
-			<tr>
-			<td style="border: 1pt black solid">digestive activity expenditure</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe39"></form></td>
-			<td style="border: 1pt black solid">energy burned in order to digest food; value = <form><input type="text" name="joe 40">*<input type="text" name="joe41"></form></td>
+			<td>resting energy expenditure</td>
+			<td>Parameter</td>
+			<td>energy expended per day by basic bodily function; value = 1400 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Energy expended</td>
-			<td style="border: 1pt black solid">Function</td>
-			<td style="border: 1pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <form><input type="text" name="joe42"></form></td>
+			<td>digestive activity expenditure</td>
+			<td><form><input type="text" name="joe39"></form></td>
+			<td>energy burned in order to digest food; value = <form><input type="text" name="joe 40">*<input type="text" name="joe41"></form></td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Physical activity level</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">Amount of physical activity, e.g., 0.2 for little or no evercise, 0.9 for daily hard exercise</td>
+			<td>Energy expended</td>
+			<td>Function</td>
+			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <form><input type="text" name="joe42"></form></td>
+			</tr>
+			<tr>
+			<td>Physical activity level</td>
+			<td>Parameter</td>
+			<td>Amount of physical activity, e.g., 0.2 for little or no evercise, 0.9 for daily hard exercise</td>
 			</tr>
 			<!--Pg. 13-->
 			<tr>
-			<td style="border: 1pt black solid">Digestive energy factor</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe43"></form></td>
-			<td style="border: 1pt black solid">The proportion of ingested energy that is required to process it, value = <form><input type="text" name="joe44"></form></td>
+			<td>Digestive energy factor</td>
+			<td><form><input type="text" name="joe43"></form></td>
+			<td>The proportion of ingested energy that is required to process it, value = <form><input type="text" name="joe44"></form></td>
 			</tr>
 			</tbody>
 		</table>
@@ -440,106 +440,106 @@
 		<p>In Joe's model below, modify the node for "resting energy expenditure" to implement this equation by filling in the blanks. Assume Joe is a 20-year-old, 65-inch-tall male.</p>
 		<table>
 			<thead>
-			<td style="border: 1pt black solid">Node Name</td>
-			<td style="border: 1pt black solid">Type</td>
-			<td style="border: 1pt black solid">Description</td>
+			<td>Node Name</td>
+			<td>Type</td>
+			<td>Description</td>
 			</thead>
 			<tbody>
 			<tr>
-			<td style="border: 1pt black solid">Energy balance</td>
-			<td style="border: 1pt black solid">Function</td>
-			<td style="border: 1pt black solid">Energy surplus or deficit daily, value = energy ingested - energy expended</td>
+			<td>Energy balance</td>
+			<td>Function</td>
+			<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Energy ingested</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">energy ingested daily, value = 1989 calories</td>
+			<td>Energy ingested</td>
+			<td>Parameter</td>
+			<td>energy ingested daily, value = 1989 calories</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Weight</td>
-			<td style="border: 1pt black solid">Accumulator</td>
-			<td style="border: 1pt black solid">The weight of the body as it varies day by day. Its new value is old value + weight change; initial value = 150 lbs</td>
+			<td>Weight</td>
+			<td>Accumulator</td>
+			<td>The weight of the body as it varies day by day. Its new value is old value + weight change; initial value = 150 lbs</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Weight change</td>
-			<td style="border: 1pt black solid">Fucntion</td>
-			<td style="border: 1pt black solid">Weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
+			<td>Weight change</td>
+			<td>Fucntion</td>
+			<td>Weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Calories per pound</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
+			<td>Calories per pound</td>
+			<td>Parameter</td>
+			<td>Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">physical activity expenditure</td>
-			<td style="border: 1pt black solid">Function</td>
-			<td style="border: 1pt black solid">energy burned by physical exercise; value = resting energy expenditure * physical activity level</td>
+			<td>physical activity expenditure</td>
+			<td>Function</td>
+			<td>energy burned by physical exercise; value = resting energy expenditure * physical activity level</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">resting energy expenditure</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe50"></form></td>
-			<td style="border: 1pt black solid">energy expended per day by basic bodily function; value = <form><input type="text" name="joe51">-<input type="text" name="joe52">+<input type="text" name="joe53"></form></td>
+			<td>resting energy expenditure</td>
+			<td><form><input type="text" name="joe50"></form></td>
+			<td>energy expended per day by basic bodily function; value = <form><input type="text" name="joe51">-<input type="text" name="joe52">+<input type="text" name="joe53"></form></td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">digestive activity expenditure</td>
-			<td style="border: 1pt black solid">Function</td>
-			<td style="border: 1pt black solid">energy burned in order to digest food; value = energy ingested * digestive activity expenditure</td>
+			<td>digestive activity expenditure</td>
+			<td>Function</td>
+			<td>energy burned in order to digest food; value = energy ingested * digestive activity expenditure</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Energy expended</td>
-			<td style="border: 1pt black solid">Function</td>
-			<td style="border: 1pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + digestive activity expenditure</td>
+			<td>Energy expended</td>
+			<td>Function</td>
+			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + digestive activity expenditure</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">Physical activity level</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">Amount of physical activity, e.g., 0.2 for little or no exercise. 0.9 for daily hard exercise</td>
+			<td>Physical activity level</td>
+			<td>Parameter</td>
+			<td>Amount of physical activity, e.g., 0.2 for little or no exercise. 0.9 for daily hard exercise</td>
 			</tr>
 			<!--Pg. 15-->
 			<tr>
-			<td style="border: 1pt black solid">Digestive energy factor</td>
-			<td style="border: 1pt black solid">Parameter</td>
-			<td style="border: 1pt black solid">The proportion of energy that is requied to process it, value = 0.10</td>
+			<td>Digestive energy factor</td>
+			<td>Parameter</td>
+			<td>The proportion of energy that is requied to process it, value = 0.10</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">weight REE</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe54"></form></td>
-			<td style="border: 1pt black solid">Contribution of weight to REE, value = weight * weight REE multiplier</td>
+			<td>weight REE</td>
+			<td><form><input type="text" name="joe54"></form></td>
+			<td>Contribution of weight to REE, value = weight * weight REE multiplier</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">weight REE multiplier</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe55"></form></td>
-			<td style="border: 1pt black solid">Amount of REE per pound of weight, value = 4.5 calories/pound</td>
+			<td>weight REE multiplier</td>
+			<td><form><input type="text" name="joe55"></form></td>
+			<td>Amount of REE per pound of weight, value = 4.5 calories/pound</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">height REE</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe56"></form></td>
-			<td style="border: 1pt black solid">Contribution of height to REE, value = height * height REE multiplier</td>
+			<td>height REE</td>
+			<td><form><input type="text" name="joe56"></form></td>
+			<td>Contribution of height to REE, value = height * height REE multiplier</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">height REE multiplier</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe57"></form></td>
-			<td style="border: 1pt black solid">Amount of REE per inch of height, value = 15.9 calories/inch</td>
+			<td>height REE multiplier</td>
+			<td><form><input type="text" name="joe57"></form></td>
+			<td>Amount of REE per inch of height, value = 15.9 calories/inch</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">height</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe58"></form></td>
-			<td style="border: 1pt black solid">Joe's height in inches, value = 65 inches</td>
+			<td>height</td>
+			<td><form><input type="text" name="joe58"></form></td>
+			<td>Joe's height in inches, value = 65 inches</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">age REE</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe59"></form></td>
-			<td style="border: 1pt black solid">Contribution of age to REE, value = age * age REE multiplier</td>
+			<td>age REE</td>
+			<td><form><input type="text" name="joe59"></form></td>
+			<td>Contribution of age to REE, value = age * age REE multiplier</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">age</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe60"></form></td>
-			<td style="border: 1pt black solid">Joe's age in years, value = 20 years</td>
+			<td>age</td>
+			<td><form><input type="text" name="joe60"></form></td>
+			<td>Joe's age in years, value = 20 years</td>
 			</tr>
 			<tr>
-			<td style="border: 1pt black solid">gender REE</td>
-			<td style="border: 1pt black solid"><form><input type="text" name="joe61"></form></td>
-			<td style="border: 1pt black solid">Contribution of gender to REE, value = 5 for men and -161 for women.</td>
+			<td>gender REE</td>
+			<td><form><input type="text" name="joe61"></form></td>
+			<td>Contribution of gender to REE, value = 5 for men and -161 for women.</td>
 			</tr>
 			</tbody>
 		</table>

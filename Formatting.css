@@ -1,0 +1,18 @@
+td { 
+border: 2pt black solid;
+padding: 4px;
+}
+body {
+background-color: #;
+}
+#button {
+background-color: #;
+padding: 10px;
+onClick="ExpandCollapse('question1');"
+}
+#question1 {
+display: none;
+}
+h1 {
+color: #
+}
