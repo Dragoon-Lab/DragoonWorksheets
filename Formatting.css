@@ -10,9 +10,6 @@ background-color: #;
 padding: 10px;
 onClick="ExpandCollapse('question1');"
 }
-#question1 {
-display: none;
-}
 h1 {
 color: #
 }

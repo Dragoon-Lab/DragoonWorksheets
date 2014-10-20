@@ -3,17 +3,7 @@
  
 	<head>
 	<link rel="stylesheet" type="css/text" href="Formatting.css">
-	<script type="text/javascript">
-	onClick= function ExpandCollapse(question1) {
-	var el=document.getElementById(question1);
-	if (el.style.display==='none') {
-		el.style.display='';
-		}
-	else {
-		el.style.display='none';
-		}
-	}
-	</script>
+	
 	</head>
 	<body>
 		<h1>Workbook 1</h1>
@@ -29,9 +19,19 @@
 		<p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be rewritten in scientific notation to be <b>3.45e+5</b> or <b>3.45x10<sup>5</sup></b>.</p>
 		<p>To do this, move the decimal place from the end of <b>345000</b> in between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponent is +5" or <b>10<sup>5</sup></b>. This indicates how many zeroes there are.</p>
 		<p>Similarly, <b>0.0000000000000000345</b> can be rewritten as <b>3.45e-17</b> or <b>3.45x10<sup>-17</sup></b>.</p>
-		<p id="button">Continue</p>
+		<button onClick="cont1();">Question 1</button>
 		<!-- Pg. 2 -->
-		<div id="question1">
+		<div id="question1" style="display:none">
+		<script type="text/javascript">
+	function cont1 () {
+	if (document.getElementById("question1").style.display==="none") {
+	document.getElementById("question1").style.display="";
+	}
+	else {
+	document.getElementById("question1").style.display="none";
+	}
+	};
+	</script>
 		<h3>Question 1</h3>
 		<p>Suppose you are creating a model of the system described in the italicized paragraph below. Answer the questions below by filling in the blanks from the word bank in the box. Each word (or number) is used once, more than once, or not at all.</p>
 		<!--Picture here -->
@@ -42,6 +42,18 @@
 		1b. The "beaver birth rate" is a <b>parameter</b> whose value is equal to <input type="text" name="beaver2"><br>
 		1c. "Beaver births" is a function whose value is characterized by the following mathematical expression: <input type="text" name="beaver3">
 		</form>
+		<button onClick="cont2();">Question 2</button>
+		<div id="question2" style="display:none">
+		<script type="text/javascript">
+	function cont2 () {
+	if (document.getElementById("question2").style.display==="none") {
+	document.getElementById("question2").style.display="";
+	}
+	else {
+	document.getElementById("question2").style.display="none";
+	}
+	};
+	</script>
 		<h3>Question 2</h3>
 		<p>Assume you are modeling the system described below in italics.</p>
 		<p>Enter one option (parameter, accumulator, or function) and fill in the blank:</p>
@@ -55,6 +67,18 @@
 		<p>Although your body burns energy at a more-or-less constant amount per day, the amount of energy primitive humans ingested per day varied greatly depending on how lucky they were at hunting and gathering. Thus, humans developed the ability to store energy from food. When there is surplus energy from ingestion, the body stores it as fat and other tissue. When there is too little energy from ingestion, then the body converts fat and other tissues back to energy.</p>
 		<p>Let's suppose Joe wants to build an accurate model of his weight changes, so he starts with a very simple model, which is that the energy stored (as fat, etc.) changes daily depending on the energy balance. The energy balance is the difference between the energy ingested and the energy burned by the body on that day. When the energy balance is positive on that particular day (a good hunt!), then energy storage increases by the surplus. When the energy balance is negative (a poor hunt), then stored energy decreases.</p>
 		<p>Joe looks up his current weight in a physiology reference and finds that he has about 345,000 calories stored. To keep things simple while getting started on his modeling project, Joe assumes his energy balance is 100 calories every day. He wants to model how his stored energy increases deaily. Please answer questions below about the model Joe must build.</p>
+		<button onClick="cont3();">Question3</button>
+		<div id="question3" style="display:none">
+		<script type="text/javascript">
+	function cont3 () {
+	if (document.getElementById("question3").style.display==="none") {
+	document.getElementById("question3").style.display="";
+	}
+	else {
+	document.getElementById("question3").style.display="none";
+	}
+	};
+	</script>
 		<h2>Question 3</h2>
 		<p>3a. Fill in the blanks.</p>
 		<table>
@@ -128,6 +152,18 @@
 		<!--Pg. 5-->
 		<p>The enrgy balance of your body is the difference between the energy you addd to your body by ingesting food and the energy you subtract from your body by physical exercies and other activities. When the energy you ingest exactly equals the energy you expend, the energy balance is zero. When the energy you ingest is greater than the energy you expend, the energy balance is positive, and the excess energy is added to your body's stores. When you consume less energy tha you expend, the energy balance is negative and your body makes up the deficit by withdrawing energy from storage. The energy balance can change every day. Thus, if the energy balance is negative, then the energy stored goes down.</p>
 		<p>Joe's next model of his energy balance is more complex. It makes energy balance a function of energy ingested and energy expended. Eventually, this will allow hiim to vary them separately. For instance, he can see what happens if he keeps his diet the same (and hence energy ingested is the same as it is now) but he does more exercise (so his energy expended is higher than it is now). However, for now he assumes that his daily expenditure is  2100 calories and his daily ingestion nets him 1989 calories.</p>
+		<button onClick="cont4();">Question 4</button>
+		<div id="question4" style="display:none">
+		<script type="text/javascript">
+	function cont4 () {
+	if (document.getElementById("question4").style.display==="none") {
+	document.getElementById("question4").style.display="";
+	}
+	else {
+	document.getElementById("question4").style.display="none";
+	}
+	};
+	</script>
 		<h3>Question 4</h3>
 		<p>4a. Fill in the blanks.</p>
 		<table>
@@ -165,6 +201,18 @@
 		<img src="images/Graph1.JPG"/><!--fix this-->
 		<!--Pg.7-->
 		<p>Almost all the body's energy is stored as tissue, such as fat, muscle, internal organs, and skin. roughly speaking, a pound of tissue stores 3500 calories. Create a model that represents stored energy in Joe's body as his weight in pounds.</p>
+		<button onClick="cont5();">Question 5</button>
+		<div id="question5" style="display:none">
+		<script type="text/javascript">
+	function cont5 () {
+	if (document.getElementById("question5").style.display==="none") {
+	document.getElementById("question5").style.display="";
+	}
+	else {
+	document.getElementById("question5").style.display="none";
+	}
+	};
+	</script>
 		<h3>Question 5</h3>
 		<p>5a. Fill in the blanks.</p>
 		<table>
@@ -220,6 +268,18 @@
 		<li>energy required just to run all the other bodily functions-- heartbeat, breathing, and so on. This is how much energy you burn if you are doing no exercise and ingesting no food. It is measured while you are lying still, so it is called the "resting energy expenditure" or "resting metabolic rate." It is similar to an older measure, "basal metabolic rate."</li>
 		</ul>
 		<p>Based on his reading of the physiology literature, Joe estimates that his numbers are 400, 1400, and 200 calories, respectively.</p>
+		<button onClick="cont6();">Question 6</button>
+		<div id="question6" style="display:none">
+		<script type="text/javascript">
+	function cont6 () {
+	if (document.getElementById("question6").style.display==="none") {
+	document.getElementById("question6").style.display="";
+	}
+	else {
+	document.getElementById("question6").style.display="none";
+	}
+	};
+	</script>
 		<h3>Question 6</h3>
 		<p>6a. Fill in the blanks.</p>
 		<table>
@@ -331,6 +391,18 @@
 			</tbody>
 		</table>
 		<form>
+		<button onClick="cont7();">Question 7</button>
+		<div id="question7" style="display:none">
+		<script type="text/javascript">
+	function cont7 () {
+	<!--if (document.getElementById("question7").style.display==="none") {-->
+	document.getElementById("question7").style.display="";
+	<!--}-->
+	<!--else {-->
+	<!--document.getElementById("question7").style.display="none";-->
+	<!--}-->
+	};
+	</script>
 		<h3>Question 7</h3>
 		<p>7a. Assuming Joe is sedentary, and his physical exercise level is 0.2, what is his daily energy expenditure? <input type="text" name="joe33"></p>
 		<p>7b. If he still ingests 1989 calories a day, does he gain weight or lose weight?</p>
@@ -411,6 +483,18 @@
 			</tr>
 			</tbody>
 		</table>
+		<button onClick="cont8();">Question 8</button>
+		<div id="question8" style="display:none">
+		<script type="text/javascript">
+	function cont8 () {
+	if (document.getElementById("question8").style.display==="none") {
+	document.getElementById("question8").style.display="";
+	}
+	else {
+	document.getElementById("question8").style.display="none";
+	}
+	};
+	</script>
 		<h3>Question 8</h3>
 		<form>
 		<p>8a. Joe is still eating 1989 calories a day and still sedentary (physical activity level = 0.2), so what is his digestive activity expenditure per day?</p>
@@ -543,6 +627,13 @@
 			</tr>
 			</tbody>
 		</table>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
 		</div>
 		</body>
  </html>
