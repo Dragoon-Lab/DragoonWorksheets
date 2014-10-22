@@ -6,7 +6,7 @@
 	
 	</head>
 	<body>
-		<h1>Workbook 1</h1>
+		<h1 id="test">Workbook 1</h1>
 		<h1>Modeling Practice (FORM D)</h1>
 		<h4>Key Terms & Concepts</h4>
 		<p><b>A Parameter</b> represents a fixed quantity that never changes. Parameters are used to represent constant values.</p>
@@ -18,55 +18,49 @@
 		<hr/>
 		<p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be rewritten in scientific notation to be <b>3.45e+5</b> or <b>3.45x10<sup>5</sup></b>.</p>
 		<p>To do this, move the decimal place from the end of <b>345000</b> in between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponent is +5" or <b>10<sup>5</sup></b>. This indicates how many zeroes there are.</p>
-		<p>Similarly, <b>0.0000000000000000345</b> can be rewritten as <b>3.45e-17</b> or <b>3.45x10<sup>-17</sup></b>.</p>
+		<p id="IDEKA">Similarly, <b>0.0000000000000000345</b> can be rewritten as <b>3.45e-17</b> or <b>3.45x10<sup>-17</sup></b>.</p>
 		<button onClick="cont1();">Question 1</button>
-		<!-- Pg. 2 -->
 		<div id="question1" style="display:none">
 		<script type="text/javascript">
-	function cont1 () {
-	if (document.getElementById("question1").style.display==="none") {
-	document.getElementById("question1").style.display="";
-	}
-	else {
-	document.getElementById("question1").style.display="none";
-	}
-	};
-	</script>
+		function cont1() {
+		document.getElementById("question1").style.display="";
+		}
+		</script>
 		<h3>Question 1</h3>
+		<form name="partone" action="demo_form_action.asp">
 		<p>Suppose you are creating a model of the system described in the italicized paragraph below. Answer the questions below by filling in the blanks from the word bank in the box. Each word (or number) is used once, more than once, or not at all.</p>
 		<!--Picture here -->
 		<p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population<!--because beavers are immortal--> (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p>
-		<form>
 		1a. The "beaver population" is an <b>accumulator</b> whose value is calculated by  the following expression: new beaver population = old beaver population + <input type="text" name="beaver1"><br>
-			Initial value: <input type="text" name="beaverno"><br>
+			Initial value: <input type="number" name="beaverno" value=""><br>
 		1b. The "beaver birth rate" is a <b>parameter</b> whose value is equal to <input type="text" name="beaver2"><br>
 		1c. "Beaver births" is a function whose value is characterized by the following mathematical expression: <input type="text" name="beaver3">
+		<input type="submit" value="Question 2">
 		</form>
-		<button onClick="cont2();">Question 2</button>
 		<div id="question2" style="display:none">
 		<script type="text/javascript">
-	function cont2 () {
-	if (document.getElementById("question2").style.display==="none") {
-	document.getElementById("question2").style.display="";
-	}
-	else {
-	document.getElementById("question2").style.display="none";
-	}
-	};
-	</script>
+		function cont2() {
+		if (form.beaverno.value===20) {
+		document.getElementById("question2").style.display="";
+		}
+		else {
+		document.getElementById("question2").style.display="none";
+		}
+		}
+		</script>
 		<h3>Question 2</h3>
+		<form>
 		<p>Assume you are modeling the system described below in italics.</p>
 		<p>Enter one option (parameter, accumulator, or function) and fill in the blank:</p>
 		<p><i>Brandon has 100 video games.</i></p>
-		<form>
 		2a. The number of video games Brandon buys every week is a(n): <input type="text" name="game1"><br>
 			and is equal to <input type="text" name="game2"> games/week.<br>
 		2b. The number of video games Brandon has each week is the number of video games he had the preceding week plus the number of games he buys this week. Therefore, the number of video games Brandon has is a(n): <input type="text" name="game3">
-		</form>
 		<!--Pg. 3 -->
 		<p>Although your body burns energy at a more-or-less constant amount per day, the amount of energy primitive humans ingested per day varied greatly depending on how lucky they were at hunting and gathering. Thus, humans developed the ability to store energy from food. When there is surplus energy from ingestion, the body stores it as fat and other tissue. When there is too little energy from ingestion, then the body converts fat and other tissues back to energy.</p>
 		<p>Let's suppose Joe wants to build an accurate model of his weight changes, so he starts with a very simple model, which is that the energy stored (as fat, etc.) changes daily depending on the energy balance. The energy balance is the difference between the energy ingested and the energy burned by the body on that day. When the energy balance is positive on that particular day (a good hunt!), then energy storage increases by the surplus. When the energy balance is negative (a poor hunt), then stored energy decreases.</p>
 		<p>Joe looks up his current weight in a physiology reference and finds that he has about 345,000 calories stored. To keep things simple while getting started on his modeling project, Joe assumes his energy balance is 100 calories every day. He wants to model how his stored energy increases deaily. Please answer questions below about the model Joe must build.</p>
+		</form>
 		<button onClick="cont3();">Question3</button>
 		<div id="question3" style="display:none">
 		<script type="text/javascript">
@@ -80,6 +74,7 @@
 	};
 	</script>
 		<h2>Question 3</h2>
+		</form>
 		<p>3a. Fill in the blanks.</p>
 		<table>
 			<thead>
@@ -90,12 +85,12 @@
 			<tbody>
 				<tr>
 				<td >energy balance</td>
-				<td ><form><input type="text" name="joe1"></form></td>
+				<td ><input type="text" name="joe1"></td>
 				<td >Small surplus per day, value= 100 calories</td>
 				</tr>
 				<tr>
 				<td>energy stored</td>
-				<td><form><input type="text" name="joe2"></form></td>
+				<td><input type="text" name="joe2"></td>
 				<td>energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 245,000 calories<td>
 				</tr>
 			</tbody>
@@ -111,17 +106,17 @@
 			<tbody>
 				<tr>
 				<td>0</td>
-				<td><form><input type="text" name="joe3"></form></td>
-				<td><form><input type="text" name="joe4"></form></td>
+				<td><input type="text" name="joe3"></td>
+				<td><input type="text" name="joe4"></td>
 				</tr>
 				<tr>
 				<td>1</td>
-				<td><form><input type="text" name="joe5"></form></td>
+				<td><input type="text" name="joe5"></td>
 				<td>345,100</td>
 				</tr>
 				<tr>
 				<td>2</td>
-				<td><form><input type="text" name="joe6"></form></td>
+				<td><input type="text" name="joe6"></td>
 				<td>345,200</td>
 				</tr>
 				<tr>
@@ -141,17 +136,16 @@
 				</tr>
 			</tbody>
 		</table>
-		<form>
 		<p>3c. Joe wants to graph his energy balance. What is the x-axis value (the independent value) and what is the y-axis value (the dependent value)? Write the correct answer on the line and then make a rough graph of it on the plot below.</p>
 		p><b>time </b><input type="text" name="joe7"></p>
 		<p><b>energy stored </b><input type="text" name="joe8"></p>
-		</form>
 		<!--Pg. 4-->
 		<p>Try graphing his weight below using the information from problem 3b.</p>
 		<p style="color:red">I need to figure out how to get users to draw on this graph.</p>
 		<!--Pg. 5-->
 		<p>The enrgy balance of your body is the difference between the energy you addd to your body by ingesting food and the energy you subtract from your body by physical exercies and other activities. When the energy you ingest exactly equals the energy you expend, the energy balance is zero. When the energy you ingest is greater than the energy you expend, the energy balance is positive, and the excess energy is added to your body's stores. When you consume less energy tha you expend, the energy balance is negative and your body makes up the deficit by withdrawing energy from storage. The energy balance can change every day. Thus, if the energy balance is negative, then the energy stored goes down.</p>
 		<p>Joe's next model of his energy balance is more complex. It makes energy balance a function of energy ingested and energy expended. Eventually, this will allow hiim to vary them separately. For instance, he can see what happens if he keeps his diet the same (and hence energy ingested is the same as it is now) but he does more exercise (so his energy expended is higher than it is now). However, for now he assumes that his daily expenditure is  2100 calories and his daily ingestion nets him 1989 calories.</p>
+		</form>
 		<button onClick="cont4();">Question 4</button>
 		<div id="question4" style="display:none">
 		<script type="text/javascript">
@@ -165,6 +159,7 @@
 	};
 	</script>
 		<h3>Question 4</h3>
+		<form>
 		<p>4a. Fill in the blanks.</p>
 		<table>
 			<thead>
@@ -175,32 +170,33 @@
 			<tbody>
 			<tr>
 			<td>Energy stored</td>
-			<td><form><input type="text" name="joe9"></form></td>
+			<td><input type="text" name="joe9"></td>
 			<td>energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 345,000 calories</td>
 			</tr>
 			<tr>
 			<td>Energy expended</td>
-			<td><form><input type="text" name="joe10"></form></td>
+			<td><input type="text" name="joe10"></td>
 			<td>energy expended daily, value = 2100 calories</td>
 			</tr>
 			<tr>
 			<td>Energy balance</td>
-			<td><form><input type="text" name="joe11"></form></td>
+			<td><input type="text" name="joe11"></td>
 			<td>energy surplus or deficit, value = energy ingested - energy expended</td>
 			</tr>
 			<tr>
 			<td>Enrgy ingested</td>
-			<td><form><input type="text" name="joe12"></form></td>
+			<td><input type="text" name="joe12"></td>
 			<td>energy ingested daily, value = 1989 calories</td>
 			</tr>
 		</tbody>
 		</table>
 		<!--Pg. 6-->
-		<form><p>4b. The graph on the left is for the <input type="text" name="joe13"> node.</p>
-		<p>4c. The other graph is for the <input type="text" name="joe14"> node.</p></form>
+		<p>4b. The graph on the left is for the <input type="text" name="joe13"> node.</p>
+		<p>4c. The other graph is for the <input type="text" name="joe14"> node.</p>
 		<img src="images/Graph1.JPG"/><!--fix this-->
 		<!--Pg.7-->
 		<p>Almost all the body's energy is stored as tissue, such as fat, muscle, internal organs, and skin. roughly speaking, a pound of tissue stores 3500 calories. Create a model that represents stored energy in Joe's body as his weight in pounds.</p>
+		</form>
 		<button onClick="cont5();">Question 5</button>
 		<div id="question5" style="display:none">
 		<script type="text/javascript">
@@ -214,6 +210,7 @@
 	};
 	</script>
 		<h3>Question 5</h3>
+		<form>
 		<p>5a. Fill in the blanks.</p>
 		<table>
 			<thead>
@@ -224,42 +221,40 @@
 			<tbody>
 			<tr>
 			<td>Energy expended</td>
-			<td><form><input type="text" name="joe15"></form></td>
+			<td><input type="text" name="joe15"></td>
 			<td>energy expended daily, value = 1200 calories</td>
 			</tr>
 			<tr>
 			<td>Energy balance</td>
-			<td><form><input type="text" name="joe16"</form></td>
+			<td><input type="text" name="joe16"></td>
 			<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
 			</tr>
 			<tr>
 			<td>Energy ingested</td>
-			<td><form><input type="text" name="joe17"></form></td>
+			<td><input type="text" name="joe17"></td>
 			<td>energy ingested daily, value = 1989 calories</td>
 			</tr>
 			<tr>
 			<td>Weight</td>
-			<td><form><input type="text" name="joe18"></form></td>
-			<td>The weight of the body as it varies day by day. Its new value is its old value + <form><input type="text" name="joe19"></form>; initial value = 160 lbs</td>
+			<td><input type="text" name="joe18"></td>
+			<td>The weight of the body as it varies day by day. Its new value is its old value + <input type="text" name="joe19">; initial value = 160 lbs</td>
 			</tr>
 			<tr>
 			<td>Weight change</td>
-			<td><form><input type="text" name="joe20"></form></td>
+			<td><input type="text" name="joe20"></td>
 			<td>weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
 			</tr>
 			<tr>
 			<td>Calories per pound</td>
-			<td><form><input type="text" name="joe21"></form></td>
+			<td><input type="text" name="joe21"></td>
 			<td>Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
 			</tr>
 			</tbody>
 		</table>
 		<!--Pg. 8-->
 		<img src="images/Graph2.JPG"/>
-		<form>
 		<p>5d. Given the two graphs, 5b and 5c, which one goes with the model in the table above? Why? <input type="text" name="joe22" width="200px" height="100px"></p>
 		<p>5e. Suppose Joe ingests 3000 calories a day instead of the 1989 calories a day shown on the table. Which graph would likely go with this situation? Why? <input type="text" name="joe23"></p>
-		</form>
 		<!--Pg. 9-->
 		<p>Exactly how much energy is burned by your body depends on many factors, including the amount of physical activity you do, your weight, your age, and other factors. in preparation for describing these effects, scientists divide energy expended into three types:</p>
 		<ul>
@@ -268,6 +263,7 @@
 		<li>energy required just to run all the other bodily functions-- heartbeat, breathing, and so on. This is how much energy you burn if you are doing no exercise and ingesting no food. It is measured while you are lying still, so it is called the "resting energy expenditure" or "resting metabolic rate." It is similar to an older measure, "basal metabolic rate."</li>
 		</ul>
 		<p>Based on his reading of the physiology literature, Joe estimates that his numbers are 400, 1400, and 200 calories, respectively.</p>
+		</form>
 		<button onClick="cont6();">Question 6</button>
 		<div id="question6" style="display:none">
 		<script type="text/javascript">
@@ -281,6 +277,7 @@
 	};
 	</script>
 		<h3>Question 6</h3>
+		</form>
 		<p>6a. Fill in the blanks.</p>
 		<table>
 			<thead>
@@ -291,7 +288,7 @@
 			<tbody>
 			<tr>
 			<td>physical activity expenditure</td>
-			<td><form><input type="text" name="joe24"></form></td>
+			<td><input type="text" name="joe24"></td>
 			<td>energy burned by physical exercise; value = 400 calories</td>
 			</tr>
 			<tr>
@@ -306,12 +303,11 @@
 			</tr>
 			<tr>
 			<td>Energy expended</td>
-			<td><form><input type="text" name="joe25"></form></td>
-			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <form><input type="text" name="joe26"></form></td>
+			<td><input type="text" name="joe25"></td>
+			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <input type="text" name="joe26"></td>
 			</tr>
 			</tbody>
 		</table>
-		<form>
 			<p>6b. What is the value of Energy Expended?<input type="text" name="joe27"></p>
 			<p>6c. Assuming Joe continues to ingest 1989 calories a day, will a graph of Joe's weight have a positive or negative slope?</p>
 			<input type="radio" name="posorneg" value="positive">positive
@@ -319,7 +315,6 @@
 			<p>6d. Suppose Joe ingests 2001 calories a day. Will this graph have a positive or negative slope?</p>
 			<input type="radio" name="posorneg2" value="positive">positive
 			<input type="radio" name="posorneg2" value="negative">negative
-		</form>
 		<!--Pg. 10-->
 		<p>The amount of physical activity energy burned per day depends mostly on two factors: how much exercise you do and your resting energy expenditure. The energy spent on exercise is estimated by multiplying the resting energy expenditure by a physical activity factor, which is:</p>
 		<ul>
@@ -364,8 +359,8 @@
 			</tr>
 			<tr>
 			<td>physical energy expenditure</td>
-			<td><form><input type="text" name="joe28"></form></td>
-			<td>energy burned by physical exercise; value = <form><input type="text" name="joe29">*<input type="text" name="joe30"></form></td>
+			<td><input type="text" name="joe28"></td>
+			<td>energy burned by physical exercise; value = <input type="text" name="joe29">*<input type="text" name="joe30"></td>
 			</tr>
 			<tr>
 			<td>resting energy expenditure</td>
@@ -380,30 +375,31 @@
 			<tr>
 			<td>Energy expended</td>
 			<td>function</td>
-			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <form><input type="text" name="joe31"></form></td>
+			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <input type="text" name="joe31"></td>
 			</tr>
 			<!--Pg. 11-->
 			<tr>
 			<td>Physical activity level</td>
-			<td><form><input type="text" name="joe32"></form></td>
+			<td><input type="text" name="joe32"></td>
 			<td>Amount of physical activity, e.g. 0.2 for little or no exercise, 0.9 for daily hard exercise.</td>
 			</tr>
 			</tbody>
 		</table>
-		<form>
+		</form>
 		<button onClick="cont7();">Question 7</button>
 		<div id="question7" style="display:none">
 		<script type="text/javascript">
 	function cont7 () {
-	<!--if (document.getElementById("question7").style.display==="none") {-->
+	if (document.getElementById("question7").style.display==="none") {
 	document.getElementById("question7").style.display="";
-	<!--}-->
-	<!--else {-->
-	<!--document.getElementById("question7").style.display="none";-->
-	<!--}-->
+	}
+	else {
+	document.getElementById("question7").style.display="none";
+	}
 	};
 	</script>
 		<h3>Question 7</h3>
+		</form>
 		<p>7a. Assuming Joe is sedentary, and his physical exercise level is 0.2, what is his daily energy expenditure? <input type="text" name="joe33"></p>
 		<p>7b. If he still ingests 1989 calories a day, does he gain weight or lose weight?</p>
 		<input type="radio" name="gorl" value="gain">gain
@@ -414,7 +410,6 @@
 		<input type="radio" name="gorl2" value="gain">gain
 		<input type="radio" name="gorl2" value="lose">lose
 		<p>How much, in pounds per day? <input type="text" name="joe36"></p>
-		</form>
 		<!--Pg. 12-->
 		<p>The more food you eat, the more energy it takes to digest it. The expression "thermic effect of food" is used to describe the energy expended by our bodies to consume (bite, chew, and swallow) and process (digest, transport, metabolize, and store) food.</p>
 		<p>A factor of 10% is generally used to account for the thermic effect of food. Thus, if you eat 500 calories of food, you will expend 50 calories processing it. However, this is only a rough estimate, because the factor is different for different foods. Processing protein requires the greatest expenditure of energy, with estimates ranging as high as 30%. Dietary fat, on the other hand, is so easily processed and turned into body fat that there is little thermic effect, perhaps only 2% or 3%. The amount of energy required to process carbohydrates falls between that of protein and fat.</p>
@@ -454,7 +449,7 @@
 			<tr>
 			<td>physical activity expenditure</td>
 			<td>Function</td>
-			<td>energy burned by physical exercise; value = <form><input type="text" name="joe37">*<input type="text" name="joe38"></form></td>
+			<td>energy burned by physical exercise; value = <input type="text" name="joe37">*<input type="text" name="joe38"></td>
 			</tr>
 			<td>resting energy expenditure</td>
 			<td>Parameter</td>
@@ -462,13 +457,13 @@
 			</tr>
 			<tr>
 			<td>digestive activity expenditure</td>
-			<td><form><input type="text" name="joe39"></form></td>
-			<td>energy burned in order to digest food; value = <form><input type="text" name="joe 40">*<input type="text" name="joe41"></form></td>
+			<td><input type="text" name="joe39"></td>
+			<td>energy burned in order to digest food; value = <input type="text" name="joe 40">*<input type="text" name="joe41"></td>
 			</tr>
 			<tr>
 			<td>Energy expended</td>
 			<td>Function</td>
-			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <form><input type="text" name="joe42"></form></td>
+			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <input type="text" name="joe42"></td>
 			</tr>
 			<tr>
 			<td>Physical activity level</td>
@@ -478,11 +473,12 @@
 			<!--Pg. 13-->
 			<tr>
 			<td>Digestive energy factor</td>
-			<td><form><input type="text" name="joe43"></form></td>
-			<td>The proportion of ingested energy that is required to process it, value = <form><input type="text" name="joe44"></form></td>
+			<td><input type="text" name="joe43"></td>
+			<td>The proportion of ingested energy that is required to process it, value = <input type="text" name="joe44"></td>
 			</tr>
 			</tbody>
 		</table>
+		</form>
 		<button onClick="cont8();">Question 8</button>
 		<div id="question8" style="display:none">
 		<script type="text/javascript">
@@ -509,7 +505,6 @@
 		<input type="radio" name="gorl3" value="lose">lose
 		<p>How much, in pounds per day?</p>
 		<input type="text" name="joe49">
-		</form>
 		<!--Pg. 14-->
 		<p>The resting energy expenditure, which is measured when you are doing no exercise and no ingestion of food, includes the energy used for breathing, blood circulation, and many other routine bodily functions. The bigger the body, the more energy these bodily functions require. However, young bodies burn more energy per pound than old bodies. The Mifflin equation, shown below, is the most accurate estimator known so far:</p>
 		<ul><li>REE = 4.5*weight + 15.9*height - 5*age + gender REE</li></ul>
@@ -561,8 +556,8 @@
 			</tr>
 			<tr>
 			<td>resting energy expenditure</td>
-			<td><form><input type="text" name="joe50"></form></td>
-			<td>energy expended per day by basic bodily function; value = <form><input type="text" name="joe51">-<input type="text" name="joe52">+<input type="text" name="joe53"></form></td>
+			<td><input type="text" name="joe50"></td>
+			<td>energy expended per day by basic bodily function; value = <input type="text" name="joe51">-<input type="text" name="joe52">+<input type="text" name="joe53"></td>
 			</tr>
 			<tr>
 			<td>digestive activity expenditure</td>
@@ -587,46 +582,47 @@
 			</tr>
 			<tr>
 			<td>weight REE</td>
-			<td><form><input type="text" name="joe54"></form></td>
+			<td><input type="text" name="joe54"></td>
 			<td>Contribution of weight to REE, value = weight * weight REE multiplier</td>
 			</tr>
 			<tr>
 			<td>weight REE multiplier</td>
-			<td><form><input type="text" name="joe55"></form></td>
+			<td><input type="text" name="joe55"></td>
 			<td>Amount of REE per pound of weight, value = 4.5 calories/pound</td>
 			</tr>
 			<tr>
 			<td>height REE</td>
-			<td><form><input type="text" name="joe56"></form></td>
+			<td><input type="text" name="joe56"></td>
 			<td>Contribution of height to REE, value = height * height REE multiplier</td>
 			</tr>
 			<tr>
 			<td>height REE multiplier</td>
-			<td><form><input type="text" name="joe57"></form></td>
+			<td><input type="text" name="joe57"></td>
 			<td>Amount of REE per inch of height, value = 15.9 calories/inch</td>
 			</tr>
 			<tr>
 			<td>height</td>
-			<td><form><input type="text" name="joe58"></form></td>
+			<td><input type="text" name="joe58"></td>
 			<td>Joe's height in inches, value = 65 inches</td>
 			</tr>
 			<tr>
 			<td>age REE</td>
-			<td><form><input type="text" name="joe59"></form></td>
+			<td><input type="text" name="joe59"></td>
 			<td>Contribution of age to REE, value = age * age REE multiplier</td>
 			</tr>
 			<tr>
 			<td>age</td>
-			<td><form><input type="text" name="joe60"></form></td>
+			<td><input type="text" name="joe60"></td>
 			<td>Joe's age in years, value = 20 years</td>
 			</tr>
 			<tr>
 			<td>gender REE</td>
-			<td><form><input type="text" name="joe61"></form></td>
+			<td><input type="text" name="joe61"></td>
 			<td>Contribution of gender to REE, value = 5 for men and -161 for women.</td>
 			</tr>
 			</tbody>
 		</table>
+		</form>
 		</div>
 		</div>
 		</div>
