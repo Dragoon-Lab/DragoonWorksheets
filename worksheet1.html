@@ -18,33 +18,34 @@
 		<hr/>
 		<p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be rewritten in scientific notation to be <b>3.45e+5</b> or <b>3.45x10<sup>5</sup></b>.</p>
 		<p>To do this, move the decimal place from the end of <b>345000</b> in between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponent is +5" or <b>10<sup>5</sup></b>. This indicates how many zeroes there are.</p>
-		<p id="IDEKA">Similarly, <b>0.0000000000000000345</b> can be rewritten as <b>3.45e-17</b> or <b>3.45x10<sup>-17</sup></b>.</p>
-		<button onClick="cont1();">Question 1</button>
+		<p>Similarly, <b>0.0000000000000000345</b> can be rewritten as <b>3.45e-17</b> or <b>3.45x10<sup>-17</sup></b>.</p>
+		<button id="button1" onClick="cont1();">Question 1</button>
 		<div id="question1" style="display:none">
 		<script type="text/javascript">
 		function cont1() {
 		document.getElementById("question1").style.display="";
+		document.getElementById("button1").style.display="none";
 		}
 		</script>
 		<h3>Question 1</h3>
-		<form name="partone" action="demo_form_action.asp">
 		<p>Suppose you are creating a model of the system described in the italicized paragraph below. Answer the questions below by filling in the blanks from the word bank in the box. Each word (or number) is used once, more than once, or not at all.</p>
 		<!--Picture here -->
-		<p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population<!--because beavers are immortal--> (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p>
+		<p id="IDEKA"><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population<!--because beavers are immortal--> (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p>
 		1a. The "beaver population" is an <b>accumulator</b> whose value is calculated by  the following expression: new beaver population = old beaver population + <input type="text" name="beaver1"><br>
-			Initial value: <input type="number" name="beaverno" value=""><br>
+			Initial value: <input type="number" name="x" id="beaverno" value=""><br>
 		1b. The "beaver birth rate" is a <b>parameter</b> whose value is equal to <input type="text" name="beaver2"><br>
 		1c. "Beaver births" is a function whose value is characterized by the following mathematical expression: <input type="text" name="beaver3">
-		<input type="submit" value="Question 2">
-		</form>
+		<button id="button2" onClick="cont2();">Question 2</button>
 		<div id="question2" style="display:none">
 		<script type="text/javascript">
 		function cont2() {
-		if (form.beaverno.value===20) {
+		var jsbeaverno = document.getElementById("beaverno");
+		if (jsbeaverno.value==="20") {
+		document.getElementById("beaverno").style.background="green";
 		document.getElementById("question2").style.display="";
 		}
 		else {
-		document.getElementById("question2").style.display="none";
+		document.getElementById("beaverno").style.background="red"
 		}
 		}
 		</script>
