@@ -43,34 +43,50 @@
 		var jsbeaver1 = document.getElementById("beaver1");
 		var jsbeaver2 = document.getElementById("beaver2");
 		var jsbeaver3 = document.getElementById("beaver3");
-		if (jsbeaverno.value==="20") {
+		if (jsbeaverno.value==="") {
+		document.getElementById("beaverno").style.background="#FF3333";
+		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
+		}
+		else if (jsbeaverno.value==="20") {
 		document.getElementById("beaverno").style.background="#66FF33";
 		}
 		else {
 		document.getElementById("beaverno").style.background="#FF3333";
 		};
-		if (jsbeaver1.value==="beaver births") {
+		if (jsbeaver1.value==="") {
+		document.getElementById("beaver1").style.background="66FF33";
+		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
+		}
+		else if(jsbeaver1.value==="beaver births") {
 		document.getElementById("beaver1").style.background="#66FF33";
 		}
 		else {
 		document.getElementById("beaver1").style.background="#FF3333";
 		};
-		if (jsbeaver2.value==="30%") {
+		if (jsbeaver2.value==="") {
+		document.getElementById("beaver2").style.background="66FF33";
+		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
+		}
+		else if (jsbeaver2.value==="30%") {
 		document.getElementById("beaver2").style.background="#66FF33";
 		}
 		else {
 		document.getElementById("beaver2").style.background="#FF3333";
 		};
-		if (jsbeaver3.value==="beaver birth rate x beaver population") {
+		if (jsbeaver3.value==="") {
+		document.getElementById("beaver3").style.background="66FF33";
+		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
+		}
+		else if (jsbeaver3.value==="beaver birth rate x beaver population") {
 		document.getElementById("beaver3").style.background="#66FF33";
 		}
 		else {
 		document.getElementById("beaver3").style.background="#FF3333";
 		};
-		if (jsbeaverno.style.background==="#66FF33" && jsbeaver1.style.background==="#66FF33" && jsbeaver2.style.background==="#66FF33" && jsbeaver3.style.background==="#66FF33") {
+		if (jsbeaverno.style.background==="#66FF33"/* && jsbeaver1.style.background==="#66FF33" && jsbeaver2.style.background==="#66FF33" && jsbeaver3.style.background==="#66FF33"*/) {
 		document.getElementById("question2").style.display="";
 		document.getElementById("button2").style.display="none";
-		}
+		//}
 		}
 		</script>
 		<h3>Question 2</h3>
@@ -88,12 +104,43 @@
 		<div id="question3" style="display:none">
 		<script type="text/javascript">
 	function cont3 () {
-	if (document.getElementById("question3").style.display==="none") {
-	document.getElementById("question3").style.display="";
-	}
-	else {
-	document.getElementById("question3").style.display="none";
-	}
+		var jsgame1 = document.getElementById("game1");
+		var jsgame2 = document.getElementById("game2");
+		var jsgame3 = document.getElementById("game3");
+		if (jsgame1.value==="") {
+		document.getElementById("game1").style.background="66FF33";
+		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
+		}
+		else if(jsgame1.value==="parameter") {
+		document.getElementById("game1").style.background="#66FF33";
+		}
+		else {
+		document.getElementById("game1").style.background="#FF3333";
+		};
+		if (jsbeaver2.value==="") {
+		document.getElementById("game2").style.background="66FF33";
+		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
+		}
+		else if (jsbeaver2.value==="2") {
+		document.getElementById("game2").style.background="#66FF33";
+		}
+		else {
+		document.getElementById("game2").style.background="#FF3333";
+		};
+		if (jsbeaver3.value==="") {
+		document.getElementById("beaver3").style.background="66FF33";
+		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
+		}
+		else if (jsbeaver3.value==="accumulator") {
+		document.getElementById("beaver3").style.background="#66FF33";
+		}
+		else {
+		document.getElementById("beaver3").style.background="#FF3333";
+		};
+		if (jsbeaverno.style.background==="#66FF33" && jsbeaver1.style.background==="#66FF33" && jsbeaver2.style.background==="#66FF33" && jsbeaver3.style.background==="#66FF33") {
+		document.getElementById("question3").style.display="";
+		document.getElementById("button3").style.display="none";
+		}
 	};
 	</script>
 		<h2>Question 3</h2>
