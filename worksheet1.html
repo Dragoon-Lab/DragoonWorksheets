@@ -39,63 +39,33 @@
 		<div id="question2" style="display:none">
 		<script type="text/javascript">
 		function cont2() {
-		var jsbeaverno = document.getElementById("beaverno");
-		var jsbeaver1 = document.getElementById("beaver1");
-		var jsbeaver2 = document.getElementById("beaver2");
-		var jsbeaver3 = document.getElementById("beaver3");
-		if (jsbeaverno.value==="") {
-		document.getElementById("beaverno").style.background="#FF3333";
-		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
+		checkAnswers("beaverno", "20");
+		checkAnswers("beaver1", "beaver births");
+		checkAnswers("beaver2", "30%");
+		checkAnswers("beaver3", "beaver birth rate x beaver population");
+		if (document.getElementById("beaverno").value===""||document.getElementById("beaver1").value===""||document.getElementById("beaver2").value===""||document.getElementById("beaver3").value==="") {
+		alert("It appears you have left one of the slots blank. Please remedy that immediately.");
 		}
-		else if (jsbeaverno.value==="20") {
-		document.getElementById("beaverno").style.background="#66FF33";
+		/*if (document.getElementById("beaverno").style.background===rgb(102, 225, 51)) {
+		document.getElementById("question2").display="";
+		}*/
+		};
+		function checkAnswers(inputId, rightAnswer) {
+		if (document.getElementById(inputId).value===rightAnswer) {
+		document.getElementById(inputId).style.background="#66FF33";
 		}
 		else {
-		document.getElementById("beaverno").style.background="#FF3333";
+		document.getElementById(inputId).style.background="#FF3333";
+		}
 		};
-		if (jsbeaver1.value==="") {
-		document.getElementById("beaver1").style.background="66FF33";
-		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
-		}
-		else if(jsbeaver1.value==="beaver births") {
-		document.getElementById("beaver1").style.background="#66FF33";
-		}
-		else {
-		document.getElementById("beaver1").style.background="#FF3333";
-		};
-		if (jsbeaver2.value==="") {
-		document.getElementById("beaver2").style.background="66FF33";
-		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
-		}
-		else if (jsbeaver2.value==="30%") {
-		document.getElementById("beaver2").style.background="#66FF33";
-		}
-		else {
-		document.getElementById("beaver2").style.background="#FF3333";
-		};
-		if (jsbeaver3.value==="") {
-		document.getElementById("beaver3").style.background="66FF33";
-		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
-		}
-		else if (jsbeaver3.value==="beaver birth rate x beaver population") {
-		document.getElementById("beaver3").style.background="#66FF33";
-		}
-		else {
-		document.getElementById("beaver3").style.background="#FF3333";
-		};
-		if (jsbeaverno.style.background==="#66FF33"/* && jsbeaver1.style.background==="#66FF33" && jsbeaver2.style.background==="#66FF33" && jsbeaver3.style.background==="#66FF33"*/) {
-		document.getElementById("question2").style.display="";
-		document.getElementById("button2").style.display="none";
-		//}
-		}
 		</script>
 		<h3>Question 2</h3>
 		<p>Assume you are modeling the system described below in italics.</p>
 		<p>Enter one option (parameter, accumulator, or function) and fill in the blank:</p>
 		<p><i>Brandon has 100 video games.</i></p>
-		2a. The number of video games Brandon buys every week is a(n): <input type="text" name="game1"><br>
-			and is equal to <input type="text" name="game2"> games/week.<br>
-		2b. The number of video games Brandon has each week is the number of video games he had the preceding week plus the number of games he buys this week. Therefore, the number of video games Brandon has is a(n): <input type="text" name="game3">
+		2a. The number of video games Brandon buys every week is a(n): <input type="text" id="game1"><br>
+			and is equal to <input type="text" id="game2"> games/week.<br>
+		2b. The number of video games Brandon has each week is the number of video games he had the preceding week plus the number of games he buys this week. Therefore, the number of video games Brandon has is a(n): <input type="text" id="game3">
 		<!--Pg. 3 -->
 		<p>Although your body burns energy at a more-or-less constant amount per day, the amount of energy primitive humans ingested per day varied greatly depending on how lucky they were at hunting and gathering. Thus, humans developed the ability to store energy from food. When there is surplus energy from ingestion, the body stores it as fat and other tissue. When there is too little energy from ingestion, then the body converts fat and other tissues back to energy.</p>
 		<p>Let's suppose Joe wants to build an accurate model of his weight changes, so he starts with a very simple model, which is that the energy stored (as fat, etc.) changes daily depending on the energy balance. The energy balance is the difference between the energy ingested and the energy burned by the body on that day. When the energy balance is positive on that particular day (a good hunt!), then energy storage increases by the surplus. When the energy balance is negative (a poor hunt), then stored energy decreases.</p>
@@ -104,42 +74,7 @@
 		<div id="question3" style="display:none">
 		<script type="text/javascript">
 	function cont3 () {
-		var jsgame1 = document.getElementById("game1");
-		var jsgame2 = document.getElementById("game2");
-		var jsgame3 = document.getElementById("game3");
-		if (jsgame1.value==="") {
-		document.getElementById("game1").style.background="66FF33";
-		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
-		}
-		else if(jsgame1.value==="parameter") {
-		document.getElementById("game1").style.background="#66FF33";
-		}
-		else {
-		document.getElementById("game1").style.background="#FF3333";
-		};
-		if (jsbeaver2.value==="") {
-		document.getElementById("game2").style.background="66FF33";
-		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
-		}
-		else if (jsbeaver2.value==="2") {
-		document.getElementById("game2").style.background="#66FF33";
-		}
-		else {
-		document.getElementById("game2").style.background="#FF3333";
-		};
-		if (jsbeaver3.value==="") {
-		document.getElementById("beaver3").style.background="66FF33";
-		alert("Please fill in all the boxes; you will not be able to continue until you have done so.");
-		}
-		else if (jsbeaver3.value==="accumulator") {
-		document.getElementById("beaver3").style.background="#66FF33";
-		}
-		else {
-		document.getElementById("beaver3").style.background="#FF3333";
-		};
-		if (jsbeaverno.style.background==="#66FF33" && jsbeaver1.style.background==="#66FF33" && jsbeaver2.style.background==="#66FF33" && jsbeaver3.style.background==="#66FF33") {
-		document.getElementById("question3").style.display="";
-		document.getElementById("button3").style.display="none";
+		
 		}
 	};
 	</script>
