@@ -29,7 +29,7 @@
 		</script>
 		<h3>Question 1</h3>
 		<p>Suppose you are creating a model of the system described in the italicized paragraph below. Answer the questions below by filling in the blanks from the word bank in the box. Each word (or number) is used once, more than once, or not at all.</p>
-		<!--Picture here -->
+		<img src="dragoonimages/wordBank.JPG"/>
 		<p id="IDEKA"><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population<!--because beavers are immortal--> (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p>
 		1a. The "beaver population" is an <b>accumulator</b> whose value is calculated by  the following expression: new beaver population = old beaver population + <input type="text" name="b" id="beaver1"><br>
 			Initial value: <input type="number" name="b" id="beaverno" value=""><br>
@@ -44,18 +44,20 @@
 		checkAnswers("beaver2", "30%");
 		checkAnswers("beaver3", "beaver birth rate x beaver population");
 		if (document.getElementById("beaverno").value===""||document.getElementById("beaver1").value===""||document.getElementById("beaver2").value===""||document.getElementById("beaver3").value==="") {
-		alert("It appears you have left one of the slots blank. Please remedy that immediately.");
+		alert("It appears you have left at least one of the slots blank. Please remedy this immediately.");
+		};
+		if (checkAnswers("beaverno", "20") && checkAnswers("beaver1", "beaver births") && checkAnswers("beaver2", "30%") && checkAnswers("beaver3", "beaver birth rate x beaver population")) {
+		document.getElementById("question2").style.display="";
 		}
-		/*if (document.getElementById("beaverno").style.background===rgb(102, 225, 51)) {
-		document.getElementById("question2").display="";
-		}*/
 		};
 		function checkAnswers(inputId, rightAnswer) {
 		if (document.getElementById(inputId).value===rightAnswer) {
 		document.getElementById(inputId).style.background="#66FF33";
+		return true;
 		}
 		else {
 		document.getElementById(inputId).style.background="#FF3333";
+		return false;
 		}
 		};
 		</script>
@@ -74,8 +76,15 @@
 		<div id="question3" style="display:none">
 		<script type="text/javascript">
 	function cont3 () {
-		
-		}
+	checkAnswers("game1", "parameter");
+	checkAnswers("game2", "2");
+	checkAnswers("game3", "accumulator");
+	if (document.getElementById("game1").value==="" || document.getElementById("game2").value==="" || document.getElementById("game3").value==="") {
+	alert ("It appears you have left at least one of the slots blank. Please remedy this immediately");
+	};
+	if (checkAnswers("game1", "parameter") && checkAnswers("game2", "2") && checkAnswers("game3", "accumulator")) {
+	document.getElementById("question3").style.display="";
+	}
 	};
 	</script>
 		<h2>Question 3</h2>
@@ -89,12 +98,12 @@
 			<tbody>
 				<tr>
 				<td >energy balance</td>
-				<td ><input type="text" name="joe1"></td>
+				<td ><input type="text" id="joe1"></td>
 				<td >Small surplus per day, value= 100 calories</td>
 				</tr>
 				<tr>
 				<td>energy stored</td>
-				<td><input type="text" name="joe2"></td>
+				<td><input type="text" id="joe2"></td>
 				<td>energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 245,000 calories<td>
 				</tr>
 			</tbody>
@@ -110,39 +119,39 @@
 			<tbody>
 				<tr>
 				<td>0</td>
-				<td><input type="text" name="joe3"></td>
-				<td><input type="text" name="joe4"></td>
+				<td>N/A</td>
+				<td>345,000</td>
 				</tr>
 				<tr>
 				<td>1</td>
-				<td><input type="text" name="joe5"></td>
-				<td>345,100</td>
+				<td>345,000 + 100</td>
+				<td><input type="text" id="joe3"></td>
 				</tr>
 				<tr>
 				<td>2</td>
-				<td><input type="text" name="joe6"></td>
-				<td>345,200</td>
+				<td>345,100 + 100</td>
+				<td><input type="text" id="joe4"></td>
 				</tr>
 				<tr>
 				<td>3</td>
-				<td>345,200 + 100</td>
+				<td><input type="text" id="joe5"></td>
 				<td>345,300</td>
 				</tr>
 				<tr>
 				<td>4</td>
-				<td>345,300 + 100</td>
+				<td><input type="text" id="joe6"></td>
 				<td>345,400</td>
 				</tr>
 				<tr>
 				<td>5</td>
-				<td>345,400 + 100</td>
-				<td>345,500</td>
+				<td><input type="text" id="joe6a"></td>
+				<td><input type="text" id="joe6b"></td>
 				</tr>
 			</tbody>
 		</table>
 		<p>3c. Joe wants to graph his energy balance. What is the x-axis value (the independent value) and what is the y-axis value (the dependent value)? Write the correct answer on the line and then make a rough graph of it on the plot below.</p>
-		p><b>time </b><input type="text" name="joe7"></p>
-		<p><b>energy stored </b><input type="text" name="joe8"></p>
+		<p><b>time </b><input type="text" id="joe7"></p>
+		<p><b>energy stored </b><input type="text" id="joe8"></p>
 		<!--Pg. 4-->
 		<p>Try graphing his weight below using the information from problem 3b.</p>
 		<p style="color:red">I need to figure out how to get users to draw on this graph.</p>
@@ -153,11 +162,21 @@
 		<div id="question4" style="display:none">
 		<script type="text/javascript">
 	function cont4 () {
-	if (document.getElementById("question4").style.display==="none") {
+	checkAnswers("joe1", "parameter");
+	checkAnswers("joe2", "accumulator");
+	checkAnswers("joe3", "345,100");
+	checkAnswers("joe4", "345,200");
+	checkAnswers("joe5", "345,200 + 100");
+	checkAnswers("joe6", "345,300 + 100");
+	checkAnswers("joe6a","345,400 + 100");
+	checkAnswers("joe6b","345,500");
+	checkAnswers("joe7", "X-axis (independent value)");
+	checkAnswers("joe8", "Y-axis (dependent value)");
+	if (document.getElementById("joe1").value==="" || document.getElementById("joe2").value==="" || document.getElementById("joe3").value==="" || document.getElementById("joe4").value==="" || document.getElementById("joe5").value==="" || document.getElementById("joe6").value==="" || document.getElementById("joe6a").value==="" || document.getElementById("joe6b").value==="" || document.getElementById("joe7").value==="" || document.getElementById("joe8").value==="") {
+	alert ("It appears you have left at lest one of the slots blank. Please remedy this immediately.");
+	};
+	if (checkAnswers("joe1", "parameter") && checkAnswers("joe2", "accumulator") && checkAnswers("joe3", "345,100") && checkAnswers("joe4", "345,200") && checkAnswers("joe5", "345,200 + 100") && checkAnswers("joe6", "345,300 + 100") && checkAnswers("joe6a","345,400 + 100") && checkAnswers("joe6b","345,500") && checkAnswers("joe7", "X-axis (independent value)") && checkAnswers("joe8", "Y-axis (dependent value)")) {
 	document.getElementById("question4").style.display="";
-	}
-	else {
-	document.getElementById("question4").style.display="none";
 	}
 	};
 	</script>
@@ -195,18 +214,24 @@
 		<!--Pg. 6-->
 		<p>4b. The graph on the left is for the <input type="text" name="joe13"> node.</p>
 		<p>4c. The other graph is for the <input type="text" name="joe14"> node.</p>
-		<img src="images/Graph1.JPG"/><!--fix this-->
+		<img src="images/Graph1.JPG"/>
 		<!--Pg.7-->
 		<p>Almost all the body's energy is stored as tissue, such as fat, muscle, internal organs, and skin. roughly speaking, a pound of tissue stores 3500 calories. Create a model that represents stored energy in Joe's body as his weight in pounds.</p>
 		<button onClick="cont5();">Question 5</button>
 		<div id="question5" style="display:none">
 		<script type="text/javascript">
 	function cont5 () {
-	if (document.getElementById("question5").style.display==="none") {
+	checkAnswers("joe9", "accumulator");
+	checkAnswers("joe10", "parameter");
+	checkAnswers("joe11", "function");
+	checkAnswers("joe12", "parameter");
+	checkAnswers("joe13", "energy stored");
+	checkAnswers("joe14", "energy balance");
+	if (document.getElementById("joe9").value==="" || document.getElementById("joe10").value==="" || document.getElementById("joe11").value==="" || document.getElementById("joe12").value==="" || document.getElementById("joe13").value==="" || document.getElementById("joe14").value==="") {
+	alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
+	};
+	if (checkAnswers("joe9", "accumulator") && checkAnswers("joe10", "parameter") && checkAnswers("joe11", "function") && checkAnswers("joe12", "parameter") && checkAnswers("joe13", "energy stored") && checkAnswers("joe14", "energy balance")) {
 	document.getElementById("question5").style.display="";
-	}
-	else {
-	document.getElementById("question5").style.display="none";
 	}
 	};
 	</script>
