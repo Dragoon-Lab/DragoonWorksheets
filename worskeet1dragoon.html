@@ -25,6 +25,14 @@
 <img src="dragoonintropictures/dragoon6.JPG"/>
 <p><b>When you see this, you have successfully logged onto the forum. Congratulations!</b></p>
 </ol>
+<button id="button1" onClick="forward1();">Continue</button>
+<script type="text/javascript">
+function forward1() {
+document.getElementById("sect1").style.display="";
+document.getElementById("button1").style.display="none";
+};
+</script>
+<div id="sect1" style="display:none">
 <ol>
 <li>Under <b>Additional Dragoon Problems</b> in the main window, make sure that the <b>Problem Category</b> option reads <b>Energy Balance</b> and the <b>Problem</b> option reads <b>Energy Balance 0</b>. click on the <b>Open problem</b> button, boxed in the screenshot below.</li>
 <img src="dragoonintropictures/dragoon7.JPG"/>
@@ -42,16 +50,41 @@
 <tbody>
 <tr>
 <td>energy balance</td>
-<td><input type="text" name="burn1"></td>
+<td><input type="text" id="burn1"></td>
 <td>Small surplus per day, value = 100 calories</td>
 </tr>
 <tr>
 <td>energy stored</td>
-<td><input type="text" name="burn2"></td>
+<td><input type="text" id="burn2"></td>
 <td>Is equal to its value today plus energy balance for today, initial value = 345000 calories</td>
 </tr>
 </tbody>
 </table>
+<button id="button2" onClick="forward2();">Continue</button>
+<script type="text/javascript">
+function forward2() {
+checkAnswers("burn1", "parameter");
+checkAnswers("burn2", "accumulator");
+if (document.getElementById("burn1").value==="" || document.getElementById("burn2").value==="") {
+alert("It appears you have left at least one of the slots blank. Please remedy this immediately.");
+};
+if (checkAnswers("burn1", "parameter") && checkAnswers("burn2", "accumulator")) {
+document.getElementById("sect2").style.display="";
+document.getElementById("button2").style.display="none";
+}
+};
+function checkAnswers(variable, rightAnswer) {
+if (document.getElementById(variable).value===rightAnswer) {
+document.getElementById(variable).style.background="#66FF33";
+return true;
+}
+else {
+document.getElementById(variable).style.background="#FF3333";
+return false;
+}
+};
+</script>
+<div id="sect2" style="display:none">
 <p>On your computer, complete the following steps to create a Dragoon model for Energy Balance.</p>
 <ol>
 <li>To start defining a node, click on the <b>Create Node</b> button in the top left corner. The following window should pop up:</li>
@@ -80,6 +113,14 @@
 <img src="dragoonintropictures/dragoon16.JPG"/>
 </ol>
 <p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button. Now you can answer the following questions.</b></p>
+<button id="button3" onClick="forward3();">Continue</button>
+<script type="text/javascript">
+function forward3 () {
+document.getElementById("sect3").style.display="";
+document.getElementById("button3").style.display="none";
+};
+</script>
+<div id="sect3" style="display:none">
 <h3><b>Question 1</b></h3>
 <p>In the graph window, vary the values of energy balance and initial energy stored by draggong the sliders back and forth along the lines (boxed below) or by typing in different values in the boxes (boxed below).</p>
 <img src="dragoonintropictures/dragoon17.JPG"/>
@@ -90,6 +131,10 @@
 <p>1c. What happens to the graph if you change the initial energy stored? Change the value from 345000 calories to 3000 calories. Don't forget to reset energy balance to 100 calories.</p>
 <input type="text" name="questsect3">
 <p>When you are finished with these problems, close the graphing window and open the table by clicking on the <b>Table</b> button on the top menu bar.</p>
+<script type="text/javascript">
+
+</script>
+<div id="sect4" style="display:none">
 <h3><b>Question 2</b></h3>
 <p>In the table window, scroll to the very bottom and vary the values of energy balance and initial energy stored, just as you did before with the graph (by dragging the sliders back and forth along the lines or by typing in different values in the boxes).</p>
 <img src="dragoonintropictures/dragoon18.JPG/>
@@ -128,7 +173,7 @@
 <tbody>
 <tr>
 <td>Energy expended</td>
-<td><input type="text" name="questsect13.JPG"></td>
+<td><input type="text" name="questsect13"></td>
 <td>Energy expended daily, initial value = 2100 cal.</td>
 <td>N/A</td>
 </tr>
@@ -313,5 +358,9 @@
 <input type="text" id="questsect46">
 <p>8e. Suppose Joe changes his diet to a high protein diet for 3 months so that his digestive energy factor is now 30%? Now what is his weight after 90 days?</p>
 <input type="text" id="questsect47">
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>
