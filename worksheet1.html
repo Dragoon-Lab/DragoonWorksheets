@@ -30,7 +30,7 @@
 		<h3>Question 1</h3>
 		<p>Suppose you are creating a model of the system described in the italicized paragraph below. Answer the questions below by filling in the blanks from the word bank in the box. Each word (or number) is used once, more than once, or not at all.</p>
 		<img src="dragoonimages/wordBank.JPG"/>
-		<p id="IDEKA"><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population<!--because beavers are immortal--> (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p>
+		<p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population<!--because beavers are immortal--> (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p>
 		1a. The "beaver population" is an <b>accumulator</b> whose value is calculated by  the following expression: new beaver population = old beaver population + <input type="text" name="b" id="beaver1"><br>
 			Initial value: <input type="number" name="b" id="beaverno" value=""><br>
 		1b. The "beaver birth rate" is a <b>parameter</b> whose value is equal to <input type="text" name="c" id="beaver2"><br>
@@ -38,6 +38,7 @@
 		<button id="button2" onClick="cont2();">Question 2</button>
 		<div id="question2" style="display:">
 		<script type="text/javascript">
+		var wrong1 = 0
 		function cont2() {
 		checkAnswers("beaverno", "20");
 		checkAnswers("beaver1", "beaver births");
@@ -49,6 +50,13 @@
 		if (checkAnswers("beaverno", "20") && checkAnswers("beaver1", "beaver births") && checkAnswers("beaver2", "30%") && checkAnswers("beaver3", "beaver birth rate x beaver population")) {
 		document.getElementById("question2").style.display="";
 		document.getElementById("button2").style.display="none";
+		}
+		else {
+		wrong1=wrong1+1;
+		}
+		if (wrong1===3) {
+		document.getElementById("beaver3").value="beaver birth rate x beaver population";
+		document.getElementById("beaver3").style.background="yellow"
 		}
 		};
 		function checkAnswers(inputId, rightAnswer) {
@@ -452,10 +460,10 @@
 	if (document.getElementById("joe24").value==="" || document.getElementById("joe24a").value==="" || document.getElementById("joe24b").value==="" || document.getElementById("joe25").value==="" || document.getElementById("joe26").value==="" || document.getElementById("joe27").value==="" || document.getElementById("posorneg").value==="" || document.getElementById("posorneg2").value==="" || document.getElementById("joe28").value==="" || document.getElementById("joe29").value==="" || document.getElementById("joe30").value==="" || document.getElementById("joe31").value==="" || document.getElementById("joe32")==="") {
 	alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
 	};
-	if (checkAnswers ("joe24", "parameter") && checkAnswers ("joe24a", "parameter") && checkAnswers ("joe24b", "parameter") && checkAnswers ("joe25", "function") && checkAnswers ("joe26", "digestive activity expenditure") && checkAnswers ("joe27", "2000") && radio ("neg", "PoNLabel") && radio ("pos2", "PoNLabel2") && checkAnswers ("joe28", "function") && checkAnswers ("joe29", "resting energy expenditure") && checkAnswers ("joe30", "physical activity level") && checkAnswers ("joe31", "digestive energy expenditure") && checkAnswers ("joe32", "parameter")){
-	/document.getElementById("question7").style.display="";
+	if (checkAnswers ("joe24", "parameter") && checkAnswers ("joe24a", "parameter") && checkAnswers ("joe24b", "parameter") && checkAnswers ("joe25", "function") && checkAnswers ("joe26", "digestive activity expenditure") && checkAnswers ("joe27", "2000")/* && radio ("neg", "PoNLabel") && radio ("pos2", "PoNLabel2") && checkAnswers ("joe28", "function") && checkAnswers ("joe29", "resting energy expenditure") && checkAnswers ("joe30", "physical activity level") && checkAnswers ("joe31", "digestive energy expenditure") && checkAnswers ("joe32", "parameter")*/){
+	document.getElementById("question7").style.display="";
 	document.getElementById("button7").style.display="none";
-	}
+	};
 	};
 	function radio(radioId, labelId) {
 	if (document.getElementById(radioId).checked) {

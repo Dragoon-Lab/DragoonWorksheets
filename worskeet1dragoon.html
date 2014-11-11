@@ -125,36 +125,80 @@ document.getElementById("button3").style.display="none";
 <p>In the graph window, vary the values of energy balance and initial energy stored by draggong the sliders back and forth along the lines (boxed below) or by typing in different values in the boxes (boxed below).</p>
 <img src="dragoonintropictures/dragoon17.JPG"/>
 <p>1a. What is the vertical axis on this graph?</p>
-<input type="text" name="questsect1">
+<input type="text" id="questsect1">
 <p>1b. What happens to the graph if you change the energy balance from 100 calories to 300 calories?</p>
-<input type="text" name="questsect2">
+<input type="text" id="questsect2">
 <p>1c. What happens to the graph if you change the initial energy stored? Change the value from 345000 calories to 3000 calories. Don't forget to reset energy balance to 100 calories.</p>
-<input type="text" name="questsect3">
+<input type="text" id="questsect3">
 <p>When you are finished with these problems, close the graphing window and open the table by clicking on the <b>Table</b> button on the top menu bar.</p>
+<button id="button4" onClick="forward4();">Continue</button>
 <script type="text/javascript">
-
+function forward4 () {
+checkAnswers("questsect1", "energy stored (calories)");
+checkCompletion("questsect2");
+checkCompletion("questsect3");
+if (document.getElementById("questsect1").value==="" || document.getElementById("questsect2").value==="" || document.getElementById("questsect3").value==="") {
+alert ("It appears you have left at least one of the slots blank. Please remedy this immediately");
+};
+if (checkAnswers("questsect1", "energy stored (calories)") && checkCompletion("questsect2") && checkCompletion ("questsect3")) {
+document.getElementById("sect4").style.display="";
+document.getElementById("button4").style.display="none";
+}
+};
+function checkCompletion (inputId) {
+if (document.getElementById(inputId).value!=="") {
+document.getElementById(inputId).style.background="#FFFF00";
+return true;
+}
+else {
+document.getElementById(inputId).style.background="#FF3333";
+return false;
+}
+};
 </script>
 <div id="sect4" style="display:none">
 <h3><b>Question 2</b></h3>
 <p>In the table window, scroll to the very bottom and vary the values of energy balance and initial energy stored, just as you did before with the graph (by dragging the sliders back and forth along the lines or by typing in different values in the boxes).</p>
-<img src="dragoonintropictures/dragoon18.JPG/>
+<img src="dragoonintropictures/dragoon18.JPG"/>
 <p>Notice how the table may change. When you're done playing with the values, answer the following questions.</p>
 <p>2a. On what day does energy stored hit 3.46e+5 calories?</p>
-<p>Day <input type="number" name="questsect4"></p>
+<p>Day <input type="number" id="questsect4"></p>
 <p>2b. On what day does energy stored hit 3.47e+5 calories?</p>
-<p>Day <input type="number" name="questsect5"></p>
+<p>Day <input type="number" id="questsect5"></p>
 <p>2c. What is the energy stored on Day 9?</p>
-<p><input type="number" name="questsect6"> calories</p>
+<p><input type="number" id="questsect6"> calories</p>
 <p>2d. What is the energy stored value on Day 0 and on day 29.5 (the first and last value)?</p>
-<p>Day 0: <input type="number" name="questsect7"></p>
-<p>Day 29.5: <input type="number" name="questsect8"></p>
+<p>Day 0: <input type="number" id="questsect7"></p>
+<p>Day 29.5: <input type="number" id="questsect8"></p>
 <p>2e. If energy balance changed from 100 calories to 300 calories, on what day does the energy stored hit 3.46e+5 calories?</p>
-<p>Day <input type="number" name="questsect9"></p>
-<p>2f. If the initial energy charged from 345000 calories to 3000 calories, what is the value on Day 0 and on Day 29.5 (the first and last values>? <i>Don't forget to reset energy back to 100 calories.</i></p>
-<p>Day 0: <input type="number" name="questsect10"></p>
-<p>Day 29.5: <input type="number" name="questsect11"</p>
+<p>Day <input type="number" id="questsect9"></p>
+<p>2f. If the initial energy charged from 345000 calories to 3000 calories, what is the value on Day 0 and on Day 29.5 (the first and last values)? <i>Don't forget to reset energy back to 100 calories.</i></p>
+<p>Day 0: <input type="number" id="questsect10"></p>
+<p>Day 29.5: <input type="number" id="questsect11"</p>
 <p>2g. Why are your answers so different for questions 2d and 2f? What does this mean?</p>
-<input type="number" name="questsect12">
+<input type="text" id="questsect12"><br/>
+<button id="button5" onClick="forward5();">Continue</button>
+<script type="text/javascript">
+function forward5 () {
+checkAnswers("questsect4", "5");
+checkAnswers("questsect5", "15");
+checkAnswers("questsect6", "3.46e+5");
+checkAnswers("questsect7", "3.45e+5");
+checkAnswers("questsect8", "3.48e+5");
+checkAnswers("questsect9", "2");
+checkAnswers("questsect10", "3.00e+3");
+checkAnswers("questsect11", "5.95e+3");
+checkCompletion("questsect12");
+if (document.getElementById("questsect4").value==="" || document.getElementById("questsect5").value==="" || document.getElementById("questsect6").value==="" || document.getElementById("questsect7").value==="" || document.getElementbyId("questsect8").value==="" || document.getElementById("questsect9").value==="" || document.getElementById("questsect10").value==="" || document.getElementById("questsect11").value==="" || document.getElementById("questsect12").value==="") {
+alert ("It appears you have left at least one of the slots blank. Please remebdy this immediately");
+};
+if (checkAnswers("questsect4", "5") && checkAnswers("questsect5", "15") && checkAnswers("questsect6", "3.46e+5") && checkAnswers("questsect7", "3.45e+5") && checkAnswers("questsect8", "3.48e+5") && checkAnswers("questsect9", "2") && checkAnswers("questsect10", "3.00e+3") && checkAnswers("questsect11", "5.95e+3") && checkCompletion("questsect12")) {
+document.getElementById("sect5").style.display="";
+document.getElementById("button5").style.display="none";
+}
+};
+</script>
+<div id="section5" style="display:none">
 <p>Do the following steps to create a new model for Joe' body.</p>
 <ol>
 <li>If you have not done so already, click the <b>Done</b> button.</li>
@@ -173,7 +217,7 @@ document.getElementById("button3").style.display="none";
 <tbody>
 <tr>
 <td>Energy expended</td>
-<td><input type="text" name="questsect13"></td>
+<td><input type="text" id="questsect13"></td>
 <td>Energy expended daily, initial value = 2100 cal.</td>
 <td>N/A</td>
 </tr>
@@ -185,15 +229,15 @@ document.getElementById("button3").style.display="none";
 </tr>
 <tr>
 <td>Energy ingested</td>
-<td><input type="text" name="questsect14.JPG"></td>
+<td><input type="text" id="questsect14.JPG"></td>
 <td>Energy ingested daily, initial value = 1989 cal.</td>
 <td>N/A</td>
 </tr>
 <tr>
 <td>Energy balance</td>
-<td><input type="text" name="questsect15.JPG"></td>
+<td><input type="text" id="questsect15.JPG"></td>
 <td>difference between ingestion and expenditure of energy per day</td>
-<td>Energy balance = energy ingested - <input type="text" name="questsect16"></td>
+<td>Energy balance = energy ingested - <input type="text" id="questsect16"></td>
 </tr>
 </tbody>
 </table>
@@ -201,6 +245,7 @@ document.getElementById("button3").style.display="none";
 <li>Create these four nodes in Dragoon. When you have completed them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren't completely defined. Look for nodes that have dotted lines around them.</li>
 </ol>
 <p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b></p>
+<div id="section6" style="display: none">
 <h3><b>Question 3</b></h3>
 <p>In this graph window, check <b>Sjow energy stored</b> and make sure <b>Show energy balance</b> is not checked, as boxed in the screenshot below.</p>
 <img src="dragoonintropictures/dragoon20.JPG">
@@ -210,13 +255,13 @@ document.getElementById("button3").style.display="none";
 <p><i>energy expended = 2100 cal</i></p>
 <p><i>initial energy stored = 345000 cal</i></p>
 <p>3a. What is the unit of the independednt variable on the graph?</p>
-<input type="text" name="questsect17">
+<input type="text" id="questsect17">
 <p>3b. What happens to the graph if Joe changes his energy ingested from 1989 calories to 2.11e+3 calories? What does this mean?</p>
-<input type="text" name="questsect18">
+<input type="text" id="questsect18">
 <p>3c. What happens to the graph if Joe changes his energy expended from 2100 to 1980 and what does this mean?</p>
-<input type="text" name="questsect19">
+<input type="text" id="questsect19">
 <p>3d. Why does both energy ingested and energy expended affect Joe's energy balance?</p>
-<input type="text" name="questsect20">
+<input type="text" id="questsect20">
 <p>When you are finished with these problems, close the graphing window and open a table by clicking on the <b>Table</b> button on the top menu bar.</p>
 <h3><b>Question 4</b></h3>
 <p>In the table window, scroll to the bottom and vary the values of energy balance and initial energy stored. Notice how the table may change. When you're done playing with the values, answer the following questions.</p>
@@ -225,18 +270,18 @@ document.getElementById("button3").style.display="none";
 <p><i>energy expended = 2100 cal</i></p>
 <p><i>initial energy stored = 345000 cal</i></p>
 <p>4a. What does the -111 represent in the last column and why doesn't it change?</p>
-<input type="text" name="questsect21">
+<input type="text" id="questsect21">
 <p>4b. On what day does energy stored hit 3.43e+5 calories?</p>
-<p>Day <input type="text" name="questsect22"></p>
+<p>Day <input type="text" id="questsect22"></p>
 <p>4c. What is the energy stored value on Day 0 and on Day 999 (the first and last values)?</p>
-<p>Day 0: <input type="text" name="questsect23"></p>
-<p>Day 999:<input type="text" name="questsect24"></p>
+<p>Day 0: <input type="text" id="questsect23"></p>
+<p>Day 999:<input type="text" id="questsect24"></p>
 <p>4d. If the initial energy stored changed from 345000 calories to 3000 calories, what is the value on Day 0 and on Day 999 (the first and last values)? <i>Don't forget to reset all the values.</i></p>
-<p>Day 0: <input type="text" name="questsect25"></p>
-<p>Day 999: <input type="text" name="questsect26"></p>
+<p>Day 0: <input type="text" id="questsect25"></p>
+<p>Day 999: <input type="text" id="questsect26"></p>
 <p>4e. If Joe expends 3000 calories, but leaves all other values the same initially, then on <b>Day 30</b> what would his energy stored and energy balance be?</p>
-<p>Energy stored: <input type="text" name="questsect27"> cal</p>
-<p>Energy balance: <input type="text" name="questsect28"> cal</p>
+<p>Energy stored: <input type="text" id="questsect27"> cal</p>
+<p>Energy balance: <input type="text" id="questsect28"> cal</p>
 <ol>
 <li>If you have not done so already, click the <b>Done</b> button. You should see the main window screen of the forum.</li>
 <li>Under <b>Additional Dragoon Problem</b> in the main window, make sure that the <b>Problem Category</b> option reads <b>Energy Balance</b> and the <b>Problem</b> option reads <b>Energy Balance 2</b>.</li>
@@ -251,13 +296,13 @@ document.getElementById("button3").style.display="none";
 <tbody>
 <tr>
 <td>Weight</td>
-<td><input type="text" name="questsect29"></td>
-<td>The weight of the body as it varies day by day; initial value = <input type="text" name="questsect29"></td>
+<td><input type="text" id="questsect29"></td>
+<td>The weight of the body as it varies day by day; initial value = <input type="text" id="questsect29"></td>
 <td>New weight = old weight + weight change</td>
 </tr>
 <tr>
 <td>Weight change</td>
-<td><input type="text" name="questsect30"></td>
+<td><input type="text" id="questsect30"></td>
 <td>weight of tissue added or subtracted from storage</td>
 <td>Weight change = energy balance/calories per pound</td>
 </tr>
@@ -281,9 +326,9 @@ document.getElementById("button3").style.display="none";
 </tr>
 <tr>
 <td>Calories per pound</td>
-<td><input type="text" name="questsect31"></td>
+<td><input type="text" id="questsect31"></td>
 <td>Number of calories stored in a pound of tissue; initial value = 3500 cal/lbs</td>
-<td><input type="text" name="questsectmi"></td>
+<td><input type="text" id="questsectmi"></td>
 </tr>
 </tbody>
 </table>
@@ -358,6 +403,8 @@ document.getElementById("button3").style.display="none";
 <input type="text" id="questsect46">
 <p>8e. Suppose Joe changes his diet to a high protein diet for 3 months so that his digestive energy factor is now 30%? Now what is his weight after 90 days?</p>
 <input type="text" id="questsect47">
+</div>
+</div>
 </div>
 </div>
 </div>
