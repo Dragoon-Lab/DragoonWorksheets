@@ -20,7 +20,7 @@
 		<p>To do this, move the decimal place from the end of <b>345000</b> in between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponent is +5" or <b>10<sup>5</sup></b>. This indicates how many zeroes there are.</p>
 		<p>Similarly, <b>0.0000000000000000345</b> can be rewritten as <b>3.45e-17</b> or <b>3.45x10<sup>-17</sup></b>.</p>
 		<button id="button1" onClick="cont1();">Question 1</button>
-		<div id="question1" style="display:>
+		<div id="question1" style="display:none">
 		<script type="text/javascript">
 		function cont1() {
 		document.getElementById("question1").style.display="";
@@ -36,9 +36,12 @@
 		1b. The "beaver birth rate" is a <b>parameter</b> whose value is equal to <input type="text" name="c" id="beaver2"><br>
 		1c. "Beaver births" is a function whose value is characterized by the following mathematical expression: <input type="text" name="d" id="beaver3">
 		<button id="button2" onClick="cont2();">Question 2</button>
-		<div id="question2" style="display:">
+		<div id="question2" style="display:none">
 		<script type="text/javascript">
-		var wrong1 = 0
+		var wrong1 = 0;
+		var wrong2 = 0;
+		var wrong3 = 0;
+		var wrong4 = 0;
 		function cont2() {
 		checkAnswers("beaverno", "20");
 		checkAnswers("beaver1", "beaver births");
@@ -51,10 +54,35 @@
 		document.getElementById("question2").style.display="";
 		document.getElementById("button2").style.display="none";
 		}
-		else {
+		//If 1a. is wrong:
+		if (!checkAnswers("beaver1", "beaver births")) {
 		wrong1=wrong1+1;
 		}
 		if (wrong1===3) {
+		document.getElementById("beaver1").value="beaver births";
+		document.getElementById("beaver1").style.background="yellow"
+		}
+		//if 1b. is wrong:
+		if (!checkAnswers("beaverno", "20")) {
+		wrong2=wrong2+1;
+		}
+		if (wrong2===3) {
+		document.getElementById("beaverno").value="20";
+		document.getElementById("beaverno").style.background="yellow"
+		}
+		//if 1c. is wrong:
+		if (!checkAnswers("beaver2", "30%")) {
+		wrong3=wrong3+1;
+		}
+		if (wrong3===3) {
+		document.getElementById("beaver2").value="30%";
+		document.getElementById("beaver2").style.background="yellow"
+		}
+		//if 1d. is wrong:
+		if (!checkAnswers("beaver3", "beaver birth rate x beaver population")) {
+		wrong4=wrong4+1;
+		}
+		if (wrong4===3) {
 		document.getElementById("beaver3").value="beaver birth rate x beaver population";
 		document.getElementById("beaver3").style.background="yellow"
 		}
@@ -82,7 +110,7 @@
 		<p>Let's suppose Joe wants to build an accurate model of his weight changes, so he starts with a very simple model, which is that the energy stored (as fat, etc.) changes daily depending on the energy balance. The energy balance is the difference between the energy ingested and the energy burned by the body on that day. When the energy balance is positive on that particular day (a good hunt!), then energy storage increases by the surplus. When the energy balance is negative (a poor hunt), then stored energy decreases.</p>
 		<p>Joe looks up his current weight in a physiology reference and finds that he has about 345,000 calories stored. To keep things simple while getting started on his modeling project, Joe assumes his energy balance is 100 calories every day. He wants to model how his stored energy increases deaily. Please answer questions below about the model Joe must build.</p>
 		<button id="button3" onClick="cont3();">Question3</button>
-		<div id="question3" style="display:">
+		<div id="question3" style="display:none">
 		<script type="text/javascript">
 	function cont3 () {
 	checkAnswers("game1", "parameter");
@@ -169,7 +197,7 @@
 		<p>The enrgy balance of your body is the difference between the energy you addd to your body by ingesting food and the energy you subtract from your body by physical exercies and other activities. When the energy you ingest exactly equals the energy you expend, the energy balance is zero. When the energy you ingest is greater than the energy you expend, the energy balance is positive, and the excess energy is added to your body's stores. When you consume less energy tha you expend, the energy balance is negative and your body makes up the deficit by withdrawing energy from storage. The energy balance can change every day. Thus, if the energy balance is negative, then the energy stored goes down.</p>
 		<p>Joe's next model of his energy balance is more complex. It makes energy balance a function of energy ingested and energy expended. Eventually, this will allow hiim to vary them separately. For instance, he can see what happens if he keeps his diet the same (and hence energy ingested is the same as it is now) but he does more exercise (so his energy expended is higher than it is now). However, for now he assumes that his daily expenditure is  2100 calories and his daily ingestion nets him 1989 calories.</p>
 		<button id="button4" onClick="cont4();">Question 4</button>
-		<div id="question4" style="display:">
+		<div id="question4" style="display:none">
 		<script type="text/javascript">
 	function cont4 () {
 	checkAnswers("joe1", "parameter");
@@ -229,7 +257,7 @@
 		<!--Pg.7-->
 		<p>Almost all the body's energy is stored as tissue, such as fat, muscle, internal organs, and skin. roughly speaking, a pound of tissue stores 3500 calories. Create a model that represents stored energy in Joe's body as his weight in pounds.</p>
 		<button id="button5" onClick="cont5();">Question 5</button>
-		<div id="question5" style="display:">
+		<div id="question5" style="display:none">
 		<script type="text/javascript">
 	function cont5 () {
 	checkAnswers("joe9", "accumulator");
@@ -301,7 +329,7 @@
 		</ul>
 		<p>Based on his reading of the physiology literature, Joe estimates that his numbers are 400, 1400, and 200 calories, respectively.</p>
 		<button id="button6" onClick="cont6();">Question 6</button>
-		<div id="question6" style="display:">
+		<div id="question6" style="display:none">
 		<script type="text/javascript">
 	function cont6 () {
 	checkAnswers("joe15", "parameter");
