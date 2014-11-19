@@ -113,9 +113,6 @@
 		<div id="question3" style="display:none">
 		<script type="text/javascript">
 	function cont3 () {
-	var wrong4 = 0;
-	var wrong5 = 0;
-	var wrong6 = 0;
 	checkAnswers("game1", "parameter");
 	checkAnswers("game2", "2");
 	checkAnswers("game3", "accumulator");
@@ -126,30 +123,6 @@
 	document.getElementById("question3").style.display="";
 	document.getElementById("button3").style.display="none";
 	}
-	//If game1 is wrong:
-	if (!checkAnswers("game1", "parameter")) {
-		wrong1=wrong1+1;
-		}
-		if (wrong1===3) {
-		document.getElementById("game1").value="parameter";
-		document.getElementById("game1").style.background="yellow"
-		}
-	//If game2 is wrong:
-	if (!checkAnswers("game2", "2")) {
-		wrong1=wrong1+1;
-		}
-		if (wrong1===3) {
-		document.getElementById("game2").value="2";
-		document.getElementById("game2").style.background="yellow"
-		}
-	//If game3 is wrong:
-	if (!checkAnswers("game3", "accumulator")) {
-		wrong1=wrong1+1;
-		}
-		if (wrong1===3) {
-		document.getElementById("game3").value="accumulator";
-		document.getElementById("game3").style.background="yellow"
-		}
 	};
 	</script>
 		<h2>Question 3</h2>
@@ -227,16 +200,6 @@
 		<div id="question4" style="display:none">
 		<script type="text/javascript">
 	function cont4 () {
-	var wrong4.1 = 0;
-	var wrong4.2 = 0;
-	var wrong4.3 = 0;
-	var wrong4.4 = 0;
-	var wrong4.5 = 0;
-	var wrong4.6 = 0;
-	var wrong4.6a = 0;
-	var wrong4.6b = 0;
-	var wrong4.7 = 0;
-	var wrong4.8 = 0;
 	checkAnswers("joe1", "parameter");
 	checkAnswers("joe2", "accumulator");
 	checkAnswers("joe3", "345,100");
@@ -254,86 +217,6 @@
 	document.getElementById("question4").style.display="";
 	document.getElementById("button4").style.display="none";
 	}
-	//If joe1 is wrong:
-	if (!checkAnswers("joe1", "parameter")) {
-		wrong4.1=wrong4.1+1;
-		}
-		if (wrong4.1===3) {
-		document.getElementById("joe1").value="accumulator";
-		document.getElementById("joe1").style.background="yellow"
-		}
-	//If joe2 is wrong:
-	if (!checkAnswers("joe2", "accumulator")) {
-		wrong4.2=wrong4.2+1;
-		}
-		if (wrong4.2===3) {
-		document.getElementById("joe2").value="accumulator";
-		document.getElementById("joe2").style.background="yellow"
-		}
-	//If joe3 is wrong:
-	if (!checkAnswers("joe3", "345,100")) {
-		wrong4.3=wrong4.3+1;
-		}
-		if (wrong4.3===3) {
-		document.getElementById("joe3").value="345,100";
-		document.getElementById("joe3").style.background="yellow"
-		}
-	//If joe4 is wrong:
-	if (!checkAnswers("joe4", "345,200")) {
-		wrong4.4=wrong4.4+1;
-		}
-		if (wrong4.4===3) {
-		document.getElementById("joe4").value="345,200";
-		document.getElementById("joe4").style.background="yellow"
-		}
-	//If joe5 is wrong:
-	if (!checkAnswers("joe5", "345,200 + 100")) {
-		wrong4.5=wrong4.5+1;
-		}
-		if (wrong4.5===3) {
-		document.getElementById("joe5").value="234,200 + 100";
-		document.getElementById("joe5").style.background="yellow"
-		}
-	//If joe6 is wrong:
-	if (!checkAnswers("joe6", "345,300 + 100")) {
-		wrong4.6=wrong4.6+1;
-		}
-		if (wrong4.6===3) {
-		document.getElementById("joe6").value="345,300 + 100";
-		document.getElementById("joe6").style.background="yellow"
-		}
-	//If joe6a is wrong:
-	if (!checkAnswers("joe6a", "345,400 + 100")) {
-		wrong4.6a=wrong4.6a+1;
-		}
-		if (wrong4.6a===3) {
-		document.getElementById("joe6a").value="345,400 + 100";
-		document.getElementById("joe6a").style.background="yellow"
-		}
-	//If joe6b is wrong:
-	if (!checkAnswers("joe6b", "345,500")) {
-		wrong4.6b=wrong4.6b+1;
-		}
-		if (wrong4.6b===3) {
-		document.getElementById("joe6a").value="345,500";
-		document.getElementById("joe6a").style.background="yellow"
-		}
-	//If joe7 is wrong:
-	if (!checkAnswers("joe7", "X-axis (independent value)")) {
-		wrong4.7=wrong4.7+1;
-		}
-		if (wrong4.7===3) {
-		document.getElementById("joe7").value="X-axis (independent value)";
-		document.getElementById("joe7").style.background="yellow"
-		}
-	//If joe8 is wrong:
-	if (!checkAnswers("joe8", "Y-axis (dependent value")) {
-		wrong4.8=wrong4.8+1;
-		}
-		if (wrong4.8===3) {
-		document.getElementById("joe8").value="Y-axis (dependent value)";
-		document.getElementById("joe8").style.background="yellow"
-		}
 	};
 	</script>
 		<h3>Question 4</h3>
@@ -377,12 +260,6 @@
 		<div id="question5" style="display:none">
 		<script type="text/javascript">
 	function cont5 () {
-	var wrong5.1 = 0;
-	var wrong5.2 = 0;
-	var wrong5.3 = 0;
-	var wrong5.4 = 0;
-	var wrong5.5 = 0;
-	var wrong5.6 = 0;
 	checkAnswers("joe9", "accumulator");
 	checkAnswers("joe10", "parameter");
 	checkAnswers("joe11", "function");
@@ -396,54 +273,6 @@
 	document.getElementById("question5").style.display="";
 	document.getElementById("button5").style.display="none";
 	}
-	//If joe9 is wrong:
-	if (!checkAnswers("joe9", "accumulator")) {
-		wrong5.1=wrong5.1+1;
-		}
-		if (wrong5.1===3) {
-		document.getElementById("joe9").value="accumulator";
-		document.getElementById("joe9").style.background="yellow"
-		}
-	//If joe10 is wrong:
-	if (!checkAnswers("joe10", "parameter")) {
-		wrong5.2=wrong5.2a+1;
-		}
-		if (wrong5.2===3) {
-		document.getElementById("joe10").value="parameter";
-		document.getElementById("joe10").style.background="yellow"
-		}
-	//If joe11 is wrong:
-	if (!checkAnswers("joe11", "function")) {
-		wrong5.3=wrong5.3+1;
-		}
-		if (wrong5.3===3) {
-		document.getElementById("joe11").value="function";
-		document.getElementById("joe11").style.background="yellow"
-		}
-	//If joe12 is wrong:
-	if (!checkAnswers("joe12" "parameter")) {
-		wrong5.4=wrong5.4+1;
-		}
-		if (wrong5.4===3) {
-		document.getElementById("joe12").value="parameter";
-		document.getElementById("joe12").style.background="yellow"
-		}
-	//If joe13 is wrong:
-	if (!checkAnswers("joe13", "energy stored")) {
-		wrong5.5=wrong5.5+1;
-		}
-		if (wrong5.5===3) {
-		document.getElementById("joe13").value="energy stored";
-		document.getElementById("joe13").style.background="yellow"
-		}
-	//If joe14 is wrong:
-	if (!checkAnswers("joe14", "energy balance")) {
-		wrong5.6=wrong5.6+1;
-		}
-		if (wrong5.6===3) {
-		document.getElementById("joe14").value="energy balance";
-		document.getElementById("joe14").style.background="yellow"
-		}
 	};
 	</script>
 		<h3>Question 5</h3>
@@ -503,13 +332,6 @@
 		<div id="question6" style="display:none">
 		<script type="text/javascript">
 	function cont6 () {
-	var wrong6.1 = 0;
-	var wrong6.2 = 0;
-	var wrong6.3 = 0;
-	var wrong6.4 = 0;
-	var wrong6.5 = 0;
-	var wrong6.6 = 0;
-	var wrong6.7 = 0;
 	checkAnswers("joe15", "parameter");
 	checkAnswers("joe16", "function");
 	checkAnswers("joe17", "parameter");
@@ -535,62 +357,6 @@
 		else {
 		document.getElementById(input).style.background="#FFFF00";
 		return true;
-		}
-	//If joe15 is wrong:
-	if (!checkAnswers("joe15", "parameter")) {
-		wrong6.1=wrong6.1+1;
-		}
-		if (wrong6.1===3) {
-		document.getElementById("joe15").value="parameter";
-		document.getElementById("joe15").style.background="yellow"
-		}
-	//If joe16 is wrong:
-	if (!checkAnswers("joe16", "function")) {
-		wrong6.2=wrong6.2+1;
-		}
-		if (wrong6.2===3) {
-		document.getElementById("joe16").value="function";
-		document.getElementById("joe16").style.background="yellow"
-		}
-	//If joe17 is wrong:
-	if (!checkAnswers("joe17", "parameter")) {
-		wrong6.3=wrong6.3+1;
-		}
-		if (wrong6.3===3) {
-		document.getElementById("joe17").value="parameter";
-		document.getElementById("joe17").style.background="yellow"
-		}
-	//If joe18 is wrong:
-	if (!checkAnswers("joe18", "accumulator")) {
-		wrong6.4=wrong6.4+1;
-		}
-		if (wrong6.4===3) {
-		document.getElementById("joe18").value="accumulator";
-		document.getElementById("joe18").style.background="yellow"
-		}
-	//If joe19 is wrong:
-	if (!checkAnswers("joe19", "weight change")) {
-		wrong6.5=wrong6.5+1;
-		}
-		if (wrong6.5===3) {
-		document.getElementById("joe19").value="weight change";
-		document.getElementById("joe19").style.background="yellow"
-		}
-	//If joe20 is wrong:
-	if (!checkAnswers("joe20", "function")) {
-		wrong6.6=wrong6.6+1;
-		}
-		if (wrong6.6===3) {
-		document.getElementById("joe20").value="function";
-		document.getElementById("joe20").style.background="yellow"
-		}
-	//If joe21 is wrong:
-	if (!checkAnswers("joe21", "parameter")) {
-		wrong6.7=wrong6.7+1;
-		}
-		if (wrong6.7===3) {
-		document.getElementById("joe21").value="parameter";
-		document.getElementById("joe21").style.background="yellow"
 		}
 	};
 	</script>
@@ -706,12 +472,6 @@
 		<div id="question7" style="display:none">
 		<script type="text/javascript">
 	function cont7 () {
-	var wrong7.1 = 0;
-	var wrong7.2 = 0;
-	var wrong7.3 = 0;
-	var wrong7.4 = 0;
-	var wrong7.5 = 0;
-	var wrong7.6 = 0;
 	checkAnswers("joe24", "parameter");
 	checkAnswers("joe24a", "parameter");
 	checkAnswers("joe24b", "parameter");
@@ -751,54 +511,6 @@
 		else {
 		document.getElementById(inputId).style.background="#FF3333";
 		return false;
-		}
-	//If joe24 is wrong:
-	if (!checkAnswers("joe24", "parameter")) {
-		wrong7.1=wrong7.1+1;
-		}
-		if (wrong7.1===3) {
-		document.getElementById("joe24").value="parameter";
-		document.getElementById("joe24").style.background="yellow"
-		}
-	//If joe24a is wrong:
-	if (!checkAnswers("joe24a", "parameter")) {
-		wrong7.2=wrong7.2+1;
-		}
-		if (wrong7.2===3) {
-		document.getElementById("joe24a").value="parameter";
-		document.getElementById("joe24a").style.background="yellow"
-		}
-	//If joe24b is wrong:
-	if (!checkAnswers("joe24b", "parameter")) {
-		wrong7.3=wrong7.3+1;
-		}
-		if (wrong7.3===3) {
-		document.getElementById("joe24b").value="parameter";
-		document.getElementById("joe24b").style.background="yellow"
-		}
-	//If joe25 is wrong:
-	if (!checkAnswers("joe25", "function")) {
-		wrong7.4=wrong7.4+1;
-		}
-		if (wrong7.4===3) {
-		document.getElementById("joe25").value="function";
-		document.getElementById("joe25").style.background="yellow"
-		}
-	//If joe26 is wrong:
-	if (!checkAnswers("joe26", "digestive activity expenditure")) {
-		wrong7.5=wrong7.5+1;
-		}
-		if (wrong7.5===3) {
-		document.getElementById("joe26").value="digestive activity expenditure";
-		document.getElementById("joe26").style.background="yellow"
-		}
-	//If joe27 is wrong:
-	if (!checkAnswers("joe27", "2000")) {
-		wrong7.6=wrong7.6+1;
-		}
-		if (wrong7.6===3) {
-		document.getElementById("joe27").value="2000";
-		document.getElementById("joe27").style.background="yellow"
 		}
 		};
 	</script>
