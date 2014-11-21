@@ -6,6 +6,7 @@
 	
 	</head>
 	<body>
+	<div id="worksheet">
 		<h1 id="test">Workbook 1</h1>
 		<h1>Modeling Practice (FORM D)</h1>
 		<h4>Key Terms & Concepts</h4>
@@ -31,17 +32,19 @@
 		<p>Suppose you are creating a model of the system described in the italicized paragraph below. Answer the questions below by filling in the blanks from the word bank in the box. Each word (or number) is used once, more than once, or not at all.</p>
 		<img src="dragoonimages/wordBank.JPG"/>
 		<p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population<!--because beavers are immortal--> (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p>
-		1a. The "beaver population" is an <b>accumulator</b> whose value is calculated by  the following expression: new beaver population = old beaver population + <input type="text" name="b" id="beaver1"><br>
+		1a. The "beaver population" is an <b>accumulator</b> whose value is calculated by  the following expression: new beaver population = old beaver population + <input type="text" id="b" id="beaver1"><br>
 			Initial value: <input type="number" name="b" id="beaverno" value=""><br>
-		1b. The "beaver birth rate" is a <b>parameter</b> whose value is equal to <input type="text" name="c" id="beaver2"><br>
-		1c. "Beaver births" is a function whose value is characterized by the following mathematical expression: <input type="text" name="d" id="beaver3">
+		1b. The "beaver birth rate" is a <b>parameter</b> whose value is equal to <input type="text" id="c" id="beaver2"><br>
+		1c. "Beaver births" is a function whose value is characterized by the following mathematical expression: <input type="text" id="d" id="beaver3">
 		<button id="button2" onClick="cont2();">Question 2</button>
 		<div id="question2" style="display:none">
 		<script type="text/javascript">
-		var wrong1 = 0;
-		var wrong2 = 0;
-		var wrong3 = 0;
-		var wrong4 = 0;
+		var one = {
+			A:0,
+			B:0,
+			C:0,
+			D:0
+		};
 		function cont2() {
 		checkAnswers("beaverno", "20");
 		checkAnswers("beaver1", "beaver births");
@@ -56,35 +59,35 @@
 		}
 		//If 1a. is wrong:
 		if (!checkAnswers("beaver1", "beaver births")) {
-		wrong1=wrong1+1;
+		one.A=one.A+1;
 		}
-		if (wrong1===3) {
+		if (one.A===3) {
 		document.getElementById("beaver1").value="beaver births";
-		document.getElementById("beaver1").style.background="yellow"
+		document.getElementById("beaver1").style.background="FFFF00"
 		}
 		//if 1b. is wrong:
 		if (!checkAnswers("beaverno", "20")) {
-		wrong2=wrong2+1;
+		one.B=one.B+1;
 		}
-		if (wrong2===3) {
+		if (one.B===3) {
 		document.getElementById("beaverno").value="20";
-		document.getElementById("beaverno").style.background="yellow"
+		document.getElementById("beaverno").style.background="#FFFF00"
 		}
 		//if 1c. is wrong:
 		if (!checkAnswers("beaver2", "30%")) {
-		wrong3=wrong3+1;
+		one.C=one.C+1;
 		}
-		if (wrong3===3) {
+		if (one.C===3) {
 		document.getElementById("beaver2").value="30%";
-		document.getElementById("beaver2").style.background="yellow"
+		document.getElementById("beaver2").style.background="#FFFF00"
 		}
 		//if 1d. is wrong:
 		if (!checkAnswers("beaver3", "beaver birth rate x beaver population")) {
-		wrong4=wrong4+1;
+		one.D=one.D+1;
 		}
-		if (wrong4===3) {
+		if (one.D===3) {
 		document.getElementById("beaver3").value="beaver birth rate x beaver population";
-		document.getElementById("beaver3").style.background="yellow"
+		document.getElementById("beaver3").style.background="#FFFF00"
 		}
 		};
 		function checkAnswers(inputId, rightAnswer) {
@@ -109,10 +112,15 @@
 		<p>Although your body burns energy at a more-or-less constant amount per day, the amount of energy primitive humans ingested per day varied greatly depending on how lucky they were at hunting and gathering. Thus, humans developed the ability to store energy from food. When there is surplus energy from ingestion, the body stores it as fat and other tissue. When there is too little energy from ingestion, then the body converts fat and other tissues back to energy.</p>
 		<p>Let's suppose Joe wants to build an accurate model of his weight changes, so he starts with a very simple model, which is that the energy stored (as fat, etc.) changes daily depending on the energy balance. The energy balance is the difference between the energy ingested and the energy burned by the body on that day. When the energy balance is positive on that particular day (a good hunt!), then energy storage increases by the surplus. When the energy balance is negative (a poor hunt), then stored energy decreases.</p>
 		<p>Joe looks up his current weight in a physiology reference and finds that he has about 345,000 calories stored. To keep things simple while getting started on his modeling project, Joe assumes his energy balance is 100 calories every day. He wants to model how his stored energy increases deaily. Please answer questions below about the model Joe must build.</p>
-		<button id="button3" onClick="cont3();">Question3</button>
+		<button id="button3" onClick="cont3()">Question3</button>
 		<div id="question3" style="display:none">
 		<script type="text/javascript">
-	function cont3 () {
+	var two = {
+		A:0,
+		B:0,
+		C:0
+	};
+	function cont3() {
 	checkAnswers("game1", "parameter");
 	checkAnswers("game2", "2");
 	checkAnswers("game3", "accumulator");
@@ -123,7 +131,28 @@
 	document.getElementById("question3").style.display="";
 	document.getElementById("button3").style.display="none";
 	}
-	};
+	if (!checkAnswers("game1", "parameter")) {
+		two.A=two.A+1;
+		}
+		if (two.A===3) {
+		document.getElementById("game1").value="parameter";
+		document.getElementById("game1").style.background="#FFFF00"
+		}
+	if (!checkAnswers("game2", "2")) {
+		two.B=two.B+1;
+		}
+		if (two.B===3) {
+		document.getElementById("game2").value="2";
+		document.getElementById("game2").style.background="#FFFF00"
+		}
+	if (!checkAnswers("game3", "accumulator")) {
+		two.C=two.C+1;
+		}
+		if (two.C===3) {
+		document.getElementById("game3").value="accumulator";
+		document.getElementById("game3").style.background="#FFFF00"
+		}
+		};
 	</script>
 		<h2>Question 3</h2>
 		<p>3a. Fill in the blanks.</p>
@@ -199,6 +228,18 @@
 		<button id="button4" onClick="cont4();">Question 4</button>
 		<div id="question4" style="display:none">
 		<script type="text/javascript">
+	var three = {
+		A:0,
+		B:0,
+		C:0,
+		D:0,
+		E:0,
+		F:0,
+		G:0,
+		H:0,
+		I:0,
+		J:0
+	};
 	function cont4 () {
 	checkAnswers("joe1", "parameter");
 	checkAnswers("joe2", "accumulator");
@@ -217,6 +258,76 @@
 	document.getElementById("question4").style.display="";
 	document.getElementById("button4").style.display="none";
 	}
+	if (!checkAnswers("joe1", "parameter")) {
+		three.A=three.A+1;
+		}
+		if (three.A===3) {
+		document.getElementById("joe1").value="parameter";
+		document.getElementById("joe1").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe2", "accumulator")) {
+		three.B=three.B+1;
+		}
+		if (three.B===3) {
+		document.getElementById("joe2").value="accumulator";
+		document.getElementById("joe2").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe3", "345,100")) {
+		three.C=three.C+1;
+		}
+		if (three.C===3) {
+		document.getElementById("joe3").value="345,100";
+		document.getElementById("joe3").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe4", "345,200")) {
+		three.D=three.D+1;
+		}
+		if (three.D===3) {
+		document.getElementById("joe4").value="345,200";
+		document.getElementById("joe4").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe5", "345,200 + 100")) {
+		three.E=three.E+1;
+		}
+		if (three.E==3) {
+		document.getElementById("joe5").value="345,200 + 100";
+		document.getElementById("joe5").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe6", "345,300 + 100")) {
+		three.F=three.F+1;
+		}
+		if (three.F===3) {
+		document.getElementById("joe6").value="345,300 + 100";
+		document.getElementById("joe6").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe6a", "345,400 + 100")) {
+		three.G=three.G+1;
+		}
+		if (three.G===3) {
+		document.getElementById("joe6a").value="345,400 + 100";
+		document.getElementById("joe6a").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe6b", "345,500")) {
+		three.H=three.H+1;
+		}
+		if (three.H===3) {
+		document.getElementById("joe6b").value="345,500";
+		document.getElementById("joe6b").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe7", "X-axis (independent value)")) {
+		three.I=three.I+1;
+		}
+		if (three.I===3) {
+		document.getElementById("joe7").value="X-axis (independent value)";
+		document.getElementById("joe7").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe8", "Y-axis (dependent value)")) {
+		three.J=three.J+1;
+		}
+		if (three.J===3) {
+		document.getElementById("joe8").value="Y-axis (dependent value)";
+		document.getElementById("joe8").style.background="#FFFF00"
+		}
 	};
 	</script>
 		<h3>Question 4</h3>
@@ -259,6 +370,14 @@
 		<button id="button5" onClick="cont5();">Question 5</button>
 		<div id="question5" style="display:none">
 		<script type="text/javascript">
+	var four = {
+		A:0,
+		B:0,
+		C:0,
+		D:0,
+		E:0,
+		F:0
+	};
 	function cont5 () {
 	checkAnswers("joe9", "accumulator");
 	checkAnswers("joe10", "parameter");
@@ -273,6 +392,48 @@
 	document.getElementById("question5").style.display="";
 	document.getElementById("button5").style.display="none";
 	}
+	if (!checkAnswers("joe9", "accumulator")) {
+		four.A=four.A+1;
+		}
+		if (four.A===3) {
+		document.getElementById("joe9").value="accumulator";
+		document.getElementById("joe9").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe10", "parameter")) {
+		four.B=four.B+1;
+		}
+		if (four.B===3) {
+		document.getElementById("joe10").value="parameter";
+		document.getElementById("joe10").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe11", "function")) {
+		four.C=four.C+1;
+		}
+		if (four.C===3) {
+		document.getElementById("joe11").value="funciton";
+		document.getElementById("joe11").style.background="#FFFF00"
+		}
+	if (!checkAnswers("jo12", "parameter")) {
+		four.D=four.D+1;
+		}
+		if (four.D===3) {
+		document.getElementById("joe12").value="parameter";
+		document.getElementById("jo12").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe13", "energy stored")) {
+		four.E=four.E+1;
+		}
+		if (four.E===3) {
+		document.getElementById("joe13").value="enrgy stored"
+		document.getElementById("joe13").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe14", "energy balance")) {
+		four.F=four.F+1;
+		}
+		if (four.F===3) {
+		document.getElementById("joe14").value="energy balance";
+		document.getElementById("joe14").style.background="#FFFF00"
+		}
 	};
 	</script>
 		<h3>Question 5</h3>
@@ -331,6 +492,15 @@
 		<button id="button6" onClick="cont6();">Question 6</button>
 		<div id="question6" style="display:none">
 		<script type="text/javascript">
+	var five = {
+		A:0,
+		B:0,
+		C:0,
+		D:0,
+		E:0,
+		F:0,
+		G:0
+	};
 	function cont6 () {
 	checkAnswers("joe15", "parameter");
 	checkAnswers("joe16", "function");
@@ -347,7 +517,55 @@
 	if (checkAnswers("joe15", "parameter") && checkAnswers("joe16", "function") && checkAnswers("joe17", "parameter") && checkAnswers("joe18", "accumulator") && checkAnswers("joe19", "weight change") && checkAnswers("joe20", "function") && checkAnswers("joe21", "parameter") && checkCompletion("joe22") && checkCompletion("joe23")) {
 	document.getElementById("question6").style.display="";
 	document.getElementById("button6").style.display="none";
-	}
+	}if (!checkAnswers("joe15", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("joe15").value="parameter";
+		document.getElementById("joe15").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe16", "function")) {
+		five.B=five.B+1;
+		}
+		if (five.B===3) {
+		document.getElementById("joe16").value="function";
+		document.getElementById("joe16").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe17", "parameter")) {
+		five.C=five.C+1;
+		}
+		if (five.C===3) {
+		document.getElementById("joe17").value="function";
+		document.getElementById("joe17").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe18", "accumulator")) {
+		five.D=five.D+1;
+		}
+		if (five.D===3) {
+		document.getElementById("joe18").value="accumulator";
+		document.getElementById("joe18").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe19", "weight change")) {
+		five.E=five.E+1;
+		}
+		if (five.E===3) {
+		document.getElementById("joe19").value="weight change";
+		document.getElementById("joe19").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe20", "function")) {
+		five.F=five.F+1;
+		}
+		if (five.F===3) {
+		document.getElementById("joe20").value="function";
+		document.getElementById("joe20").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe21", "parameter")) {
+		two.B=two.B+1;
+		}
+		if (two.B===3) {
+		document.getElementById("joe21").value="parameter";
+		document.getElementById("joe21").style.background="#FFFF00"
+		}
 	};
 	function checkCompletion(input) {
 		if (document.getElementById(input).value==="") {
@@ -355,7 +573,7 @@
 		return false;
 		}
 		else {
-		document.getElementById(input).style.background="#FFFF00";
+		document.getElementById(input).style.background="#00FFFF";
 		return true;
 		}
 	};
@@ -471,6 +689,21 @@
 		<button id="button7" onClick="cont7();">Question 7</button>
 		<div id="question7" style="display:none">
 		<script type="text/javascript">
+	var six = {
+		A:0,
+		B:0,
+		C:0,
+		D:0,
+		E:0,
+		F:0,
+		G:0,
+		H:0,
+		I:0,
+		J:0,
+		K:0,
+		L:0,
+		M:0
+	};
 	function cont7 () {
 	checkAnswers("joe24", "parameter");
 	checkAnswers("joe24a", "parameter");
@@ -502,15 +735,82 @@
 	document.getElementById(labelId).style.background="#FF3333";
 	return false;
 	}
-	};
-	function checkAnswers(inputId, rightAnswer) {
-		if (document.getElementById(inputId).value===rightAnswer) {
-		document.getElementById(inputId).style.background="#66FF33";
-		return true;
+	if (!checkAnswers("joe24", "parameter")) {
+		six.A=six.A+1;
 		}
-		else {
-		document.getElementById(inputId).style.background="#FF3333";
-		return false;
+		if (six.A===3) {
+		document.getElementById("joe24").value="parameter";
+		document.getElementById("joe24").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe24a", "parameter")) {
+		six.B=six.B+1;
+		}
+		if (six.B===3) {
+		document.getElementById("joe24a").value="parameter";
+		document.getElementById("joe24a").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe24b", "parameter")) {
+		six.C=six.C+1;
+		}
+		if (six.C===3) {
+		document.getElementById("joe24b").value="parameter";
+		document.getElementById("joe24b").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe25", "function")) {
+		six.D=six.D+1;
+		}
+		if (six.D===3) {
+		document.getElementById("joe25").value="function";
+		document.getElementById("joe25").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe26", "digestive activity expenditure")) {
+		six.E=six.E+1;
+		}
+		if (six.E===3) {
+		document.getElementById("joe26").value="digestive activity expenditure";
+		document.getElementById("joe26").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe27", "2000")) {
+		six.F=six.F+1;
+		}
+		if (two.B===3) {
+		document.getElementById("joe27").value="2000";
+		document.getElementById("joe27").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe28", "function")) {
+		six.I=six.I+1;
+		}
+		if (six.I===3) {
+		document.getElementById("joe28").value="function";
+		document.getElementById("joe28").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe29", "resting energy expenditure")) {
+		six.J=six.J+1;
+		}
+		if (six.J===3) {
+		document.getElementById("joe29").value="resting energy expenditure";
+		document.getElementById("joe29").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe30", "physical activity level")) {
+		six.K=six.K+1;
+		}
+		if (six.K===3) {
+		document.getElementById("joe30").value="physical activity level";
+		document.getElementById("joe30").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe31", "digestive energy expenditure")) {
+		six.L=six.L+1;
+		}
+		if (six.L===3) {
+		document.getElementById("joe31").value="digestive energy expenditure";
+		document.getElementById("joe31").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe32", "parameter")) {
+		six.M=six.M+1;
+		}
+		if (six.M===3) {
+		document.getElementById("joe32").value="parameter";
+		document.getElementById("joe32").style.background="#FFFF00"
 		}
 		};
 	</script>
@@ -596,6 +896,20 @@
 		<button id="button8" onClick="cont8();">Question 8</button>
 		<div id="question8" style="display:none">
 		<script type="text/javascript">
+	var seven = {
+		A:0,
+		B:0,
+		C:0,
+		D:0,
+		E:0,
+		F:0,
+		G:0,
+		H:0,
+		I:0,
+		J:0,
+		K:0,
+		L:0
+	};
 	function cont8 () {
 	checkAnswers("joe33", "1800 calories");
 	checkAnswers("joe34", "0.03 pounds per day");
@@ -616,21 +930,105 @@
 	document.getElementById("question8").style.display="";
 	document.getElementById("button8").style.display="none";
 	}
+	if (!checkAnswers("joe33", "1800 calories")) {
+		seven.A=seven.A+1;
+		}
+		if (seven.A===3) {
+		document.getElementById("joe33").value="1800 calories";
+		document.getElementById("joe33").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe34", "0.03 pounds per day")) {
+		seven.B=seven.B+1;
+		}
+		if (seven.B===3) {
+		document.getElementById("joe34").value="0.03 pounds per day";
+		document.getElementById("joe34").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe35", "2680 calories")) {
+		seven.C=seven.C+1;
+		}
+		if (seven.C===3) {
+		document.getElementById("joe35").value="2680 calories";
+		document.getElementById("joe35").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe36", "0.25 pounds per day")) {
+		seven.D=seven.D+1;
+		}
+		if (seven.D===3) {
+		document.getElementById("joe36").value="0.25 pounds per day";
+		document.getElementById("joe36").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe37", "resting energy expenditure")) {
+		seven.E=seven.E+1;
+		}
+		if (seven.E===3) {
+		document.getElementById("joe37").value="resting energy expenditure";
+		document.getElementById("joe37").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe38", "physical activity level")) {
+		seven.F=seven.F+1;
+		}
+		if (seven.F===3) {
+		document.getElementById("joe38").value="physical activity level";
+		document.getElementById("joe38").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe39", "function")) {
+		seven.G=seven.G+1;
+		}
+		if (seven.G===3) {
+		document.getElementById("joe39").value="function";
+		document.getElementById("joe39").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe40", "energy ingested")) {
+		seven.H=seven.H+1;
+		}
+		if (seven.H===3) {
+		document.getElementById("joe40").value="energy ingested";
+		document.getElementById("joe40").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe41", "digestiove energy factor")) {
+		seven.I=seven.I+1;
+		}
+		if (seven.I===3) {
+		document.getElementById("joe41").value="digestive energy factor";
+		document.getElementById("joe41").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe42", "digestive activity expenditure")) {
+		seven.J=seven.J+1;
+		}
+		if (seven.J===3) {
+		document.getElementById("joe42").value="digestive activity expenditure";
+		document.getElementById("joe42").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe43", "parameter")) {
+		seven.K=seven.K+1;
+		}
+		if (seven.K===3) {
+		document.getElementById("joe43").value="parameter";
+		document.getElementById("joe43").style.background="#FFFF00"
+		}
+	if (!checkAnswers("joe44", "0.10")) {
+		seven.L=seven.L+1;
+		}
+		if (seven.L===3) {
+		document.getElementById("joe44").value="0.10";
+		document.getElementById("joe44").style.background="#FFFF00"
+		}
 	};
 	</script>
 		<h3>Question 8</h3>
 		<p>8a. Joe is still eating 1989 calories a day and still sedentary (physical activity level = 0.2), so what is his digestive activity expenditure per day?</p>
-		<input type="text" name="joe45">
+		<input type="text" id="joe45">
 		<p>8b. Now if he doubles his food intake, so his daily ingested energy is 4000 calories, then his digestive activity expenditure is</p>
-		<input type="text" name="joe46">
-		<p>which is more than his physical activity expenditure, which is still <input type="text" name="joe47"></p>
+		<input type="text" id="joe46">
+		<p>which is more than his physical activity expenditure, which is still <input type="text" id="joe47"></p>
 		<p>8c. What is his total energy expenditure?</p>
-		<input type="text" name="joe48">
+		<input type="text" id="joe48">
 		<p>Does he gain or lose weight?</p>
-		<input type="radio" name="gorl3" value="gain">gain
-		<input type="radio" name="gorl3" value="lose">lose
+		<input type="radio" name="gorl3" id="gorl3" value="gain">gain
+		<input type="radio" name="gorl3" id="gorl3" value="lose">lose
 		<p>How much, in pounds per day?</p>
-		<input type="text" name="joe49">
+		<input type="text" id="joe49">
 		<!--Pg. 14-->
 		<p>The resting energy expenditure, which is measured when you are doing no exercise and no ingestion of food, includes the energy used for breathing, blood circulation, and many other routine bodily functions. The bigger the body, the more energy these bodily functions require. However, young bodies burn more energy per pound than old bodies. The Mifflin equation, shown below, is the most accurate estimator known so far:</p>
 		<ul><li>REE = 4.5*weight + 15.9*height - 5*age + gender REE</li></ul>
@@ -682,8 +1080,8 @@
 			</tr>
 			<tr>
 			<td>resting energy expenditure</td>
-			<td><input type="text" name="joe50"></td>
-			<td>energy expended per day by basic bodily function; value = <input type="text" name="joe51">-<input type="text" name="joe52">+<input type="text" name="joe53"></td>
+			<td><input type="text" id="joe50"></td>
+			<td>energy expended per day by basic bodily function; value = <input type="text" id="joe51">-<input type="text" id="joe52">+<input type="text" id="joe53"></td>
 			</tr>
 			<tr>
 			<td>digestive activity expenditure</td>
@@ -708,46 +1106,98 @@
 			</tr>
 			<tr>
 			<td>weight REE</td>
-			<td><input type="text" name="joe54"></td>
+			<td><input type="text" id="joe54"></td>
 			<td>Contribution of weight to REE, value = weight * weight REE multiplier</td>
 			</tr>
 			<tr>
 			<td>weight REE multiplier</td>
-			<td><input type="text" name="joe55"></td>
+			<td><input type="text" id="joe55"></td>
 			<td>Amount of REE per pound of weight, value = 4.5 calories/pound</td>
 			</tr>
 			<tr>
 			<td>height REE</td>
-			<td><input type="text" name="joe56"></td>
+			<td><input type="text" id="joe56"></td>
 			<td>Contribution of height to REE, value = height * height REE multiplier</td>
 			</tr>
 			<tr>
 			<td>height REE multiplier</td>
-			<td><input type="text" name="joe57"></td>
+			<td><input type="text" id="joe57"></td>
 			<td>Amount of REE per inch of height, value = 15.9 calories/inch</td>
 			</tr>
 			<tr>
 			<td>height</td>
-			<td><input type="text" name="joe58"></td>
+			<td><input type="text" id="joe58"></td>
 			<td>Joe's height in inches, value = 65 inches</td>
 			</tr>
 			<tr>
 			<td>age REE</td>
-			<td><input type="text" name="joe59"></td>
+			<td><input type="text" id="joe59"></td>
 			<td>Contribution of age to REE, value = age * age REE multiplier</td>
 			</tr>
 			<tr>
+			<td>age REE multiplier</td>
+			<td><input type="text" id="joe60"></td>
+			<td>Amount of REE per year of age, value = 5 calories/year</td>
+			</tr>
+			<tr>
 			<td>age</td>
-			<td><input type="text" name="joe60"></td>
+			<td><input type="text" id="joe61"></td>
 			<td>Joe's age in years, value = 20 years</td>
 			</tr>
 			<tr>
 			<td>gender REE</td>
-			<td><input type="text" name="joe61"></td>
+			<td><input type="text" id="joe62"></td>
 			<td>Contribution of gender to REE, value = 5 for men and -161 for women.</td>
 			</tr>
 			</tbody>
 		</table>
+		<button id="button9" onClick="cont9();">Check Answers</button>
+		<button id="button10" onClick="button10" style="display:none">See Results Table</button>
+		<script type="text/javascript">
+		var eight = {
+		A:0,
+		B:0,
+		C:0,
+		D:0,
+		E:0,
+		F:0,
+		G:0,
+		H:0,
+		I:0,
+		J:0,
+		K:0,
+		L:0,
+		M:0,
+		N:0,
+		O:0,
+		P:0,
+		Q:0,
+		R:0,
+		S:0,
+		}
+		function cont 9 () {
+		checkAnswers("joe45", "199 calories");
+		checkAnswers("joe46", "400 calories");
+		checkAnswers("joe47", "280 calories");
+		checkAnswers("joe48", "2080 calories");
+		radio("gain", "gorl3");
+		checkAnswers("joe49", "0.55 pounds per day");
+		checkAnswers("joe50", "function");
+		checkAnswers("joe51", "weight REE");
+		checkAnswers("joe52", "age REE");
+		checkAnswers("joe53", "height REE");
+		checkAnswers("joe54", "function");
+		checkAnswers("joe55", "parameter");
+		checkAnswers("joe56", "function");
+		checkAnswers("joe57", "parameter");
+		checkAnswers("joe58", "parameter");
+		checkAnswers("joe59", "function");
+		checkAnswers("joe60", "parameter");
+		checkAnswers("joe61", "parameter");
+		checkAnswers("joe62", "parameter");
+		};
+		</script>
+		</div>
 		</div>
 		</div>
 		</div>
