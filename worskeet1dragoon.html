@@ -6,7 +6,25 @@
 <body>
 <h1>Workbook 2</h1>
 <h1>Working With Dragoon</h1>
-<!--steal first page from previous worksheet-->
+<h4>Key Terms & Concepts</h4>
+<p><b>A Parameter</b> represents a fixed quantity that never changes. Parameters are used to represent constant values.</p>
+<p><i>Example: pi is a <b>parameter</b> because it is always 3.1415.</i></p>
+<p><b>An accumulator</b> represents a quantity that increases of decreases over time based on its previous value and the value of its inputs. These take the form: "new value = old value + inputs". It has an initial value that serves as the first "old value".</p>
+<p><i>Example: Population can be an <b>accumulator</b> because its new value is dependent on its old value and its inputs. Current population size = last year's population size + inputs.</i></p>
+<p><b>A function</b> represents a value that is calculated directly from the values of other quantities, without referencing its previous value. A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value. Thus, a function does not need and does not have a special initial value, whereas an accumulator does.</p>
+<p><i>Example: Suppose you know 20% of the population dies each year, then the number of deaths is a <b>function</b>, namely population * 0.2. Note that the number of the deaths does not require knowledge of the deaths of the previous year to comupte it (if it did, it'd be an <b>accumulator</b>).</i></p>
+<hr/>
+<p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be rewritten in scientific notation to be <b>3.45e+5</b> or <b>3.45x10<sup>5</sup></b>.</p>
+<p>To do this, move the decimal place from the end of <b>345000</b> in between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponent is +5" or <b>10<sup>5</sup></b>. This indicates how many zeroes there are.</p>
+<p>Similarly, <b>0.0000000000000000345</b> can be rewritten as <b>3.45e-17</b> or <b>3.45x10<sup>-17</sup></b>.</p>
+<button id="button0" onClick="forward0();">
+<script type="text/javascript">
+function forward0() {
+document.getElementById("sect0").style.display="";
+document.getElementById("button0").style.display="none";
+};
+</script>
+<div id="sect0" style="display:none">
 <!--Is this part necessary?-->
 <ol>
 <li>Log into the computer like you usually do and open a web browser by clicking on its icon.</li>
@@ -403,6 +421,7 @@ document.getElementById("button5").style.display="none";
 <input type="text" id="questsect46">
 <p>8e. Suppose Joe changes his diet to a high protein diet for 3 months so that his digestive energy factor is now 30%? Now what is his weight after 90 days?</p>
 <input type="text" id="questsect47">
+</div>
 </div>
 </div>
 </div>

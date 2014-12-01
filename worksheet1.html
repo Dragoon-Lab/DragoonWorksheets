@@ -724,7 +724,8 @@
 	if (checkAnswers("fiveAi", "parameter") && checkAnswers("fiveAii", "function") && checkAnswers("fiveAiii", "parameter") && checkAnswers("fiveAiv", "accumulator") && checkAnswers("fiveAv", "weight change") && checkAnswers("fiveAvi", "function") && checkAnswers("fiveAvii", "parameter") && checkCompletion("fiveD") && checkCompletion("fiveE")) {
 	document.getElementById("question6").style.display="";
 	document.getElementById("button6").style.display="none";
-	}if (!checkAnswers("fiveAi", "parameter")) {
+	}
+	if (!checkAnswers("fiveAi", "parameter")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
@@ -852,12 +853,18 @@
 			</tbody>
 		</table>
 			<p>6b. What is the value of Energy Expended? <input type="number" name="sixB" id="sixB"> calories</p>
-			<p id="PoNLabel">6c. Assuming Joe continues to ingest 1989 calories a day, will a graph of Joe's weight have a positive or negative slope?</p>
-			<input type="radio" id="pos" name="sixC" value="positive">positive
-			<input type="radio" id="neg" name="sixC" value="negative">negative
-			<p id="PoNLabel2">6d. Suppose Joe ingests 2001 calories a day. Will this graph have a positive or negative slope?</p>
-			<input type="radio" name="sixD" id="pos2" value="positive">positive
-			<input type="radio" name="sixD" id="neg2" value="negative">negative
+			<p>6c. Assuming Joe continues to ingest 1989 calories a day, will a graph of Joe's weight have a positive or negative slope?</p>
+			<select id="sixC">
+			<option></option>
+			<option>positive</option>
+			<option>negative</option>
+			</select>
+			<p>6d. Suppose Joe ingests 2001 calories a day. Will this graph have a positive or negative slope?</p>
+			<select id="sixD">
+			<option></option>
+			<option>positive</option>
+			<option>negative</option>
+			</select>
 		<!--Pg. 10-->
 		<p>The amount of physical activity energy burned per day depends mostly on two factors: how much exercise you do and your resting energy expenditure. The energy spent on exercise is estimated by multiplying the resting energy expenditure by a physical activity factor, which is:</p>
 		<ul>
@@ -902,8 +909,31 @@
 			</tr>
 			<tr>
 			<td>physical energy expenditure</td>
-			<td><input type="text" id="joe28"></td>
-			<td>energy burned by physical exercise; value = <input type="text" id="joe29">*<input type="text" id="joe30"></td>
+			<td>
+			<select id="sixEi">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
+			<td>energy burned by physical exercise; value = 
+			<select id="sixEii">
+			<option></option>
+			<option>resting energy expenditure</option>
+			<option>digestive activity expenditure</option>
+			<option>energy expended</option>
+			<option>physical activity level</option>
+			</select>
+			*
+			<select id="sixEiii">
+			<option></option>
+			<option>resting energy expenditure</option>
+			<option>digestive activity expenditure</option>
+			<option>energy expended</option>
+			<option>physical activity level</option>
+			</select>
+			</td>
 			</tr>
 			<tr>
 			<td>resting energy expenditure</td>
@@ -918,12 +948,27 @@
 			<tr>
 			<td>Energy expended</td>
 			<td>function</td>
-			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <input type="text" id="joe31"></td>
+			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + 
+			<select id="sixEiv">
+			<option></option>
+			<option>resting energy expenditure</option>
+			<option>digestive activity expenditure</option>
+			<option>energy expended</option>
+			<option>physical activity level</option>
+			</select>
+			</td>
 			</tr>
 			<!--Pg. 11-->
 			<tr>
 			<td>Physical activity level</td>
-			<td><input type="text" id="joe32"></td>
+			<td>
+			<select id="sixEv">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
 			<td>Amount of physical activity, e.g. 0.2 for little or no exercise, 0.9 for daily hard exercise.</td>
 			</tr>
 			</tbody>
@@ -947,126 +992,134 @@
 		M:0
 	};
 	function cont7 () {
-	checkAnswers("joe24", "parameter");
-	checkAnswers("joe24a", "parameter");
-	checkAnswers("joe24b", "parameter");
-	checkAnswers("joe25", "function");
-	checkAnswers("joe26", "digestive activity expenditure");
-	checkAnswers("joe27", "2000");
-	radio("neg", "PoNLabel");
-	radio("pos2", "PoNLabel2");
-	checkAnswers("joe28", "function");
-	checkAnswers("joe29", "resting energy expenditure");
-	checkAnswers("joe30", "physical activity level");
-	checkAnswers("joe31", "digestive energy expenditure");
-	checkAnswers("joe32", "parameter");
-	if (document.getElementById("joe24").value==="" || document.getElementById("joe24a").value==="" || document.getElementById("joe24b").value==="" || document.getElementById("joe25").value==="" || document.getElementById("joe26").value==="" || document.getElementById("joe27").value==="" || document.getElementById("posorneg").value==="" || document.getElementById("posorneg2").value==="" || document.getElementById("joe28").value==="" || document.getElementById("joe29").value==="" || document.getElementById("joe30").value==="" || document.getElementById("joe31").value==="" || document.getElementById("joe32")==="") {
+	checkAnswers("sixAi", "parameter");
+	checkAnswers("sixAii", "parameter");
+	checkAnswers("sixAiii", "parameter");
+	checkAnswers("sixAiv", "function");
+	checkAnswers("sixAv", "digestive activity expenditure");
+	checkAnswers("sixB", "2000");
+	checkAnswers("sixC", "negative");
+	checkAnswers("sixD", "positive");
+	checkAnswers("sixEi", "function");
+	checkAnswers("sixEii", "resting energy expenditure");
+	checkAnswers("sixEiii", "physical activity level");
+	checkAnswers("sixEiv", "digestive energy expenditure");
+	checkAnswers("sixEv", "parameter");
+	if (document.getElementById("sixAi").value==="" || document.getElementById("sixAii").value==="" || document.getElementById("sixAiii").value==="" || document.getElementById("sixAiv").value==="" || document.getElementById("sixAv").value==="" || document.getElementById("sixB").value==="" || document.getElementById("sixC").value==="" || document.getElementById("sixD").value==="" || document.getElementById("sixEi").value==="" || document.getElementById("sixEii").value==="" || document.getElementById("sixEiii").value==="" || document.getElementById("sixEiv").value==="" || document.getElementById("sixV")==="") {
 	alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
-	};
-	if (checkAnswers ("joe24", "parameter") && checkAnswers ("joe24a", "parameter") && checkAnswers ("joe24b", "parameter") && checkAnswers ("joe25", "function") && checkAnswers ("joe26", "digestive activity expenditure") && checkAnswers ("joe27", "2000")/* && radio ("neg", "PoNLabel") && radio ("pos2", "PoNLabel2") && checkAnswers ("joe28", "function") && checkAnswers ("joe29", "resting energy expenditure") && checkAnswers ("joe30", "physical activity level") && checkAnswers ("joe31", "digestive energy expenditure") && checkAnswers ("joe32", "parameter")*/){
+	}
+	if (checkAnswers ("sixAi", "parameter") && checkAnswers ("sixAii", "parameter") && checkAnswers ("sixAiii", "parameter") && checkAnswers ("sixAiv", "function") && checkAnswers ("sixAv", "digestive activity expenditure") && checkAnswers ("sixB", "2000") && checkAnswers ("sixC", "negative") && checkAnswers ("sixD", "positive") && checkAnswers ("sixEi", "function") && checkAnswers ("sixEii", "resting energy expenditure") && checkAnswers ("sixEiii", "physical activity level") && checkAnswers ("sixEiv", "digestive energy expenditure") && checkAnswers ("sixEv", "parameter")){
 	document.getElementById("question7").style.display="";
 	document.getElementById("button7").style.display="none";
-	};
-	};
-	function radio(radioId, labelId) {
-	if (document.getElementById(radioId).checked) {
-	document.getElementById(labelId).style.background="#66FF33";
-	return true;
 	}
-	else {
-	document.getElementById(labelId).style.background="#FF3333";
-	return false;
-	}
-	if (!checkAnswers("joe24", "parameter")) {
+	if (!checkAnswers("sixAi", "parameter")) {
 		six.A=six.A+1;
 		}
 		if (six.A===3) {
-		document.getElementById("joe24").value="parameter";
-		document.getElementById("joe24").style.background="#FFFF00"
+		document.getElementById("sixAi").value="parameter";
+		document.getElementById("sixAi").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe24a", "parameter")) {
+	if (!checkAnswers("sixAii", "parameter")) {
 		six.B=six.B+1;
 		}
 		if (six.B===3) {
-		document.getElementById("joe24a").value="parameter";
-		document.getElementById("joe24a").style.background="#FFFF00"
+		document.getElementById("sixAii").value="parameter";
+		document.getElementById("sixAii").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe24b", "parameter")) {
+	if (!checkAnswers("sixAiii", "parameter")) {
 		six.C=six.C+1;
 		}
 		if (six.C===3) {
-		document.getElementById("joe24b").value="parameter";
-		document.getElementById("joe24b").style.background="#FFFF00"
+		document.getElementById("sixAiii").value="parameter";
+		document.getElementById("sixAiii").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe25", "function")) {
+	if (!checkAnswers("sixAiv", "function")) {
 		six.D=six.D+1;
 		}
 		if (six.D===3) {
-		document.getElementById("joe25").value="function";
-		document.getElementById("joe25").style.background="#FFFF00"
+		document.getElementById("sixAiv").value="function";
+		document.getElementById("sixAiv").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe26", "digestive activity expenditure")) {
+	if (!checkAnswers("sixAv", "digestive activity expenditure")) {
 		six.E=six.E+1;
 		}
 		if (six.E===3) {
-		document.getElementById("joe26").value="digestive activity expenditure";
-		document.getElementById("joe26").style.background="#FFFF00"
+		document.getElementById("sixAv").value="digestive activity expenditure";
+		document.getElementById("sixAv").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe27", "2000")) {
+	if (!checkAnswers("sixB", "2000")) {
 		six.F=six.F+1;
 		}
-		if (two.B===3) {
-		document.getElementById("joe27").value="2000";
-		document.getElementById("joe27").style.background="#FFFF00"
+		if (six.F===3) {
+		document.getElementById("sixB").value="2000";
+		document.getElementById("sixB").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe28", "function")) {
+	if (!checkAnswers("sixC", "negative")) {
+		six.G=six.G+1;
+		}
+		if (six.G===3) {
+		document.getElementById("sixC").value="negative";
+		document.getElementById("sixC").style.background="#FFFF00"
+		}
+	if (!checkAnswers("sixD", "positive")) {
+		six.H=six.H+1;
+		}
+		if (six.H===3) {
+		document.getElementById("sixD").value="positive";
+		document.getElementById("sixD").style.background="#FFFF00"
+		}
+	if (!checkAnswers("sixEi", "function")) {
 		six.I=six.I+1;
 		}
 		if (six.I===3) {
-		document.getElementById("joe28").value="function";
-		document.getElementById("joe28").style.background="#FFFF00"
+		document.getElementById("sixEi").value="function";
+		document.getElementById("sixEi").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe29", "resting energy expenditure")) {
+	if (!checkAnswers("sixEii", "resting energy expenditure")) {
 		six.J=six.J+1;
 		}
 		if (six.J===3) {
-		document.getElementById("joe29").value="resting energy expenditure";
-		document.getElementById("joe29").style.background="#FFFF00"
+		document.getElementById("sixEii").value="resting energy expenditure";
+		document.getElementById("sixEii").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe30", "physical activity level")) {
+	if (!checkAnswers("sixEiii", "physical activity level")) {
 		six.K=six.K+1;
 		}
 		if (six.K===3) {
-		document.getElementById("joe30").value="physical activity level";
-		document.getElementById("joe30").style.background="#FFFF00"
+		document.getElementById("sixEiii").value="physical activity level";
+		document.getElementById("sixEiii").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe31", "digestive energy expenditure")) {
+	if (!checkAnswers("sixEiv", "digestive energy expenditure")) {
 		six.L=six.L+1;
 		}
 		if (six.L===3) {
-		document.getElementById("joe31").value="digestive energy expenditure";
-		document.getElementById("joe31").style.background="#FFFF00"
+		document.getElementById("sixEiv").value="digestive energy expenditure";
+		document.getElementById("sixEiv").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe32", "parameter")) {
+	if (!checkAnswers("sixEv", "parameter")) {
 		six.M=six.M+1;
 		}
 		if (six.M===3) {
-		document.getElementById("joe32").value="parameter";
-		document.getElementById("joe32").style.background="#FFFF00"
+		document.getElementById("sixEv").value="parameter";
+		document.getElementById("sixEv").style.background="#FFFF00"
 		}
 		};
 	</script>
 		<h3>Question 7</h3>
 		<p>7a. Assuming Joe is sedentary, and his physical exercise level is 0.2, what is his daily energy expenditure? <input type="text" id="joe33"></p>
 		<p>7b. If he still ingests 1989 calories a day, does he gain weight or lose weight?</p>
-		<input type="radio" name="gorl" value="gain">gain
-		<input type="radio" name="gorl" value="lose">lose
-		<p>7c. How much, in pounds per day? <input type="text" id="joe34"></p>
-		<p>7d. Joe wonders what would happen if he really increased his daily exercise, so that his physical activity level was 0.9. What would this make his snergy expenditure? <input type="text" id="joe35"></p>
+		<select id="sevenB">
+		<option>gain</option>
+		<option>lose</option>
+		</select>
+		<p>7c. How much, in pounds per day? <input type="number" id="sevenC"> pounds per day</p>
+		<p>7d. Joe wonders what would happen if he really increased his daily exercise, so that his physical activity level was 0.9. What would this make his daily energy expenditure? <input type="number" id="sevenD"> calories</p>
 		<p>7e. If he continued to eat 1989 calories a day, would he gain or lose weight?</p>
-		<input type="radio" name="gorl2" value="gain">gain
-		<input type="radio" name="gorl2" value="lose">lose
-		<p>How much, in pounds per day? <input type="text" id="joe36"></p>
+		<select id="sevenE">
+		<option>gain</option>
+		<option>lose</option>
+		</select>
+		<p>How much, in pounds per day? <input type="number" id="sevenF"> pounds per day</p>
 		<!--Pg. 12-->
 		<p>The more food you eat, the more energy it takes to digest it. The expression "thermic effect of food" is used to describe the energy expended by our bodies to consume (bite, chew, and swallow) and process (digest, transport, metabolize, and store) food.</p>
 		<p>A factor of 10% is generally used to account for the thermic effect of food. Thus, if you eat 500 calories of food, you will expend 50 calories processing it. However, this is only a rough estimate, because the factor is different for different foods. Processing protein requires the greatest expenditure of energy, with estimates ranging as high as 30%. Dietary fat, on the other hand, is so easily processed and turned into body fat that there is little thermic effect, perhaps only 2% or 3%. The amount of energy required to process carbohydrates falls between that of protein and fat.</p>
@@ -1106,7 +1159,23 @@
 			<tr>
 			<td>physical activity expenditure</td>
 			<td>Function</td>
-			<td>energy burned by physical exercise; value = <input type="text" id="joe37">*<input type="text" id="joe38"></td>
+			<td>energy burned by physical exercise; value = 
+			<select id="sevenGi">
+			<option></option>
+			<option>resting energy expenditure</option>
+			<option>digestive activity expenditure</option>
+			<option>energy expended</option>
+			<option>digestive energy factor</option>
+			</select>
+			*
+			<select id="sevenGii">
+			<option></option>
+			<option>digestive activity expenditure</option>
+			<option>energy expended</option>
+			<option>physical activity level</option>
+			<option>digestive energy factor</option>
+			</select>
+			</td>
 			</tr>
 			<td>resting energy expenditure</td>
 			<td>Parameter</td>
@@ -1114,13 +1183,47 @@
 			</tr>
 			<tr>
 			<td>digestive activity expenditure</td>
-			<td><input type="text" id="joe39"></td>
-			<td>energy burned in order to digest food; value = <input type="text" id="joe40">*<input type="text" id="joe41"></td>
+			<td>
+			<select id="sevenGiii">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
+			<td>energy burned in order to digest food; value = 
+			<select id="sevenGiv">
+			<option></option>
+			<option>energy balance</option>
+			<option>energy ingested</option>
+			<option>weight</option>
+			<option>weight change</option>
+			<option>calories per pound</option>
+			</select>
+			*
+			<select id="sevenGv">
+			<option></option>
+			<option>physical activity expenditure</option>
+			<option>resting energy expenditure</option>
+			<option>energy expended</option>
+			<option>physical activity level</option>
+			<option>digestive energy factor</option>
+			</select>
+			</td>
 			</tr>
 			<tr>
 			<td>Energy expended</td>
 			<td>Function</td>
-			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <input type="text" id="joe42"></td>
+			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + 
+			<select id="sevenGvi">
+			<option></option>
+			<option>physical activity expenditure</option>
+			<option>resting energy expenditure</option>
+			<option>digestive activity expenditure</option>
+			<option>physical activity level</option>
+			<option>digestive energy factor</option>
+			</select>
+			</td>
 			</tr>
 			<tr>
 			<td>Physical activity level</td>
@@ -1130,8 +1233,15 @@
 			<!--Pg. 13-->
 			<tr>
 			<td>Digestive energy factor</td>
-			<td><input type="text" id="joe43"></td>
-			<td>The proportion of ingested energy that is required to process it, value = <input type="text" id="joe44"></td>
+			<td>
+			<select id="sevenGvii">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
+			<td>The proportion of ingested energy that is required to process it, value = <input type="number" id="sevenGviii"></td>
 			</tr>
 			</tbody>
 		</table>
@@ -1150,127 +1260,147 @@
 		I:0,
 		J:0,
 		K:0,
-		L:0
+		L:0,
+		M:0,
+		N:0
 	};
 	function cont8 () {
-	checkAnswers("joe33", "1800 calories");
-	checkAnswers("joe34", "0.03 pounds per day");
-	checkAnswers("joe35", "2860 calories");
-	checkAnswers("joe36", "0.25 pounds per day");
-	checkAnswers("joe37", "resting energy expenditure");
-	checkAnswers("joe38", "physical activity level");
-	checkAnswers("joe39", "function");
-	checkAnswers("joe40", "energy ingested");
-	checkAnswers("joe41", "digestive energy factor");
-	checkAnswers("joe42", "digestive activity expenditure");
-	checkAnswers("joe43", "parameter");
-	checkAnswers("joe44", "0.10");
-	if (document.getElementById("joe33").value==="" || document.getElementById("joe34").value==="" || document.getElementById("joe35").value==="" || document.getElementById("joe36").value==="" || document.getElementById("joe37").value==="" || document.getElementById("joe38").value==="" || document.getElementById("joe39").value==="" || document.getElementById("joe40").value==="" || document.getElementById("joe41").value==="" || document.getElementById("joe42").value==="" || document.getElementById("joe43").value==="" || document.getElementById("joe44").value==="") {
+	checkAnswers("sevenA", "1800");
+	checkAnswers("sevenB", "gain");
+	checkAnswers("sevenC", "0.03");
+	checkAnswers("sevenD", "2860");
+	checkAnswers("sevenE", "lose");
+	checkAnswers("sevenF", "0.25");
+	checkAnswers("sevenGi", "resting energy expenditure");
+	checkAnswers("sevenGii", "physical activity level");
+	checkAnswers("sevenGiii", "function");
+	checkAnswers("sevenGiv", "energy ingested");
+	checkAnswers("sevenGv", "digestive energy factor");
+	checkAnswers("sevenGvi", "digestive activity expenditure");
+	checkAnswers("sevenGvii", "parameter");
+	checkAnswers("sevenGviii", "0.10");
+	if (document.getElementById("sevenA").value==="" || document.getElementById("sevenB").value==="" || document.getElementById("sevenC").value==="" || document.getElementById("sevenD").value==="" || document.getElementById("sevenE").value==="" || document.getElementById("sevenF").value==="" || document.getElementById("sevenGi").value==="" || document.getElementById("sevenGii").value==="" || document.getElementById("sevenGiii").value==="" || document.getElementById("sevenGiv").value==="" || document.getElementById("sevenGv").value==="" || document.getElementById("sevenGvi").value==="" || document.getElementById("sevenGvii").value==="" || document.getElementById("sevenGviii").value==="") {
 	alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
 	};
-	if (checkAnswers("joe33", "1800 calories") && checkAnswers("joe34", "0.03 pounds per day") && checkAnswers("joe35", "2860 calories") && checkAnswers("joe36", "0.25 pounds per day") && checkAnswers("joe37", "resting energy expenditure") && checkAnswers("joe38", "physical activity level") && checkAnswers("joe39", "function") && checkAnswers("joe40", "energy ingested") && checkAnswers("joe41", "digestive energy factor") && checkAnswers("joe42", "digestive activity expenditure") && checkAnswers("joe43", "parameter") && checkAnswers("joe44", "0.10")) {
+	if (checkAnswers("sevenA", "1800") && checkAnswers("sevenB", "gain") && checkAnswers("sevenC", "0.03") && checkAnswers("sevenD", "2860") && checkAnswers("sevenE", "lose") && checkAnswers("sevenF", "0.25") && checkAnswers("sevenGi", "resting energy expenditure") && checkAnswers("sevenGii", "physical activity level") && checkAnswers("sevenGiii", "function") && checkAnswers("sevenGiv", "energy ingested") && checkAnswers("sevenGv", "digestive energy factor") && checkAnswers("sevenGvi", "digestive activity expenditure") && checkAnswers("sevenGvii", "parameter") && checkAnswers("sevenGviii", "0.10")) {
 	document.getElementById("question8").style.display="";
 	document.getElementById("button8").style.display="none";
 	}
-	if (!checkAnswers("joe33", "1800 calories")) {
+	if (!checkAnswers("sevenA", "1800")) {
 		seven.A=seven.A+1;
 		}
 		if (seven.A===3) {
-		document.getElementById("joe33").value="1800 calories";
-		document.getElementById("joe33").style.background="#FFFF00"
+		document.getElementById("sevenA").value="1800";
+		document.getElementById("sevenA").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe34", "0.03 pounds per day")) {
+	if (!checkAnswers("sevenB", "gain")) {
 		seven.B=seven.B+1;
 		}
 		if (seven.B===3) {
-		document.getElementById("joe34").value="0.03 pounds per day";
-		document.getElementById("joe34").style.background="#FFFF00"
+		document.getElementById("sevenB").value="gain";
+		document.getElementById("sevenB").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe35", "2680 calories")) {
+	if (!checkAnswers("sevenC", "0.03")) {
 		seven.C=seven.C+1;
 		}
 		if (seven.C===3) {
-		document.getElementById("joe35").value="2680 calories";
-		document.getElementById("joe35").style.background="#FFFF00"
+		document.getElementById("sevenC").value="0.03";
+		document.getElementById("sevenC").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe36", "0.25 pounds per day")) {
+	if (!checkAnswers("sevenD", "2680")) {
 		seven.D=seven.D+1;
 		}
 		if (seven.D===3) {
-		document.getElementById("joe36").value="0.25 pounds per day";
-		document.getElementById("joe36").style.background="#FFFF00"
+		document.getElementById("sevenD").value="2680";
+		document.getElementById("sevenD").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe37", "resting energy expenditure")) {
+	if (!checkAnswers("sevenE", "lose")) {
 		seven.E=seven.E+1;
 		}
 		if (seven.E===3) {
-		document.getElementById("joe37").value="resting energy expenditure";
-		document.getElementById("joe37").style.background="#FFFF00"
+		document.getElementById("sevenE").value="lose";
+		document.getElementById("sevenE").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe38", "physical activity level")) {
+	if (!checkAnswers("sevenF", "0.25")) {
 		seven.F=seven.F+1;
 		}
 		if (seven.F===3) {
-		document.getElementById("joe38").value="physical activity level";
-		document.getElementById("joe38").style.background="#FFFF00"
+		document.getElementById("sevenF").value="0.25";
+		document.getElementById("sevenF").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe39", "function")) {
+	if (!checkAnswers("sevenGi", "resting energy expenditure")) {
 		seven.G=seven.G+1;
 		}
 		if (seven.G===3) {
-		document.getElementById("joe39").value="function";
-		document.getElementById("joe39").style.background="#FFFF00"
+		document.getElementById("sevenGi").value="resting energy expenditure";
+		document.getElementById("sevenGi").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe40", "energy ingested")) {
+	if (!checkAnswers("sevenGii", "physical activity level")) {
 		seven.H=seven.H+1;
 		}
 		if (seven.H===3) {
-		document.getElementById("joe40").value="energy ingested";
-		document.getElementById("joe40").style.background="#FFFF00"
+		document.getElementById("sevenGii").value="physical activity level";
+		document.getElementById("sevenGii").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe41", "digestiove energy factor")) {
+	if (!checkAnswers("sevenGiii", "function")) {
 		seven.I=seven.I+1;
 		}
 		if (seven.I===3) {
-		document.getElementById("joe41").value="digestive energy factor";
-		document.getElementById("joe41").style.background="#FFFF00"
+		document.getElementById("sevenGiii").value="function";
+		document.getElementById("sevenGiii").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe42", "digestive activity expenditure")) {
+	if (!checkAnswers("sevenGiv", "energy ingested")) {
 		seven.J=seven.J+1;
 		}
 		if (seven.J===3) {
-		document.getElementById("joe42").value="digestive activity expenditure";
-		document.getElementById("joe42").style.background="#FFFF00"
+		document.getElementById("sevenGiv").value="energy ingested";
+		document.getElementById("sevenGiv").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe43", "parameter")) {
+	if (!checkAnswers("sevenGv", "digestiove energy factor")) {
 		seven.K=seven.K+1;
 		}
 		if (seven.K===3) {
-		document.getElementById("joe43").value="parameter";
-		document.getElementById("joe43").style.background="#FFFF00"
+		document.getElementById("sevenGv").value="digestive energy factor";
+		document.getElementById("sevenGv").style.background="#FFFF00"
 		}
-	if (!checkAnswers("joe44", "0.10")) {
+	if (!checkAnswers("sevenGvi", "digestive activity expenditure")) {
 		seven.L=seven.L+1;
 		}
 		if (seven.L===3) {
-		document.getElementById("joe44").value="0.10";
-		document.getElementById("joe44").style.background="#FFFF00"
+		document.getElementById("sevenGvi").value="digestive activity expenditure";
+		document.getElementById("sevenGvi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("sevenGvii", "parameter")) {
+		seven.M=seven.M+1;
+		}
+		if (seven.M===3) {
+		document.getElementById("sevenGvii").value="parameter";
+		document.getElementById("sevenGvii").style.background="#FFFF00"
+		}
+	if (!checkAnswers("sevenGviii", "0.10")) {
+		seven.N=seven.N+1;
+		}
+		if (seven.N===3) {
+		document.getElementById("sevenGviii").value="0.10";
+		document.getElementById("sevenGviii").style.background="#FFFF00"
 		}
 	};
 	</script>
 		<h3>Question 8</h3>
-		<p>8a. Joe is still eating 1989 calories a day and still sedentary (physical activity level = 0.2), so what is his digestive activity expenditure per day?</p>
-		<input type="text" id="joe45">
-		<p>8b. Now if he doubles his food intake, so his daily ingested energy is 4000 calories, then his digestive activity expenditure is</p>
-		<input type="text" id="joe46">
-		<p>which is more than his physical activity expenditure, which is still <input type="text" id="joe47"></p>
-		<p>8c. What is his total energy expenditure?</p>
-		<input type="text" id="joe48">
-		<p>Does he gain or lose weight?</p>
-		<input type="radio" name="gorl3" id="gorl3" value="gain">gain
-		<input type="radio" name="gorl3" id="gorl3" value="lose">lose
-		<p>How much, in pounds per day?</p>
-		<input type="text" id="joe49">
+		<p>8a. Joe is still eating 1989 calories a day and still sedentary (physical activity level = 0.2), so what is his digestive activity expenditure per day?
+		</br><input type="number" id="eightA"> calories</p>
+		<p>8b. Now if he doubles his food intake, so his daily ingested energy is 4000 calories, then his digestive activity expenditure is
+		</br><input type="number" id="eightBi"> calories</p>
+		<p>which is more than his physical activity expenditure, which is still <input type="number" id="eightBii"> calories</p>
+		<p>8c. What is his total energy expenditure?</br>
+		<input type="number" id="eightC"> calories</p>
+		<p>8d. Does he gain or lose weight?</p>
+		<select id="eightD">
+		<option>gain</option>
+		<option>lose</option>
+		</select>
+		<p>8e. How much, in pounds per day?</br>
+		<input type="number" id="eightE"> pounds per day</p>
 		<!--Pg. 14-->
 		<p>The resting energy expenditure, which is measured when you are doing no exercise and no ingestion of food, includes the energy used for breathing, blood circulation, and many other routine bodily functions. The bigger the body, the more energy these bodily functions require. However, young bodies burn more energy per pound than old bodies. The Mifflin equation, shown below, is the most accurate estimator known so far:</p>
 		<ul><li>REE = 4.5*weight + 15.9*height - 5*age + gender REE</li></ul>
@@ -1322,8 +1452,54 @@
 			</tr>
 			<tr>
 			<td>resting energy expenditure</td>
-			<td><input type="text" id="joe50"></td>
-			<td>energy expended per day by basic bodily function; value = <input type="text" id="joe51">-<input type="text" id="joe52">+<input type="text" id="joe53"></td>
+			<td>
+			<select id="eightFi">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
+			<td>energy expended per day by basic bodily function; value = 
+			<select id="eightFii">
+			<option></option>
+			<option>weight REE</option>
+			<option>weight REE multiplier</option>
+			<option>height REE</option>
+			<option>height REE multiplier</option>
+			<option>height</option>
+			<option>age REE</option>
+			<option>age REE multiplier</option>
+			<option>age</option>
+			<option>gender REE</option>
+			</select>
+			-
+			<select id="eightFiii">
+			<option></option>
+			<option>weight REE</option>
+			<option>weight REE multiplier</option>
+			<option>height REE</option>
+			<option>height REE multiplier</option>
+			<option>height</option>
+			<option>age REE</option>
+			<option>age REE multiplier</option>
+			<option>age</option>
+			<option>gender REE</option>
+			</select>
+			+
+			<select id="eightFiv">
+			<option></option>
+			<option>weight REE</option>
+			<option>weight REE multiplier</option>
+			<option>height REE</option>
+			<option>height REE multiplier</option>
+			<option>height</option>
+			<option>age REE</option>
+			<option>age REE multiplier</option>
+			<option>age</option>
+			<option>gender REE</option>
+			</select>
+			</td>
 			</tr>
 			<tr>
 			<td>digestive activity expenditure</td>
@@ -1348,47 +1524,110 @@
 			</tr>
 			<tr>
 			<td>weight REE</td>
-			<td><input type="text" id="joe54"></td>
+			<td>
+			<select id="eightFv">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
 			<td>Contribution of weight to REE, value = weight * weight REE multiplier</td>
 			</tr>
 			<tr>
 			<td>weight REE multiplier</td>
-			<td><input type="text" id="joe55"></td>
+			<td>
+			<select id="eightFvi">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
 			<td>Amount of REE per pound of weight, value = 4.5 calories/pound</td>
 			</tr>
 			<tr>
 			<td>height REE</td>
-			<td><input type="text" id="joe56"></td>
+			<td>
+			<select id="eightFvii">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
 			<td>Contribution of height to REE, value = height * height REE multiplier</td>
 			</tr>
 			<tr>
 			<td>height REE multiplier</td>
-			<td><input type="text" id="joe57"></td>
+			<td>
+			<select id="eightFviii">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
 			<td>Amount of REE per inch of height, value = 15.9 calories/inch</td>
 			</tr>
 			<tr>
 			<td>height</td>
-			<td><input type="text" id="joe58"></td>
+			<td>
+			<select id="eightFix">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
 			<td>Joe's height in inches, value = 65 inches</td>
 			</tr>
 			<tr>
 			<td>age REE</td>
-			<td><input type="text" id="joe59"></td>
+			<td>
+			<select id="eightFx">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
 			<td>Contribution of age to REE, value = age * age REE multiplier</td>
 			</tr>
 			<tr>
 			<td>age REE multiplier</td>
-			<td><input type="text" id="joe60"></td>
+			<td>
+			<select id="eightFxi">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
 			<td>Amount of REE per year of age, value = 5 calories/year</td>
 			</tr>
 			<tr>
 			<td>age</td>
-			<td><input type="text" id="joe61"></td>
+			<td>
+			<select id="eightFxii">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
 			<td>Joe's age in years, value = 20 years</td>
 			</tr>
 			<tr>
 			<td>gender REE</td>
-			<td><input type="text" id="joe62"></td>
+			<td>
+			<select id="eightFxiii">
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
+			</select>
+			</td>
 			<td>Contribution of gender to REE, value = 5 for men and -161 for women.</td>
 			</tr>
 			</tbody>
@@ -1418,25 +1657,152 @@
 		S:0,
 		}
 		function cont9 () {
-		checkAnswers("joe45", "199 calories");
-		checkAnswers("joe46", "400 calories");
-		checkAnswers("joe47", "280 calories");
-		checkAnswers("joe48", "2080 calories");
-		radio("gain", "gorl3");
-		checkAnswers("joe49", "0.55 pounds per day");
-		checkAnswers("joe50", "function");
-		checkAnswers("joe51", "weight REE");
-		checkAnswers("joe52", "age REE");
-		checkAnswers("joe53", "height REE");
-		checkAnswers("joe54", "function");
-		checkAnswers("joe55", "parameter");
-		checkAnswers("joe56", "function");
-		checkAnswers("joe57", "parameter");
-		checkAnswers("joe58", "parameter");
-		checkAnswers("joe59", "function");
-		checkAnswers("joe60", "parameter");
-		checkAnswers("joe61", "parameter");
-		checkAnswers("joe62", "parameter");
+		checkAnswers("eightA", "199");
+		checkAnswers("eightBi", "400");
+		checkAnswers("eightBii", "280");
+		checkAnswers("eightC", "2080");
+		checkAnswers("eightD", "gain");
+		checkAnswers("eightE", "0.55");
+		checkAnswers("eightFi", "function");
+		checkAnswers("eightFii", "weight REE");
+		checkAnswers("eightFiii", "age REE");
+		checkAnswers("eightFiv", "height REE");
+		checkAnswers("eightFv", "function");
+		checkAnswers("eightFvi", "parameter");
+		checkAnswers("eightFvii", "function");
+		checkAnswers("eightFviii", "parameter");
+		checkAnswers("eightFix", "parameter");
+		checkAnswers("eightFx", "function");
+		checkAnswers("eightFxi", "parameter");
+		checkAnswers("eightFxii", "parameter");
+		checkAnswers("eightFxiii", "parameter");
+		
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
+	if (!checkAnswers("fiveAi", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("fiveAi").value="parameter";
+		document.getElementById("fiveAi").style.background="#FFFF00"
+		}
 		};
 		</script>
 		</div>
