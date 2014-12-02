@@ -1654,8 +1654,8 @@
 		Q:0,
 		R:0,
 		S:0,
-		}
-		function cont9 () {
+		};
+		function cont9() {
 		alert("executing");
 		checkAnswers("eightA", "199");
 		checkAnswers("eightBi", "400");
@@ -1676,7 +1676,7 @@
 		checkAnswers("eightFxi", "parameter");
 		checkAnswers("eightFxii", "parameter");
 		checkAnswers("eightFxiii", "parameter");
-	if (checkAnswers("eightA", "199") && checkAnswers("eightBi", "400") && checkAnswers("eightBii", "280") && checkAnswers("eightC", "2080") && checkAnswers("eightD", "gain") && checkAnswers("eightE", "0.55") checkAnswers("eightFi", "function") && checkAnswers("eightFii", "weight REE") && checkAnswers("eightFiii", "age REE") && checkAnswers("eightFiv", "height REE") && checkAnswers("eightFv", "function") && checkAnswers("eightFvi", "parameter") && checkAnswers("eightFvii", "function") && checkAnswers("eightFviii", "parameter") && checkAnswers("eightFix", "parameter") && checkAnswers("eightFx", "function") && checkAnswers("eightFxi", "parameter") && checkAnswers("eightFxii", "parameter") && checkAnswers("eightFxiii", "parameter")) {
+	if (checkAnswers("eightA", "199") && checkAnswers("eightBi", "400") && checkAnswers("eightBii", "280") && checkAnswers("eightC", "2080") && checkAnswers("eightD", "gain") && checkAnswers("eightE", "0.55") && checkAnswers("eightFi", "function") && checkAnswers("eightFii", "weight REE") && checkAnswers("eightFiii", "age REE") && checkAnswers("eightFiv", "height REE") && checkAnswers("eightFv", "function") && checkAnswers("eightFvi", "parameter") && checkAnswers("eightFvii", "function") && checkAnswers("eightFviii", "parameter") && checkAnswers("eightFix", "parameter") && checkAnswers("eightFx", "function") && checkAnswers("eightFxi", "parameter") && checkAnswers("eightFxii", "parameter") && checkAnswers("eightFxiii", "parameter")) {
 	document.getElementById("resultsTable").style.display="";
 	document.getElementById("button9").style.display="none";
 	displayAnswers();
@@ -1841,40 +1841,36 @@
 	<tr>
 	<td>1a. i.</td>
 	<td>beaver births</td>
-	<td>
-	<div id="1Aianswer"><div>
-	</td>
-	<td></td>
+	<td><div id="1AiAnswer"><div></td>
+	<td><div id="1AiTries"></div></td>
 	<td></td>
 	</tr>
 	<tr>
 	<td>1a. ii.</td>
 	<td>20</td>
-	<td>
-	<div id="1Aiianswer"></div>
-	</td>
-	<td></td>
+	<td><div id="1AiiAnswer"></div></td>
+	<td><div id="1AiiTries"></div></td>
 	<td></td>
 	</tr>
 	<tr>
 	<td>1b.</td>
 	<td>30%</td>
-	<td></td>
-	<td></td>
+	<td><div id="1BAnswer"></div></td>
+	<td><div id="1BTries"></div></td>
 	<td></td>
 	</tr>
 	<tr>
 	<td>1c. i.</td>
 	<td>beaver birth rate</td>
-	<td></td>
-	<td></td>
+	<td><div id="1CiAnswer"></div></td>
+	<td><div id="1CiTries"></div></td>
 	<td></td>
 	</tr>
 	<tr>
 	<td>1c. ii.</td>
-	<td>beaver population</td>
-	<td></td>
-	<td></td>
+	<td>beaver population</td>400`
+	<td><div id="1CiiAnswer"></div></td>
+	<td><div id="1CiiTries"></div></td>
 	<td></td>
 	</tr>
 	</tbody>
@@ -1882,7 +1878,16 @@
 	</div>
 	<script type="text/javascript">
 	function displayAnswers () {
-	document.getElementById("1Aianswer").innerHTML=document.getElementById("oneAi").value;
+	document.getElementById("1AiAnswer").innerHTML=document.getElementById("oneAi").value;
+	document.getElementById("1AiTries").innerHTML=document.getElementById("one.A").value;
+	document.getElementById("1AiiAnswer").innerHTML=document.getElementById("oneAii").value;
+	//document.getElementById("1AiiTries").innerHTML=document.getElementById("one.B").value;
+	document.getElementById("1BAnswer").innerHTML=document.getElementById("oneB").value;
+	//document.getElementById("1BTries").innerHTML=document.getElementById("one.C").value;
+	document.getElementById("1CiAnswer").innerHTML=document.getElementById("oneCi").value;
+	//document.getElementById("1CiTries").innerHTML=document.getElementById("one.D").value;
+	document.getElementById("1CiiAnswer").innerHTML=document.getElementById("oneCii").value;
+	//document.getElementById("1CiiTries").innerHTML=document.getElementById("one.E").value;
 	};
 	</script>
 		</body>
