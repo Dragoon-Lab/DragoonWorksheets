@@ -21,7 +21,7 @@
 		<p>To do this, move the decimal place from the end of <b>345000</b> in between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponent is +5" or <b>10<sup>5</sup></b>. This indicates how many zeroes there are.</p>
 		<p>Similarly, <b>0.0000000000000000345</b> can be rewritten as <b>3.45e-17</b> or <b>3.45x10<sup>-17</sup></b>.</p>
 		<button id="button1" onClick="cont1();">Question 1</button>
-		<div id="question1" style="display:none">
+		<div id="question1" style="display:">
 		<script type="text/javascript">
 		function cont1() {
 		document.getElementById("question1").style.display="";
@@ -79,7 +79,7 @@
 		<option>30%</option>
 		</select><br>
 		<button id="button2" onClick="cont2();">Question 2</button>
-		<div id="question2" style="display:none">
+		<div id="question2" style="display:">
 		<script type="text/javascript">
 		var one = {
 			A:0,
@@ -173,7 +173,7 @@
 		<p>Let's suppose Joe wants to build an accurate model of his weight changes, so he starts with a very simple model, which is that the energy stored (as fat, etc.) changes daily depending on the energy balance. The energy balance is the difference between the energy ingested and the energy burned by the body on that day. When the energy balance is positive on that particular day (a good hunt!), then energy storage increases by the surplus. When the energy balance is negative (a poor hunt), then stored energy decreases.</p>
 		<p>Joe looks up his current weight in a physiology reference and finds that he has about 345,000 calories stored. To keep things simple while getting started on his modeling project, Joe assumes his energy balance is 100 calories every day. He wants to model how his stored energy increases deaily. Please answer questions below about the model Joe must build.</p>
 		<button id="button3" onClick="cont3()">Question3</button>
-		<div id="question3" style="display:none">
+		<div id="question3" style="display:">
 		<script type="text/javascript">
 	var two = {
 		A:0,
@@ -311,7 +311,7 @@
 		<p>The enrgy balance of your body is the difference between the energy you addd to your body by ingesting food and the energy you subtract from your body by physical exercies and other activities. When the energy you ingest exactly equals the energy you expend, the energy balance is zero. When the energy you ingest is greater than the energy you expend, the energy balance is positive, and the excess energy is added to your body's stores. When you consume less energy tha you expend, the energy balance is negative and your body makes up the deficit by withdrawing energy from storage. The energy balance can change every day. Thus, if the energy balance is negative, then the energy stored goes down.</p>
 		<p>Joe's next model of his energy balance is more complex. It makes energy balance a function of energy ingested and energy expended. Eventually, this will allow hiim to vary them separately. For instance, he can see what happens if he keeps his diet the same (and hence energy ingested is the same as it is now) but he does more exercise (so his energy expended is higher than it is now). However, for now he assumes that his daily expenditure is  2100 calories and his daily ingestion nets him 1989 calories.</p>
 		<button id="button4" onClick="cont4();">Question 4</button>
-		<div id="question4" style="display:none">
+		<div id="question4" style="display:">
 		<script type="text/javascript">
 	var three = {
 		A:0,
@@ -524,7 +524,7 @@
 		<!--Pg.7-->
 		<p>Almost all the body's energy is stored as tissue, such as fat, muscle, internal organs, and skin. roughly speaking, a pound of tissue stores 3500 calories. Create a model that represents stored energy in Joe's body as his weight in pounds.</p>
 		<button id="button5" onClick="cont5();">Question 5</button>
-		<div id="question5" style="display:none">
+		<div id="question5" style="display:">
 		<script type="text/javascript">
 	var four = {
 		A:0,
@@ -697,7 +697,7 @@
 		</ul>
 		<p>Based on his reading of the physiology literature, Joe estimates that his numbers are 400, 1400, and 200 calories, respectively.</p>
 		<button id="button6" onClick="cont6();">Question 6</button>
-		<div id="question6" style="display:none">
+		<div id="question6" style="display:">
 		<script type="text/javascript">
 	var five = {
 		A:0,
@@ -974,7 +974,7 @@
 			</tbody>
 		</table>
 		<button id="button7" onClick="cont7();">Question 7</button>
-		<div id="question7" style="display:none">
+		<div id="question7" style="display:">
 		<script type="text/javascript">
 	var six = {
 		A:0,
@@ -1246,7 +1246,7 @@
 			</tbody>
 		</table>
 		<button id="button8" onClick="cont8();">Question 8</button>
-		<div id="question8" style="display:none">
+		<div id="question8" style="display:">
 		<script type="text/javascript">
 	var seven = {
 		A:0,
@@ -1632,8 +1632,7 @@
 			</tr>
 			</tbody>
 		</table>
-		<button id="button9" onClick="cont9();">Check Answers</button>
-		<button id="button10" onClick="button10" style="display:none">See Results Table</button>
+		<button id="button9" onClick="cont9();">Check Answers and See Results</button>
 		<script type="text/javascript">
 		var eight = {
 		A:0,
@@ -1657,6 +1656,7 @@
 		S:0,
 		}
 		function cont9 () {
+		alert("executing");
 		checkAnswers("eightA", "199");
 		checkAnswers("eightBi", "400");
 		checkAnswers("eightBii", "280");
@@ -1676,132 +1676,146 @@
 		checkAnswers("eightFxi", "parameter");
 		checkAnswers("eightFxii", "parameter");
 		checkAnswers("eightFxiii", "parameter");
-		
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (checkAnswers("eightA", "199") && checkAnswers("eightBi", "400") && checkAnswers("eightBii", "280") && checkAnswers("eightC", "2080") && checkAnswers("eightD", "gain") && checkAnswers("eightE", "0.55") checkAnswers("eightFi", "function") && checkAnswers("eightFii", "weight REE") && checkAnswers("eightFiii", "age REE") && checkAnswers("eightFiv", "height REE") && checkAnswers("eightFv", "function") && checkAnswers("eightFvi", "parameter") && checkAnswers("eightFvii", "function") && checkAnswers("eightFviii", "parameter") && checkAnswers("eightFix", "parameter") && checkAnswers("eightFx", "function") && checkAnswers("eightFxi", "parameter") && checkAnswers("eightFxii", "parameter") && checkAnswers("eightFxiii", "parameter")) {
+	document.getElementById("resultsTable").style.display="";
+	document.getElementById("button9").style.display="none";
+	displayAnswers();
+	}	
+	if (document.getElementById("eightA").value==="" || document.getElementById("eightBi").value==="" || document.getElementById("eightBii").value==="" || document.getElementById("eightC").value==="" || document.getElementById("eightD").value==="" || document.getElementById("eightE").value==="" || document.getElementById("eightFi").value==="" || document.getElementById("eightFi").value==="" || document.getElementById("eightFii").value==="" || document.getElementById("eightFiii").value==="" || document.getElementById("eightFiv").value==="" || document.getElementById("eightFv").value==="" || document.getElementById("eightFvi").value==="" || document.getElementById("eightFvii").value==="" || document.getElementById("eightFviii").value==="" || document.getElementById("eightFix").value==="" || document.getElementById("eightFx").value==="" || document.getElementById("eightFxi").value==="" || document.getElementById("eightFxii").value==="" || document.getElementById("eightFxiii").value==="") {
+	alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
+	}
+	if (!checkAnswers("eightA", "199")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightA").value="199";
+		document.getElementById("eightA").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightBi", "400")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightBi").value="400";
+		document.getElementById("eightBi").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightBii", "280")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightBii").value="280";
+		document.getElementById("eightBii").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightC", "2080")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightC").value="2080";
+		document.getElementById("eightC").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightD", "gain")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightD").value="gain";
+		document.getElementById("eightD").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightE", "0.55")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightE").value="0.55";
+		document.getElementById("eightE").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightFi", "function")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightFi").value="function";
+		document.getElementById("eightFi").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightFii", "weight REE")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightFii").value="weight REE";
+		document.getElementById("eightFii").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightFiii", "age REE")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightFiii").value="age REE";
+		document.getElementById("eightFiii").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightFiv", "height REE")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightFiv").value="height REE";
+		document.getElementById("eightFiv").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightFv", "function")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightFv").value="function";
+		document.getElementById("eightFv").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightFvi", "parameter")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightFvi").value="parameter";
+		document.getElementById("eightFvi").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightFvii", "function")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightFvii").value="function";
+		document.getElementById("eightFvii").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightFviii", "parameter")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightFviii").value="parameter";
+		document.getElementById("eightFviii").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightFix", "parameter")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightFix").value="parameter";
+		document.getElementById("eightFix").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightFx", "function")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightFx").value="function";
+		document.getElementById("eightFx").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightFxi", "parameter")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightFxi").value="parameter";
+		document.getElementById("eightFxi").style.background="#FFFF00"
 		}
-	if (!checkAnswers("fiveAi", "parameter")) {
+	if (!checkAnswers("eightFxii", "parameter")) {
 		five.A=five.A+1;
 		}
 		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
+		document.getElementById("eightFxii").value="parameter";
+		document.getElementById("eightFxii").style.background="#FFFF00"
+		}
+	if (!checkAnswers("eightFxiii", "parameter")) {
+		five.A=five.A+1;
+		}
+		if (five.A===3) {
+		document.getElementById("eightFxiii").value="parameter";
+		document.getElementById("eightFxiii").style.background="#FFFF00"
 		}
 		};
 		</script>
@@ -1867,7 +1881,9 @@
 	</table>
 	</div>
 	<script type="text/javascript">
+	function displayAnswers () {
 	document.getElementById("1Aianswer").innerHTML=document.getElementById("oneAi").value;
+	};
 	</script>
 		</body>
  </html>
