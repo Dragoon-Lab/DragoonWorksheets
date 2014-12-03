@@ -420,23 +420,23 @@
 		document.getElementById("threeBviii").style.background="#FFFF00"
 		}
 	if (!checkAnswers("threeBix", "345500")) {
-		three.J=three.J+1;
+		three.K=three.K+1;
 		}
-		if (three.J===3) {
+		if (three.K===3) {
 		document.getElementById("threeBix").value="345500";
 		document.getElementById("threeBix").style.background="#FFFF00"
 		}
 	if (!checkAnswers("threeCi", "X-axis (independent value)")) {
-		three.J=three.J+1;
+		three.L=three.L+1;
 		}
-		if (three.J===3) {
+		if (three.L===3) {
 		document.getElementById("threeCi").value="X-axis (independent value)";
 		document.getElementById("threeCi").style.background="#FFFF00"
 		}
 	if (!checkAnswers("threeCii", "Y-axis (dependent value)")) {
-		three.J=three.J+1;
+		three.M=three.M+1;
 		}
-		if (three.J===3) {
+		if (three.M===3) {
 		document.getElementById("threeCii").value="Y-axis (dependent value)";
 		document.getElementById("threeCii").style.background="#FFFF00"
 		}
@@ -1396,6 +1396,7 @@
 		<input type="number" id="eightC"> calories</p>
 		<p>8d. Does he gain or lose weight?</p>
 		<select id="eightD">
+		<option></option>
 		<option>gain</option>
 		<option>lose</option>
 		</select>
@@ -1868,9 +1869,120 @@
 	</tr>
 	<tr>
 	<td>1c. ii.</td>
-	<td>beaver population</td>400`
+	<td>beaver population</td>
 	<td><div id="1CiiAnswer"></div></td>
 	<td><div id="1CiiTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>2a. i.</td>
+	<td>parameter</td>
+	<td><div id="2AiAnswer"></div></td>
+	<td><div id="2AiTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>2a. ii.</td>
+	<td>2</td>
+	<td><div id="2AiiAnswer"></div></td>
+	<td><div id="2AiiTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>2b.</td>
+	<td>accumulator</td>
+	<td><div id="2BAnswer"></div></td>
+	<td><div id="2BTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>3a. i.</td>
+	<td>parameter</td>
+	<td><div id="3AiAnswer"></div></td>
+	<td><div id="3AiTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>3a. ii.</td>
+	<td>accumulator</td>
+	<td><div id="3AiiAnswer"></div></td>
+	<td><div id="3AiiTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>3b. i.</td>
+	<td>345100</td>
+	<td><div id="3BiAnswer"></div></td>
+	<td><div id="3BiTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>3b. ii.</td>
+	<td>345200</td>
+	<td><div id="3BiiAnswer"></div></td>
+	<td><div id="3BiiTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>3b. iii.</td>
+	<td>345200</td>
+	<td><div id="3BiiiAnswer"></div></td>
+	<td><div id="3BiiiTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>3b. iv.</td>
+	<td>100</td>
+	<td><div id="3BivAnswer"></div></td>
+	<td><div id="3BivTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>3b. v.</td>
+	<td>345300</td>
+	<td><div id="3BvAnswer"></div></td>
+	<td><div id="3BvTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>3b. vi.</td>
+	<td>100</td>
+	<td><div id="3BviAnswer"></div></td>
+	<td><div id="3BviTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>3b. vii.</td>
+	<td>345400</td>
+	<td><div id="3BviiAnswer"></div></td>
+	<td><div id="3BviiTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>3b. viii</td>
+	<td>100</td>
+	<td><div id="3BviiiAnswer"></div></td>
+	<td><div id="3BviiiTries"></div><td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>3b. ix.</td>
+	<td>345500</td>
+	<td><div id="3BixAnswer"></div></td>
+	<td><div id="3BixTries"></div></td>
+	<td></td>
+	</tr>
+	<td>3c. i.</td>
+	<td>X-axis (independent value)</td>
+	<td><div id="3ciAnswer"></div></td>
+	<td><div id="3ciTries"></div></td>
+	<td></td>
+	</tr>
+	<tr>
+	<td>3c. ii.</td>
+	<td>Y-axis (dependent value)</td>
+	<td><div id="3CiiAnswer"></div></td>
+	<td><div id="3CiiTries"></div></td>
 	<td></td>
 	</tr>
 	</tbody>
@@ -1879,15 +1991,47 @@
 	<script type="text/javascript">
 	function displayAnswers () {
 	document.getElementById("1AiAnswer").innerHTML=document.getElementById("oneAi").value;
-	document.getElementById("1AiTries").innerHTML=document.getElementById("one.A").value;
+	document.getElementById("1AiTries").innerHTML=one.A;
 	document.getElementById("1AiiAnswer").innerHTML=document.getElementById("oneAii").value;
-	//document.getElementById("1AiiTries").innerHTML=document.getElementById("one.B").value;
+	document.getElementById("1AiiTries").innerHTML=one.B;
 	document.getElementById("1BAnswer").innerHTML=document.getElementById("oneB").value;
-	//document.getElementById("1BTries").innerHTML=document.getElementById("one.C").value;
+	document.getElementById("1BTries").innerHTML=one.C;
 	document.getElementById("1CiAnswer").innerHTML=document.getElementById("oneCi").value;
-	//document.getElementById("1CiTries").innerHTML=document.getElementById("one.D").value;
+	document.getElementById("1CiTries").innerHTML=one.D;
 	document.getElementById("1CiiAnswer").innerHTML=document.getElementById("oneCii").value;
-	//document.getElementById("1CiiTries").innerHTML=document.getElementById("one.E").value;
+	document.getElementById("1CiiTries").innerHTML=one.E;
+	document.getElementById("2AiAnswer").innerHTML=document.getElementById("twoAi").value;
+	document.getElementById("2AiTries").innerHTML=two.A;
+	document.getElementById("2AiiAnswer").innerHTMl=document.getElementById("twoAii").value;
+	document.getElementById("2AiiTries").innerHTML=two.B;
+	document.getElementById("2BAnswer").innerHTML=document.getElementById("twoB").value;
+	document.getElementById("2BTries").innerHTML=two.C;
+	document.getElementById("3AiAnswer").innerHTML=document.getElementById("threeAi").value;
+	document.getElementById("3AiTries").innerHTMl=three.A;
+	document.getElementById("3AiiAnswer").innerHTML=document.getElementById("threeAii").value;
+	document.getElementById("3AiiTries").innerHTML=three.B;
+	document.getElementById("3BiAnswer").innerHTML=document.getElementById("threeBi").value;
+	document.getElementById("3BiTries").innerHTML=three.C;
+	document.getElementById("3BiiAnswer").innerHTML=document.getElementById("threeBii").value;
+	document.getElementById("3BiiTries").innerHTML=three.D;
+	document.getElementById("3BiiiAnswer").innerHTML=document.getElementById("threeBiii").value;
+	document.getElementById("3BiiiTries").innerHTML=three.E;
+	document.getElementById("3BivAnswer").innerHTML=document.getElementById("threeBiv").value;
+	document.getElementById("3BivTries").innerHTML=three.F;
+	document.getElementById("3BvAnswer").innerHTML=document.getElementById("threeBv").value;
+	document.getElementById("3BvTries").innerHTML=three.G;
+	document.getElementById("3BviAnswer").innerHTML=document.getElementById("threeBvi").value;
+	document.getElementById("3BviTries").innerHTML=three.H;
+	document.getElementById("3BviiAnswer").innerHTML=document.getElementById("threeBvii").value;
+	document.getElementById("3BviiTries").innerHTML=three.I;
+	document.getElementById("3BviiiAnswer").innerHTML=document.getElementById("threeBviii").value;
+	document.getElementById("3BviiiTries").innerHTML=three.J;
+	document.getElementById("3BixAnswer").innerHTML=document.getElementById("threeBix").value;
+	document.getElementById("3BixTries").innerHTML=three.K;
+	document.getElementById("3CiAnswer").innerHTML=document.getElementById("threeCi");
+	document.getElementById("3CiTries").innerHTML=three.L;
+	document.getElementById("3CiiAnswer").innerHTML=document.getElementById("threeCii");
+	document.getElementById("3CiiTries").innerHTMl=three.M;
 	};
 	</script>
 		</body>
