@@ -1,11 +1,11 @@
  <!DOCTYPE html>
  <html>
  
-	<head>
+<head>
 	<link rel="stylesheet" type="css/text" href="Formatting.css">
 	
-	</head>
-	<body>
+</head>
+<body>
 	<div id="worksheet">
 		<h1>Workbook 1</h1>
 		<h1>Modeling Practice (FORM D)</h1>
@@ -23,130 +23,143 @@
 		<button id="button1" onClick="cont1();">Question 1</button>
 		<div id="question1" style="display:">
 		<script type="text/javascript">
-		function cont1() {
-		document.getElementById("question1").style.display="";
-		document.getElementById("button1").style.display="none";
-		}
+			function cont1() {
+				document.getElementById("question1").style.display="";
+				document.getElementById("button1").style.display="none";
+			}
 		</script>
 		<h3>Question 1</h3>
 		<p>Suppose you are creating a model of the system described in the italicized paragraph below.</p>
 		<p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population<!--because beavers are immortal--> (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p>
 		1a. The "beaver population" is an <b>accumulator</b> whose value is calculated by  the following expression: new beaver population = old beaver population + 
 		<select id="oneAi">
-		<option></option>
-		<option>beaver birth rate</option>
-		<option>beaver population</option>
-		<option>beaver births</option>
-		<option>20</option>
-		<option>30%</option>
+			<option></option>
+			<option>beaver birth rate</option>
+			<option>beaver population</option>
+			<option>beaver births</option>
+			<option>20</option>
+			<option>30%</option>
 		</select>
 		<br>
 		Initial value: 
 		<select id="oneAii">
-		<option></option>
-		<option>beaver birth rate</option>
-		<option>beaver population</option>
-		<option>beaver births</option>
-		<option>20</option>
-		<option>30%</option>
+			<option></option>
+			<option>beaver birth rate</option>
+			<option>beaver population</option>
+			<option>beaver births</option>
+			<option>20</option>
+			<option>30%</option>
 		</select>
 		<br>
 		1b. The "beaver birth rate" is a <b>parameter</b> whose value is equal to 
 		<select id="oneB">
-		<option></option>
-		<option>beaver birth rate</option>
-		<option>beaver population</option>
-		<option>beaver births</option>
-		<option>20</option>
-		<option>30%</option>
+			<option></option>
+			<option>beaver birth rate</option>
+			<option>beaver population</option>
+			<option>beaver births</option>
+			<option>20</option>
+			<option>30%</option>
 		</select>
 		<br>
 		1c. "Beaver births" is a function whose value is characterized by the following mathematical expression: 
 		<select id="oneCi">
-		<option></option>
-		<option>beaver birth rate</option>
-		<option>beaver population</option>
-		<option>beaver births</option>
-		<option>20</option>
-		<option>30%</option>
+			<option></option>
+			<option>beaver birth rate</option>
+			<option>beaver population</option>
+			<option>beaver births</option>
+			<option>20</option>
+			<option>30%</option>
 		</select> x
 		<select id="oneCii">
-		<option></option>
-		<option>beaver birth rate</option>
-		<option>beaver population</option>
-		<option>beaver births</option>
-		<option>20</option>
-		<option>30%</option>
+			<option></option>
+			<option>beaver birth rate</option>
+			<option>beaver population</option>
+			<option>beaver births</option>
+			<option>20</option>
+			<option>30%</option>
 		</select><br>
 		<button id="button2" onClick="cont2();">Question 2</button>
 		<div id="question2" style="display:">
 		<script type="text/javascript">
-		var one = {
-			A:0,
-			B:0,
-			C:0,
-			D:0,
-			E:0
-		};
-		function cont2() {
-		checkAnswers("oneAi", "beaver births");
-		checkAnswers("oneAii", "20");
-		checkAnswers("oneB", "30%");
-		checkAnswers("oneCi", "beaver birth rate");
-		checkAnswers("oneCii", "beaver population");
-		if (document.getElementById("oneAi").value===""||document.getElementById("oneAii").value===""||document.getElementById("oneB").value===""||document.getElementById("oneCi").value===""||document.getElementById("oneCii").value==="") {
-		alert("It appears you have left at least one of the slots blank. Please remedy this immediately.");
-		};
-		if (checkAnswers("oneAi", "beaver births") && checkAnswers("oneAii", "20") && checkAnswers("oneB", "30%") && checkAnswers("oneCi", "beaver birth rate")&& checkAnswers("oneCii", "beaver population")) {
-		document.getElementById("question2").style.display="";
-		document.getElementById("button2").style.display="none";
-		}
-		if (!checkAnswers("oneAi", "beaver births")) {
-		one.A=one.A+1;
-		}
-		if (one.A===3) {
-		document.getElementById("oneAi").value="beaver births";
-		document.getElementById("oneAi").style.background="#FFFF00"
-		}
-		if (!checkAnswers("oneAii", "20")) {
-		one.B=one.B+1;
-		}
-		if (one.B===3) {
-		document.getElementById("oneAii").value="20";
-		document.getElementById("oneAii").style.background="#FFFF00"
-		}
-		if (!checkAnswers("oneB", "30%")) {
-		one.C=one.C+1;
-		}
-		if (one.C===3) {
-		document.getElementById("oneB").value="30%";
-		document.getElementById("oneB").style.background="#FFFF00"
-		}
-		if (!checkAnswers("oneCi", "beaver birth rate")) {
-		one.D=one.D+1;
-		}
-		if (one.D===3) {
-		document.getElementById("oneCi").value="beaver birth rate";
-		document.getElementById("oneCi").style.background="#FFFF00"
-		}
-		if (!checkAnswers("oneCii", "beaver population")) {
-		one.E=one.E+1;
-		}
-		if (one.E===3) {
-		document.getElementById("oneCii").value="beaver population";
-		document.getElementById("oneCii").style.background="#FFFF00"
-		}
-		};
-		function checkAnswers(inputId, rightAnswer) {
-		if (document.getElementById(inputId).value===rightAnswer) {
-		document.getElementById(inputId).style.background="#66FF33";
-		return true;
-		}
-		else {
-		document.getElementById(inputId).style.background="#FF3333";
-		return false;
-		}
-		};
+			var one = {
+				A:0,
+				B:0,
+				C:0,
+				D:0,
+				E:0
+			};
+			function cont2() {
+				checkAnswers("oneAi", "beaver births");
+				checkAnswers("oneAii", "20");
+				checkAnswers("oneB", "30%");
+				checkAnswers("oneCi", "beaver birth rate");
+				checkAnswers("oneCii", "beaver population");
+				if (document.getElementById("oneAi").value===""||document.getElementById("oneAii").value===""||document.getElementById("oneB").value===""||document.getElementById("oneCi").value===""||document.getElementById("oneCii").value==="") {
+					alert("It appears you have left at least one of the slots blank. Please remedy this immediately.");
+				};
+				if (checkAnswers("oneAi", "beaver births") && checkAnswers("oneAii", "20") && checkAnswers("oneB", "30%") && checkAnswers("oneCi", "beaver birth rate")&& checkAnswers("oneCii", "beaver population")) {
+					document.getElementById("question2").style.display="";
+					document.getElementById("button2").style.display="none";
+				}
+				if (!checkAnswers("oneAi", "beaver births")) {
+					alert(one.A);
+					one.A=one.A+1;
+					if (one.A===1) {
+						document.getElementById("1AiAnswer1").innerHTML=document.getElementById("oneAi").value;
+					}
+					else if (one.A===2) {
+						document.getElementById("1AiAnswer2").innerHTML=" ;" + document.getElementById("oneAi").value;
+					}
+					else {
+						document.getElementById("1AiAnswer3").innerHTML=" ;" + document.getElementById("oneAi").value;
+					}
+				}
+				else {
+					document.getElementById("1AiAnswer1").innerHTML=document.getElementById("oneAi").value;
+				};
+				if (one.A===3) {
+					document.getElementById("oneAi").value="beaver births";
+					document.getElementById("oneAi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("oneAii", "20")) {
+					one.B=one.B+1;
+				}
+				if (one.B===3) {
+					document.getElementById("oneAii").value="20";
+					document.getElementById("oneAii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("oneB", "30%")) {
+					one.C=one.C+1;
+				}
+				if (one.C===3) {
+					document.getElementById("oneB").value="30%";
+					document.getElementById("oneB").style.background="#FFFF00"
+				}
+				if (!checkAnswers("oneCi", "beaver birth rate")) {
+					one.D=one.D+1;
+				}
+				if (one.D===3) {
+					document.getElementById("oneCi").value="beaver birth rate";
+					document.getElementById("oneCi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("oneCii", "beaver population")) {
+					one.E=one.E+1;
+				}
+				if (one.E===3) {
+					document.getElementById("oneCii").value="beaver population";
+					document.getElementById("oneCii").style.background="#FFFF00"
+				}
+			};
+			function checkAnswers(inputId, rightAnswer) {
+				if (document.getElementById(inputId).value===rightAnswer) {
+					document.getElementById(inputId).style.background="#66FF33";
+					return true;
+				}
+				else {
+					document.getElementById(inputId).style.background="#FF3333";
+					return false;
+				}
+			};
 		</script>
 		<h3>Question 2</h3>
 		<p>Assume you are modeling the system described below in italics.</p>
@@ -154,19 +167,19 @@
 		<p><i>Brandon has 100 video games.</i></p>
 		2a. The number of video games Brandon buys every week is a(n): 
 		<select id="twoAi">
-		<option></option>
-		<option>parameter</option>
-		<option>accumulator</option>
-		<option>function</option>
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
 		</select>
 		<br>
 			and is equal to <input type="number" name="twoA" id="twoAii"> games/week.<br>
 		2b. The number of video games Brandon has each week is the number of video games he had the preceding week plus the number of games he buys this week. Therefore, the number of video games Brandon has is a(n): </p>
 		<select id="twoB">
-		<option></option>
-		<option>parameter</option>
-		<option>accumulator</option>
-		<option>function</option>
+			<option></option>
+			<option>parameter</option>
+			<option>accumulator</option>
+			<option>function</option>
 		</select>
 		<!--Pg. 3 -->
 		<p>Although your body burns energy at a more-or-less constant amount per day, the amount of energy primitive humans ingested per day varied greatly depending on how lucky they were at hunting and gathering. Thus, humans developed the ability to store energy from food. When there is surplus energy from ingestion, the body stores it as fat and other tissue. When there is too little energy from ingestion, then the body converts fat and other tissues back to energy.</p>
@@ -175,45 +188,45 @@
 		<button id="button3" onClick="cont3()">Question3</button>
 		<div id="question3" style="display:">
 		<script type="text/javascript">
-	var two = {
-		A:0,
-		B:0,
-		C:0
-	};
-	function cont3() {
-	checkAnswers("twoAi", "parameter");
-	checkAnswers("twoAii", "2");
-	checkAnswers("twoB", "accumulator");
-	if (document.getElementById("twoAi").value==="" || document.getElementById("twoAii").value==="" || document.getElementById("twoB").value==="") {
-	alert ("It appears you have left at least one of the slots blank. Please remedy this immediately");
-	};
-	if (checkAnswers("twoAi", "parameter") && checkAnswers("twoAii", "2") && checkAnswers("twoB", "accumulator")) {
-	document.getElementById("question3").style.display="";
-	document.getElementById("button3").style.display="none";
-	}
-	if (!checkAnswers("twoAi", "parameter")) {
-		two.A=two.A+1;
-		}
-		if (two.A===3) {
-		document.getElementById("twoAi").value="parameter";
-		document.getElementById("twoAi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("twoAii", "2")) {
-		two.B=two.B+1;
-		}
-		if (two.B===3) {
-		document.getElementById("twoAii").value="2";
-		document.getElementById("twoAii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("twoB", "accumulator")) {
-		two.C=two.C+1;
-		}
-		if (two.C===3) {
-		document.getElementById("twoB").value="accumulator";
-		document.getElementById("twoB").style.background="#FFFF00"
-		}
-		};
-	</script>
+			var two = {
+				A:0,
+				B:0,
+				C:0
+			};
+			function cont3() {
+				checkAnswers("twoAi", "parameter");
+				checkAnswers("twoAii", "2");
+				checkAnswers("twoB", "accumulator");
+				if (document.getElementById("twoAi").value==="" || document.getElementById("twoAii").value==="" || document.getElementById("twoB").value==="") {
+					alert ("It appears you have left at least one of the slots blank. Please remedy this immediately");
+				};
+				if (checkAnswers("twoAi", "parameter") && checkAnswers("twoAii", "2") && checkAnswers("twoB", "accumulator")) {
+					document.getElementById("question3").style.display="";
+					document.getElementById("button3").style.display="none";
+				}
+				if (!checkAnswers("twoAi", "parameter")) {
+					two.A=two.A+1;
+				}
+				if (two.A===3) {
+					document.getElementById("twoAi").value="parameter";
+					document.getElementById("twoAi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("twoAii", "2")) {
+					two.B=two.B+1;
+				}
+				if (two.B===3) {
+					document.getElementById("twoAii").value="2";
+					document.getElementById("twoAii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("twoB", "accumulator")) {
+					two.C=two.C+1;
+				}
+				if (two.C===3) {
+					document.getElementById("twoB").value="accumulator";
+					document.getElementById("twoB").style.background="#FFFF00"
+				}
+			};
+		</script>
 		<h2>Question 3</h2>
 		<p>3a. Fill in the blanks.</p>
 		<table>
@@ -224,27 +237,27 @@
 			</thead>
 			<tbody>
 				<tr>
-				<td >energy balance</td>
-				<td >
-				<select id="threeAi">
-				<option></option>
-				<option>parameter</option>
-				<option>accumulator</option>
-				<option>function</option>				
-				</select>
-				</td>
-				<td >Small surplus per day, value= 100 calories</td>
+					<td>energy balance</td>
+					<td>
+						<select id="threeAi">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>				
+						</select>
+					</td>
+					<td>Small surplus per day, value= 100 calories</td>
 				</tr>
 				<tr>
-				<td>energy stored</td>
-				<td>
-				<select id="threeAii">
-				<option></option>
-				<option>parameter</option>
-				<option>accumulator</option>
-				<option>function</option></td>
-				</select>
-				<td>energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 245,000 calories<td>
+					<td>energy stored</td>
+					<td>
+						<select id="threeAii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option></td>
+						</select>
+					<td>energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 245,000 calories</td>
 				</tr>
 			</tbody>
 		</table>
@@ -258,50 +271,50 @@
 			</thead>
 			<tbody>
 				<tr>
-				<td>0</td>
-				<td>N/A</td>
-				<td>345000</td>
+					<td>0</td>
+					<td>N/A</td>
+					<td>345000</td>
 				</tr>
 				<tr>
-				<td>1</td>
-				<td>345000 + 100</td>
-				<td><input type="number" name="threeBi" id="threeBi"></td>
+					<td>1</td>
+					<td>345000 + 100</td>
+					<td><input type="number" name="threeBi" id="threeBi"></td>
 				</tr>
 				<tr>
-				<td>2</td>
-				<td>345100 + 100</td>
-				<td><input type="number" name="threeBii" id="threeBii"></td>
+					<td>2</td>
+					<td>345100 + 100</td>
+					<td><input type="number" name="threeBii" id="threeBii"></td>
 				</tr>
 				<tr>
-				<td>3</td>
-				<td><input type="number" name="threeBiii" id="threeBiii"> + <input type="number" name="threeBiv" id="threeBiv"></td>
-				<td>345300</td>
+					<td>3</td>
+					<td><input type="number" name="threeBiii" id="threeBiii"> + <input type="number" name="threeBiv" id="threeBiv"></td>
+					<td>345300</td>
 				</tr>
 				<tr>
-				<td>4</td>
-				<td><input type="number" name="threeBv" id="threeBv"> + <input type="number" name="threeBvi" id="threeBvi"></td>
-				<td>345400</td>
+					<td>4</td>
+					<td><input type="number" name="threeBv" id="threeBv"> + <input type="number" name="threeBvi" id="threeBvi"></td>
+					<td>345400</td>
 				</tr>
 				<tr>
-				<td>5</td>
-				<td><input type="number" name="threeBvii" id="threeBvii"> + <input type="number" name="threeBviii" id="threeBviii"></td>
-				<td><input type="number" name="threeBix" id="threeBix"></td>
+					<td>5</td>
+					<td><input type="number" name="threeBvii" id="threeBvii"> + <input type="number" name="threeBviii" id="threeBviii"></td>
+					<td><input type="number" name="threeBix" id="threeBix"></td>
 				</tr>
 			</tbody>
 		</table>
 		<p>3c. Joe wants to graph his energy balance. What is the x-axis value (the independent value) and what is the y-axis value (the dependent value)? Write the correct answer on the line and then make a rough graph of it on the plot below.</p>
 		<p><b>time </b>
 		<select id="threeCi">
-		<option></option>
-		<option>X-axis (independent value)</option>
-		<option>Y-axis (dependent value)</option>		
+			<option></option>
+			<option>X-axis (independent value)</option>
+			<option>Y-axis (dependent value)</option>		
 		</select>
 		</p>
 		<p><b>energy stored </b>
 		<select id="threeCii">
-		<option></option>
-		<option>X-axis (independent value)</option>
-		<option>Y-axis (dependent value)</option>
+			<option></option>
+			<option>X-axis (independent value)</option>
+			<option>Y-axis (dependent value)</option>
 		</select>
 		</p>
 		<!--Pg. 4-->
@@ -313,212 +326,212 @@
 		<button id="button4" onClick="cont4();">Question 4</button>
 		<div id="question4" style="display:">
 		<script type="text/javascript">
-	var three = {
-		A:0,
-		B:0,
-		C:0,
-		D:0,
-		E:0,
-		F:0,
-		G:0,
-		H:0,
-		I:0,
-		J:0,
-		K:0,
-		L:0,
-		M:0
-	};
-	function cont4 () {
-	checkAnswers("threeAi", "parameter");
-	checkAnswers("threeAii", "accumulator");
-	checkAnswers("threeBi", "345100");
-	checkAnswers("threeBii", "345200");
-	checkAnswers("threeBiii", "345200");
-	checkAnswers("threeBiv", "100");
-	checkAnswers("threeBv","345300");
-	checkAnswers("threeBvi","100");
-	checkAnswers("threeBvii", "345400");
-	checkAnswers("threeBviii", "100");
-	checkAnswers("threeBix", "345500");
-	checkAnswers("threeCi", "X-axis (independent value)");
-	checkAnswers("threeCii", "Y-axis (dependent value)");
-	if (document.getElementById("threeAi").value==="" || document.getElementById("threeAii").value==="" || document.getElementById("threeBi").value==="" || document.getElementById("threeBii").value==="" || document.getElementById("threeBiii").value==="" || document.getElementById("threeBiv").value==="" || document.getElementById("threeBv").value==="" || document.getElementById("threeBvi").value==="" || document.getElementById("threeBvii").value==="" || document.getElementById("threeBviii").value==="" || document.getElementById("threeBix").value==="" || document.getElementById("threeCi").value==="" || document.getElementById("threeCii").value==="") {
-	alert ("It appears you have left at lest one of the slots blank. Please remedy this immediately.");
-	};
-	if (checkAnswers("threeAi", "parameter") &&	checkAnswers("threeAii", "accumulator") && checkAnswers("threeBi", "345100") && checkAnswers("threeBii", "345200") && checkAnswers("threeBiii", "345200") && checkAnswers("threeBiv", "100") && checkAnswers("threeBv","345300") && checkAnswers("threeBvi","100") && checkAnswers("threeBvii", "345400") && checkAnswers("threeBviii", "100") && checkAnswers("threeBix", "345500") && checkAnswers("threeCi", "X-axis (independent value)") && checkAnswers("threeCii", "Y-axis (dependent value)")) {
-	document.getElementById("question4").style.display="";
-	document.getElementById("button4").style.display="none";
-	}
-	if (!checkAnswers("threeAi", "parameter")) {
-		three.A=three.A+1;
-		}
-		if (three.A===3) {
-		document.getElementById("threeAi").value="parameter";
-		document.getElementById("threeAi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("threeAii", "accumulator")) {
-		three.B=three.B+1;
-		}
-		if (three.B===3) {
-		document.getElementById("threeAii").value="accumulator";
-		document.getElementById("threeAii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("threeBi", "345100")) {
-		three.C=three.C+1;
-		}
-		if (three.C===3) {
-		document.getElementById("threeBi").value="345100";
-		document.getElementById("threeBi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("threeBii", "345200")) {
-		three.D=three.D+1;
-		}
-		if (three.D===3) {
-		document.getElementById("threeBii").value="345200";
-		document.getElementById("threeBii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("threeBiii", "345200")) {
-		three.E=three.E+1;
-		}
-		if (three.E==3) {
-		document.getElementById("joe5").value="345200";
-		document.getElementById("joe5").style.background="#FFFF00"
-		}
-	if (!checkAnswers("threeBiv", "100")) {
-		three.F=three.F+1;
-		}
-		if (three.F===3) {
-		document.getElementById("threeBiv").value="100";
-		document.getElementById("threeBiv").style.background="#FFFF00"
-		}
-	if (!checkAnswers("threeBv", "345300")) {
-		three.G=three.G+1;
-		}
-		if (three.G===3) {
-		document.getElementById("threeBv").value="345300";
-		document.getElementById("threeBv").style.background="#FFFF00"
-		}
-	if (!checkAnswers("threeBvi", "100")) {
-		three.H=three.H+1;
-		}
-		if (three.H===3) {
-		document.getElementById("threeBvi").value="100";
-		document.getElementById("threeBvi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("threeBvii", "345400")) {
-		three.I=three.I+1;
-		}
-		if (three.I===3) {
-		document.getElementById("threeBvii").value="345400";
-		document.getElementById("threeBvii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("threeBviii", "100")) {
-		three.J=three.J+1;
-		}
-		if (three.J===3) {
-		document.getElementById("threeBviii").value="100";
-		document.getElementById("threeBviii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("threeBix", "345500")) {
-		three.K=three.K+1;
-		}
-		if (three.K===3) {
-		document.getElementById("threeBix").value="345500";
-		document.getElementById("threeBix").style.background="#FFFF00"
-		}
-	if (!checkAnswers("threeCi", "X-axis (independent value)")) {
-		three.L=three.L+1;
-		}
-		if (three.L===3) {
-		document.getElementById("threeCi").value="X-axis (independent value)";
-		document.getElementById("threeCi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("threeCii", "Y-axis (dependent value)")) {
-		three.M=three.M+1;
-		}
-		if (three.M===3) {
-		document.getElementById("threeCii").value="Y-axis (dependent value)";
-		document.getElementById("threeCii").style.background="#FFFF00"
-		}
-	};
-	</script>
+			var three = {
+				A:0,
+				B:0,
+				C:0,
+				D:0,
+				E:0,
+				F:0,
+				G:0,
+				H:0,
+				I:0,
+				J:0,
+				K:0,
+				L:0,
+				M:0
+			};
+			function cont4 () {
+				checkAnswers("threeAi", "parameter");
+				checkAnswers("threeAii", "accumulator");
+				checkAnswers("threeBi", "345100");
+				checkAnswers("threeBii", "345200");
+				checkAnswers("threeBiii", "345200");
+				checkAnswers("threeBiv", "100");
+				checkAnswers("threeBv","345300");
+				checkAnswers("threeBvi","100");
+				checkAnswers("threeBvii", "345400");
+				checkAnswers("threeBviii", "100");
+				checkAnswers("threeBix", "345500");
+				checkAnswers("threeCi", "X-axis (independent value)");
+				checkAnswers("threeCii", "Y-axis (dependent value)");
+				if (document.getElementById("threeAi").value==="" || document.getElementById("threeAii").value==="" || document.getElementById("threeBi").value==="" || document.getElementById("threeBii").value==="" || document.getElementById("threeBiii").value==="" || document.getElementById("threeBiv").value==="" || document.getElementById("threeBv").value==="" || document.getElementById("threeBvi").value==="" || document.getElementById("threeBvii").value==="" || document.getElementById("threeBviii").value==="" || document.getElementById("threeBix").value==="" || document.getElementById("threeCi").value==="" || document.getElementById("threeCii").value==="") {
+					alert ("It appears you have left at lest one of the slots blank. Please remedy this immediately.");
+				};
+				if (checkAnswers("threeAi", "parameter") &&	checkAnswers("threeAii", "accumulator") && checkAnswers("threeBi", "345100") && checkAnswers("threeBii", "345200") && checkAnswers("threeBiii", "345200") && checkAnswers("threeBiv", "100") && checkAnswers("threeBv","345300") && checkAnswers("threeBvi","100") && checkAnswers("threeBvii", "345400") && checkAnswers("threeBviii", "100") && checkAnswers("threeBix", "345500") && checkAnswers("threeCi", "X-axis (independent value)") && checkAnswers("threeCii", "Y-axis (dependent value)")) {
+					document.getElementById("question4").style.display="";
+					document.getElementById("button4").style.display="none";
+				}
+				if (!checkAnswers("threeAi", "parameter")) {
+					three.A=three.A+1;
+				}
+				if (three.A===3) {
+					document.getElementById("threeAi").value="parameter";
+					document.getElementById("threeAi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("threeAii", "accumulator")) {
+					three.B=three.B+1;
+				}
+				if (three.B===3) {
+					document.getElementById("threeAii").value="accumulator";
+					document.getElementById("threeAii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("threeBi", "345100")) {
+					three.C=three.C+1;
+				}
+				if (three.C===3) {
+					document.getElementById("threeBi").value="345100";
+					document.getElementById("threeBi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("threeBii", "345200")) {
+					three.D=three.D+1;
+				}
+				if (three.D===3) {
+					document.getElementById("threeBii").value="345200";
+					document.getElementById("threeBii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("threeBiii", "345200")) {
+					three.E=three.E+1;
+				}
+				if (three.E==3) {
+					document.getElementById("joe5").value="345200";
+					document.getElementById("joe5").style.background="#FFFF00"
+				}
+				if (!checkAnswers("threeBiv", "100")) {
+					three.F=three.F+1;
+				}
+				if (three.F===3) {
+					document.getElementById("threeBiv").value="100";
+					document.getElementById("threeBiv").style.background="#FFFF00"
+				}
+				if (!checkAnswers("threeBv", "345300")) {
+					three.G=three.G+1;
+				}
+				if (three.G===3) {
+					document.getElementById("threeBv").value="345300";
+					document.getElementById("threeBv").style.background="#FFFF00"
+				}
+				if (!checkAnswers("threeBvi", "100")) {
+					three.H=three.H+1;
+				}
+				if (three.H===3) {
+					document.getElementById("threeBvi").value="100";
+					document.getElementById("threeBvi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("threeBvii", "345400")) {
+					three.I=three.I+1;
+				}
+				if (three.I===3) {
+					document.getElementById("threeBvii").value="345400";
+					document.getElementById("threeBvii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("threeBviii", "100")) {
+					three.J=three.J+1;
+				}
+				if (three.J===3) {
+					document.getElementById("threeBviii").value="100";
+					document.getElementById("threeBviii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("threeBix", "345500")) {
+					three.K=three.K+1;
+				}
+				if (three.K===3) {
+					document.getElementById("threeBix").value="345500";
+					document.getElementById("threeBix").style.background="#FFFF00"
+				}
+				if (!checkAnswers("threeCi", "X-axis (independent value)")) {
+					three.L=three.L+1;
+				}
+				if (three.L===3) {
+					document.getElementById("threeCi").value="X-axis (independent value)";
+					document.getElementById("threeCi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("threeCii", "Y-axis (dependent value)")) {
+					three.M=three.M+1;
+				}
+				if (three.M===3) {
+					document.getElementById("threeCii").value="Y-axis (dependent value)";
+					document.getElementById("threeCii").style.background="#FFFF00"
+				}
+			};
+		</script>
 		<h3>Question 4</h3>
 		<p>4a. Fill in the blanks.</p>
 		<table>
 			<thead>
-			<td>Node Name</td>
-			<td>Type</td>
-			<td>Description</td>
+				<td>Node Name</td>
+				<td>Type</td>
+				<td>Description</td>
 			</thead>
 			<tbody>
-			<tr>
-			<td>Energy stored</td>
-			<td>
-			<select id="fourAi">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 345,000 calories</td>
-			</tr>
-			<tr>
-			<td>Energy expended</td>
-			<td>
-			<select id="fourAii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy expended daily, value = 2100 calories</td>
-			</tr>
-			<tr>
-			<td>Energy balance</td>
-			<td>
-			<select id="fourAiii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy surplus or deficit, value = energy ingested - energy expended</td>
-			</tr>
-			<tr>
-			<td>Enrgy ingested</td>
-			<td>
-			<select id="fourAiv">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy ingested daily, value = 1989 calories</td>
-			</tr>
-		</tbody>
+				<tr>
+					<td>Energy stored</td>
+					<td>
+						<select id="fourAi">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy stored in the body is equal to its value yesterday plus energy balance for today, initial value = 345,000 calories</td>
+				</tr>
+				<tr>
+					<td>Energy expended</td>
+					<td>
+						<select id="fourAii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy expended daily, value = 2100 calories</td>
+				</tr>
+				<tr>
+					<td>Energy balance</td>
+					<td>
+						<select id="fourAiii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy surplus or deficit, value = energy ingested - energy expended</td>
+				</tr>
+				<tr>
+					<td>Enrgy ingested</td>
+					<td>
+						<select id="fourAiv">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy ingested daily, value = 1989 calories</td>
+				</tr>
+			</tbody>
 		</table>
 		<!--Pg. 6-->
 		<p>4b. The graph on the left is for the 
 		<select id="fourB">
-		<option></option>
-		<option>energy stored</option>
-		<option>energy expended</option>
-		<option>energy balance</option>
-		<option>energy ingested</option>
+			<option></option>
+			<option>energy stored</option>
+			<option>energy expended</option>
+			<option>energy balance</option>
+			<option>energy ingested</option>
 		</select>
 		node.</p>
 		<p>4c. The other graph is for the 
-		<select id="fourC">
-		<option></option>
-		<option>energy stored</option>
-		<option>energy expended</option>
-		<option>energy balance</option>
-		<option>energy ingested</option>
-		</select>
+			<select id="fourC">
+				<option></option>
+				<option>energy stored</option>
+				<option>energy expended</option>
+				<option>energy balance</option>
+				<option>energy ingested</option>
+			</select>
 		node.</p>
 		<img src="images/Graph1.JPG"/>
 		<!--Pg.7-->
@@ -526,162 +539,162 @@
 		<button id="button5" onClick="cont5();">Question 5</button>
 		<div id="question5" style="display:">
 		<script type="text/javascript">
-	var four = {
-		A:0,
-		B:0,
-		C:0,
-		D:0,
-		E:0,
-		F:0
-	};
-	function cont5 () {
-	checkAnswers("fourAi", "accumulator");
-	checkAnswers("fourAii", "parameter");
-	checkAnswers("fourAiii", "function");
-	checkAnswers("fourAiv", "parameter");
-	checkAnswers("fourB", "energy stored");
-	checkAnswers("fourC", "energy balance");
-	if (document.getElementById("fourAi").value==="" || document.getElementById("fourAii").value==="" || document.getElementById("fourAiii").value==="" || document.getElementById("fourAiv").value==="" || document.getElementById("fourB").value==="" || document.getElementById("fourC").value==="") {
-	alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
-	};
-	if (checkAnswers("fourAi", "accumulator") && checkAnswers("fourAii", "parameter") && checkAnswers("fourAiii", "function") && checkAnswers("fourAiv", "parameter") && checkAnswers("fourB", "energy stored") && checkAnswers("fourC", "energy balance")) {
-	document.getElementById("question5").style.display="";
-	document.getElementById("button5").style.display="none";
-	}
-	if (!checkAnswers("fourAi", "accumulator")) {
-		four.A=four.A+1;
-		}
-		if (four.A===3) {
-		document.getElementById("fourAi").value="accumulator";
-		document.getElementById("fourAi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("fourAii", "parameter")) {
-		four.B=four.B+1;
-		}
-		if (four.B===3) {
-		document.getElementById("fourAii").value="parameter";
-		document.getElementById("fourAii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("fourAiii", "function")) {
-		four.C=four.C+1;
-		}
-		if (four.C===3) {
-		document.getElementById("fourAiii").value="funciton";
-		document.getElementById("fourAiii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("fourAiv", "parameter")) {
-		four.D=four.D+1;
-		}
-		if (four.D===3) {
-		document.getElementById("fourAiv").value="parameter";
-		document.getElementById("fourAiv").style.background="#FFFF00"
-		}
-	if (!checkAnswers("fourB", "energy stored")) {
-		four.E=four.E+1;
-		}
-		if (four.E===3) {
-		document.getElementById("fourB").value="enrgy stored"
-		document.getElementById("fourB").style.background="#FFFF00"
-		}
-	if (!checkAnswers("fourC", "energy balance")) {
-		four.F=four.F+1;
-		}
-		if (four.F===3) {
-		document.getElementById("fourC").value="energy balance";
-		document.getElementById("fourC").style.background="#FFFF00"
-		}
-	};
+			var four = {
+				A:0,
+				B:0,
+				C:0,
+				D:0,
+				E:0,
+				F:0
+			};
+			function cont5 () {
+				checkAnswers("fourAi", "accumulator");
+				checkAnswers("fourAii", "parameter");
+				checkAnswers("fourAiii", "function");
+				checkAnswers("fourAiv", "parameter");
+				checkAnswers("fourB", "energy stored");
+				checkAnswers("fourC", "energy balance");
+				if (document.getElementById("fourAi").value==="" || document.getElementById("fourAii").value==="" || document.getElementById("fourAiii").value==="" || document.getElementById("fourAiv").value==="" || document.getElementById("fourB").value==="" || document.getElementById("fourC").value==="") {
+					alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
+				};
+				if (checkAnswers("fourAi", "accumulator") && checkAnswers("fourAii", "parameter") && checkAnswers("fourAiii", "function") && checkAnswers("fourAiv", "parameter") && checkAnswers("fourB", "energy stored") && checkAnswers("fourC", "energy balance")) {
+					document.getElementById("question5").style.display="";
+					document.getElementById("button5").style.display="none";
+				}
+				if (!checkAnswers("fourAi", "accumulator")) {
+					four.A=four.A+1;
+				}
+				if (four.A===3) {
+					document.getElementById("fourAi").value="accumulator";
+					document.getElementById("fourAi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fourAii", "parameter")) {
+					four.B=four.B+1;
+				}
+				if (four.B===3) {
+					document.getElementById("fourAii").value="parameter";
+					document.getElementById("fourAii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fourAiii", "function")) {
+					four.C=four.C+1;
+				}
+				if (four.C===3) {
+					document.getElementById("fourAiii").value="funciton";
+					document.getElementById("fourAiii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fourAiv", "parameter")) {
+					four.D=four.D+1;
+				}
+				if (four.D===3) {
+				document.getElementById("fourAiv").value="parameter";
+				document.getElementById("fourAiv").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fourB", "energy stored")) {
+					four.E=four.E+1;
+				}
+				if (four.E===3) {
+					document.getElementById("fourB").value="enrgy stored"
+					document.getElementById("fourB").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fourC", "energy balance")) {
+					four.F=four.F+1;
+				}
+				if (four.F===3) {
+					document.getElementById("fourC").value="energy balance";
+					document.getElementById("fourC").style.background="#FFFF00"
+				}
+			};
 	</script>
 		<h3>Question 5</h3>
 		<p>5a. Fill in the blanks.</p>
 		<table>
 			<thead>
-			<td>Node Name</td>
-			<td>Type</td>
-			<td>Description</td>
+				<td>Node Name</td>
+				<td>Type</td>
+				<td>Description</td>
 			</thead>
 			<tbody>
-			<tr>
-			<td>Energy expended</td>
-			<td>
-			<select id="fiveAi">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy expended daily, value = 1200 calories</td>
-			</tr>
-			<tr>
-			<td>Energy balance</td>
-			<td>
-			<select id="fiveAii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
-			</tr>
-			<tr>
-			<td>Energy ingested</td>
-			<td>
-			<select id="fiveAiii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy ingested daily, value = 1989 calories</td>
-			</tr>
-			<tr>
-			<td>Weight</td>
-			<td>
-			<select id="fiveAiv">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>The weight of the body as it varies day by day. Its new value is its old value + 
-			<select id="fiveAv">
-			<option></option>
-			<option>energy expended</option>
-			<option>energy balance</option>
-			<option>energy ingested</option>
-			<option>weight change</option>
-			<option>calories per pound</option>
-			</select>
-			; initial value = 160 lbs</td>
-			</tr>
-			<tr>
-			<td>Weight change</td>
-			<td>
-			<select id="fiveAvi">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
-			</tr>
-			<tr>
-			<td>Calories per pound</td>
-			<td>
-			<select id="fiveAvii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
-			</tr>
+				<tr>
+					<td>Energy expended</td>
+					<td>
+						<select id="fiveAi">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy expended daily, value = 1200 calories</td>
+				</tr>
+				<tr>
+					<td>Energy balance</td>
+					<td>
+						<select id="fiveAii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
+				</tr>
+				<tr>
+					<td>Energy ingested</td>
+					<td>
+						<select id="fiveAiii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy ingested daily, value = 1989 calories</td>
+				</tr>
+				<tr>
+					<td>Weight</td>
+					<td>
+						<select id="fiveAiv">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>The weight of the body as it varies day by day. Its new value is its old value + 
+						<select id="fiveAv">
+							<option></option>
+							<option>energy expended</option>
+							<option>energy balance</option>
+							<option>energy ingested</option>
+							<option>weight change</option>
+							<option>calories per pound</option>
+						</select>
+						; initial value = 160 lbs</td>
+				</tr>
+				<tr>
+					<td>Weight change</td>
+					<td>
+						<select id="fiveAvi">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
+				</tr>
+				<tr>
+					<td>Calories per pound</td>
+					<td>
+						<select id="fiveAvii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
+				</tr>
 			</tbody>
 		</table>
 		<!--Pg. 8-->
@@ -691,433 +704,435 @@
 		<!--Pg. 9-->
 		<p>Exactly how much energy is burned by your body depends on many factors, including the amount of physical activity you do, your weight, your age, and other factors. in preparation for describing these effects, scientists divide energy expended into three types:</p>
 		<ul>
-		<li>energy burned by physical excercise</li>
-		<li>energy burned by the digestion process, because it takes energy to release the energy in food.</li>
-		<li>energy required just to run all the other bodily functions-- heartbeat, breathing, and so on. This is how much energy you burn if you are doing no exercise and ingesting no food. It is measured while you are lying still, so it is called the "resting energy expenditure" or "resting metabolic rate." It is similar to an older measure, "basal metabolic rate."</li>
+			<li>energy burned by physical excercise</li>
+			<li>energy burned by the digestion process, because it takes energy to release the energy in food.</li>
+			<li>energy required just to run all the other bodily functions-- heartbeat, breathing, and so on. This is how much energy you burn if you are doing no exercise and ingesting no food. It is measured while you are lying still, so it is called the "resting energy expenditure" or "resting metabolic rate." It is similar to an older measure, "basal metabolic rate."</li>
 		</ul>
 		<p>Based on his reading of the physiology literature, Joe estimates that his numbers are 400, 1400, and 200 calories, respectively.</p>
 		<button id="button6" onClick="cont6();">Question 6</button>
 		<div id="question6" style="display:">
 		<script type="text/javascript">
-	var five = {
-		A:0,
-		B:0,
-		C:0,
-		D:0,
-		E:0,
-		F:0,
-		G:0
-	};
-	function cont6 () {
-	checkAnswers("fiveAi", "parameter");
-	checkAnswers("fiveAii", "function");
-	checkAnswers("fiveAiii", "parameter");
-	checkAnswers("fiveAiv", "accumulator");
-	checkAnswers("fiveAv", "weight change");
-	checkAnswers("fiveAvi", "function");
-	checkAnswers("fiveAvii", "parameter");
-	checkCompletion("fiveD");
-	checkCompletion("fiveE");
-	if (document.getElementById("fiveAi").value==="" || document.getElementById("fiveAii").value==="" || document.getElementById("fiveAiii").value==="" || document.getElementById("fiveAiv").value==="" || document.getElementById("fiveAv").value==="" || document.getElementById("fiveAvi").value==="" || document.getElementById("fiveAvii").value==="" || document.getElementById("fiveD").value==="" || document.getElementById("fiveE").value==="") {
-	alert ("It appears you have left at least one of the slots blank. Please remedy this immediately."); 
-	};
-	if (checkAnswers("fiveAi", "parameter") && checkAnswers("fiveAii", "function") && checkAnswers("fiveAiii", "parameter") && checkAnswers("fiveAiv", "accumulator") && checkAnswers("fiveAv", "weight change") && checkAnswers("fiveAvi", "function") && checkAnswers("fiveAvii", "parameter") && checkCompletion("fiveD") && checkCompletion("fiveE")) {
-	document.getElementById("question6").style.display="";
-	document.getElementById("button6").style.display="none";
-	}
-	if (!checkAnswers("fiveAi", "parameter")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("fiveAi").value="parameter";
-		document.getElementById("fiveAi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("fiveAii", "function")) {
-		five.B=five.B+1;
-		}
-		if (five.B===3) {
-		document.getElementById("fiveAii").value="function";
-		document.getElementById("fiveAii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("fiveAiii", "parameter")) {
-		five.C=five.C+1;
-		}
-		if (five.C===3) {
-		document.getElementById("fiveAiii").value="function";
-		document.getElementById("fiveAiii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("fiveAiv", "accumulator")) {
-		five.D=five.D+1;
-		}
-		if (five.D===3) {
-		document.getElementById("fiveAiv").value="accumulator";
-		document.getElementById("fiveAiv").style.background="#FFFF00"
-		}
-	if (!checkAnswers("fiveAv", "weight change")) {
-		five.E=five.E+1;
-		}
-		if (five.E===3) {
-		document.getElementById("fiveAv").value="weight change";
-		document.getElementById("fiveAv").style.background="#FFFF00"
-		}
-	if (!checkAnswers("fiveAvi", "function")) {
-		five.F=five.F+1;
-		}
-		if (five.F===3) {
-		document.getElementById("fiveAvi").value="function";
-		document.getElementById("fiveAvi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("five Avii", "parameter")) {
-		two.B=two.B+1;
-		}
-		if (two.B===3) {
-		document.getElementById("fiveAvii").value="parameter";
-		document.getElementById("fiveAvii").style.background="#FFFF00"
-		}
-	};
-	function checkCompletion(input) {
-		if (document.getElementById(input).value=="") {
-		document.getElementById(input).style.background="#FF3333";
-		return false;
-		}
-		else {
-		document.getElementById(input).style.background="#00FFFF";
-		return true;
-		}
-	};
-	</script>
+			var five = {
+				A:0,
+				B:0,
+				C:0,
+				D:0,
+				E:0,
+				F:0,
+				G:0
+			};
+			function cont6 () {
+				checkAnswers("fiveAi", "parameter");
+				checkAnswers("fiveAii", "function");
+				checkAnswers("fiveAiii", "parameter");
+				checkAnswers("fiveAiv", "accumulator");
+				checkAnswers("fiveAv", "weight change");
+				checkAnswers("fiveAvi", "function");
+				checkAnswers("fiveAvii", "parameter");
+				checkCompletion("fiveD");
+				checkCompletion("fiveE");
+				if (document.getElementById("fiveAi").value==="" || document.getElementById("fiveAii").value==="" || document.getElementById("fiveAiii").value==="" || document.getElementById("fiveAiv").value==="" || document.getElementById("fiveAv").value==="" || document.getElementById("fiveAvi").value==="" || document.getElementById("fiveAvii").value==="" || document.getElementById("fiveD").value==="" || document.getElementById("fiveE").value==="") {
+					alert ("It appears you have left at least one of the slots blank. Please remedy this immediately."); 
+				};
+				if (checkAnswers("fiveAi", "parameter") && checkAnswers("fiveAii", "function") && checkAnswers("fiveAiii", "parameter") && checkAnswers("fiveAiv", "accumulator") && checkAnswers("fiveAv", "weight change") && checkAnswers("fiveAvi", "function") && checkAnswers("fiveAvii", "parameter") && checkCompletion("fiveD") && checkCompletion("fiveE")) {
+					document.getElementById("question6").style.display="";
+					document.getElementById("button6").style.display="none";
+				}
+				if (!checkAnswers("fiveAi", "parameter")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("fiveAi").value="parameter";
+					document.getElementById("fiveAi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fiveAii", "function")) {
+					five.B=five.B+1;
+				}
+				if (five.B===3) {
+					document.getElementById("fiveAii").value="function";
+					document.getElementById("fiveAii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fiveAiii", "parameter")) {
+					five.C=five.C+1;
+				}
+				if (five.C===3) {
+					document.getElementById("fiveAiii").value="function";
+					document.getElementById("fiveAiii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fiveAiv", "accumulator")) {
+					five.D=five.D+1;
+				}
+				if (five.D===3) {
+					document.getElementById("fiveAiv").value="accumulator";
+					document.getElementById("fiveAiv").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fiveAv", "weight change")) {
+					five.E=five.E+1;
+				}
+				if (five.E===3) {
+					document.getElementById("fiveAv").value="weight change";
+					document.getElementById("fiveAv").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fiveAvi", "function")) {
+					five.F=five.F+1;
+				}
+				if (five.F===3) {
+					document.getElementById("fiveAvi").value="function";
+					document.getElementById("fiveAvi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("five Avii", "parameter")) {
+					two.B=two.B+1;
+				}
+				if (two.B===3) {
+					document.getElementById("fiveAvii").value="parameter";
+					document.getElementById("fiveAvii").style.background="#FFFF00"
+				}
+			};
+			function checkCompletion(input) {
+				if (document.getElementById(input).value=="") {
+					document.getElementById(input).style.background="#FF3333";
+					return false;
+				}
+				else {
+					document.getElementById(input).style.background="#00FFFF";
+					return true;
+				}
+			};
+		</script>
 		<h3>Question 6</h3>
 		<p>6a. Fill in the blanks.</p>
 		<table>
 			<thead>
-			<td>Node Name</td>
-			<td>Type</td>
-			<td>Description</td>
+				<td>Node Name</td>
+				<td>Type</td>
+				<td>Description</td>
 			</thead>
 			<tbody>
-			<tr>
-			<td>physical activity expenditure</td>
-			<td>
-			<select id="sixAi">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy burned by physical exercise; value = 400 calories</td>
-			</tr>
-			<tr>
-			<td>resting energy expenditure</td>
-			<td>
-			<select id="sixAii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy expended per day by basic body function; value = 1400 calories</td>
-			</tr>
-			<tr>
-			<td>digestive activity expenditure</td>
-			<td>
-			<select id="sixAiii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy burned in order to digest food; value = 200 calories</td>
-			</tr>
-			<tr>
-			<td>Energy expended</td>
-			<td>
-			<select id="sixAiv">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + 
-			<select id="sixAv">
-			<option></option>
-			<option>physical activity expenditure</option>
-			<option>resting energy expenditure</option>
-			<option>digestive activity expenditure</option>
-			</select>
-			</td>
-			</tr>
+				<tr>
+					<td>physical activity expenditure</td>
+					<td>
+						<select id="sixAi">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy burned by physical exercise; value = 400 calories</td>
+				</tr>
+				<tr>
+					<td>resting energy expenditure</td>
+					<td>
+						<select id="sixAii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy expended per day by basic body function; value = 1400 calories</td>
+				</tr>
+				<tr>
+					<td>digestive activity expenditure</td>
+					<td>
+						<select id="sixAiii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy burned in order to digest food; value = 200 calories</td>
+				</tr>
+				<tr>
+					<td>Energy expended</td>
+					<td>
+						<select id="sixAiv">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + 
+						<select id="sixAv">
+							<option></option>
+							<option>physical activity expenditure</option>
+							<option>resting energy expenditure</option>
+							<option>digestive activity expenditure</option>
+						</select>
+					</td>
+				</tr>
 			</tbody>
 		</table>
-			<p>6b. What is the value of Energy Expended? <input type="number" name="sixB" id="sixB"> calories</p>
-			<p>6c. Assuming Joe continues to ingest 1989 calories a day, will a graph of Joe's weight have a positive or negative slope?</p>
-			<select id="sixC">
+		<p>6b. What is the value of Energy Expended? <input type="number" name="sixB" id="sixB"> calories</p>
+		<p>6c. Assuming Joe continues to ingest 1989 calories a day, will a graph of Joe's weight have a positive or negative slope?</p>
+		<select id="sixC">
 			<option></option>
 			<option>positive</option>
 			<option>negative</option>
-			</select>
-			<p>6d. Suppose Joe ingests 2001 calories a day. Will this graph have a positive or negative slope?</p>
-			<select id="sixD">
+		</select>
+		<p>6d. Suppose Joe ingests 2001 calories a day. Will this graph have a positive or negative slope?</p>
+		<select id="sixD">
 			<option></option>
 			<option>positive</option>
 			<option>negative</option>
-			</select>
+		</select>
 		<!--Pg. 10-->
 		<p>The amount of physical activity energy burned per day depends mostly on two factors: how much exercise you do and your resting energy expenditure. The energy spent on exercise is estimated by multiplying the resting energy expenditure by a physical activity factor, which is:</p>
 		<ul>
-		<li>0.2 for little or no exercise</li>
-		<li>0.375 for light exercise</li>
-		<li>0.55 for moderate exercise</li>
-		<li>0.75 for hard exercise but not every day</li>
-		<li>0.9 for daily hard exercise</li>
+			<li>0.2 for little or no exercise</li>
+			<li>0.375 for light exercise</li>
+			<li>0.55 for moderate exercise</li>
+			<li>0.75 for hard exercise but not every day</li>
+			<li>0.9 for daily hard exercise</li>
 		</ul>
 		<p>Instead of using a parameter for "physical activity expenditure" with a value of 400, Joe decides to make it a function whose value is the product of resting energy expenditure and a new node, physical activity level. Joe does little exercise, so he sets the physical activity level as 0.2. However, his model is now set up so that he can easily see the effect of increasing his exercise level. Here's his whole model, expressed as a table. Fill in the blanks:</p>
 		<table>
 			<thead>
-			<td>Node Name</td>
-			<td>Type</td>
-			<td>Description</td>
+				<td>Node Name</td>
+				<td>Type</td>
+				<td>Description</td>
 			</thead>
 			<tbody>
-			<tr>
-			<td>Energy balance</td>
-			<td>Function</td>
-			<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
-			</tr>
-			<tr>
-			<td>Energy ingested</td>
-			<td>Parameter</td>
-			<td>energy ingested daily, value = 1989 calories</td>
-			</tr>
-			<tr>
-			<td>Weight</td>
-			<td>Accumulator</td>
-			<td>The weight of the body as it varies day by day. Its new value is its old value + weight change; initial value = 150 lbs</td>
-			</tr>
-			<tr>
-			<td>Weight change</td>
-			<td>Function</td>
-			<td>weight of tissue added or subtracted from storage; value = 3500 calories/lbs</td>
-			</tr>
-			<tr>
-			<td>Calories per pound</td>
-			<td>Parameter</td>
-			<td>number of calories in a pound of tissue, value = 3500 calories/lbs</td>
-			</tr>
-			<tr>
-			<td>physical energy expenditure</td>
-			<td>
-			<select id="sixEi">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy burned by physical exercise; value = 
-			<select id="sixEii">
-			<option></option>
-			<option>resting energy expenditure</option>
-			<option>digestive activity expenditure</option>
-			<option>energy expended</option>
-			<option>physical activity level</option>
-			</select>
-			*
-			<select id="sixEiii">
-			<option></option>
-			<option>resting energy expenditure</option>
-			<option>digestive activity expenditure</option>
-			<option>energy expended</option>
-			<option>physical activity level</option>
-			</select>
-			</td>
-			</tr>
-			<tr>
-			<td>resting energy expenditure</td>
-			<td>Parameter</td>
-			<td>energy expended per day by basic bodily function; value = 1400 calories</td>
-			</tr>
-			<tr>
-			<td>digestive energy expenditure</td>
-			<td>Parameter</td>
-			<td>energy burned in order to digest food; value = 200 calories</td>
-			</tr>
-			<tr>
-			<td>Energy expended</td>
-			<td>function</td>
-			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + 
-			<select id="sixEiv">
-			<option></option>
-			<option>resting energy expenditure</option>
-			<option>digestive activity expenditure</option>
-			<option>energy expended</option>
-			<option>physical activity level</option>
-			</select>
-			</td>
-			</tr>
+				<tr>
+					<td>Energy balance</td>
+					<td>Function</td>
+					<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
+				</tr>
+				<tr>
+					<td>Energy ingested</td>
+					<td>Parameter</td>
+					<td>energy ingested daily, value = 1989 calories</td>
+				</tr>
+				<tr>
+					<td>Weight</td>
+					<td>Accumulator</td>
+					<td>The weight of the body as it varies day by day. Its new value is its old value + weight change; initial value = 150 lbs</td>
+				</tr>
+				<tr>
+					<td>Weight change</td>
+					<td>Function</td>
+					<td>weight of tissue added or subtracted from storage; value = 3500 calories/lbs</td>
+				</tr>
+				<tr>
+					<td>Calories per pound</td>
+					<td>Parameter</td>
+					<td>number of calories in a pound of tissue, value = 3500 calories/lbs</td>
+				</tr>
+				<tr>
+					<td>physical energy expenditure</td>
+					<td>
+						<select id="sixEi">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy burned by physical exercise; value = 
+						<select id="sixEii">
+							<option></option>
+							<option>resting energy expenditure</option>
+							<option>digestive activity expenditure</option>
+							<option>energy expended</option>
+							<option>physical activity level</option>
+						</select>
+						*
+						<select id="sixEiii">
+							<option></option>
+							<option>resting energy expenditure</option>
+							<option>digestive activity expenditure</option>
+							<option>energy expended</option>
+							<option>physical activity level</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>resting energy expenditure</td>
+					<td>Parameter</td>
+					<td>energy expended per day by basic bodily function; value = 1400 calories</td>
+				</tr>
+				<tr>
+					<td>digestive energy expenditure</td>
+					<td>Parameter</td>
+					<td>energy burned in order to digest food; value = 200 calories</td>
+				</tr>
+				<tr>
+					<td>Energy expended</td>
+					<td>function</td>
+					<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + 
+						<select id="sixEiv">
+							<option></option>
+							<option>resting energy expenditure</option>
+							<option>digestive activity expenditure</option>
+							<option>energy expended</option>
+							<option>physical activity level</option>
+						</select>
+					</td>
+				</tr>
 			<!--Pg. 11-->
-			<tr>
-			<td>Physical activity level</td>
-			<td>
-			<select id="sixEv">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>Amount of physical activity, e.g. 0.2 for little or no exercise, 0.9 for daily hard exercise.</td>
-			</tr>
+				<tr>
+					<td>Physical activity level</td>
+					<td>
+						<select id="sixEv">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>Amount of physical activity, e.g. 0.2 for little or no exercise, 0.9 for daily hard exercise.</td>
+				</tr>
 			</tbody>
 		</table>
 		<button id="button7" onClick="cont7();">Question 7</button>
 		<div id="question7" style="display:">
 		<script type="text/javascript">
-	var six = {
-		A:0,
-		B:0,
-		C:0,
-		D:0,
-		E:0,
-		F:0,
-		G:0,
-		H:0,
-		I:0,
-		J:0,
-		K:0,
-		L:0,
-		M:0
-	};
-	function cont7 () {
-	checkAnswers("sixAi", "parameter");
-	checkAnswers("sixAii", "parameter");
-	checkAnswers("sixAiii", "parameter");
-	checkAnswers("sixAiv", "function");
-	checkAnswers("sixAv", "digestive activity expenditure");
-	checkAnswers("sixB", "2000");
-	checkAnswers("sixC", "negative");
-	checkAnswers("sixD", "positive");
-	checkAnswers("sixEi", "function");
-	checkAnswers("sixEii", "resting energy expenditure");
-	checkAnswers("sixEiii", "physical activity level");
-	checkAnswers("sixEiv", "digestive energy expenditure");
-	checkAnswers("sixEv", "parameter");
-	if (document.getElementById("sixAi").value==="" || document.getElementById("sixAii").value==="" || document.getElementById("sixAiii").value==="" || document.getElementById("sixAiv").value==="" || document.getElementById("sixAv").value==="" || document.getElementById("sixB").value==="" || document.getElementById("sixC").value==="" || document.getElementById("sixD").value==="" || document.getElementById("sixEi").value==="" || document.getElementById("sixEii").value==="" || document.getElementById("sixEiii").value==="" || document.getElementById("sixEiv").value==="" || document.getElementById("sixV")==="") {
-	alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
-	}
-	if (checkAnswers ("sixAi", "parameter") && checkAnswers ("sixAii", "parameter") && checkAnswers ("sixAiii", "parameter") && checkAnswers ("sixAiv", "function") && checkAnswers ("sixAv", "digestive activity expenditure") && checkAnswers ("sixB", "2000") && checkAnswers ("sixC", "negative") && checkAnswers ("sixD", "positive") && checkAnswers ("sixEi", "function") && checkAnswers ("sixEii", "resting energy expenditure") && checkAnswers ("sixEiii", "physical activity level") && checkAnswers ("sixEiv", "digestive energy expenditure") && checkAnswers ("sixEv", "parameter")){
-	document.getElementById("question7").style.display="";
-	document.getElementById("button7").style.display="none";
-	}
-	if (!checkAnswers("sixAi", "parameter")) {
-		six.A=six.A+1;
-		}
-		if (six.A===3) {
-		document.getElementById("sixAi").value="parameter";
-		document.getElementById("sixAi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sixAii", "parameter")) {
-		six.B=six.B+1;
-		}
-		if (six.B===3) {
-		document.getElementById("sixAii").value="parameter";
-		document.getElementById("sixAii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sixAiii", "parameter")) {
-		six.C=six.C+1;
-		}
-		if (six.C===3) {
-		document.getElementById("sixAiii").value="parameter";
-		document.getElementById("sixAiii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sixAiv", "function")) {
-		six.D=six.D+1;
-		}
-		if (six.D===3) {
-		document.getElementById("sixAiv").value="function";
-		document.getElementById("sixAiv").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sixAv", "digestive activity expenditure")) {
-		six.E=six.E+1;
-		}
-		if (six.E===3) {
-		document.getElementById("sixAv").value="digestive activity expenditure";
-		document.getElementById("sixAv").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sixB", "2000")) {
-		six.F=six.F+1;
-		}
-		if (six.F===3) {
-		document.getElementById("sixB").value="2000";
-		document.getElementById("sixB").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sixC", "negative")) {
-		six.G=six.G+1;
-		}
-		if (six.G===3) {
-		document.getElementById("sixC").value="negative";
-		document.getElementById("sixC").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sixD", "positive")) {
-		six.H=six.H+1;
-		}
-		if (six.H===3) {
-		document.getElementById("sixD").value="positive";
-		document.getElementById("sixD").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sixEi", "function")) {
-		six.I=six.I+1;
-		}
-		if (six.I===3) {
-		document.getElementById("sixEi").value="function";
-		document.getElementById("sixEi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sixEii", "resting energy expenditure")) {
-		six.J=six.J+1;
-		}
-		if (six.J===3) {
-		document.getElementById("sixEii").value="resting energy expenditure";
-		document.getElementById("sixEii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sixEiii", "physical activity level")) {
-		six.K=six.K+1;
-		}
-		if (six.K===3) {
-		document.getElementById("sixEiii").value="physical activity level";
-		document.getElementById("sixEiii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sixEiv", "digestive energy expenditure")) {
-		six.L=six.L+1;
-		}
-		if (six.L===3) {
-		document.getElementById("sixEiv").value="digestive energy expenditure";
-		document.getElementById("sixEiv").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sixEv", "parameter")) {
-		six.M=six.M+1;
-		}
-		if (six.M===3) {
-		document.getElementById("sixEv").value="parameter";
-		document.getElementById("sixEv").style.background="#FFFF00"
-		}
-		};
-	</script>
+			var six = {
+				A:0,
+				B:0,
+				C:0,
+				D:0,
+				E:0,
+				F:0,
+				G:0,
+				H:0,
+				I:0,
+				J:0,
+				K:0,
+				L:0,
+				M:0
+			};
+			function cont7 () {
+				checkAnswers("sixAi", "parameter");
+				checkAnswers("sixAii", "parameter");
+				checkAnswers("sixAiii", "parameter");
+				checkAnswers("sixAiv", "function");
+				checkAnswers("sixAv", "digestive activity expenditure");
+				checkAnswers("sixB", "2000");
+				checkAnswers("sixC", "negative");
+				checkAnswers("sixD", "positive");
+				checkAnswers("sixEi", "function");
+				checkAnswers("sixEii", "resting energy expenditure");
+				checkAnswers("sixEiii", "physical activity level");
+				checkAnswers("sixEiv", "digestive energy expenditure");
+				checkAnswers("sixEv", "parameter");
+				if (document.getElementById("sixAi").value==="" || document.getElementById("sixAii").value==="" || document.getElementById("sixAiii").value==="" || document.getElementById("sixAiv").value==="" || document.getElementById("sixAv").value==="" || document.getElementById("sixB").value==="" || document.getElementById("sixC").value==="" || document.getElementById("sixD").value==="" || document.getElementById("sixEi").value==="" || document.getElementById("sixEii").value==="" || document.getElementById("sixEiii").value==="" || document.getElementById("sixEiv").value==="" || document.getElementById("sixV")==="") {
+					alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
+				}
+				if (checkAnswers ("sixAi", "parameter") && checkAnswers ("sixAii", "parameter") && checkAnswers ("sixAiii", "parameter") && checkAnswers ("sixAiv", "function") && checkAnswers ("sixAv", "digestive activity expenditure") && checkAnswers ("sixB", "2000") && checkAnswers ("sixC", "negative") && checkAnswers ("sixD", "positive") && checkAnswers ("sixEi", "function") && checkAnswers ("sixEii", "resting energy expenditure") && checkAnswers ("sixEiii", "physical activity level") && checkAnswers ("sixEiv", "digestive energy expenditure") && checkAnswers ("sixEv", "parameter")){
+					document.getElementById("question7").style.display="";
+					document.getElementById("button7").style.display="none";
+				}
+				if (!checkAnswers("sixAi", "parameter")) {
+					six.A=six.A+1;
+				}
+				if (six.A===3) {
+					document.getElementById("sixAi").value="parameter";
+					document.getElementById("sixAi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sixAii", "parameter")) {
+					six.B=six.B+1;
+				}
+				if (six.B===3) {
+					document.getElementById("sixAii").value="parameter";
+					document.getElementById("sixAii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sixAiii", "parameter")) {
+					six.C=six.C+1;
+				}
+				if (six.C===3) {
+					document.getElementById("sixAiii").value="parameter";
+					document.getElementById("sixAiii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sixAiv", "function")) {
+					six.D=six.D+1;
+				}
+				if (six.D===3) {
+					document.getElementById("sixAiv").value="function";
+					document.getElementById("sixAiv").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sixAv", "digestive activity expenditure")) {
+					six.E=six.E+1;
+				}
+				if (six.E===3) {
+					document.getElementById("sixAv").value="digestive activity expenditure";
+					document.getElementById("sixAv").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sixB", "2000")) {
+					six.F=six.F+1;
+				}
+				if (six.F===3) {
+					document.getElementById("sixB").value="2000";
+					document.getElementById("sixB").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sixC", "negative")) {
+					six.G=six.G+1;
+				}
+				if (six.G===3) {
+					document.getElementById("sixC").value="negative";
+					document.getElementById("sixC").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sixD", "positive")) {
+					six.H=six.H+1;
+				}
+				if (six.H===3) {
+					document.getElementById("sixD").value="positive";
+					document.getElementById("sixD").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sixEi", "function")) {
+					six.I=six.I+1;
+				}
+				if (six.I===3) {
+					document.getElementById("sixEi").value="function";
+					document.getElementById("sixEi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sixEii", "resting energy expenditure")) {
+					six.J=six.J+1;
+				}
+				if (six.J===3) {
+					document.getElementById("sixEii").value="resting energy expenditure";
+					document.getElementById("sixEii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sixEiii", "physical activity level")) {
+					six.K=six.K+1;
+				}
+				if (six.K===3) {
+					document.getElementById("sixEiii").value="physical activity level";
+					document.getElementById("sixEiii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sixEiv", "digestive energy expenditure")) {
+					six.L=six.L+1;
+				}
+				if (six.L===3) {
+					document.getElementById("sixEiv").value="digestive energy expenditure";
+					document.getElementById("sixEiv").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sixEv", "parameter")) {
+					six.M=six.M+1;
+				}
+				if (six.M===3) {
+					document.getElementById("sixEv").value="parameter";
+					document.getElementById("sixEv").style.background="#FFFF00"
+				}
+			};
+		</script>
 		<h3>Question 7</h3>
 		<p>7a. Assuming Joe is sedentary, and his physical exercise level is 0.2, what is his daily energy expenditure? <input type="text" id="joe33"></p>
 		<p>7b. If he still ingests 1989 calories a day, does he gain weight or lose weight?</p>
 		<select id="sevenB">
-		<option>gain</option>
-		<option>lose</option>
+			<option></option>
+			<option>gain</option>
+			<option>lose</option>
 		</select>
 		<p>7c. How much, in pounds per day? <input type="number" id="sevenC"> pounds per day</p>
 		<p>7d. Joe wonders what would happen if he really increased his daily exercise, so that his physical activity level was 0.9. What would this make his daily energy expenditure? <input type="number" id="sevenD"> calories</p>
 		<p>7e. If he continued to eat 1989 calories a day, would he gain or lose weight?</p>
 		<select id="sevenE">
-		<option>gain</option>
-		<option>lose</option>
+			<option></option>
+			<option>gain</option>
+			<option>lose</option>
 		</select>
 		<p>How much, in pounds per day? <input type="number" id="sevenF"> pounds per day</p>
 		<!--Pg. 12-->
@@ -1126,266 +1141,266 @@
 		<p>Since we don't know much about Joe's diet, let's just use the default value of 10%. In the table below, which shows the complete model that Joe has developed so far, fill in the blanks to change the node "digestive energy expenditure" to be the product of "energy ingested" and a parameter "digestive energy factor" with the value 0.10.</p>
 		<table>
 			<thead>
-			<td>Node Name</td>
-			<td>Type</td>
-			<td>Description</td>
+				<td>Node Name</td>
+				<td>Type</td>
+				<td>Description</td>
 			</thead>
 			<tbody>
-			<tr>
-			<td>Energy balance</td>
-			<td>Function</td>
-			<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
-			</tr>
-			<tr>
-			<td>Energy ingested</td>
-			<td>Parameter</td>
-			<td>energy ingested daily, value = 1989 calories</td>
-			</tr>
-			<tr>
-			<td>Weight</td>
-			<td>Accumulator</td>
-			<td>The weight of the body as it varies day by day. Its new value is its old value + weight change; inital value = 150 lbs</td>
-			</tr>
-			<tr>
-			<td>Weight change</td>
-			<td>Function</td>
-			<td>weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
-			</tr>
-			<tr>
-			<td>Calories per pound</td>
-			<td>Parameter</td>
-			<td>Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
-			</tr>
-			<tr>
-			<td>physical activity expenditure</td>
-			<td>Function</td>
-			<td>energy burned by physical exercise; value = 
-			<select id="sevenGi">
-			<option></option>
-			<option>resting energy expenditure</option>
-			<option>digestive activity expenditure</option>
-			<option>energy expended</option>
-			<option>digestive energy factor</option>
-			</select>
-			*
-			<select id="sevenGii">
-			<option></option>
-			<option>digestive activity expenditure</option>
-			<option>energy expended</option>
-			<option>physical activity level</option>
-			<option>digestive energy factor</option>
-			</select>
-			</td>
-			</tr>
-			<td>resting energy expenditure</td>
-			<td>Parameter</td>
-			<td>energy expended per day by basic bodily function; value = 1400 calories</td>
-			</tr>
-			<tr>
-			<td>digestive activity expenditure</td>
-			<td>
-			<select id="sevenGiii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy burned in order to digest food; value = 
-			<select id="sevenGiv">
-			<option></option>
-			<option>energy balance</option>
-			<option>energy ingested</option>
-			<option>weight</option>
-			<option>weight change</option>
-			<option>calories per pound</option>
-			</select>
-			*
-			<select id="sevenGv">
-			<option></option>
-			<option>physical activity expenditure</option>
-			<option>resting energy expenditure</option>
-			<option>energy expended</option>
-			<option>physical activity level</option>
-			<option>digestive energy factor</option>
-			</select>
-			</td>
-			</tr>
-			<tr>
-			<td>Energy expended</td>
-			<td>Function</td>
-			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + 
-			<select id="sevenGvi">
-			<option></option>
-			<option>physical activity expenditure</option>
-			<option>resting energy expenditure</option>
-			<option>digestive activity expenditure</option>
-			<option>physical activity level</option>
-			<option>digestive energy factor</option>
-			</select>
-			</td>
-			</tr>
-			<tr>
-			<td>Physical activity level</td>
-			<td>Parameter</td>
-			<td>Amount of physical activity, e.g., 0.2 for little or no evercise, 0.9 for daily hard exercise</td>
-			</tr>
+				<tr>
+					<td>Energy balance</td>
+					<td>Function</td>
+					<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
+				</tr>
+				<tr>
+					<td>Energy ingested</td>
+					<td>Parameter</td>
+					<td>energy ingested daily, value = 1989 calories</td>
+				</tr>
+				<tr>
+					<td>Weight</td>
+					<td>Accumulator</td>
+					<td>The weight of the body as it varies day by day. Its new value is its old value + weight change; inital value = 150 lbs</td>
+				</tr>
+				<tr>
+					<td>Weight change</td>
+					<td>Function</td>
+					<td>weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
+				</tr>
+				<tr>
+					<td>Calories per pound</td>
+					<td>Parameter</td>
+					<td>Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
+				</tr>
+				<tr>
+					<td>physical activity expenditure</td>
+					<td>Function</td>
+					<td>energy burned by physical exercise; value = 
+						<select id="sevenGi">
+							<option></option>
+							<option>resting energy expenditure</option>
+							<option>digestive activity expenditure</option>
+							<option>energy expended</option>
+							<option>digestive energy factor</option>
+						</select>
+						*
+						<select id="sevenGii">
+							<option></option>
+							<option>digestive activity expenditure</option>
+							<option>energy expended</option>
+							<option>physical activity level</option>
+							<option>digestive energy factor</option>
+						</select>
+					</td>
+				</tr>
+					<td>resting energy expenditure</td>
+					<td>Parameter</td>
+					<td>energy expended per day by basic bodily function; value = 1400 calories</td>
+				</tr>
+				<tr>
+					<td>digestive activity expenditure</td>
+					<td>
+						<select id="sevenGiii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy burned in order to digest food; value = 
+						<select id="sevenGiv">
+							<option></option>
+							<option>energy balance</option>
+							<option>energy ingested</option>
+							<option>weight</option>
+							<option>weight change</option>
+							<option>calories per pound</option>
+						</select>
+						*
+						<select id="sevenGv">
+							<option></option>
+							<option>physical activity expenditure</option>
+							<option>resting energy expenditure</option>
+							<option>energy expended</option>
+							<option>physical activity level</option>
+							<option>digestive energy factor</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Energy expended</td>
+					<td>Function</td>
+					<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + 
+						<select id="sevenGvi">
+							<option></option>
+							<option>physical activity expenditure</option>
+							<option>resting energy expenditure</option>
+							<option>digestive activity expenditure</option>
+							<option>physical activity level</option>
+							<option>digestive energy factor</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Physical activity level</td>
+					<td>Parameter</td>
+					<td>Amount of physical activity, e.g., 0.2 for little or no evercise, 0.9 for daily hard exercise</td>
+				</tr>
 			<!--Pg. 13-->
-			<tr>
-			<td>Digestive energy factor</td>
-			<td>
-			<select id="sevenGvii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>The proportion of ingested energy that is required to process it, value = <input type="number" id="sevenGviii"></td>
-			</tr>
+				<tr>
+					<td>Digestive energy factor</td>
+					<td>
+						<select id="sevenGvii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>The proportion of ingested energy that is required to process it, value = <input type="number" id="sevenGviii"></td>
+				</tr>
 			</tbody>
 		</table>
 		<button id="button8" onClick="cont8();">Question 8</button>
 		<div id="question8" style="display:">
 		<script type="text/javascript">
-	var seven = {
-		A:0,
-		B:0,
-		C:0,
-		D:0,
-		E:0,
-		F:0,
-		G:0,
-		H:0,
-		I:0,
-		J:0,
-		K:0,
-		L:0,
-		M:0,
-		N:0
-	};
-	function cont8 () {
-	checkAnswers("sevenA", "1800");
-	checkAnswers("sevenB", "gain");
-	checkAnswers("sevenC", "0.03");
-	checkAnswers("sevenD", "2860");
-	checkAnswers("sevenE", "lose");
-	checkAnswers("sevenF", "0.25");
-	checkAnswers("sevenGi", "resting energy expenditure");
-	checkAnswers("sevenGii", "physical activity level");
-	checkAnswers("sevenGiii", "function");
-	checkAnswers("sevenGiv", "energy ingested");
-	checkAnswers("sevenGv", "digestive energy factor");
-	checkAnswers("sevenGvi", "digestive activity expenditure");
-	checkAnswers("sevenGvii", "parameter");
-	checkAnswers("sevenGviii", "0.10");
-	if (document.getElementById("sevenA").value==="" || document.getElementById("sevenB").value==="" || document.getElementById("sevenC").value==="" || document.getElementById("sevenD").value==="" || document.getElementById("sevenE").value==="" || document.getElementById("sevenF").value==="" || document.getElementById("sevenGi").value==="" || document.getElementById("sevenGii").value==="" || document.getElementById("sevenGiii").value==="" || document.getElementById("sevenGiv").value==="" || document.getElementById("sevenGv").value==="" || document.getElementById("sevenGvi").value==="" || document.getElementById("sevenGvii").value==="" || document.getElementById("sevenGviii").value==="") {
-	alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
-	};
-	if (checkAnswers("sevenA", "1800") && checkAnswers("sevenB", "gain") && checkAnswers("sevenC", "0.03") && checkAnswers("sevenD", "2860") && checkAnswers("sevenE", "lose") && checkAnswers("sevenF", "0.25") && checkAnswers("sevenGi", "resting energy expenditure") && checkAnswers("sevenGii", "physical activity level") && checkAnswers("sevenGiii", "function") && checkAnswers("sevenGiv", "energy ingested") && checkAnswers("sevenGv", "digestive energy factor") && checkAnswers("sevenGvi", "digestive activity expenditure") && checkAnswers("sevenGvii", "parameter") && checkAnswers("sevenGviii", "0.10")) {
-	document.getElementById("question8").style.display="";
-	document.getElementById("button8").style.display="none";
-	}
-	if (!checkAnswers("sevenA", "1800")) {
-		seven.A=seven.A+1;
-		}
-		if (seven.A===3) {
-		document.getElementById("sevenA").value="1800";
-		document.getElementById("sevenA").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenB", "gain")) {
-		seven.B=seven.B+1;
-		}
-		if (seven.B===3) {
-		document.getElementById("sevenB").value="gain";
-		document.getElementById("sevenB").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenC", "0.03")) {
-		seven.C=seven.C+1;
-		}
-		if (seven.C===3) {
-		document.getElementById("sevenC").value="0.03";
-		document.getElementById("sevenC").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenD", "2680")) {
-		seven.D=seven.D+1;
-		}
-		if (seven.D===3) {
-		document.getElementById("sevenD").value="2680";
-		document.getElementById("sevenD").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenE", "lose")) {
-		seven.E=seven.E+1;
-		}
-		if (seven.E===3) {
-		document.getElementById("sevenE").value="lose";
-		document.getElementById("sevenE").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenF", "0.25")) {
-		seven.F=seven.F+1;
-		}
-		if (seven.F===3) {
-		document.getElementById("sevenF").value="0.25";
-		document.getElementById("sevenF").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenGi", "resting energy expenditure")) {
-		seven.G=seven.G+1;
-		}
-		if (seven.G===3) {
-		document.getElementById("sevenGi").value="resting energy expenditure";
-		document.getElementById("sevenGi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenGii", "physical activity level")) {
-		seven.H=seven.H+1;
-		}
-		if (seven.H===3) {
-		document.getElementById("sevenGii").value="physical activity level";
-		document.getElementById("sevenGii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenGiii", "function")) {
-		seven.I=seven.I+1;
-		}
-		if (seven.I===3) {
-		document.getElementById("sevenGiii").value="function";
-		document.getElementById("sevenGiii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenGiv", "energy ingested")) {
-		seven.J=seven.J+1;
-		}
-		if (seven.J===3) {
-		document.getElementById("sevenGiv").value="energy ingested";
-		document.getElementById("sevenGiv").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenGv", "digestiove energy factor")) {
-		seven.K=seven.K+1;
-		}
-		if (seven.K===3) {
-		document.getElementById("sevenGv").value="digestive energy factor";
-		document.getElementById("sevenGv").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenGvi", "digestive activity expenditure")) {
-		seven.L=seven.L+1;
-		}
-		if (seven.L===3) {
-		document.getElementById("sevenGvi").value="digestive activity expenditure";
-		document.getElementById("sevenGvi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenGvii", "parameter")) {
-		seven.M=seven.M+1;
-		}
-		if (seven.M===3) {
-		document.getElementById("sevenGvii").value="parameter";
-		document.getElementById("sevenGvii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("sevenGviii", "0.10")) {
-		seven.N=seven.N+1;
-		}
-		if (seven.N===3) {
-		document.getElementById("sevenGviii").value="0.10";
-		document.getElementById("sevenGviii").style.background="#FFFF00"
-		}
-	};
-	</script>
+			var seven = {
+				A:0,
+				B:0,
+				C:0,
+				D:0,
+				E:0,
+				F:0,
+				G:0,
+				H:0,
+				I:0,
+				J:0,
+				K:0,
+				L:0,
+				M:0,
+				N:0
+			};
+			function cont8 () {
+				checkAnswers("sevenA", "1800");
+				checkAnswers("sevenB", "gain");
+				checkAnswers("sevenC", "0.03");
+				checkAnswers("sevenD", "2860");
+				checkAnswers("sevenE", "lose");
+				checkAnswers("sevenF", "0.25");
+				checkAnswers("sevenGi", "resting energy expenditure");
+				checkAnswers("sevenGii", "physical activity level");
+				checkAnswers("sevenGiii", "function");
+				checkAnswers("sevenGiv", "energy ingested");
+				checkAnswers("sevenGv", "digestive energy factor");
+				checkAnswers("sevenGvi", "digestive activity expenditure");
+				checkAnswers("sevenGvii", "parameter");
+				checkAnswers("sevenGviii", "0.10");
+				if (document.getElementById("sevenA").value==="" || document.getElementById("sevenB").value==="" || document.getElementById("sevenC").value==="" || document.getElementById("sevenD").value==="" || document.getElementById("sevenE").value==="" || document.getElementById("sevenF").value==="" || document.getElementById("sevenGi").value==="" || document.getElementById("sevenGii").value==="" || document.getElementById("sevenGiii").value==="" || document.getElementById("sevenGiv").value==="" || document.getElementById("sevenGv").value==="" || document.getElementById("sevenGvi").value==="" || document.getElementById("sevenGvii").value==="" || document.getElementById("sevenGviii").value==="") {
+					alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
+				};
+				if (checkAnswers("sevenA", "1800") && checkAnswers("sevenB", "gain") && checkAnswers("sevenC", "0.03") && checkAnswers("sevenD", "2860") && checkAnswers("sevenE", "lose") && checkAnswers("sevenF", "0.25") && checkAnswers("sevenGi", "resting energy expenditure") && checkAnswers("sevenGii", "physical activity level") && checkAnswers("sevenGiii", "function") && checkAnswers("sevenGiv", "energy ingested") && checkAnswers("sevenGv", "digestive energy factor") && checkAnswers("sevenGvi", "digestive activity expenditure") && checkAnswers("sevenGvii", "parameter") && checkAnswers("sevenGviii", "0.10")) {
+					document.getElementById("question8").style.display="";
+					document.getElementById("button8").style.display="none";
+				}
+				if (!checkAnswers("sevenA", "1800")) {
+					seven.A=seven.A+1;
+				}
+				if (seven.A===3) {
+					document.getElementById("sevenA").value="1800";
+					document.getElementById("sevenA").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenB", "gain")) {
+					seven.B=seven.B+1;
+				}
+				if (seven.B===3) {
+					document.getElementById("sevenB").value="gain";
+					document.getElementById("sevenB").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenC", "0.03")) {
+					seven.C=seven.C+1;
+				}
+				if (seven.C===3) {
+					document.getElementById("sevenC").value="0.03";
+					document.getElementById("sevenC").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenD", "2680")) {
+					seven.D=seven.D+1;
+				}
+				if (seven.D===3) {
+					document.getElementById("sevenD").value="2680";
+					document.getElementById("sevenD").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenE", "lose")) {
+					seven.E=seven.E+1;
+				}
+				if (seven.E===3) {
+					document.getElementById("sevenE").value="lose";
+					document.getElementById("sevenE").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenF", "0.25")) {
+					seven.F=seven.F+1;
+				}
+				if (seven.F===3) {
+					document.getElementById("sevenF").value="0.25";
+					document.getElementById("sevenF").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenGi", "resting energy expenditure")) {
+					seven.G=seven.G+1;
+				}
+				if (seven.G===3) {
+					document.getElementById("sevenGi").value="resting energy expenditure";
+					document.getElementById("sevenGi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenGii", "physical activity level")) {
+					seven.H=seven.H+1;
+				}
+				if (seven.H===3) {
+					document.getElementById("sevenGii").value="physical activity level";
+					document.getElementById("sevenGii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenGiii", "function")) {
+					seven.I=seven.I+1;
+				}
+				if (seven.I===3) {
+					document.getElementById("sevenGiii").value="function";
+					document.getElementById("sevenGiii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenGiv", "energy ingested")) {
+					seven.J=seven.J+1;
+				}
+				if (seven.J===3) {
+					document.getElementById("sevenGiv").value="energy ingested";
+					document.getElementById("sevenGiv").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenGv", "digestiove energy factor")) {
+					seven.K=seven.K+1;
+				}
+				if (seven.K===3) {
+					document.getElementById("sevenGv").value="digestive energy factor";
+					document.getElementById("sevenGv").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenGvi", "digestive activity expenditure")) {
+					seven.L=seven.L+1;
+				}
+				if (seven.L===3) {
+					document.getElementById("sevenGvi").value="digestive activity expenditure";
+					document.getElementById("sevenGvi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenGvii", "parameter")) {
+					seven.M=seven.M+1;
+				}
+				if (seven.M===3) {
+					document.getElementById("sevenGvii").value="parameter";
+					document.getElementById("sevenGvii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("sevenGviii", "0.10")) {
+					seven.N=seven.N+1;
+				}
+				if (seven.N===3) {
+					document.getElementById("sevenGviii").value="0.10";
+					document.getElementById("sevenGviii").style.background="#FFFF00"
+				}
+			};
+		</script>
 		<h3>Question 8</h3>
 		<p>8a. Joe is still eating 1989 calories a day and still sedentary (physical activity level = 0.2), so what is his digestive activity expenditure per day?
 		</br><input type="number" id="eightA"> calories</p>
@@ -1396,9 +1411,9 @@
 		<input type="number" id="eightC"> calories</p>
 		<p>8d. Does he gain or lose weight?</p>
 		<select id="eightD">
-		<option></option>
-		<option>gain</option>
-		<option>lose</option>
+			<option></option>
+			<option>gain</option>
+			<option>lose</option>
 		</select>
 		<p>8e. How much, in pounds per day?</br>
 		<input type="number" id="eightE"> pounds per day</p>
@@ -1407,418 +1422,417 @@
 		<ul><li>REE = 4.5*weight + 15.9*height - 5*age + gender REE</li></ul>
 		<p>where:</p>
 		<ul>
-		<li>REE is resting energy expenditure</li>
-		<li>gender REE is 5 for men and -161 for women</li>
-		<li>weight is in pounds</li>
-		<li>height is in inches</li>
-		<li>age is in years</li>
+			<li>REE is resting energy expenditure</li>
+			<li>gender REE is 5 for men and -161 for women</li>
+			<li>weight is in pounds</li>
+			<li>height is in inches</li>
+			<li>age is in years</li>
 		</ul>
 		<p>In Joe's model below, modify the node for "resting energy expenditure" to implement this equation by filling in the blanks. Assume Joe is a 20-year-old, 65-inch-tall male.</p>
 		<table>
 			<thead>
-			<td>Node Name</td>
-			<td>Type</td>
-			<td>Description</td>
+				<td>Node Name</td>
+				<td>Type</td>
+				<td>Description</td>
 			</thead>
 			<tbody>
-			<tr>
-			<td>Energy balance</td>
-			<td>Function</td>
-			<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
-			</tr>
-			<tr>
-			<td>Energy ingested</td>
-			<td>Parameter</td>
-			<td>energy ingested daily, value = 1989 calories</td>
-			</tr>
-			<tr>
-			<td>Weight</td>
-			<td>Accumulator</td>
-			<td>The weight of the body as it varies day by day. Its new value is old value + weight change; initial value = 150 lbs</td>
-			</tr>
-			<tr>
-			<td>Weight change</td>
-			<td>Fucntion</td>
-			<td>Weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
-			</tr>
-			<tr>
-			<td>Calories per pound</td>
-			<td>Parameter</td>
-			<td>Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
-			</tr>
-			<tr>
-			<td>physical activity expenditure</td>
-			<td>Function</td>
-			<td>energy burned by physical exercise; value = resting energy expenditure * physical activity level</td>
-			</tr>
-			<tr>
-			<td>resting energy expenditure</td>
-			<td>
-			<select id="eightFi">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>energy expended per day by basic bodily function; value = 
-			<select id="eightFii">
-			<option></option>
-			<option>weight REE</option>
-			<option>weight REE multiplier</option>
-			<option>height REE</option>
-			<option>height REE multiplier</option>
-			<option>height</option>
-			<option>age REE</option>
-			<option>age REE multiplier</option>
-			<option>age</option>
-			<option>gender REE</option>
-			</select>
-			-
-			<select id="eightFiii">
-			<option></option>
-			<option>weight REE</option>
-			<option>weight REE multiplier</option>
-			<option>height REE</option>
-			<option>height REE multiplier</option>
-			<option>height</option>
-			<option>age REE</option>
-			<option>age REE multiplier</option>
-			<option>age</option>
-			<option>gender REE</option>
-			</select>
-			+
-			<select id="eightFiv">
-			<option></option>
-			<option>weight REE</option>
-			<option>weight REE multiplier</option>
-			<option>height REE</option>
-			<option>height REE multiplier</option>
-			<option>height</option>
-			<option>age REE</option>
-			<option>age REE multiplier</option>
-			<option>age</option>
-			<option>gender REE</option>
-			</select>
-			</td>
-			</tr>
-			<tr>
-			<td>digestive activity expenditure</td>
-			<td>Function</td>
-			<td>energy burned in order to digest food; value = energy ingested * digestive activity expenditure</td>
-			</tr>
-			<tr>
-			<td>Energy expended</td>
-			<td>Function</td>
-			<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + digestive activity expenditure</td>
-			</tr>
-			<tr>
-			<td>Physical activity level</td>
-			<td>Parameter</td>
-			<td>Amount of physical activity, e.g., 0.2 for little or no exercise. 0.9 for daily hard exercise</td>
-			</tr>
-			<!--Pg. 15-->
-			<tr>
-			<td>Digestive energy factor</td>
-			<td>Parameter</td>
-			<td>The proportion of energy that is requied to process it, value = 0.10</td>
-			</tr>
-			<tr>
-			<td>weight REE</td>
-			<td>
-			<select id="eightFv">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>Contribution of weight to REE, value = weight * weight REE multiplier</td>
-			</tr>
-			<tr>
-			<td>weight REE multiplier</td>
-			<td>
-			<select id="eightFvi">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>Amount of REE per pound of weight, value = 4.5 calories/pound</td>
-			</tr>
-			<tr>
-			<td>height REE</td>
-			<td>
-			<select id="eightFvii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>Contribution of height to REE, value = height * height REE multiplier</td>
-			</tr>
-			<tr>
-			<td>height REE multiplier</td>
-			<td>
-			<select id="eightFviii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>Amount of REE per inch of height, value = 15.9 calories/inch</td>
-			</tr>
-			<tr>
-			<td>height</td>
-			<td>
-			<select id="eightFix">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>Joe's height in inches, value = 65 inches</td>
-			</tr>
-			<tr>
-			<td>age REE</td>
-			<td>
-			<select id="eightFx">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>Contribution of age to REE, value = age * age REE multiplier</td>
-			</tr>
-			<tr>
-			<td>age REE multiplier</td>
-			<td>
-			<select id="eightFxi">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>Amount of REE per year of age, value = 5 calories/year</td>
-			</tr>
-			<tr>
-			<td>age</td>
-			<td>
-			<select id="eightFxii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>Joe's age in years, value = 20 years</td>
-			</tr>
-			<tr>
-			<td>gender REE</td>
-			<td>
-			<select id="eightFxiii">
-			<option></option>
-			<option>parameter</option>
-			<option>accumulator</option>
-			<option>function</option>
-			</select>
-			</td>
-			<td>Contribution of gender to REE, value = 5 for men and -161 for women.</td>
-			</tr>
+				<tr>
+					<td>Energy balance</td>
+					<td>Function</td>
+					<td>Energy surplus or deficit daily, value = energy ingested - energy expended</td>
+				</tr>
+				<tr>
+					<td>Energy ingested</td>
+					<td>Parameter</td>
+					<td>energy ingested daily, value = 1989 calories</td>
+				</tr>
+				<tr>
+					<td>Weight</td>
+					<td>Accumulator</td>
+					<td>The weight of the body as it varies day by day. Its new value is old value + weight change; initial value = 150 lbs</td>
+				</tr>
+				<tr>
+					<td>Weight change</td>
+					<td>Fucntion</td>
+					<td>Weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td>
+				</tr>
+				<tr>
+					<td>Calories per pound</td>
+					<td>Parameter</td>
+					<td>Number of calories in a pound of tissue, value = 3500 calories/lbs</td>
+				</tr>
+				<tr>
+					<td>physical activity expenditure</td>
+					<td>Function</td>
+					<td>energy burned by physical exercise; value = resting energy expenditure * physical activity level</td>
+				</tr>
+				<tr>
+					<td>resting energy expenditure</td>
+					<td>
+						<select id="eightFi">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>energy expended per day by basic bodily function; value = 
+						<select id="eightFii">
+							<option></option>
+							<option>weight REE</option>
+							<option>weight REE multiplier</option>
+							<option>height REE</option>
+							<option>height REE multiplier</option>
+							<option>height</option>
+							<option>age REE</option>
+							<option>age REE multiplier</option>
+							<option>age</option>
+							<option>gender REE</option>
+						</select>
+						-
+						<select id="eightFiii">
+							<option></option>
+							<option>weight REE</option>
+							<option>weight REE multiplier</option>
+							<option>height REE</option>
+							<option>height REE multiplier</option>
+							<option>height</option>
+							<option>age REE</option>
+							<option>age REE multiplier</option>
+							<option>age</option>
+							<option>gender REE</option>
+						</select>
+						+
+						<select id="eightFiv">
+							<option></option>
+							<option>weight REE</option>
+							<option>weight REE multiplier</option>
+							<option>height REE</option>
+							<option>height REE multiplier</option>
+							<option>height</option>
+							<option>age REE</option>
+							<option>age REE multiplier</option>
+							<option>age</option>
+							<option>gender REE</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>digestive activity expenditure</td>
+					<td>Function</td>
+					<td>energy burned in order to digest food; value = energy ingested * digestive activity expenditure</td>
+				</tr>
+				<tr>
+					<td>Energy expended</td>
+					<td>Function</td>
+					<td>energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + digestive activity expenditure</td>
+				</tr>
+				<tr>
+					<td>Physical activity level</td>
+					<td>Parameter</td>
+					<td>Amount of physical activity, e.g., 0.2 for little or no exercise. 0.9 for daily hard exercise</td>
+				</tr>
+				<!--Pg. 15-->
+				<tr>
+					<td>Digestive energy factor</td>
+					<td>Parameter</td>
+					<td>The proportion of energy that is requied to process it, value = 0.10</td>
+				</tr>
+				<tr>
+					<td>weight REE</td>
+					<td>
+						<select id="eightFv">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>Contribution of weight to REE, value = weight * weight REE multiplier</td>
+				</tr>
+				<tr>
+					<td>weight REE multiplier</td>
+					<td>
+						<select id="eightFvi">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>Amount of REE per pound of weight, value = 4.5 calories/pound</td>
+				</tr>
+				<tr>
+					<td>height REE</td>
+					<td>
+						<select id="eightFvii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>Contribution of height to REE, value = height * height REE multiplier</td>
+				</tr>
+				<tr>
+					<td>height REE multiplier</td>
+					<td>
+						<select id="eightFviii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>Amount of REE per inch of height, value = 15.9 calories/inch</td>
+				</tr>
+				<tr>
+					<td>height</td>
+					<td>
+						<select id="eightFix">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>Joe's height in inches, value = 65 inches</td>
+				</tr>
+				<tr>
+					<td>age REE</td>
+					<td>
+						<select id="eightFx">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>Contribution of age to REE, value = age * age REE multiplier</td>
+				</tr>
+				<tr>
+					<td>age REE multiplier</td>
+					<td>
+						<select id="eightFxi">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>Amount of REE per year of age, value = 5 calories/year</td>
+				</tr>
+				<tr>
+					<td>age</td>
+					<td>
+						<select id="eightFxii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>Joe's age in years, value = 20 years</td>
+				</tr>
+				<tr>
+					<td>gender REE</td>
+					<td>
+						<select id="eightFxiii">
+							<option></option>
+							<option>parameter</option>
+							<option>accumulator</option>
+							<option>function</option>
+						</select>
+					</td>
+					<td>Contribution of gender to REE, value = 5 for men and -161 for women.</td>
+				</tr>
 			</tbody>
 		</table>
 		<button id="button9" onClick="cont9();">Check Answers and See Results</button>
 		<script type="text/javascript">
-		var eight = {
-		A:0,
-		B:0,
-		C:0,
-		D:0,
-		E:0,
-		F:0,
-		G:0,
-		H:0,
-		I:0,
-		J:0,
-		K:0,
-		L:0,
-		M:0,
-		N:0,
-		O:0,
-		P:0,
-		Q:0,
-		R:0,
-		S:0,
-		};
-		function cont9() {
-		alert("executing");
-		checkAnswers("eightA", "199");
-		checkAnswers("eightBi", "400");
-		checkAnswers("eightBii", "280");
-		checkAnswers("eightC", "2080");
-		checkAnswers("eightD", "gain");
-		checkAnswers("eightE", "0.55");
-		checkAnswers("eightFi", "function");
-		checkAnswers("eightFii", "weight REE");
-		checkAnswers("eightFiii", "age REE");
-		checkAnswers("eightFiv", "height REE");
-		checkAnswers("eightFv", "function");
-		checkAnswers("eightFvi", "parameter");
-		checkAnswers("eightFvii", "function");
-		checkAnswers("eightFviii", "parameter");
-		checkAnswers("eightFix", "parameter");
-		checkAnswers("eightFx", "function");
-		checkAnswers("eightFxi", "parameter");
-		checkAnswers("eightFxii", "parameter");
-		checkAnswers("eightFxiii", "parameter");
-	if (checkAnswers("eightA", "199") && checkAnswers("eightBi", "400") && checkAnswers("eightBii", "280") && checkAnswers("eightC", "2080") && checkAnswers("eightD", "gain") && checkAnswers("eightE", "0.55") && checkAnswers("eightFi", "function") && checkAnswers("eightFii", "weight REE") && checkAnswers("eightFiii", "age REE") && checkAnswers("eightFiv", "height REE") && checkAnswers("eightFv", "function") && checkAnswers("eightFvi", "parameter") && checkAnswers("eightFvii", "function") && checkAnswers("eightFviii", "parameter") && checkAnswers("eightFix", "parameter") && checkAnswers("eightFx", "function") && checkAnswers("eightFxi", "parameter") && checkAnswers("eightFxii", "parameter") && checkAnswers("eightFxiii", "parameter")) {
-	document.getElementById("resultsTable").style.display="";
-	document.getElementById("button9").style.display="none";
-	displayAnswers();
-	}	
-	if (document.getElementById("eightA").value==="" || document.getElementById("eightBi").value==="" || document.getElementById("eightBii").value==="" || document.getElementById("eightC").value==="" || document.getElementById("eightD").value==="" || document.getElementById("eightE").value==="" || document.getElementById("eightFi").value==="" || document.getElementById("eightFi").value==="" || document.getElementById("eightFii").value==="" || document.getElementById("eightFiii").value==="" || document.getElementById("eightFiv").value==="" || document.getElementById("eightFv").value==="" || document.getElementById("eightFvi").value==="" || document.getElementById("eightFvii").value==="" || document.getElementById("eightFviii").value==="" || document.getElementById("eightFix").value==="" || document.getElementById("eightFx").value==="" || document.getElementById("eightFxi").value==="" || document.getElementById("eightFxii").value==="" || document.getElementById("eightFxiii").value==="") {
-	alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
-	}
-	if (!checkAnswers("eightA", "199")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightA").value="199";
-		document.getElementById("eightA").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightBi", "400")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightBi").value="400";
-		document.getElementById("eightBi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightBii", "280")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightBii").value="280";
-		document.getElementById("eightBii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightC", "2080")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightC").value="2080";
-		document.getElementById("eightC").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightD", "gain")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightD").value="gain";
-		document.getElementById("eightD").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightE", "0.55")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightE").value="0.55";
-		document.getElementById("eightE").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFi", "function")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFi").value="function";
-		document.getElementById("eightFi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFii", "weight REE")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFii").value="weight REE";
-		document.getElementById("eightFii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFiii", "age REE")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFiii").value="age REE";
-		document.getElementById("eightFiii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFiv", "height REE")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFiv").value="height REE";
-		document.getElementById("eightFiv").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFv", "function")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFv").value="function";
-		document.getElementById("eightFv").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFvi", "parameter")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFvi").value="parameter";
-		document.getElementById("eightFvi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFvii", "function")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFvii").value="function";
-		document.getElementById("eightFvii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFviii", "parameter")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFviii").value="parameter";
-		document.getElementById("eightFviii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFix", "parameter")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFix").value="parameter";
-		document.getElementById("eightFix").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFx", "function")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFx").value="function";
-		document.getElementById("eightFx").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFxi", "parameter")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFxi").value="parameter";
-		document.getElementById("eightFxi").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFxii", "parameter")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFxii").value="parameter";
-		document.getElementById("eightFxii").style.background="#FFFF00"
-		}
-	if (!checkAnswers("eightFxiii", "parameter")) {
-		five.A=five.A+1;
-		}
-		if (five.A===3) {
-		document.getElementById("eightFxiii").value="parameter";
-		document.getElementById("eightFxiii").style.background="#FFFF00"
-		}
-		};
+			var eight = {
+				A:0,
+				B:0,
+				C:0,
+				D:0,
+				E:0,
+				F:0,
+				G:0,
+				H:0,
+				I:0,
+				J:0,
+				K:0,
+				L:0,
+				M:0,
+				N:0,
+				O:0,
+				P:0,
+				Q:0,
+				R:0,
+				S:0,
+			};
+			function cont9() {
+				checkAnswers("eightA", "199");
+				checkAnswers("eightBi", "400");
+				checkAnswers("eightBii", "280");
+				checkAnswers("eightC", "2080");
+				checkAnswers("eightD", "gain");
+				checkAnswers("eightE", "0.55");
+				checkAnswers("eightFi", "function");
+				checkAnswers("eightFii", "weight REE");
+				checkAnswers("eightFiii", "age REE");
+				checkAnswers("eightFiv", "height REE");
+				checkAnswers("eightFv", "function");
+				checkAnswers("eightFvi", "parameter");
+				checkAnswers("eightFvii", "function");
+				checkAnswers("eightFviii", "parameter");
+				checkAnswers("eightFix", "parameter");
+				checkAnswers("eightFx", "function");
+				checkAnswers("eightFxi", "parameter");
+				checkAnswers("eightFxii", "parameter");
+				checkAnswers("eightFxiii", "parameter");
+				if (checkAnswers("eightA", "199") && checkAnswers("eightBi", "400") && checkAnswers("eightBii", "280") && checkAnswers("eightC", "2080") && checkAnswers("eightD", "gain") && checkAnswers("eightE", "0.55") && checkAnswers("eightFi", "function") && checkAnswers("eightFii", "weight REE") && checkAnswers("eightFiii", "age REE") && checkAnswers("eightFiv", "height REE") && checkAnswers("eightFv", "function") && checkAnswers("eightFvi", "parameter") && checkAnswers("eightFvii", "function") && checkAnswers("eightFviii", "parameter") && checkAnswers("eightFix", "parameter") && checkAnswers("eightFx", "function") && checkAnswers("eightFxi", "parameter") && checkAnswers("eightFxii", "parameter") && checkAnswers("eightFxiii", "parameter")) {
+					document.getElementById("resultsTable").style.display="";
+					document.getElementById("button9").style.display="none";
+					displayAnswers();
+				}	
+				if (document.getElementById("eightA").value==="" || document.getElementById("eightBi").value==="" || document.getElementById("eightBii").value==="" || document.getElementById("eightC").value==="" || document.getElementById("eightD").value==="" || document.getElementById("eightE").value==="" || document.getElementById("eightFi").value==="" || document.getElementById("eightFi").value==="" || document.getElementById("eightFii").value==="" || document.getElementById("eightFiii").value==="" || document.getElementById("eightFiv").value==="" || document.getElementById("eightFv").value==="" || document.getElementById("eightFvi").value==="" || document.getElementById("eightFvii").value==="" || document.getElementById("eightFviii").value==="" || document.getElementById("eightFix").value==="" || document.getElementById("eightFx").value==="" || document.getElementById("eightFxi").value==="" || document.getElementById("eightFxii").value==="" || document.getElementById("eightFxiii").value==="") {
+					alert ("It appears you have left at least one of the slots blank. Please remedy this immediately.");
+				}
+				if (!checkAnswers("eightA", "199")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightA").value="199";
+					document.getElementById("eightA").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightBi", "400")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightBi").value="400";
+					document.getElementById("eightBi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightBii", "280")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightBii").value="280";
+					document.getElementById("eightBii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightC", "2080")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightC").value="2080";
+					document.getElementById("eightC").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightD", "gain")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightD").value="gain";
+					document.getElementById("eightD").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightE", "0.55")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightE").value="0.55";
+					document.getElementById("eightE").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFi", "function")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFi").value="function";
+					document.getElementById("eightFi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFii", "weight REE")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFii").value="weight REE";
+					document.getElementById("eightFii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFiii", "age REE")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFiii").value="age REE";
+					document.getElementById("eightFiii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFiv", "height REE")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFiv").value="height REE";
+					document.getElementById("eightFiv").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFv", "function")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFv").value="function";
+					document.getElementById("eightFv").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFvi", "parameter")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFvi").value="parameter";
+					document.getElementById("eightFvi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFvii", "function")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFvii").value="function";
+					document.getElementById("eightFvii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFviii", "parameter")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFviii").value="parameter";
+					document.getElementById("eightFviii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFix", "parameter")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFix").value="parameter";
+					document.getElementById("eightFix").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFx", "function")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFx").value="function";
+					document.getElementById("eightFx").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFxi", "parameter")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFxi").value="parameter";
+					document.getElementById("eightFxi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFxii", "parameter")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFxii").value="parameter";
+					document.getElementById("eightFxii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("eightFxiii", "parameter")) {
+					five.A=five.A+1;
+				}
+				if (five.A===3) {
+					document.getElementById("eightFxiii").value="parameter";
+					document.getElementById("eightFxiii").style.background="#FFFF00"
+				}
+			};
 		</script>
 		</div>
 		</div>
@@ -1842,7 +1856,7 @@
 				<tr>
 					<td>1a. i.</td>
 					<td>beaver births</td>
-					<td><div id="1AiAnswer"><div></td>
+					<td><div id="1AiAnswer1"><div><div id="1AiAnswer2"><div><div id="1AiAnswer3"><div></td>
 					<td><div id="1AiTries"></div></td>
 					<td></td>
 				</tr>
@@ -1876,385 +1890,455 @@
 				</tr>
 				<tr>
 					<td>2a. i.</td>
-	<td>parameter</td>
-	<td><div id="2AiAnswer"></div></td>
-	<td><div id="2AiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>2a. ii.</td>
-	<td>2</td>
-	<td><div id="2AiiAnswer"></div></td>
-	<td><div id="2AiiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>2b.</td>
-	<td>accumulator</td>
-	<td><div id="2BAnswer"></div></td>
-	<td><div id="2BTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>3a. i.</td>
-	<td>parameter</td>
-	<td><div id="3AiAnswer"></div></td>
-	<td><div id="3AiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>3a. ii.</td>
-	<td>accumulator</td>
-	<td><div id="3AiiAnswer"></div></td>
-	<td><div id="3AiiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>3b. i.</td>
-	<td>345100</td>
-	<td><div id="3BiAnswer"></div></td>
-	<td><div id="3BiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>3b. ii.</td>
-	<td>345200</td>
-	<td><div id="3BiiAnswer"></div></td>
-	<td><div id="3BiiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>3b. iii.</td>
-	<td>345200</td>
-	<td><div id="3BiiiAnswer"></div></td>
-	<td><div id="3BiiiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>3b. iv.</td>
-	<td>100</td>
-	<td><div id="3BivAnswer"></div></td>
-	<td><div id="3BivTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>3b. v.</td>
-	<td>345300</td>
-	<td><div id="3BvAnswer"></div></td>
-	<td><div id="3BvTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>3b. vi.</td>
-	<td>100</td>
-	<td><div id="3BviAnswer"></div></td>
-	<td><div id="3BviTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>3b. vii.</td>
-	<td>345400</td>
-	<td><div id="3BviiAnswer"></div></td>
-	<td><div id="3BviiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>3b. viii</td>
-	<td>100</td>
-	<td><div id="3BviiiAnswer"></div></td>
-	<td><div id="3BviiiTries"></div><td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>3b. ix.</td>
-	<td>345500</td>
-	<td><div id="3BixAnswer"></div></td>
-	<td><div id="3BixTries"></div></td>
-	<td></td>
-	</tr>
-	<td>3c. i.</td>
-	<td>X-axis (independent value)</td>
-	<td><div id="3ciAnswer"></div></td>
-	<td><div id="3ciTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>3c. ii.</td>
-	<td>Y-axis (dependent value)</td>
-	<td><div id="3CiiAnswer"></div></td>
-	<td><div id="3CiiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>4a. i.</td>
-	<td>accumulator</td>
-	<td><div id="4AiAnswer"></div></td>
-	<td><div id="4AiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>4a. ii.</td>
-	<td>parameter</td>
-	<td><div id="4AiiAnswer"></div></td>
-	<td><div id="4AiiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>4a. iii.</td>
-	<td>function</td>
-	<td><div id="4AiiiAnswer"></div></td>
-	<td><div id="4AiiiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>4a. iv.</td>
-	<td>parameter</td>
-	<td><div id="4AivAnswer"></div></td>
-	<td><div id="4AivTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>4b.</td>
-	<td>energy stored</td>
-	<td><div id="4BAnswer"></div></td>
-	<td><div id="4BTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>4c.</td>
-	<td>energy balance</td>
-	<td><div id="4CAnswer"></div></td>
-	<td><div id="4CTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>5a. i.</td>
-	<td>parameter</td>
-	<td><div id="5AiAnswer"></div></td>
-	<td><div id="5AiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>5a. ii.</td>
-	<td>function</td>
-	<td><div id="5AiiAnswer"></div></td>
-	<td><div id="5AiiTries"></div></td>
-	</tr>
-	<tr>
-	<td>5a. iii.</td>
-	<td>parameter</td>
-	<td><div id="5AiiiAnswer"></div></td>
-	<td><div id="5AiiiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>5a. iv.</td>
-	<td>accumulator</td>
-	<td><div id="5AivAnswer"></div></td>
-	<td><div id="5AivTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>5a. v.</td>
-	<td>weight change</td>
-	<td><div id="5AvAnswer"></div></td>
-	<td><div id="5AvTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>5a. vi.</td>
-	<td>function</td>
-	<td><div id="5AviAnswer"></div></td>
-	<td><div id="5AviTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>5a. vii.</td>
-	<td>parameter</td>
-	<td><div id="5AviiAnswer"></div></td>
-	<td><div id="5AviiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>5d.</td>
-	<td>5b, because energy balance is negative, he loses weight</td>
-	<td><div id="5DAnswer"></div></td>
-	<td>N/A</td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>5e.</td>
-	<td>5c, because energy balance is positive, so he gains weight</td>
-	<td><div id="5EAnswer"></div></td>
-	<td>N/A</td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6a. i.</td>
-	<td>parameter</td>
-	<td><div id="sixAiAnswer"></div></td>
-	<td><div id="sixAiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6a. ii.</td>
-	<td>parameter</td>
-	<td><div id="sixAiiAnswer"></div></td>
-	<td><div id="sixAiiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6a. iii.</td>
-	<td>parameter</td>
-	<td><div id="sixAiiiAnswer"></div></td>
-	<td><div id="sixAiiiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6a. iv.</td>
-	<td>function</td>
-	<td><div id="sixAivAnswers"></div></td>
-	<td><div id="sixAivTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6a. v.</td>
-	<td>digestive activity expenditure</td>
-	<td><div id="sixAvAnswer"></div><td>
-	<td><div id="sixAvTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6b.<td>
-	<td>2000<td>
-	<td><div id="sixBAnswer"></div>
-	<td><div id="sixBTries"></div>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6c.</td>
-	<td>negative</td>
-	<td><div id="sixCAnswer"></div></td>
-	<td><div id="sixCTries"></div><td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6d.</td>
-	<td>positive</td>
-	<td><div id="sixDAnswer"></div></td>
-	<td><div id="sixDTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6e. i.</td>
-	<td>function</td>
-	<td><div id="sixEiAnswer"></div></td>
-	<td><div id="sixEiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6e. ii.</td>
-	<td>resting energy expenditure</td>
-	<td><div id="sixEiiAnswer"></div></td>
-	<td><div id="sixEiiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6e. iii.</td>
-	<td>physical activity level</td>
-	<td><div id="sixEiiiAnswer"></div></td>
-	<td><div id="sixEiiiTries"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6e. iv.</td>
-	<td>digestive energy expenditure</td>
-	<td><div id="sixEivAnswer"></div></td>
-	<td></td>
-	</tr>
-	<tr>
-	<td>6e. v.</td>
-	<td>parameter</td>
-	<td><div id="sixEvAnswer"></div></td>
-	<td><div id="sixEvTries"></div></td>
-	<td></td>
-	</tr>
+					<td>parameter</td>
+					<td><div id="2AiAnswer"></div></td>
+					<td><div id="2AiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2a. ii.</td>
+					<td>2</td>
+					<td><div id="2AiiAnswer"></div></td>
+					<td><div id="2AiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2b.</td>
+					<td>accumulator</td>
+					<td><div id="2BAnswer"></div></td>
+					<td><div id="2BTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3a. i.</td>
+					<td>parameter</td>
+					<td><div id="3AiAnswer"></div></td>
+					<td><div id="3AiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3a. ii.</td>
+					<td>accumulator</td>
+					<td><div id="3AiiAnswer"></div></td>
+					<td><div id="3AiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3b. i.</td>
+					<td>345100</td>
+					<td><div id="3BiAnswer"></div></td>
+					<td><div id="3BiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3b. ii.</td>
+					<td>345200</td>
+					<td><div id="3BiiAnswer"></div></td>
+					<td><div id="3BiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3b. iii.</td>
+					<td>345200</td>
+					<td><div id="3BiiiAnswer"></div></td>
+					<td><div id="3BiiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3b. iv.</td>
+					<td>100</td>
+					<td><div id="3BivAnswer"></div></td>
+					<td><div id="3BivTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3b. v.</td>
+					<td>345300</td>
+					<td><div id="3BvAnswer"></div></td>
+					<td><div id="3BvTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3b. vi.</td>
+					<td>100</td>
+					<td><div id="3BviAnswer"></div></td>
+					<td><div id="3BviTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3b. vii.</td>
+					<td>345400</td>
+					<td><div id="3BviiAnswer"></div></td>
+					<td><div id="3BviiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3b. viii</td>
+					<td>100</td>
+					<td><div id="3BviiiAnswer"></div></td>
+					<td><div id="3BviiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3b. ix.</td>
+					<td>345500</td>
+					<td><div id="3BixAnswer"></div></td>
+					<td><div id="3BixTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3c. i.</td>
+					<td>X-axis (independent value)</td>
+					<td><div id="3ciAnswer"></div></td>
+					<td><div id="3ciTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>3c. ii.</td>
+					<td>Y-axis (dependent value)</td>
+					<td><div id="3CiiAnswer"></div></td>
+					<td><div id="3CiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>4a. i.</td>
+					<td>accumulator</td>
+					<td><div id="4AiAnswer"></div></td>
+					<td><div id="4AiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>4a. ii.</td>
+					<td>parameter</td>
+					<td><div id="4AiiAnswer"></div></td>
+					<td><div id="4AiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>4a. iii.</td>
+					<td>function</td>
+					<td><div id="4AiiiAnswer"></div></td>
+					<td><div id="4AiiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>4a. iv.</td>
+					<td>parameter</td>
+					<td><div id="4AivAnswer"></div></td>
+					<td><div id="4AivTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>4b.</td>
+					<td>energy stored</td>
+					<td><div id="4BAnswer"></div></td>
+					<td><div id="4BTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>4c.</td>
+					<td>energy balance</td>
+					<td><div id="4CAnswer"></div></td>
+					<td><div id="4CTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5a. i.</td>
+					<td>parameter</td>
+					<td><div id="5AiAnswer"></div></td>
+					<td><div id="5AiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5a. ii.</td>
+					<td>function</td>
+					<td><div id="5AiiAnswer"></div></td>
+					<td><div id="5AiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5a. iii.</td>
+					<td>parameter</td>
+					<td><div id="5AiiiAnswer"></div></td>
+					<td><div id="5AiiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5a. iv.</td>
+					<td>accumulator</td>
+					<td><div id="5AivAnswer"></div></td>
+					<td><div id="5AivTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5a. v.</td>
+					<td>weight change</td>
+					<td><div id="5AvAnswer"></div></td>
+					<td><div id="5AvTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5a. vi.</td>
+					<td>function</td>
+					<td><div id="5AviAnswer"></div></td>
+					<td><div id="5AviTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5a. vii.</td>
+					<td>parameter</td>
+					<td><div id="5AviiAnswer"></div></td>
+					<td><div id="5AviiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5d.</td>
+					<td>5b, because energy balance is negative, he loses weight</td>
+					<td><div id="5DAnswer"></div></td>
+					<td>N/A</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5e.</td>
+					<td>5c, because energy balance is positive, so he gains weight</td>
+					<td><div id="5EAnswer"></div></td>
+					<td>N/A</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6a. i.</td>
+					<td>parameter</td>
+					<td><div id="sixAiAnswer"></div></td>
+					<td><div id="sixAiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6a. ii.</td>
+					<td>parameter</td>
+					<td><div id="sixAiiAnswer"></div></td>
+					<td><div id="sixAiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6a. iii.</td>
+					<td>parameter</td>
+					<td><div id="sixAiiiAnswer"></div></td>
+					<td><div id="sixAiiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6a. iv.</td>
+					<td>function</td>
+					<td><div id="sixAivAnswers"></div></td>
+					<td><div id="sixAivTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6a. v.</td>
+					<td>digestive activity expenditure</td>
+					<td><div id="sixAvAnswer"></div></td>
+					<td><div id="sixAvTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6b.</td>
+					<td>2000</td>
+					<td><div id="sixBAnswer"></div></td>
+					<td><div id="sixBTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6c.</td>
+					<td>negative</td>
+					<td><div id="sixCAnswer"></div></td>
+					<td><div id="sixCTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6d.</td>
+					<td>positive</td>
+					<td><div id="sixDAnswer"></div></td>
+					<td><div id="sixDTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6e. i.</td>
+					<td>function</td>
+					<td><div id="sixEiAnswer"></div></td>
+					<td><div id="sixEiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6e. ii.</td>
+					<td>resting energy expenditure</td>
+					<td><div id="sixEiiAnswer"></div></td>
+					<td><div id="sixEiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6e. iii.</td>
+					<td>physical activity level</td>
+					<td><div id="sixEiiiAnswer"></div></td>
+					<td><div id="sixEiiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6e. iv.</td>
+					<td>digestive energy expenditure</td>
+					<td><div id="sixEivAnswer"></div></td>
+					<td><div id="sixEivTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>6e. v.</td>
+					<td>parameter</td>
+					<td><div id="sixEvAnswer"></div></td>
+					<td><div id="sixEvTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>7a.</td>
+					<td>1800</td>
+					<td><div id="sevenAAnswer"></div></td>
+					<td><div id="sevenATries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>7b.</td>
+					<td>gain</td>
+					<td><div id="sevenBAnswer"></div></td>
+					<td><div id="sevenBTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>7c.</td>
+					<td>0.03</td>
+					<td><div id="sevenCAnswer"></div></td>
+					<td><div id="sevenCTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>7d.</td>
+					<td>2860</td>
+					<td><div id="sevenDAnswer"></div></td>
+					<td><div id="sevenDTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>7e.</td>
+					<td>lose</td>
+					<td><div id="sevenEAnswer"></div></td>
+					<td><div id="sevenETries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>7f.</td>
+					<td>0.25</td>
+					<td><div id="sevenEAnswer"></div></td>
+					<td><div id="sevenETries"></div></td>
+					<td></td>
+				</tr>
 	</tbody>
 	</table>
 	</div>
 	<script type="text/javascript">
-	function displayAnswers () {
-	document.getElementById("1AiAnswer").innerHTML=document.getElementById("oneAi").value;
-	document.getElementById("1AiTries").innerHTML=one.A;
-	document.getElementById("1AiiAnswer").innerHTML=document.getElementById("oneAii").value;
-	document.getElementById("1AiiTries").innerHTML=one.B;
-	document.getElementById("1BAnswer").innerHTML=document.getElementById("oneB").value;
-	document.getElementById("1BTries").innerHTML=one.C;
-	document.getElementById("1CiAnswer").innerHTML=document.getElementById("oneCi").value;
-	document.getElementById("1CiTries").innerHTML=one.D;
-	document.getElementById("1CiiAnswer").innerHTML=document.getElementById("oneCii").value;
-	document.getElementById("1CiiTries").innerHTML=one.E;
-	document.getElementById("2AiAnswer").innerHTML=document.getElementById("twoAi").value;
-	document.getElementById("2AiTries").innerHTML=two.A;
-	document.getElementById("2AiiAnswer").innerHTMl=document.getElementById("twoAii").value;
-	document.getElementById("2AiiTries").innerHTML=two.B;
-	document.getElementById("2BAnswer").innerHTML=document.getElementById("twoB").value;
-	document.getElementById("2BTries").innerHTML=two.C;
-	document.getElementById("3AiAnswer").innerHTML=document.getElementById("threeAi").value;
-	document.getElementById("3AiTries").innerHTMl=three.A;
-	document.getElementById("3AiiAnswer").innerHTML=document.getElementById("threeAii").value;
-	document.getElementById("3AiiTries").innerHTML=three.B;
-	document.getElementById("3BiAnswer").innerHTML=document.getElementById("threeBi").value;
-	document.getElementById("3BiTries").innerHTML=three.C;
-	document.getElementById("3BiiAnswer").innerHTML=document.getElementById("threeBii").value;
-	document.getElementById("3BiiTries").innerHTML=three.D;
-	document.getElementById("3BiiiAnswer").innerHTML=document.getElementById("threeBiii").value;
-	document.getElementById("3BiiiTries").innerHTML=three.E;
-	document.getElementById("3BivAnswer").innerHTML=document.getElementById("threeBiv").value;
-	document.getElementById("3BivTries").innerHTML=three.F;
-	document.getElementById("3BvAnswer").innerHTML=document.getElementById("threeBv").value;
-	document.getElementById("3BvTries").innerHTML=three.G;
-	document.getElementById("3BviAnswer").innerHTML=document.getElementById("threeBvi").value;
-	document.getElementById("3BviTries").innerHTML=three.H;
-	document.getElementById("3BviiAnswer").innerHTML=document.getElementById("threeBvii").value;
-	document.getElementById("3BviiTries").innerHTML=three.I;
-	document.getElementById("3BviiiAnswer").innerHTML=document.getElementById("threeBviii").value;
-	document.getElementById("3BviiiTries").innerHTML=three.J;
-	document.getElementById("3BixAnswer").innerHTML=document.getElementById("threeBix").value;
-	document.getElementById("3BixTries").innerHTML=three.K;
-	document.getElementById("3CiAnswer").innerHTML=document.getElementById("threeCi").value;
-	document.getElementById("3CiTries").innerHTML=three.L;
-	document.getElementById("3CiiAnswer").innerHTML=document.getElementById("threeCii").value;
-	document.getElementById("3CiiTries").innerHTMl=three.M;
-	document.getElementById("4AiAnswer").innerHTML=document.getElementById("fourAi").value;
-	document.getElementById("4AiTries").innerHTML=four.A;
-	document.getElementById("4AiiAnswer").innerHTML=document.getElementById("fourAii").value;
-	document.getElementById("4AiiTries").innerHTML=four.B;
-	document.getElementById("4AiiiAnswer").innerHTML=document.getElementById("fourAiii").value;
-	document.getElementById("4AiiiTries").innerHTML=four.C;
-	document.getElementById("4AivAnswer").innerHTML=document.getElementById("fourAiv").value;
-	document.getElementById("4AivTries").innerHTML=four.D;
-	document.getElementById("4BAnswer").innerHTML=document.getElementById("fourB").value;
-	document.getElementById("4BTries").innerHTML=four.E;
-	document.getElementById("4CAnswer").innerHTML=document.getElementById("fourC").value;
-	document.getElementById("4CTries").innerHTML=four.F;
-	document.getElementById("5AiAnswer").innerHTML=document.getElementById("fiveAi").value;
-	document.getElementById("5AiTries").innerHTML=five.A;
-	document.getElementById("5AiiAnswer").innerHTML=document.getElementById("fiveAii").value;
-	document.getElementById("5AiiTries").innerHTMl=five.B;
-	document.getElementById("5AiiiAnswer").innerHTML=document.getElementById("fiveAiii").value;
-	document.getElementById("5AiiiTries").innerHTML=five.C;
-	document.getElementById("5AivAnswer").innerHTML=document.getElementById("fiveAiv").value;
-	document.getElementById("5AivTries").innerHTML=five.D;
-	document.getElementById("5AvAnswer").innerHTML=document.getElementById("fiveAv").value;
-	document.getElementById("5AvTries").innerHTML=five.E;
-	document.getElementById("5AviAnswer").innerHTML=document.getElementById("fiveAvi").value;
-	document.getElementById("5AviTries").innerHTML=five.F;
-	document.getElementById("5AviiAnswer").innerHTML=document.getElementById("fiveAvii").value;
-	document.getElementById("5AviiTries").innerHTML=five.G;
-	document.getElementById("5DAnswer").innerHTML=document.getElementById("fiveD").value;
-	document.getElementById("5EAnswer").innerHTML=document.getElementById("fiveE").value;
-	};
+		function displayAnswers () {
+			document.getElementById("1AiTries").innerHTML=one.A;
+			document.getElementById("1AiiAnswer").innerHTML=document.getElementById("oneAii").value;
+			document.getElementById("1AiiTries").innerHTML=one.B;
+			document.getElementById("1BAnswer").innerHTML=document.getElementById("oneB").value;
+			document.getElementById("1BTries").innerHTML=one.C;
+			document.getElementById("1CiAnswer").innerHTML=document.getElementById("oneCi").value;
+			document.getElementById("1CiTries").innerHTML=one.D;
+			document.getElementById("1CiiAnswer").innerHTML=document.getElementById("oneCii").value;
+			document.getElementById("1CiiTries").innerHTML=one.E;
+			document.getElementById("2AiAnswer").innerHTML=document.getElementById("twoAi").value;
+			document.getElementById("2AiTries").innerHTML=two.A;
+			document.getElementById("2AiiAnswer").innerHTMl=document.getElementById("twoAii").value;
+			document.getElementById("2AiiTries").innerHTML=two.B;
+			document.getElementById("2BAnswer").innerHTML=document.getElementById("twoB").value;
+			document.getElementById("2BTries").innerHTML=two.C;
+			document.getElementById("3AiAnswer").innerHTML=document.getElementById("threeAi").value;
+			document.getElementById("3AiTries").innerHTMl=three.A;
+			document.getElementById("3AiiAnswer").innerHTML=document.getElementById("threeAii").value;
+			document.getElementById("3AiiTries").innerHTML=three.B;
+			document.getElementById("3BiAnswer").innerHTML=document.getElementById("threeBi").value;
+			document.getElementById("3BiTries").innerHTML=three.C;
+			document.getElementById("3BiiAnswer").innerHTML=document.getElementById("threeBii").value;
+			document.getElementById("3BiiTries").innerHTML=three.D;
+			document.getElementById("3BiiiAnswer").innerHTML=document.getElementById("threeBiii").value;
+			document.getElementById("3BiiiTries").innerHTML=three.E;
+			document.getElementById("3BivAnswer").innerHTML=document.getElementById("threeBiv").value;
+			document.getElementById("3BivTries").innerHTML=three.F;
+			document.getElementById("3BvAnswer").innerHTML=document.getElementById("threeBv").value;
+			document.getElementById("3BvTries").innerHTML=three.G;
+			document.getElementById("3BviAnswer").innerHTML=document.getElementById("threeBvi").value;
+			document.getElementById("3BviTries").innerHTML=three.H;
+			document.getElementById("3BviiAnswer").innerHTML=document.getElementById("threeBvii").value;
+			document.getElementById("3BviiTries").innerHTML=three.I;
+			document.getElementById("3BviiiAnswer").innerHTML=document.getElementById("threeBviii").value;
+			document.getElementById("3BviiiTries").innerHTML=three.J;
+			document.getElementById("3BixAnswer").innerHTML=document.getElementById("threeBix").value;
+			document.getElementById("3BixTries").innerHTML=three.K;
+			document.getElementById("3CiAnswer").innerHTML=document.getElementById("threeCi").value;
+			document.getElementById("3CiTries").innerHTML=three.L;
+			document.getElementById("3CiiAnswer").innerHTML=document.getElementById("threeCii").value;
+			document.getElementById("3CiiTries").innerHTMl=three.M;
+			document.getElementById("4AiAnswer").innerHTML=document.getElementById("fourAi").value;
+			document.getElementById("4AiTries").innerHTML=four.A;
+			document.getElementById("4AiiAnswer").innerHTML=document.getElementById("fourAii").value;
+			document.getElementById("4AiiTries").innerHTML=four.B;
+			document.getElementById("4AiiiAnswer").innerHTML=document.getElementById("fourAiii").value;
+			document.getElementById("4AiiiTries").innerHTML=four.C;
+			document.getElementById("4AivAnswer").innerHTML=document.getElementById("fourAiv").value;
+			document.getElementById("4AivTries").innerHTML=four.D;
+			document.getElementById("4BAnswer").innerHTML=document.getElementById("fourB").value;
+			document.getElementById("4BTries").innerHTML=four.E;
+			document.getElementById("4CAnswer").innerHTML=document.getElementById("fourC").value;
+			document.getElementById("4CTries").innerHTML=four.F;
+			document.getElementById("5AiAnswer").innerHTML=document.getElementById("fiveAi").value;
+			document.getElementById("5AiTries").innerHTML=five.A;
+			document.getElementById("5AiiAnswer").innerHTML=document.getElementById("fiveAii").value;
+			document.getElementById("5AiiTries").innerHTMl=five.B;
+			document.getElementById("5AiiiAnswer").innerHTML=document.getElementById("fiveAiii").value;
+			document.getElementById("5AiiiTries").innerHTML=five.C;
+			document.getElementById("5AivAnswer").innerHTML=document.getElementById("fiveAiv").value;
+			document.getElementById("5AivTries").innerHTML=five.D;
+			document.getElementById("5AvAnswer").innerHTML=document.getElementById("fiveAv").value;
+			document.getElementById("5AvTries").innerHTML=five.E;
+			document.getElementById("5AviAnswer").innerHTML=document.getElementById("fiveAvi").value;
+			document.getElementById("5AviTries").innerHTML=five.F;
+			document.getElementById("5AviiAnswer").innerHTML=document.getElementById("fiveAvii").value;
+			document.getElementById("5AviiTries").innerHTML=five.G;
+			document.getElementById("5DAnswer").innerHTML=document.getElementById("fiveD").value;
+			document.getElementById("5EAnswer").innerHTML=document.getElementById("fiveE").value;
+			document.getElementById("6AiAnswer").innerHTMl=document.getElementById("sixAi").value;
+			document.getElementById("6AiTries").innerHTML=six.A;
+			document.getElementById("6AiiAnswer").innerHTML=document.getElementById("sixAii").value;
+			document.getElementById("6AiiTries").innerHTML=six.B;
+			document.getElementById("6AiiiAnswer").innerHTML=document.getElementById("sixAiii").value;
+			document.getElementById("6AiiiTries").innerHTML=six.C;
+			document.getElementById("6AivAnswer").innerHTML=document.getElementById("sixAiv").value;
+			document.getElementById("6AivTries").innerHTML=six.D;
+			document.getElementById("6AvAnswer").innerHTML=document.getElementById("sixAv").value;
+			document.getElementById("6AvTries").innerHTML=six.E;
+			document.getElementById("6BAnswer").innerHTML=document.getElementById("sixB").value;
+			document.getElementById("6BTries").innerHTML=six.F;
+			document.getElementById("6CAnswer").innerHTML=document.getElementById("sixC").value;
+			document.getElementById("6CTries").innerHTML=six.G;
+			document.getElementById("6DAnswer").innerHTML=document.getElementById("sixD").value;
+			document.getElementById("6DTries").innerHTML=six.H;
+			document.getElementById("6EiAnswer").innerHTML=document.getElementById("sixEi").value;
+			document.getElementById("6EiTries").innerHTML=six.I;
+			document.getElementById("6EiiAnswer").innerHTML=document.getElementById("sixEii").value;
+			document.getElementById("6EiiTries").innerHTML=six.J;
+			document.getElementById("6EiiiAnswer").innerHTML=document.getElementById("sixEiii").value;
+			document.getElementById("6EiiiTries").innerHTML=six.K;
+			document.getElementById("6EivAnswer").innerHTML=document.getElementById("sixEiv").value;
+			document.getElementById("6EivTries").innerHTML=six.L;
+			document.getElementById("6EvAnswer").innerHTML=document.getElementById("sixEv").value;
+			document.getElementById("6EvTries").innerHTML=six.M;
+		};
 	</script>
 		</body>
  </html>
