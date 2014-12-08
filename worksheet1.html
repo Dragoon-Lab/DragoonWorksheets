@@ -21,7 +21,7 @@
 		<p>To do this, move the decimal place from the end of <b>345000</b> in between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponent is +5" or <b>10<sup>5</sup></b>. This indicates how many zeroes there are.</p>
 		<p>Similarly, <b>0.0000000000000000345</b> can be rewritten as <b>3.45e-17</b> or <b>3.45x10<sup>-17</sup></b>.</p>
 		<button id="button1" onClick="cont1();">Question 1</button>
-		<div id="question1" style="display:">
+		<div id="question1" style="display:none">
 		<script type="text/javascript">
 			function cont1() {
 				document.getElementById("question1").style.display="";
@@ -80,7 +80,7 @@
 			<option>30%</option>
 		</select><br>
 		<button id="button2" onClick="cont2();">Question 2</button>
-		<div id="question2" style="display:">
+		<div id="question2" style="display:none">
 		<script type="text/javascript">
 			var one = {
 				A:0,
@@ -102,11 +102,10 @@
 					document.getElementById("question2").style.display="";
 					document.getElementById("button2").style.display="none";
 					console.timeEnd("oneTimer");
-					document.getElementById("oneTime").innerHTML="oneTimer";
+					document.getElementById("oneTime").innerHTML=oneTimer;
 					console.time("twoTime");
 				}
 				if (!checkAnswers("oneAi", "beaver births")) {
-					alert(one.A);
 					one.A=one.A+1;
 					if (one.A===1) {
 						document.getElementById("1AiAnswer1").innerHTML=document.getElementById("oneAi").value;
@@ -119,7 +118,15 @@
 					}
 				}
 				else {
-					document.getElementById("1AiAnswer1").innerHTML=document.getElementById("oneAi").value;
+					if (one.A===0) {
+						document.getElementById("1AiAnswer1").innerHTML=document.getElementById("oneAi").value;
+					}
+					else if (one.A===1) {
+						document.getElementById("1AiAnswer2").innerHTML=document.getElementById("oneAi").value;
+					}
+					else {
+						document.getElementById("1AiAnswer3").innerHTML=document.getElementById("oneAi").value;
+					}
 				};
 				if (one.A===3) {
 					document.getElementById("oneAi").value="beaver births";
@@ -190,7 +197,7 @@
 		<p>Let's suppose Joe wants to build an accurate model of his weight changes, so he starts with a very simple model, which is that the energy stored (as fat, etc.) changes daily depending on the energy balance. The energy balance is the difference between the energy ingested and the energy burned by the body on that day. When the energy balance is positive on that particular day (a good hunt!), then energy storage increases by the surplus. When the energy balance is negative (a poor hunt), then stored energy decreases.</p>
 		<p>Joe looks up his current weight in a physiology reference and finds that he has about 345,000 calories stored. To keep things simple while getting started on his modeling project, Joe assumes his energy balance is 100 calories every day. He wants to model how his stored energy increases deaily. Please answer questions below about the model Joe must build.</p>
 		<button id="button3" onClick="cont3()">Question3</button>
-		<div id="question3" style="display:">
+		<div id="question3" style="display:none">
 		<script type="text/javascript">
 			var two = {
 				A:0,
@@ -328,7 +335,7 @@
 		<p>The enrgy balance of your body is the difference between the energy you addd to your body by ingesting food and the energy you subtract from your body by physical exercies and other activities. When the energy you ingest exactly equals the energy you expend, the energy balance is zero. When the energy you ingest is greater than the energy you expend, the energy balance is positive, and the excess energy is added to your body's stores. When you consume less energy tha you expend, the energy balance is negative and your body makes up the deficit by withdrawing energy from storage. The energy balance can change every day. Thus, if the energy balance is negative, then the energy stored goes down.</p>
 		<p>Joe's next model of his energy balance is more complex. It makes energy balance a function of energy ingested and energy expended. Eventually, this will allow hiim to vary them separately. For instance, he can see what happens if he keeps his diet the same (and hence energy ingested is the same as it is now) but he does more exercise (so his energy expended is higher than it is now). However, for now he assumes that his daily expenditure is  2100 calories and his daily ingestion nets him 1989 calories.</p>
 		<button id="button4" onClick="cont4();">Question 4</button>
-		<div id="question4" style="display:">
+		<div id="question4" style="display:none">
 		<script type="text/javascript">
 			var three = {
 				A:0,
@@ -541,7 +548,7 @@
 		<!--Pg.7-->
 		<p>Almost all the body's energy is stored as tissue, such as fat, muscle, internal organs, and skin. roughly speaking, a pound of tissue stores 3500 calories. Create a model that represents stored energy in Joe's body as his weight in pounds.</p>
 		<button id="button5" onClick="cont5();">Question 5</button>
-		<div id="question5" style="display:">
+		<div id="question5" style="display:none">
 		<script type="text/javascript">
 			var four = {
 				A:0,
@@ -754,7 +761,7 @@
 		</ul>
 		<p>Based on his reading of the physiology literature, Joe estimates that his numbers are 400, 1400, and 200 calories, respectively.</p>
 		<button id="button6" onClick="cont6();">Question 6</button>
-		<div id="question6" style="display:">
+		<div id="question6" style="display:none">
 		<script type="text/javascript">
 			var five = {
 				A:0,
@@ -763,7 +770,13 @@
 				D:0,
 				E:0,
 				F:0,
-				G:0
+				G:0,
+				H:0,
+				I:0,
+				J:0,
+				K:0,
+				L:0,
+				M:0
 			};
 			function cont6 () {
 				checkAnswers("fiveAi", "parameter");
@@ -828,22 +841,54 @@
 					document.getElementById("fiveAvi").value="function";
 					document.getElementById("fiveAvi").style.background="#FFFF00"
 				}
-				if (!checkAnswers("five Avii", "parameter")) {
-					two.B=two.B+1;
+				if (!checkAnswers("fiveAvii", "parameter")) {
+					five.G=five.G+1;
 				}
-				if (two.B===3) {
+				if (five.G===3) {
 					document.getElementById("fiveAvii").value="parameter";
 					document.getElementById("fiveAvii").style.background="#FFFF00"
 				}
-			};
-			function checkCompletion(input) {
-				if (document.getElementById(input).value=="") {
-					document.getElementById(input).style.background="#FF3333";
-					return false;
+				if (!checkAnswers("fiveDi", "5b")) {
+					five.H=five.H+1;
 				}
-				else {
-					document.getElementById(input).style.background="#00FFFF";
-					return true;
+				if (five.H===3) {
+					document.getElementById("fiveDi").value="5b";
+					document.getElementById("fiveDi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fiveDii", "negative")) {
+					five.I=five.I+1;
+				}
+				if (five.I===3) {
+					document.getElementById("fiveDii").value="negative";
+					document.getElementById("fiveDii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fiveDiii", "loses")) {
+					five.J=five.J+1;
+				}
+				if (five.J===3) {
+					document.getElementById("fiveDiii").value="loses";
+					document.getElementById("fiveDiii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fiveEi", "5c")) {
+					five.K=five.K+1;
+				}
+				if (five.K===3) {
+					document.getElementById("fiveEi").value="5c";
+					document.getElementById("fiveEi").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fiveEii", "positive")) {
+					five.L=five.L+1;
+				}
+				if (five.L===3) {
+					document.getElementById("fiveEii").value="positive";
+					document.getElementById("fiveEii").style.background="#FFFF00"
+				}
+				if (!checkAnswers("fiveEiii", "gains")) {
+					five.M=five.M+1;
+				}
+				if (five.M===3) {
+					document.getElementById("fiveEiii").value="gains";
+					document.getElementById("fiveEiii").style.background="#FFFF00"
 				}
 			};
 		</script>
@@ -1013,6 +1058,7 @@
 						<select id="sixEiv">
 							<option></option>
 							<option>resting energy expenditure</option>
+							<option>digestive energy expenditure</option>
 							<option>digestive activity expenditure</option>
 							<option>energy expended</option>
 							<option>physical activity level</option>
@@ -1035,7 +1081,7 @@
 			</tbody>
 		</table>
 		<button id="button7" onClick="cont7();">Question 7</button>
-		<div id="question7" style="display:">
+		<div id="question7" style="display:none">
 		<script type="text/javascript">
 			var six = {
 				A:0,
@@ -1167,7 +1213,7 @@
 			};
 		</script>
 		<h3>Question 7</h3>
-		<p>7a. Assuming Joe is sedentary, and his physical exercise level is 0.2, what is his daily energy expenditure? <input type="text" id="joe33"></p>
+		<p>7a. Assuming Joe is sedentary, and his physical exercise level is 0.2, what is his daily energy expenditure? <input type="number" id="sevenA"></p>
 		<p>7b. If he still ingests 1989 calories a day, does he gain weight or lose weight?</p>
 		<select id="sevenB">
 			<option></option>
@@ -1309,7 +1355,7 @@
 			</tbody>
 		</table>
 		<button id="button8" onClick="cont8();">Question 8</button>
-		<div id="question8" style="display:">
+		<div id="question8" style="display:none">
 		<script type="text/javascript">
 			var seven = {
 				A:0,
@@ -1742,6 +1788,7 @@
 				if (checkAnswers("eightA", "199") && checkAnswers("eightBi", "400") && checkAnswers("eightBii", "280") && checkAnswers("eightC", "2080") && checkAnswers("eightD", "gain") && checkAnswers("eightE", "0.55") && checkAnswers("eightFi", "function") && checkAnswers("eightFii", "weight REE") && checkAnswers("eightFiii", "age REE") && checkAnswers("eightFiv", "height REE") && checkAnswers("eightFv", "function") && checkAnswers("eightFvi", "parameter") && checkAnswers("eightFvii", "function") && checkAnswers("eightFviii", "parameter") && checkAnswers("eightFix", "parameter") && checkAnswers("eightFx", "function") && checkAnswers("eightFxi", "parameter") && checkAnswers("eightFxii", "parameter") && checkAnswers("eightFxiii", "parameter")) {
 					document.getElementById("resultsTable").style.display="";
 					document.getElementById("button9").style.display="none";
+					document.getElementById("worksheet").style.display="none";
 					displayAnswers();
 				}	
 				if (document.getElementById("eightA").value==="" || document.getElementById("eightBi").value==="" || document.getElementById("eightBii").value==="" || document.getElementById("eightC").value==="" || document.getElementById("eightD").value==="" || document.getElementById("eightE").value==="" || document.getElementById("eightFi").value==="" || document.getElementById("eightFi").value==="" || document.getElementById("eightFii").value==="" || document.getElementById("eightFiii").value==="" || document.getElementById("eightFiv").value==="" || document.getElementById("eightFv").value==="" || document.getElementById("eightFvi").value==="" || document.getElementById("eightFvii").value==="" || document.getElementById("eightFviii").value==="" || document.getElementById("eightFix").value==="" || document.getElementById("eightFx").value==="" || document.getElementById("eightFxi").value==="" || document.getElementById("eightFxii").value==="" || document.getElementById("eightFxiii").value==="") {
@@ -2386,8 +2433,18 @@
 			document.getElementById("5AviTries").innerHTML=five.F;
 			document.getElementById("5AviiAnswer").innerHTML=document.getElementById("fiveAvii").value;
 			document.getElementById("5AviiTries").innerHTML=five.G;
-			document.getElementById("5DAnswer").innerHTML=document.getElementById("fiveD").value;
-			document.getElementById("5EAnswer").innerHTML=document.getElementById("fiveE").value;
+			document.getElementById("5DiAnswer").innerHTML=document.getElementById("fiveDi").value;
+			document.getElementById("5DiTries").innerHTMl=five.H;
+			document.getElementById("5DiiAnswer").innerHTML=document.getElementById("fiveDii").value;
+			document.getElementById("5DiiTries").innerHTMl=five.I;
+			document.getElementById("5DiiiAnswer").innerHTML=document.getElementById("fiveDiii").value;
+			document.getElementById("5DiiiTries").innerHTMl=five.J;
+			document.getElementById("5EiAnswer").innerHTML=document.getElementById("fiveEi").value;
+			document.getElementById("5EiTries").innerHTMl=five.K;
+			document.getElementById("5EiiAnswer").innerHTML=document.getElementById("fiveEii").value;
+			document.getElementById("5EiiTries").innerHTMl=five.L;
+			document.getElementById("5EiiiAnswer").innerHTML=document.getElementById("fiveEiii").value;
+			document.getElementById("5EiiiTries").innerHTMl=five.M;
 			document.getElementById("6AiAnswer").innerHTMl=document.getElementById("sixAi").value;
 			document.getElementById("6AiTries").innerHTML=six.A;
 			document.getElementById("6AiiAnswer").innerHTML=document.getElementById("sixAii").value;
