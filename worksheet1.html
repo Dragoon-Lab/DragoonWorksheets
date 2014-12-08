@@ -26,6 +26,7 @@
 			function cont1() {
 				document.getElementById("question1").style.display="";
 				document.getElementById("button1").style.display="none";
+				console.time("oneTimer");
 			}
 		</script>
 		<h3>Question 1</h3>
@@ -97,9 +98,12 @@
 				if (document.getElementById("oneAi").value===""||document.getElementById("oneAii").value===""||document.getElementById("oneB").value===""||document.getElementById("oneCi").value===""||document.getElementById("oneCii").value==="") {
 					alert("It appears you have left at least one of the slots blank. Please remedy this immediately.");
 				};
-				if (checkAnswers("oneAi", "beaver births") && checkAnswers("oneAii", "20") && checkAnswers("oneB", "30%") && checkAnswers("oneCi", "beaver birth rate")&& checkAnswers("oneCii", "beaver population")) {
+				if ((checkAnswers("oneAi", "beaver births") || one.A===3) && (checkAnswers("oneAii", "20") || one.B===3) && (checkAnswers("oneB", "30%") || one.C===3) && (checkAnswers("oneCi", "beaver birth rate") || one.D===3) && (checkAnswers("oneCii", "beaver population") || one.E===3)) {
 					document.getElementById("question2").style.display="";
 					document.getElementById("button2").style.display="none";
+					console.timeEnd("oneTimer");
+					document.getElementById("oneTime").innerHTML="oneTimer";
+					console.time("twoTime");
 				}
 				if (!checkAnswers("oneAi", "beaver births")) {
 					alert(one.A);
@@ -108,10 +112,10 @@
 						document.getElementById("1AiAnswer1").innerHTML=document.getElementById("oneAi").value;
 					}
 					else if (one.A===2) {
-						document.getElementById("1AiAnswer2").innerHTML=" ;" + document.getElementById("oneAi").value;
+						document.getElementById("1AiAnswer2").innerHTML="; " + document.getElementById("oneAi").value;
 					}
 					else {
-						document.getElementById("1AiAnswer3").innerHTML=" ;" + document.getElementById("oneAi").value;
+						document.getElementById("1AiAnswer3").innerHTML="; " + document.getElementById("oneAi").value;
 					}
 				}
 				else {
@@ -699,8 +703,48 @@
 		</table>
 		<!--Pg. 8-->
 		<img src="images/Graph2.JPG"/>
-		<p>5d. Given the two graphs, 5b and 5c, which one goes with the model in the table above? Why? <input type="text" id="fiveD" width="200px" height="100px"></p>
-		<p>5e. Suppose Joe ingests 3000 calories a day instead of the 1989 calories a day shown on the table. Which graph would likely go with this situation? Why? <input type="text" id="fiveE"></p>
+		<p>5d. Given the two graphs, 5b and 5c, which one goes with the model in the table above? Why?</p>
+		<p>
+			<select id="fiveDi">
+				<option></option>
+				<option>5b</option>
+				<option>5c</option>
+			</select>
+			 because energy balance is 
+			<select id="fiveDii">
+				<option></option>
+				<option>positive</option>
+				<option>negative</option>
+			</select>
+			, so he 
+			<select id="fiveDiii">
+				<option></option>
+				<option>gains</option>
+				<option>loses</option>
+			</select>
+			weight
+		</p>
+		<p>5e. Suppose Joe ingests 3000 calories a day instead of the 1989 calories a day shown on the table. Which graph would likely go with this situation? Why?</p>
+		<p>
+			<select id="fiveEi">
+			 <option></option>
+			 <option>5b</option>
+			 <option>5c</option>
+			</select>
+			 because energy balance is 
+			<select id="fiveEii">
+				<option></option>
+				<option>positive</option>
+				<option>negative</option>
+			</select>
+			, so he 
+			<select id="fiveEiii">
+				<option></option>
+				<option>gains</option>
+				<option>loses</option>
+			</select>
+			weight
+		</p>
 		<!--Pg. 9-->
 		<p>Exactly how much energy is burned by your body depends on many factors, including the amount of physical activity you do, your weight, your age, and other factors. in preparation for describing these effects, scientists divide energy expended into three types:</p>
 		<ul>
@@ -729,12 +773,16 @@
 				checkAnswers("fiveAv", "weight change");
 				checkAnswers("fiveAvi", "function");
 				checkAnswers("fiveAvii", "parameter");
-				checkCompletion("fiveD");
-				checkCompletion("fiveE");
-				if (document.getElementById("fiveAi").value==="" || document.getElementById("fiveAii").value==="" || document.getElementById("fiveAiii").value==="" || document.getElementById("fiveAiv").value==="" || document.getElementById("fiveAv").value==="" || document.getElementById("fiveAvi").value==="" || document.getElementById("fiveAvii").value==="" || document.getElementById("fiveD").value==="" || document.getElementById("fiveE").value==="") {
+				checkAnswers("fiveDi", "5b");
+				checkAnswers("fiveDii", "negative");
+				checkAnswers("fiveDiii", "loses");
+				checkAnswers("fiveEi", "5c");
+				checkAnswers("fiveEii", "positive");
+				checkAnswers("fiveEiii", "gains");
+				if (document.getElementById("fiveAi").value==="" || document.getElementById("fiveAii").value==="" || document.getElementById("fiveAiii").value==="" || document.getElementById("fiveAiv").value==="" || document.getElementById("fiveAv").value==="" || document.getElementById("fiveAvi").value==="" || document.getElementById("fiveAvii").value==="" || document.getElementById("fiveDi").value==="" || document.getElementById("fiveDii").value==="" || document.getElementById("fiveDiii").value==="" || document.getElementById("fiveEi").value==="" || document.getElementById("fiveEii").value==="" || document.getElementById("fiveEiii").value==="") {
 					alert ("It appears you have left at least one of the slots blank. Please remedy this immediately."); 
 				};
-				if (checkAnswers("fiveAi", "parameter") && checkAnswers("fiveAii", "function") && checkAnswers("fiveAiii", "parameter") && checkAnswers("fiveAiv", "accumulator") && checkAnswers("fiveAv", "weight change") && checkAnswers("fiveAvi", "function") && checkAnswers("fiveAvii", "parameter") && checkCompletion("fiveD") && checkCompletion("fiveE")) {
+				if (checkAnswers("fiveAi", "parameter") && checkAnswers("fiveAii", "function") && checkAnswers("fiveAiii", "parameter") && checkAnswers("fiveAiv", "accumulator") && checkAnswers("fiveAv", "weight change") && checkAnswers("fiveAvi", "function") && checkAnswers("fiveAvii", "parameter") && checkAnswers("fiveDi", "5b") && checkAnswers("fiveDii", "negative") && checkAnswers("fiveDiii", "loses") && checkAnswers("fiveEi", "5c") && checkAnswers("fiveEii", "positive") && checkAnswers("fiveEiii", "gains")) {
 					document.getElementById("question6").style.display="";
 					document.getElementById("button6").style.display="none";
 				}
@@ -1850,13 +1898,13 @@
 				<td>Correct Answer</td>
 				<td>Student Answer</td>
 				<td>Number of Tries</td>
-				<td>Time Finished</td>
+				<td>Time Finished (For Entire Question)</td>
 			</thead>
 			<tbody>
 				<tr>
 					<td>1a. i.</td>
 					<td>beaver births</td>
-					<td><div id="1AiAnswer1"><div><div id="1AiAnswer2"><div><div id="1AiAnswer3"><div></td>
+					<td><div id="1AiAnswer1"></div><div id="1AiAnswer2"></div><div id="1AiAnswer3"></div></td>
 					<td><div id="1AiTries"></div></td>
 					<td></td>
 				</tr>
@@ -1886,7 +1934,7 @@
 					<td>beaver population</td>
 					<td><div id="1CiiAnswer"></div></td>
 					<td><div id="1CiiTries"></div></td>
-					<td></td>
+					<td><div id="oneTime"></div></td>
 				</tr>
 				<tr>
 					<td>2a. i.</td>
@@ -2092,17 +2140,45 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td>5d.</td>
-					<td>5b, because energy balance is negative, he loses weight</td>
-					<td><div id="5DAnswer"></div></td>
-					<td>N/A</td>
+					<td>5d. i.</td>
+					<td>5b</td>
+					<td><div id="5DiAnswer"></div></td>
+					<td><div id="5DiTries"></div></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>5e.</td>
-					<td>5c, because energy balance is positive, so he gains weight</td>
-					<td><div id="5EAnswer"></div></td>
-					<td>N/A</td>
+					<td>5d. ii.</td>
+					<td>negative</td>
+					<td><div id="5DiiAnswer"></div></td>
+					<td><div id="5diiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5d. iii.</td>
+					<td>loses</td>
+					<td><div id="5DiiiAnswer"></div></td>
+					<td><div id="5DiiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5e. i.</td>
+					<td>5c</td>
+					<td><div id="5EiAnswer"></div></td>
+					<td><div id="5EiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5e. ii.</td>
+					<td>positive</td>
+					<td><div id="5EiiAnswer"></div></td>
+					<td><div id="5EiiTries"></div></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>5e. iii.</td>
+					<td>gains</td>
+					<td><div id="5EiiiAnswer"></div></td>
+					<td><div id="5EiiiTries"></div></td>
 					<td></td>
 				</tr>
 				<tr>
