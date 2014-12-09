@@ -26,7 +26,6 @@
 			function cont1() {
 				document.getElementById("question1").style.display="";
 				document.getElementById("button1").style.display="none";
-				console.time("oneTimer");
 			}
 		</script>
 		<h3>Question 1</h3>
@@ -101,9 +100,6 @@
 				if ((checkAnswers("oneAi", "beaver births") || one.A===3) && (checkAnswers("oneAii", "20") || one.B===3) && (checkAnswers("oneB", "30%") || one.C===3) && (checkAnswers("oneCi", "beaver birth rate") || one.D===3) && (checkAnswers("oneCii", "beaver population") || one.E===3)) {
 					document.getElementById("question2").style.display="";
 					document.getElementById("button2").style.display="none";
-					console.timeEnd("oneTimer");
-					document.getElementById("oneTime").innerHTML=oneTimer;
-					console.time("twoTime");
 				}
 				if (!checkAnswers("oneAi", "beaver births")) {
 					one.A=one.A+1;
@@ -127,7 +123,7 @@
 					else {
 						document.getElementById("1AiAnswer3").innerHTML=document.getElementById("oneAi").value;
 					}
-				};
+				}
 				if (one.A===3) {
 					document.getElementById("oneAi").value="beaver births";
 					document.getElementById("oneAi").style.background="#FFFF00"
