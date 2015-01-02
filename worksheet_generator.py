@@ -1,6 +1,6 @@
-worksheet = "<!DOCTYPE html>\n<html>\n<head>\n<title>Dragoon Worksheet 1</title>\n<script type=\"text/javascript\">\nfunction checkAnswers(inputId, rightAnswer) {\nif (document.getElementById(inputId).value===rightAnswer) {\ndocument.getElementById(inputId).style.background=\"#66FF33\";\nreturn true;\n}\nelse {\ndocument.getElementById(inputId).style.background=\"#FF3333\";\nreturn false;\n}\n};\n</script>\n</head>\n<body>"
+worksheet = "<!DOCTYPE html>\n<html>\n<head>\n<title>Dragoon Worksheet 1</title>\n<script type=\"text/javascript\">\nfunction checkAnswers(inputId, rightAnswer) {\nif (document.getElementById(inputId).value===rightAnswer) {\ndocument.getElementById(inputId).style.background=\"#66FF33\";\nreturn true;\n}\nelse {\ndocument.getElementById(inputId).style.background=\"#FF3333\";\nreturn false;\n}\n};\nvar tim1 = 0;\nfunction time1 () {\nif (yestim1=1){\ntim1 = tim1 + 1;\nt = setTimeout(function() {time1()},1000);\n}\n};\nvar yestim1 = 1;\ntime1();\n</script>\n</head>\n<body>"
 divset = ""
-endtbl = "<div id=\"resultsTable\" style=\"display:none\">\n<table>\n<thead>\n<td style=\"border: 2pt black solid\">Question</td>\n<td style=\"border: 2pt black solid\">Correct Answer</td>\n<td style=\"border: 2pt black solid\">Student Answers</td>\n<td style=\"border: 2pt black solid\">Number of Tries</td>\n<td style=\"border: 2pt black solid\">Time Finished (for Entire Question)</td>\</thead>\n<tbody>"
+endtbl = "<div id=\"resultsTable\" style=\"display:none\">\n<table>\n<thead>\n<td style=\"border: 2pt black solid\">Question</td>\n<td style=\"border: 2pt black solid\">Correct Answer</td>\n<td style=\"border: 2pt black solid\">Student Answers</td>\n<td style=\"border: 2pt black solid\">Number of Tries</td>\n<td style=\"border: 2pt black solid\">Time for Entire Question (s)</td>\</thead>\n<tbody>"
 endfn = "<script type=\"text/javascript\">\nfunction displayAnswers () {\ndocument.getElementById(\"resultsTable\").style.display=\"\""
 qno = 0
 alph = [0,"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
@@ -17,7 +17,7 @@ def newQuestion ():
 	global gen
 	gen = input ("General description: ")
 	global contfn
-	contfn = "function cont" + qno + "() {"
+	contfn = "function cont" + qno + "() {\nvar yestim" + qno + " = 0;\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
 	global chkans
 	chkans = ""
 	global chkcpl
@@ -88,7 +88,11 @@ def newSection ():
 			global worksheet
 			worksheet = worksheet + "<select id=\"" + qno + let + rno + "\">\n<option></option>" + allans + "</select>"
 			global endtbl
-			endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + let + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Answer1\"></div><div id=\"" + qno + let + rno + "Answer2\"></div><div id=\"" + qno + let + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\"></td>\n<tr>"
+			endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + let + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Answer1\"></div><div id=\"" + qno + let + rno + "Answer2\"></div><div id=\"" + qno + let + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
+			if let == "a" and rno == "i":
+				endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+			else:
+				endtbl = endtbl + "</td>\n<tr>"
 			global endfn
 			endfn = endfn + "\ndocument.getElementById(\"" + qno + let + rno + "Tries\").innerHTML=set" + qno + "." + let + rno + ";"
 			add = input ("Add: ")
@@ -138,7 +142,11 @@ def newSection ():
 						global allline
 						allline = allline + "<td style=\"border: 2pt black solid\"><select id=\"" + qno + let + rno + "\">\n<option></option>" + allans + "</select></td>"
 						global endtbl
-						endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + let + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Answer1\"></div><div id=\"" + qno + let + rno + "Answer2\"></div><div id=\"" + qno + let + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\"></td>\n<tr>"
+						endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + let + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Answer1\"></div><div id=\"" + qno + let + rno + "Answer2\"></div><div id=\"" + qno + let + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
+						if let == "a" and rno == "i":
+							endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+						else:
+							endtbl = endtbl + "</td>\n<tr>"
 						global endfn
 						endfn = endfn + "\ndocument.getElementById(\"" + qno + let + rno + "Tries\").innerHTML=set" + qno + "." + let + rno + ";"
 					else:
@@ -183,7 +191,11 @@ def newSection ():
 			global worksheet
 			worksheet = worksheet + allans
 			global endtbl
-			endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + let + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Answer1\"></div><div id=\"" + qno + let + rno + "Answer2\"></div><div id=\"" + qno + let + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\"></td>\n<tr>"
+			endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + let + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Answer1\"></div><div id=\"" + qno + let + rno + "Answer2\"></div><div id=\"" + qno + let + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
+			if let == "a" and rno == "i":
+				endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+			else:
+				endtbl = endtbl + "</td>\n<tr>"
 			global endfn
 			endfn = endfn + "\ndocument.getElementById(\"" + qno + let + rno + "Tries\").innerHTML=set" + qno + "." + let + rno + ";"
 			add = input ("Add: ")
@@ -199,11 +211,11 @@ def endQuestion ():
 	chkcpl = chkcpl + "0===1) {\n alert(\"It appears you have left at least one of these fields blank. Please remedy this immediately.\");\n}"
 	global ctr
 	global contif
-	contif = contif + "1===1) {\n document.getElementById(\"question" + str(int(qno)+1) + "\").style.display = \"\";\n document.getElementById(\"button" + qno + "\").style.display = \"none\";\n}"
+	contif = contif + "1===1) {\n document.getElementById(\"question" + str(int(qno)+1) + "\").style.display = \"\";\n document.getElementById(\"button" + qno + "\").style.display = \"none\";\ntim" + str(int(qno)+1) + "= 0;\nfunction time" + str(int(qno)+1) + "() {\nif (yestim" + str(int(qno)+1) + "){\ntim" + str(int(qno)+1) + " = tim" + str(int(qno)+1) + " + 1;\nt = setTimeout(function() {time" + str(int(qno)+1) + "()},1000);\n}\n};\nvar yestim" + str(int(qno)+1) + " = 1;\ntime" + str(int(qno)+1) + "();\n}"
 	global ctwrng
 	contfn = contfn + "\n" + chkans + "\n" + chkcpl + "\n" + ctr + "\n" + contif + "\n" + ctwrng
 	global worksheet
-	worksheet = worksheet + "\n <script type=\"text/javascript\">" + varset + contfn + "};\n</script> \n <br><button id=\"button" + qno + "\" onClick=\"cont" + qno + "();\">Continue</button>\n<div id=\"question" + str(int(qno)+1) + "\" style=\"display: none\">"
+	worksheet = worksheet + "\n<script type=\"text/javascript\">" + varset + contfn + "};\n</script> \n <br><button id=\"button" + qno + "\" onClick=\"cont" + qno + "();\">Continue</button>\n<div id=\"question" + str(int(qno)+1) + "\" style=\"display: none\">"
 	global divset
 	divset = divset + "</div>"
 def lastQuestion ():
@@ -234,5 +246,5 @@ def generate ():
 '''
 Must get done soon:
 -Test checkbox and clean up
--Add timer
+-wrong function name for time(#); stray 1
 '''	
