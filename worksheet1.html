@@ -25,11 +25,14 @@ time1();
 </script>
 </head>
 <body>
+<h2>Workbook 1</h2>
+<h2>Modeling Practice (Form D)</h2>
+<h3>Key Terms and Concepts</h3>
 <p><b>A parameter</b> represents a fixed quantity that never changes. Parameters are used to represent constant values.</p>
 <p><i>Example: pi is a <b>parameter</b> because it is always 3.1415.</i></p>
 <p><b>An accumulator</b> represents a quantity that increases or decreases over time based on its previous value and the value of its inputs. These take the form: "new value = old value + inputs". It has an initail value that serves the first "old value."</p>
 <p><i>Example: population can be an <b>accumulator</b> because its new value is dependent on its old value and its inputs. Current population size = last year's population size + inputs.</i></p>
-<p><b>A function represents a value that is calculated directly from the values of other quantities, <i>without</i> referencing its previous value. A function differs from an accumulator in that it does not need to know its previous value to determine its next value. Thus, a function does not need to have a special initial value, whereas an accumulator does.</p>
+<p>A <b>function</b> represents a value that is calculated directly from the values of other quantities, <i>without</i> referencing its previous value. A function differs from an accumulator in that it does not need to know its previous value to determine its next value. Thus, a function does not need to have a special initial value, whereas an accumulator does.</p>
 <p><i>Example: Suppose you know 20% of the population dies each year, then the number of deaths is a <b>function</b>, namely population * 0.2. Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute it (if it did, it'd be an <b>accumulator</b>).</i></p>
 <p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be written in scientific notation to be <b>3.45e+5</b> or <b>3.45 x 10<sup>5</sup></b>.</p>
 <p>To do this, move the decimal place from the end of <b>345000</b> to between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponent is +5" or <b>10<sup5</sup></b>. This indicates how many zeros there are.</p>
@@ -237,17 +240,127 @@ if (set1.cii=== 1) {
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select>and is equivalent to <select id="2aii">
+<option>function</option></select> and is equivalent to <select id="2aii">
 <option></option>
 <option>100</option>
 <option>4</option>
 <option>2</option>
 <option>1</option></select> games per week.
-<p>2b. <select id="2bi">
+<p>2b. The number of video games Brandon has each week is the number of video games he had the previous week plus the number of games he buys this week. Therefore, the number of video games he Brandon has is a(n) <select id="2bi">.
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select>
+<script type="text/javascript">var set2 = {
+ai:0,
+aii:0,
+bi:0,}; 
+function cont2() {
+var yestim2 = 0;
+document.getElementById("2Time").innerHTML = tim2;
+checkAnswers("2ai", "parameter");
+checkAnswers("2aii", "2");
+checkAnswers("2bi", "accumulator");
+if (document.getElementById("2ai").value==="" ||document.getElementById("2aii").value==="" ||document.getElementById("2bi").value==="" ||0===1) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("2ai", "parameter")) { 
+ set2.ai = set2.ai + 1;}if (!checkAnswers("2aii", "2")) { 
+ set2.aii = set2.aii + 1;}if (!checkAnswers("2bi", "accumulator")) { 
+ set2.bi = set2.bi + 1;}
+if ((checkAnswers("2ai", "parameter") || set2.ai===3) &&(checkAnswers("2aii", "2") || set2.aii===3) &&(checkAnswers("2bi", "accumulator") || set2.bi===3) &&1===1) {
+ document.getElementById("question3").style.display = "";
+ document.getElementById("button2").style.display = "none";
+tim3= 0;
+function time3() {
+if (yestim3){
+tim3 = tim3 + 1;
+t = setTimeout(function() {time3()},1000);
+}
+};
+var yestim3 = 1;
+time3();
+}
+
+if (!checkAnswers("2ai", "parameter")) {
+if (set2.ai===3) {
+document.getElementById("2ai").value="parameter";
+document.getElementById("2ai").style.background="#FFFF00"}
+if (set2.ai=== 1) { 
+ document.getElementById("2aiAnswer1").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ else if (set2.ai=== 2) { 
+ document.getElementById("2aiAnswer2").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ else { 
+ document.getElementById("2aiAnswer3").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ } 
+ else { 
+ if (set2.ai=== 0) { 
+ document.getElementById("2aiAnswer1").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ else if (set2.ai=== 1) { 
+ document.getElementById("2aiAnswer2").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ else { 
+ document.getElementById("2aiAnswer3").innerHTML = "; " + document.getElementById("2ai").value
+}
+};
+if (!checkAnswers("2aii", "2")) {
+if (set2.aii===3) {
+document.getElementById("2aii").value="2";
+document.getElementById("2aii").style.background="#FFFF00"}
+if (set2.aii=== 1) { 
+ document.getElementById("2aiiAnswer1").innerHTML = "; " + document.getElementById("2aii").value 
+ } 
+ else if (set2.aii=== 2) { 
+ document.getElementById("2aiiAnswer2").innerHTML = "; " + document.getElementById("2aii").value 
+ } 
+ else { 
+ document.getElementById("2aiiAnswer3").innerHTML = "; " + document.getElementById("2aii").value 
+ } 
+ } 
+ else { 
+ if (set2.aii=== 0) { 
+ document.getElementById("2aiiAnswer1").innerHTML = "; " + document.getElementById("2aii").value 
+ } 
+ else if (set2.aii=== 1) { 
+ document.getElementById("2aiiAnswer2").innerHTML = "; " + document.getElementById("2aii").value 
+ } 
+ else { 
+ document.getElementById("2aiiAnswer3").innerHTML = "; " + document.getElementById("2aii").value
+}
+};
+if (!checkAnswers("2bi", "accumulator")) {
+if (set2.bi===3) {
+document.getElementById("2bi").value="accumulator";
+document.getElementById("2bi").style.background="#FFFF00"}
+if (set2.bi=== 1) { 
+ document.getElementById("2biAnswer1").innerHTML = "; " + document.getElementById("2bi").value 
+ } 
+ else if (set2.bi=== 2) { 
+ document.getElementById("2biAnswer2").innerHTML = "; " + document.getElementById("2bi").value 
+ } 
+ else { 
+ document.getElementById("2biAnswer3").innerHTML = "; " + document.getElementById("2bi").value 
+ } 
+ } 
+ else { 
+ if (set2.bi=== 0) { 
+ document.getElementById("2biAnswer1").innerHTML = "; " + document.getElementById("2bi").value 
+ } 
+ else if (set2.bi=== 1) { 
+ document.getElementById("2biAnswer2").innerHTML = "; " + document.getElementById("2bi").value 
+ } 
+ else { 
+ document.getElementById("2biAnswer3").innerHTML = "; " + document.getElementById("2bi").value
+}
+};
+};
+</script>
+<br><button id="button2" onClick="cont2();">Continue</button>
+<div id="question3" style="display: none">
 <p>Although your body burns energy at a more-or-less constant amount per day, the amount of energy primitive humans ingested per day varied greatly depending on how lucky you were at hunting and gathering. Thus, humans developed the ability to store energy from food. When there is too little energy from ingestion, then the body converts fat and other tissues back into energy.</p><p>Let's suppose Joe wants us to build an accurate model of his weight changes, so he starts with a very simple model, which is that the energy stored (as fat, etc.) changes daily depending on the energy balance. The energy balance is the difference between the energy ingested and the energy burned by the body on that day. When the energy balance is positive on a particular day (a good hunt!), then energy storage increases by the surplus. When energy balance is negative (a poor hunt), then stored energy decreases.</p><p>Joe looks up his current weight in a physiology reference and finds that he has about 345,000 calories stored. To keep things simple while getting started on his modeling project, Joe assumes his energy balance is 100 calories every day. He wants to model how his stored energy increases daily. Please answer questions below about the model Joe must build.</p>
 <h3>Question 3</h3>
 <p></p>
@@ -279,13 +392,11 @@ if (set1.cii=== 1) {
 <td style="border: 2pt black solid">energy stored (cal)</td>
 </thead>
 <tbody>
-<td style="border: 2pt black solid">0</td><td style="border: 2pt black solid"><select id="3bi">
-<option></option>
-<option></option></select></td><td style="border: 2pt black solid"><select id="3bii">
-<option></option>
-<option></option></select></td></tr>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">345000</td>
+<td style="border: 2pt black solid">345000</td></tr>
 <td style="border: 2pt black solid">1</td>
-<td style="border: 2pt black solid">345000</td><td style="border: 2pt black solid"><select id="3biii">
+<td style="border: 2pt black solid">345000 + 100</td><td style="border: 2pt black solid"><select id="3biii">
 <option></option>
 <option>345000</option>
 <option>345100</option>
@@ -313,7 +424,7 @@ if (set1.cii=== 1) {
 <option>345200 + 100</option>
 <option>345300 + 100</option>
 <option>345400 + 100</option></select></td>
-<td style="border: 2pt black solid">345500</td></tr>
+<td style="border: 2pt black solid">345,500</td></tr>
 </tbody>
 </table>
 <p>3c. Joe wants to graph his energy balance. What is the x-axis value (the independent value) and what is the y-axis value (the dependent value)? Write the correct answer on the line and then make a rough graph of it on the plot below.</p><p>time: <select id="3ci">
@@ -326,8 +437,6 @@ if (set1.cii=== 1) {
 <script type="text/javascript">var set3 = {
 ai:0,
 aii:0,
-bi:0,
-bii:0,
 biii:0,
 biv:0,
 bv:0,
@@ -338,15 +447,13 @@ cii:0,};
 function cont3() {
 var yestim3 = 0;
 document.getElementById("3Time").innerHTML = tim3;
-checkAnswers("3ai", "parameter");checkAnswers("3aii", "accumulator");checkAnswers("3bi", "");checkAnswers("3bii", "");checkAnswers("3biii", "345100");checkAnswers("3biv", "345200");checkAnswers("3bv", "345200 + 100");checkAnswers("3bvi", "345300 + 100");checkAnswers("3bvii", "345400 + 100");checkAnswers("3ci", "X-axis (independent value)");checkAnswers("3cii", "Y-axis (dependent value)");
-if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||document.getElementById("3bi").value==="" ||document.getElementById("3bii").value==="" ||document.getElementById("3biii").value==="" ||document.getElementById("3biv").value==="" ||document.getElementById("3bv").value==="" ||document.getElementById("3bvi").value==="" ||document.getElementById("3bvii").value==="" ||document.getElementById("3ci").value==="" ||document.getElementById("3cii").value==="" ||0===1) {
+checkAnswers("3ai", "parameter");checkAnswers("3aii", "accumulator");checkAnswers("3biii", "345100");checkAnswers("3biv", "345200");checkAnswers("3bv", "345200 + 100");checkAnswers("3bvi", "345300 + 100");checkAnswers("3bvii", "345400 + 100");checkAnswers("3ci", "X-axis (independent value)");checkAnswers("3cii", "Y-axis (dependent value)");
+if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||document.getElementById("3biii").value==="" ||document.getElementById("3biv").value==="" ||document.getElementById("3bv").value==="" ||document.getElementById("3bvi").value==="" ||document.getElementById("3bvii").value==="" ||document.getElementById("3ci").value==="" ||document.getElementById("3cii").value==="" ||0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("3ai", "parameter")) { 
  set3.ai = set3.ai + 1;}if (!checkAnswers("3aii", "accumulator")) { 
- set3.aii = set3.aii + 1;}if (!checkAnswers("3bi", "")) { 
- set3.bi = set3.bi + 1;}if (!checkAnswers("3bii", "")) { 
- set3.bii = set3.bii + 1;}if (!checkAnswers("3biii", "345100")) { 
+ set3.aii = set3.aii + 1;}if (!checkAnswers("3biii", "345100")) { 
  set3.biii = set3.biii + 1;}if (!checkAnswers("3biv", "345200")) { 
  set3.biv = set3.biv + 1;}if (!checkAnswers("3bv", "345200 + 100")) { 
  set3.bv = set3.bv + 1;}if (!checkAnswers("3bvi", "345300 + 100")) { 
@@ -354,7 +461,7 @@ if (!checkAnswers("3ai", "parameter")) {
  set3.bvii = set3.bvii + 1;}if (!checkAnswers("3ci", "X-axis (independent value)")) { 
  set3.ci = set3.ci + 1;}if (!checkAnswers("3cii", "Y-axis (dependent value)")) { 
  set3.cii = set3.cii + 1;}
-if ((checkAnswers("3ai", "parameter") || set3.ai===3) &&(checkAnswers("3aii", "accumulator") || set3.aii===3) &&(checkAnswers("3bi", "") || set3.bi===3) &&(checkAnswers("3bii", "") || set3.bii===3) &&(checkAnswers("3biii", "345100") || set3.biii===3) &&(checkAnswers("3biv", "345200") || set3.biv===3) &&(checkAnswers("3bv", "345200 + 100") || set3.bv===3) &&(checkAnswers("3bvi", "345300 + 100") || set3.bvi===3) &&(checkAnswers("3bvii", "345400 + 100") || set3.bvii===3) &&(checkAnswers("3ci", "X-axis (independent value)") || set3.ci===3) &&(checkAnswers("3cii", "Y-axis (dependent value)") || set3.cii===3) &&1===1) {
+if ((checkAnswers("3ai", "parameter") || set3.ai===3) &&(checkAnswers("3aii", "accumulator") || set3.aii===3) &&(checkAnswers("3biii", "345100") || set3.biii===3) &&(checkAnswers("3biv", "345200") || set3.biv===3) &&(checkAnswers("3bv", "345200 + 100") || set3.bv===3) &&(checkAnswers("3bvi", "345300 + 100") || set3.bvi===3) &&(checkAnswers("3bvii", "345400 + 100") || set3.bvii===3) &&(checkAnswers("3ci", "X-axis (independent value)") || set3.ci===3) &&(checkAnswers("3cii", "Y-axis (dependent value)") || set3.cii===3) &&1===1) {
  document.getElementById("question4").style.display = "";
  document.getElementById("button3").style.display = "none";
 tim4= 0;
@@ -416,56 +523,6 @@ if (set3.aii=== 1) {
  } 
  else { 
  document.getElementById("3aiiAnswer3").innerHTML = "; " + document.getElementById("3aii").value
-}
-};
-if (!checkAnswers("3bi", "")) {
-if (set3.bi===3) {
-document.getElementById("3bi").value="";
-document.getElementById("3bi").style.background="#FFFF00"}
-if (set3.bi=== 1) { 
- document.getElementById("3biAnswer1").innerHTML = "; " + document.getElementById("3bi").value 
- } 
- else if (set3.bi=== 2) { 
- document.getElementById("3biAnswer2").innerHTML = "; " + document.getElementById("3bi").value 
- } 
- else { 
- document.getElementById("3biAnswer3").innerHTML = "; " + document.getElementById("3bi").value 
- } 
- } 
- else { 
- if (set3.bi=== 0) { 
- document.getElementById("3biAnswer1").innerHTML = "; " + document.getElementById("3bi").value 
- } 
- else if (set3.bi=== 1) { 
- document.getElementById("3biAnswer2").innerHTML = "; " + document.getElementById("3bi").value 
- } 
- else { 
- document.getElementById("3biAnswer3").innerHTML = "; " + document.getElementById("3bi").value
-}
-};
-if (!checkAnswers("3bii", "")) {
-if (set3.bii===3) {
-document.getElementById("3bii").value="";
-document.getElementById("3bii").style.background="#FFFF00"}
-if (set3.bii=== 1) { 
- document.getElementById("3biiAnswer1").innerHTML = "; " + document.getElementById("3bii").value 
- } 
- else if (set3.bii=== 2) { 
- document.getElementById("3biiAnswer2").innerHTML = "; " + document.getElementById("3bii").value 
- } 
- else { 
- document.getElementById("3biiAnswer3").innerHTML = "; " + document.getElementById("3bii").value 
- } 
- } 
- else { 
- if (set3.bii=== 0) { 
- document.getElementById("3biiAnswer1").innerHTML = "; " + document.getElementById("3bii").value 
- } 
- else if (set3.bii=== 1) { 
- document.getElementById("3biiAnswer2").innerHTML = "; " + document.getElementById("3bii").value 
- } 
- else { 
- document.getElementById("3biiAnswer3").innerHTML = "; " + document.getElementById("3bii").value
 }
 };
 if (!checkAnswers("3biii", "345100")) {
@@ -644,7 +701,7 @@ if (set3.cii=== 1) {
 }
 };};
 </script> 
- <br><button id="button3" onClick="cont3();">Continue</button>
+<br><button id="button3" onClick="cont3();">Continue</button>
 <div id="question4" style="display: none">
 <p>The energy balance of your body is the difference between the energy you add to your body by ingesting food and the energy you subtract from your body by physical exercise and other activities. When the energy you ingest exactly equals the energy you expend, the energy balance is zero. When the energy you ingest is greater than the energy you expend, the energy balance is positive abd the excess energy is added to the body's stores. When you consume less energy than you expend, the energy balance is negative and your body makes up the deficit by withdrawing energy from storage. The energy balance can change each day. Thus, if the energy balance is positive on a particular day, then the energy stored goes up by that amount during the day. If the energy balance is negative, then the energy stored goes down.</p><p>Joe's next model of his energy balance is more complex. It makes the energy balance a function of energy ingested and energy expended. Eventually, this will allow him to vary them separately. For instance, he can see what happens if he keeps his diet the same (and hence energy ingested is the same as it is now) but he does more exercise (so his energy expended is higher than it is now). However, for now he assumes that his daily expenditure is 2100 calories and his daily ingestion nets him 1989 calories.</p>
 <h3>Question 4</h3>
@@ -917,7 +974,12 @@ if (set4.ci=== 1) {
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">The old weight of the body as it varies day by day. Its new value is its old value + weight change; initial value = 150 lbs</td></tr>
+<td style="border: 2pt black solid">The old weight of the body as it varies day by day. Its new value is its old value + <select id="5avii">
+<option></option>
+<option>energy ingested</option>
+<option>weight change</option>
+<option>calories per pound</option>
+</select>; initial value = 150 lbs</td></tr>
 <td style="border: 2pt black solid">Weight change</td><td style="border: 2pt black solid"><select id="5av">
 <option></option>
 <option>parameter</option>
@@ -960,6 +1022,7 @@ aiii:0,
 aiv:0,
 av:0,
 avi:0,
+avii:0,
 bi:0,
 bii:0,
 biii:0,
@@ -969,8 +1032,8 @@ ciii:0,};
 function cont5() {
 var yestim5 = 0;
 document.getElementById("5Time").innerHTML = tim5;
-checkAnswers("5ai", "parameter");checkAnswers("5aii", "function");checkAnswers("5aiii", "parameter");checkAnswers("5aiv", "accumulator");checkAnswers("5av", "function");checkAnswers("5avi", "parameter");checkAnswers("5bi", "5b");checkAnswers("5bii", "negative");checkAnswers("5biii", "loses");checkAnswers("5ci", "5c");checkAnswers("5cii", "positive");checkAnswers("5ciii", "gains");
-if (document.getElementById("5ai").value==="" ||document.getElementById("5aii").value==="" ||document.getElementById("5aiii").value==="" ||document.getElementById("5aiv").value==="" ||document.getElementById("5av").value==="" ||document.getElementById("5avi").value==="" ||document.getElementById("5bi").value==="" ||document.getElementById("5bii").value==="" ||document.getElementById("5biii").value==="" ||document.getElementById("5ci").value==="" ||document.getElementById("5cii").value==="" ||document.getElementById("5ciii").value==="" ||0===1) {
+checkAnswers("5ai", "parameter");checkAnswers("5aii", "function");checkAnswers("5aiii", "parameter");checkAnswers("5aiv", "accumulator");checkAnswers("5av", "function");checkAnswers("5avi", "parameter");checkAnswers("5avii", "weight change");checkAnswers("5bi", "5b");checkAnswers("5bii", "negative");checkAnswers("5biii", "loses");checkAnswers("5ci", "5c");checkAnswers("5cii", "positive");checkAnswers("5ciii", "gains");
+if (document.getElementById("5ai").value==="" ||document.getElementById("5aii").value==="" ||document.getElementById("5aiii").value==="" ||document.getElementById("5aiv").value==="" ||document.getElementById("5av").value==="" ||document.getElementById("5avi").value===""  ||document.getElementById("5avii").value===""||document.getElementById("5bi").value==="" ||document.getElementById("5bii").value==="" ||document.getElementById("5biii").value==="" ||document.getElementById("5ci").value==="" ||document.getElementById("5cii").value==="" ||document.getElementById("5ciii").value==="" ||0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("5ai", "parameter")) { 
@@ -979,14 +1042,15 @@ if (!checkAnswers("5ai", "parameter")) {
  set5.aiii = set5.aiii + 1;}if (!checkAnswers("5aiv", "accumulator")) { 
  set5.aiv = set5.aiv + 1;}if (!checkAnswers("5av", "function")) { 
  set5.av = set5.av + 1;}if (!checkAnswers("5avi", "parameter")) { 
- set5.avi = set5.avi + 1;}if (!checkAnswers("5bi", "5b")) { 
+ set5.avi = set5.avi + 1;}if (!checkAnswers("5avii", "weight change")) { 
+ set5.avii = set5.avii + 1;}if (!checkAnswers("5bi", "5b")) { 
  set5.bi = set5.bi + 1;}if (!checkAnswers("5bii", "negative")) { 
  set5.bii = set5.bii + 1;}if (!checkAnswers("5biii", "loses")) { 
  set5.biii = set5.biii + 1;}if (!checkAnswers("5ci", "5c")) { 
  set5.ci = set5.ci + 1;}if (!checkAnswers("5cii", "positive")) { 
  set5.cii = set5.cii + 1;}if (!checkAnswers("5ciii", "gains")) { 
  set5.ciii = set5.ciii + 1;}
-if ((checkAnswers("5ai", "parameter") || set5.ai===3) &&(checkAnswers("5aii", "function") || set5.aii===3) &&(checkAnswers("5aiii", "parameter") || set5.aiii===3) &&(checkAnswers("5aiv", "accumulator") || set5.aiv===3) &&(checkAnswers("5av", "function") || set5.av===3) &&(checkAnswers("5avi", "parameter") || set5.avi===3) &&(checkAnswers("5bi", "5b") || set5.bi===3) &&(checkAnswers("5bii", "negative") || set5.bii===3) &&(checkAnswers("5biii", "loses") || set5.biii===3) &&(checkAnswers("5ci", "5c") || set5.ci===3) &&(checkAnswers("5cii", "positive") || set5.cii===3) &&(checkAnswers("5ciii", "gains") || set5.ciii===3) &&1===1) {
+if ((checkAnswers("5ai", "parameter") || set5.ai===3) &&(checkAnswers("5aii", "function") || set5.aii===3) &&(checkAnswers("5aiii", "parameter") || set5.aiii===3) &&(checkAnswers("5aiv", "accumulator") || set5.aiv===3) &&(checkAnswers("5av", "function") || set5.av===3) &&(checkAnswers("5avi", "parameter") || set5.avi===3) &&(checkAnswers("5avii", "weight change") || set5.avii===3) &&(checkAnswers("5bi", "5b") || set5.bi===3) &&(checkAnswers("5bii", "negative") || set5.bii===3) &&(checkAnswers("5biii", "loses") || set5.biii===3) &&(checkAnswers("5ci", "5c") || set5.ci===3) &&(checkAnswers("5cii", "positive") || set5.cii===3) &&(checkAnswers("5ciii", "gains") || set5.ciii===3) &&1===1) {
  document.getElementById("question6").style.display = "";
  document.getElementById("button5").style.display = "none";
 tim6= 0;
@@ -1148,6 +1212,31 @@ if (set5.avi=== 1) {
  } 
  else { 
  document.getElementById("5aviAnswer3").innerHTML = "; " + document.getElementById("5avi").value
+}
+};
+if (!checkAnswers("5avii", "weight change")) {
+if (set5.avii===3) {
+document.getElementById("5avii").value="weight change";
+document.getElementById("5avii").style.background="#FFFF00"}
+if (set5.avii=== 1) { 
+ document.getElementById("5aviiAnswer1").innerHTML = "; " + document.getElementById("5avii").value 
+ } 
+ else if (set5.avii=== 2) { 
+ document.getElementById("5aviiAnswer2").innerHTML = "; " + document.getElementById("5avii").value 
+ } 
+ else { 
+ document.getElementById("5aviiAnswer3").innerHTML = "; " + document.getElementById("5avii").value 
+ } 
+ } 
+ else { 
+ if (set5.avii=== 0) { 
+ document.getElementById("5aviiAnswer1").innerHTML = "; " + document.getElementById("5avii").value 
+ } 
+ else if (set5.avii=== 1) { 
+ document.getElementById("5aviiAnswer2").innerHTML = "; " + document.getElementById("5avii").value 
+ } 
+ else { 
+ document.getElementById("5aviiAnswer3").innerHTML = "; " + document.getElementById("5avii").value
 }
 };
 if (!checkAnswers("5bi", "5b")) {
@@ -1335,7 +1424,7 @@ if (set5.ciii=== 1) {
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td><td style="border: 2pt black solid"><select id="6av">
+<option>function</option></select></td><td style="border: 2pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <select id="6av">
 <option></option>
 <option>physical activity expenditure</option>
 <option>resting energy expenditure</option>
@@ -1382,11 +1471,11 @@ if (set5.ciii=== 1) {
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td><td style="border: 2pt black solid"><select id="6eii">
+<option>function</option></select></td><td style="border: 2pt black solid">energy burned by physical exercise; value = <select id="6eii">
 <option></option>
 <option>resting energy expenditure</option>
 <option>digestive activity expenditure</option>
-<option>energy expended</option></select></td><td style="border: 2pt black solid"><select id="6eiii">
+<option>energy expended</option></select> * <select id="6eiii">
 <option></option>
 <option>physical activity level</option>
 <option>energy balance</option>
@@ -1398,8 +1487,7 @@ if (set5.ciii=== 1) {
 <td style="border: 2pt black solid">Parameter</td>
 <td style="border: 2pt black solid">energy burned in order to digest food; value = 200 calories</td></tr>
 <td style="border: 2pt black solid">Energy expended</td>
-<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid"><select id="6eiv">
-<option></option>
+<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <select id="6eiv"><option></option>
 <option>physical activity expenditure</option>
 <option>resting energy expenditure</option>
 <option>digestive activity expenditure</option></select></td></tr>
@@ -1411,32 +1499,410 @@ if (set5.ciii=== 1) {
 <td style="border: 2pt black solid">Amount of physical activity e.g. 0.2 for little or no exercise; 0.9 for hard exercise.</td></tr>
 </tbody>
 </table>
+<script type="text/javascript">var set6 = {
+ai:0,
+aii:0,
+aiii:0,
+aiv:0,
+av:0,
+bi:0,
+ci:0,
+di:0,
+ei:0,
+eii:0,
+eiii:0,
+eiv:0,
+ev:0,}; 
+function cont6() {
+var yestim6 = 0;
+document.getElementById("6Time").innerHTML = tim6;
+checkAnswers("6ai", "parameter");checkAnswers("6aii", "parameter");checkAnswers("6aiii", "parameter");checkAnswers("6aiv", "function");checkAnswers("6av", "digestive activity expenditure");checkAnswers("6bi", "2000");checkAnswers("6ci", "negative");checkAnswers("6di", "positive");checkAnswers("6ei", "function");checkAnswers("6eii", "resting energy expenditure");checkAnswers("6eiii", "physical activity level");checkAnswers("6eiv", "digestive activity expenditure");checkAnswers("6ev", "parameter");
+if (document.getElementById("6ai").value==="" ||document.getElementById("6aii").value==="" ||document.getElementById("6aiii").value==="" ||document.getElementById("6aiv").value==="" ||document.getElementById("6av").value==="" ||document.getElementById("6bi").value==="" ||document.getElementById("6ci").value==="" ||document.getElementById("6di").value==="" ||document.getElementById("6ei").value==="" ||document.getElementById("6eii").value==="" ||document.getElementById("6eiii").value==="" ||document.getElementById("6eiv").value==="" ||document.getElementById("6ev").value==="" ||0===1) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("6ai", "parameter")) { 
+ set6.ai = set6.ai + 1;}if (!checkAnswers("6aii", "parameter")) { 
+ set6.aii = set6.aii + 1;}if (!checkAnswers("6aiii", "parameter")) { 
+ set6.aiii = set6.aiii + 1;}if (!checkAnswers("6aiv", "function")) { 
+ set6.aiv = set6.aiv + 1;}if (!checkAnswers("6av", "digestive activity expenditure")) { 
+ set6.av = set6.av + 1;}if (!checkAnswers("6bi", "2000")) { 
+ set6.bi = set6.bi + 1;}if (!checkAnswers("6ci", "negative")) { 
+ set6.ci = set6.ci + 1;}if (!checkAnswers("6di", "positive")) { 
+ set6.di = set6.di + 1;}if (!checkAnswers("6ei", "function")) { 
+ set6.ei = set6.ei + 1;}if (!checkAnswers("6eii", "resting energy expenditure")) { 
+ set6.eii = set6.eii + 1;}if (!checkAnswers("6eiii", "physical activity level")) { 
+ set6.eiii = set6.eiii + 1;}if (!checkAnswers("6eiv", "digestive activity expenditure")) { 
+ set6.eiv = set6.eiv + 1;}if (!checkAnswers("6ev", "parameter")) { 
+ set6.ev = set6.ev + 1;}
+if ((checkAnswers("6ai", "parameter") || set6.ai===3) &&(checkAnswers("6aii", "parameter") || set6.aii===3) &&(checkAnswers("6aiii", "parameter") || set6.aiii===3) &&(checkAnswers("6aiv", "function") || set6.aiv===3) &&(checkAnswers("6av", "digestive activity expenditure") || set6.av===3) &&(checkAnswers("6bi", "2000") || set6.bi===3) &&(checkAnswers("6ci", "negative") || set6.ci===3) &&(checkAnswers("6di", "positive") || set6.di===3) &&(checkAnswers("6ei", "function") || set6.ei===3) &&(checkAnswers("6eii", "resting energy expenditure") || set6.eii===3) &&(checkAnswers("6eiii", "physical activity level") || set6.eiii===3) &&(checkAnswers("6eiv", "digestive activity expenditure") || set6.eiv===3) &&(checkAnswers("6ev", "parameter") || set6.ev===3) &&1===1) {
+ document.getElementById("question7").style.display = "";
+ document.getElementById("button6").style.display = "none";
+tim7= 0;
+function time7() {
+if (yestim7){
+tim7 = tim7 + 1;
+t = setTimeout(function() {time7()},1000);
+}
+};
+var yestim7 = 1;
+time7();
+}
+
+if (!checkAnswers("6ai", "parameter")) {
+if (set6.ai===3) {
+document.getElementById("6ai").value="parameter";
+document.getElementById("6ai").style.background="#FFFF00"}
+if (set6.ai=== 1) { 
+ document.getElementById("6aiAnswer1").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ else if (set6.ai=== 2) { 
+ document.getElementById("6aiAnswer2").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ else { 
+ document.getElementById("6aiAnswer3").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ } 
+ else { 
+ if (set6.ai=== 0) { 
+ document.getElementById("6aiAnswer1").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ else if (set6.ai=== 1) { 
+ document.getElementById("6aiAnswer2").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ else { 
+ document.getElementById("6aiAnswer3").innerHTML = "; " + document.getElementById("6ai").value
+}
+};
+if (!checkAnswers("6aii", "parameter")) {
+if (set6.bi===3) {
+document.getElementById("6aii").value="parameter";
+document.getElementById("6aii").style.background="#FFFF00"}
+if (set6.bi=== 1) { 
+ document.getElementById("6aiiAnswer1").innerHTML = "; " + document.getElementById("6aii").value 
+ } 
+ else if (set6.bi=== 2) { 
+ document.getElementById("6aiiAnswer2").innerHTML = "; " + document.getElementById("6aii").value 
+ } 
+ else { 
+ document.getElementById("6aiiAnswer3").innerHTML = "; " + document.getElementById("6aii").value 
+ } 
+ } 
+ else { 
+ if (set6.bi=== 0) { 
+ document.getElementById("6aiiAnswer1").innerHTML = "; " + document.getElementById("6aii").value 
+ } 
+ else if (set6.bi=== 1) { 
+ document.getElementById("6aiiAnswer2").innerHTML = "; " + document.getElementById("6aii").value 
+ } 
+ else { 
+ document.getElementById("6aiiAnswer3").innerHTML = "; " + document.getElementById("6aii").value
+}
+};
+if (!checkAnswers("6aiii", "parameter")) {
+if (set6.aiii===3) {
+document.getElementById("6aiii").value="parameter";
+document.getElementById("6aiii").style.background="#FFFF00"}
+if (set6.aiii=== 1) { 
+ document.getElementById("6aiiiAnswer1").innerHTML = "; " + document.getElementById("6aiii").value 
+ } 
+ else if (set6.aiii=== 2) { 
+ document.getElementById("6aiiiAnswer2").innerHTML = "; " + document.getElementById("6aiii").value 
+ } 
+ else { 
+ document.getElementById("6aiiiAnswer3").innerHTML = "; " + document.getElementById("6aiii").value 
+ } 
+ } 
+ else { 
+ if (set6.aiii=== 0) { 
+ document.getElementById("6aiiiAnswer1").innerHTML = "; " + document.getElementById("6aiii").value 
+ } 
+ else if (set6.aiii=== 1) { 
+ document.getElementById("6aiiiAnswer2").innerHTML = "; " + document.getElementById("6aiii").value 
+ } 
+ else { 
+ document.getElementById("6aiiiAnswer3").innerHTML = "; " + document.getElementById("6aiii").value
+}
+};
+if (!checkAnswers("6aiv", "function")) {
+if (set6.aiv===3) {
+document.getElementById("6aiv").value="function";
+document.getElementById("6aiv").style.background="#FFFF00"}
+if (set6.aiv=== 1) { 
+ document.getElementById("6aivAnswer1").innerHTML = "; " + document.getElementById("6aiv").value 
+ } 
+ else if (set6.aiv=== 2) { 
+ document.getElementById("6aivAnswer2").innerHTML = "; " + document.getElementById("6aiv").value 
+ } 
+ else { 
+ document.getElementById("6aivAnswer3").innerHTML = "; " + document.getElementById("6aiv").value 
+ } 
+ } 
+ else { 
+ if (set6.aiv=== 0) { 
+ document.getElementById("6aivAnswer1").innerHTML = "; " + document.getElementById("6aiv").value 
+ } 
+ else if (set6.aiv=== 1) { 
+ document.getElementById("6aivAnswer2").innerHTML = "; " + document.getElementById("6aiv").value 
+ } 
+ else { 
+ document.getElementById("6aivAnswer3").innerHTML = "; " + document.getElementById("6aiv").value
+}
+};
+if (!checkAnswers("6av", "digestive activity expenditure")) {
+if (set6.av===3) {
+document.getElementById("6av").value="digestive activity expenditure";
+document.getElementById("6av").style.background="#FFFF00"}
+if (set6.av=== 1) { 
+ document.getElementById("6avAnswer1").innerHTML = "; " + document.getElementById("6av").value 
+ } 
+ else if (set6.av=== 2) { 
+ document.getElementById("6avAnswer2").innerHTML = "; " + document.getElementById("6av").value 
+ } 
+ else { 
+ document.getElementById("6avAnswer3").innerHTML = "; " + document.getElementById("6av").value 
+ } 
+ } 
+ else { 
+ if (set6.av=== 0) { 
+ document.getElementById("6avAnswer1").innerHTML = "; " + document.getElementById("6av").value 
+ } 
+ else if (set6.av=== 1) { 
+ document.getElementById("6avAnswer2").innerHTML = "; " + document.getElementById("6av").value 
+ } 
+ else { 
+ document.getElementById("6avAnswer3").innerHTML = "; " + document.getElementById("6av").value
+}
+};
+if (!checkAnswers("6bi", "2000")) {
+if (set6.bi===3) {
+document.getElementById("6bi").value="2000";
+document.getElementById("6bi").style.background="#FFFF00"}
+if (set6.bi=== 1) { 
+ document.getElementById("6biAnswer1").innerHTML = "; " + document.getElementById("6bi").value 
+ } 
+ else if (set6.bi=== 2) { 
+ document.getElementById("6biAnswer2").innerHTML = "; " + document.getElementById("6bi").value 
+ } 
+ else { 
+ document.getElementById("6biAnswer3").innerHTML = "; " + document.getElementById("6bi").value 
+ } 
+ } 
+ else { 
+ if (set6.bi=== 0) { 
+ document.getElementById("6biAnswer1").innerHTML = "; " + document.getElementById("6bi").value 
+ } 
+ else if (set6.bi=== 1) { 
+ document.getElementById("6biAnswer2").innerHTML = "; " + document.getElementById("6bi").value 
+ } 
+ else { 
+ document.getElementById("6biAnswer3").innerHTML = "; " + document.getElementById("6bi").value
+}
+};
+if (!checkAnswers("6ci", "negative")) {
+if (set6.ci===3) {
+document.getElementById("6ci").value="negative";
+document.getElementById("6ci").style.background="#FFFF00"}
+if (set6.ci=== 1) { 
+ document.getElementById("6ciAnswer1").innerHTML = "; " + document.getElementById("6ci").value 
+ } 
+ else if (set6.ci=== 2) { 
+ document.getElementById("6ciAnswer2").innerHTML = "; " + document.getElementById("6ci").value 
+ } 
+ else { 
+ document.getElementById("6ciAnswer3").innerHTML = "; " + document.getElementById("6ci").value 
+ } 
+ } 
+ else { 
+ if (set6.ci=== 0) { 
+ document.getElementById("6ciAnswer1").innerHTML = "; " + document.getElementById("6ci").value 
+ } 
+ else if (set6.ci=== 1) { 
+ document.getElementById("6ciAnswer2").innerHTML = "; " + document.getElementById("6ci").value 
+ } 
+ else { 
+ document.getElementById("6ciAnswer3").innerHTML = "; " + document.getElementById("6ci").value
+}
+};
+if (!checkAnswers("6di", "positive")) {
+if (set6.di===3) {
+document.getElementById("6di").value="positive";
+document.getElementById("6di").style.background="#FFFF00"}
+if (set6.di=== 1) { 
+ document.getElementById("6diAnswer1").innerHTML = "; " + document.getElementById("6di").value 
+ } 
+ else if (set6.di=== 2) { 
+ document.getElementById("6diAnswer2").innerHTML = "; " + document.getElementById("6di").value 
+ } 
+ else { 
+ document.getElementById("6diAnswer3").innerHTML = "; " + document.getElementById("6di").value 
+ } 
+ } 
+ else { 
+ if (set6.di=== 0) { 
+ document.getElementById("6diAnswer1").innerHTML = "; " + document.getElementById("6di").value 
+ } 
+ else if (set6.di=== 1) { 
+ document.getElementById("6diAnswer2").innerHTML = "; " + document.getElementById("6di").value 
+ } 
+ else { 
+ document.getElementById("6diAnswer3").innerHTML = "; " + document.getElementById("6di").value
+}
+};
+if (!checkAnswers("6ei", "function")) {
+if (set6.ei===3) {
+document.getElementById("6ei").value="function";
+document.getElementById("6ei").style.background="#FFFF00"}
+if (set6.ei=== 1) { 
+ document.getElementById("6eiAnswer1").innerHTML = "; " + document.getElementById("6ei").value 
+ } 
+ else if (set6.ei=== 2) { 
+ document.getElementById("6eiAnswer2").innerHTML = "; " + document.getElementById("6ei").value 
+ } 
+ else { 
+ document.getElementById("6eiAnswer3").innerHTML = "; " + document.getElementById("6ei").value 
+ } 
+ } 
+ else { 
+ if (set6.ei=== 0) { 
+ document.getElementById("6eiAnswer1").innerHTML = "; " + document.getElementById("6ei").value 
+ } 
+ else if (set6.ei=== 1) { 
+ document.getElementById("6eiAnswer2").innerHTML = "; " + document.getElementById("6ei").value 
+ } 
+ else { 
+ document.getElementById("6eiAnswer3").innerHTML = "; " + document.getElementById("6ei").value
+}
+};
+if (!checkAnswers("6eii", "resting energy expenditure")) {
+if (set6.eii===3) {
+document.getElementById("6eii").value="resting energy expenditure";
+document.getElementById("6eii").style.background="#FFFF00"}
+if (set6.eii=== 1) { 
+ document.getElementById("6eiiAnswer1").innerHTML = "; " + document.getElementById("6eii").value 
+ } 
+ else if (set6.eii=== 2) { 
+ document.getElementById("6eiiAnswer2").innerHTML = "; " + document.getElementById("6eii").value 
+ } 
+ else { 
+ document.getElementById("6eiiAnswer3").innerHTML = "; " + document.getElementById("6eii").value 
+ } 
+ } 
+ else { 
+ if (set6.eii=== 0) { 
+ document.getElementById("6eiiAnswer1").innerHTML = "; " + document.getElementById("6eii").value 
+ } 
+ else if (set6.eii=== 1) { 
+ document.getElementById("6eiiAnswer2").innerHTML = "; " + document.getElementById("6eii").value 
+ } 
+ else { 
+ document.getElementById("6eiiAnswer3").innerHTML = "; " + document.getElementById("6eii").value
+}
+};
+if (!checkAnswers("6eiii", "physical activity level")) {
+if (set6.eiii===3) {
+document.getElementById("6eiii").value="physical activity level";
+document.getElementById("6eiii").style.background="#FFFF00"}
+if (set6.eiii=== 1) { 
+ document.getElementById("6eiiiAnswer1").innerHTML = "; " + document.getElementById("6eiii").value 
+ } 
+ else if (set6.eiii=== 2) { 
+ document.getElementById("6eiiiAnswer2").innerHTML = "; " + document.getElementById("6eiii").value 
+ } 
+ else { 
+ document.getElementById("6eiiiAnswer3").innerHTML = "; " + document.getElementById("6eiii").value 
+ } 
+ } 
+ else { 
+ if (set6.eiii=== 0) { 
+ document.getElementById("6eiiiAnswer1").innerHTML = "; " + document.getElementById("6eiii").value 
+ } 
+ else if (set6.eiii=== 1) { 
+ document.getElementById("6eiiiAnswer2").innerHTML = "; " + document.getElementById("6eiii").value 
+ } 
+ else { 
+ document.getElementById("6eiiiAnswer3").innerHTML = "; " + document.getElementById("6eiii").value
+}
+};
+if (!checkAnswers("6eiv", "digestive activity expenditure")) {
+if (set6.eiv===3) {
+document.getElementById("6eiv").value="digestive activity expenditure";
+document.getElementById("6eiv").style.background="#FFFF00"}
+if (set6.eiv=== 1) { 
+ document.getElementById("6eivAnswer1").innerHTML = "; " + document.getElementById("6eiv").value 
+ } 
+ else if (set6.eiv=== 2) { 
+ document.getElementById("6eivAnswer2").innerHTML = "; " + document.getElementById("6eiv").value 
+ } 
+ else { 
+ document.getElementById("6eivAnswer3").innerHTML = "; " + document.getElementById("6eiv").value 
+ } 
+ } 
+ else { 
+ if (set6.eiv=== 0) { 
+ document.getElementById("6eivAnswer1").innerHTML = "; " + document.getElementById("6eiv").value 
+ } 
+ else if (set6.eiv=== 1) { 
+ document.getElementById("6eivAnswer2").innerHTML = "; " + document.getElementById("6eiv").value 
+ } 
+ else { 
+ document.getElementById("6eivAnswer3").innerHTML = "; " + document.getElementById("6eiv").value
+}
+};
+if (!checkAnswers("6ev", "parameter")) {
+if (set6.ev===3) {
+document.getElementById("6ev").value="parameter";
+document.getElementById("6ev").style.background="#FFFF00"}
+if (set6.ev=== 1) { 
+ document.getElementById("6evAnswer1").innerHTML = "; " + document.getElementById("6ev").value 
+ } 
+ else if (set6.ev=== 2) { 
+ document.getElementById("6evAnswer2").innerHTML = "; " + document.getElementById("6ev").value 
+ } 
+ else { 
+ document.getElementById("6evAnswer3").innerHTML = "; " + document.getElementById("6ev").value 
+ } 
+ } 
+ else { 
+ if (set6.ev=== 0) { 
+ document.getElementById("6evAnswer1").innerHTML = "; " + document.getElementById("6ev").value 
+ } 
+ else if (set6.ev=== 1) { 
+ document.getElementById("6evAnswer2").innerHTML = "; " + document.getElementById("6ev").value 
+ } 
+ else { 
+ document.getElementById("6evAnswer3").innerHTML = "; " + document.getElementById("6ev").value
+}
+};
+};
+</script> 
+ <br><button id="button6" onClick="cont6();">Continue</button>
+<div id="question7" style="display: none">
 <h3>Question 7</h3>
 <p></p>
-<p>7a. Assuming Joe is sedentary, and his physical exercise level is 0.2, what is his daily energy expenditure?<select id="7ai">
+<p>7a. Assuming Joe is sedentary, and his physical exercise level is 0.2, what is his daily energy expenditure? <select id="7ai">
 <option></option>
 <option>1400 calories</option>
 <option>2000 calories</option>
 <option>1800 calories</option></select>
-<p>7b. If he still ingests 1989 calories a day, does he gain weight or lose weight?<select id="7bi">
+<p>7b. If he still ingests 1989 calories a day, does he gain weight or lose weight? <select id="7bi">
 <option></option>
 <option>gain</option>
 <option>lose</option></select>
-<p>7c. How much, in pounds per day?<select id="7ci">
+<p>7c. How much, in pounds per day? <select id="7ci">
 <option></option>
 <option>0.03 pounds per day</option>
 <option>0.3 pounds per day</option>
 <option>0.0003 pounds per day</option></select>
-<p>7d. Joe wonders what would happen if he really increased his daily exercise, so that his physical activity level was 0.9. What would this make his daily energy expenditure?<select id="7di">
+<p>7d. Joe wonders what would happen if he really increased his daily exercise, so that his physical activity level was 0.9. What would this make his daily energy expenditure? <select id="7di">
 <option></option>
 <option>1800 calories</option>
 <option>2860 calories</option>
 <option>1400 calories</option></select>
-<p>7e. If he continued to eat 1989 calories a day, would he gain or lose weight?<select id="7ei">
+<p>7e. If he continued to eat 1989 calories a day, would he gain or lose weight? <select id="7ei">
 <option></option>
 <option>gain</option>
 <option>lose</option></select>
-<p>7f. How much, in pounds per day?<select id="7fi">
+<p>7f. How much, in pounds per day? <select id="7fi">
 <option></option>
 <option>0.25 pounds per day</option>
 <option>0.3 pounds per day</option>
@@ -1468,10 +1934,10 @@ if (set5.ciii=== 1) {
 <td style="border: 2pt black solid">Number of calories in a pound of tissue; value = 3500 calories/lbs</td></tr>
 <td style="border: 2pt black solid">physical activity expenditure</td>
 <td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid"><select id="7gi">
-<option></option>
+energy burned by physical exercise; value = <option></option>
 <option>physical activity expenditure</option>
 <option>resting energy expenditure</option>
-<option>energy expended</option></select></td><td style="border: 2pt black solid"><select id="7gii">
+<option>energy expended</option></select> * <select id="7gii">
 <option></option>
 <option>energy balance</option>
 <option>physical activity level</option>
@@ -1483,17 +1949,17 @@ if (set5.ciii=== 1) {
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td><td style="border: 2pt black solid"><select id="7giv">
+<option>function</option></select></td><td style="border: 2pt black solid"><select id="7giv">energy burned in order to digest food; value = 
 <option></option>
 <option>energy balance</option>
 <option>weight change</option>
-<option>energy ingested</option></select></td><td style="border: 2pt black solid"><select id="7gv">
+<option>energy ingested</option></select> * <select id="7gv">
 <option></option>
 <option>digestive energy factor</option>
 <option>physical activity level</option>
 <option>energy expended</option></select></td></tr>
 <td style="border: 2pt black solid">Energy expended</td>
-<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid"><select id="7gvi">
+<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <select id="7gvi">
 <option></option>
 <option>physical activity expenditure</option>
 <option>resting energy expenditure</option>
@@ -1505,7 +1971,7 @@ if (set5.ciii=== 1) {
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td><td style="border: 2pt black solid"><select id="7gviii">
+<option>function</option></select></td><td style="border: 2pt black solid">The proportion of ingested energy that is required to process it; value = <select id="7gviii">
 <option></option>
 <option>0.10</option>
 <option>0.01</option>
@@ -1918,7 +2384,7 @@ if (set7.gviii=== 1) {
 <div id="question8" style="display: none">
 <h3>Question 8</h3>
 <p></p>
-<p>8a. Joe is still eating 1989 calories a day and still sedentary (physical activity level = 0.2), so what is his digestive activity expenditure per day?<select id="8ai">
+<p>8a. Joe is still eating 1989 calories a day and still sedentary (physical activity level = 0.2), so what is his digestive activity expenditure per day? <select id="8ai">
 <option></option>
 <option>400 calories</option>
 <option>199 calories</option>
@@ -1932,12 +2398,12 @@ if (set7.gviii=== 1) {
 <option>400 calories</option>
 <option>199 calories</option>
 <option>280 calories</option></select>
-<p>8c. What is his total energy expenditure?<select id="8ci">
+<p>8c. What is his total energy expenditure? <select id="8ci">
 <option></option>
 <option>280 calories</option>
 <option>2080 calories</option>
 <option>4000 calories</option></select>
-<p>8d. Does he gain or lose weight?<select id="8di">
+<p>8d. Does he gain or lose weight? <select id="8di">
 <option></option>
 <option>gain</option>
 <option>lose</option></select>
@@ -1950,6 +2416,8 @@ if (set7.gviii=== 1) {
 <p>8f. <table>
 <thead>
 <td style="border: 2pt black solid">Node Name</td>
+<td style="border: 2pt black solid">Type</td>
+<td style="border: 2pt black solid">Description</td>
 </thead>
 <tbody>
 <td style="border: 2pt black solid">Energy balance</td>
@@ -1975,11 +2443,11 @@ if (set7.gviii=== 1) {
 <option></option>
 <option>weight REE</option>
 <option>age REE</option>
-<option>height REE</option></select></td><td style="border: 2pt black solid"><select id="8fiii">
+<option>height REE</option></select> - <select id="8fiii">
 <option></option>
 <option>weight REE</option>
 <option>age REE</option>
-<option>height REE</option></select></td><td style="border: 2pt black solid"><select id="8fiv">
+<option>height REE</option></select> + <select id="8fiv">
 <option></option>
 <option>weight REE</option>
 <option>age REE</option>
@@ -2589,7 +3057,7 @@ if (set8.fxiii=== 1) {
 <td style="border: 2pt black solid">Correct Answer</td>
 <td style="border: 2pt black solid">Student Answers</td>
 <td style="border: 2pt black solid">Number of Tries</td>
-<td style="border: 2pt black solid">Time for Entire Question (s)</td>\</thead>
+<td style="border: 2pt black solid">Time for Entire Question (s)</td></thead>
 <tbody>
 <tr>
 <td style="border: 2pt black solid">1a. i.</td>
@@ -2597,581 +3065,574 @@ if (set8.fxiii=== 1) {
 <td style="border: 2pt black solid"><div id="1aiAnswer1"></div><div id="1aiAnswer2"></div><div id="1aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="1Time"></div></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">1a. ii.</td>
 <td style="border: 2pt black solid">20</td>
 <td style="border: 2pt black solid"><div id="1aiiAnswer1"></div><div id="1aiiAnswer2"></div><div id="1aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">1b. i.</td>
 <td style="border: 2pt black solid">30%</td>
 <td style="border: 2pt black solid"><div id="1biAnswer1"></div><div id="1biAnswer2"></div><div id="1biAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1biTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">1c. i.</td>
 <td style="border: 2pt black solid">beaver birth rate</td>
 <td style="border: 2pt black solid"><div id="1ciAnswer1"></div><div id="1ciAnswer2"></div><div id="1ciAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1ciTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">1c. ii.</td>
 <td style="border: 2pt black solid">beaver population</td>
 <td style="border: 2pt black solid"><div id="1ciiAnswer1"></div><div id="1ciiAnswer2"></div><div id="1ciiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1ciiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">2a. i.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="2aiAnswer1"></div><div id="2aiAnswer2"></div><div id="2aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="2aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="2Time"></div></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">2a. ii.</td>
 <td style="border: 2pt black solid">2</td>
 <td style="border: 2pt black solid"><div id="2aiiAnswer1"></div><div id="2aiiAnswer2"></div><div id="2aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="2aiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">2b. i.</td>
 <td style="border: 2pt black solid">accumulator</td>
 <td style="border: 2pt black solid"><div id="2biAnswer1"></div><div id="2biAnswer2"></div><div id="2biAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="2biTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">3a. i.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="3aiAnswer1"></div><div id="3aiAnswer2"></div><div id="3aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="3Time"></div></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">3a. ii.</td>
 <td style="border: 2pt black solid">accumulator</td>
 <td style="border: 2pt black solid"><div id="3aiiAnswer1"></div><div id="3aiiAnswer2"></div><div id="3aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3aiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">3b. i.</td>
-<td style="border: 2pt black solid"></td>
-<td style="border: 2pt black solid"><div id="3biAnswer1"></div><div id="3biAnswer2"></div><div id="3biAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="3biTries"></div></td>
-<td style="border: 2pt black solid"></td>
-<tr>
-<tr>
-<td style="border: 2pt black solid">3b. ii.</td>
-<td style="border: 2pt black solid"></td>
-<td style="border: 2pt black solid"><div id="3biiAnswer1"></div><div id="3biiAnswer2"></div><div id="3biiAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="3biiTries"></div></td>
-<td style="border: 2pt black solid"></td>
-<tr>
-<tr>
-<td style="border: 2pt black solid">3b. iii.</td>
 <td style="border: 2pt black solid">345100</td>
 <td style="border: 2pt black solid"><div id="3biiiAnswer1"></div><div id="3biiiAnswer2"></div><div id="3biiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3biiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
+</tr>
 <tr>
-<tr>
-<td style="border: 2pt black solid">3b. iv.</td>
+<td style="border: 2pt black solid">3b. ii.</td>
 <td style="border: 2pt black solid">345200</td>
 <td style="border: 2pt black solid"><div id="3bivAnswer1"></div><div id="3bivAnswer2"></div><div id="3bivAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3bivTries"></div></td>
 <td style="border: 2pt black solid"></td>
+</tr>
 <tr>
-<tr>
-<td style="border: 2pt black solid">3b. v.</td>
+<td style="border: 2pt black solid">3b. iii.</td>
 <td style="border: 2pt black solid">345200 + 100</td>
 <td style="border: 2pt black solid"><div id="3bvAnswer1"></div><div id="3bvAnswer2"></div><div id="3bvAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3bvTries"></div></td>
 <td style="border: 2pt black solid"></td>
+</tr>
 <tr>
-<tr>
-<td style="border: 2pt black solid">3b. vi.</td>
+<td style="border: 2pt black solid">3b. iv.</td>
 <td style="border: 2pt black solid">345300 + 100</td>
 <td style="border: 2pt black solid"><div id="3bviAnswer1"></div><div id="3bviAnswer2"></div><div id="3bviAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3bviTries"></div></td>
 <td style="border: 2pt black solid"></td>
+</tr>
 <tr>
-<tr>
-<td style="border: 2pt black solid">3b. vii.</td>
+<td style="border: 2pt black solid">3b. v.</td>
 <td style="border: 2pt black solid">345400 + 100</td>
 <td style="border: 2pt black solid"><div id="3bviiAnswer1"></div><div id="3bviiAnswer2"></div><div id="3bviiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3bviiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">3c. i.</td>
 <td style="border: 2pt black solid">X-axis (independent value)</td>
 <td style="border: 2pt black solid"><div id="3ciAnswer1"></div><div id="3ciAnswer2"></div><div id="3ciAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3ciTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">3c. ii.</td>
 <td style="border: 2pt black solid">Y-axis (dependent value)</td>
 <td style="border: 2pt black solid"><div id="3ciiAnswer1"></div><div id="3ciiAnswer2"></div><div id="3ciiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3ciiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">4a. i.</td>
 <td style="border: 2pt black solid">accumulator</td>
 <td style="border: 2pt black solid"><div id="4aiAnswer1"></div><div id="4aiAnswer2"></div><div id="4aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="4aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="4Time"></div></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">4a. ii.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="4aiiAnswer1"></div><div id="4aiiAnswer2"></div><div id="4aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="4aiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">4a. iii.</td>
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="4aiiiAnswer1"></div><div id="4aiiiAnswer2"></div><div id="4aiiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="4aiiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">4a. iv.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="4aivAnswer1"></div><div id="4aivAnswer2"></div><div id="4aivAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="4aivTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">4b. i.</td>
 <td style="border: 2pt black solid">energy stored</td>
 <td style="border: 2pt black solid"><div id="4biAnswer1"></div><div id="4biAnswer2"></div><div id="4biAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="4biTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">4c. i.</td>
 <td style="border: 2pt black solid">energy balance</td>
 <td style="border: 2pt black solid"><div id="4ciAnswer1"></div><div id="4ciAnswer2"></div><div id="4ciAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="4ciTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">5a. i.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="5aiAnswer1"></div><div id="5aiAnswer2"></div><div id="5aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="5Time"></div></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">5a. ii.</td>
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="5aiiAnswer1"></div><div id="5aiiAnswer2"></div><div id="5aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5aiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">5a. iii.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="5aiiiAnswer1"></div><div id="5aiiiAnswer2"></div><div id="5aiiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5aiiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">5a. iv.</td>
 <td style="border: 2pt black solid">accumulator</td>
 <td style="border: 2pt black solid"><div id="5aivAnswer1"></div><div id="5aivAnswer2"></div><div id="5aivAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5aivTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">5a. v.</td>
+<td style="border: 2pt black solid">weight change</td>
+<td style="border: 2pt black solid"><div id="5aviiAnswer1"></div><div id="5aviiAnswer2"></div><div id="5aviiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="5aviiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">5a. vi.</td>
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="5avAnswer1"></div><div id="5avAnswer2"></div><div id="5avAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5avTries"></div></td>
 <td style="border: 2pt black solid"></td>
+</tr>
 <tr>
-<tr>
-<td style="border: 2pt black solid">5a. vi.</td>
+<td style="border: 2pt black solid">5a. vii.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="5aviAnswer1"></div><div id="5aviAnswer2"></div><div id="5aviAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5aviTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">5b. i.</td>
 <td style="border: 2pt black solid">5b</td>
 <td style="border: 2pt black solid"><div id="5biAnswer1"></div><div id="5biAnswer2"></div><div id="5biAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5biTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">5b. ii.</td>
 <td style="border: 2pt black solid">negative</td>
 <td style="border: 2pt black solid"><div id="5biiAnswer1"></div><div id="5biiAnswer2"></div><div id="5biiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5biiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">5b. iii.</td>
 <td style="border: 2pt black solid">loses</td>
 <td style="border: 2pt black solid"><div id="5biiiAnswer1"></div><div id="5biiiAnswer2"></div><div id="5biiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5biiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">5c. i.</td>
 <td style="border: 2pt black solid">5c</td>
 <td style="border: 2pt black solid"><div id="5ciAnswer1"></div><div id="5ciAnswer2"></div><div id="5ciAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5ciTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">5c. ii.</td>
 <td style="border: 2pt black solid">positive</td>
 <td style="border: 2pt black solid"><div id="5ciiAnswer1"></div><div id="5ciiAnswer2"></div><div id="5ciiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5ciiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">5c. iii.</td>
 <td style="border: 2pt black solid">gains</td>
 <td style="border: 2pt black solid"><div id="5ciiiAnswer1"></div><div id="5ciiiAnswer2"></div><div id="5ciiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5ciiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6a. i.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="6aiAnswer1"></div><div id="6aiAnswer2"></div><div id="6aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="6Time"></div></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6a. ii.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="6aiiAnswer1"></div><div id="6aiiAnswer2"></div><div id="6aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6aiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6a. iii.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="6aiiiAnswer1"></div><div id="6aiiiAnswer2"></div><div id="6aiiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6aiiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6a. iv.</td>
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="6aivAnswer1"></div><div id="6aivAnswer2"></div><div id="6aivAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6aivTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6a. v.</td>
 <td style="border: 2pt black solid">digestive activity expenditure</td>
 <td style="border: 2pt black solid"><div id="6avAnswer1"></div><div id="6avAnswer2"></div><div id="6avAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6avTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6b. i.</td>
 <td style="border: 2pt black solid">2000</td>
 <td style="border: 2pt black solid"><div id="6biAnswer1"></div><div id="6biAnswer2"></div><div id="6biAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6biTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6c. i.</td>
 <td style="border: 2pt black solid">negative</td>
 <td style="border: 2pt black solid"><div id="6ciAnswer1"></div><div id="6ciAnswer2"></div><div id="6ciAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6ciTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6d. i.</td>
 <td style="border: 2pt black solid">positive</td>
 <td style="border: 2pt black solid"><div id="6diAnswer1"></div><div id="6diAnswer2"></div><div id="6diAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6diTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6e. i.</td>
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="6eiAnswer1"></div><div id="6eiAnswer2"></div><div id="6eiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6eiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6e. ii.</td>
 <td style="border: 2pt black solid">resting energy expenditure</td>
 <td style="border: 2pt black solid"><div id="6eiiAnswer1"></div><div id="6eiiAnswer2"></div><div id="6eiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6eiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6e. iii.</td>
 <td style="border: 2pt black solid">physical activity level</td>
 <td style="border: 2pt black solid"><div id="6eiiiAnswer1"></div><div id="6eiiiAnswer2"></div><div id="6eiiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6eiiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6e. iv.</td>
 <td style="border: 2pt black solid">digestive activity expenditure</td>
 <td style="border: 2pt black solid"><div id="6eivAnswer1"></div><div id="6eivAnswer2"></div><div id="6eivAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6eivTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">6e. v.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="6evAnswer1"></div><div id="6evAnswer2"></div><div id="6evAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="6evTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7a. i.</td>
 <td style="border: 2pt black solid">1800 calories</td>
 <td style="border: 2pt black solid"><div id="7aiAnswer1"></div><div id="7aiAnswer2"></div><div id="7aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="7Time"></div></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7b. i.</td>
 <td style="border: 2pt black solid">gain</td>
 <td style="border: 2pt black solid"><div id="7biAnswer1"></div><div id="7biAnswer2"></div><div id="7biAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7biTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7c. i.</td>
 <td style="border: 2pt black solid">0.03 pounds per day</td>
 <td style="border: 2pt black solid"><div id="7ciAnswer1"></div><div id="7ciAnswer2"></div><div id="7ciAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7ciTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7d. i.</td>
 <td style="border: 2pt black solid">2860 calories</td>
 <td style="border: 2pt black solid"><div id="7diAnswer1"></div><div id="7diAnswer2"></div><div id="7diAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7diTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7e. i.</td>
 <td style="border: 2pt black solid">lose</td>
 <td style="border: 2pt black solid"><div id="7eiAnswer1"></div><div id="7eiAnswer2"></div><div id="7eiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7eiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7f. i.</td>
 <td style="border: 2pt black solid">0.25 pounds per day</td>
 <td style="border: 2pt black solid"><div id="7fiAnswer1"></div><div id="7fiAnswer2"></div><div id="7fiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7fiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7g. i.</td>
 <td style="border: 2pt black solid">resting energy expenditure</td>
 <td style="border: 2pt black solid"><div id="7giAnswer1"></div><div id="7giAnswer2"></div><div id="7giAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7giTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7g. ii.</td>
 <td style="border: 2pt black solid">physical activity level</td>
 <td style="border: 2pt black solid"><div id="7giiAnswer1"></div><div id="7giiAnswer2"></div><div id="7giiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7giiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7g. iii.</td>
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="7giiiAnswer1"></div><div id="7giiiAnswer2"></div><div id="7giiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7giiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7g. iv.</td>
 <td style="border: 2pt black solid">energy ingested</td>
 <td style="border: 2pt black solid"><div id="7givAnswer1"></div><div id="7givAnswer2"></div><div id="7givAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7givTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7g. v.</td>
 <td style="border: 2pt black solid">digestive energy factor</td>
 <td style="border: 2pt black solid"><div id="7gvAnswer1"></div><div id="7gvAnswer2"></div><div id="7gvAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7gvTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7g. vi.</td>
 <td style="border: 2pt black solid">digestive activity expenditure</td>
 <td style="border: 2pt black solid"><div id="7gviAnswer1"></div><div id="7gviAnswer2"></div><div id="7gviAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7gviTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7g. vii.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="7gviiAnswer1"></div><div id="7gviiAnswer2"></div><div id="7gviiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7gviiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">7g. viii.</td>
 <td style="border: 2pt black solid">0.10</td>
 <td style="border: 2pt black solid"><div id="7gviiiAnswer1"></div><div id="7gviiiAnswer2"></div><div id="7gviiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="7gviiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8a. i.</td>
 <td style="border: 2pt black solid">199 calories</td>
 <td style="border: 2pt black solid"><div id="8aiAnswer1"></div><div id="8aiAnswer2"></div><div id="8aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="8Time"></div></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8b. i.</td>
 <td style="border: 2pt black solid">400 calories</td>
 <td style="border: 2pt black solid"><div id="8biAnswer1"></div><div id="8biAnswer2"></div><div id="8biAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8biTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8b. ii.</td>
 <td style="border: 2pt black solid">280 calories</td>
 <td style="border: 2pt black solid"><div id="8biiAnswer1"></div><div id="8biiAnswer2"></div><div id="8biiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8biiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8c. i.</td>
 <td style="border: 2pt black solid">2080 calories</td>
 <td style="border: 2pt black solid"><div id="8ciAnswer1"></div><div id="8ciAnswer2"></div><div id="8ciAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8ciTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8d. i.</td>
 <td style="border: 2pt black solid">gain</td>
 <td style="border: 2pt black solid"><div id="8diAnswer1"></div><div id="8diAnswer2"></div><div id="8diAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8diTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8e. i.</td>
 <td style="border: 2pt black solid">0.55 pounds per day</td>
 <td style="border: 2pt black solid"><div id="8eiAnswer1"></div><div id="8eiAnswer2"></div><div id="8eiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8eiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. i.</td>
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="8fiAnswer1"></div><div id="8fiAnswer2"></div><div id="8fiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. ii.</td>
 <td style="border: 2pt black solid">weight REE</td>
 <td style="border: 2pt black solid"><div id="8fiiAnswer1"></div><div id="8fiiAnswer2"></div><div id="8fiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. iii.</td>
 <td style="border: 2pt black solid">age REE</td>
 <td style="border: 2pt black solid"><div id="8fiiiAnswer1"></div><div id="8fiiiAnswer2"></div><div id="8fiiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fiiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. iv.</td>
 <td style="border: 2pt black solid">height REE</td>
 <td style="border: 2pt black solid"><div id="8fivAnswer1"></div><div id="8fivAnswer2"></div><div id="8fivAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fivTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. v.</td>
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="8fvAnswer1"></div><div id="8fvAnswer2"></div><div id="8fvAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fvTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. vi.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="8fviAnswer1"></div><div id="8fviAnswer2"></div><div id="8fviAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fviTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. vii.</td>
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="8fviiAnswer1"></div><div id="8fviiAnswer2"></div><div id="8fviiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fviiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. viii.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="8fviiiAnswer1"></div><div id="8fviiiAnswer2"></div><div id="8fviiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fviiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. ix.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="8fixAnswer1"></div><div id="8fixAnswer2"></div><div id="8fixAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fixTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. x.</td>
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="8fxAnswer1"></div><div id="8fxAnswer2"></div><div id="8fxAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fxTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. xi.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="8fxiAnswer1"></div><div id="8fxiAnswer2"></div><div id="8fxiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fxiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. xii.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="8fxiiAnswer1"></div><div id="8fxiiAnswer2"></div><div id="8fxiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fxiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">8f. xiii.</td>
 <td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="8fxiiiAnswer1"></div><div id="8fxiiiAnswer2"></div><div id="8fxiiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="8fxiiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
-<tr>
+</tr>
 </tbody>
 </table>
 </div><script type="text/javascript">
@@ -3187,8 +3648,6 @@ document.getElementById("2aiiTries").innerHTML=set2.aii;
 document.getElementById("2biTries").innerHTML=set2.bi;
 document.getElementById("3aiTries").innerHTML=set3.ai;
 document.getElementById("3aiiTries").innerHTML=set3.aii;
-document.getElementById("3biTries").innerHTML=set3.bi;
-document.getElementById("3biiTries").innerHTML=set3.bii;
 document.getElementById("3biiiTries").innerHTML=set3.biii;
 document.getElementById("3bivTries").innerHTML=set3.biv;
 document.getElementById("3bvTries").innerHTML=set3.bv;
@@ -3208,6 +3667,7 @@ document.getElementById("5aiiiTries").innerHTML=set5.aiii;
 document.getElementById("5aivTries").innerHTML=set5.aiv;
 document.getElementById("5avTries").innerHTML=set5.av;
 document.getElementById("5aviTries").innerHTML=set5.avi;
+document.getElementById("5aviitries").innerHTML=set5.avii
 document.getElementById("5biTries").innerHTML=set5.bi;
 document.getElementById("5biiTries").innerHTML=set5.bii;
 document.getElementById("5biiiTries").innerHTML=set5.biii;
