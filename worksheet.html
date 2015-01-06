@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dragoon Worksheet 1</title>
+<script type="text/javascript">
+function checkAnswers(inputId, rightAnswer) {
+if (document.getElementById(inputId).value===rightAnswer) {
+document.getElementById(inputId).style.background="#66FF33";
+return true;
+}
+else {
+document.getElementById(inputId).style.background="#FF3333";
+return false;
+}
+};
+var tim1 = 0;
+function time1 () {
+if (yestim1=1){
+tim1 = tim1 + 1;
+t = setTimeout(function() {time1()},1000);
+}
+};
+var yestim1 = 1;
+time1();
+</script>
+</head>
+<body>
+<h3>Question 1</h3>
+<p>This is a demonstration.</p>
+<p>1a. <table>
+<thead>
+<td style="border: 2pt black solid">a</td>
+<td style="border: 2pt black solid">b</td>
+<td style="border: 2pt black solid">c</td>
+<td style="border: 2pt black solid">d</td>
+</thead>
+<tbody>
+<td style="border: 2pt black solid">e</td>
+<td style="border: 2pt black solid">f</td>
+<td style="border: 2pt black solid">g</td>
+<td style="border: 2pt black solid">h</td></tr>
+<td style="border: 2pt black solid">i</td><td style="border: 2pt black solid"><select id="1ai">
+<option></option>
+<option>j</option>
+<option>f</option>
+<option>d</option>
+<option>r</option></select></td>
+<td style="border: 2pt black solid">k</td>
+<td style="border: 2pt black solid">l</td></tr>
+</tbody>
+</table>
+<script type="text/javascript">var set1 = {
+ai:0,}; 
+function cont1() {
+var yestim1 = 0;
+document.getElementById("1Time").innerHTML = tim1;
+checkAnswers("1ai", "j");
+if (document.getElementById("1ai").value==="" ||0===1) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("1ai", "j")) { 
+ set1.ai = set1.ai + 1;}
+if ((checkAnswers("1ai", "j") || set1.ai===3) &&1===1) {
+ document.getElementById("question2").style.display = "";
+ document.getElementById("button1").style.display = "none";
+tim2= 0;
+function time2() {
+if (yestim2){
+tim2 = tim2 + 1;
+t = setTimeout(function() {time2()},1000);
+}
+};
+var yestim2 = 1;
+time2();
+}
+
+if (!checkAnswers("1ai", "j")) {
+if (set1.ai===3) {
+document.getElementById("1ai").value="j";
+document.getElementById("1ai").style.background="#FFFF00"}
+if (set1.ai=== 1) { 
+ document.getElementById("1aiAnswer1").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ else if (set1.ai=== 2) { 
+ document.getElementById("1aiAnswer2").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ else { 
+ document.getElementById("1aiAnswer3").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ } 
+ else { 
+ if (set1.ai=== 0) { 
+ document.getElementById("1aiAnswer1").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ else if (set1.ai=== 1) { 
+ document.getElementById("1aiAnswer2").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ else { 
+ document.getElementById("1aiAnswer3").innerHTML = "; " + document.getElementById("1ai").value
+}
+};};
+</script> 
+ <br><button id="button1" onClick="cont1();">Continue</button>
+<div id="question2" style="display: none">
+<h3>Question 2</h3>
+<p></p>
+<p>2a. <select id="2ai">
+<option></option>
+<option>true</option>
+<option>false</option></select>
+ <script type="text/javascript">var set2 = {
+ai:0,}; 
+function cont2() {
+var yestim2 = 0;
+document.getElementById("2Time").innerHTML = tim2;
+checkAnswers("2ai", "true");
+if (document.getElementById("2ai").value==="" ||0===1) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("2ai", "true")) { 
+ set2.ai = set2.ai + 1;}
+if ((checkAnswers("2ai", "true") || set2.ai===3) &&1===1) {
+ document.getElementById("question3").style.display = "";
+ document.getElementById("button2").style.display = "none";
+displayAnswers();
+}
+
+if (!checkAnswers("2ai", "true")) {
+if (set2.ai===3) {
+document.getElementById("2ai").value="true";
+document.getElementById("2ai").style.background="#FFFF00"}
+if (set2.ai=== 1) { 
+ document.getElementById("2aiAnswer1").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ else if (set2.ai=== 2) { 
+ document.getElementById("2aiAnswer2").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ else { 
+ document.getElementById("2aiAnswer3").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ } 
+ else { 
+ if (set2.ai=== 0) { 
+ document.getElementById("2aiAnswer1").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ else if (set2.ai=== 1) { 
+ document.getElementById("2aiAnswer2").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ else { 
+ document.getElementById("2aiAnswer3").innerHTML = "; " + document.getElementById("2ai").value
+}
+};};
+</script> 
+ <br><button id="button2" onClick="cont2();">Continue</button>
+<div id="question3" style="display: none"></div></div><div id="resultsTable" style="display:none">
+<table>
+<thead>
+<td style="border: 2pt black solid">Question</td>
+<td style="border: 2pt black solid">Correct Answer</td>
+<td style="border: 2pt black solid">Student Answers</td>
+<td style="border: 2pt black solid">Number of Tries</td>
+<td style="border: 2pt black solid">Time for Entire Question (s)</td>
+</thead>
+<tbody>
+<tr>
+<td style="border: 2pt black solid">1a. i.</td>
+<td style="border: 2pt black solid">j</td>
+<td style="border: 2pt black solid"><div id="1aiAnswer1"></div><div id="1aiAnswer2"></div><div id="1aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="1aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="1Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">2a. i.</td>
+<td style="border: 2pt black solid">true</td>
+<td style="border: 2pt black solid"><div id="2aiAnswer1"></div><div id="2aiAnswer2"></div><div id="2aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="2aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="2Time"></div></td>
+<tr>
+</tbody>
+</table>
+</div><script type="text/javascript">
+function displayAnswers () {
+document.getElementById("resultsTable").style.display=""
+document.getElementById("1aiTries").innerHTML=set1.ai;
+document.getElementById("2aiTries").innerHTML=set2.ai;
+};
+</script></body></html>

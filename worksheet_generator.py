@@ -166,22 +166,20 @@ def newSection ():
 			dno = dno + 1
 			rno = rnum[dno]
 			ans = input ("Answers: ").split(",")
-			rta = input ("Right answer: ")
+			rta = input ("Right answers: ")
 			if not rta in ans:
 				print("Please choose one of the given answers as the right answer.")
 				rta = input ("Right answer: ")
-			global allans	
+			global allans
 			allans = ""
 			for item in ans:
-				item = "\n<input type=\"checkbox\" id=\"" + qno + let + rno + "\" value=\"" + str(item) + "\">" + str(item) + "<br>"
+				item = "\n<input type=\"checkbox\" name=\"" + qno + let + rno + "\" id=\"" + str(item) + "\">" + str(item) + "<br>"
 				global allans
 				allans = allans + item	
 			global varset
 			varset = varset + "\n" + let + rno + ":0,"
 			global chkans
-			chkans = chkans + "checkAnswers(\"" + qno + let + rno + "\", \"" + rta + "\");"
-			global chkcpl
-			chkcpl = chkcpl + "document.getElementById(\"" + qno + let + rno + "\").value===\"\" ||"
+			chkans = chkans + "if "
 			global ctr
 			ctr = ctr + "if (!checkAnswers(\"" + qno + let + rno + "\", \"" + rta + "\")) { \n set" + qno + "." + let + rno + " = set" + qno + "." + let + rno + " + 1;}"
 			global contif

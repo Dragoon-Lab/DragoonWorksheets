@@ -216,7 +216,7 @@ document.getElementById("button5").style.display="none";
 }
 };
 </script>
-<div id="section5" style="display:none">
+<div id="section5" style="display:">
 <p>Do the following steps to create a new model for Joe' body.</p>
 <ol>
 <li>If you have not done so already, click the <b>Done</b> button.</li>
@@ -263,7 +263,7 @@ document.getElementById("button5").style.display="none";
 <li>Create these four nodes in Dragoon. When you have completed them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren't completely defined. Look for nodes that have dotted lines around them.</li>
 </ol>
 <p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b></p>
-<div id="section6" style="display: none">
+<div id="section6" style="display:">
 <h3><b>Question 3</b></h3>
 <p>In this graph window, check <b>Sjow energy stored</b> and make sure <b>Show energy balance</b> is not checked, as boxed in the screenshot below.</p>
 <img src="dragoonintropictures/dragoon20.JPG">
@@ -384,22 +384,22 @@ document.getElementById("button5").style.display="none";
 </ol>
 <h3><b>Question 7:</b></h3>
 <p>7a. If Joe's resting energy expenditure changes, which of the following nodes <b>will</b> be affected by changes. (choose all that apply)</p>
-<input type="checkbox" id="questsect38" value="calperlb">Calories per pound<br>
-<input type="checkbox" id="questsect38" value="dae">Digestive activity expenditure<br>
-<input type="checkbox" id="questsect38" value="enbal">Energy balance<br>
-<input type="checkbox" id="questsect38" value="enexp">Energy expended<br>
-<input type="checkbox" id="questsect38" value="ening">Energy ingested<br>
-<input type="checkbox" id="questsect38" value="pae">Physical activity expenditure<br>
-<input type="checkbox" id="questsect38" value="pal">Physical activity level<br>
-<input type="checkbox" id="questsect38" value="w">Weight<br>
-<input type="checkbox" id="questsect38" value="wc">Weight change<br>
+<input type="checkbox" name ="questsect38" id="questsect38" value="calperlb">Calories per pound<br>
+<input type="checkbox" name ="questsect38" id="questsect38" value="dae">Digestive activity expenditure<br>
+<input type="checkbox" name ="questsect38" id="questsect38" value="enbal">Energy balance<br>
+<input type="checkbox" name ="questsect38" id="questsect38" value="enexp">Energy expended<br>
+<input type="checkbox" name ="questsect38" id="questsect38" value="ening">Energy ingested<br>
+<input type="checkbox" name ="questsect38" id="questsect38" value="pae">Physical activity expenditure<br>
+<input type="checkbox" name ="questsect38" id="questsect40 0">Physical activity level<br>
+<input type="checkbox" name ="questsect38" id="questsect38" value="w">Weight<br>
+<input type="checkbox" name ="questsect38" id="questsect38" value="wc">Weight change<br>
 <p>7b. Joe changes one of thses nodes. Based only on the nodes and their connections, which one can Joe change that will have the greatest effect, that is, affect the most nodes?</p>
 <input type="radio" name="radio2" id="questsect39" value="enbal">Energy balance<br>
 <input type="radio" name="radio2" id="questsect39" value="enexp">Energy expended<br>
 <input type="radio" name="radio2" id="questsect39" value="pae">Physical activity expenditure<br>
 <input type="radio" name="radio2" id="questsect39" value="w">Weight<br>
 <input type="radio" name="radio2" id="questsect39" value="wc">Weight change<br>
-<p>7c. What is Joe's weight after 999 days if he keeps his current physical activity level? (Hint: Une the Table button)</p>
+<p>7c. What is Joe's weight after 999 days if he keeps his current physical activity level? (Hint: Use the Table button)</p>
 <input type="text" id="questsect40">
 <p>7d. If Joe starts to have moderate exercise this week, then what is his weight after 30 days?</p>
 <input type="text" id="questsect41">
@@ -409,6 +409,14 @@ document.getElementById("button5").style.display="none";
 <li>Under "<b>Additional Dragoon Problem</b>" in the main window, make sure that the <b>Problem Category</b> option reads "<b>Energy Balance</b>" and the <b>Problem</b> option reads "<b>Energy Balance 5</b>".</li>
 <li>Read the text and modify the model. View the Graph, and manipulate the values of the parameters to make sure the graphs behave in sensible ways.</li>
 </ol>
+<script type="text/javascript">
+function checktest () {
+if (document.getElementById("questsect40 0")) {
+alert("right");
+}
+};
+</script>
+<button onClick="checktest();">test</button>
 <h3><b>Question 8:</b></h3>
 <p>8a. <input type="radio" name="radio3" id="questsect43" value="t">True or <input type="radio" name="radio3" id="questsect43" value="f">False: thermic effect of food is how hot your food is when you eat it.</p>
 <p>8b. We have learned a lot about metabolism. Which of the following are components of your body's metabolism? Choose all that apply:</p>
