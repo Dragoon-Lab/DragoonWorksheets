@@ -59,7 +59,6 @@ def newSection ():
 			worksheet = worksheet + txt
 			add = input ("Add: ")
 		elif add == "dropdown":
-			global dno
 			dno = dno + 1
 			rno = rnum[dno]
 			ans = input ("Answers: ").split(",")
@@ -71,7 +70,6 @@ def newSection ():
 			allans = ""
 			for item in ans:
 				item = "\n<option>" + str(item) + "</option>"
-				global allans
 				allans = allans + item	
 			global varset
 			varset = varset + "\n" + let + rno + ":0,"
@@ -85,7 +83,6 @@ def newSection ():
 			contif = contif + "(checkAnswers(\"" + qno + let + rno + "\", \"" + rta + "\") || set" + qno + "." + let + rno + "===3) &&"
 			global ctwrng
 			ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + let + rno + "\", \"" + rta + "\")) {\nif (set" + qno + "." + let + rno + "===3) {\ndocument.getElementById(\"" + qno + let + rno + "\").value=\"" + rta + "\";\ndocument.getElementById(\"" + qno + let + rno + "\").style.background=\"#FFFF00\"}\nif (set" + qno + "." + let + rno + "=== 1) { \n document.getElementById(\"" + qno + let + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n else if (set" + qno + "." + let + rno + "=== 2) { \n document.getElementById(\"" + qno + let + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + let + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + let + rno + "=== 0) { \n document.getElementById(\"" + qno + let + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n else if (set" + qno + "." + let + rno + "=== 1) { \n document.getElementById(\"" + qno + let + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + let + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value\n}\n};"
-			global worksheet
 			worksheet = worksheet + "<select id=\"" + qno + let + rno + "\">\n<option></option>" + allans + "</select>"
 			global endtbl
 			endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + let + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Answer1\"></div><div id=\"" + qno + let + rno + "Answer2\"></div><div id=\"" + qno + let + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
@@ -104,65 +101,45 @@ def newSection ():
 			allbody = ""
 			for item in head:
 				item = "\n<td style=\"border: 2pt black solid\">" + str(item) + "</td>"
-				global allhead
 				allhead = allhead + item
-			global head
 			line = input ("Line: ").split(",")
 			while not "end" in line:
-				global allline
 				allline = ""
 				for item in line:
 					if item == "dropdown":
-						global dno
 						dno = dno + 1
 						rno = rnum[dno]
 						ans = input ("Answers: ").split(",")
 						rta = input ("Right answer: ")
 						if not rta in ans:
 							print("Please choose one of the given answers as the right answer.")
-							rta = input ("Right answer: ")
-						global allans	
+							rta = input ("Right answer: ")	
 						allans = ""
 						for item in ans:
 							item = "\n<option>" + str(item) + "</option>"
-							global allans
-							allans = allans + item	
-						global varset
+							allans = allans + item
 						varset = varset + "\n" + let + rno + ":0,"
-						global chkans
 						chkans = chkans + "checkAnswers(\"" + qno + let + rno + "\", \"" + rta + "\");"
-						global chkcpl
 						chkcpl = chkcpl + "document.getElementById(\"" + qno + let + rno + "\").value===\"\" ||"
-						global ctr
 						ctr = ctr + "if (!checkAnswers(\"" + qno + let + rno + "\", \"" + rta + "\")) { \n set" + qno + "." + let + rno + " = set" + qno + "." + let + rno + " + 1;}"
-						global contif
 						contif = contif + "(checkAnswers(\"" + qno + let + rno + "\", \"" + rta + "\") || set" + qno + "." + let + rno + "===3) &&"
-						global ctwrng
 						ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + let + rno + "\", \"" + rta + "\")) {\nif (set" + qno + "." + let + rno + "===3) {\ndocument.getElementById(\"" + qno + let + rno + "\").value=\"" + rta + "\";\ndocument.getElementById(\"" + qno + let + rno + "\").style.background=\"#FFFF00\"}\nif (set" + qno + "." + let + rno + "=== 1) { \n document.getElementById(\"" + qno + let + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n else if (set" + qno + "." + let + rno + "=== 2) { \n document.getElementById(\"" + qno + let + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + let + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + let + rno + "=== 0) { \n document.getElementById(\"" + qno + let + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n else if (set" + qno + "." + let + rno + "=== 1) { \n document.getElementById(\"" + qno + let + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + let + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value\n}\n};"
-						global allline
 						allline = allline + "<td style=\"border: 2pt black solid\"><select id=\"" + qno + let + rno + "\">\n<option></option>" + allans + "</select></td>"
-						global endtbl
 						endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + let + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Answer1\"></div><div id=\"" + qno + let + rno + "Answer2\"></div><div id=\"" + qno + let + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
 						if let == "a" and rno == "i":
 							endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
 						else:
 							endtbl = endtbl + "</td>\n<tr>"
-						global endfn
 						endfn = endfn + "\ndocument.getElementById(\"" + qno + let + rno + "Tries\").innerHTML=set" + qno + "." + let + rno + ";"
 					else:
 						item = "\n<td style=\"border: 2pt black solid\">" + str(item) + "</td>"
-						global allline
 						allline = allline + item
-				global allline
 				allline = allline + "</tr>"
-				global allbody
 				allbody = allbody + allline
 				line = input("Line: ").split(",")
-			global worksheet
 			worksheet = worksheet + "<table>\n<thead>" + allhead + "\n</thead>\n<tbody>" + allbody + "\n</tbody>\n</table>"
 			add = input ("Add: ")
 		elif add == "checkbox":
-			global dno
 			dno = dno + 1
 			rno = rnum[dno]
 			ans = input ("Answers: ").split(",")
@@ -170,31 +147,23 @@ def newSection ():
 			if not rta in ans:
 				print("Please choose one of the given answers as the right answer.")
 				rta = input ("Right answer: ")
-			global allans
 			allans = ""
 			for item in ans:
 				item = "\n<input type=\"checkbox\" name=\"" + qno + let + rno + "\" id=\"" + str(item) + "\">" + str(item) + "<br>"
-				global allans
-				allans = allans + item	
-			global varset
+				allans = allans + item
 			varset = varset + "\n" + let + rno + ":0,"
-			global chkans
-			chkans = chkans + "if "
-			global ctr
+			for item in rta:
+				item = "\nif (document.getElementById(\"" + item + "\")) {\ndocument.getElementById(" + item + ").style.background=\"#66FF33\";\n}\nelse {\ndocument.getElementById(" + item + ").style.background=\"#FF3333\";\n}"
+				chkans = chkans + item
 			ctr = ctr + "if (!checkAnswers(\"" + qno + let + rno + "\", \"" + rta + "\")) { \n set" + qno + "." + let + rno + " = set" + qno + "." + let + rno + " + 1;}"
-			global contif
 			contif = contif + "(checkAnswers(\"" + qno + let + rno + "\", \"" + rta + "\") || set" + qno + "." + let + rno + "===3) &&"
-			global ctwrng
 			ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + let + rno + "\", \"" + rta + "\")) {\nif (set" + qno + "." + let + rno + "===3) {\ndocument.getElementById(\"" + qno + let + rno + "\").value=\"" + rta + "\";\ndocument.getElementById(\"" + qno + let + rno + "\").style.background=\"#FFFF00\"}\nif (set" + qno + "." + let + rno + "=== 1) { \n document.getElementById(\"" + qno + let + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n else if (set" + qno + "." + let + rno + "=== 2) { \n document.getElementById(\"" + qno + let + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + let + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + let + rno + "=== 0) { \n document.getElementById(\"" + qno + let + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n else if (set" + qno + "." + let + rno + "=== 1) { \n document.getElementById(\"" + qno + let + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + let + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + let + rno + "\").value\n}\n};"
-			global worksheet
 			worksheet = worksheet + allans
-			global endtbl
 			endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + let + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Answer1\"></div><div id=\"" + qno + let + rno + "Answer2\"></div><div id=\"" + qno + let + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + let + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
 			if let == "a" and rno == "i":
 				endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
 			else:
 				endtbl = endtbl + "</td>\n<tr>"
-			global endfn
 			endfn = endfn + "\ndocument.getElementById(\"" + qno + let + rno + "Tries\").innerHTML=set" + qno + "." + let + rno + ";"
 			add = input ("Add: ")
 		else:
