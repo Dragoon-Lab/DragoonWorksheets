@@ -2,7 +2,7 @@ import json
 class Worksheet:
 	def __init__(self, filename):
 		self.name = filename
-		self.questions = []#list of questions
+		self.questions = []
 	def jsonable(self):
 		return self.__dict__
 class Question:
@@ -15,7 +15,7 @@ class Question:
 		
 class Section:
 	def __init__ (self,qstn):
-		self.content = []#list of text,images,dropdown,table
+		self.content = []
 		qstn.sections.append(self)
 	def jsonable(self):
 		return self.__dict__
@@ -67,12 +67,45 @@ class Image:
 		self.image = input("Folder/file name: ")
 	def jsonable(self):
 		return self.__dict__
+		
+TYPES = { 'Worksheet': Worksheet,
+          'Question': Question,
+		  'Section': Section,
+		  'Table': Table,
+		  'Dropdown': Dropdown,
+		  'Text': Text,
+		  'Image': Image}
+
+
+class CustomTypeEncoder(json.JSONEncoder):
+    """A custom JSONEncoder class that knows how to encode core custom
+    objects.
+
+    Custom objects are encoded as JSON object literals (ie, dicts) with
+    one key, '__TypeName__' where 'TypeName' is the actual name of the
+    type to which the object belongs.  That single key maps to another
+    object literal which is just the __dict__ of the object encoded."""
+
+    def default(self, obj):
+        if obj in TYPES:
+            key = '__%s__' % obj.__class__.__name__
+            return { key: obj.__dict__ }
+        return json.JSONEncoder.default(self, obj)
+
+
+def CustomTypeDecoder(dct):
+    if len(dct) == 1:
+        type_name, value = dct.items()[0]
+        type_name = type_name.strip('_')
+        if type_name in TYPES:
+            return TYPES[type_name].from_dict(value)
+    return dct
 
 def getJsonable(obj):
-    if hasattr(obj, 'jsonable'):
-        return obj.jsonable()
-    else:
-        raise (TypeError, 'Object of type %s with value of %s is not JSON serializable')
+	if hasattr(obj, 'jsonable'):
+		return obj.jsonable()
+	else:
+		raise (TypeError, 'Object of type %s with value of %s is not JSON serializable')
 
 ######################
 # Generator functions
@@ -89,7 +122,7 @@ def generateHTMLWorksheet(wks):
 	rnum = ["i","ii","iii","iv","v","vi","vii","viii","ix","x","xi","xii","xiii","xiv","xv","xvi","xvii","xviii","xix","xx","xxi","xxii","xxiii","xxiv","xxv"]
 	docname = wks.name + ".html"
 	qno = 0
-	for ques in wks.questions:#These items are questions.
+	for ques in wks.questions:
 		qno = str(int(qno) + 1)
 		contfn = "function cont" + qno + "() {\nvar yestim" + qno + " = 0;\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
 		chkans = ""
@@ -100,12 +133,12 @@ def generateHTMLWorksheet(wks):
 		varset = "var set" + str(qno) + " = {"
 		worksheet = worksheet + "\n<h3>Question " + qno + "</h3>\n<p>" + ques.gen + "</p>"
 		alphindex = 0
-		for sect in ques.sections:#These items are sections.
+		for sect in ques.sections:
 			lno = alph[alphindex]
 			alphindex = alphindex + 1
 			worksheet = worksheet + "\n<p>" + qno + lno + ". "
 			romannum = 0
-			for part in sect.content:#These items are parts.
+			for part in sect.content:
 				rno = rnum[romannum]
 				romannum = romannum + 1
 				if part.__class__.__name__ == "Dropdown":
@@ -139,7 +172,10 @@ def generateHTMLWorksheet(wks):
 								allhead = allhead + item
 						else:
 							for drdn in headOrBody:
-								if isinstance(drdn, list):
+								if isinstance(drdn, str):
+									item = "\n<td style=\"border: 2pt black solid\">" + str(item) + "</td>"
+									allline = allline + item
+								else:
 									allans = ""
 									for item in drdn:
 										if drdn.index(item) == 1:
@@ -161,9 +197,6 @@ def generateHTMLWorksheet(wks):
 										else:
 											endtbl = endtbl + "</td>\n</tr>"
 										endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
-								else:
-									item = "\n<td style=\"border: 2pt black solid\">" + str(item) + "</td>"
-									allline = allline + item
 							allline = allline + "</tr>"
 							allbody = allbody + allline
 							line = input("Line: ").split(",")
