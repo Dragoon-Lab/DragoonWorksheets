@@ -3,8 +3,22 @@ class Worksheet:
 	def __init__(self, filename):
 		self.name = filename
 		self.questions = []
+		self.loose = []
 	def jsonable(self):
 		return self.__dict__
+		
+class LsText:
+	def __init__(self,qstn,wkst):
+		self.text = input ("Text: ")
+		self.before = qstn
+		wkst.loosetext.append(self)
+		
+class LsImage:
+	def __init__(self,qstn,wkst):
+		self.img = input ("File/Folder name: ")
+		self.before = qstn
+		wkst.looseimages.append(self)
+		
 class Question:
 	def __init__ (self,wkst):
 		self.gen = input ("General description: ")
@@ -59,26 +73,23 @@ class Dropdown:
 class Text:
 	def __init__ (self,sect):
 		self.text = input("Text: ")
+		sect.content.append(self)
 	def jsonable(self):
 		return self.__dict__
 
 class Image:
 	def __init__ (self,sect):
 		self.image = input("Folder/file name: ")
+		sect.content.append(self)
 	def jsonable(self):
 		return self.__dict__
 		
 TYPES = { 'Worksheet': Worksheet,
-          'Question': Question,
-		  'Section': Section,
-		  'Table': Table,
-		  'Dropdown': Dropdown,
-		  'Text': Text,
-		  'Image': Image}
+          'Question': Question }
 
 
 class CustomTypeEncoder(json.JSONEncoder):
-    """A custom JSONEncoder class that knows how to encode core custom
+	"""A custom JSONEncoder class that knows how to encode core custom
     objects.
 
     Custom objects are encoded as JSON object literals (ie, dicts) with
@@ -86,26 +97,28 @@ class CustomTypeEncoder(json.JSONEncoder):
     type to which the object belongs.  That single key maps to another
     object literal which is just the __dict__ of the object encoded."""
 
-    def default(self, obj):
-        if obj in TYPES:
-            key = '__%s__' % obj.__class__.__name__
-            return { key: obj.__dict__ }
-        return json.JSONEncoder.default(self, obj)
+	def default(self, obj):
+		print("TYPES: " + str(TYPES))
+		print("values: " + str(TYPES.values()))
+		if isinstance(obj, tuple(TYPES.values())):
+			key = '__%s__' % obj.__class__.__name__
+			return { key: obj.__dict__ }
+			return json.JSONEncoder.default(self, obj)
 
 
 def CustomTypeDecoder(dct):
-    if len(dct) == 1:
-        type_name, value = dct.items()[0]
-        type_name = type_name.strip('_')
-        if type_name in TYPES:
-            return TYPES[type_name].from_dict(value)
-    return dct
+	if len(dct) == 1:
+		type_name, value = dct.items()[0]
+		type_name = type_name.strip('_')
+		if type_name in TYPES:
+			return TYPES[type_name].from_dict(value)
+	return dct
 
-def getJsonable(obj):
+'''def getJsonable(obj):
 	if hasattr(obj, 'jsonable'):
 		return obj.jsonable()
 	else:
-		raise (TypeError, 'Object of type %s with value of %s is not JSON serializable')
+		raise (TypeError, 'Object of type %s with value of %s is not JSON serializable')'''
 
 ######################
 # Generator functions
@@ -124,6 +137,12 @@ def generateHTMLWorksheet(wks):
 	qno = 0
 	for ques in wks.questions:
 		qno = str(int(qno) + 1)
+		for lse in worksheet.loosetext:
+			if qno == lse.before:
+				if lse.__class__.__name__ == "LsImage":
+					worksheet = worksheet + "\n<img src =\"" + part.image + ".JPG\"/>"
+				else:
+					worksheet = worksheet + "\n<p>" + part.text + "</p>"
 		contfn = "function cont" + qno + "() {\nvar yestim" + qno + " = 0;\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
 		chkans = ""
 		chkcpl = "if ("
@@ -227,4 +246,4 @@ def generateHTMLWorksheet(wks):
 ## Construct an example:
 	
 #with open("worksheet.json","w") as outfile:
-	#json.dump(wk1,outfile,default = getJsonable, indent = 4)
+	#json.dump(wk1,outfile,cls = CustomTypeEncoder, indent = 4)
