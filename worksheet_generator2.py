@@ -11,13 +11,13 @@ class LsText:
 	def __init__(self,qstn,wkst):
 		self.text = input ("Text: ")
 		self.before = qstn
-		wkst.loosetext.append(self)
+		wkst.loose.append(self)
 		
 class LsImage:
 	def __init__(self,qstn,wkst):
 		self.img = input ("File/Folder name: ")
 		self.before = qstn
-		wkst.looseimages.append(self)
+		wkst.loose.append(self)
 		
 class Question:
 	def __init__ (self,wkst):
