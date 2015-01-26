@@ -6,12 +6,21 @@ class Worksheet:
 		self.loose = []
 	def jsonable(self):
 		return self.__dict__
+	def from_dict(dct):
+		wks = Worksheet(dct['name'])
+		wks.questions = map(CustomTypeDecoder,dct['questions']) # for each item, decode it
+		wks.loose = map(CustomTypeDecoder,dct['loose'])
+		return wks
 		
 class LsText:
 	def __init__(self,qstn,wkst):
 		self.text = input ("Text: ")
 		self.before = qstn
 		wkst.loose.append(self)
+	def from_dict(dct):
+		ltx = LsText(dct['text']
+		ltx.before = dct['before']
+		return ltx
 		
 class LsImage:
 	def __init__(self,qstn,wkst):
@@ -29,6 +38,7 @@ class Question:
 		
 class Section:
 	def __init__ (self,qstn):
+		self.comment = input ("Write something: ")
 		self.content = []
 		qstn.sections.append(self)
 	def jsonable(self):
@@ -85,7 +95,15 @@ class Image:
 		return self.__dict__
 		
 TYPES = { 'Worksheet': Worksheet,
-          'Question': Question }
+		  'LsText': LsText,
+		  'LsImage': LsImage,
+          'Question': Question,
+		  'Section': Section,
+		  'Table': Table,
+		  'Dropdown': Dropdown,
+		  'Text': Text,
+		  'Image': Image
+		  }
 
 
 class CustomTypeEncoder(json.JSONEncoder):
@@ -98,8 +116,6 @@ class CustomTypeEncoder(json.JSONEncoder):
     object literal which is just the __dict__ of the object encoded."""
 
 	def default(self, obj):
-		print("TYPES: " + str(TYPES))
-		print("values: " + str(TYPES.values()))
 		if isinstance(obj, tuple(TYPES.values())):
 			key = '__%s__' % obj.__class__.__name__
 			return { key: obj.__dict__ }
@@ -108,7 +124,7 @@ class CustomTypeEncoder(json.JSONEncoder):
 
 def CustomTypeDecoder(dct):
 	if len(dct) == 1:
-		type_name, value = dct.items()[0]
+		type_name, value = list(dct.items())[0]
 		type_name = type_name.strip('_')
 		if type_name in TYPES:
 			return TYPES[type_name].from_dict(value)
@@ -247,3 +263,8 @@ def generateHTMLWorksheet(wks):
 	
 #with open("worksheet.json","w") as outfile:
 	#json.dump(wk1,outfile,cls = CustomTypeEncoder, indent = 4)
+
+def testload():
+	with open("worksheet.json","r") as outfile:
+		wksht_dct = json.load(outfile)
+		return CustomTypeDecoder(wksht_dct)
