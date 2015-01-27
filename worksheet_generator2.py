@@ -18,7 +18,7 @@ class LsText:
 		self.before = qstn
 		wkst.loose.append(self)
 	def from_dict(dct):
-		ltx = LsText(dct['text']
+		ltx = LsText(dct['text'])
 		ltx.before = dct['before']
 		return ltx
 		
@@ -27,22 +27,28 @@ class LsImage:
 		self.img = input ("File/Folder name: ")
 		self.before = qstn
 		wkst.loose.append(self)
+	def from_dict(dct):
+		lig = LsImage(dct['img'])
+		lig.before = dct['before']
+		return lig
 		
 class Question:
 	def __init__ (self,wkst):
 		self.gen = input ("General description: ")
 		self.sections = []
 		wkst.questions.append(self)
-	def jsonable(self):
-		return self.__dict__
+	def from_dict(dct):
+		qes = Question(dct['gen'])
+		qes.sections = map(CustomTypeDecoder,dct['sections'])
+		return qes
 		
 class Section:
 	def __init__ (self,qstn):
-		self.comment = input ("Write something: ")
 		self.content = []
 		qstn.sections.append(self)
-	def jsonable(self):
-		return self.__dict__
+	def from_dict(dct):
+		sct = Section(map(CustomTypeDecoder,dct['content']))
+		return sct
 		
 class Table:
 	def __init__(self,sect):
@@ -64,10 +70,11 @@ class Table:
 				line2.append(item)	
 			self.rows.append(line2)			
 			line = input ("Line: ").split(",")			
-		sect.content.append(self)				
-							
-	def jsonable(self):
-		return self.__dict__
+		sect.content.append(self)
+	def from_dict(dct):
+		tbl = Table(dct['header'])
+		tbl.rows = map(CustomTypeDecoder,dct['rows'])
+		return tbl
 		
 class Dropdown:
 	def __init__(self,sect):
@@ -77,22 +84,26 @@ class Dropdown:
 			print("Please choose one of the given answers as the right answer.")
 			self.correct = input ("Right answer: ")
 		sect.content.append(self)	
-	def jsonable(self):
-		return self.__dict__
+	def from_dict(dct):
+		drp = Dropdown(dct['correct'])
+		drp.options = map(CustomTypeDecoder,dct['options'])
+		return drp
 		
 class Text:
 	def __init__ (self,sect):
 		self.text = input("Text: ")
 		sect.content.append(self)
-	def jsonable(self):
-		return self.__dict__
+	def from_dict(dct):
+		stx = Text(dct['text'])
+		return stx
 
 class Image:
 	def __init__ (self,sect):
 		self.image = input("Folder/file name: ")
 		sect.content.append(self)
-	def jsonable(self):
-		return self.__dict__
+	def from_dict(dct):
+		sig = Image(dct['image'])
+		return sig
 		
 TYPES = { 'Worksheet': Worksheet,
 		  'LsText': LsText,
