@@ -272,6 +272,8 @@ def generateHTMLWorksheet(wks):
 								else:
 									endtbl = endtbl + "</td>\n</tr>"
 								endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
+								rno = rnum[romannum]
+								romannum = romannum + 1
 								
 						allline = allline + "</tr>"
 					allbody = allbody + allline
