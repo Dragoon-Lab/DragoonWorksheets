@@ -8,8 +8,8 @@ class Worksheet:
 		return self.__dict__
 	def from_dict(dct):
 		wks = Worksheet(dct['name'])
-		wks.questions = map(CustomTypeDecoder,dct['questions']) # for each item, decode it
-		wks.loose = map(CustomTypeDecoder,dct['loose'])
+		wks.questions = list(map(CustomTypeDecoder,dct['questions'])) # for each item, decode it
+		wks.loose = list(map(CustomTypeDecoder,dct['loose']))
 		return wks
 		
 class LsText:
@@ -49,7 +49,7 @@ class Question:
 			raise Exception("Bad initializer to question")
 	def from_dict(dct):
 		qes = Question(dct['gen'])
-		qes.sections = map(CustomTypeDecoder,dct['sections'])
+		qes.sections = list(map(CustomTypeDecoder,dct['sections']))
 		return qes
 		
 class Section:
@@ -60,7 +60,7 @@ class Section:
 		else:#elif isinstance(qstn,list):
 			self.content = qstn
 	def from_dict(dct):
-		sct = Section(map(CustomTypeDecoder,dct['content']))
+		sct = Section(list(map(CustomTypeDecoder,dct['content'])))
 		return sct
 		
 class Table:
@@ -85,15 +85,17 @@ class Table:
 				self.rows.append(line2)			
 				line = input ("Line: ").split(",")			
 			sect.content.append(self)
-		else:#elif isinstance (sect,list):
+		else:
 			self.header = sect
 			self.rows = []
-	def from_scratch (sect):
+			
 	def from_dict(dct):
 		tbl = Table(dct['header'])
-		tbl.rows = map(CustomTypeDecoder,dct['rows'])
+		tbl.rows = list(map(Table.decodeRow,dct['rows']))
 		return tbl
-		
+	def decodeRow(row):
+		return list(map(CustomTypeDecoder,row))
+
 class Dropdown:
 	def __init__(self,sect):
 		if isinstance (sect,Section):
@@ -108,7 +110,7 @@ class Dropdown:
 			self.correct = sect
 	def from_dict(dct):
 		drp = Dropdown(dct['correct'])
-		drp.options = map(CustomTypeDecoder,dct['options'])
+		drp.options = list(map(CustomTypeDecoder,dct['options']))
 		return drp
 		
 class Text:
@@ -239,41 +241,41 @@ def generateHTMLWorksheet(wks):
 					global allbody
 					allbody = ""
 					allline = ""
-					for head in part.header:
-						for item in head:
-							item = "\n<td style=\"border: 2pt black solid\">" + str(item) + "</td>"
-							allhead = allhead + item
+					for item in part.header:
+					#	print(head)
+					#	for item in head:
+						item = "\n<td style=\"border: 2pt black solid\">" + str(item) + "</td>"
+						allhead = allhead + item
 					for body in part.rows:
+						print("row: "+str(body))
 						for drdn in body:
+							print("drdn: "+str(drdn))
 							if isinstance(drdn, str):
-								item = "\n<td style=\"border: 2pt black solid\">" + str(item) + "</td>"
+								item = "\n<td style=\"border: 2pt black solid\">" + drdn + "</td>"
 								allline = allline + item
 							else:
 								allans = ""
-								for item in drdn:
-									if drdn.index(item) == 1:
-										global rta
-										rta = item
-									else:
-										rta = "rta"
-										item = "\n<option>" + str(item) + "</option>"
-										allans = allans + item
-									varset = varset + "\n" + lno + rno + ":0,"
-									chkans = chkans + "checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\");"
-									chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" ||"
-									ctr = ctr + "if (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
-									contif = contif + "(checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\") || set" + qno + "." + lno + rno + "===3) &&"
-									ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) {\nif (set" + qno + "." + lno + rno + "===3) {\ndocument.getElementById(\"" + qno + lno + rno + "\").value=\"" + rta + "\";\ndocument.getElementById(\"" + qno + lno + rno + "\").style.background=\"#FFFF00\"}\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value\n}\n};"
-									allline = allline + "<td style=\"border: 2pt black solid\"><select id=\"" + qno + lno + rno + "\">\n<option></option>" + allans + "</select></td>"
-									endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
-									if lno == "a" and rno == "i":
-										endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
-									else:
-										endtbl = endtbl + "</td>\n</tr>"
-									endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
+								rta = drdn[1]
+								for choice in drdn[0]:
+									option = "\n<option>" + str(choice) + "</option>"
+									allans = allans + option
+								varset = varset + "\n" + lno + rno + ":0,"
+								chkans = chkans + "checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\");"
+								chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" ||"
+								ctr = ctr + "if (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
+								contif = contif + "(checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\") || set" + qno + "." + lno + rno + "===3) &&"
+								ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) {\nif (set" + qno + "." + lno + rno + "===3) {\ndocument.getElementById(\"" + qno + lno + rno + "\").value=\"" + rta + "\";\ndocument.getElementById(\"" + qno + lno + rno + "\").style.background=\"#FFFF00\"}\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value\n}\n};"
+								allline = allline + "<td style=\"border: 2pt black solid\"><select id=\"" + qno + lno + rno + "\">\n<option></option>" + allans + "</select></td>"
+								endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
+								if lno == "a" and rno == "i":
+									endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+								else:
+									endtbl = endtbl + "</td>\n</tr>"
+								endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
+								
 						allline = allline + "</tr>"
-						allbody = allbody + allline
-						line = input("Line: ").split(",")
+					allbody = allbody + allline
+						#line = input("Line: ").split(",")
 					worksheet = worksheet + "<table>\n<thead>" + allhead + "\n</thead>\n<tbody>" + allbody + "\n</tbody>\n</table>"
 				elif part.__class__.__name__ == "Text":
 					worksheet = worksheet + "\n<p>" + part.text + "</p>"
@@ -296,7 +298,8 @@ def generateHTMLWorksheet(wks):
 	endtbl = endtbl + "\n</tbody>\n</table>\n</div>"
 	endfn = endfn + "\n};\n</script>"
 	worksheet = worksheet + divset + endtbl + endfn + "</body></html>"
-	open(docname,"w").write(worksheet)		
+	open(docname,"w").write(worksheet)
+
 ######################
 ## Construct an example:
 	
