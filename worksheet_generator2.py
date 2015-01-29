@@ -13,30 +13,40 @@ class Worksheet:
 		return wks
 		
 class LsText:
-	def __init__(self,qstn,wkst):
-		self.text = input ("Text: ")
+	def __init__(self,qstn):		
 		self.before = qstn
+	def from_scratch(qstn,wkst):
+		ltx = LsText(qstn)
+		ltx.text = input ("Text: ")
 		wkst.loose.append(self)
 	def from_dict(dct):
-		ltx = LsText(dct['text'])
-		ltx.before = dct['before']
+		ltx = LsText(dct['before'])
+		ltx.text = dct['text']
 		return ltx
 		
 class LsImage:
-	def __init__(self,qstn,wkst):
-		self.img = input ("File/Folder name: ")
+	def __init__(self,qstn):
 		self.before = qstn
+	def from_scratch(qstn,wkst):
+		lig = LsImage(qstn)
+		lig.img = input ("File/Folder name: ")
 		wkst.loose.append(self)
 	def from_dict(dct):
-		lig = LsImage(dct['img'])
-		lig.before = dct['before']
+		lig = LsImage(dct['before'])
+		lig.img = dct['img']
 		return lig
 		
 class Question:
-	def __init__ (self,wkst):
-		self.gen = input ("General description: ")
-		self.sections = []
-		wkst.questions.append(self)
+	def __init__ (self,initializer):
+		if isinstance(initializer,Worksheet):
+			self.gen = input ("General description: ")
+			self.sections = []
+			initializer.questions.append(self)
+		elif isinstance(initializer,str):
+			self.gen = initializer
+			self.sections = []
+		else:
+			raise Exception("Bad initializer to question")
 	def from_dict(dct):
 		qes = Question(dct['gen'])
 		qes.sections = map(CustomTypeDecoder,dct['sections'])
@@ -44,33 +54,41 @@ class Question:
 		
 class Section:
 	def __init__ (self,qstn):
-		self.content = []
-		qstn.sections.append(self)
+		if isinstance(qstn,Question):
+			self.content = []
+			qstn.sections.append(self)
+		else:#elif isinstance(qstn,list):
+			self.content = qstn
 	def from_dict(dct):
 		sct = Section(map(CustomTypeDecoder,dct['content']))
 		return sct
 		
 class Table:
 	def __init__(self,sect):
-		self.header = input ("Header: ").split(",")
-		self.rows = []
-		line = input("Line: ").split(",")
-		while not "end" in line:
-			line2 = []
-			for item in line:
-				if item == "dropdown":
-					item = []
-					options = input ("Answers: ").split(",")
-					correct = input ("Right answer: ")
-					if not correct in options:
-						print("Please choose one of the given answers as the right answer.")
+		if isinstance(sect,Section):
+			self.header = input ("Header: ").split(",")
+			self.rows = []
+			line = input("Line: ").split(",")
+			while not "end" in line:
+				line2 = []
+				for item in line:
+					if item == "dropdown":
+						item = []
+						options = input ("Answers: ").split(",")
 						correct = input ("Right answer: ")
-					item.append(options)
-					item.append(correct)
-				line2.append(item)	
-			self.rows.append(line2)			
-			line = input ("Line: ").split(",")			
-		sect.content.append(self)
+						if not correct in options:
+							print("Please choose one of the given answers as the right answer.")
+							correct = input ("Right answer: ")
+						item.append(options)
+						item.append(correct)
+					line2.append(item)	
+				self.rows.append(line2)			
+				line = input ("Line: ").split(",")			
+			sect.content.append(self)
+		else:#elif isinstance (sect,list):
+			self.header = sect
+			self.rows = []
+	def from_scratch (sect):
 	def from_dict(dct):
 		tbl = Table(dct['header'])
 		tbl.rows = map(CustomTypeDecoder,dct['rows'])
@@ -78,12 +96,16 @@ class Table:
 		
 class Dropdown:
 	def __init__(self,sect):
-		self.options = input ("Answers: ").split(",")
-		self.correct = input ("Right answer: ")
-		if not self.correct in self.options:
-			print("Please choose one of the given answers as the right answer.")
+		if isinstance (sect,Section):
+			self.options = input ("Answers: ").split(",")
 			self.correct = input ("Right answer: ")
-		sect.content.append(self)	
+			if not self.correct in self.options:
+				print("Please choose one of the given answers as the right answer.")
+				self.correct = input ("Right answer: ")
+			sect.content.append(self)
+		else:#elif isinstance (sect,list):
+			self.options = []
+			self.correct = sect
 	def from_dict(dct):
 		drp = Dropdown(dct['correct'])
 		drp.options = map(CustomTypeDecoder,dct['options'])
@@ -91,16 +113,22 @@ class Dropdown:
 		
 class Text:
 	def __init__ (self,sect):
-		self.text = input("Text: ")
-		sect.content.append(self)
+		if isinstance (sect,Section):
+			self.text = input("Text: ")
+			sect.content.append(self)
+		else:#elif isinstance (sect,list):
+			self.text = sect
 	def from_dict(dct):
 		stx = Text(dct['text'])
 		return stx
 
 class Image:
 	def __init__ (self,sect):
-		self.image = input("Folder/file name: ")
-		sect.content.append(self)
+		if isinstance (sect,Section):
+			self.image = input("Folder/file name: ")
+			sect.content.append(self)
+		else:#elif isinstance (sect,list):
+			self.img = sect
 	def from_dict(dct):
 		sig = Image(dct['image'])
 		return sig
@@ -164,7 +192,7 @@ def generateHTMLWorksheet(wks):
 	qno = 0
 	for ques in wks.questions:
 		qno = str(int(qno) + 1)
-		for lse in worksheet.loosetext:
+		for lse in wks.loose:
 			if qno == lse.before:
 				if lse.__class__.__name__ == "LsImage":
 					worksheet = worksheet + "\n<img src =\"" + part.image + ".JPG\"/>"
@@ -210,48 +238,48 @@ def generateHTMLWorksheet(wks):
 					allhead = ""
 					global allbody
 					allbody = ""
-					alline = ""
-					for headOrBody in part.options:
-						if part.index(headOrBody) == 0:
-							for item in headOrBody:
+					allline = ""
+					for head in part.header:
+						for item in head:
+							item = "\n<td style=\"border: 2pt black solid\">" + str(item) + "</td>"
+							allhead = allhead + item
+					for body in part.rows:
+						for drdn in body:
+							if isinstance(drdn, str):
 								item = "\n<td style=\"border: 2pt black solid\">" + str(item) + "</td>"
-								allhead = allhead + item
-						else:
-							for drdn in headOrBody:
-								if isinstance(drdn, str):
-									item = "\n<td style=\"border: 2pt black solid\">" + str(item) + "</td>"
-									allline = allline + item
-								else:
-									allans = ""
-									for item in drdn:
-										if drdn.index(item) == 1:
-											global rta
-											rta = item
-										else:
-											item = "\n<option>" + str(item) + "</option>"
-											allans = allans + item
-										varset = varset + "\n" + lno + rno + ":0,"
-										chkans = chkans + "checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\");"
-										chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" ||"
-										ctr = ctr + "if (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
-										contif = contif + "(checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\") || set" + qno + "." + lno + rno + "===3) &&"
-										ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) {\nif (set" + qno + "." + lno + rno + "===3) {\ndocument.getElementById(\"" + qno + lno + rno + "\").value=\"" + rta + "\";\ndocument.getElementById(\"" + qno + lno + rno + "\").style.background=\"#FFFF00\"}\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value\n}\n};"
-										allline = allline + "<td style=\"border: 2pt black solid\"><select id=\"" + qno + lno + rno + "\">\n<option></option>" + allans + "</select></td>"
-										endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
-										if lno == "a" and rno == "i":
-											endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
-										else:
-											endtbl = endtbl + "</td>\n</tr>"
-										endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
-							allline = allline + "</tr>"
-							allbody = allbody + allline
-							line = input("Line: ").split(",")
-						worksheet = worksheet + "<table>\n<thead>" + allhead + "\n</thead>\n<tbody>" + allbody + "\n</tbody>\n</table>"
+								allline = allline + item
+							else:
+								allans = ""
+								for item in drdn:
+									if drdn.index(item) == 1:
+										global rta
+										rta = item
+									else:
+										rta = "rta"
+										item = "\n<option>" + str(item) + "</option>"
+										allans = allans + item
+									varset = varset + "\n" + lno + rno + ":0,"
+									chkans = chkans + "checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\");"
+									chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" ||"
+									ctr = ctr + "if (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
+									contif = contif + "(checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\") || set" + qno + "." + lno + rno + "===3) &&"
+									ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) {\nif (set" + qno + "." + lno + rno + "===3) {\ndocument.getElementById(\"" + qno + lno + rno + "\").value=\"" + rta + "\";\ndocument.getElementById(\"" + qno + lno + rno + "\").style.background=\"#FFFF00\"}\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value\n}\n};"
+									allline = allline + "<td style=\"border: 2pt black solid\"><select id=\"" + qno + lno + rno + "\">\n<option></option>" + allans + "</select></td>"
+									endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
+									if lno == "a" and rno == "i":
+										endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+									else:
+										endtbl = endtbl + "</td>\n</tr>"
+									endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
+						allline = allline + "</tr>"
+						allbody = allbody + allline
+						line = input("Line: ").split(",")
+					worksheet = worksheet + "<table>\n<thead>" + allhead + "\n</thead>\n<tbody>" + allbody + "\n</tbody>\n</table>"
 				elif part.__class__.__name__ == "Text":
 					worksheet = worksheet + "\n<p>" + part.text + "</p>"
 				elif part.__class__.__name__ == "Image":
 					worksheet = worksheet + "\n<img src =\"" + part.image + ".JPG\"/>"
-		if int(qno) < len(wks.questions):
+		if int(qno) < len(list(wks.questions)):
 			varset = varset + "}; \n"
 			chkcpl = chkcpl + "0===1) {\n alert(\"It appears you have left at least one of these fields blank. Please remedy this immediately.\");\n}"
 			contif = contif + "1===1) {\n document.getElementById(\"question" + str(int(qno)+1) + "\").style.display = \"\";\n document.getElementById(\"button" + qno + "\").style.display = \"none\";\ntim" + str(int(qno)+1) + "= 0;\nfunction time" + str(int(qno)+1) + "() {\nif (yestim" + str(int(qno)+1) + "){\ntim" + str(int(qno)+1) + " = tim" + str(int(qno)+1) + " + 1;\nt = setTimeout(function() {time" + str(int(qno)+1) + "()},1000);\n}\n};\nvar yestim" + str(int(qno)+1) + " = 1;\ntime" + str(int(qno)+1) + "();\n}"
@@ -276,6 +304,6 @@ def generateHTMLWorksheet(wks):
 	#json.dump(wk1,outfile,cls = CustomTypeEncoder, indent = 4)
 
 def testload():
-	with open("worksheet.json","r") as outfile:
+	with open("demo_worksheet.json","r") as outfile:
 		wksht_dct = json.load(outfile)
 		return CustomTypeDecoder(wksht_dct)
