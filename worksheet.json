@@ -500,7 +500,168 @@
 						}
 					]
 				}
-			}
+			},
+			{
+                "__Question__": {
+                    "gen": "",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+										"__Text__":{
+											"text": "Fill in the blanks."
+										}
+									},
+									{
+										"__Table__":{
+											"rows": [
+                                                [
+                                                    "Energy expended",
+                                                    [
+														[
+															"parameter",
+															"accumulator",
+															"function"
+														],
+														"accumulator"
+													],
+                                                    "energy expended daily; value = 2100 calories"
+                                                ],
+                                                [
+                                                    "Energy balance",
+                                                    [
+                                                        [
+                                                            "parameter",
+                                                            "accumulator",
+                                                            "function"
+                                                        ],
+                                                        "function"
+                                                    ],
+													"energy surplus or deficit; value = energy ingested - energy expended"
+                                                ],
+                                                [
+                                                    "Energy ingested",
+                                                    [
+                                                        [
+                                                            "parameter",
+                                                            "accumulator",
+                                                            "function"
+                                                        ],
+                                                        "function"
+                                                    ],
+                                                    "energy ingested daily; value = 1989 calories"
+                                                ],
+												[
+													"Weight",
+													[
+														[
+															"parameter",
+                                                            "accumulator",
+                                                            "function"
+                                                        ],
+														"accumulator"
+													],
+													[
+														[
+															"energy ingested",
+															"weight change",
+															"calories per pound"
+														],
+														"weight change"
+													]
+												],
+												[
+													"Weight change",
+													[
+														[
+															"parameter",
+                                                            "accumulator",
+                                                            "function"
+														],
+														"function"
+													],
+													"weight of tissue added or subtracted from storage; value = energy balance/calories per pound"
+												],
+												[
+													"Calories per pound",
+													[
+														[
+															"parameter",
+                                                            "accumulator",
+                                                            "function"
+														],
+														"parameter"
+													],
+													"Number of calories in a pound of tissue; value = 3500 calories/lbs"
+												]
+                                            ],
+                                            "header": [
+                                                "Node Name",
+                                                "Type",
+                                                "Description"
+                                            ]
+										}
+									},
+								]
+							}
+						},
+						{
+							"__Section__": {
+								"content": [
+									{
+										"__Text__" {
+											"text": "Given the two graphs, 5b and 5c, which one goes with the model of the table above? Why?</p><p>"
+										}
+									},
+									{
+										"__Dropdown__" {
+											"correct": "5b"
+											"options": [
+												"5b",
+												"5c"
+											]
+										}
+									},
+									{
+										"__Text__" {
+											"text": ", because energy balance is "
+										}
+									},
+									{
+										"__Dropdown__" {
+											"correct": "negative"
+											"options": [
+												"positive",
+												"negative"
+											]
+										}
+									},
+									{
+										"__Text__" {
+											"text": ", he "
+										}
+									},
+									{
+										"__Dropdown__" {
+											"correct": "loses"
+											"options": [
+												"gains",
+												"loses"
+											]
+										}
+									},
+									{
+										"__Text__" {
+											"text": " weight."
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}		
         ],
         "loose": [
             {
@@ -513,6 +674,12 @@
                 "__LsText__": {
                     "before": 3,
                     "text": "Although your body burns energy at a more-or-less constant amount per day, the amount of energy primitive humans ingested per day varied greatly depending on how lucky you were at hunting and gathering. Thus, humans developed the ability to store energy from food. When there is too little energy from ingestion, then the body converts fat and other tissues back into energy.</p><p>Let's suppose Joe wants us to build an accurate model of his weight changes, so he starts with a very simple model, which is that the energy stored (as fat, etc.) changes daily depending on the energy balance. The energy balance is the difference between the energy ingested and the energy burned by the body on that day. When the energy balance is positive on a particular day (a good hunt!), then energy storage increases by the surplus. When energy balance is negative (a poor hunt), then stored energy decreases.</p><p>Joe looks up his current weight in a physiology reference and finds that he has about 345,000 calories stored. To keep things simple while getting started on his modeling project, Joe assumes his energy balance is 100 calories every day. He wants to model how his stored energy increases daily. Please answer questions below about the model Joe must build."
+                }
+            },
+			{
+                "__LsText__": {
+                    "before": 5,
+                    "text": "Almost all the body's stored energy is stored as tissue, such as fat, muscle, internal organs, and skin. Roughly speaking, a pound of tissue stores 3500 calories. Create a model that represents stored energy in Joe's body as his weight in pounds."
                 }
             }
         ]

@@ -198,7 +198,7 @@ def generateHTMLWorksheet(wks):
 	docname = wks.name + ".html"
 	qno = 0
 	for ques in wks.questions:
-	timefn = ""
+		timefn = ""
 		qno = str(int(qno) + 1)
 		for lse in wks.loose:
 			if qno == lse.before:
