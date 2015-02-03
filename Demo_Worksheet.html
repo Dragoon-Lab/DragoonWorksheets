@@ -303,14 +303,14 @@ aii:0,};
 function cont2() {
 var yestim2 = 0;
 document.getElementById("2Time").innerHTML = tim2;
-checkAnswers("2ai", "parameter");checkAnswers("2aii", "function");
+checkAnswers("2ai", "accumulator");checkAnswers("2aii", "function");
 if (document.getElementById("2ai").value==="" ||document.getElementById("2aii").value==="" ||0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
-if (!checkAnswers("2ai", "parameter")) { 
+if (!checkAnswers("2ai", "accumulator")) { 
  set2.ai = set2.ai + 1;}if (!checkAnswers("2aii", "function")) { 
  set2.aii = set2.aii + 1;}
-if ((checkAnswers("2ai", "parameter") || set2.ai===3) &&(checkAnswers("2aii", "function") || set2.aii===3) &&1===1) {
+if ((checkAnswers("2ai", "accumulator") || set2.ai===3) &&(checkAnswers("2aii", "function") || set2.aii===3) &&1===1) {
  document.getElementById("question3").style.display = "";
  document.getElementById("button2").style.display = "none";
 tim3= 0;
@@ -324,9 +324,9 @@ var yestim3 = 1;
 time3();
 }
 
-if (!checkAnswers("2ai", "parameter")) {
+if (!checkAnswers("2ai", "accumulator")) {
 if (set2.ai===3) {
-document.getElementById("2ai").value="parameter";
+document.getElementById("2ai").value="accumulator";
 document.getElementById("2ai").style.background="#FFFF00"}
 if (set2.ai=== 1) { 
  document.getElementById("2aiAnswer1").innerHTML = "; " + document.getElementById("2ai").value 
@@ -395,7 +395,11 @@ if (set2.aii=== 1) {
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td></tr>
-<td style="border: 2pt black solid">moose birth rate</td></tr>
+<td style="border: 2pt black solid">moose birth rate</td><td style="border: 2pt black solid"><select id="3aiii">
+<option></option>
+<option>parameter</option>
+<option>accumulator</option>
+<option>function</option></select></td></tr>
 </tbody>
 </table>
 <p>Which node(s) do <i>moose population</i> use as inputs to determine its value?</p><select id="3av">
@@ -411,21 +415,23 @@ if (set2.aii=== 1) {
 <script type="text/javascript">var set3 = {
 ai:0,
 aii:0,
+aiii:0,
 av:0,
 avii:0,}; 
 function cont3() {
 var yestim3 = 0;
 document.getElementById("3Time").innerHTML = tim3;
-checkAnswers("3ai", "parameter");checkAnswers("3aii", "function");checkAnswers("3av", "number of moose births per year");checkAnswers("3avii", "both moose birth rate and moose population");
-if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||document.getElementById("3av").value==="" ||document.getElementById("3avii").value==="" ||0===1) {
+checkAnswers("3ai", "accumulator");checkAnswers("3aii", "function");checkAnswers("3aiii","parameter") ;checkAnswers("3av", "number of moose births per year");checkAnswers("3avii", "both moose birth rate and moose population");
+if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||document.getElementById("3aiii").value==="" ||document.getElementById("3av").value==="" ||document.getElementById("3avii").value==="" ||0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
-if (!checkAnswers("3ai", "parameter")) { 
+if (!checkAnswers("3ai", "accumulator")) { 
  set3.ai = set3.ai + 1;}if (!checkAnswers("3aii", "function")) { 
+ set3.aii = set3.aii + 1;}if (!checkAnswers("3aiii", "parameter")) { 
  set3.aii = set3.aii + 1;}if (!checkAnswers("3av", "number of moose births per year")) { 
  set3.av = set3.av + 1;}if (!checkAnswers("3avii", "both moose birth rate and moose population")) { 
  set3.avii = set3.avii + 1;}
-if ((checkAnswers("3ai", "parameter") || set3.ai===3) &&(checkAnswers("3aii", "function") || set3.aii===3) &&(checkAnswers("3av", "number of moose births per year") || set3.av===3) &&(checkAnswers("3avii", "both moose birth rate and moose population") || set3.avii===3) &&1===1) {
+if ((checkAnswers("3ai", "accumulator") || set3.ai===3) &&(checkAnswers("3aii", "function") || set3.aii===3) &&(checkAnswers("3aiii", "parameter") || set3.aiii===3) &&(checkAnswers("3av", "number of moose births per year") || set3.av===3) &&(checkAnswers("3avii", "both moose birth rate and moose population") || set3.avii===3) &&1===1) {
  document.getElementById("question4").style.display = "";
  document.getElementById("button3").style.display = "none";
 tim4= 0;
@@ -439,9 +445,9 @@ var yestim4 = 1;
 time4();
 }
 
-if (!checkAnswers("3ai", "parameter")) {
+if (!checkAnswers("3ai", "accumulator")) {
 if (set3.ai===3) {
-document.getElementById("3ai").value="parameter";
+document.getElementById("3ai").value="accumulator";
 document.getElementById("3ai").style.background="#FFFF00"}
 if (set3.ai=== 1) { 
  document.getElementById("3aiAnswer1").innerHTML = "; " + document.getElementById("3ai").value 
@@ -487,6 +493,31 @@ if (set3.aii=== 1) {
  } 
  else { 
  document.getElementById("3aiiAnswer3").innerHTML = "; " + document.getElementById("3aii").value
+}
+};
+if (!checkAnswers("3aiii", "parameter")) {
+if (set3.aiii===3) {
+document.getElementById("3aiii").value="parameter";
+document.getElementById("3aiii").style.background="#FFFF00"}
+if (set3.aiii=== 1) { 
+ document.getElementById("3aiiiAnswer1").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else if (set3.aiii=== 2) { 
+ document.getElementById("3aiiiAnswer2").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else { 
+ document.getElementById("3aiiiAnswer3").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ } 
+ else { 
+ if (set3.aiii=== 0) { 
+ document.getElementById("3aiiiAnswer1").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else if (set3.aiii=== 1) { 
+ document.getElementById("3aiiiAnswer2").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else { 
+ document.getElementById("3aiiiAnswer3").innerHTML = "; " + document.getElementById("3aiii").value
 }
 };
 if (!checkAnswers("3av", "number of moose births per year")) {
@@ -553,7 +584,7 @@ if(set3.avii===3)
 <script type="text/javascript">var set4 = {}; 
 function cont4() {
 var yestim4 = 0;
-document.getElementById("4Time").innerHTML = tim4;
+//document.getElementById("4Time").innerHTML = tim4;
 
 if (0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
@@ -579,7 +610,7 @@ time5();
 <h3>Question 5</h3>
 <p>: We can see from “Moose population 3” that having a simple death rate still doesn’t simulate a real population—the population still grows infinitely, when in reality there would be some limit to the number of moose the island could sustain.  In this problem, we will change the <i>moose death rate</i> node so that it represents this relationship:</p><p><i>moose death rate = moose birth rate * (moose population / carrying capacity)</i></p><p>If there were no wolves on Isle Royale, this equation would represent that the moose population is limited by the amount of moose food growing on the island.  Carrying capacity, or the number of moose the island can support, is a Parameter node with a value of 500; when the moose population reaches 500, the death rate will equal the birth rate, and the moose population growth will stagnate.</p>
 <p>5a. 
-<p>The new <i>death rate</i> node is a </p><select id="5aii">
+<p>The new <i>death rate</i> node is a(n) </p><select id="5aii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
@@ -646,7 +677,7 @@ if(set5.aii===3)
 <script type="text/javascript">var set6 = {}; 
 function cont6() {
 var yestim6 = 0;
-document.getElementById("6Time").innerHTML = tim6;
+//document.getElementById("6Time").innerHTML = tim6;
 
 if (0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
@@ -670,11 +701,11 @@ time7();
  <br><button id="button6" onClick="cont6();">Continue</button>
 <div id="question7" style="display: none">
 <h3>Question 7</h3>
-<p>Our final step is to build a model of both the wolf and moose populations and establish a predator-prey relationship between their birth and death rates.  Our new model will show a relationship between the number of wolves and the death rate of moose, as well as a relationship between the number of moose and the birth rate of the wolf population.  Here are our assumptions about the populations and their relationships: <u><li>The <i>moose population</i> is 500 moose in the first year.</li><li>The <i>moose birth rate</i> is 10%</li><li>The <i>moose births each year</i> is <i>moose population</i> * <i>moose birth rate</i>.</li><li>The <i>moose deaths each year</i> is <i>moose population</i> * <i>moose death rate</i>.</li><li>The <i>moose death rate</i> is <i>wolf population</i> * <i>the effect of wolves on moose</i>.</li><li><i>The effect of wolves on moose</i> is .003.</li><li>The <i>wolf population</i> is 20 wolves in the first year.</li><li>The <i>wolf death rate</i> is 25%</li><li>The <i>wolf deaths each year</i> is <i>wolf population</i> * <i>wolf death rate</i></li><li>The <i>wolf births each year</i> is <i>wolf population</i> * <i>wolf birth rate</i>.</li><li>The <i>wolf birth rate</i> is <i>moose population</i> * <i>the effect of moose on the wolves</i>.</li><li><i>The effect of moose on wolves</i> is 0.00075</li></ul>Solve the “Moose and Wolves” problem in Dragoon.  Note that copies of the solutions to “Moose population 3” and “Wolves” have been provided.  You will need to modify them.</p>
+<p>Our final step is to build a model of both the wolf and moose populations and establish a predator-prey relationship between their birth and death rates.  Our new model will show a relationship between the number of wolves and the death rate of moose, as well as a relationship between the number of moose and the birth rate of the wolf population.  Here are our assumptions about the populations and their relationships: <ul><li>The <i>moose population</i> is 500 moose in the first year.</li><li>The <i>moose birth rate</i> is 10%</li><li>The <i>moose births each year</i> is <i>moose population</i> * <i>moose birth rate</i>.</li><li>The <i>moose deaths each year</i> is <i>moose population</i> * <i>moose death rate</i>.</li><li>The <i>moose death rate</i> is <i>wolf population</i> * <i>the effect of wolves on moose</i>.</li><li><i>The effect of wolves on moose</i> is .003.</li><li>The <i>wolf population</i> is 20 wolves in the first year.</li><li>The <i>wolf death rate</i> is 25%</li><li>The <i>wolf deaths each year</i> is <i>wolf population</i> * <i>wolf death rate</i></li><li>The <i>wolf births each year</i> is <i>wolf population</i> * <i>wolf birth rate</i>.</li><li>The <i>wolf birth rate</i> is <i>moose population</i> * <i>the effect of moose on the wolves</i>.</li><li><i>The effect of moose on wolves</i> is 0.00075</li></ul>Solve the “Moose and Wolves” problem in Dragoon.  Note that copies of the solutions to “Moose population 3” and “Wolves” have been provided.  You will need to modify them.</p>
  <script type="text/javascript">var set7 = {}; 
 function cont7() {
 var yestim7 = 0;
-document.getElementById("7Time").innerHTML = tim7;
+//document.getElementById("7Time").innerHTML = tim7;
 
 if (0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
@@ -756,16 +787,23 @@ displayAnswers();
 </tr>
 <tr>
 <td style="border: 2pt black solid">3a. i.</td>
-<td style="border: 2pt black solid">parameter</td>
+<td style="border: 2pt black solid">accumulator</td>
 <td style="border: 2pt black solid"><div id="3aiAnswer1"></div><div id="3aiAnswer2"></div><div id="3aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="3Time"></div></td>
-<tr>
+</tr>
 <tr>
 <td style="border: 2pt black solid">3a. ii.</td>
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="3aiiAnswer1"></div><div id="3aiiAnswer2"></div><div id="3aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3aiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">3a. iii.</td>
+<td style="border: 2pt black solid">parameter</td>
+<td style="border: 2pt black solid"><div id="3aiiiAnswer1"></div><div id="3aiiiAnswer2"></div><div id="3aiiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="3aiiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
@@ -787,7 +825,7 @@ displayAnswers();
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="5aiiAnswer1"></div><div id="5aiiAnswer2"></div><div id="5aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5aiiTries"></div></td>
-<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"><div id="5Time"></div></td>
 </tr>
 </tbody>
 </table>
@@ -804,6 +842,7 @@ document.getElementById("2aiTries").innerHTML=set2.ai;
 document.getElementById("2aiiTries").innerHTML=set2.aii;
 document.getElementById("3aiTries").innerHTML=set3.ai;
 document.getElementById("3aiiTries").innerHTML=set3.aii;
+document.getElementById("3aiiiTries").innerHTML=set3.aiii;
 document.getElementById("3avTries").innerHTML=set3.av;
 document.getElementById("3aviiTries").innerHTML=set3.avii;
 document.getElementById("5aiiTries").innerHTML=set5.aii;

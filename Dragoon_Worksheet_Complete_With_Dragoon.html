@@ -474,21 +474,23 @@ if (set2.aii=== 1) {
 <script type="text/javascript">var set3 = {
 ai:0,
 aii:0,
+aiii:0,
 av:0,
 avii:0,}; 
 function cont3() {
 var yestim3 = 0;
 document.getElementById("3Time").innerHTML = tim3;
-checkAnswers("3ai", "parameter");checkAnswers("3aii", "function");checkAnswers("3av", "number of moose births per year");checkAnswers("3avii", "both moose birth rate and moose population");
-if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||document.getElementById("3av").value==="" ||document.getElementById("3avii").value==="" ||0===1) {
+checkAnswers("3ai", "accumulator");checkAnswers("3aii", "function");checkAnswers("3aiii","parameter") ;checkAnswers("3av", "number of moose births per year");checkAnswers("3avii", "both moose birth rate and moose population");
+if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||document.getElementById("3aiii").value==="" ||document.getElementById("3av").value==="" ||document.getElementById("3avii").value==="" ||0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
-if (!checkAnswers("3ai", "parameter")) { 
+if (!checkAnswers("3ai", "accumulator")) { 
  set3.ai = set3.ai + 1;}if (!checkAnswers("3aii", "function")) { 
+ set3.aii = set3.aii + 1;}if (!checkAnswers("3aiii", "parameter")) { 
  set3.aii = set3.aii + 1;}if (!checkAnswers("3av", "number of moose births per year")) { 
  set3.av = set3.av + 1;}if (!checkAnswers("3avii", "both moose birth rate and moose population")) { 
  set3.avii = set3.avii + 1;}
-if ((checkAnswers("3ai", "parameter") || set3.ai===3) &&(checkAnswers("3aii", "function") || set3.aii===3) &&(checkAnswers("3av", "number of moose births per year") || set3.av===3) &&(checkAnswers("3avii", "both moose birth rate and moose population") || set3.avii===3) &&1===1) {
+if ((checkAnswers("3ai", "accumulator") || set3.ai===3) &&(checkAnswers("3aii", "function") || set3.aii===3) &&(checkAnswers("3aiii", "parameter") || set3.aiii===3) &&(checkAnswers("3av", "number of moose births per year") || set3.av===3) &&(checkAnswers("3avii", "both moose birth rate and moose population") || set3.avii===3) &&1===1) {
  document.getElementById("question4").style.display = "";
  document.getElementById("button3").style.display = "none";
 tim4= 0;
@@ -502,9 +504,9 @@ var yestim4 = 1;
 time4();
 }
 
-if (!checkAnswers("3ai", "parameter")) {
+if (!checkAnswers("3ai", "accumulator")) {
 if (set3.ai===3) {
-document.getElementById("3ai").value="parameter";
+document.getElementById("3ai").value="accumulator";
 document.getElementById("3ai").style.background="#FFFF00"}
 if (set3.ai=== 1) { 
  document.getElementById("3aiAnswer1").innerHTML = "; " + document.getElementById("3ai").value 
@@ -550,6 +552,31 @@ if (set3.aii=== 1) {
  } 
  else { 
  document.getElementById("3aiiAnswer3").innerHTML = "; " + document.getElementById("3aii").value
+}
+};
+if (!checkAnswers("3aiii", "parameter")) {
+if (set3.aiii===3) {
+document.getElementById("3aiii").value="parameter";
+document.getElementById("3aiii").style.background="#FFFF00"}
+if (set3.aiii=== 1) { 
+ document.getElementById("3aiiiAnswer1").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else if (set3.aiii=== 2) { 
+ document.getElementById("3aiiiAnswer2").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else { 
+ document.getElementById("3aiiiAnswer3").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ } 
+ else { 
+ if (set3.aiii=== 0) { 
+ document.getElementById("3aiiiAnswer1").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else if (set3.aiii=== 1) { 
+ document.getElementById("3aiiiAnswer2").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else { 
+ document.getElementById("3aiiiAnswer3").innerHTML = "; " + document.getElementById("3aiii").value
 }
 };
 if (!checkAnswers("3av", "number of moose births per year")) {
@@ -616,7 +643,7 @@ if(set3.avii===3)
 <script type="text/javascript">var set4 = {}; 
 function cont4() {
 var yestim4 = 0;
-document.getElementById("4Time").innerHTML = tim4;
+//document.getElementById("4Time").innerHTML = tim4;
 
 if (0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
@@ -709,7 +736,7 @@ if(set5.aii===3)
 <script type="text/javascript">var set6 = {}; 
 function cont6() {
 var yestim6 = 0;
-document.getElementById("6Time").innerHTML = tim6;
+//document.getElementById("6Time").innerHTML = tim6;
 
 if (0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
@@ -737,7 +764,7 @@ time7();
  <script type="text/javascript">var set7 = {}; 
 function cont7() {
 var yestim7 = 0;
-document.getElementById("7Time").innerHTML = tim7;
+//document.getElementById("7Time").innerHTML = tim7;
 
 if (0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
@@ -819,7 +846,7 @@ displayAnswers();
 </tr>
 <tr>
 <td style="border: 2pt black solid">3a. i.</td>
-<td style="border: 2pt black solid">parameter</td>
+<td style="border: 2pt black solid">accumulator</td>
 <td style="border: 2pt black solid"><div id="3aiAnswer1"></div><div id="3aiAnswer2"></div><div id="3aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="3Time"></div></td>
@@ -829,6 +856,13 @@ displayAnswers();
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="3aiiAnswer1"></div><div id="3aiiAnswer2"></div><div id="3aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3aiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">3a. iii.</td>
+<td style="border: 2pt black solid">parameter</td>
+<td style="border: 2pt black solid"><div id="3aiiiAnswer1"></div><div id="3aiiiAnswer2"></div><div id="3aiiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="3aiiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
@@ -850,7 +884,7 @@ displayAnswers();
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="5aiiAnswer1"></div><div id="5aiiAnswer2"></div><div id="5aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5aiiTries"></div></td>
-<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"><div id="5Time"></div></td>
 </tr>
 </tbody>
 </table>
@@ -867,6 +901,7 @@ document.getElementById("2aiTries").innerHTML=set2.ai;
 document.getElementById("2aiiTries").innerHTML=set2.aii;
 document.getElementById("3aiTries").innerHTML=set3.ai;
 document.getElementById("3aiiTries").innerHTML=set3.aii;
+document.getElementById("3aiiiTries").innerHTML=set3.aiii;
 document.getElementById("3avTries").innerHTML=set3.av;
 document.getElementById("3aviiTries").innerHTML=set3.avii;
 document.getElementById("5aiiTries").innerHTML=set5.aii;
