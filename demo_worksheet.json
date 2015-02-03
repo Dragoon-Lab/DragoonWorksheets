@@ -225,7 +225,7 @@
                                                             "accumulator",
                                                             "function"
                                                         ],
-                                                        "parameter"
+                                                        "accumulator"
                                                     ]
                                                 ],
                                                 [
@@ -240,7 +240,15 @@
                                                     ]
                                                 ],
                                                 [
-                                                    "moose birth rate"
+                                                    "moose birth rate",
+													[
+														[
+															"parameter",
+															"accumulator",
+															"function"
+														],
+														"parameter"
+													]													
                                                 ]
                                             ]
                                         }
