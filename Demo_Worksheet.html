@@ -3,12 +3,26 @@
 <head>
 <title>Dragoon Worksheet</title>
 <script type="text/javascript">
-function checkAnswers(inputId, rightAnswer) {
-if (document.getElementById(inputId).value===rightAnswer) {
+function
+openDragoonProblem(num){
+var u = document.getElementById("user").value;
+var s = document.getElementById("section").value;
+var problemID = "problem" + num.toString();
+var p = document.getElementById(problemID).value;
+var modeID = "mode" + num.toString();
+var m = document.getElementById(modeID).value;
+var urlString = "http://dragoon.asu.edu/demo/index.html?u="+u+"&m="+m+"&p="+p+"&s="+s;
+window.open(urlString);
+}
+function checkAnswers(inputId, rightAnswer)
+{
+if
+(document.getElementById(inputId).value===rightAnswer) {
 document.getElementById(inputId).style.background="#66FF33";
 return true;
 }
-else {
+else
+{
 document.getElementById(inputId).style.background="#FF3333";
 return false;
 }
@@ -22,9 +36,41 @@ t = setTimeout(function() {time1()},1000);
 };
 var yestim1 = 1;
 time1();
-</script>
+function checkCompletion(num){
+// id is the id of the continue button or I just need a the number of the question i.e. if its cont1 just send me 1 and it will do
+var u = document.getElementById("user").value;
+var s = document.getElementById("section").value;
+var problemID = "problem" + num.toString();
+var p = document.getElementById(problemID).value;
+var modeID = "mode" + num.toString();
+var m = document.getElementById(modeID).value;
+var xmlHTTP = new XMLHttpRequest();
+var userObject;
+xmlHTTP.onreadystatechange = function(){
+if(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){
+userObject = JSON.parse(xmlHTTP.responseText);
+}
+}
+var url = "../demo/log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
+//var url = "log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
+xmlHTTP.open("GET", url, false);
+xmlHTTP.send();
+var id = "dragoonErrorMessage" + num.toString();
+var result = false;
+ if(userObject != null){
+result = userObject[0].problemComplete;
+}
+if(result) {
+document.getElementById(id).style.display = "none";
+} else {
+document.getElementById(id).style.display = "";
+}
+return result;
+}</script>
 </head>
 <body>
+<label>Username :</label>&nbsp;<input type="text" name="user" id="user">
+<input type="hidden" name="section" id="section" value="public-worksheet">
 <h3>Question 1</h3>
 <p>To make sure you understand the system's behavior, please fill in the next few years in the table below.</p>
 <p>1a. <table>
@@ -109,7 +155,7 @@ if (!checkAnswers("1ai", "740")) {
  set1.aiv = set1.aiv + 1;}if (!checkAnswers("1av", "473.6")) { 
  set1.av = set1.av + 1;}if (!checkAnswers("1avi", "94.72")) { 
  set1.avi = set1.avi + 1;}
-if ((checkAnswers("1ai", "740") || set1.ai===3) &&(checkAnswers("1aii", "148") || set1.aii===3) &&(checkAnswers("1aiii", "592") || set1.aiii===3) &&(checkAnswers("1aiv", "118.4") || set1.aiv===3) &&(checkAnswers("1av", "473.6") || set1.av===3) &&(checkAnswers("1avi", "94.72") || set1.avi===3) &&1===1) {
+if (checkCompletion(1)(checkAnswers("1ai", "740") || set1.ai===3) &&(checkAnswers("1aii", "148") || set1.aii===3) &&(checkAnswers("1aiii", "592") || set1.aiii===3) &&(checkAnswers("1aiv", "118.4") || set1.aiv===3) &&(checkAnswers("1av", "473.6") || set1.av===3) &&(checkAnswers("1avi", "94.72") || set1.avi===3) &&{
  document.getElementById("question2").style.display = "";
  document.getElementById("button1").style.display = "none";
 tim2= 0;
@@ -273,8 +319,12 @@ if (set1.avi=== 1) {
  document.getElementById("1aviAnswer3").innerHTML = "; " + document.getElementById("1avi").value
 }
 };};
-</script> 
- <br><button id="button1" onClick="cont1();">Continue</button>
+</script>
+<input type="hidden" name="problem1" id="problem1" value="dodos">
+<input type="hidden" name="mode1" id="mode1" value="STUDENT">
+<br><button id="dragoonButton1" onClick="openDragoonProblem(1);">Open Dragoon</button>
+<div id="dragoonErrorMessage1" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+<br><button id="button1" onClick="cont1();">Continue</button>
 <div id="question2" style="display: none">
 <h3>Question 2</h3>
 <p>Assume that the moose population on the Isle Royale begins at 20 moose and that 2 moose are born each year.  In the table below, identify what types of nodes would represent this information.</p>
@@ -310,7 +360,7 @@ if (document.getElementById("2ai").value==="" ||document.getElementById("2aii").
 if (!checkAnswers("2ai", "accumulator")) { 
  set2.ai = set2.ai + 1;}if (!checkAnswers("2aii", "function")) { 
  set2.aii = set2.aii + 1;}
-if ((checkAnswers("2ai", "accumulator") || set2.ai===3) &&(checkAnswers("2aii", "function") || set2.aii===3) &&1===1) {
+if (checkCompletion(2)(checkAnswers("2ai", "accumulator") || set2.ai===3) &&(checkAnswers("2aii", "function") || set2.aii===3) &&{
  document.getElementById("question3").style.display = "";
  document.getElementById("button2").style.display = "none";
 tim3= 0;
@@ -374,8 +424,12 @@ if (set2.aii=== 1) {
  document.getElementById("2aiiAnswer3").innerHTML = "; " + document.getElementById("2aii").value
 }
 };};
-</script> 
- <br><button id="button2" onClick="cont2();">Continue</button>
+</script>
+<input type="hidden" name="problem2" id="problem2" value="isle1">
+<input type="hidden" name="mode2" id="mode2" value="STUDENT">
+<br><button id="dragoonButton2" onClick="openDragoonProblem(2);">Open Dragoon</button>
+<div id="dragoonErrorMessage2" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+<br><button id="button2" onClick="cont2();">Continue</button>
 <div id="question3" style="display: none">
 <h3>Question 3</h3>
 <p>Now let’s assume the moose population on the Isle Royale begins at 20 moose and the population grows by 20% each year.  For example, in the first year there are 4 moose births (20 moose population * 0.20 birth rate = 4 moose), so the population at the end of the first year is 24 (20 moose population + 4 moose births).  In the table below, please select a type for each quantity/node.</p>
@@ -402,11 +456,11 @@ if (set2.aii=== 1) {
 <option>function</option></select></td></tr>
 </tbody>
 </table>
-<p>Which node(s) do <i>moose population</i> use as inputs to determine its value?</p><select id="3av">
+<p>Which node(s) do <i>moose population</i> use as inputs to determine its value?</p><select id="3avi">
 <option></option>
 <option>number of moose births per year</option>
 <option>moose birth rate</option></select>
-<p>Which node(s) do <i>number of births per year</i> use as inputs to determine its value?</p><select id="3avii">
+<p>Which node(s) do <i>number of births per year</i> use as inputs to determine its value?</p><select id="3aviii">
 <option></option>
 <option>moose birth rate</option>
 <option>moose population</option>
@@ -416,22 +470,22 @@ if (set2.aii=== 1) {
 ai:0,
 aii:0,
 aiii:0,
-av:0,
-avii:0,}; 
+avi:0,
+aviii:0,}; 
 function cont3() {
 var yestim3 = 0;
 document.getElementById("3Time").innerHTML = tim3;
-checkAnswers("3ai", "accumulator");checkAnswers("3aii", "function");checkAnswers("3aiii","parameter") ;checkAnswers("3av", "number of moose births per year");checkAnswers("3avii", "both moose birth rate and moose population");
-if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||document.getElementById("3aiii").value==="" ||document.getElementById("3av").value==="" ||document.getElementById("3avii").value==="" ||0===1) {
+checkAnswers("3ai", "accumulator");checkAnswers("3aii", "function");checkAnswers("3aiii", "parameter");checkAnswers("3avi", "number of moose births per year");checkAnswers("3aviii", "both moose birth rate and moose population");
+if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||document.getElementById("3aiii").value==="" ||document.getElementById("3avi").value==="" ||document.getElementById("3aviii").value==="" ||0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("3ai", "accumulator")) { 
  set3.ai = set3.ai + 1;}if (!checkAnswers("3aii", "function")) { 
  set3.aii = set3.aii + 1;}if (!checkAnswers("3aiii", "parameter")) { 
- set3.aii = set3.aii + 1;}if (!checkAnswers("3av", "number of moose births per year")) { 
- set3.av = set3.av + 1;}if (!checkAnswers("3avii", "both moose birth rate and moose population")) { 
- set3.avii = set3.avii + 1;}
-if ((checkAnswers("3ai", "accumulator") || set3.ai===3) &&(checkAnswers("3aii", "function") || set3.aii===3) &&(checkAnswers("3aiii", "parameter") || set3.aiii===3) &&(checkAnswers("3av", "number of moose births per year") || set3.av===3) &&(checkAnswers("3avii", "both moose birth rate and moose population") || set3.avii===3) &&1===1) {
+ set3.aiii = set3.aiii + 1;}if (!checkAnswers("3avi", "number of moose births per year")) { 
+ set3.avi = set3.avi + 1;}if (!checkAnswers("3aviii", "both moose birth rate and moose population")) { 
+ set3.aviii = set3.aviii + 1;}
+if (checkCompletion(3)(checkAnswers("3ai", "accumulator") || set3.ai===3) &&(checkAnswers("3aii", "function") || set3.aii===3) &&(checkAnswers("3aiii", "parameter") || set3.aiii===3) &&(checkAnswers("3avi", "number of moose births per year") || set3.avi===3) &&(checkAnswers("3aviii", "both moose birth rate and moose population") || set3.aviii===3) &&{
  document.getElementById("question4").style.display = "";
  document.getElementById("button3").style.display = "none";
 tim4= 0;
@@ -520,97 +574,97 @@ if (set3.aiii=== 1) {
  document.getElementById("3aiiiAnswer3").innerHTML = "; " + document.getElementById("3aiii").value
 }
 };
-if (!checkAnswers("3av", "number of moose births per year")) {
-if (set3.av===3) {
-document.getElementById("3av").style.background="#FFFF00";
- document.getElementById("3avAnswer3").innerHTML = document.getElementById("3av").value 
+if (!checkAnswers("3avi", "number of moose births per year")) {
+if (set3.avi===3) {
+document.getElementById("3avi").style.background="#FFFF00";
+ document.getElementById("3aviAnswer3").innerHTML = document.getElementById("3avi").value 
  }
-if (set3.av=== 1) { 
- document.getElementById("3avAnswer1").innerHTML = "; " + document.getElementById("3av").value 
+if (set3.avi=== 1) { 
+ document.getElementById("3aviAnswer1").innerHTML = "; " + document.getElementById("3avi").value 
  } 
- else if (set3.av=== 2) { 
- document.getElementById("3avAnswer2").innerHTML = "; " + document.getElementById("3av").value 
- } 
- else { 
- document.getElementById("3avAnswer3").innerHTML = "; " + document.getElementById("3av").value 
- } 
+ else if (set3.avi=== 2) { 
+ document.getElementById("3aviAnswer2").innerHTML = "; " + document.getElementById("3avi").value 
  } 
  else { 
- if (set3.av=== 0) { 
- document.getElementById("3avAnswer1").innerHTML = "; " + document.getElementById("3av").value 
+ document.getElementById("3aviAnswer3").innerHTML = "; " + document.getElementById("3avi").value 
  } 
- else if (set3.av=== 1) { 
- document.getElementById("3avAnswer2").innerHTML = "; " + document.getElementById("3av").value 
  } 
  else { 
- document.getElementById("3avAnswer3").innerHTML = "; " + document.getElementById("3av").value
+ if (set3.avi=== 0) { 
+ document.getElementById("3aviAnswer1").innerHTML = "; " + document.getElementById("3avi").value 
+ } 
+ else if (set3.avi=== 1) { 
+ document.getElementById("3aviAnswer2").innerHTML = "; " + document.getElementById("3avi").value 
+ } 
+ else { 
+ document.getElementById("3aviAnswer3").innerHTML = "; " + document.getElementById("3avi").value
 }
 };
-if(set3.av===3)
-{document.getElementById("3av").value="number of moose births per year"};
-if (!checkAnswers("3avii", "both moose birth rate and moose population")) {
-if (set3.avii===3) {
-document.getElementById("3avii").style.background="#FFFF00";
- document.getElementById("3aviiAnswer3").innerHTML = document.getElementById("3avii").value 
+if(set3.avi===3)
+{document.getElementById("3avi").value="number of moose births per year"};
+if (!checkAnswers("3aviii", "both moose birth rate and moose population")) {
+if (set3.aviii===3) {
+document.getElementById("3aviii").style.background="#FFFF00";
+ document.getElementById("3aviiiAnswer3").innerHTML = document.getElementById("3aviii").value 
  }
-if (set3.avii=== 1) { 
- document.getElementById("3aviiAnswer1").innerHTML = "; " + document.getElementById("3avii").value 
+if (set3.aviii=== 1) { 
+ document.getElementById("3aviiiAnswer1").innerHTML = "; " + document.getElementById("3aviii").value 
  } 
- else if (set3.avii=== 2) { 
- document.getElementById("3aviiAnswer2").innerHTML = "; " + document.getElementById("3avii").value 
- } 
- else { 
- document.getElementById("3aviiAnswer3").innerHTML = "; " + document.getElementById("3avii").value 
- } 
+ else if (set3.aviii=== 2) { 
+ document.getElementById("3aviiiAnswer2").innerHTML = "; " + document.getElementById("3aviii").value 
  } 
  else { 
- if (set3.avii=== 0) { 
- document.getElementById("3aviiAnswer1").innerHTML = "; " + document.getElementById("3avii").value 
+ document.getElementById("3aviiiAnswer3").innerHTML = "; " + document.getElementById("3aviii").value 
  } 
- else if (set3.avii=== 1) { 
- document.getElementById("3aviiAnswer2").innerHTML = "; " + document.getElementById("3avii").value 
  } 
  else { 
- document.getElementById("3aviiAnswer3").innerHTML = "; " + document.getElementById("3avii").value
+ if (set3.aviii=== 0) { 
+ document.getElementById("3aviiiAnswer1").innerHTML = "; " + document.getElementById("3aviii").value 
+ } 
+ else if (set3.aviii=== 1) { 
+ document.getElementById("3aviiiAnswer2").innerHTML = "; " + document.getElementById("3aviii").value 
+ } 
+ else { 
+ document.getElementById("3aviiiAnswer3").innerHTML = "; " + document.getElementById("3aviii").value
 }
 };
-if(set3.avii===3)
-{document.getElementById("3avii").value="both moose birth rate and moose population"};};
-</script> 
- <br><button id="button3" onClick="cont3();">Continue</button>
+if(set3.aviii===3)
+{document.getElementById("3aviii").value="both moose birth rate and moose population"};};
+</script>
+<input type="hidden" name="problem3" id="problem3" value="isle2">
+<input type="hidden" name="mode3" id="mode3" value="STUDENT">
+<br><button id="dragoonButton3" onClick="openDragoonProblem(3);">Open Dragoon</button>
+<div id="dragoonErrorMessage3" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+<br><button id="button3" onClick="cont3();">Continue</button>
 <div id="question4" style="display: none">
 <h3>Question 4</h3>
 <p>Now we will add a simple death rate to the previous model.   Assume that 5% of the moose die each year.  The number of moose deaths each year is calculated similar to the number of moose births each year:</p><p><i>moose deaths = moose population * moose death rate.</i></p><p>Solve the “Moose population 3” problem in Dragoon.   A model similar to the one you created for “Moose population 2” is provided; you will need to modify it.</p></p>
 <script type="text/javascript">var set4 = {}; 
 function cont4() {
 var yestim4 = 0;
-//document.getElementById("4Time").innerHTML = tim4;
+document.getElementById("4Time").innerHTML = tim4;
 
 if (0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 
-if (1===1) {
+if (checkCompletion(4){
  document.getElementById("question5").style.display = "";
  document.getElementById("button4").style.display = "none";
 tim5= 0;
-function time5() {
-if (yestim5){
-tim5 = tim5 + 1;
-t = setTimeout(function() {time5()},1000);
 }
 };
-var yestim5 = 1;
-time5();
-}
-};
-</script> 
- <br><button id="button4" onClick="cont4();">Continue</button>
+</script>
+<input type="hidden" name="problem4" id="problem4" value="isle3">
+<input type="hidden" name="mode4" id="mode4" value="STUDENT">
+<br><button id="dragoonButton4" onClick="openDragoonProblem(4);">Open Dragoon</button>
+<div id="dragoonErrorMessage4" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+<br><button id="button4" onClick="cont4();">Continue</button>
 <div id="question5" style="display: none">
 <h3>Question 5</h3>
 <p>: We can see from “Moose population 3” that having a simple death rate still doesn’t simulate a real population—the population still grows infinitely, when in reality there would be some limit to the number of moose the island could sustain.  In this problem, we will change the <i>moose death rate</i> node so that it represents this relationship:</p><p><i>moose death rate = moose birth rate * (moose population / carrying capacity)</i></p><p>If there were no wolves on Isle Royale, this equation would represent that the moose population is limited by the amount of moose food growing on the island.  Carrying capacity, or the number of moose the island can support, is a Parameter node with a value of 500; when the moose population reaches 500, the death rate will equal the birth rate, and the moose population growth will stagnate.</p>
 <p>5a. 
-<p>The new <i>death rate</i> node is a(n) </p><select id="5aii">
+<p>The new <i>death rate</i> node is a </p><select id="5aii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
@@ -627,7 +681,7 @@ if (document.getElementById("5aii").value==="" ||0===1) {
 }
 if (!checkAnswers("5aii", "function")) { 
  set5.aii = set5.aii + 1;}
-if ((checkAnswers("5aii", "function") || set5.aii===3) &&1===1) {
+if (checkCompletion(5)(checkAnswers("5aii", "function") || set5.aii===3) &&{
  document.getElementById("question6").style.display = "";
  document.getElementById("button5").style.display = "none";
 tim6= 0;
@@ -669,57 +723,62 @@ if (set5.aii=== 1) {
 };
 if(set5.aii===3)
 {document.getElementById("5aii").value="function"};};
-</script> 
- <br><button id="button5" onClick="cont5();">Continue</button>
+</script>
+<input type="hidden" name="problem5" id="problem5" value="isle4">
+<input type="hidden" name="mode5" id="mode5" value="STUDENT">
+<br><button id="dragoonButton5" onClick="openDragoonProblem(5);">Open Dragoon</button>
+<div id="dragoonErrorMessage5" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+<br><button id="button5" onClick="cont5();">Continue</button>
 <div id="question6" style="display: none">
 <h3>Question 6</h3>
 <p>Now let’s ignore the moose and pretend that Isle Royale has only wolves on it.  This model should look similar to the model you made for the moose population in “Moose population 3.”  Assume that the initial wolf population is 2, the birth rate is 75%, and the death rate is 67%.  Solve problem “Wolves” in Dragoon.</p>
 <script type="text/javascript">var set6 = {}; 
 function cont6() {
 var yestim6 = 0;
-//document.getElementById("6Time").innerHTML = tim6;
+document.getElementById("6Time").innerHTML = tim6;
 
 if (0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 
-if (1===1) {
+if (checkCompletion(6){
  document.getElementById("question7").style.display = "";
  document.getElementById("button6").style.display = "none";
 tim7= 0;
-function time7() {
-if (yestim7){
-tim7 = tim7 + 1;
-t = setTimeout(function() {time7()},1000);
 }
 };
-var yestim7 = 1;
-time7();
-}
-};
-</script> 
- <br><button id="button6" onClick="cont6();">Continue</button>
+</script>
+<input type="hidden" name="problem6" id="problem6" value="isle5">
+<input type="hidden" name="mode6" id="mode6" value="STUDENT">
+<br><button id="dragoonButton6" onClick="openDragoonProblem(6);">Open Dragoon</button>
+<div id="dragoonErrorMessage6" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+<br><button id="button6" onClick="cont6();">Continue</button>
 <div id="question7" style="display: none">
 <h3>Question 7</h3>
-<p>Our final step is to build a model of both the wolf and moose populations and establish a predator-prey relationship between their birth and death rates.  Our new model will show a relationship between the number of wolves and the death rate of moose, as well as a relationship between the number of moose and the birth rate of the wolf population.  Here are our assumptions about the populations and their relationships: <ul><li>The <i>moose population</i> is 500 moose in the first year.</li><li>The <i>moose birth rate</i> is 10%</li><li>The <i>moose births each year</i> is <i>moose population</i> * <i>moose birth rate</i>.</li><li>The <i>moose deaths each year</i> is <i>moose population</i> * <i>moose death rate</i>.</li><li>The <i>moose death rate</i> is <i>wolf population</i> * <i>the effect of wolves on moose</i>.</li><li><i>The effect of wolves on moose</i> is .003.</li><li>The <i>wolf population</i> is 20 wolves in the first year.</li><li>The <i>wolf death rate</i> is 25%</li><li>The <i>wolf deaths each year</i> is <i>wolf population</i> * <i>wolf death rate</i></li><li>The <i>wolf births each year</i> is <i>wolf population</i> * <i>wolf birth rate</i>.</li><li>The <i>wolf birth rate</i> is <i>moose population</i> * <i>the effect of moose on the wolves</i>.</li><li><i>The effect of moose on wolves</i> is 0.00075</li></ul>Solve the “Moose and Wolves” problem in Dragoon.  Note that copies of the solutions to “Moose population 3” and “Wolves” have been provided.  You will need to modify them.</p>
- <script type="text/javascript">var set7 = {}; 
+<p>Our final step is to build a model of both the wolf and moose populations and establish a predator-prey relationship between their birth and death rates.  Our new model will show a relationship between the number of wolves and the death rate of moose, as well as a relationship between the number of moose and the birth rate of the wolf population.  Here are our assumptions about the populations and their relationships: <u><li>The <i>moose population</i> is 500 moose in the first year.</li><li>The <i>moose birth rate</i> is 10%</li><li>The <i>moose births each year</i> is <i>moose population</i> * <i>moose birth rate</i>.</li><li>The <i>moose deaths each year</i> is <i>moose population</i> * <i>moose death rate</i>.</li><li>The <i>moose death rate</i> is <i>wolf population</i> * <i>the effect of wolves on moose</i>.</li><li><i>The effect of wolves on moose</i> is .003.</li><li>The <i>wolf population</i> is 20 wolves in the first year.</li><li>The <i>wolf death rate</i> is 25%</li><li>The <i>wolf deaths each year</i> is <i>wolf population</i> * <i>wolf death rate</i></li><li>The <i>wolf births each year</i> is <i>wolf population</i> * <i>wolf birth rate</i>.</li><li>The <i>wolf birth rate</i> is <i>moose population</i> * <i>the effect of moose on the wolves</i>.</li><li><i>The effect of moose on wolves</i> is 0.00075</li></ul>Solve the “Moose and Wolves” problem in Dragoon.  Note that copies of the solutions to “Moose population 3” and “Wolves” have been provided.  You will need to modify them.</p>
+<script type="text/javascript">var set7 = {}; 
 function cont7() {
 var yestim7 = 0;
-//document.getElementById("7Time").innerHTML = tim7;
+document.getElementById("7Time").innerHTML = tim7;
 
 if (0===1) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 
-if (1===1) {
+if (checkCompletion(7)1===1) {
  document.getElementById("question8").style.display = "";
  document.getElementById("button7").style.display = "none";
 displayAnswers();
 }
 };
-</script> 
- <br><button id="button7" onClick="cont7();">Continue</button>
-<div id="question8" style="display: none"></div></div></div></div></div></div></div><div id="resultsTable" style="display:none">
+</script>
+<input type="hidden" name="problem7" id="problem7" value="isle6">
+<input type="hidden" name="mode7" id="mode7" value="STUDENT">
+<br><button id="dragoonButton7" onClick="openDragoonProblem(7);">Open Dragoon</button>
+<div id="dragoonErrorMessage7" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+<br><button id="button7" onClick="cont7();">Continue</button>
+<div id="question8" style="display: none">"
+</div></div></div></div></div></div></div><div id="resultsTable" style="display:none">
 <table>
 <thead>
 <td style="border: 2pt black solid">Question</td>
@@ -773,7 +832,7 @@ displayAnswers();
 </tr>
 <tr>
 <td style="border: 2pt black solid">2a. i.</td>
-<td style="border: 2pt black solid">parameter</td>
+<td style="border: 2pt black solid">accumulator</td>
 <td style="border: 2pt black solid"><div id="2aiAnswer1"></div><div id="2aiAnswer2"></div><div id="2aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="2aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="2Time"></div></td>
@@ -791,7 +850,7 @@ displayAnswers();
 <td style="border: 2pt black solid"><div id="3aiAnswer1"></div><div id="3aiAnswer2"></div><div id="3aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="3Time"></div></td>
-</tr>
+<tr>
 <tr>
 <td style="border: 2pt black solid">3a. ii.</td>
 <td style="border: 2pt black solid">function</td>
@@ -807,17 +866,17 @@ displayAnswers();
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
-<td style="border: 2pt black solid">3a. v.</td>
+<td style="border: 2pt black solid">3a. vi.</td>
 <td style="border: 2pt black solid">number of moose births per year</td>
-<td style="border: 2pt black solid"><div id="3avAnswer1"></div><div id="3avAnswer2"></div><div id="3avAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="3avTries"></div></td>
+<td style="border: 2pt black solid"><div id="3aviAnswer1"></div><div id="3aviAnswer2"></div><div id="3aviAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="3aviTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
-<td style="border: 2pt black solid">3a. vii.</td>
+<td style="border: 2pt black solid">3a. viii.</td>
 <td style="border: 2pt black solid">both moose birth rate and moose population</td>
-<td style="border: 2pt black solid"><div id="3aviiAnswer1"></div><div id="3aviiAnswer2"></div><div id="3aviiAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="3aviiTries"></div></td>
+<td style="border: 2pt black solid"><div id="3aviiiAnswer1"></div><div id="3aviiiAnswer2"></div><div id="3aviiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="3aviiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
@@ -825,7 +884,7 @@ displayAnswers();
 <td style="border: 2pt black solid">function</td>
 <td style="border: 2pt black solid"><div id="5aiiAnswer1"></div><div id="5aiiAnswer2"></div><div id="5aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="5aiiTries"></div></td>
-<td style="border: 2pt black solid"><div id="5Time"></div></td>
+<td style="border: 2pt black solid"></td>
 </tr>
 </tbody>
 </table>
@@ -843,8 +902,8 @@ document.getElementById("2aiiTries").innerHTML=set2.aii;
 document.getElementById("3aiTries").innerHTML=set3.ai;
 document.getElementById("3aiiTries").innerHTML=set3.aii;
 document.getElementById("3aiiiTries").innerHTML=set3.aiii;
-document.getElementById("3avTries").innerHTML=set3.av;
-document.getElementById("3aviiTries").innerHTML=set3.avii;
+document.getElementById("3aviTries").innerHTML=set3.avi;
+document.getElementById("3aviiiTries").innerHTML=set3.aviii;
 document.getElementById("5aiiTries").innerHTML=set5.aii;
 };
 </script></body></html>

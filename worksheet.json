@@ -65,7 +65,7 @@
                                                 "30%"
                                             ]
                                         }
-                                    },
+                                    }
                                 ]
                             }
                         },
@@ -422,7 +422,7 @@
                                                         "function"
                                                     ],
                                                     "energy ingested daily; value = 1989 calories"
-                                                ],
+                                                ]
                                             ],
                                             "header": [
                                                 "Node Name",
@@ -602,7 +602,7 @@
                                                 "Description"
                                             ]
 										}
-									},
+									}
 								]
 							}
 						},
@@ -610,13 +610,13 @@
 							"__Section__": {
 								"content": [
 									{
-										"__Text__" {
+										"__Text__": {
 											"text": "Given the two graphs, 5b and 5c, which one goes with the model of the table above? Why?</p><p>"
 										}
 									},
 									{
-										"__Dropdown__" {
-											"correct": "5b"
+										"__Dropdown__": {
+											"correct": "5b",
 											"options": [
 												"5b",
 												"5c"
@@ -624,13 +624,13 @@
 										}
 									},
 									{
-										"__Text__" {
+										"__Text__": {
 											"text": ", because energy balance is "
 										}
 									},
 									{
-										"__Dropdown__" {
-											"correct": "negative"
+										"__Dropdown__": {
+											"correct": "negative",
 											"options": [
 												"positive",
 												"negative"
@@ -638,13 +638,13 @@
 										}
 									},
 									{
-										"__Text__" {
+										"__Text__": {
 											"text": ", he "
 										}
 									},
 									{
-										"__Dropdown__" {
-											"correct": "loses"
+										"__Dropdown__": {
+											"correct": "loses",
 											"options": [
 												"gains",
 												"loses"
@@ -652,7 +652,7 @@
 										}
 									},
 									{
-										"__Text__" {
+										"__Text__": {
 											"text": " weight."
 										}
 									}
