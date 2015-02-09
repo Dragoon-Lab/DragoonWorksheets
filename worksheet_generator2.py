@@ -1,4 +1,5 @@
 import json
+from inspect import currentframe, getframeinfo
 class Worksheet:
 	def __init__(self, filename):
 		self.name = filename
@@ -179,6 +180,8 @@ class CustomTypeEncoder(json.JSONEncoder):
 
 def CustomTypeDecoder(dct):
 	if len(dct) == 1:
+		print(dct)
+		print(type(dct))
 		type_name, value = list(dct.items())[0]
 		type_name = type_name.strip('_')
 		if type_name in TYPES:
@@ -222,7 +225,7 @@ def generateHTMLWorksheet(wks):
 			if sect.__class__.__name__ == "Dragoon":
 				global dragoon_link
 				dragoon_link = "<input type=\"hidden\" name=\"problem" + qno + "\" id=\"problem" + qno + "\" value=\"" + sect.problem + "\">\n<input type=\"hidden\" name=\"mode" + qno + "\" id=\"mode" + qno + "\" value=\"" + sect.mode + "\">\n<br><button id=\"dragoonButton" + qno + "\" onClick=\"openDragoonProblem(" + qno + ");\">Open Dragoon</button>\n<div id=\"dragoonErrorMessage" + qno + "\" style=\"color:red;display:none\"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>"
-				contif = contif + "checkCompletion(" + qno + ")"
+				contif = contif + "checkCompletion(" + qno + ") && "
 			else:
 				lno = alph[alphindex]
 				alphindex = alphindex + 1
@@ -247,6 +250,7 @@ def generateHTMLWorksheet(wks):
 						endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + part.correct + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
 						if lno == "a" and rno == "i":
 							endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+							print("working")
 						else:
 							endtbl = endtbl + "</td>\n</tr>"
 						endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
@@ -285,6 +289,7 @@ def generateHTMLWorksheet(wks):
 									endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
 									if lno == "a" and rno == "i":
 										endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+										print("working")
 									else:
 										endtbl = endtbl + "</td>\n</tr>"
 									endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
@@ -325,6 +330,6 @@ def generateHTMLWorksheet(wks):
 	#json.dump(wk1,outfile,cls = CustomTypeEncoder, indent = 4)
 
 def testload():
-	with open("demo_worksheet_old.json","r") as outfile:
+	with open("worksheet.json","r") as outfile:
 		wksht_dct = json.load(outfile)
 		return CustomTypeDecoder(wksht_dct)
