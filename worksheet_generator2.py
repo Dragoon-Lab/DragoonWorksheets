@@ -148,6 +148,23 @@ class Image:
 		sig = Image(dct['image'])
 		return sig
 		
+class Checkbox:
+	def __init__(self,sect):
+		if isinstance (sect,Section):
+			self.options_c = input ("Answers: ").split(",")
+			self.correct_c = input ("Right answers: ").split(",")
+			#for item in self.correct_c:
+				#if not item in self.options_c:
+					#print("Please choose one of the given answers as the right answer.")
+					#self.correct_c = input ("Right answers: ")
+			sect.content.append(self)
+		else:
+			self.options_c = []
+			self.correct_c = sect
+	def from_dict(dct):
+		chk = Checkbox(dct['correct_c'])
+		chk.options_c = list(map(CustomTypeDecoder,dct['options_c']))
+		
 TYPES = { 'Worksheet': Worksheet,
 		  'LsText': LsText,
 		  'LsImage': LsImage,
@@ -178,9 +195,9 @@ class CustomTypeEncoder(json.JSONEncoder):
 
 
 def CustomTypeDecoder(dct):
-	if type(dct) == "dict" and len(dct) == 1:
-		print(dct)
-		print(type(dct))
+	if type(dct) is dict and len(dct) == 1:
+		#print(dct)
+		#print(type(dct))
 		type_name, value = list(dct.items())[0]
 		type_name = type_name.strip('_')
 		if type_name in TYPES:
@@ -194,7 +211,7 @@ def CustomTypeDecoder(dct):
 
 def generateHTMLWorksheet(wks):
 	# Converts Worksheet object, "wks" into an html/javascript file
-	worksheet = "<!DOCTYPE html>\n<html>\n<head>\n<title>Dragoon Worksheet</title>\n<script type=\"text/javascript\">\nfunction\nopenDragoonProblem(num){\nvar u = document.getElementById(\"user\").value;\nvar s = document.getElementById(\"section\").value;\nvar problemID = \"problem\" + num.toString();\nvar p = document.getElementById(problemID).value;\nvar modeID = \"mode\" + num.toString();\nvar m = document.getElementById(modeID).value;\nvar urlString = \"http://dragoon.asu.edu/demo/index.html?u=\"+u+\"&m=\"+m+\"&p=\"+p+\"&s=\"+s;\nwindow.open(urlString);\n}\nfunction checkAnswers(inputId, rightAnswer)\n{\nif\n(document.getElementById(inputId).value===rightAnswer) {\ndocument.getElementById(inputId).style.background=\"#66FF33\";\nreturn true;\n}\nelse\n{\ndocument.getElementById(inputId).style.background=\"#FF3333\";\nreturn false;\n}\n};\nvar tim1 = 0;\nfunction time1 () {\nif (yestim1=1){\ntim1 = tim1 + 1;\nt = setTimeout(function() {time1()},1000);\n}\n};\nvar yestim1 = 1;\ntime1();\nfunction checkCompletion(num){\n// id is the id of the continue button or I just need a the number of the question i.e. if its cont1 just send me 1 and it will do\nvar u = document.getElementById(\"user\").value;\nvar s = document.getElementById(\"section\").value;\nvar problemID = \"problem\" + num.toString();\nvar p = document.getElementById(problemID).value;\nvar modeID = \"mode\" + num.toString();\nvar m = document.getElementById(modeID).value;\nvar xmlHTTP = new XMLHttpRequest();\nvar userObject;\nxmlHTTP.onreadystatechange = function(){\nif(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){\nuserObject = JSON.parse(xmlHTTP.responseText);\n}\n}\nvar url = \"../demo/log/dashboard_js.php?m=\"+m+\"&u=\"+u+\"&s=\"+s+\"&p=\"+p;\n//var url = \"log/dashboard_js.php?m=\"+m+\"&u=\"+u+\"&s=\"+s+\"&p=\"+p;\nxmlHTTP.open(\"GET\", url, false);\nxmlHTTP.send();\nvar id = \"dragoonErrorMessage\" + num.toString();\nvar result = false;\n if(userObject != null){\nresult = userObject[0].problemComplete;\n}\nif(result) {\ndocument.getElementById(id).style.display = \"none\";\n} else {\ndocument.getElementById(id).style.display = \"\";\n}\nreturn result;\n}</script>\n</head>\n<body>\n<label>Username :</label>&nbsp;<input type=\"text\" name=\"user\" id=\"user\">\n<input type=\"hidden\" name=\"section\" id=\"section\" value=\"public-worksheet\">"
+	worksheet = "<!DOCTYPE html>\n<html>\n<head>\n<title>Dragoon Worksheet</title>\n<script type=\"text/javascript\">\nfunction\nopenDragoonProblem(num){\nvar u = document.getElementById(\"user\").value;\nvar s = document.getElementById(\"section\").value;\nvar problemID = \"problem\" + num.toString();\nvar p = document.getElementById(problemID).value;\nvar modeID = \"mode\" + num.toString();\nvar m = document.getElementById(modeID).value;\nvar urlString = \"http://dragoon.asu.edu/demo/index.html?u=\"+u+\"&m=\"+m+\"&p=\"+p+\"&s=\"+s;\nwindow.open(urlString);\n}\nfunction checkAnswers(inputId, rightAnswer)\n{\nif(document.getElementById(inputId).value===rightAnswer) {\ndocument.getElementById(inputId).style.background=\"#66FF33\";\nreturn true;\n}\nelse\n{\ndocument.getElementById(inputId).style.background=\"#FF3333\";\nreturn false;\n}\n};\n\nvar tim1 = 0;\nfunction time1 () {\nif (yestim1=1){\ntim1 = tim1 + 1;\nt = setTimeout(function() {time1()},1000);\n}\n};\nvar yestim1 = 1;\ntime1();\nfunction checkCompletion(num){\n// id is the id of the continue button or I just need a the number of the question i.e. if its cont1 just send me 1 and it will do\nvar u = document.getElementById(\"user\").value;\nvar s = document.getElementById(\"section\").value;\nvar problemID = \"problem\" + num.toString();\nvar p = document.getElementById(problemID).value;\nvar modeID = \"mode\" + num.toString();\nvar m = document.getElementById(modeID).value;\nvar xmlHTTP = new XMLHttpRequest();\nvar userObject;\nxmlHTTP.onreadystatechange = function(){\nif(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){\nuserObject = JSON.parse(xmlHTTP.responseText);\n}\n}\nvar url = \"../demo/log/dashboard_js.php?m=\"+m+\"&u=\"+u+\"&s=\"+s+\"&p=\"+p;\n//var url = \"log/dashboard_js.php?m=\"+m+\"&u=\"+u+\"&s=\"+s+\"&p=\"+p;\nxmlHTTP.open(\"GET\", url, false);\nxmlHTTP.send();\nvar id = \"dragoonErrorMessage\" + num.toString();\nvar result = false;\n if(userObject != null){\nresult = userObject[0].problemComplete;\n}\nif(result) {\ndocument.getElementById(id).style.display = \"none\";\n} else {\ndocument.getElementById(id).style.display = \"\";\n}\nreturn result;\n}</script>\n</head>\n<body>\n<label>Username :</label>&nbsp;<input type=\"text\" name=\"user\" id=\"user\">\n<input type=\"hidden\" name=\"section\" id=\"section\" value=\"public-worksheet\">"
 	divset = "\n"
 	endtbl = "<div id=\"resultsTable\" style=\"display:none\">\n<table>\n<thead>\n<td style=\"border: 2pt black solid\">Question</td>\n<td style=\"border: 2pt black solid\">Correct Answer</td>\n<td style=\"border: 2pt black solid\">Student Answers</td>\n<td style=\"border: 2pt black solid\">Number of Wrong Tries</td>\n<td style=\"border: 2pt black solid\">Time for Entire Question (s)</td>\n</thead>\n<tbody>"
 	endfn = "<script type=\"text/javascript\">\nfunction displayAnswers () {\ndocument.getElementById(\"resultsTable\").style.display=\"\""
@@ -204,17 +221,13 @@ def generateHTMLWorksheet(wks):
 	qno = 0
 	for ques in wks.questions:
 		dragoon_link = ""
-		timefn = ""
 		qno = str(int(qno) + 1)
 		for lse in wks.loose:
-			if qno == lse.before:
-				print("working")
+			if int(qno) == int(lse.before):
 				if lse.__class__.__name__ == "LsImage":
-					worksheet = worksheet + "\n<img src =\"" + part.image + ".JPG\"/>"
+					worksheet = worksheet + "\n<img src =\"" + lse.img + ".JPG\"/>"
 				else:
-					worksheet = worksheet + "\n<p>" + part.text + "</p>"
-		
-		timefn = "\nfunction time" + str(int(qno)+1) + "() {\nif (yestim" + str(int(qno)+1) + "){\ntim" + str(int(qno)+1) + " = tim" + str(int(qno)+1) + " + 1;\nt = setTimeout(function() {time" + str(int(qno)+1) + "()},1000);\n}\n};\nvar yestim" + str(int(qno)+1) + " = 1;\ntime" + str(int(qno)+1) + "();"
+					worksheet = worksheet + "\n<p>" + lse.text + "</p>"
 		contfn = "function cont" + qno + "() {\nvar yestim" + qno + " = 0;"
 		chkans = ""
 		chkcpl = "if ("
@@ -264,14 +277,10 @@ def generateHTMLWorksheet(wks):
 						allbody = ""
 						allline = ""
 						for item in part.header:
-						#	print(head)
-						#	for item in head:
-							item = "\n<td style=\"border: 2pt black solid\">" + str(item) + "</td>"
+							item = "\n<td style=\"border: 2pt black solid\"><b>" + str(item) + "</b></td>"
 							allhead = allhead + item
 						for body in part.rows:
-							print("row: "+str(body))
 							for drdn in body:
-								print("drdn: "+str(drdn))
 								if isinstance(drdn, str):
 									item = "\n<td style=\"border: 2pt black solid\">" + drdn + "</td>"
 									allline = allline + item
@@ -306,18 +315,37 @@ def generateHTMLWorksheet(wks):
 						worksheet = worksheet + "\n" + part.text + ""
 					elif part.__class__.__name__ == "Image":
 						worksheet = worksheet + "\n<img src =\"" + part.img + ".JPG\"/>"
+					elif part.__class__.__name__ == "Checkbox":
+					'''
+					--Turn green if correct
+					--Allow worksheet to move forward if correct
+					--Count wrong
+					--Turn yellow and change answer if wrong 3X
+					--Send wrong answers to end table (as list of as true/false individually?)
+					--Send message if incomplete?'''
+						rno = rnum[romannum]
+						romannum = romannum + 1
+						allans = ""
+						for item in part.options_c:
+							item = "\n<input type=\"checkbox\" name=\"" + qno + lno + rno + "\" id=\"" + str(item) + "\">" + str(item) + "<br>"
+							allans = allans + item
+						chkbox = "1"
+						for item in part.correct_c:
+							item = "\n(document.getElementById(\"" + qno + lno + rno + "\")"
+							chkbox = chkbox + " && " + item
+						varset = varset + "\n" + lno + rno + ":0,"
 					worksheet = worksheet + "</p>"
 		if int(qno) < len(list(wks.questions)):
 			varset = varset + "}; \n"
-			chkcpl = chkcpl + "0===1) {\n alert(\"It appears you have left at least one of these fields blank. Please remedy this immediately.\");\n}"
-			contif = contif + "1===1) {\n document.getElementById(\"question" + str(int(qno)+1) + "\").style.display = \"\";\n document.getElementById(\"button" + qno + "\").style.display = \"none\";\n" + disabl + "\ntim" + str(int(qno)+1) + "= 0;" + timefn + "\n}"
+			chkcpl = chkcpl + "0) {\n alert(\"It appears you have left at least one of these fields blank. Please remedy this immediately.\");\n}"
+			contif = contif + "1) {\n document.getElementById(\"question" + str(int(qno)+1) + "\").style.display = \"\";\n document.getElementById(\"button" + qno + "\").style.display = \"none\";\n" + disabl + "\ntim" + str(int(qno)+1) + "= 0;\n\nfunction time" + str(int(qno)+1) + "() {\nif (yestim" + str(int(qno)+1) + "){\ntim" + str(int(qno)+1) + " = tim" + str(int(qno)+1) + " + 1;\nt = setTimeout(function() {time" + str(int(qno)+1) + "()},1000);\n}\n};\nvar yestim" + str(int(qno)+1) + " = 1;\ntime" + str(int(qno)+1) + "();\n}"
 			contfn = contfn + "\n" + chkans + "\n" + chkcpl + "\n" + ctr + "\n" + contif + "\n" + ctwrng
 			worksheet = worksheet + "\n<script type=\"text/javascript\">" + varset + contfn + "};\n</script>\n" + dragoon_link + "\n<br><button id=\"button" + qno + "\" onClick=\"cont" + qno + "();\">Continue</button>\n<div id=\"question" + str(int(qno)+1) + "\" style=\"display: none\">"
 			divset = divset + "</div>"
 		else:
 			varset = varset + "}; \n"
-			chkcpl = chkcpl + "0===1) {\n alert(\"It appears you have left at least one of these fields blank. Please remedy this immediately.\");\n}"
-			contif = contif + "1===1) {\n document.getElementById(\"question" + str(int(qno)+1) + "\").style.display = \"\";\n document.getElementById(\"button" + qno + "\").style.display = \"none\";\n" + disabl + "\ndisplayAnswers();\n}"
+			chkcpl = chkcpl + "0) {\n alert(\"It appears you have left at least one of these fields blank. Please remedy this immediately.\");\n}"
+			contif = contif + "1) {\n document.getElementById(\"question" + str(int(qno)+1) + "\").style.display = \"\";\n document.getElementById(\"button" + qno + "\").style.display = \"none\";\n" + disabl + "\ndisplayAnswers();\n}"
 			contfn = contfn + "\n" + chkans + "\n" + chkcpl + "\n" + ctr + "\n" + contif + "\n" + ctwrng
 			worksheet = worksheet + "\n<script type=\"text/javascript\">" + varset + contfn + "};\n</script>\n" + dragoon_link + "\n<br><button id=\"button" + qno + "\" onClick=\"cont" + qno + "();\">Continue</button>\n<div id=\"question" + str(int(qno)+1) + "\" style=\"display: none\">"
 			divset = divset + "</div>"
@@ -338,8 +366,6 @@ def testload():
 		return CustomTypeDecoder(wksht_dct)
 		
 '''Tasks:
---Apply timing function to the end of every script section regardless of whether there is a dropdown box or not
---Figure out what's happening with the loose text and images
---Add ability to do chackboxes
+--Add ability to do checkboxes
 --Add ability to do text boxes
 --Construct JSONs for remaining worksheets'''
