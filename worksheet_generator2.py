@@ -315,25 +315,25 @@ def generateHTMLWorksheet(wks):
 						worksheet = worksheet + "\n" + part.text + ""
 					elif part.__class__.__name__ == "Image":
 						worksheet = worksheet + "\n<img src =\"" + part.img + ".JPG\"/>"
-					elif part.__class__.__name__ == "Checkbox":
-					'''
+					'''elif part.__class__.__name__ == "Checkbox":
+					
 					--Turn green if correct
 					--Allow worksheet to move forward if correct
 					--Count wrong
 					--Turn yellow and change answer if wrong 3X
 					--Send wrong answers to end table (as list of as true/false individually?)
-					--Send message if incomplete?'''
+					--Send message if incomplete?
 						rno = rnum[romannum]
 						romannum = romannum + 1
 						allans = ""
 						for item in part.options_c:
 							item = "\n<input type=\"checkbox\" name=\"" + qno + lno + rno + "\" id=\"" + str(item) + "\">" + str(item) + "<br>"
 							allans = allans + item
-						chkbox = "1"
+							chkbox = "1"
 						for item in part.correct_c:
 							item = "\n(document.getElementById(\"" + qno + lno + rno + "\")"
 							chkbox = chkbox + " && " + item
-						varset = varset + "\n" + lno + rno + ":0,"
+						varset = varset + "\n" + lno + rno + ":0,"'''
 					worksheet = worksheet + "</p>"
 		if int(qno) < len(list(wks.questions)):
 			varset = varset + "}; \n"
