@@ -1,0 +1,341 @@
+{
+    "__Worksheet__": {
+        "loose": [],
+        "questions": [
+            {
+                "__Question__": {
+                    "gen": "Suppose you are creating a modek of the system described in the italicized paragraph below.</p><p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i>",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "The \"beaver population\" is an <b>accumulator</b> whose value is calculated by the following expression:</p><p>new beaver population = old beaver population + "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "beaver birth rate",
+                                                "beaver population",
+                                                "beaver births",
+                                                "20",
+                                                "30%"
+                                            ],
+                                            "correct": "beaver births"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><p>Initial value: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "beaver birth rate",
+                                                "beaver population",
+                                                "beaver births",
+                                                "20",
+                                                "30%"
+                                            ],
+                                            "correct": "20"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "The \"beaver birth rate\" is a parameter whose value is equal to "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "beaver birth rate",
+                                                "beaver population",
+                                                "beaver births",
+                                                "20",
+                                                "30%"
+                                            ],
+                                            "correct": "30%"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "beaver birth rate",
+                                                "beaver population",
+                                                "20",
+                                                "30%"
+                                            ],
+                                            "correct": "beaver population"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "beaver birth rate",
+                                                "beaver births",
+                                                "20",
+                                                "30%"
+                                            ],
+                                            "correct": "beaver birth rate"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": []
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "\"Beaver births\" is a function whose value is calculated by the following mathematical expression: "
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "gen": "Assume you are modeling the system decribed below in italics.</p><p>Brandon has 100 video ganes. Each week, he buys two more games.",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "The number of video games Brandon buys every week is a(n) "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "parameter",
+                                                "accumulator",
+                                                "function"
+                                            ],
+                                            "correct": "parameter"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " and is equal to "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "100",
+                                                "4",
+                                                "2",
+                                                "1"
+                                            ],
+                                            "correct": "2"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " games/week."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "The number of video games Brandon has each week is the number of video games he had the preceding week plus the number of video games he buys this week. Therefore, the number of video games Brandon has is a(n): "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "parameter",
+                                                "accumulator",
+                                                "function"
+                                            ],
+                                            "correct": "accumulator"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "gen": "",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Fill in the blanks."
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Node Name",
+                                                "Type",
+                                                "Description"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "energy balance",
+                                                    [
+                                                        [
+                                                            "parameter",
+                                                            "accumulator",
+                                                            "function"
+                                                        ],
+                                                        "parameter"
+                                                    ],
+                                                    "Small surplus per day; value = 100 calories"
+                                                ],
+                                                [
+                                                    "energy stored",
+                                                    [
+                                                        [
+                                                            "parameter",
+                                                            "accumulator",
+                                                            "function"
+                                                        ],
+                                                        "accumulator"
+                                                    ],
+                                                    "energy stored in the body is equal to its value yesterday plus energy balance for today;ArithmeticError initial value = 345000 calories"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "How would Joe measure changes to his energy storage?"
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "time (days)",
+                                                "calculation",
+                                                "energy stored (cal)"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "0",
+                                                    "",
+                                                    "345000"
+                                                ],
+                                                [
+                                                    "1",
+                                                    [
+                                                        [
+                                                            "345000 + 100",
+                                                            "345100 + 100",
+                                                            "34500 + 34500",
+                                                            "345100 + 200"
+                                                        ],
+                                                        "345000 + 100"
+                                                    ],
+                                                    [
+                                                        [
+                                                            "345000",
+                                                            "345100",
+                                                            "345200",
+                                                            "345500"
+                                                        ],
+                                                        "345100"
+                                                    ]
+                                                ],
+                                                [
+                                                    "2",
+                                                    [
+                                                        [
+                                                            "345100 + 100",
+                                                            "345200 + 100",
+                                                            "345300 + 100",
+                                                            "345400 + 100"
+                                                        ],
+                                                        "345100 + 100"
+                                                    ],
+                                                    [
+                                                        [
+                                                            "345000",
+                                                            "345100",
+                                                            "345200",
+                                                            "345500"
+                                                        ],
+                                                        "345200"
+                                                    ]
+                                                ],
+                                                [
+                                                    "3",
+                                                    [
+                                                        [
+                                                            "345100 + 100",
+                                                            "345200 + 100",
+                                                            "345300 + 100",
+                                                            "345400 + 100"
+                                                        ],
+                                                        "345200 + 100"
+                                                    ],
+                                                    "345300"
+                                                ],
+                                                [
+                                                    "4",
+                                                    [
+                                                        [
+                                                            "345100 + 100",
+                                                            "345200 + 100",
+                                                            "345300 + 100",
+                                                            "345400 + 100"
+                                                        ],
+                                                        "345300 + 100"
+                                                    ],
+                                                    "345400"
+                                                ],
+                                                [
+                                                    "5",
+                                                    [
+                                                        [
+                                                            "345100 + 100",
+                                                            "345200 + 100",
+                                                            "345300 + 100",
+                                                            "345400 + 100"
+                                                        ],
+                                                        "345400 + 100"
+                                                    ],
+                                                    "345500"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "name": "Energy_Balance"
+    }
+}
