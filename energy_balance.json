@@ -1,6 +1,20 @@
 {
     "__Worksheet__": {
-        "loose": [],
+        "name": "Energy_Balance",
+        "loose": [
+            {
+                "__LsText__": {
+                    "text": "</p><h1>Modeling Practice (Working with Dragoon)</h1><h3>Key Terms & Concepts</h3><p><b>A parameter</b> represents a fixed quantity that never changes. Parameters are used to represnt constant values.</p><p><i>Example: pi is a <b>parameter</i> because it is always 3.1415.</i></p><p><b>An accumulator</b> represents a quantity that increases or decreases over time based on its previous value and the value of its inputs. These take the form: \"new value = old value + inputs\". It has an initial value that serves as the first \"old value.\"</p><p><i>Example: Population can be an <b>accumulator</b> because its new value is depndent on its old value and its inputs. Current population size = last year's population size + inputs.</i></p><p><b>A function</b> represents a value  that is calculated directly from the values of other quantities, without referencing its previous value. A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value. Thus, a function does not need and does not have a special initial value, whereas an accumulator does.</p><p><i>Example: Suppose you know 20% of the population dies each year, then the number of deaths is a <b>function</b>, namely population * 0.2. Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute it (if it did, it\u00e2\u20ac\u2122d be an <b>accumulator</b>).</i></p><p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be written in scientific notation to be <b>3.45e+5</b> or <b>3.45 x 10<sup>5</sup></b>.</p><p>To do this, move the decimal place from the end of <b>345000</b> to between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for \"exponenet is +5\" or <b>10<sup5</sup></b>. This indicates how many zeros there are.</p><p>Similarly, </b>0.0000000000000000345</b> can be written as <b>3.45e-17</b> or <b>3.45 x 10<sup>-17</sup></b>.",
+                    "before": 1
+                }
+            },
+            {
+                "__LsText__": {
+                    "text": "In your address bar, type in the URL provided by the instructor.</li><li>A screen similar to the following screen should come up. (If it doesn't, double-check that the address is correct before asking the instructor for help.)<img src =\"energy_balance/energy1.JPG\"/></li><li>Type in the username and password printed on your blue ID sheet and click on the <b>Login</b> button. This is boxed below<img src =\"energy_balance/energy2.JPG\"/></li><li>The following screen should come up. this is the main forum window that you will be working with, except that it will say your class period instead of \"Test Forum Class.\"<img src =\"energy_balance/energy3.JPG\"/></li></ol><b>When you see this, you have sucessfully logged onto the forum. Congratulations!</b>",
+                    "before": 4
+                }
+            }
+        ],
         "questions": [
             {
                 "__Question__": {
@@ -16,14 +30,14 @@
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "beaver births",
                                             "options": [
                                                 "beaver birth rate",
                                                 "beaver population",
                                                 "beaver births",
                                                 "20",
                                                 "30%"
-                                            ]
+                                            ],
+                                            "correct": "beaver births"
                                         }
                                     },
                                     {
@@ -33,14 +47,14 @@
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "20",
                                             "options": [
                                                 "beaver birth rate",
                                                 "beaver population",
                                                 "beaver births",
                                                 "20",
                                                 "30%"
-                                            ]
+                                            ],
+                                            "correct": "20"
                                         }
                                     },
                                     {
@@ -50,36 +64,36 @@
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "30%",
                                             "options": [
                                                 "beaver birth rate",
                                                 "beaver population",
                                                 "beaver births",
                                                 "20",
                                                 "30%"
-                                            ]
+                                            ],
+                                            "correct": "30%"
                                         }
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "beaver population",
                                             "options": [
                                                 "beaver birth rate",
                                                 "beaver population",
                                                 "20",
                                                 "30%"
-                                            ]
+                                            ],
+                                            "correct": "beaver population"
                                         }
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "beaver birth rate",
                                             "options": [
                                                 "beaver birth rate",
                                                 "beaver births",
                                                 "20",
                                                 "30%"
-                                            ]
+                                            ],
+                                            "correct": "beaver birth rate"
                                         }
                                     }
                                 ]
@@ -118,12 +132,12 @@
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "parameter",
                                             "options": [
                                                 "parameter",
                                                 "accumulator",
                                                 "function"
-                                            ]
+                                            ],
+                                            "correct": "parameter"
                                         }
                                     },
                                     {
@@ -133,13 +147,13 @@
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "2",
                                             "options": [
                                                 "100",
                                                 "4",
                                                 "2",
                                                 "1"
-                                            ]
+                                            ],
+                                            "correct": "2"
                                         }
                                     },
                                     {
@@ -160,12 +174,12 @@
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "accumulator",
                                             "options": [
                                                 "parameter",
                                                 "accumulator",
                                                 "function"
-                                            ]
+                                            ],
+                                            "correct": "accumulator"
                                         }
                                     }
                                 ]
@@ -188,6 +202,11 @@
                                     },
                                     {
                                         "__Table__": {
+                                            "header": [
+                                                "Node Name",
+                                                "Type",
+                                                "Description"
+                                            ],
                                             "rows": [
                                                 [
                                                     "energy balance",
@@ -213,11 +232,6 @@
                                                     ],
                                                     "energy stored in the body is equal to its value yesterday plus energy balance for today;ArithmeticError initial value = 345000 calories"
                                                 ]
-                                            ],
-                                            "header": [
-                                                "Node Name",
-                                                "Type",
-                                                "Description"
                                             ]
                                         }
                                     }
@@ -234,6 +248,11 @@
                                     },
                                     {
                                         "__Table__": {
+                                            "header": [
+                                                "time (days)",
+                                                "calculation",
+                                                "energy stored (cal)"
+                                            ],
                                             "rows": [
                                                 [
                                                     "0",
@@ -321,11 +340,6 @@
                                                     ],
                                                     "345500"
                                                 ]
-                                            ],
-                                            "header": [
-                                                "time (days)",
-                                                "calculation",
-                                                "energy stored (cal)"
                                             ]
                                         }
                                     }
@@ -344,28 +358,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "Under <b>Additional Dragoon Problems</b> in the main window, make sure that the <b>Problem Category</b> option reads <b>Energy balance</b> and the <b>Problem</b> option reads <b>Energy balance 0</b>. Click on the <b>Open problem</b> button, boxed in the screenshot below."
-                                        }
-                                    },
-                                    {
-                                        "__Image__": {
-                                            "img": "energy_balance/energy4"
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "The following model should appear. This is your workspace for the <b>Energy Balance - Level 0</b> problem. Here, you will model different systems and graph them!"
-                                        }
-                                    },
-                                    {
-                                        "__Image__": {
-                                            "img": "energy_balance/energy5"
+                                            "text": "Click on the Dragoon button below. This is your workspace for the <b>Energy Balance - Level 0</b> problem. Here, you will model different systems and graph them!"
                                         }
                                     },
                                     {
@@ -375,25 +368,31 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "__Dragoon__": {
+                                "mode": "STUDENT",
+                                "problem": "Energy-balance-0"
+                            }
                         }
                     ]
                 }
             },
             {
                 "__Question__": {
-                    "gen": "On your computer, complete the following steps to create a Dragoon model for Energy Balance.",
+                    "gen": "Do the following steps to create a new model for Joe's body.",
                     "sections": [
                         {
                             "__Section__": {
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "To start defining a node, click on the <b>Create Node</b> button in the top left corner. The following window should pop up:"
+                                            "text": "If you have not done so already, click the <b>Done</b> button."
                                         }
                                     },
                                     {
                                         "__Image__": {
-                                            "img": "energy_balance/energy6"
+                                            "image": "energy_balance/energy16"
                                         }
                                     }
                                 ]
@@ -404,45 +403,12 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "The blank dropdown menu labaled <b>Description</b> is for the name and description for the node. Select <b>energy stored in Joe's body each day</b>."
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "A message should pop up saying \"Green means you chose the author's answer. God job!\" This message is from the tutoring system. It knows that the correct model is and will help you create it. When your blank turns green, it means you have done this correctly. Click on <b>OK</b>."
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "Next, select the node <b>Type</b>. Try choosing <b>Parameter</b>."
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "Oops-- be careful! If you choose the wrong type, the box will turn red."
+                                            "text": "Your current tab should close and you should see this screen again."
                                         }
                                     },
                                     {
                                         "__Image__": {
-                                            "img": "energy_balance/energy7"
+                                            "image": "energy_balance/energy17"
                                         }
                                     }
                                 ]
@@ -453,7 +419,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "The correct answer in this case is <b>Accumulator</b>. The problem gives this to you, but often, you will have to read through the text on the left of the screen and figure it out on your own. See the Key Terms & Concepts at the beginning of this workbook to review node types."
+                                            "text": "Click on the Dragoon button below. After the problem opens, read the text on the left of the screen. Notice that some nodes have been created for you already."
                                         }
                                     }
                                 ]
@@ -464,141 +430,83 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "Input the correct <b>initial value</b>. (If you input the incorrect value more than two times, the box will turn yellow with the correct choice.)"
+                                            "text": "Start defining/refining your nodes. Click on the <b>Create Node</b> button in the top left corner as you did before, or you can double-click on an already created node in the window. If you have described your nodes properly in the above table, creating nodes should be simple\u2014you have all the information you need right here!"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "As you can see from your table, four nodes are needed. After you have created them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren\u2019t completely defined. Look for nodes that have dotted lines around them.</p><p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b>"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Dragoon__": {
+                                "mode": "STUDENT",
+                                "problem": "Energy-balance-1"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "gen": "",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "In the graph window, check <b>Show energy stored</b> and make sure <b>Show energy balance</b> is not checked, as boxed in the screenshot below."
                                         }
                                     },
                                     {
                                         "__Image__": {
-                                            "img": "energy_balance/energy8"
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "Enter <b>345000</b> for the <b>Initial Value</b> and select <b>calories</b> for <b>Units</b>. Note that Dragoon does not understand commas, so enter <b>345000</b> and not <b>345,000</b>."
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "The next option you should see is <b>Inputs</b> followed by mathematical operations (+,-,*,/). Skip these for now and focus on the <b>Expression</b> box."
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "The <b>Expression</b> box is where you define the calculation for your node. To do this, you can add <b>Inputs</b>, which are the other nodes in your problem, as well as click on mathematical operations to put them in your calculation. At any point in your node creation, when you think you are done with your expresion, press <b>Check Expression</b> to receive feedback on your answer. above the <b>Expression</b> box, you will se the beginning part of the calculation. In this case, you should see <b>new energy stored = old energy stored +</b>. Finish this calcualtion with inputs from the box. In this case, add the input <b>energy balance</b> by clicking on the dropdown option for <b>Inputs</b> and select the correct response. Click <b>Check Expression</b>. The expression box should turn green if you put in the correct calculation."
-                                        }
-                                    },
-                                    {
-                                        "__Image__": {
-                                            "img": "energy_balance/energy9"
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "When you have finished and all boxes are completed (<b>Inputs</b> will never be completed because it just contains options for the expression), click <b>Done</b> in teh bottom right corner."
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "Congratulations! You have created your first node. You should immediately notice two things. First, another node has been created in addition to the <b>energy stored</b> one you made. This is because you used it in your calculation in the <b>Description</b>. Anything that hasn\u2019t been created yet but you use in your calculation should automatically appear when you are done defining your node. Second, you may notice that the node you created, <b>energy stored</b>, has a solid, yellow border around it. The border will change depending on how well you did in creating your node. The border may be solid (signifying the node has been defined completely) or dotted (signifying the node isn\u2019t completely defined and you won\u2019t be able to graph your model). In addition, the border may be red (you didn\u2019t correctly define the node on your own), green (you correctly defined the node on your own), or yellow (the answer was given for you on some nodes). If you enter everything in the node correctly on your first try, then the whole node turns green. Shoot for making your nodes all green!"
-                                        }
-                                    },
-                                    {
-                                        "__Image__": {
-                                            "img": "energy_balance/energy10"
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "Go ahead and double-click the blue <b>energy balance</b> triangle and try to define the node on your own! <i>Hint, the answer is in the text on the left of the screen.</i>"
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "When you are finished, you should see  this message. It's time to graph your model!"
-                                        }
-                                    },
-                                    {
-                                        "__Image__": {
-                                            "img": "energy_balance/energy11"
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "Click on the <b>Graph</b> button on the top menu bar. You should see this:"
-                                        }
-                                    },
-                                    {
-                                        "__Image__": {
-                                            "img": "energy_balance/energy12"
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "If you haven\u2019t finished completing your model, you cannot graph it and the following message will pop up. When this happens, look for nodes that have dotted lines around them. This means that they are not completely defined and need to be finished."
-                                        }
-                                    },
-                                    {
-                                        "__Image__": {
-                                            "img": "energy_balance/energy13"
+                                            "image": "energy_balance/energy18"
                                         }
                                     },
                                     {
                                         "__Text__": {
-                                            "text": "<b>When you have successfully finished creating your model, the graph window should pop up when you click on the button. Now you can answer the following questions.</b>"
+                                            "text": "Vary the values of energy ingested, energy expended, and initial energy stored. Notice that the graph can change with these values.</p><p>When you\u2019re done playing with the values, close and reopen the graph window to reset the sliders to their original positions, and then answer the following questions.</p><p>What is the unit of the independent variable on the graph?</p><p>"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "days",
+                                                "calories"
+                                            ],
+                                            "correct": "days"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "What happens to the graph if Joe changes his energy ingested from 1989 calories to 2.11e+3 calories? What does this mean?"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Close and reopen the graph window to reset the sliders to their original positions. What happens to the graph if Joe changes his energy expended from 2100 to 1980 and what does this mean?</p><p>When you are finished with these problems, close the graphing window and open the table by clicking on the Table button on the top menu bar."
                                         }
                                     }
                                 ]
@@ -609,28 +517,14 @@
             },
             {
                 "__Question__": {
-                    "gen": "In the graph window, vary the values of energy balance and initial energy stored by dragging the sliders back and forth along the lines (boxed below) or by typing in different values in the boxes (boxed below).",
+                    "gen": "In the table window, scroll to the bottom and vary the values of energy balance and initial energy stored. Notice how the table may change.</p><p>When you\u2019re done testing different values for energy expended, energy ingested, and energy stored, close and reopen the table window to reset the sliders to their original positions. Answer the following questions.",
                     "sections": [
                         {
                             "__Section__": {
                                 "content": [
                                     {
-                                        "__Image__": {
-                                            "img": "energy_balance/energy14"
-                                        }
-                                    },
-                                    {
                                         "__Text__": {
-                                            "text": "Notice that the graph can change with these values. A red line should pop up showing you the author\u2019s solution. The value that you have changed by varying the values should be green. When you\u2019re done playing with the values, answer the following questions.</p><p>What is the vertical axis on the graph?"
-                                        }
-                                    },
-                                    {
-                                        "__Dropdown__": {
-                                            "correct": "energy stored (calories)",
-                                            "options": [
-                                                "energy stored (calories)",
-                                                "time (days)"
-                                            ]
+                                            "text": "What does the -111 represent in the last column and why doesn\u2019t it change?"
                                         }
                                     }
                                 ]
@@ -641,7 +535,18 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "What happens to the graph if you change the energy balance from 100 calories to 300 calories? What does this mean?"
+                                            "text": "On what day does energy stored hit 3.43e+5 calories?</p><p>Day "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "23.00",
+                                                "22.00",
+                                                "14.00",
+                                                "13.00"
+                                            ],
+                                            "correct": "14.00"
                                         }
                                     }
                                 ]
@@ -652,63 +557,39 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "When you finish with these problems, close the graphing window and open the table by clicking on the <b>Table</b> button on the top menu bar."
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "__Question__": {
-                    "gen": "In the table window, scroll to the very bottom and vary the values of energy balance and initial energy stored, just as you did before with the graph (by dragging the sliders back and forth along the lines or by typing in different values in the boxes).</p><p>Notice how the table may change. When you\u2019re done playing with the values, answer the following questions.",
-                    "sections": [
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Image__": {
-                                            "img": "energy_balance/energy15"
+                                            "text": "What is the energy stored value on Day 0 and on Day 999 (the first and last values)?"
                                         }
                                     },
                                     {
                                         "__Text__": {
-                                            "text": "On what day does energy stored hit 3.46e+5 calories?"
+                                            "text": "</p><p>Day0: "
                                         }
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "5.00",
                                             "options": [
-                                                "14.50",
-                                                "15.00",
-                                                "5.00",
-                                                "16.00"
-                                            ]
+                                                "-111",
+                                                "3.43e+5",
+                                                "3.45e+5",
+                                                "3.34e+5"
+                                            ],
+                                            "correct": "3.45e+5"
                                         }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
+                                    },
                                     {
                                         "__Text__": {
-                                            "text": "On what day does energy hit 3.47e+5 calories?"
+                                            "text": "</p><p>Day999: "
                                         }
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "15.00",
                                             "options": [
-                                                "15.00",
-                                                "18.50",
-                                                "24.50",
-                                                "22.00"
-                                            ]
+                                                "-111",
+                                                "3.43e+5",
+                                                "3.45e+5",
+                                                "3.34e+5"
+                                            ],
+                                            "correct": "3.34e+5"
                                         }
                                     }
                                 ]
@@ -719,18 +600,34 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "What is the energy stored value on Day 9? "
+                                            "text": "If the initial energy stored changed from 345000 calories to 3000 calories, what is the value on Day 0 and on Day 999 (the first and last values)?</p><p>Day 0: "
                                         }
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "3.46+5",
                                             "options": [
-                                                "3.45+5",
-                                                "3.46+5",
-                                                "3.47+5",
-                                                "3.48+5"
-                                            ]
+                                                "?",
+                                                "?",
+                                                "?",
+                                                "?"
+                                            ],
+                                            "correct": "?"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><p>Day 999: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "?",
+                                                "?",
+                                                "?",
+                                                "?"
+                                            ],
+                                            "correct": "?"
                                         }
                                     }
                                 ]
@@ -741,105 +638,39 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "What is the energy stored value on Day 0 and on day 29.5 (the first and last value)?</p><p>Day 0: "
+                                            "text": "<i>Don't forget to reset all the values by closing and reopening the table window to reset the sliders to their original positions.</i></p><p>If Joe expends 3000 calories, but leaves all other values the sme initially, then on <b>Day 30</b> what would his energy stored and energy balance be?</p><p>Energy stored: "
                                         }
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "3.45+5",
                                             "options": [
-                                                "3.45+5",
-                                                "3.46+5",
-                                                "3.47+5",
-                                                "3.48+5"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "__Text__": {
-                                            "text": "</p><p>Day 29.5: "
-                                        }
-                                    },
-                                    {
-                                        "__Dropdown__": {
-                                            "correct": "3.48+5",
-                                            "options": [
-                                                "3.45+5",
-                                                "3.46+5",
-                                                "3.47+5",
-                                                "3.48+5"
-                                            ]
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "If energy balance changed from 100 calories to 300 calories, on what day does energy stored hit 3.46e+5 calories?</p><p>Day "
-                                        }
-                                    },
-                                    {
-                                        "__Dropdown__": {
-                                            "correct": "2.00",
-                                            "options": [
-                                                "5.00",
-                                                "2.00",
-                                                "4.50",
-                                                "3.50"
-                                            ]
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "If the initial energy stored changed from 345000 calories to 3000 calories, what is the value on Day 0 and on Day 29.5 (the first and last values)? <i>Don\u2019t forget to reset energy balance back to 100 calories</i>. You can reset all sliders to their original values by closing the table window and reopening it using the <b>Table</b> button.</p><p>Day 0: "
-                                        }
-                                    },
-                                    {
-                                        "__Dropdown__": {
-                                            "correct": "3.00e+5",
-                                            "options": [
-                                                "3.00e+5",
-                                                "3.05e+5",
-                                                "3.25e+5",
+                                                "3.14e+5",
+                                                "-1.02e+3",
+                                                "-111",
                                                 "3.45e+5"
-                                            ]
+                                            ],
+                                            "correct": "3.14e+5"
                                         }
                                     },
                                     {
                                         "__Text__": {
-                                            "text": "</p><p>Day 29.5: "
+                                            "text": "cal</p><p>Energy balance: "
                                         }
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "3.03e+5",
                                             "options": [
-                                                "3.03e+5",
-                                                "3.05e+5",
-                                                "3.00e+5",
-                                                "3.02e+5"
-                                            ]
+                                                "3.14e+5",
+                                                "-1.02e+3",
+                                                "-111",
+                                                "3.45e+5"
+                                            ],
+                                            "correct": "-1.02e+3"
                                         }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": [
+                                    },
                                     {
                                         "__Text__": {
-                                            "text": "Why are your answers so different for questions 5d & 5f? What does this mean?"
+                                            "text": "cal"
                                         }
                                     }
                                 ]
@@ -850,16 +681,38 @@
             },
             {
                 "__Question__": {
-                    "gen": "The energy balance of your body is the difference between the energy you add to your body by ingesting food and the energy you subtract from your body by physical exercise and other activities. When the energy you ingest exactly equals the energy you expend, the energy balance is zero. When the energy you ingest is greater than the energy you expend, the energy balance is positive and the excess energy is added to the body's energy stores. When you consume less energy than you expend, the energy balance is negative and your body makes up the deficit by withdrawing energy from storage. The energy balance can change each day. Thus, if the energy balance is positive on a particular day, then the energy stored goes up by that amount during the day. If the energy balance is negative, then the energy stored goes down.</p><p>Joe's next model of his energy balance is more complex. It makes energy balance a function of energy ingested and energy expended. Eventually, this will allow him to vary them separately. For instance, he can see what happens if he keeps his diet the same (and hence energy ingested is the same as it is now) but he does more exercise (so his energy expended is higher than it is now). However, for now he assumes that his daily expenditure is 2100 calories and his daily ingestion nets him 1989 calories.",
+                    "gen": "<b>Energy Balance - Level 2</b>",
                     "sections": [
                         {
                             "__Section__": {
                                 "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If you have not done so already, click the <b>Done</b> button. You should see the main window screen of the forum."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Open the Dragoon problem below. After the problem opens, read the text on the left of the screen and then fill in the blanks in the table before creating your nodes."
+                                        }
+                                    },
                                     {
                                         "__Table__": {
+                                            "header": [
+                                                "Node Name",
+                                                "Node Type",
+                                                "Description",
+                                                "Expression"
+                                            ],
                                             "rows": [
                                                 [
-                                                    "Energy expended",
+                                                    "Weight",
                                                     [
                                                         [
                                                             "parameter",
@@ -868,29 +721,19 @@
                                                         ],
                                                         "accumulator"
                                                     ],
-                                                    "Energy expended daily; initial value = 2100 cal.",
-                                                    "N/A"
-                                                ],
-                                                [
-                                                    "Energy stored",
-                                                    "Accumulator",
-                                                    "Energy stored in the body; initial value = 345000 cal."
-                                                ],
-                                                [
-                                                    "Energy ingested",
                                                     [
                                                         [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
+                                                            "140 lbs",
+                                                            "150 lbs",
+                                                            "125 lbs",
+                                                            "118 lbs"
                                                         ],
-                                                        "accumulator"
+                                                        "150 lbs"
                                                     ],
-                                                    "Energy ingested daily; initial value = 1989 calories",
-                                                    "N/A"
+                                                    "New weight = old weight + weight change"
                                                 ],
                                                 [
-                                                    "Energy balance",
+                                                    "Weight change",
                                                     [
                                                         [
                                                             "parameter",
@@ -899,24 +742,356 @@
                                                         ],
                                                         "function"
                                                     ],
-                                                    "difference between ingestion and expenditure of energy per day",
+                                                    "weight of tissue added or subtracted from storage",
+                                                    "weight change = energy balance/calories per pound"
+                                                ],
+                                                [
+                                                    "Energy expended",
+                                                    "Parameter",
+                                                    "energy burned by nody each day; inital value = 2100 cal",
+                                                    "N/A"
+                                                ],
+                                                [
+                                                    "Energy balance",
+                                                    "Function",
+                                                    "energy balance in calories",
+                                                    "Energy balance = energy ingested - energy expended"
+                                                ],
+                                                [
+                                                    "Energy ingested",
+                                                    "Parameter",
+                                                    "energy from food each day; initial value = 1989 cal/lbs",
+                                                    "N/A"
+                                                ],
+                                                [
+                                                    "Calories per pound",
                                                     [
                                                         [
-                                                            "energy stored",
-                                                            "energy expended",
-                                                            "energy ingested",
-															"energy balance"
+                                                            "parameter",
+                                                            "accumulator",
+                                                            "function"
                                                         ],
-                                                        "energy expended"
+                                                        "parameter"
+                                                    ],
+                                                    "Number of calories stored in a pound of tissue",
+                                                    [
+                                                        [
+                                                            "New calories per pound = Old calories per pound + Energy balance",
+                                                            "Calories per pound = weight change/energy balance",
+                                                            "Calories per pound = weight/energy balance",
+                                                            "N/A"
+                                                        ],
+                                                        "N/A"
                                                     ]
                                                 ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "When you are done with your model, open the graph window and ensure that only <b>Show weight</b> is checked. Vary the values of the parameters, and check that the graph changes sensibly."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Close and reopen the graph window to reset the sliders to their original positions. You can use the <b>Graph</b> or <b>Table</b> buttons to answer the following questions."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Dragoon__": {
+                                "mode": "STUDENT",
+                                "problem": "Energy-balance-2"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "gen": "",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If Joe continues his ingesting/expending patterns, in about how many days will Joe weigh about 130 lbs?</p><p>"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "632",
+                                                "647",
+                                                "615",
+                                                "646"
                                             ],
+                                            "correct": "615"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " Days"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "What happens to the graph if Joe changes his energy ingested from 1989 calories to 2.11e+3 calories? What does this mean?"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Uncheck <b>show weight</b> and check either <b>Show energy balance</b> or <b>Show weight change</b>. Why do these graphs NOT show any change over time (i.e., slope = 0)?"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "<b>Show energy balance</b> and <b>Show weight change</b> are "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "static",
+                                                "dynamic"
+                                            ],
+                                            "correct": "static"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Vary the ingested values. How many calories can Joe ingest and keep his weight constant?"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "1989",
+                                                "2.10e+3",
+                                                "2.14e+3",
+                                                "2.06e+3"
+                                            ],
+                                            "correct": "2.10e+3"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " Calories"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Write the expression for energy balance. Explain your answer to the previous question in terms of this expression."
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "gen": "",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Table__": {
                                             "header": [
                                                 "Node Name",
-                                                "Node Type",
+                                                "Type",
                                                 "Description",
                                                 "Expression"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Physical activity expenditure",
+                                                    [
+                                                        [
+                                                            "parameter",
+                                                            "accumulator",
+                                                            "function"
+                                                        ],
+                                                        "parameter"
+                                                    ],
+                                                    "energy burned by physical exercise; value = 400 calories",
+                                                    "N/A"
+                                                ],
+                                                [
+                                                    "Resting energy expenditure",
+                                                    [
+                                                        [
+                                                            "parameter",
+                                                            "accumulator",
+                                                            "function"
+                                                        ],
+                                                        "parameter"
+                                                    ],
+                                                    "energy expended per day by basic body function; value = 1400 calories",
+                                                    "N/A"
+                                                ],
+                                                [
+                                                    "Digestive activity expenditure",
+                                                    [
+                                                        [
+                                                            "parameter",
+                                                            "accumulator",
+                                                            "function"
+                                                        ],
+                                                        "parameter"
+                                                    ],
+                                                    "energy burned in order to digest food; value = 200 calories",
+                                                    "N/A"
+                                                ],
+                                                [
+                                                    "Energy expended",
+                                                    [
+                                                        [
+                                                            "parameter",
+                                                            "accumulator",
+                                                            "function"
+                                                        ],
+                                                        "function"
+                                                    ],
+                                                    "energy burned by the body in a day",
+                                                    [
+                                                        [
+                                                            "physical activity expenditure",
+                                                            "resting energy expenditure",
+                                                            "digestive energy expenditure"
+                                                        ],
+                                                        "digestive energy expenditure"
+                                                    ]
+                                                ]
                                             ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "What is the value of Energy Expended?"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "400",
+                                                "1400",
+                                                "200"
+                                            ],
+                                            "correct": "1400"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "  calories."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If Joe continues to ingest 1989 calories a day, the graph will have a "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "positive",
+                                                "negative"
+                                            ],
+                                            "correct": "negative"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " slope."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If Joe ingests 2001 calories a day, his graph will have a "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "options": [
+                                                "positive",
+                                                "negative"
+                                            ],
+                                            "correct": "negative"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " slope."
                                         }
                                     }
                                 ]
@@ -925,7 +1100,6 @@
                     ]
                 }
             }
-        ],
-        "name": "Energy_Balance"
+        ]
     }
 }

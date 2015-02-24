@@ -143,7 +143,7 @@ class Image:
 			self.image = input("Folder/file name: ")
 			sect.content.append(self)
 		else:#elif isinstance (sect,list):
-			self.img = sect
+			self.image = sect
 	def from_dict(dct):
 		sig = Image(dct['image'])
 		return sig
@@ -367,5 +367,5 @@ def testload():
 		
 '''Tasks:
 --Add ability to do checkboxes
---Add ability to do text boxes
+--Add ability to do long text boxes--URGENT
 --Construct JSONs for remaining worksheets'''
