@@ -1,0 +1,26 @@
+{
+    "__Worksheet__": {
+        "questions": [
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Textbox__": {
+                                            "example": "ANSWER"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "gen": "This is a test."
+                }
+            }
+        ],
+        "loose": [],
+        "name": "test_textboxes"
+    }
+}

@@ -103,10 +103,13 @@ return result;
 <option>p</option></select></td></tr>
 </tbody>
 </table></p>
+<div id="1aii"><textarea id="test" cols="40" rows="5"></textarea></div>
 <script type="text/javascript">var set1 = {
 ai:0,
 bi:0,}; 
 function cont1() {
+var newaii = document.getElementById("test").value;
+document.getElementById("1aii").innerHTML = "<textarea disabled id=\"test\" cols=\"40\" rows=\"5\"/>" + newaii + "</textarea>"
 var yestim1 = 0;
 document.getElementById("1Time").innerHTML = tim1;
 checkAnswers("1ai", "true");checkAnswers("1bi", "p");

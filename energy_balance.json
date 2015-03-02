@@ -859,6 +859,11 @@
                                         "__Text__": {
                                             "text": "What happens to the graph if Joe changes his energy ingested from 1989 calories to 2.11e+3 calories? What does this mean?"
                                         }
+                                    },
+									{
+                                        "__Textbox__": {
+                                            "example": "ANSWER"
+                                        }
                                     }
                                 ]
                             }
@@ -869,6 +874,11 @@
                                     {
                                         "__Text__": {
                                             "text": "Uncheck <b>show weight</b> and check either <b>Show energy balance</b> or <b>Show weight change</b>. Why do these graphs NOT show any change over time (i.e., slope = 0)?"
+                                        }
+                                    },
+									{
+                                        "__Textbox__": {
+                                            "example": "ANSWER"
                                         }
                                     }
                                 ]
@@ -885,10 +895,10 @@
                                     {
                                         "__Dropdown__": {
                                             "options": [
-                                                "static",
+                                                "constant",
                                                 "dynamic"
                                             ],
-                                            "correct": "static"
+                                            "correct": "constant"
                                         }
                                     },
                                     {
@@ -932,6 +942,11 @@
                                     {
                                         "__Text__": {
                                             "text": "Write the expression for energy balance. Explain your answer to the previous question in terms of this expression."
+                                        }
+                                    },
+									{
+                                        "__Textbox__": {
+                                            "example": "ANSWER"
                                         }
                                     }
                                 ]

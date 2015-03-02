@@ -125,6 +125,17 @@ class Dropdown:
 		drp = Dropdown(dct['correct'])
 		drp.options = list(map(CustomTypeDecoder,dct['options']))
 		return drp
+
+class Textbox:
+	def __init__(self,sect):
+		if isinstance (sect,Section):
+			self.example = input ("Example right answer: ")
+			sect.content.append(self)
+		else:
+			self.example = sect
+	def from_dict(dct):
+		box = Textbox(dct['example'])
+		return box
 		
 class Text:
 	def __init__ (self,sect):
@@ -173,6 +184,7 @@ TYPES = { 'Worksheet': Worksheet,
 		  'Section': Section,
 		  'Table': Table,
 		  'Dropdown': Dropdown,
+		  'Textbox': Textbox,
 		  'Text': Text,
 		  'Image': Image
 		  }
@@ -211,7 +223,7 @@ def CustomTypeDecoder(dct):
 
 def generateHTMLWorksheet(wks):
 	# Converts Worksheet object, "wks" into an html/javascript file
-	worksheet = "<!DOCTYPE html>\n<html>\n<head>\n<title>Dragoon Worksheet</title>\n<script type=\"text/javascript\">\nfunction\nopenDragoonProblem(num){\nvar u = document.getElementById(\"user\").value;\nvar s = document.getElementById(\"section\").value;\nvar problemID = \"problem\" + num.toString();\nvar p = document.getElementById(problemID).value;\nvar modeID = \"mode\" + num.toString();\nvar m = document.getElementById(modeID).value;\nvar urlString = \"http://dragoon.asu.edu/demo/index.html?u=\"+u+\"&m=\"+m+\"&p=\"+p+\"&s=\"+s;\nwindow.open(urlString);\n}\nfunction checkAnswers(inputId, rightAnswer)\n{\nif(document.getElementById(inputId).value===rightAnswer) {\ndocument.getElementById(inputId).style.background=\"#66FF33\";\nreturn true;\n}\nelse\n{\ndocument.getElementById(inputId).style.background=\"#FF3333\";\nreturn false;\n}\n};\n\nvar tim1 = 0;\nfunction time1 () {\nif (yestim1=1){\ntim1 = tim1 + 1;\nt = setTimeout(function() {time1()},1000);\n}\n};\nvar yestim1 = 1;\ntime1();\nfunction checkCompletion(num){\n// id is the id of the continue button or I just need a the number of the question i.e. if its cont1 just send me 1 and it will do\nvar u = document.getElementById(\"user\").value;\nvar s = document.getElementById(\"section\").value;\nvar problemID = \"problem\" + num.toString();\nvar p = document.getElementById(problemID).value;\nvar modeID = \"mode\" + num.toString();\nvar m = document.getElementById(modeID).value;\nvar xmlHTTP = new XMLHttpRequest();\nvar userObject;\nxmlHTTP.onreadystatechange = function(){\nif(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){\nuserObject = JSON.parse(xmlHTTP.responseText);\n}\n}\nvar url = \"../demo/log/dashboard_js.php?m=\"+m+\"&u=\"+u+\"&s=\"+s+\"&p=\"+p;\n//var url = \"log/dashboard_js.php?m=\"+m+\"&u=\"+u+\"&s=\"+s+\"&p=\"+p;\nxmlHTTP.open(\"GET\", url, false);\nxmlHTTP.send();\nvar id = \"dragoonErrorMessage\" + num.toString();\nvar result = false;\n if(userObject != null){\nresult = userObject[0].problemComplete;\n}\nif(result) {\ndocument.getElementById(id).style.display = \"none\";\n} else {\ndocument.getElementById(id).style.display = \"\";\n}\nreturn result;\n}</script>\n</head>\n<body>\n<label>Username :</label>&nbsp;<input type=\"text\" name=\"user\" id=\"user\">\n<input type=\"hidden\" name=\"section\" id=\"section\" value=\"public-worksheet\">"
+	worksheet = "<!DOCTYPE html>\n<html>\n<head>\n<title>Dragoon Worksheet</title>\n<script type=\"text/javascript\">\nfunction\nopenDragoonProblem(num){\nvar u = document.getElementById(\"user\").value;\nvar s = document.getElementById(\"section\").value;\nvar problemID = \"problem\" + num.toString();\nvar p = document.getElementById(problemID).value;\nvar modeID = \"mode\" + num.toString();\nvar m = document.getElementById(modeID).value;\nvar urlString = \"http://dragoon.asu.edu/demo/index.html?u=\"+u+\"&m=\"+m+\"&p=\"+p+\"&s=\"+s;\nwindow.open(urlString);\n}\nfunction checkAnswers(inputId, rightAnswer)\n{\nif(document.getElementById(inputId).value===rightAnswer) {\ndocument.getElementById(inputId).style.background=\"#66FF33\";\nreturn true;\n}\nelse\n{\ndocument.getElementById(inputId).style.background=\"#FF3333\";\nreturn false;\n}\n};\nfunction checkTextbox(inputId) {\nif (!(document.getElementById(inputId).value===\"\")) {\ndocument.getElementById(inputId).style.background=\"#66FF33\";\nreturn true;\n}\nelse {\ndocument.getElementById(inputId).style.background=\"#FF3333\";\nreturn false;\n}\n};\n\nvar tim1 = 0;\nfunction time1 () {\nif (yestim1=1){\ntim1 = tim1 + 1;\nt = setTimeout(function() {time1()},1000);\n}\n};\nvar yestim1 = 1;\ntime1();\nfunction checkCompletion(num){\n// id is the id of the continue button or I just need a the number of the question i.e. if its cont1 just send me 1 and it will do\nvar u = document.getElementById(\"user\").value;\nvar s = document.getElementById(\"section\").value;\nvar problemID = \"problem\" + num.toString();\nvar p = document.getElementById(problemID).value;\nvar modeID = \"mode\" + num.toString();\nvar m = document.getElementById(modeID).value;\nvar xmlHTTP = new XMLHttpRequest();\nvar userObject;\nxmlHTTP.onreadystatechange = function(){\nif(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){\nuserObject = JSON.parse(xmlHTTP.responseText);\n}\n}\nvar url = \"../demo/log/dashboard_js.php?m=\"+m+\"&u=\"+u+\"&s=\"+s+\"&p=\"+p;\n//var url = \"log/dashboard_js.php?m=\"+m+\"&u=\"+u+\"&s=\"+s+\"&p=\"+p;\nxmlHTTP.open(\"GET\", url, false);\nxmlHTTP.send();\nvar id = \"dragoonErrorMessage\" + num.toString();\nvar result = false;\n if(userObject != null){\nresult = userObject[0].problemComplete;\n}\nif(result) {\ndocument.getElementById(id).style.display = \"none\";\n} else {\ndocument.getElementById(id).style.display = \"\";\n}\nreturn result;\n}</script>\n</head>\n<body>\n<label>Username :</label>&nbsp;<input type=\"text\" name=\"user\" id=\"user\">\n<input type=\"hidden\" name=\"section\" id=\"section\" value=\"public-worksheet\">"
 	divset = "\n"
 	endtbl = "<div id=\"resultsTable\" style=\"display:none\">\n<table>\n<thead>\n<td style=\"border: 2pt black solid\">Question</td>\n<td style=\"border: 2pt black solid\">Correct Answer</td>\n<td style=\"border: 2pt black solid\">Student Answers</td>\n<td style=\"border: 2pt black solid\">Number of Wrong Tries</td>\n<td style=\"border: 2pt black solid\">Time for Entire Question (s)</td>\n</thead>\n<tbody>"
 	endfn = "<script type=\"text/javascript\">\nfunction displayAnswers () {\ndocument.getElementById(\"resultsTable\").style.display=\"\""
@@ -256,7 +268,7 @@ def generateHTMLWorksheet(wks):
 							item = "\n<option>" + str(item) + "</option>"
 							allans = allans + item
 						varset = varset + "\n" + lno + rno + ":0,"
-						chkans = chkans + "checkAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\");"
+						chkans = chkans + "\ncheckAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\");"
 						chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" ||"
 						ctr = ctr + "if (!checkAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
 						contif = contif + "(checkAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\") || set" + qno + "." + lno + rno + "===3) &&"
@@ -270,6 +282,20 @@ def generateHTMLWorksheet(wks):
 						else:
 							endtbl = endtbl + "</td>\n</tr>"
 						endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
+					elif part.__class__.__name__ == "Textbox":
+						rno = rnum[romannum]
+						romannum = romannum + 1
+						chkans = chkans + "\ncheckTextbox(\"" + qno + lno + rno + "\");\ndocument.getElementById(\"" + qno + lno + rno + "Example\").innerHTML = document.getElementById(\"" + qno + lno + rno + "\").value"
+						chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" ||"
+						contif = contif + "checkTextbox(\"" + qno + lno + rno + "\") &&"
+						worksheet = worksheet + "<div id=\"new" + qno + lno + rno + "\"><textarea id=\"" + qno + lno + rno + "\" cols=\"40\" rows=\"5\"></textarea></div>"
+						endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + part.example + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Example\"</div></td>\n<td style=\"border: 2pt black solid\"></td>\n<td style=\"border: 2pt black solid\">"
+						if lno == "a" and rno == "i":
+							endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+							contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
+						else:
+							endtbl = endtbl + "</td>\n</tr>"
+						disabl = disabl + "\ndocument.getElementById(\""+ qno + lno + rno +"\").disabled=true;"
 					elif part.__class__.__name__ == "Table":
 						global allhead
 						allhead = ""
@@ -361,7 +387,7 @@ def generateHTMLWorksheet(wks):
 	#json.dump(wk1,outfile,cls = CustomTypeEncoder, indent = 4)
 
 def testload():
-	with open("energy_balance.json","r") as outfile:
+	with open("test_textboxes.json","r") as outfile:
 		wksht_dct = json.load(outfile)
 		return CustomTypeDecoder(wksht_dct)
 		
