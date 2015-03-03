@@ -387,11 +387,10 @@ def generateHTMLWorksheet(wks):
 	#json.dump(wk1,outfile,cls = CustomTypeEncoder, indent = 4)
 
 def testload():
-	with open("test_textboxes.json","r") as outfile:
+	with open("energy_balance.json","r") as outfile:
 		wksht_dct = json.load(outfile)
 		return CustomTypeDecoder(wksht_dct)
 		
 '''Tasks:
 --Add ability to do checkboxes
---Add ability to do long text boxes--URGENT
 --Construct JSONs for remaining worksheets'''
