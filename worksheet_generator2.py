@@ -340,7 +340,7 @@ def generateHTMLWorksheet(wks):
 					elif part.__class__.__name__ == "Text":
 						worksheet = worksheet + "\n" + part.text + ""
 					elif part.__class__.__name__ == "Image":
-						worksheet = worksheet + "\n<img src =\"" + part.img + ".JPG\"/>"
+						worksheet = worksheet + "\n<img src =\"" + part.image + ".JPG\"/>"
 					'''elif part.__class__.__name__ == "Checkbox":
 					
 					--Turn green if correct
