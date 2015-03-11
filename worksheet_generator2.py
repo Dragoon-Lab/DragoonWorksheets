@@ -333,22 +333,14 @@ def generateHTMLWorksheet(wks):
 									else:
 										endtbl = endtbl + "</td>\n</tr>"
 									endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
-							allline = allline + "</tr>"
+							allline = "<tr>" + allline + "</tr>"
 						allbody = allbody + allline
-							#line = input("Line: ").split(",")
 						worksheet = worksheet + "<table>\n<thead>" + allhead + "\n</thead>\n<tbody>" + allbody + "\n</tbody>\n</table>"
 					elif part.__class__.__name__ == "Text":
-						worksheet = worksheet + "\n" + part.text + ""
+						worksheet = worksheet + part.text
 					elif part.__class__.__name__ == "Image":
 						worksheet = worksheet + "\n<img src =\"" + part.image + ".JPG\"/>"
-					'''elif part.__class__.__name__ == "Checkbox":
-					
-					--Turn green if correct
-					--Allow worksheet to move forward if correct
-					--Count wrong
-					--Turn yellow and change answer if wrong 3X
-					--Send wrong answers to end table (as list of as true/false individually?)
-					--Send message if incomplete?
+					elif part.__class__.__name__ == "Checkbox":
 						rno = rnum[romannum]
 						romannum = romannum + 1
 						allans = ""
@@ -359,8 +351,10 @@ def generateHTMLWorksheet(wks):
 						for item in part.correct_c:
 							item = "\n(document.getElementById(\"" + qno + lno + rno + "\")"
 							chkbox = chkbox + " && " + item
-						varset = varset + "\n" + lno + rno + ":0,"'''
-					worksheet = worksheet + "</p>"
+						varset = varset + "\n" + lno + rno + ":0,"
+						contfn = contfn + "(" + chkbox + ") &&"
+						worksheet = worksheet + allans
+				worksheet = worksheet + "</p>"
 		if int(qno) < len(list(wks.questions)):
 			varset = varset + "}; \n"
 			chkcpl = chkcpl + "0) {\n alert(\"It appears you have left at least one of these fields blank. Please remedy this immediately.\");\n}"
@@ -383,14 +377,17 @@ def generateHTMLWorksheet(wks):
 ######################
 ## Construct an example:
 	
-#with open("energy_balance.json","w") as outfile:
+#with open("blood_glucose.json","w") as outfile:
 	#json.dump(wk1,outfile,cls = CustomTypeEncoder, indent = 4)
 
 def testload():
-	with open("energy_balance.json","r") as outfile:
+	with open("blood_glucose.json","r") as outfile:
 		wksht_dct = json.load(outfile)
 		return CustomTypeDecoder(wksht_dct)
 		
 '''Tasks:
---Add ability to do checkboxes
---Construct JSONs for remaining worksheets'''
+--Add ability to do checkboxes:
+	--Count entire checkbox set as a whole
+	--Apply rules of dropdown boxes
+	--Have entire set turn red/green?
+'''

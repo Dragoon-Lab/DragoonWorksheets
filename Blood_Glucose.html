@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dragoon Worksheet</title>
+<script type="text/javascript">
+function
+openDragoonProblem(num){
+var u = document.getElementById("user").value;
+var s = document.getElementById("section").value;
+var problemID = "problem" + num.toString();
+var p = document.getElementById(problemID).value;
+var modeID = "mode" + num.toString();
+var m = document.getElementById(modeID).value;
+var urlString = "http://dragoon.asu.edu/demo/index.html?u="+u+"&m="+m+"&p="+p+"&s="+s;
+window.open(urlString);
+}
+function checkAnswers(inputId, rightAnswer)
+{
+if(document.getElementById(inputId).value===rightAnswer) {
+document.getElementById(inputId).style.background="#66FF33";
+return true;
+}
+else
+{
+document.getElementById(inputId).style.background="#FF3333";
+return false;
+}
+};
+function checkTextbox(inputId) {
+if (!(document.getElementById(inputId).value==="")) {
+document.getElementById(inputId).style.background="#66FF33";
+return true;
+}
+else {
+document.getElementById(inputId).style.background="#FF3333";
+return false;
+}
+};
+
+var tim1 = 0;
+function time1 () {
+if (yestim1=1){
+tim1 = tim1 + 1;
+t = setTimeout(function() {time1()},1000);
+}
+};
+var yestim1 = 1;
+time1();
+function checkCompletion(num){
+// id is the id of the continue button or I just need a the number of the question i.e. if its cont1 just send me 1 and it will do
+var u = document.getElementById("user").value;
+var s = document.getElementById("section").value;
+var problemID = "problem" + num.toString();
+var p = document.getElementById(problemID).value;
+var modeID = "mode" + num.toString();
+var m = document.getElementById(modeID).value;
+var xmlHTTP = new XMLHttpRequest();
+var userObject;
+xmlHTTP.onreadystatechange = function(){
+if(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){
+userObject = JSON.parse(xmlHTTP.responseText);
+}
+}
+var url = "../demo/log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
+//var url = "log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
+xmlHTTP.open("GET", url, false);
+xmlHTTP.send();
+var id = "dragoonErrorMessage" + num.toString();
+var result = false;
+ if(userObject != null){
+result = userObject[0].problemComplete;
+}
+if(result) {
+document.getElementById(id).style.display = "none";
+} else {
+document.getElementById(id).style.display = "";
+}
+return result;
+}</script>
+</head>
+<body>
+<label>Username :</label>&nbsp;<input type="text" name="user" id="user">
+<input type="hidden" name="section" id="section" value="public-worksheet">
+<p></p><h3>Blood Glucose Homeostasis</h3><p>Today you will learn more about an important concept of physiology: homeostasis. Homeostasis refers to physiological processes that maintain certain conditions in the body at a steady state. For instance, your body temperature tends to stay at 98.6o F (37o C) because there is a process that keeps your body at that temperature, despite variations in the outside temperature or in how hard you exercise. This process is called a homeostatic process because its function is to keep the body temperature steady.</p><p>Maintaining homeostasis requires that the body continuously monitor its internal conditions. From body temperature to blood pressure to levels of certain nutrients, each physiological condition has a particular set point. <u>A <i><b>set point</b></i> is the physiological value around which the normal range fluctuates. The <b><i>normal range</i></b> is the restricted set of values that is optimally healthful and stable.</u> For example, the set point for normal human body temperature is approximately 37°C (98.6°F). Physiological quantities, such as body temperature, tend to fluctuate within a normal range a few degrees above and below that point. Control centers in the brain play roles in regulating physiological quantities and keeping them within the normal range. As the body works to maintain homeostasis, any significant deviation from the normal range will be resisted and homeostasis restored through a process called negative feedback. <u><i><b>Negative feedback</b></i> is a mechanism that prevents a physiological response from going beyond the normal range by reversing the action once the normal range is exceeded.</u> The maintenance of homeostasis by negative feedback goes on throughout the body at all times, and an understanding of negative feedback is thus fundamental to an understanding of human physiology.</p><p>For many purposes in science and medicine, it suffices just to know whether the homeostatic process is functioning properly. This requires knowing how a properly functioning homeostatic process behaves. Then measurements of a person’s physiological quantity (e.g., body temperature) can be compared to the values when the process is properly functioning. For example, we know that when the negative feedback loop for body temperature is properly functioning, the body’s temperature should be close to 98.6o F. If the temperature is too high, then the person is sick with a fever. If the temperature is too low, the person has something else wrong with them.</p><p>Sometimes it is important not only to know the steady state value of a quantity, but also how quickly the body reacts to a stimulus that pushes that value out of its normal range. For instance, if a person is immersed in frigid water, how fast does the body react? Measuring the dynamic response of the body as it tries to restore homeostasis can be an important measure of fitness.</p><p>This is where system dynamics modeling becomes important. A system dynamics model can represent how the body behaves when the negative feedback loop is working properly. If the graphs produced by the model do not match the measurements observed of a person, then the researcher or doctor can tell that something is wrong with the person’s negative feedback loop.</p><h3>The Simplest Model of Homeostasis</h3><p>Often, a very simple model suffices. In fact, the simplest model of negative feedback in Dragoon has just three nodes. It’s simple because it assumes that the set point of the homeostatic process is zero.</p><p>Here’s how the model works. If the value of the physiological quantity becomes positive (i.e., greater than zero), then the loop subtracts a little bit from it until the quantity falls to zero. On the other hand, if the value becomes negative, then the loop adding a little bit to the value until it rises back to zero.</p><p>To be more concrete, suppose that if the <b>value > 0</b>, we <b>subtract 10%</b> of the value. On the other hand, if <b>value < 0</b>, then we <b>add 10%</b> of its absolute value. Actually, adding 10% of the absolute value of a negative number is the same thing as subtracting 10% of the value. Thus, we have this very simple rule: <b>If value?0, then subtract 10% of the value.</b></p>
+<h3>Question 1</h3>
+<p>Please click on the Dragoon button below and complete the problem before answering these questions.</p>
+<p>1a. Open the graph window. The graph for <b>controlled quantity</b> looks blank because the red and green lines are both horizontal lines at zero, and thus right on top of the horizontal axis. Given the parameter values, does this make sense physiologically?<div id="new1ai"><textarea id="1ai" cols="40" rows="5"></textarea></div>
+<p>1b. Suppose the controlled quantity starts out higher than the set point (zero). This should cause the negative feedback loop to kick into action and try to restore the quantity to zero. In the graph window, set the initial value of <b>controlled value</b> to a positive value. Now describe how the value of <b>controlled quantity</b> changes over time.<div id="new1bi"><textarea id="1bi" cols="40" rows="5"></textarea></div>
+<p>1c. Now set the initial controlled quantity to -3. You should see a red horizontal line at zero. That is the behavior of the correct model when the parameter values are left alone. The green line shows the behavior of your model when the parameter values have been changed, as has occurred here, where the value of <b>initial controlled quantity</b> has been changed from 0 to -3. Now describe how your model’s value for <b>controlled quantity</b> (the green line) changes over time.<div id="new1ci"><textarea id="1ci" cols="40" rows="5"></textarea></div>
+<p>1d. Compare the graphs you have in 1b and 1c, that is, when the initial controlled quantity is positive and when it’s negative by the same amount. How are the graphs similar? How are they different?<div id="new1di"><textarea id="1di" cols="40" rows="5"></textarea></div>Now let’s develop a more general model, where the set point doesn’t have to be zero. In fact, let’s assume the set point is <b>98.6</b>, as if the controlled quantity were body temperature.
+<script type="text/javascript">var set1 = {}; 
+function cont1() {
+var yestim1 = 0;
+document.getElementById("1Time").innerHTML = tim1;
+
+checkTextbox("1ai");
+document.getElementById("1aiExample").innerHTML = document.getElementById("1ai").value
+checkTextbox("1bi");
+document.getElementById("1biExample").innerHTML = document.getElementById("1bi").value
+checkTextbox("1ci");
+document.getElementById("1ciExample").innerHTML = document.getElementById("1ci").value
+checkTextbox("1di");
+document.getElementById("1diExample").innerHTML = document.getElementById("1di").value
+if (document.getElementById("1ai").value==="" ||document.getElementById("1bi").value==="" ||document.getElementById("1ci").value==="" ||document.getElementById("1di").value==="" ||0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkTextbox("1ai") &&checkTextbox("1bi") &&checkTextbox("1ci") &&checkTextbox("1di") &&checkCompletion(1) && 1) {
+ document.getElementById("question2").style.display = "";
+ document.getElementById("button1").style.display = "none";
+
+document.getElementById("1ai").disabled=true;
+document.getElementById("1bi").disabled=true;
+document.getElementById("1ci").disabled=true;
+document.getElementById("1di").disabled=true;
+tim2= 0;
+
+function time2() {
+if (yestim2){
+tim2 = tim2 + 1;
+t = setTimeout(function() {time2()},1000);
+}
+};
+var yestim2 = 1;
+time2();
+}
+};
+</script>
+<input type="hidden" name="problem1" id="problem1" value="zero-set-point-homeostasis">
+<input type="hidden" name="mode1" id="mode1" value="STUDENT">
+<br><button id="dragoonButton1" onClick="openDragoonProblem(1);">Open Dragoon</button>
+<div id="dragoonErrorMessage1" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+<br><button id="button1" onClick="cont1();">Continue</button>
+<div id="question2" style="display: none">
+<h3>Question 2</h3>
+<p>Please do the Dragoon problem and then answer the questions below.</p>
+<p>2a. Open the graph window. Check only <b>Show controlled quantity</b> and make sure <b>Show change in quantity</b> and <b>Show difference</b> are not checked. The graph for <b>controlled quantity</b> has the red and green lines right on top of each other, perfectly horizontal, at 98.6 on the vertical axis. Given the parameter values, does this make sense physiologically?<div id="new2bi"><textarea id="2ai" cols="40" rows="5"></textarea></div>
+<p>2b. Using the slider, increase the value of <b>initial controlled quantity</b>. The red line is the model’s response when it has the given values for the parameters, so it is a flat line at 98.6 because that’s what the initial value of the controlled quantity is and the system tries to keep it at the level. The green line shows the model’s response when you manipulate the sliders (or make a mistake entering the value of a parameter). As you move the initial value considerably above the set point, how does the graph change and what does this mean?<div id="new2bi"><textarea id="2bi" cols="40" rows="5"></textarea></div>
+<p>2c. Using the same slider again, explore what happens when the controlled quantity starts out with an inital value that is lower than the set point. Describe the curve you see.<div id="new2ci"><textarea id="2ci" cols="40" rows="5"></textarea></div>
+<p>2d. Does it matter whether the controlled quantity starts out above zero or below zero? (You can type values into the box instead of moving the slider.)<div id="new2di"><textarea id="2di" cols="40" rows="5"></textarea></div>
+<script type="text/javascript">var set2 = {}; 
+function cont2() {
+var yestim2 = 0;
+
+checkTextbox("2ai");
+document.getElementById("2aiExample").innerHTML = document.getElementById("2ai").value
+checkTextbox("2bi");
+document.getElementById("2biExample").innerHTML = document.getElementById("2bi").value
+checkTextbox("2ci");
+document.getElementById("2ciExample").innerHTML = document.getElementById("2ci").value
+checkTextbox("2di");
+document.getElementById("2diExample").innerHTML = document.getElementById("2di").value
+if (document.getElementById("2ai").value==="" || document.getElementById("2bi").value==="" ||document.getElementById("2ci").value==="" ||document.getElementById("2di").value==="" ||0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkTextbox("2ai") &&checkTextbox("2bi") &&checkTextbox("2ci") &&checkTextbox("2di") &&checkCompletion(2) && 1) {
+ document.getElementById("question3").style.display = "";
+ document.getElementById("button2").style.display = "none";
+
+document.getElementById("2ai").disabled=true;
+document.getElementById("2bi").disabled=true;
+document.getElementById("2ci").disabled=true;
+document.getElementById("2di").disabled=true;
+tim3= 0;
+
+function time3() {
+if (yestim3){
+tim3 = tim3 + 1;
+t = setTimeout(function() {time3()},1000);
+}
+};
+var yestim3 = 1;
+time3();
+}
+};
+</script>
+<input type="hidden" name="problem2" id="problem2" value="nonzero-set-point-homeostasis">
+<input type="hidden" name="mode2" id="mode2" value="STUDENT">
+<br><button id="dragoonButton2" onClick="openDragoonProblem(2);">Open Dragoon</button>
+<div id="dragoonErrorMessage2" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+<br><button id="button2" onClick="cont2();">Continue</button>
+<div id="question3" style="display: none">
+<h3>Question 3</h3>
+<p><h3>Two-loop Homeostasis</h3>When the regulation of body temperature was discussed in your textbook, the effector actions for lowering body temperature (e.g., sweating) were different from the effector actions for raising body temperature (e.g., shivering). Body temperature is typical of many homeostatic processes in that different effectors are used for lowering the controlled quantity than for raising the controlled quantity.</p><p>Because different bodily mechanisms are used for lowering body temperature than raising it, there are two negative feedback loops in operation. One lowers the body temperature (via sweating, etc.) and the other raises body temperature (via shivering, etc.). Let’s develop a general model of such homeostatic processes, where there are two negative feedback loops—one for raising the value of the controlled quantity and another for lowering it.</p><p>As you know from your last model, the current value of the controlled quantity is compared to the set point by subtracting the set point from it. Thus, if the controlled quantity is too high, the comparison is positive. If the controlled quantity is too low, the comparison is negative. For the two-loop model, we need to send the positive comparison to one negative feedback loop, and send the negative comparison to another feedback loop. This can be done using a mathematical function, named “max” that Dragoon will let you use inside the expression box. When you give function “max” 2 or more values as inputs, it will return the maximum value (not absolute value; real value). Thus:<ul><li>max(0,2) returns 2</li><li>max(-2,0) returns 0</li><li>max(1,2,3,4,-2,5) returns 5</li><li>max(temperature1,temperature2) will return the value of temperature2 if temperature1 < temperature2.</li></ul></p>
+<p>3a. On the other hand, if temperature1 = 5 and temperature2 = 3.5 what will it return? <select id="3ai">
+<option></option>
+<option>temperature1</option>
+<option>temperature2</option></select></p><p>The function max can be used to split the comparison value. Suppose that C is our comparison value. Then max(0,C) will return:<ul><li>C if C is positive</li><li>0 if C is negative</li></ul>Similarly, max(0,-C) will return:<ul><li>-C if C is negative</li><li>0 if C is positive</li></ul>Let's try this out. Suppose C = 5.<ul><li>What does max(0,C) return? <select id="3aii">
+<option></option>
+<option>5</option>
+<option>0</option>
+<option>-5</option></select></li><li>What does max(0,-C) return? <select id="3aiii">
+<option></option>
+<option>5</option>
+<option>0</option>
+<option>-5</option></select></li></ul>Now suppose that C = -5.<ul><li>What does max(0,C) return? <select id="3aiv">
+<option></option>
+<option>5</option>
+<option>0</option>
+<option>-5</option></select></li><li>What does max(0,-C) return? <select id="3av">
+<option></option>
+<option>5</option>
+<option>0</option>
+<option>-5</option></select></li></ul>Thus, we can use max(0,C) to send C to the negative feedback loop that lowers the value of the controlled quantity, and we can use max(0,-C) to send -C to the negative feedback loop that raises the value of the controlled quantity.
+<script type="text/javascript">var set3 = {
+ai:0,
+aii:0,
+aiii:0,
+aiv:0,
+av:0,}; 
+function cont3() {
+var yestim3 = 0;
+document.getElementById("3Time").innerHTML = tim3;
+
+checkAnswers("3ai", "temperature1");
+checkAnswers("3aii", "5");
+checkAnswers("3aiii", "0");
+checkAnswers("3aiv", "0");
+checkAnswers("3av", "5");
+if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||document.getElementById("3aiii").value==="" ||document.getElementById("3aiv").value==="" ||document.getElementById("3av").value==="" ||0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("3ai", "temperature1")) { 
+ set3.ai = set3.ai + 1;}if (!checkAnswers("3aii", "5")) { 
+ set3.aii = set3.aii + 1;}if (!checkAnswers("3aiii", "0")) { 
+ set3.aiii = set3.aiii + 1;}if (!checkAnswers("3aiv", "0")) { 
+ set3.aiv = set3.aiv + 1;}if (!checkAnswers("3av", "5")) { 
+ set3.av = set3.av + 1;}
+if ((checkAnswers("3ai", "temperature1") || set3.ai===3) &&(checkAnswers("3aii", "5") || set3.aii===3) &&(checkAnswers("3aiii", "0") || set3.aiii===3) &&(checkAnswers("3aiv", "0") || set3.aiv===3) &&(checkAnswers("3av", "5") || set3.av===3) &&1) {
+ document.getElementById("question4").style.display = "";
+ document.getElementById("button3").style.display = "none";
+
+document.getElementById("3ai").disabled=true;
+document.getElementById("3aii").disabled=true;
+document.getElementById("3aiii").disabled=true;
+document.getElementById("3aiv").disabled=true;
+document.getElementById("3av").disabled=true;
+tim4= 0;
+
+function time4() {
+if (yestim4){
+tim4 = tim4 + 1;
+t = setTimeout(function() {time4()},1000);
+}
+};
+var yestim4 = 1;
+time4();
+}
+
+if (!checkAnswers("3ai", "temperature1")) {
+if (set3.ai===3) {
+document.getElementById("3ai").style.background="#FFFF00";
+ document.getElementById("3aiAnswer3").innerHTML = document.getElementById("3ai").value 
+ }
+if (set3.ai=== 1) { 
+ document.getElementById("3aiAnswer1").innerHTML = "; " + document.getElementById("3ai").value 
+ } 
+ else if (set3.ai=== 2) { 
+ document.getElementById("3aiAnswer2").innerHTML = "; " + document.getElementById("3ai").value 
+ } 
+ else { 
+ document.getElementById("3aiAnswer3").innerHTML = "; " + document.getElementById("3ai").value 
+ } 
+ } 
+ else { 
+ if (set3.ai=== 0) { 
+ document.getElementById("3aiAnswer1").innerHTML = "; " + document.getElementById("3ai").value 
+ } 
+ else if (set3.ai=== 1) { 
+ document.getElementById("3aiAnswer2").innerHTML = "; " + document.getElementById("3ai").value 
+ } 
+ else { 
+ document.getElementById("3aiAnswer3").innerHTML = "; " + document.getElementById("3ai").value
+}
+};
+if(set3.ai===3)
+{document.getElementById("3ai").value="temperature1"};
+if (!checkAnswers("3aii", "5")) {
+if (set3.aii===3) {
+document.getElementById("3aii").style.background="#FFFF00";
+ document.getElementById("3aiiAnswer3").innerHTML = document.getElementById("3aii").value 
+ }
+if (set3.aii=== 1) { 
+ document.getElementById("3aiiAnswer1").innerHTML = "; " + document.getElementById("3aii").value 
+ } 
+ else if (set3.aii=== 2) { 
+ document.getElementById("3aiiAnswer2").innerHTML = "; " + document.getElementById("3aii").value 
+ } 
+ else { 
+ document.getElementById("3aiiAnswer3").innerHTML = "; " + document.getElementById("3aii").value 
+ } 
+ } 
+ else { 
+ if (set3.aii=== 0) { 
+ document.getElementById("3aiiAnswer1").innerHTML = "; " + document.getElementById("3aii").value 
+ } 
+ else if (set3.aii=== 1) { 
+ document.getElementById("3aiiAnswer2").innerHTML = "; " + document.getElementById("3aii").value 
+ } 
+ else { 
+ document.getElementById("3aiiAnswer3").innerHTML = "; " + document.getElementById("3aii").value
+}
+};
+if(set3.aii===3)
+{document.getElementById("3aii").value="5"};
+if (!checkAnswers("3aiii", "0")) {
+if (set3.aiii===3) {
+document.getElementById("3aiii").style.background="#FFFF00";
+ document.getElementById("3aiiiAnswer3").innerHTML = document.getElementById("3aiii").value 
+ }
+if (set3.aiii=== 1) { 
+ document.getElementById("3aiiiAnswer1").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else if (set3.aiii=== 2) { 
+ document.getElementById("3aiiiAnswer2").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else { 
+ document.getElementById("3aiiiAnswer3").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ } 
+ else { 
+ if (set3.aiii=== 0) { 
+ document.getElementById("3aiiiAnswer1").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else if (set3.aiii=== 1) { 
+ document.getElementById("3aiiiAnswer2").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else { 
+ document.getElementById("3aiiiAnswer3").innerHTML = "; " + document.getElementById("3aiii").value
+}
+};
+if(set3.aiii===3)
+{document.getElementById("3aiii").value="0"};
+if (!checkAnswers("3aiv", "0")) {
+if (set3.aiv===3) {
+document.getElementById("3aiv").style.background="#FFFF00";
+ document.getElementById("3aivAnswer3").innerHTML = document.getElementById("3aiv").value 
+ }
+if (set3.aiv=== 1) { 
+ document.getElementById("3aivAnswer1").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ else if (set3.aiv=== 2) { 
+ document.getElementById("3aivAnswer2").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ else { 
+ document.getElementById("3aivAnswer3").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ } 
+ else { 
+ if (set3.aiv=== 0) { 
+ document.getElementById("3aivAnswer1").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ else if (set3.aiv=== 1) { 
+ document.getElementById("3aivAnswer2").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ else { 
+ document.getElementById("3aivAnswer3").innerHTML = "; " + document.getElementById("3aiv").value
+}
+};
+if(set3.aiv===3)
+{document.getElementById("3aiv").value="0"};
+if (!checkAnswers("3av", "5")) {
+if (set3.av===3) {
+document.getElementById("3av").style.background="#FFFF00";
+ document.getElementById("3avAnswer3").innerHTML = document.getElementById("3av").value 
+ }
+if (set3.av=== 1) { 
+ document.getElementById("3avAnswer1").innerHTML = "; " + document.getElementById("3av").value 
+ } 
+ else if (set3.av=== 2) { 
+ document.getElementById("3avAnswer2").innerHTML = "; " + document.getElementById("3av").value 
+ } 
+ else { 
+ document.getElementById("3avAnswer3").innerHTML = "; " + document.getElementById("3av").value 
+ } 
+ } 
+ else { 
+ if (set3.av=== 0) { 
+ document.getElementById("3avAnswer1").innerHTML = "; " + document.getElementById("3av").value 
+ } 
+ else if (set3.av=== 1) { 
+ document.getElementById("3avAnswer2").innerHTML = "; " + document.getElementById("3av").value 
+ } 
+ else { 
+ document.getElementById("3avAnswer3").innerHTML = "; " + document.getElementById("3av").value
+}
+};
+if(set3.av===3)
+{document.getElementById("3av").value="5"};};
+</script>
+
+<br><button id="button3" onClick="cont3();">Continue</button>
+<div id="question4" style="display: none">
+<h3>Question 4</h3>
+<p></p>
+<p>4a. Click on the table option. Set the initial value of controlled quantity to 118.6. Write the first three values that are input to the accumulator from each of its inputs, and then answer the questions below:<ul><li> Values for <b>change to reduce deficits</b>: <select id="4ai">
+<option></option>
+<option>0,0,0</option>
+<option>2.0,1.80,1.62</option>
+<option>4.00,3.20,2.56</option></select></li><li>Values for <b>change to reduce surplus</b>: <select id="4aii">
+<option></option>
+<option>0,0,0</option>
+<option>2.0,1.80,1.62</option>
+<option>4.00,3.20,2.56</option></select></li><li>Which feedback loop is active: the one for reducing a surplus or for reducing a deficit? <select id="4aiii">
+<option></option>
+<option>Reducing the surplus</option>
+<option>Reducing the deficit</option></select></li></ul>
+<p>4b. 	In the same table window, set the initial value of <b>controlled quantity</b> to 78.6. Write the first three values that are input to the accumulator from each of its inputs.<ul><li>Values for <b>change to reduce deficits</b>: <select id="4bi">
+<option></option>
+<option>0,0,0</option>
+<option>2.0,1.80,1.62</option>
+<option>4.00,3.20,2.56</option></select></li><li>Values for <b>change to reduce surplus</b>: <select id="4bii">
+<option></option>
+<option>0,0,0</option>
+<option>2.0,1.80,1.62</option>
+<option>4.00,3.20,2.56</option></select></li><li>Which feedback loop is active: the one for reducing a surplus or for reducing a deficit? <select id="4biii">
+<option></option>
+<option>Reducing the surplus</option>
+<option>Reducing the deficit</option></select></li></ul>
+<p>4c. When a feedback loop is not active, then the value of the "change to reduce..." node is zero. <select id="4ci">
+<option></option>
+<option>true</option>
+<option>false</option></select>
+<p>4d. Compare the answers to question 3a and 3b. Please explain why the non-zero numbers are twice as large in 3b as they are in 3a.<div id="new4di"><textarea id="4di" cols="40" rows="5"></textarea></div>
+<script type="text/javascript">var set4 = {
+ai:0,
+aii:0,
+aiii:0,
+bi:0,
+bii:0,
+biii:0,
+ci:0,}; 
+function cont4() {
+var yestim4 = 0;
+document.getElementById("4Time").innerHTML = tim4;
+
+checkAnswers("4ai", "0,0,0");
+checkAnswers("4aii", "2.0,1.80,1.62");
+checkAnswers("4aiii", "Reducing the surplus");
+checkAnswers("4bi", "4.00,3.20,2.56");
+checkAnswers("4bii", "0,0,0");
+checkAnswers("4biii", "Reducing the deficit");
+checkAnswers("4ci", "true");
+checkTextbox("4di");
+document.getElementById("4diExample").innerHTML = document.getElementById("4di").value
+if (document.getElementById("4ai").value==="" ||document.getElementById("4aii").value==="" ||document.getElementById("4aiii").value==="" ||document.getElementById("4bi").value==="" ||document.getElementById("4bii").value==="" ||document.getElementById("4biii").value==="" ||document.getElementById("4ci").value==="" ||document.getElementById("4di").value==="" ||0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("4ai", "0,0,0")) { 
+ set4.ai = set4.ai + 1;}if (!checkAnswers("4aii", "2.0,1.80,1.62")) { 
+ set4.aii = set4.aii + 1;}if (!checkAnswers("4aiii", "Reducing the surplus")) { 
+ set4.aiii = set4.aiii + 1;}if (!checkAnswers("4bi", "4.00,3.20,2.56")) { 
+ set4.bi = set4.bi + 1;}if (!checkAnswers("4bii", "0,0,0")) { 
+ set4.bii = set4.bii + 1;}if (!checkAnswers("4biii", "Reducing the deficit")) { 
+ set4.biii = set4.biii + 1;}if (!checkAnswers("4ci", "true")) { 
+ set4.ci = set4.ci + 1;}
+if ((checkAnswers("4ai", "0,0,0") || set4.ai===3) &&(checkAnswers("4aii", "2.0,1.80,1.62") || set4.aii===3) &&(checkAnswers("4aiii", "Reducing the surplus") || set4.aiii===3) &&(checkAnswers("4bi", "4.00,3.20,2.56") || set4.bi===3) &&(checkAnswers("4bii", "0,0,0") || set4.bii===3) &&(checkAnswers("4biii", "Reducing the deficit") || set4.biii===3) &&(checkAnswers("4ci", "true") || set4.ci===3) &&checkTextbox("4di") &&checkCompletion(4) && 1) {
+ document.getElementById("question5").style.display = "";
+ document.getElementById("button4").style.display = "none";
+
+document.getElementById("4ai").disabled=true;
+document.getElementById("4aii").disabled=true;
+document.getElementById("4aiii").disabled=true;
+document.getElementById("4bi").disabled=true;
+document.getElementById("4bii").disabled=true;
+document.getElementById("4biii").disabled=true;
+document.getElementById("4ci").disabled=true;
+document.getElementById("4di").disabled=true;
+tim5= 0;
+
+function time5() {
+if (yestim5){
+tim5 = tim5 + 1;
+t = setTimeout(function() {time5()},1000);
+}
+};
+var yestim5 = 1;
+time5();
+}
+
+if (!checkAnswers("4ai", "0,0,0")) {
+if (set4.ai===3) {
+document.getElementById("4ai").style.background="#FFFF00";
+ document.getElementById("4aiAnswer3").innerHTML = document.getElementById("4ai").value 
+ }
+if (set4.ai=== 1) { 
+ document.getElementById("4aiAnswer1").innerHTML = "; " + document.getElementById("4ai").value 
+ } 
+ else if (set4.ai=== 2) { 
+ document.getElementById("4aiAnswer2").innerHTML = "; " + document.getElementById("4ai").value 
+ } 
+ else { 
+ document.getElementById("4aiAnswer3").innerHTML = "; " + document.getElementById("4ai").value 
+ } 
+ } 
+ else { 
+ if (set4.ai=== 0) { 
+ document.getElementById("4aiAnswer1").innerHTML = "; " + document.getElementById("4ai").value 
+ } 
+ else if (set4.ai=== 1) { 
+ document.getElementById("4aiAnswer2").innerHTML = "; " + document.getElementById("4ai").value 
+ } 
+ else { 
+ document.getElementById("4aiAnswer3").innerHTML = "; " + document.getElementById("4ai").value
+}
+};
+if(set4.ai===3)
+{document.getElementById("4ai").value="0,0,0"};
+if (!checkAnswers("4aii", "2.0,1.80,1.62")) {
+if (set4.aii===3) {
+document.getElementById("4aii").style.background="#FFFF00";
+ document.getElementById("4aiiAnswer3").innerHTML = document.getElementById("4aii").value 
+ }
+if (set4.aii=== 1) { 
+ document.getElementById("4aiiAnswer1").innerHTML = "; " + document.getElementById("4aii").value 
+ } 
+ else if (set4.aii=== 2) { 
+ document.getElementById("4aiiAnswer2").innerHTML = "; " + document.getElementById("4aii").value 
+ } 
+ else { 
+ document.getElementById("4aiiAnswer3").innerHTML = "; " + document.getElementById("4aii").value 
+ } 
+ } 
+ else { 
+ if (set4.aii=== 0) { 
+ document.getElementById("4aiiAnswer1").innerHTML = "; " + document.getElementById("4aii").value 
+ } 
+ else if (set4.aii=== 1) { 
+ document.getElementById("4aiiAnswer2").innerHTML = "; " + document.getElementById("4aii").value 
+ } 
+ else { 
+ document.getElementById("4aiiAnswer3").innerHTML = "; " + document.getElementById("4aii").value
+}
+};
+if(set4.aii===3)
+{document.getElementById("4aii").value="2.0,1.80,1.62"};
+if (!checkAnswers("4aiii", "Reducing the surplus")) {
+if (set4.aiii===3) {
+document.getElementById("4aiii").style.background="#FFFF00";
+ document.getElementById("4aiiiAnswer3").innerHTML = document.getElementById("4aiii").value 
+ }
+if (set4.aiii=== 1) { 
+ document.getElementById("4aiiiAnswer1").innerHTML = "; " + document.getElementById("4aiii").value 
+ } 
+ else if (set4.aiii=== 2) { 
+ document.getElementById("4aiiiAnswer2").innerHTML = "; " + document.getElementById("4aiii").value 
+ } 
+ else { 
+ document.getElementById("4aiiiAnswer3").innerHTML = "; " + document.getElementById("4aiii").value 
+ } 
+ } 
+ else { 
+ if (set4.aiii=== 0) { 
+ document.getElementById("4aiiiAnswer1").innerHTML = "; " + document.getElementById("4aiii").value 
+ } 
+ else if (set4.aiii=== 1) { 
+ document.getElementById("4aiiiAnswer2").innerHTML = "; " + document.getElementById("4aiii").value 
+ } 
+ else { 
+ document.getElementById("4aiiiAnswer3").innerHTML = "; " + document.getElementById("4aiii").value
+}
+};
+if(set4.aiii===3)
+{document.getElementById("4aiii").value="Reducing the surplus"};
+if (!checkAnswers("4bi", "4.00,3.20,2.56")) {
+if (set4.bi===3) {
+document.getElementById("4bi").style.background="#FFFF00";
+ document.getElementById("4biAnswer3").innerHTML = document.getElementById("4bi").value 
+ }
+if (set4.bi=== 1) { 
+ document.getElementById("4biAnswer1").innerHTML = "; " + document.getElementById("4bi").value 
+ } 
+ else if (set4.bi=== 2) { 
+ document.getElementById("4biAnswer2").innerHTML = "; " + document.getElementById("4bi").value 
+ } 
+ else { 
+ document.getElementById("4biAnswer3").innerHTML = "; " + document.getElementById("4bi").value 
+ } 
+ } 
+ else { 
+ if (set4.bi=== 0) { 
+ document.getElementById("4biAnswer1").innerHTML = "; " + document.getElementById("4bi").value 
+ } 
+ else if (set4.bi=== 1) { 
+ document.getElementById("4biAnswer2").innerHTML = "; " + document.getElementById("4bi").value 
+ } 
+ else { 
+ document.getElementById("4biAnswer3").innerHTML = "; " + document.getElementById("4bi").value
+}
+};
+if(set4.bi===3)
+{document.getElementById("4bi").value="4.00,3.20,2.56"};
+if (!checkAnswers("4bii", "0,0,0")) {
+if (set4.bii===3) {
+document.getElementById("4bii").style.background="#FFFF00";
+ document.getElementById("4biiAnswer3").innerHTML = document.getElementById("4bii").value 
+ }
+if (set4.bii=== 1) { 
+ document.getElementById("4biiAnswer1").innerHTML = "; " + document.getElementById("4bii").value 
+ } 
+ else if (set4.bii=== 2) { 
+ document.getElementById("4biiAnswer2").innerHTML = "; " + document.getElementById("4bii").value 
+ } 
+ else { 
+ document.getElementById("4biiAnswer3").innerHTML = "; " + document.getElementById("4bii").value 
+ } 
+ } 
+ else { 
+ if (set4.bii=== 0) { 
+ document.getElementById("4biiAnswer1").innerHTML = "; " + document.getElementById("4bii").value 
+ } 
+ else if (set4.bii=== 1) { 
+ document.getElementById("4biiAnswer2").innerHTML = "; " + document.getElementById("4bii").value 
+ } 
+ else { 
+ document.getElementById("4biiAnswer3").innerHTML = "; " + document.getElementById("4bii").value
+}
+};
+if(set4.bii===3)
+{document.getElementById("4bii").value="0,0,0"};
+if (!checkAnswers("4biii", "Reducing the deficit")) {
+if (set4.biii===3) {
+document.getElementById("4biii").style.background="#FFFF00";
+ document.getElementById("4biiiAnswer3").innerHTML = document.getElementById("4biii").value 
+ }
+if (set4.biii=== 1) { 
+ document.getElementById("4biiiAnswer1").innerHTML = "; " + document.getElementById("4biii").value 
+ } 
+ else if (set4.biii=== 2) { 
+ document.getElementById("4biiiAnswer2").innerHTML = "; " + document.getElementById("4biii").value 
+ } 
+ else { 
+ document.getElementById("4biiiAnswer3").innerHTML = "; " + document.getElementById("4biii").value 
+ } 
+ } 
+ else { 
+ if (set4.biii=== 0) { 
+ document.getElementById("4biiiAnswer1").innerHTML = "; " + document.getElementById("4biii").value 
+ } 
+ else if (set4.biii=== 1) { 
+ document.getElementById("4biiiAnswer2").innerHTML = "; " + document.getElementById("4biii").value 
+ } 
+ else { 
+ document.getElementById("4biiiAnswer3").innerHTML = "; " + document.getElementById("4biii").value
+}
+};
+if(set4.biii===3)
+{document.getElementById("4biii").value="Reducing the deficit"};
+if (!checkAnswers("4ci", "true")) {
+if (set4.ci===3) {
+document.getElementById("4ci").style.background="#FFFF00";
+ document.getElementById("4ciAnswer3").innerHTML = document.getElementById("4ci").value 
+ }
+if (set4.ci=== 1) { 
+ document.getElementById("4ciAnswer1").innerHTML = "; " + document.getElementById("4ci").value 
+ } 
+ else if (set4.ci=== 2) { 
+ document.getElementById("4ciAnswer2").innerHTML = "; " + document.getElementById("4ci").value 
+ } 
+ else { 
+ document.getElementById("4ciAnswer3").innerHTML = "; " + document.getElementById("4ci").value 
+ } 
+ } 
+ else { 
+ if (set4.ci=== 0) { 
+ document.getElementById("4ciAnswer1").innerHTML = "; " + document.getElementById("4ci").value 
+ } 
+ else if (set4.ci=== 1) { 
+ document.getElementById("4ciAnswer2").innerHTML = "; " + document.getElementById("4ci").value 
+ } 
+ else { 
+ document.getElementById("4ciAnswer3").innerHTML = "; " + document.getElementById("4ci").value
+}
+};
+if(set4.ci===3)
+{document.getElementById("4ci").value="true"};};
+</script>
+<input type="hidden" name="problem4" id="problem4" value="two-loop-homoestatis">
+<input type="hidden" name="mode4" id="mode4" value="STUDENT">
+<br><button id="dragoonButton4" onClick="openDragoonProblem(4);">Open Dragoon</button>
+<div id="dragoonErrorMessage4" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+<br><button id="button4" onClick="cont4();">Continue</button>
+<div id="question5" style="display: none">
+<h3>Question 5</h3>
+<p><h3>Blood Glucose Homeostasis</h3>Blood glucose homeostasis is a specific example of a two-loop homeostatic process. Glucose is a simple sugar. Glucose is required for cellular respiration and is the preferred fuel for all body cells. The body derives glucose from the breakdown of the carbohydrate-containing foods and drinks we consume. Glucose is transported from the digestive system to all the other cells in the body by the blood.</p><p>It is important that the level of glucose be kept relatively constant. If it falls too low, the cell respiration will slow and the cells will not have enough energy to function properly—they will starve. If the glucose levels in the blood are too high, tissue damage can occur.</p><p>However, the supply of glucose from digestion does change. When a person has just eaten, ample glucose enters the blood. When the person has not eaten for many hours, little glucose enters the blood. Similarly, the amount of glucose withdrawn from the blood by cell respiration changes. When the body is exercising heavily, glucose is absorbed rapidly to feed the energy demands of the cells. When the body is sleeping, little glucose is absorbed. When there is an oversupply of glucose, it can be stored by the liver and muscles as glycogen. It can also be stored in the fatty tissue as triglycerides.</p><p>Hormones regulate both the storage and the utilization of glucose. Receptors located in the pancreas sense blood glucose levels, and subsequently the pancreatic cells secrete glucagon or insulin to maintain normal levels. Glucagon and insulin are hormones.</p><p>More specifically, blood glucose is regulated by two negative feedback loops. One reacts to an oversupply of glucose in the blood and causes the body to remove glucose from the blood. The other negative feedback loop reacts to an undersupply of glucose in the blood and causes the body to add glucose to the blood. The loop that removes glucose is controlled by insulin, whereas glucagon controls the loop that adds glucose to the blood. Although there is much more to learn about blood glucose homeostasis, you now know enough to create a simple model of it. In fact, the model is just a specialization of the generic, two-loop model you just constructed.</p><p>Please solve the Dragoon problem below and then answer these questions.</p>
+<p>5a. Suppose the body just digested a candy bar, which was converted rapidly to glucose, and raised initial blood glucose level to 112 mg/dL. That is 20 mg/dL higher than normal. Using either the table or graph, set 112 as the value of <b>initial blood glucose</b> and note at what time the blood glucose level falls to around 100 mg/dL.</p><p>Now suppose that the body only digested half the candy bar, so only half the glucose was added to the blood. That’s only 10 mg/dL above normal. Thus, set 102 as the value of <b>initial blood glucose</b> and note at what time the blood glucose level falls to around 100 mg/dL.</p><p>When the amount of sugar eaten is doubled, the length of time that the blood sugar is moderately above normal (i.e., at 100 mg/dL or more) is <select id="5ai">
+<option></option>
+<option>unaffected</option>
+<option>doubled</option>
+<option>tripled</option>
+<option>quadrupled</option></select>.
+<p>5b. Using the <b>initial blood glucose</b> slider, compare an initial surplus to an initial deficit of the same size.</p><p>The surplus is removed <select id="5bi">
+<option></option>
+<option>slower</option>
+<option>faster</option></select> than the deficit because its rate of convergence is <select id="5bii">
+<option></option>
+<option>larger</option>
+<option>smaller</option></select> than the convergence rate for removing deficits.
+<script type="text/javascript">var set5 = {
+ai:0,
+bi:0,
+bii:0,}; 
+function cont5() {
+var yestim5 = 0;
+document.getElementById("5Time").innerHTML = tim5;
+
+checkAnswers("5ai", "quadrupled");
+checkAnswers("5bi", "slower");
+checkAnswers("5bii", "smaller");
+if (document.getElementById("5ai").value==="" ||document.getElementById("5bi").value==="" ||document.getElementById("5bii").value==="" ||0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("5ai", "quadrupled")) { 
+ set5.ai = set5.ai + 1;}if (!checkAnswers("5bi", "slower")) { 
+ set5.bi = set5.bi + 1;}if (!checkAnswers("5bii", "smaller")) { 
+ set5.bii = set5.bii + 1;}
+if ((checkAnswers("5ai", "quadrupled") || set5.ai===3) &&(checkAnswers("5bi", "slower") || set5.bi===3) &&(checkAnswers("5bii", "smaller") || set5.bii===3) &&checkCompletion(5) && 1) {
+ document.getElementById("question6").style.display = "";
+ document.getElementById("button5").style.display = "none";
+
+document.getElementById("5ai").disabled=true;
+document.getElementById("5bi").disabled=true;
+document.getElementById("5bii").disabled=true;
+tim6= 0;
+
+function time6() {
+if (yestim6){
+tim6 = tim6 + 1;
+t = setTimeout(function() {time6()},1000);
+}
+};
+var yestim6 = 1;
+time6();
+}
+
+if (!checkAnswers("5ai", "quadrupled")) {
+if (set5.ai===3) {
+document.getElementById("5ai").style.background="#FFFF00";
+ document.getElementById("5aiAnswer3").innerHTML = document.getElementById("5ai").value 
+ }
+if (set5.ai=== 1) { 
+ document.getElementById("5aiAnswer1").innerHTML = "; " + document.getElementById("5ai").value 
+ } 
+ else if (set5.ai=== 2) { 
+ document.getElementById("5aiAnswer2").innerHTML = "; " + document.getElementById("5ai").value 
+ } 
+ else { 
+ document.getElementById("5aiAnswer3").innerHTML = "; " + document.getElementById("5ai").value 
+ } 
+ } 
+ else { 
+ if (set5.ai=== 0) { 
+ document.getElementById("5aiAnswer1").innerHTML = "; " + document.getElementById("5ai").value 
+ } 
+ else if (set5.ai=== 1) { 
+ document.getElementById("5aiAnswer2").innerHTML = "; " + document.getElementById("5ai").value 
+ } 
+ else { 
+ document.getElementById("5aiAnswer3").innerHTML = "; " + document.getElementById("5ai").value
+}
+};
+if(set5.ai===3)
+{document.getElementById("5ai").value="quadrupled"};
+if (!checkAnswers("5bi", "slower")) {
+if (set5.bi===3) {
+document.getElementById("5bi").style.background="#FFFF00";
+ document.getElementById("5biAnswer3").innerHTML = document.getElementById("5bi").value 
+ }
+if (set5.bi=== 1) { 
+ document.getElementById("5biAnswer1").innerHTML = "; " + document.getElementById("5bi").value 
+ } 
+ else if (set5.bi=== 2) { 
+ document.getElementById("5biAnswer2").innerHTML = "; " + document.getElementById("5bi").value 
+ } 
+ else { 
+ document.getElementById("5biAnswer3").innerHTML = "; " + document.getElementById("5bi").value 
+ } 
+ } 
+ else { 
+ if (set5.bi=== 0) { 
+ document.getElementById("5biAnswer1").innerHTML = "; " + document.getElementById("5bi").value 
+ } 
+ else if (set5.bi=== 1) { 
+ document.getElementById("5biAnswer2").innerHTML = "; " + document.getElementById("5bi").value 
+ } 
+ else { 
+ document.getElementById("5biAnswer3").innerHTML = "; " + document.getElementById("5bi").value
+}
+};
+if(set5.bi===3)
+{document.getElementById("5bi").value="slower"};
+if (!checkAnswers("5bii", "smaller")) {
+if (set5.bii===3) {
+document.getElementById("5bii").style.background="#FFFF00";
+ document.getElementById("5biiAnswer3").innerHTML = document.getElementById("5bii").value 
+ }
+if (set5.bii=== 1) { 
+ document.getElementById("5biiAnswer1").innerHTML = "; " + document.getElementById("5bii").value 
+ } 
+ else if (set5.bii=== 2) { 
+ document.getElementById("5biiAnswer2").innerHTML = "; " + document.getElementById("5bii").value 
+ } 
+ else { 
+ document.getElementById("5biiAnswer3").innerHTML = "; " + document.getElementById("5bii").value 
+ } 
+ } 
+ else { 
+ if (set5.bii=== 0) { 
+ document.getElementById("5biiAnswer1").innerHTML = "; " + document.getElementById("5bii").value 
+ } 
+ else if (set5.bii=== 1) { 
+ document.getElementById("5biiAnswer2").innerHTML = "; " + document.getElementById("5bii").value 
+ } 
+ else { 
+ document.getElementById("5biiAnswer3").innerHTML = "; " + document.getElementById("5bii").value
+}
+};
+if(set5.bii===3)
+{document.getElementById("5bii").value="smaller"};};
+</script>
+<input type="hidden" name="problem5" id="problem5" value="simple-Blood-glucose+homoestatis">
+<input type="hidden" name="mode5" id="mode5" value="STUDENT">
+<br><button id="dragoonButton5" onClick="openDragoonProblem(5);">Open Dragoon</button>
+<div id="dragoonErrorMessage5" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+<br><button id="button5" onClick="cont5();">Continue</button>
+<div id="question6" style="display: none">
+<h3>Question 6</h3>
+<p><h3>A More Realistic Model of the Glucose-Insulin Negative Feedback Loop</h3>Many people have diabetes and it can be a serious, and even fatal, disease. When people have diabetes, the negative feedback loop that reduces blood glucose is damaged. To detect diabetes better and to understand what causes it, mathematical biologists have created many models of the glucose-insulin negative feedback loop. One review of the medical literature found hundreds of models of this system.</p><p>Many of these models are refinements and improvements on a simple model constructed in 1980. It is widely known as the “minimal model” of the glucose-insulin negative feedback loop. It is used to predict how the body will react to an injection of a small amount of glucose into the blood. As you saw in your previous Dragoon model, the pancreas should detect the oversupply of glucose and release insulin, and the insulin should cause the body to gradually remove the glucose and restore the glucose level to its normal value. The minimal model does an accurate job of predicting exactly how much insulin is released and how fast the glucose returns to normal.</p><p>In the remainder of today’s lesson, you will construct the minimal model in Dragoon and study how it behaves. Unlike the parameter values used in the preceding model of blood glucose homeostasis, these parameter values are realistic and were derived from human data.</p><p>Just like the model you completed earlier, glucose in the blood is represented by an accumulator. However, instead of assuming that insulin concentrations are the same everywhere in the body, the minimal model assumes that the insulin concentration could be different in the blood and in the so-called “remote tissues” which are the muscles and other tissues that burn glucose to generate energy or store it as glycogen or triglycerides. These tissues are called “remote” because the insulin must travel through the blood to get to them from the pancreas. Thus, the minimal model has two more accumulators, which represent the amount of insulin in the blood and the amount of insulin in the remote tissues.</p><p>Please do the Dragoon problem below and then answer the following questions.</p>
+<p>6a. Take a look at your Dragoon model. There are two negative feedback loops that control blood glucose. One is long and involves insulin. Here is a list of nodes involved. Fill in the blanks.<ol><li>Blood glucose</li><li>Glucose difference</li><li>Insulin from pancreas</li><li>Blood insulin</li><li><select id="6ai">
+<option></option>
+<option>Glucose removed via insulin</option>
+<option>Blood insulin difference</option>
+<option>Glucose removed without insulin</option></select></li><li>Blood insulin to remote</li><li>Remote insulin</li><li><select id="6aii">
+<option></option>
+<option>Glucose removed via insulin</option>
+<option>Blood insulin difference</option>
+<option>Glucose removed without insulin</option></select></li><li>And back to blood glucose, thus completing the negative feedback loop.</li></ol>
+<p>6b. There is a second negative feedback loop, with one missing. Please fill in the blank.<ol><li>Blood glucose</li><li>Glucose difference</li><li><select id="6bi">
+<option></option>
+<option>Glucose removed via insulin</option>
+<option>Blood insulin difference</option>
+<option>Glucose removed without insulin</option></select></li><li>And the blood glucose again, thus completing the negative feedback loop.</li></ol>
+<p>6c. When a person has Type 2 diabetes, their remote cells do not take up blood insulin as fast as a normal person. Thus, a diabetic’s remote cells burn less glucose than a normal person when the blood has the same amount of insulin as a normal person. Which parameter in the minimal model can be varied to represent the effects of Type 2 diabetes? <select id="6ci">
+<option></option>
+<option>glucose effectiveness</option>
+<option>insulin sensitivity</option>
+<option>blood insulin set point</option></select>
+<p>6d. Look carefully at the graph of blood glucose level over time. Does the blood glucose level go a little lower than the set point? Could this explain why you sometimes feel sleepy after a big lunch or dinner? Approximarely when does this occur?</p><p>About <select id="6di">
+<option></option>
+<option>40 to 50</option>
+<option>50 to 60</option>
+<option>60 to 70</option>
+<option>70 to 80</option></select> minutes after the glucose enters the blood.
+<script type="text/javascript">var set6 = {
+ai:0,
+aii:0,
+bi:0,
+ci:0,
+di:0,}; 
+function cont6() {
+var yestim6 = 0;
+document.getElementById("6Time").innerHTML = tim6;
+
+checkAnswers("6ai", "Blood insulin difference");
+checkAnswers("6aii", "Glucose removed via insulin");
+checkAnswers("6bi", "Glucose removed without insulin");
+checkAnswers("6ci", "insulin sensitivity");
+checkAnswers("6di", "50 to 60");
+if (document.getElementById("6ai").value==="" ||document.getElementById("6aii").value==="" ||document.getElementById("6bi").value==="" ||document.getElementById("6ci").value==="" ||document.getElementById("6di").value==="" ||0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("6ai", "Blood insulin difference")) { 
+ set6.ai = set6.ai + 1;}if (!checkAnswers("6aii", "Glucose removed via insulin")) { 
+ set6.aii = set6.aii + 1;}if (!checkAnswers("6bi", "Glucose removed without insulin")) { 
+ set6.bi = set6.bi + 1;}if (!checkAnswers("6ci", "insulin sensitivity")) { 
+ set6.ci = set6.ci + 1;}if (!checkAnswers("6di", "50 to 60")) { 
+ set6.di = set6.di + 1;}
+if ((checkAnswers("6ai", "Blood insulin difference") || set6.ai===3) &&(checkAnswers("6aii", "Glucose removed via insulin") || set6.aii===3) &&(checkAnswers("6bi", "Glucose removed without insulin") || set6.bi===3) &&(checkAnswers("6ci", "insulin sensitivity") || set6.ci===3) &&(checkAnswers("6di", "50 to 60") || set6.di===3) &&checkCompletion(6) && 1) {
+ document.getElementById("question7").style.display = "";
+ document.getElementById("button6").style.display = "none";
+
+document.getElementById("6ai").disabled=true;
+document.getElementById("6aii").disabled=true;
+document.getElementById("6bi").disabled=true;
+document.getElementById("6ci").disabled=true;
+document.getElementById("6di").disabled=true;
+displayAnswers();
+}
+
+if (!checkAnswers("6ai", "Blood insulin difference")) {
+if (set6.ai===3) {
+document.getElementById("6ai").style.background="#FFFF00";
+ document.getElementById("6aiAnswer3").innerHTML = document.getElementById("6ai").value 
+ }
+if (set6.ai=== 1) { 
+ document.getElementById("6aiAnswer1").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ else if (set6.ai=== 2) { 
+ document.getElementById("6aiAnswer2").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ else { 
+ document.getElementById("6aiAnswer3").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ } 
+ else { 
+ if (set6.ai=== 0) { 
+ document.getElementById("6aiAnswer1").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ else if (set6.ai=== 1) { 
+ document.getElementById("6aiAnswer2").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ else { 
+ document.getElementById("6aiAnswer3").innerHTML = "; " + document.getElementById("6ai").value
+}
+};
+if(set6.ai===3)
+{document.getElementById("6ai").value="Blood insulin difference"};
+if (!checkAnswers("6aii", "Glucose removed via insulin")) {
+if (set6.aii===3) {
+document.getElementById("6aii").style.background="#FFFF00";
+ document.getElementById("6aiiAnswer3").innerHTML = document.getElementById("6aii").value 
+ }
+if (set6.aii=== 1) { 
+ document.getElementById("6aiiAnswer1").innerHTML = "; " + document.getElementById("6aii").value 
+ } 
+ else if (set6.aii=== 2) { 
+ document.getElementById("6aiiAnswer2").innerHTML = "; " + document.getElementById("6aii").value 
+ } 
+ else { 
+ document.getElementById("6aiiAnswer3").innerHTML = "; " + document.getElementById("6aii").value 
+ } 
+ } 
+ else { 
+ if (set6.aii=== 0) { 
+ document.getElementById("6aiiAnswer1").innerHTML = "; " + document.getElementById("6aii").value 
+ } 
+ else if (set6.aii=== 1) { 
+ document.getElementById("6aiiAnswer2").innerHTML = "; " + document.getElementById("6aii").value 
+ } 
+ else { 
+ document.getElementById("6aiiAnswer3").innerHTML = "; " + document.getElementById("6aii").value
+}
+};
+if(set6.aii===3)
+{document.getElementById("6aii").value="Glucose removed via insulin"};
+if (!checkAnswers("6bi", "Glucose removed without insulin")) {
+if (set6.bi===3) {
+document.getElementById("6bi").style.background="#FFFF00";
+ document.getElementById("6biAnswer3").innerHTML = document.getElementById("6bi").value 
+ }
+if (set6.bi=== 1) { 
+ document.getElementById("6biAnswer1").innerHTML = "; " + document.getElementById("6bi").value 
+ } 
+ else if (set6.bi=== 2) { 
+ document.getElementById("6biAnswer2").innerHTML = "; " + document.getElementById("6bi").value 
+ } 
+ else { 
+ document.getElementById("6biAnswer3").innerHTML = "; " + document.getElementById("6bi").value 
+ } 
+ } 
+ else { 
+ if (set6.bi=== 0) { 
+ document.getElementById("6biAnswer1").innerHTML = "; " + document.getElementById("6bi").value 
+ } 
+ else if (set6.bi=== 1) { 
+ document.getElementById("6biAnswer2").innerHTML = "; " + document.getElementById("6bi").value 
+ } 
+ else { 
+ document.getElementById("6biAnswer3").innerHTML = "; " + document.getElementById("6bi").value
+}
+};
+if(set6.bi===3)
+{document.getElementById("6bi").value="Glucose removed without insulin"};
+if (!checkAnswers("6ci", "insulin sensitivity")) {
+if (set6.ci===3) {
+document.getElementById("6ci").style.background="#FFFF00";
+ document.getElementById("6ciAnswer3").innerHTML = document.getElementById("6ci").value 
+ }
+if (set6.ci=== 1) { 
+ document.getElementById("6ciAnswer1").innerHTML = "; " + document.getElementById("6ci").value 
+ } 
+ else if (set6.ci=== 2) { 
+ document.getElementById("6ciAnswer2").innerHTML = "; " + document.getElementById("6ci").value 
+ } 
+ else { 
+ document.getElementById("6ciAnswer3").innerHTML = "; " + document.getElementById("6ci").value 
+ } 
+ } 
+ else { 
+ if (set6.ci=== 0) { 
+ document.getElementById("6ciAnswer1").innerHTML = "; " + document.getElementById("6ci").value 
+ } 
+ else if (set6.ci=== 1) { 
+ document.getElementById("6ciAnswer2").innerHTML = "; " + document.getElementById("6ci").value 
+ } 
+ else { 
+ document.getElementById("6ciAnswer3").innerHTML = "; " + document.getElementById("6ci").value
+}
+};
+if(set6.ci===3)
+{document.getElementById("6ci").value="insulin sensitivity"};
+if (!checkAnswers("6di", "50 to 60")) {
+if (set6.di===3) {
+document.getElementById("6di").style.background="#FFFF00";
+ document.getElementById("6diAnswer3").innerHTML = document.getElementById("6di").value 
+ }
+if (set6.di=== 1) { 
+ document.getElementById("6diAnswer1").innerHTML = "; " + document.getElementById("6di").value 
+ } 
+ else if (set6.di=== 2) { 
+ document.getElementById("6diAnswer2").innerHTML = "; " + document.getElementById("6di").value 
+ } 
+ else { 
+ document.getElementById("6diAnswer3").innerHTML = "; " + document.getElementById("6di").value 
+ } 
+ } 
+ else { 
+ if (set6.di=== 0) { 
+ document.getElementById("6diAnswer1").innerHTML = "; " + document.getElementById("6di").value 
+ } 
+ else if (set6.di=== 1) { 
+ document.getElementById("6diAnswer2").innerHTML = "; " + document.getElementById("6di").value 
+ } 
+ else { 
+ document.getElementById("6diAnswer3").innerHTML = "; " + document.getElementById("6di").value
+}
+};
+if(set6.di===3)
+{document.getElementById("6di").value="50 to 60"};};
+</script>
+<input type="hidden" name="problem6" id="problem6" value="glucose-min-model">
+<input type="hidden" name="mode6" id="mode6" value="STUDENT">
+<br><button id="dragoonButton6" onClick="openDragoonProblem(6);">Open Dragoon</button>
+<div id="dragoonErrorMessage6" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+<br><button id="button6" onClick="cont6();">Continue</button>
+<div id="question7" style="display: none">
+</div></div></div></div></div></div><div id="resultsTable" style="display:none">
+<table>
+<thead>
+<td style="border: 2pt black solid">Question</td>
+<td style="border: 2pt black solid">Correct Answer</td>
+<td style="border: 2pt black solid">Student Answers</td>
+<td style="border: 2pt black solid">Number of Wrong Tries</td>
+<td style="border: 2pt black solid">Time for Entire Question (s)</td>
+</thead>
+<tbody>
+<tr>
+<td style="border: 2pt black solid">1a. i.</td>
+<td style="border: 2pt black solid">Yes. When the controlled quantity is at the set point, as it is initially, then it shouldn’t change over time.</td>
+<td style="border: 2pt black solid"><div id="1aiExample"</div></td>
+<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"><div id="1Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">1b. i.</td>
+<td style="border: 2pt black solid">The value decreases to zero. The decrease is rapid at first then become more gradual.</td>
+<td style="border: 2pt black solid"><div id="1biExample"</div></td>
+<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">1c. i.</td>
+<td style="border: 2pt black solid">It increases rapidly at first, then slows down and gradually approaches zero.</td>
+<td style="border: 2pt black solid"><div id="1ciExample"</div></td>
+<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">1d. i.</td>
+<td style="border: 2pt black solid">The graphs are the same but reversed. The both approach zero gradually, but one starts above zero and the other starts below zero.</td>
+<td style="border: 2pt black solid"><div id="1diExample"</div></td>
+<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">2a. i.</td>
+<td style="border: 2pt black solid">Yes. When the controlled quantity is at the set point, as it is initially, then it shouldn\u2019t change over time.</td>
+<td style="border: 2pt black solid"><div id="2aiExample"</div></td>
+<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">2b. i.</td>
+<td style="border: 2pt black solid">As you increase the initial value, it takes longer to bring the controlled variable back to the set point.</td>
+<td style="border: 2pt black solid"><div id="2biExample"</div></td>
+<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">2c. i.</td>
+<td style="border: 2pt black solid">The curve has the same shape, but it starts from a different numerical value on the vertical axis even though its position on the screen remains the same.</td>
+<td style="border: 2pt black solid"><div id="2ciExample"</div></td>
+<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">2d. i.</td>
+<td style="border: 2pt black solid">No, it doesn't matter. Same curve, but starts at the inital value whaterver it is.</td>
+<td style="border: 2pt black solid"><div id="2diExample"</div></td>
+<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">3a. i.</td>
+<td style="border: 2pt black solid">temperature1</td>
+<td style="border: 2pt black solid"><div id="3aiAnswer1"></div><div id="3aiAnswer2"></div><div id="3aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="3aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="3Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">3a. ii.</td>
+<td style="border: 2pt black solid">5</td>
+<td style="border: 2pt black solid"><div id="3aiiAnswer1"></div><div id="3aiiAnswer2"></div><div id="3aiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="3aiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">3a. iii.</td>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid"><div id="3aiiiAnswer1"></div><div id="3aiiiAnswer2"></div><div id="3aiiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="3aiiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">3a. iv.</td>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid"><div id="3aivAnswer1"></div><div id="3aivAnswer2"></div><div id="3aivAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="3aivTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">3a. v.</td>
+<td style="border: 2pt black solid">5</td>
+<td style="border: 2pt black solid"><div id="3avAnswer1"></div><div id="3avAnswer2"></div><div id="3avAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="3avTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">4a. i.</td>
+<td style="border: 2pt black solid">0,0,0</td>
+<td style="border: 2pt black solid"><div id="4aiAnswer1"></div><div id="4aiAnswer2"></div><div id="4aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="4aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="4Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">4a. ii.</td>
+<td style="border: 2pt black solid">2.0,1.80,1.62</td>
+<td style="border: 2pt black solid"><div id="4aiiAnswer1"></div><div id="4aiiAnswer2"></div><div id="4aiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="4aiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">4a. iii.</td>
+<td style="border: 2pt black solid">Reducing the surplus</td>
+<td style="border: 2pt black solid"><div id="4aiiiAnswer1"></div><div id="4aiiiAnswer2"></div><div id="4aiiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="4aiiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">4b. i.</td>
+<td style="border: 2pt black solid">4.00,3.20,2.56</td>
+<td style="border: 2pt black solid"><div id="4biAnswer1"></div><div id="4biAnswer2"></div><div id="4biAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="4biTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">4b. ii.</td>
+<td style="border: 2pt black solid">0,0,0</td>
+<td style="border: 2pt black solid"><div id="4biiAnswer1"></div><div id="4biiAnswer2"></div><div id="4biiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="4biiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">4b. iii.</td>
+<td style="border: 2pt black solid">Reducing the deficit</td>
+<td style="border: 2pt black solid"><div id="4biiiAnswer1"></div><div id="4biiiAnswer2"></div><div id="4biiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="4biiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">4c. i.</td>
+<td style="border: 2pt black solid">true</td>
+<td style="border: 2pt black solid"><div id="4ciAnswer1"></div><div id="4ciAnswer2"></div><div id="4ciAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="4ciTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">4d. i.</td>
+<td style="border: 2pt black solid">The “convergence rate for deficits” is twice as high as the “convergence rate for surplus”.</td>
+<td style="border: 2pt black solid"><div id="4diExample"</div></td>
+<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">5a. i.</td>
+<td style="border: 2pt black solid">quadrupled</td>
+<td style="border: 2pt black solid"><div id="5aiAnswer1"></div><div id="5aiAnswer2"></div><div id="5aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="5aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="5Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">5b. i.</td>
+<td style="border: 2pt black solid">slower</td>
+<td style="border: 2pt black solid"><div id="5biAnswer1"></div><div id="5biAnswer2"></div><div id="5biAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="5biTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">5b. ii.</td>
+<td style="border: 2pt black solid">smaller</td>
+<td style="border: 2pt black solid"><div id="5biiAnswer1"></div><div id="5biiAnswer2"></div><div id="5biiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="5biiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">6a. i.</td>
+<td style="border: 2pt black solid">Blood insulin difference</td>
+<td style="border: 2pt black solid"><div id="6aiAnswer1"></div><div id="6aiAnswer2"></div><div id="6aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="6aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="6Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">6a. ii.</td>
+<td style="border: 2pt black solid">Glucose removed via insulin</td>
+<td style="border: 2pt black solid"><div id="6aiiAnswer1"></div><div id="6aiiAnswer2"></div><div id="6aiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="6aiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">6b. i.</td>
+<td style="border: 2pt black solid">Glucose removed without insulin</td>
+<td style="border: 2pt black solid"><div id="6biAnswer1"></div><div id="6biAnswer2"></div><div id="6biAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="6biTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">6c. i.</td>
+<td style="border: 2pt black solid">insulin sensitivity</td>
+<td style="border: 2pt black solid"><div id="6ciAnswer1"></div><div id="6ciAnswer2"></div><div id="6ciAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="6ciTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">6d. i.</td>
+<td style="border: 2pt black solid">50 to 60</td>
+<td style="border: 2pt black solid"><div id="6diAnswer1"></div><div id="6diAnswer2"></div><div id="6diAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="6diTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+</tbody>
+</table>
+</div><script type="text/javascript">
+function displayAnswers () {
+document.getElementById("resultsTable").style.display=""
+document.getElementById("3aiTries").innerHTML=set3.ai;
+document.getElementById("3aiiTries").innerHTML=set3.aii;
+document.getElementById("3aiiiTries").innerHTML=set3.aiii;
+document.getElementById("3aivTries").innerHTML=set3.aiv;
+document.getElementById("3avTries").innerHTML=set3.av;
+document.getElementById("4aiTries").innerHTML=set4.ai;
+document.getElementById("4aiiTries").innerHTML=set4.aii;
+document.getElementById("4aiiiTries").innerHTML=set4.aiii;
+document.getElementById("4biTries").innerHTML=set4.bi;
+document.getElementById("4biiTries").innerHTML=set4.bii;
+document.getElementById("4biiiTries").innerHTML=set4.biii;
+document.getElementById("4ciTries").innerHTML=set4.ci;
+document.getElementById("5aiTries").innerHTML=set5.ai;
+document.getElementById("5biTries").innerHTML=set5.bi;
+document.getElementById("5biiTries").innerHTML=set5.bii;
+document.getElementById("6aiTries").innerHTML=set6.ai;
+document.getElementById("6aiiTries").innerHTML=set6.aii;
+document.getElementById("6biTries").innerHTML=set6.bi;
+document.getElementById("6ciTries").innerHTML=set6.ci;
+document.getElementById("6diTries").innerHTML=set6.di;
+};
+</script></body></html>

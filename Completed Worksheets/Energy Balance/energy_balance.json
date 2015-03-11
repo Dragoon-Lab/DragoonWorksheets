@@ -40,8 +40,14 @@
                                                 "30%"
                                             ]
                                         }
-                                    },
-                                    {
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+									{
                                         "__Text__": {
                                             "text": "The \"beaver birth rate\" is a parameter whose value is equal to "
                                         }
@@ -57,35 +63,8 @@
                                                 "30%"
                                             ]
                                         }
-                                    },
-                                    {
-                                        "__Dropdown__": {
-                                            "correct": "beaver population",
-                                            "options": [
-                                                "beaver birth rate",
-                                                "beaver population",
-                                                "20",
-                                                "30%"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "__Dropdown__": {
-                                            "correct": "beaver birth rate",
-                                            "options": [
-                                                "beaver birth rate",
-                                                "beaver births",
-                                                "20",
-                                                "30%"
-                                            ]
-                                        }
                                     }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": []
+								]
                             }
                         },
                         {
@@ -197,7 +176,7 @@
                             }
                         }
                     ],
-                    "gen": "Assume you are modeling the system decribed below in italics.</p><p>Brandon has 100 video ganes. Each week, he buys two more games."
+                    "gen": "Assume you are modeling the system decribed below in italics.</p><p><i>Brandon has 100 video ganes. Each week, he buys two more games.</i>"
                 }
             },
             {
@@ -241,7 +220,7 @@
                                                         ],
                                                         "accumulator"
                                                     ],
-                                                    "energy stored in the body is equal to its value yesterday plus energy balance for today;ArithmeticError initial value = 345000 calories"
+                                                    "energy stored in the body is equal to its value yesterday plus energy balance for today; initial value = 345000 calories"
                                                 ]
                                             ]
                                         }
@@ -1400,9 +1379,9 @@
                                                         [
                                                             "physical activity expenditure",
                                                             "resting energy expenditure",
-                                                            "digestive energy expenditure"
+                                                            "digestive activity expenditure"
                                                         ],
-                                                        "digestive energy expenditure"
+                                                        "digestive activity expenditure"
                                                     ]
                                                 ]
                                             ]
@@ -1937,7 +1916,7 @@
                                                     "energy expended per day by basic body function; value = 1400 calories"
                                                 ],
                                                 [
-                                                    "Digestive energy expenditure",
+                                                    "digestive activity expenditure",
                                                     [
                                                         [
                                                             "parameter",
@@ -2522,8 +2501,19 @@
                                                 "180 lbs"
                                             ]
                                         }
-                                    },
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
                                     {
+                                        "__Text__": {
+                                            "text": "Go to the graph and insert Madison\u2019s values from 16a. Now the author\u2019s solution shows Joe\u2019s weight, and the variable solution shows Madison\u2019s.</p><p>Madison\u2019s weight graph is clearly very different than Joe\u2019s weight graph. Everyone has different graphs and experience different challenges when trying to gain or lose weight. As you age, your graphs will change as well. Leave all the values the same, but change Madison\u2019s age to 30. Estimate her weight after 1000 days.</p><p>"
+                                        }
+                                    },
+									{
                                         "__Dropdown__": {
                                             "correct": "170-180 lbs",
                                             "options": [
@@ -2540,30 +2530,36 @@
                         {
                             "__Section__": {
                                 "content": [
-                                    {
-                                        "__Text__": {
-                                            "text": "Go to the graph and insert Madison\u2019s values from 16a. Now the author\u2019s solution shows Joe\u2019s weight, and the variable solution shows Madison\u2019s.</p><p>Madison\u2019s weight graph is clearly very different than Joe\u2019s weight graph. Everyone has different graphs and experience different challenges when trying to gain or lose weight. As you age, your graphs will change as well. Leave all the values the same, but change Madison\u2019s age to 30. Estimate her weight after 1000 days. Is she gaining weight faster, slower, or about the same OR losing weight? Why do you think this is? "
+									{
+										"__Text__": {
+											"text": "Is she gaining weight faster, slower, or about the same OR losing weight? "
+										}
+									},
+									{
+                                        "__Dropdown__": {
+                                            "correct": "faster",
+                                            "options": [
+                                                "faster",
+                                                "slower",
+                                                "same",
+                                                "losing weight"
+                                            ]
                                         }
                                     }
-                                ]
-                            }
-                        },
-                        {
-                            "__Section__": {
-                                "content": []
+								]
                             }
                         },
                         {
                             "__Section__": {
                                 "content": [
                                     {
-                                        "__Textbox__": {
-                                            "example": "Madison is gaining weight faster because her metabolism is slowing as she gets older. So although everything is the same as before, she is burning fewer calories, which leads to more weight gain."
-                                        }
-                                    },
-                                    {
                                         "__Text__": {
                                             "text": "Why?"
+                                        }
+                                    },
+									{
+                                        "__Textbox__": {
+                                            "example": "Madison is gaining weight faster because her metabolism is slowing as she gets older. So although everything is the same as before, she is burning fewer calories, which leads to more weight gain."
                                         }
                                     }
                                 ]
@@ -2682,7 +2678,7 @@
                             }
                         }
                     ],
-                    "gen": "Please describe how you modified the given model in order to incorporate the fact that lean tissue burns much mroe energy than fat."
+                    "gen": "Please describe how you modified the given model in order to incorporate the fact that lean tissue burns much more energy than fat."
                 }
             }
         ],
@@ -2690,7 +2686,7 @@
             {
                 "__LsText__": {
                     "before": 1,
-                    "text": "</p><h1>Modeling Practice (Working with Dragoon)</h1><h3>Key Terms & Concepts</h3><p><b>A parameter</b> represents a fixed quantity that never changes. Parameters are used to represnt constant values.</p><p><i>Example: pi is a <b>parameter</i> because it is always 3.1415.</i></p><p><b>An accumulator</b> represents a quantity that increases or decreases over time based on its previous value and the value of its inputs. These take the form: \"new value = old value + inputs\". It has an initial value that serves as the first \"old value.\"</p><p><i>Example: Population can be an <b>accumulator</b> because its new value is depndent on its old value and its inputs. Current population size = last year's population size + inputs.</i></p><p><b>A function</b> represents a value  that is calculated directly from the values of other quantities, without referencing its previous value. A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value. Thus, a function does not need and does not have a special initial value, whereas an accumulator does.</p><p><i>Example: Suppose you know 20% of the population dies each year, then the number of deaths is a <b>function</b>, namely population * 0.2. Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute it (if it did, it\u00e2\u20ac\u2122d be an <b>accumulator</b>).</i></p><p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be written in scientific notation to be <b>3.45e+5</b> or <b>3.45 x 10<sup>5</sup></b>.</p><p>To do this, move the decimal place from the end of <b>345000</b> to between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for \"exponenet is +5\" or <b>10<sup5</sup></b>. This indicates how many zeros there are.</p><p>Similarly, </b>0.0000000000000000345</b> can be written as <b>3.45e-17</b> or <b>3.45 x 10<sup>-17</sup></b>."
+                    "text": "</p><h1>Modeling Practice (Working with Dragoon)</h1><h3>Key Terms & Concepts</h3><p><b>A parameter</b> represents a fixed quantity that never changes. Parameters are used to represnt constant values.</p><p><i>Example: pi is a <b>parameter</b> because it is always 3.1415.</i></p><p><b>An accumulator</b> represents a quantity that increases or decreases over time based on its previous value and the value of its inputs. These take the form: \"new value = old value + inputs\". It has an initial value that serves as the first \"old value.\"</p><p><i>Example: Population can be an <b>accumulator</b> because its new value is depndent on its old value and its inputs. Current population size = last year's population size + inputs.</i></p><p><b>A function</b> represents a value  that is calculated directly from the values of other quantities, without referencing its previous value. A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value. Thus, a function does not need and does not have a special initial value, whereas an accumulator does.</p><p><i>Example: Suppose you know 20% of the population dies each year, then the number of deaths is a <b>function</b>, namely population * 0.2. Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute it (if it did, it\u00e2\u20ac\u2122d be an <b>accumulator</b>).</i></p><p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be written in scientific notation to be <b>3.45e+5</b> or <b>3.45 x 10<sup>5</sup></b>.</p><p>To do this, move the decimal place from the end of <b>345000</b> to between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for \"exponenet is +5\" or <b>10<sup5</sup></b>. This indicates how many zeros there are.</p><p>Similarly, </b>0.0000000000000000345</b> can be written as <b>3.45e-17</b> or <b>3.45 x 10<sup>-17</sup></b>."
                 }
             },
             {
