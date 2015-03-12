@@ -408,7 +408,7 @@
                         },
 						{
                             "__Dragoon__": {
-                                "problem": "two-loop-homoestatis",
+                                "problem": "two-loop-homeostasis",
                                 "mode": "STUDENT"
                             }
                         }
@@ -487,7 +487,7 @@
                         },
 						{
                             "__Dragoon__": {
-                                "problem": "simple-Blood-glucose+homoestatis",
+                                "problem": "simple-Blood-glucose+homeostasis",
                                 "mode": "STUDENT"
                             }
                         }

@@ -84,37 +84,32 @@ return result;
 <p></p><h1>Modeling Practice (Working with Dragoon)</h1><h3>Key Terms & Concepts</h3><p><b>A parameter</b> represents a fixed quantity that never changes. Parameters are used to represnt constant values.</p><p><i>Example: pi is a <b>parameter</b> because it is always 3.1415.</i></p><p><b>An accumulator</b> represents a quantity that increases or decreases over time based on its previous value and the value of its inputs. These take the form: "new value = old value + inputs". It has an initial value that serves as the first "old value."</p><p><i>Example: Population can be an <b>accumulator</b> because its new value is depndent on its old value and its inputs. Current population size = last year's population size + inputs.</i></p><p><b>A function</b> represents a value  that is calculated directly from the values of other quantities, without referencing its previous value. A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value. Thus, a function does not need and does not have a special initial value, whereas an accumulator does.</p><p><i>Example: Suppose you know 20% of the population dies each year, then the number of deaths is a <b>function</b>, namely population * 0.2. Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute it (if it did, itâ€™d be an <b>accumulator</b>).</i></p><p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be written in scientific notation to be <b>3.45e+5</b> or <b>3.45 x 10<sup>5</sup></b>.</p><p>To do this, move the decimal place from the end of <b>345000</b> to between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponenet is +5" or <b>10<sup5</sup></b>. This indicates how many zeros there are.</p><p>Similarly, </b>0.0000000000000000345</b> can be written as <b>3.45e-17</b> or <b>3.45 x 10<sup>-17</sup></b>.</p>
 <h3>Question 1</h3>
 <p>Suppose you are creating a model of the system described in the italicized paragraph below.</p><p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p>
-<p>1a. 
-The "beaver population" is an <b>accumulator</b> whose value is calculated by the following expression:</p><p>new beaver population = old beaver population + <select id="1ai">
+<p>1a. The "beaver population" is an <b>accumulator</b> whose value is calculated by the following expression:</p><p>new beaver population = old beaver population + <select id="1ai">
+<option></option>
+<option>beaver birth rate</option>
+<option>beaver population</option>
+<option>beaver births</option>
+<option>20</option>
+<option>30%</option></select></p><p>Initial value: <select id="1aii">
 <option></option>
 <option>beaver birth rate</option>
 <option>beaver population</option>
 <option>beaver births</option>
 <option>20</option>
 <option>30%</option></select></p>
-<p>Initial value: <select id="1aii">
+<p>1b. The "beaver birth rate" is a parameter whose value is equal to <select id="1bi">
 <option></option>
 <option>beaver birth rate</option>
 <option>beaver population</option>
 <option>beaver births</option>
 <option>20</option>
 <option>30%</option></select></p>
-<p>1b. 
-The "beaver birth rate" is a parameter whose value is equal to <select id="1bi">
-<option></option>
-<option>beaver birth rate</option>
-<option>beaver population</option>
-<option>beaver births</option>
-<option>20</option>
-<option>30%</option></select></p>
-<p>1c. 
-"Beaver births" is a function whose value is calculated by the following mathematical expression: </p><p><select id="1ci">
+<p>1c. "Beaver births" is a function whose value is calculated by the following mathematical expression: </p><p><select id="1ci">
 <option></option>
 <option>beaver birth rate</option>
 <option>beaver population</option>
 <option>20</option>
-<option>30%</option></select>
- x <select id="1cii">
+<option>30%</option></select> x <select id="1cii">
 <option></option>
 <option>beaver birth rate</option>
 <option>beaver births</option>
@@ -311,21 +306,17 @@ if(set1.cii===3)
 <div id="question2" style="display: none">
 <h3>Question 2</h3>
 <p>Assume you are modeling the system decribed below in italics.</p><p><i>Brandon has 100 video ganes. Each week, he buys two more games.</i></p>
-<p>2a. 
-The number of video games Brandon buys every week is a(n) <select id="2ai">
+<p>2a. The number of video games Brandon buys every week is a(n) <select id="2ai">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select>
- and is equal to <select id="2aii">
+<option>function</option></select> and is equal to <select id="2aii">
 <option></option>
 <option>100</option>
 <option>4</option>
 <option>2</option>
-<option>1</option></select>
- games/week.</p>
-<p>2b. 
-The number of video games Brandon has each week is the number of video games he had the preceding week plus the number of video games he buys this week. Therefore, the number of video games Brandon has is a(n): <select id="2bi">
+<option>1</option></select> games/week.</p>
+<p>2b. The number of video games Brandon has each week is the number of video games he had the preceding week plus the number of video games he buys this week. Therefore, the number of video games Brandon has is a(n): <select id="2bi">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
@@ -457,14 +448,13 @@ if(set2.bi===3)
 <div id="question3" style="display: none">
 <h3>Question 3</h3>
 <p></p>
-<p>3a. 
-Fill in the blanks.<table>
+<p>3a. Fill in the blanks.<table>
 <thead>
 <td style="border: 2pt black solid"><b>Node Name</b></td>
 <td style="border: 2pt black solid"><b>Type</b></td>
 <td style="border: 2pt black solid"><b>Description</b></td>
 </thead>
-<tbody>
+<tbody><tr><tr>
 <td style="border: 2pt black solid">energy balance</td><td style="border: 2pt black solid"><select id="3ai">
 <option></option>
 <option>parameter</option>
@@ -479,14 +469,13 @@ Fill in the blanks.<table>
 <td style="border: 2pt black solid">energy stored in the body is equal to its value yesterday plus energy balance for today; initial value = 345000 calories</td></tr>
 </tbody>
 </table></p>
-<p>3b. 
-How would Joe measure changes to his energy storage?<table>
+<p>3b. How would Joe measure changes to his energy storage?<table>
 <thead>
 <td style="border: 2pt black solid"><b>time (days)</b></td>
 <td style="border: 2pt black solid"><b>calculation</b></td>
 <td style="border: 2pt black solid"><b>energy stored (cal)</b></td>
 </thead>
-<tbody>
+<tbody><tr><tr><tr><tr><tr><tr>
 <td style="border: 2pt black solid">0</td>
 <td style="border: 2pt black solid"></td>
 <td style="border: 2pt black solid">345000</td></tr>
@@ -820,15 +809,12 @@ if (set3.bvii=== 1) {
 <h3>Question 4</h3>
 <p>In the graoh window, vary the values of energy balance and initial energy stored by dragging the sliders back and forth along the lines (boxed below) or by typing in different values in the boxes (boxed below).</p>
 <p>4a. 
-<img src ="energy_balance/energy14.JPG"/></p>
-Notice that the graph can change with these values. A red line should pop up showing you the author's solution. The value that you have changed by varying the values should be green. When you're done playing with the values, answer the following questions.</p><p>What is the vertical axis on the graph? <select id="4ai">
+<img src ="energy_balance/energy14.JPG"/>Notice that the graph can change with these values. A red line should pop up showing you the author's solution. The value that you have changed by varying the values should be green. When you're done playing with the values, answer the following questions.</p><p>What is the vertical axis on the graph? <select id="4ai">
 <option></option>
 <option>time</option>
 <option>energy stored</option></select></p>
-<p>4b. 
-What happens to the graph if you change the energy balance from 100 calories to 300 calories? What does this mean?<div id="new4bi"><textarea id="4bi" cols="40" rows="5"></textarea></div></p>
-<p>4c. 
-What happens to the graph if you change the initial energy stored? Change the value from 345000 calories to 3000 calories. Don't forget to reset energy balance to 100 calories.<div id="new4ci"><textarea id="4ci" cols="40" rows="5"></textarea></div></p>
+<p>4b. What happens to the graph if you change the energy balance from 100 calories to 300 calories? What does this mean?<div id="new4bi"><textarea id="4bi" cols="40" rows="5"></textarea></div></p>
+<p>4c. What happens to the graph if you change the initial energy stored? Change the value from 345000 calories to 3000 calories. Don't forget to reset energy balance to 100 calories.<div id="new4ci"><textarea id="4ci" cols="40" rows="5"></textarea></div></p>
 <script type="text/javascript">var set4 = {
 ai:0,}; 
 function cont4() {
@@ -899,63 +885,53 @@ if(set4.ai===3)
 <h3>Question 5</h3>
 <p>In the table window, scroll to the very bottom and vary the values of energy balance and initial energy storeed, just as you did before with the graph (by dragging the sliders back and forth along the lines or by typing in different values in the boxes).</p><p>Notice how the table may change. When you're done playing with the values, answer the following questions.</p>
 <p>5a. 
-<img src ="energy_balance/energy15.JPG"/></p><p>
-On what day does energy stored hit 3.46e+5?</p><p>Day <select id="5ai">
+<img src ="energy_balance/energy15.JPG"/>On what day does energy stored hit 3.46e+5?</p><p>Day <select id="5ai">
 <option></option>
 <option>5</option>
 <option>7</option>
 <option>15</option>
 <option>21</option></select></p>
-<p>5b. 
-On what day does energy stored hit 3.47e+5?</p><p>Day <select id="5bi">
+<p>5b. On what day does energy stored hit 3.47e+5?</p><p>Day <select id="5bi">
 <option></option>
 <option>5</option>
 <option>7</option>
 <option>15</option>
 <option>21</option></select></p>
-<p>5c. 
-What is the energy stored on Day 9?</p><p><select id="5ci">
+<p>5c. What is the energy stored on Day 9?</p><p><select id="5ci">
+<option></option>
+<option>3.45e+5</option>
+<option>3.46e+5</option>
+<option>3.47e+5</option>
+<option>3.48e+5</option></select> calories</p>
+<p>5d. What is the energy stored on Day 0 and on Day 29.5 (the first and last value)?</p><p>Day 0: <select id="5di">
+<option></option>
+<option>3.45e+5</option>
+<option>3.46e+5</option>
+<option>3.47e+5</option>
+<option>3.48e+5</option></select></p><p>Day 29.5: <select id="5dii">
 <option></option>
 <option>3.45e+5</option>
 <option>3.46e+5</option>
 <option>3.47e+5</option>
 <option>3.48e+5</option></select></p>
- calories</p>
-<p>5d. 
-What is the energy stored on Day 0 and on Day 29.5 (the first and last value)?</p><p>Day 0: <select id="5di">
-<option></option>
-<option>3.45e+5</option>
-<option>3.46e+5</option>
-<option>3.47e+5</option>
-<option>3.48e+5</option></select></p>
-</p><p>Day 29.5: <select id="5dii">
-<option></option>
-<option>3.45e+5</option>
-<option>3.46e+5</option>
-<option>3.47e+5</option>
-<option>3.48e+5</option></select></p>
-<p>5e. 
-If the energy balance changed from 100 calories to 300 calories, on what day does energy stored hit 3.46e+5 calories?</p><p>Day <select id="5ei">
+<p>5e. If the energy balance changed from 100 calories to 300 calories, on what day does energy stored hit 3.46e+5 calories?</p><p>Day <select id="5ei">
 <option></option>
 <option>2</option>
 <option>5</option>
 <option>7</option>
 <option>9</option></select></p>
-<p>5f. 
-If the initial energy stored changed from 345000 calories to 3000 calories, what is the value on Day 0 and on Day 29.5 (the first and last values)? <i>Don't forget to reset energy balance back to 100 calories.</i> You can reset all sliders to their original values by closing the table window and reopening it using the <b>Table</b> button.</p><p>Day 0: <select id="5fi">
+<p>5f. If the initial energy stored changed from 345000 calories to 3000 calories, what is the value on Day 0 and on Day 29.5 (the first and last values)? <i>Don't forget to reset energy balance back to 100 calories.</i> You can reset all sliders to their original values by closing the table window and reopening it using the <b>Table</b> button.</p><p>Day 0: <select id="5fi">
 <option></option>
 <option>3.00e+3</option>
 <option>5.95e+3</option>
 <option>3.00e+5</option>
-<option>5.95e+5</option></select></p>
-</p><p>Day 29.5: <select id="5fii">
+<option>5.95e+5</option></select></p><p>Day 29.5: <select id="5fii">
 <option></option>
 <option>3.00e+3</option>
 <option>5.95e+3</option>
 <option>3.00e+5</option>
 <option>3.95e+5</option></select></p>
-<p>5g. 
-Why are your answers so different for questions 5d & 5f? What does this mean?</p><div id="new5gi"><textarea id="5gi" cols="40" rows="5"></textarea></div>
+<p>5g. Why are your answers so different for questions 5d & 5f? What does this mean?<div id="new5gi"><textarea id="5gi" cols="40" rows="5"></textarea></div></p>
 <script type="text/javascript">var set5 = {
 ai:0,
 bi:0,
@@ -1246,15 +1222,14 @@ if(set5.fii===3)
 <div id="question6" style="display: none">
 <h3>Question 6</h3>
 <p></p>
-<p>6a. 
-Fill in the blanks<table>
+<p>6a. Fill in the blanks<table>
 <thead>
 <td style="border: 2pt black solid"><b>Node Name</b></td>
 <td style="border: 2pt black solid"><b>Node Type</b></td>
 <td style="border: 2pt black solid"><b>Description</b></td>
 <td style="border: 2pt black solid"><b>Expression</b></td>
 </thead>
-<tbody>
+<tbody><tr><tr><tr><tr>
 <td style="border: 2pt black solid">Energy expended</td><td style="border: 2pt black solid"><select id="6ai">
 <option></option>
 <option>parameter</option>
@@ -1429,9 +1404,7 @@ if (set6.aiv=== 1) {
 <div id="question7" style="display: none">
 <h3>Question 7</h3>
 <p>Dragoon: Energy Balance - Level 0</p>
-<p>7a. 
-Click on the Dragoon button below. This is your workspace for the <b>Energy Balance - Level 0</b> problem. Here, you will model different systems and graph them!</p>
-It doesn't look like much, but that is because you still need to create your nodes.</p>
+<p>7a. Click on the Dragoon button below. This is your workspace for the <b>Energy Balance - Level 0</b> problem. Here, you will model different systems and graph them!It doesn't look like much, but that is because you still need to create your nodes.</p>
 <script type="text/javascript">var set7 = {}; 
 function cont7() {
 var yestim7 = 0;
@@ -1465,18 +1438,13 @@ time8();
 <div id="question8" style="display: none">
 <h3>Question 8</h3>
 <p>Do the following steps to create a new model for Joe's body.</p>
-<p>8a. 
-If you have not done so already, click the <b>Done</b> button.</p>
+<p>8a. If you have not done so already, click the <b>Done</b> button.
 <img src ="energy_balance/energy16.JPG"/></p>
-<p>8b. 
-Your current tab should close and you should see this screen again.</p>
+<p>8b. Your current tab should close and you should see this screen again.
 <img src ="energy_balance/energy17.JPG"/></p>
-<p>8c. 
-Click on the Dragoon button below. After the problem opens, read the text on the left of the screen. Notice that some nodes have been created for you already.</p>
-<p>8d. 
-Start defining/refining your nodes. Click on the <b>Create Node</b> button in the top left corner as you did before, or you can double-click on an already created node in the window. If you have described your nodes properly in the above table, creating nodes should be simple—you have all the information you need right here!</p>
-<p>8e. 
-As you can see from your table, four nodes are needed. After you have created them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren’t completely defined. Look for nodes that have dotted lines around them.</p><p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b></p>
+<p>8c. Click on the Dragoon button below. After the problem opens, read the text on the left of the screen. Notice that some nodes have been created for you already.</p>
+<p>8d. Start defining/refining your nodes. Click on the <b>Create Node</b> button in the top left corner as you did before, or you can double-click on an already created node in the window. If you have described your nodes properly in the above table, creating nodes should be simple—you have all the information you need right here!</p>
+<p>8e. As you can see from your table, four nodes are needed. After you have created them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren’t completely defined. Look for nodes that have dotted lines around them.</p><p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b></p>
 <script type="text/javascript">var set8 = {}; 
 function cont8() {
 var yestim8 = 0;
@@ -1510,18 +1478,13 @@ time9();
 <div id="question9" style="display: none">
 <h3>Question 9</h3>
 <p></p>
-<p>9a. 
-In the graph window, check <b>Show energy stored</b> and make sure <b>Show energy balance</b> is not checked, as boxed in the screenshot below.</p>
-<img src ="energy_balance/energy18.JPG"/><p>
-Vary the values of energy ingested, energy expended, and initial energy stored. Notice that the graph can change with these values.</p><p>When you’re done playing with the values, close and reopen the graph window to reset the sliders to their original positions, and then answer the following questions.</p><p>What is the unit of the independent variable on the graph?</p><p><select id="9ai">
+<p>9a. In the graph window, check <b>Show energy stored</b> and make sure <b>Show energy balance</b> is not checked, as boxed in the screenshot below.
+<img src ="energy_balance/energy18.JPG"/>Vary the values of energy ingested, energy expended, and initial energy stored. Notice that the graph can change with these values.</p><p>When you’re done playing with the values, close and reopen the graph window to reset the sliders to their original positions, and then answer the following questions.</p><p>What is the unit of the independent variable on the graph?</p><p><select id="9ai">
 <option></option>
 <option>days</option>
 <option>calories</option></select></p>
-<p>9b. 
-What happens to the graph if Joe changes his energy ingested from 1989 calories to 2.11e+3 calories? What does this mean?</p><div id="new9bi"><textarea id="9bi" cols="40" rows="5"></textarea></div>
-<p>9c. 
-Close and reopen the graph window to reset the sliders to their original positions. What happens to the graph if Joe changes his energy expended from 2100 to 1980 and what does this mean?</p><div id="new9ci"><textarea id="9ci" cols="40" rows="5"></textarea></div><p>
-When you are finished with these problems, close the graphing window and open the table by clicking on the Table button on the top menu bar.</p>
+<p>9b. What happens to the graph if Joe changes his energy ingested from 1989 calories to 2.11e+3 calories? What does this mean?<div id="new9bi"><textarea id="9bi" cols="40" rows="5"></textarea></div></p>
+<p>9c. Close and reopen the graph window to reset the sliders to their original positions. What happens to the graph if Joe changes his energy expended from 2100 to 1980 and what does this mean?<div id="new9ci"><textarea id="9ci" cols="40" rows="5"></textarea></div>When you are finished with these problems, close the graphing window and open the table by clicking on the Table button on the top menu bar.</p>
 <script type="text/javascript">var set9 = {
 ai:0,}; 
 function cont9() {
@@ -1591,56 +1554,46 @@ if(set9.ai===3)
 <div id="question10" style="display: none">
 <h3>Question 10</h3>
 <p>In the table window, scroll to the bottom and vary the values of energy balance and initial energy stored. Notice how the table may change.</p><p>When you’re done testing different values for energy expended, energy ingested, and energy stored, close and reopen the table window to reset the sliders to their original positions. Answer the following questions.</p>
-<p>10a. 
-What does the -111 represent in the last column and why doesn’t it change?</p><div id="new10ai"><textarea id="10ai" cols="40" rows="5"></textarea></div>
-<p>10b. 
-On what day does energy stored hit 3.43e+5 calories?</p><p>Day <select id="10bi">
+<p>10a. What does the -111 represent in the last column and why doesn’t it change?<div id="new10ai"><textarea id="10ai" cols="40" rows="5"></textarea></div></p>
+<p>10b. On what day does energy stored hit 3.43e+5 calories?</p><p>Day <select id="10bi">
 <option></option>
 <option>23.00</option>
 <option>22.00</option>
 <option>14.00</option>
 <option>13.00</option></select></p>
-<p>10c. 
-What is the energy stored value on Day 0 and on Day 999 (the first and last values)?</p>
-<p>Day 0: <select id="10ci">
+<p>10c. What is the energy stored value on Day 0 and on Day 999 (the first and last values)?</p><p>Day 0: <select id="10ci">
+<option></option>
+<option>-111</option>
+<option>3.43e+5</option>
+<option>3.45e+5</option>
+<option>3.34e+5</option></select></p><p>Day999: <select id="10cii">
 <option></option>
 <option>-111</option>
 <option>3.43e+5</option>
 <option>3.45e+5</option>
 <option>3.34e+5</option></select></p>
-<p>Day999: <select id="10cii">
+<p>10d. If the initial energy stored changed from 345000 calories to 3000 calories, what is the value on Day 0 and on Day 999 (the first and last values)?</p><p>Day 0: <select id="10di">
 <option></option>
-<option>-111</option>
-<option>3.43e+5</option>
-<option>3.45e+5</option>
-<option>3.34e+5</option></select></p>
-<p>10d. 
-If the initial energy stored changed from 345000 calories to 3000 calories, what is the value on Day 0 and on Day 999 (the first and last values)?</p><p>Day 0: <select id="10di">
+<option>2.34e+5</option>
+<option>3.00e+3</option>
+<option>-1.08e+5</option>
+<option>3.45e+5</option></select></p><p>Day 999: <select id="10dii">
 <option></option>
 <option>2.34e+5</option>
 <option>3.00e+3</option>
 <option>-1.08e+5</option>
 <option>3.45e+5</option></select></p>
-<p>Day 999: <select id="10dii">
+<p>10e. <i>Don't forget to reset all the values by closing and reopening the table window to reset the sliders to their original positions.</i></p><p>If Joe expends 3000 calories, but leaves all other values the sme initially, then on <b>Day 30</b> what would his energy stored and energy balance be?</p><p>Energy stored: <select id="10ei">
 <option></option>
-<option>2.34e+5</option>
-<option>3.00e+3</option>
-<option>-1.08e+5</option>
-<option>3.45e+5</option></select></p>
-<p>10e. 
-<i>Don't forget to reset all the values by closing and reopening the table window to reset the sliders to their original positions.</i></p><p>If Joe expends 3000 calories, but leaves all other values the sme initially, then on <b>Day 30</b> what would his energy stored and energy balance be?</p><p>Energy stored: <select id="10ei">
+<option>1.01e+3</option>
+<option>3.15e+5</option>
+<option>-1.01e+3</option>
+<option>-3.15e+5</option></select>cal</p><p>Energy balance: <select id="10eii">
 <option></option>
-<option>330</option>
-<option>-330</option>
-<option>-111</option>
-<option>111</option></select></p>
-cal<p>Energy balance: <select id="10eii">
-<option></option>
-<option>330</option>
-<option>-330</option>
-<option>-111</option>
-<option>111</option></select>
-cal</p>
+<option>1.01e+3</option>
+<option>3.15e+5</option>
+<option>-1.01e+3</option>
+<option>-3.15e+5</option></select>cal</p>
 <script type="text/javascript">var set10 = {
 bi:0,
 ci:0,
@@ -1660,8 +1613,8 @@ checkAnswers("10ci", "3.45e+5");
 checkAnswers("10cii", "3.34e+5");
 checkAnswers("10di", "3.00e+3");
 checkAnswers("10dii", "-1.08e+5");
-checkAnswers("10ei", "-330");
-checkAnswers("10eii", "-111");
+checkAnswers("10ei", "3.15e+5");
+checkAnswers("10eii", "-1.01e+3");
 if (document.getElementById("10ai").value==="" ||document.getElementById("10bi").value==="" ||document.getElementById("10ci").value==="" ||document.getElementById("10cii").value==="" ||document.getElementById("10di").value==="" ||document.getElementById("10dii").value==="" ||document.getElementById("10ei").value==="" ||document.getElementById("10eii").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
@@ -1670,10 +1623,10 @@ if (!checkAnswers("10bi", "14.00")) {
  set10.ci = set10.ci + 1;}if (!checkAnswers("10cii", "3.34e+5")) { 
  set10.cii = set10.cii + 1;}if (!checkAnswers("10di", "3.00e+3")) { 
  set10.di = set10.di + 1;}if (!checkAnswers("10dii", "-1.08e+5")) { 
- set10.dii = set10.dii + 1;}if (!checkAnswers("10ei", "-330")) { 
- set10.ei = set10.ei + 1;}if (!checkAnswers("10eii", "-111")) { 
+ set10.dii = set10.dii + 1;}if (!checkAnswers("10ei", "3.15e+5")) { 
+ set10.ei = set10.ei + 1;}if (!checkAnswers("10eii", "-1.01e+3")) { 
  set10.eii = set10.eii + 1;}
-if (checkTextbox("10ai") &&(checkAnswers("10bi", "14.00") || set10.bi===3) &&(checkAnswers("10ci", "3.45e+5") || set10.ci===3) &&(checkAnswers("10cii", "3.34e+5") || set10.cii===3) &&(checkAnswers("10di", "3.00e+3") || set10.di===3) &&(checkAnswers("10dii", "-1.08e+5") || set10.dii===3) &&(checkAnswers("10ei", "-330") || set10.ei===3) &&(checkAnswers("10eii", "-111") || set10.eii===3) &&1) {
+if (checkTextbox("10ai") &&(checkAnswers("10bi", "14.00") || set10.bi===3) &&(checkAnswers("10ci", "3.45e+5") || set10.ci===3) &&(checkAnswers("10cii", "3.34e+5") || set10.cii===3) &&(checkAnswers("10di", "3.00e+3") || set10.di===3) &&(checkAnswers("10dii", "-1.08e+5") || set10.dii===3) &&(checkAnswers("10ei", "3.15e+5") || set10.ei===3) &&(checkAnswers("10eii", "-1.01e+3") || set10.eii===3) &&1) {
  document.getElementById("question11").style.display = "";
  document.getElementById("button10").style.display = "none";
 
@@ -1837,7 +1790,7 @@ if (set10.dii=== 1) {
 };
 if(set10.dii===3)
 {document.getElementById("10dii").value="-1.08e+5"};
-if (!checkAnswers("10ei", "-330")) {
+if (!checkAnswers("10ei", "3.15e+5")) {
 if (set10.ei===3) {
 document.getElementById("10ei").style.background="#FFFF00";
  document.getElementById("10eiAnswer3").innerHTML = document.getElementById("10ei").value 
@@ -1864,8 +1817,8 @@ if (set10.ei=== 1) {
 }
 };
 if(set10.ei===3)
-{document.getElementById("10ei").value="-330"};
-if (!checkAnswers("10eii", "-111")) {
+{document.getElementById("10ei").value="3.15e+5"};
+if (!checkAnswers("10eii", "-1.01e+3")) {
 if (set10.eii===3) {
 document.getElementById("10eii").style.background="#FFFF00";
  document.getElementById("10eiiAnswer3").innerHTML = document.getElementById("10eii").value 
@@ -1892,24 +1845,22 @@ if (set10.eii=== 1) {
 }
 };
 if(set10.eii===3)
-{document.getElementById("10eii").value="-111"};};
+{document.getElementById("10eii").value="-1.01e+3"};};
 </script>
 
 <br><button id="button10" onClick="cont10();">Continue</button>
 <div id="question11" style="display: none">
 <h3>Question 11</h3>
 <p><b>Energy Balance - Level 2</b></p>
-<p>11a. 
-If you have not done so already, click the <b>Done</b> button. You should see the main window screen of the forum.</p>
-<p>11b. 
-Open the Dragoon problem below. After the problem opens, read the text on the left of the screen and then fill in the blanks in the table before creating your nodes.</p><table>
+<p>11a. If you have not done so already, click the <b>Done</b> button. You should see the main window screen of the forum.</p>
+<p>11b. Open the Dragoon problem below. After the problem opens, read the text on the left of the screen and then fill in the blanks in the table before creating your nodes.<table>
 <thead>
 <td style="border: 2pt black solid"><b>Node Name</b></td>
 <td style="border: 2pt black solid"><b>Node Type</b></td>
 <td style="border: 2pt black solid"><b>Description</b></td>
 <td style="border: 2pt black solid"><b>Expression</b></td>
 </thead>
-<tbody>
+<tbody><tr><tr><tr><tr><tr><tr>
 <td style="border: 2pt black solid">Weight</td><td style="border: 2pt black solid"><select id="11bi">
 <option></option>
 <option>parameter</option>
@@ -1953,10 +1904,8 @@ Open the Dragoon problem below. After the problem opens, read the text on the le
 <option>N/A</option></select></td></tr>
 </tbody>
 </table></p>
-<p>11c. 
-When you are done with your model, open the graph window and ensure that only <b>Show weight</b> is checked. Vary the values of the parameters, and check that the graph changes sensibly.</p>
-<p>11d. 
-Close and reopen the graph window to reset the sliders to their original positions. You can use the <b>Graph</b> or <b>Table</b> buttons to answer the following questions.</p>
+<p>11c. When you are done with your model, open the graph window and ensure that only <b>Show weight</b> is checked. Vary the values of the parameters, and check that the graph changes sensibly.</p>
+<p>11d. Close and reopen the graph window to reset the sliders to their original positions. You can use the <b>Graph</b> or <b>Table</b> buttons to answer the following questions.</p>
 <script type="text/javascript">var set11 = {
 bi:0,
 bii:0,
@@ -2130,34 +2079,25 @@ if (set11.bv=== 1) {
 <div id="question12" style="display: none">
 <h3>Question 12</h3>
 <p></p>
-<p>12a. 
-If Joe continues his ingesting/expending patterns, in about how many days will Joe weigh about 130 lbs?</p><p><select id="12ai">
+<p>12a. If Joe continues his ingesting/expending patterns, in about how many days will Joe weigh about 130 lbs?</p><p><select id="12ai">
 <option></option>
-<option>632</option>
-<option>647</option>
+<option>415</option>
+<option>515</option>
 <option>615</option>
-<option>646</option></select>
- Days</p>
-<p>12b. 
-What happens to the graph if Joe changes his energy ingested from 1989 calories to 2.11e+3 calories? What does this mean?</p><div id="new12bi"><textarea id="12bi" cols="40" rows="5"></textarea></div>
-<p>12c. 
-Uncheck <b>show weight</b> and check either <b>Show energy balance</b> or <b>Show weight change</b>. Why do these graphs NOT show any change over time (i.e., slope = 0)?</p><div id="new12ci"><textarea id="12ci" cols="40" rows="5"></textarea></div>
-<p>12d. 
-<b>Show energy balance</b> and <b>Show weight change</b> are <select id="12di">
+<option>715</option></select> Days</p>
+<p>12b. What happens to the graph if Joe changes his energy ingested from 1989 calories to 2.11e+3 calories? What does this mean?<div id="new12bi"><textarea id="12bi" cols="40" rows="5"></textarea></div></p>
+<p>12c. Uncheck <b>show weight</b> and check either <b>Show energy balance</b> or <b>Show weight change</b>. Why do these graphs NOT show any change over time (i.e., slope = 0)?<div id="new12ci"><textarea id="12ci" cols="40" rows="5"></textarea></div></p>
+<p>12d. <b>Show energy balance</b> and <b>Show weight change</b> are <select id="12di">
 <option></option>
 <option>constant</option>
-<option>dynamic</option></select>
-.</p>
-<p>12e. 
-Vary the ingested values. How many calories can Joe ingest and keep his weight constant?</p><p><select id="12ei">
+<option>dynamic</option></select>.</p>
+<p>12e. Vary the ingested values. How many calories can Joe ingest and keep his weight constant?<select id="12ei">
 <option></option>
 <option>1989</option>
 <option>2.10e+3</option>
 <option>2.14e+3</option>
-<option>2.06e+3</option></select>
- Calories</p>
-<p>12f. 
-Write the expression for energy balance. Explain your answer to the previous question in terms of this expression.</p><div id="new12fi"><textarea id="12fi" cols="40" rows="5"></textarea></div>
+<option>2.06e+3</option></select> Calories</p>
+<p>12f. Write the expression for energy balance. Explain your answer to the previous question in terms of this expression.<div id="new12fi"><textarea id="12fi" cols="40" rows="5"></textarea></div></p>
 <script type="text/javascript">var set12 = {
 ai:0,
 di:0,
@@ -2293,7 +2233,7 @@ if(set12.ei===3)
 <br><button id="button12" onClick="cont12();">Continue</button>
 <div id="question13" style="display: none">
 <h3>Question 13</h3>
-<p></p>
+<p>Please open the Dragoon problem below and then answer the following questions.</p>
 <p>13a. <table>
 <thead>
 <td style="border: 2pt black solid"><b>Node Name</b></td>
@@ -2301,7 +2241,7 @@ if(set12.ei===3)
 <td style="border: 2pt black solid"><b>Description</b></td>
 <td style="border: 2pt black solid"><b>Expression</b></td>
 </thead>
-<tbody>
+<tbody><tr><tr><tr><tr>
 <td style="border: 2pt black solid">Physical activity expenditure</td><td style="border: 2pt black solid"><select id="13ai">
 <option></option>
 <option>parameter</option>
@@ -2335,25 +2275,19 @@ if(set12.ei===3)
 <option>digestive activity expenditure</option></select></td></tr>
 </tbody>
 </table></p>
-<p>13b. 
-What is the value of Energy Expended?</p><p><select id="13bi">
+<p>13b. What is the value of Energy Expended?<select id="13bi">
 <option></option>
 <option>400</option>
 <option>1400</option>
-<option>200</option></select>
-  calories.</p>
-<p>13c. 
-If Joe continues to ingest 1989 calories a day, the graph will have a <select id="13ci">
+<option>200</option></select>  calories.</p>
+<p>13c. If Joe continues to ingest 1989 calories a day, the graph will have a <select id="13ci">
 <option></option>
 <option>positive</option>
-<option>negative</option></select>
- slope.</p>
-<p>13d. 
-If Joe ingests 2001 calories a day, his graph will have a <select id="13di">
+<option>negative</option></select> slope.</p>
+<p>13d. If Joe ingests 2001 calories a day, his graph will have a <select id="13di">
 <option></option>
 <option>positive</option>
-<option>negative</option></select>
- slope.</p>
+<option>negative</option></select> slope.</p>
 <script type="text/javascript">var set13 = {
 ai:0,
 aii:0,
@@ -2624,24 +2558,20 @@ if(set13.di===3)
 <div id="question14" style="display: none">
 <h3>Question 14</h3>
 <p></p>
-<p>14a. 
-If Joe becomes less active (change physical activity expenditure to 300), then what happens to the graph and what does this mean about his weight?</p><div id="new14ai"><textarea id="14ai" cols="40" rows="5"></textarea></div>
-<p>14b. 
-Increase Joe's physical activity expenditure to 700 calories. About how much energy can he ingest before he gains weight now?</p><p><select id="14bi">
+<p>14a. If Joe becomes less active (change physical activity expenditure to 300), then what happens to the graph and what does this mean about his weight?<div id="new14ai"><textarea id="14ai" cols="40" rows="5"></textarea></div></p>
+<p>14b. Increase Joe's physical activity expenditure to 700 calories. About how much energy can he ingest before he gains weight now?</p><p><select id="14bi">
 <option></option>
 <option>2.30e+3</option>
 <option>2.35e+3</option>
 <option>2.40e+3</option>
-<option>2.45e+3</option></select>
- calories</p>
-<p>14c. 
-The amount of physical activity energy burned per day depends mostly on two factors: how much exercise you do and your resting energy expenditure. The energy spent on exercise is estimated by multiplying the resting energy expenditure by a physical activity factor, which is:<ul><li>0.2 for little or no exercise</li><li>0.375 for light exercise</li><li>0.55 for moderate exercise</li><li>0.75 for hard exercise but not every day</li><li>0.9 for daily hard exercise</li></ul></p><p>Instead of using a parameter for "physical activity expenditure" with a value of 400, Joe decides to make it a function whose value is the product of resting energy expenditure and a new node, physical activity level. Joe does little exercise, so he sets the physical activity level as 0.2. However, his model is now set up so that he can easily see the effect of increasing his exercise level. Hereâ€™s his whole model, expressed as a table. Fill in the blanks:</p><table>
+<option>2.45e+3</option></select> calories</p>
+<p>14c. The amount of physical activity energy burned per day depends mostly on two factors: how much exercise you do and your resting energy expenditure. The energy spent on exercise is estimated by multiplying the resting energy expenditure by a physical activity factor, which is:<ul><li>0.2 for little or no exercise</li><li>0.375 for light exercise</li><li>0.55 for moderate exercise</li><li>0.75 for hard exercise but not every day</li><li>0.9 for daily hard exercise</li></ul></p><p>Instead of using a parameter for "physical activity expenditure" with a value of 400, Joe decides to make it a function whose value is the product of resting energy expenditure and a new node, physical activity level. Joe does little exercise, so he sets the physical activity level as 0.2. However, his model is now set up so that he can easily see the effect of increasing his exercise level. Hereâ€™s his whole model, expressed as a table. Fill in the blanks:<table>
 <thead>
 <td style="border: 2pt black solid"><b>Node Name</b></td>
 <td style="border: 2pt black solid"><b>Type</b></td>
 <td style="border: 2pt black solid"><b>Description</b></td>
 </thead>
-<tbody>
+<tbody><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr>
 <td style="border: 2pt black solid">Energy balance</td>
 <td style="border: 2pt black solid">Function</td>
 <td style="border: 2pt black solid">Energy surplus or deficit daily; value = energy ingested â€“ energy expended</td></tr>
@@ -2666,7 +2596,8 @@ The amount of physical activity energy burned per day depends mostly on two fact
 <option>digestive activity expenditure</option>
 <option>energy balance</option>
 <option>resting energy expenditure</option>
-<option>energy expended</option></select> * <select id="14ciii">
+<option>energy expended</option></select> * 
+<select id="14ciii">
 <option></option>
 <option>physical activity level</option>
 <option>energy expended</option>
@@ -2679,13 +2610,13 @@ The amount of physical activity energy burned per day depends mostly on two fact
 <td style="border: 2pt black solid">Parameter</td>
 <td style="border: 2pt black solid">energy burned in order to digest food; value = 200 calories</td></tr>
 <td style="border: 2pt black solid">Energy expended</td>
-<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid"><select id="14civ">
+<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <select id="14civ">
 <option></option>
 <option>physical activity level</option>
 <option>digestive activity expenditure</option>
 <option>energy balance</option>
 <option>resting energy expenditure</option></select></td></tr>
-<td style="border: 2pt black solid">Physical activity level</td><td style="border: 2pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <select id="14cv">
+<td style="border: 2pt black solid">Physical activity level</td><td style="border: 2pt black solid"><select id="14cv">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
@@ -2902,47 +2833,38 @@ if (set14.cv=== 1) {
 <div id="question15" style="display: none">
 <h3>Question 15</h3>
 <p></p>
-<p>15a. 
-Assuming Joe is sedentary, and his physical exercise level is 0.2, what is his daily energy expenditure? <select id="15ai">
+<p>15a. Assuming Joe is sedentary, and his physical exercise level is 0.2, what is his daily energy expenditure? <select id="15ai">
 <option></option>
 <option>1.88e+3 cal</option>
 <option>280 cal</option>
 <option>199 cal</option>
 <option>110 cal</option></select></p>
-<p>15b. 
-If he still ingests 1989 calories a day, does he gain weight or lose weight? <select id="15bi">
+<p>15b. If he still ingests 1989 calories a day, does he gain weight or lose weight? <select id="15bi">
 <option></option>
 <option>gain</option>
 <option>lose</option></select></p>
-<p>15c. 
-How much, in pounds per day? <select id="15ci">
+<p>15c. How much, in pounds per day? <select id="15ci">
 <option></option>
-<option>3.85e+5</option>
-<option>1.88e+3</option>
-<option>3.85e-5</option>
-<option>1.88e-3</option></select>
- pounds per day</p>
-<p>15d. 
-Joe wonders what would happen if he really increased his daily exercise, so that his physical activity level was 0.9. What would this make his daily energy expenditure? <select id="15di">
+<option>0.003</option>
+<option>0.03</option>
+<option>0.3</option>
+<option>3</option></select> pounds per day</p>
+<p>15d. Joe wonders what would happen if he really increased his daily exercise, so that his physical activity level was 0.9. What would this make his daily energy expenditure?<select id="15di">
 <option></option>
 <option>2860</option>
 <option>1400</option>
 <option>1260</option>
-<option>200</option></select>
- calories</p>
-<p>15e. 
-If he continued to eat 1989 calories a day and maintained a physical activity level of 0.9, would he gain or lose weight? <select id="15ei">
+<option>200</option></select> calories</p>
+<p>15e. If he continued to eat 1989 calories a day and maintained a physical activity level of 0.9, would he gain or lose weight? <select id="15ei">
 <option></option>
 <option>gain</option>
 <option>lose</option></select></p>
-<p>15f. 
-How much, in pounds per day? <select id="15fi">
+<p>15f. How much, in pounds per day?<select id="15fi">
 <option></option>
 <option>0.15</option>
 <option>0.20</option>
 <option>0.30</option>
-<option>0.25</option></select>
- pounds per day</p>
+<option>0.25</option></select> pounds per day</p>
 <script type="text/javascript">var set15 = {
 ai:0,
 bi:0,
@@ -2956,7 +2878,7 @@ document.getElementById("15Time").innerHTML = tim15;
 
 checkAnswers("15ai", "1.88e+3 cal");
 checkAnswers("15bi", "gain");
-checkAnswers("15ci", "3.85e+5");
+checkAnswers("15ci", "0.03");
 checkAnswers("15di", "2860");
 checkAnswers("15ei", "lose");
 checkAnswers("15fi", "0.25");
@@ -2965,12 +2887,12 @@ if (document.getElementById("15ai").value==="" ||document.getElementById("15bi")
 }
 if (!checkAnswers("15ai", "1.88e+3 cal")) { 
  set15.ai = set15.ai + 1;}if (!checkAnswers("15bi", "gain")) { 
- set15.bi = set15.bi + 1;}if (!checkAnswers("15ci", "3.85e+5")) { 
+ set15.bi = set15.bi + 1;}if (!checkAnswers("15ci", "0.03")) { 
  set15.ci = set15.ci + 1;}if (!checkAnswers("15di", "2860")) { 
  set15.di = set15.di + 1;}if (!checkAnswers("15ei", "lose")) { 
  set15.ei = set15.ei + 1;}if (!checkAnswers("15fi", "0.25")) { 
  set15.fi = set15.fi + 1;}
-if ((checkAnswers("15ai", "1.88e+3 cal") || set15.ai===3) &&(checkAnswers("15bi", "gain") || set15.bi===3) &&(checkAnswers("15ci", "3.85e+5") || set15.ci===3) &&(checkAnswers("15di", "2860") || set15.di===3) &&(checkAnswers("15ei", "lose") || set15.ei===3) &&(checkAnswers("15fi", "0.25") || set15.fi===3) &&1) {
+if ((checkAnswers("15ai", "1.88e+3 cal") || set15.ai===3) &&(checkAnswers("15bi", "gain") || set15.bi===3) &&(checkAnswers("15ci", "0.03") || set15.ci===3) &&(checkAnswers("15di", "2860") || set15.di===3) &&(checkAnswers("15ei", "lose") || set15.ei===3) &&(checkAnswers("15fi", "0.25") || set15.fi===3) &&checkCompletion(15) && 1) {
  document.getElementById("question16").style.display = "";
  document.getElementById("button15").style.display = "none";
 
@@ -3048,7 +2970,7 @@ if (set15.bi=== 1) {
 };
 if(set15.bi===3)
 {document.getElementById("15bi").value="gain"};
-if (!checkAnswers("15ci", "3.85e+5")) {
+if (!checkAnswers("15ci", "0.03")) {
 if (set15.ci===3) {
 document.getElementById("15ci").style.background="#FFFF00";
  document.getElementById("15ciAnswer3").innerHTML = document.getElementById("15ci").value 
@@ -3075,7 +2997,7 @@ if (set15.ci=== 1) {
 }
 };
 if(set15.ci===3)
-{document.getElementById("15ci").value="3.85e+5"};
+{document.getElementById("15ci").value="0.03"};
 if (!checkAnswers("15di", "2860")) {
 if (set15.di===3) {
 document.getElementById("15di").style.background="#FFFF00";
@@ -3161,21 +3083,21 @@ if (set15.fi=== 1) {
 if(set15.fi===3)
 {document.getElementById("15fi").value="0.25"};};
 </script>
-
+<input type="hidden" name="problem15" id="problem15" value="Energy-balance-5">
+<input type="hidden" name="mode15" id="mode15" value="STUDENT">
+<br><button id="dragoonButton15" onClick="openDragoonProblem(15);">Open Dragoon</button>
+<div id="dragoonErrorMessage15" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
 <br><button id="button15" onClick="cont15();">Continue</button>
 <div id="question16" style="display: none">
 <h3>Question 16</h3>
 <p></p>
-<p>16a. 
-If Joe’s resting energy expenditure changes, which nodes <b>will</b> be affected by the changes?</p>
-<p><select id="16ai">
+<p>16a. If Joe’s resting energy expenditure changes, which nodes <b>will</b> be affected by the changes?</p><p><select id="16ai">
 <option></option>
 <option>Calories per pound; Energy balance; and Weight change</option>
 <option>Energy balance; Energy expended; Physical activity expenditure; Weight; and Weight change</option>
 <option>Only Energy balance</option>
 <option>Only Energy balance; Weight; and Weight change</option></select></p>
-<p>16b. 
-What is Joe's weight after 999 days if he keeps his current physical activity level?</p><p><select id="16bi">
+<p>16b. What is Joe's weight after 999 days if he keeps his current physical activity level?</p><p><select id="16bi">
 <option></option>
 <option>98.6 lbs</option>
 <option>-98.6 lbs</option>
@@ -3282,7 +3204,7 @@ if(set16.bi===3)
 <td style="border: 2pt black solid"><b>Type</b></td>
 <td style="border: 2pt black solid"><b>Description</b></td>
 </thead>
-<tbody>
+<tbody><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr>
 <td style="border: 2pt black solid">Energy balance</td>
 <td style="border: 2pt black solid">Function</td>
 <td style="border: 2pt black solid">Energy surplus or deficit daily; value = energy ingested - energy expended</td></tr>
@@ -3317,7 +3239,7 @@ if(set16.bi===3)
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td><td style="border: 2pt black solid"><select id="17aiv">energy burned in order to digest food; value = 
+<option>function</option></select></td><td style="border: 2pt black solid">energy burned in order to digest food; value = <select id="17aiv">
 <option></option>
 <option>energy balance</option>
 <option>energy ingested</option>
@@ -3329,7 +3251,7 @@ if(set16.bi===3)
 <option>digestive energy factor</option>
 <option>energy ingested</option></select></td></tr>
 <td style="border: 2pt black solid">Energy expended</td>
-<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <select id="17avi">
+<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid">energy burned in a day; value = physical activity expenditure + resting energy expenditure + <select id="17avi">
 <option></option>
 <option>digestive energy factor</option>
 <option>physical activity level</option>
@@ -3339,7 +3261,7 @@ if(set16.bi===3)
 <td style="border: 2pt black solid">Parameter</td>
 <td style="border: 2pt black solid">Amount of physical activity e.g. 0.2 for little or no exercise; 0.55 for moderate exercise; or 0.9 for daily hard exercise</td></tr>
 <td style="border: 2pt black solid">Digestive energy factor</td>
-<td style="border: 2pt black solid">Parameter</td><td style="border: 2pt black solid"><select id="17avii">
+<td style="border: 2pt black solid">Parameter</td><td style="border: 2pt black solid">The proportion of ingested energy that is required to process it; value = <select id="17avii">
 <option></option>
 <option>0.08</option>
 <option>0.10</option>
@@ -3574,40 +3496,34 @@ if (set17.avii=== 1) {
 <div id="question18" style="display: none">
 <h3>Question 18</h3>
 <p></p>
-<p>18a. 
-Joe is still eating 1989 calories a day and still sedentary (physical activity level = 0.2), so what is his digestive activity expenditure per day? <select id="18ai">
+<p>18a. Joe is still eating 1989 calories a day and still sedentary (physical activity level = 0.2), so what is his digestive activity expenditure per day? <select id="18ai">
 <option></option>
 <option>400 calories</option>
 <option>199 calories</option>
 <option>2080 calories</option>
 <option>280 calories</option></select></p>
-<p>18b. 
-Now if he doubles his food intake, so his daily ingested energy is 4000 calories, then his digestive activity expenditure is <select id="18bi">
+<p>18b. Now if he doubles his food intake, so his daily ingested energy is 4000 calories, then his digestive activity expenditure is <select id="18bi">
 <option></option>
 <option>400 calories</option>
 <option>199 calories</option>
 <option>2080 calories</option>
-<option>280 calories</option></select>
- , which is more than his physical activity expenditure, which is still <select id="18bii">
-<option></option>
-<option>400 calories</option>
-<option>199 calories</option>
-<option>2080 calories</option>
-<option>280 calories</option></select></p>
-<p>18c. 
-What is his total energy expenditure? <select id="18ci">
+<option>280 calories</option></select> , which is more than his physical activity expenditure, which is still <select id="18bii">
 <option></option>
 <option>400 calories</option>
 <option>199 calories</option>
 <option>2080 calories</option>
 <option>280 calories</option></select></p>
-<p>18d. 
-Does he gain or lose weight? <select id="18di">
+<p>18c. What is his total energy expenditure? <select id="18ci">
+<option></option>
+<option>400 calories</option>
+<option>199 calories</option>
+<option>2080 calories</option>
+<option>280 calories</option></select></p>
+<p>18d. Does he gain or lose weight? <select id="18di">
 <option></option>
 <option>gain</option>
 <option>lose</option></select></p>
-<p>18e. 
-How much, in pounds per day? <select id="18ei">
+<p>18e. How much, in pounds per day? <select id="18ei">
 <option></option>
 <option>0.10 pounds per day</option>
 <option>0.25 pounds per day</option>
@@ -3628,7 +3544,7 @@ checkAnswers("18ai", "199 calories");
 checkAnswers("18bi", "400 calories");
 checkAnswers("18bii", "280 calories");
 checkAnswers("18ci", "2080 calories");
-checkAnswers("18di", "lose");
+checkAnswers("18di", "gain");
 checkAnswers("18ei", "0.55 pounds per day");
 if (document.getElementById("18ai").value==="" ||document.getElementById("18bi").value==="" ||document.getElementById("18bii").value==="" ||document.getElementById("18ci").value==="" ||document.getElementById("18di").value==="" ||document.getElementById("18ei").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
@@ -3637,10 +3553,10 @@ if (!checkAnswers("18ai", "199 calories")) {
  set18.ai = set18.ai + 1;}if (!checkAnswers("18bi", "400 calories")) { 
  set18.bi = set18.bi + 1;}if (!checkAnswers("18bii", "280 calories")) { 
  set18.bii = set18.bii + 1;}if (!checkAnswers("18ci", "2080 calories")) { 
- set18.ci = set18.ci + 1;}if (!checkAnswers("18di", "lose")) { 
+ set18.ci = set18.ci + 1;}if (!checkAnswers("18di", "gain")) { 
  set18.di = set18.di + 1;}if (!checkAnswers("18ei", "0.55 pounds per day")) { 
  set18.ei = set18.ei + 1;}
-if ((checkAnswers("18ai", "199 calories") || set18.ai===3) &&(checkAnswers("18bi", "400 calories") || set18.bi===3) &&(checkAnswers("18bii", "280 calories") || set18.bii===3) &&(checkAnswers("18ci", "2080 calories") || set18.ci===3) &&(checkAnswers("18di", "lose") || set18.di===3) &&(checkAnswers("18ei", "0.55 pounds per day") || set18.ei===3) &&checkCompletion(18) && 1) {
+if ((checkAnswers("18ai", "199 calories") || set18.ai===3) &&(checkAnswers("18bi", "400 calories") || set18.bi===3) &&(checkAnswers("18bii", "280 calories") || set18.bii===3) &&(checkAnswers("18ci", "2080 calories") || set18.ci===3) &&(checkAnswers("18di", "gain") || set18.di===3) &&(checkAnswers("18ei", "0.55 pounds per day") || set18.ei===3) &&checkCompletion(18) && 1) {
  document.getElementById("question19").style.display = "";
  document.getElementById("button18").style.display = "none";
 
@@ -3774,7 +3690,7 @@ if (set18.ci=== 1) {
 };
 if(set18.ci===3)
 {document.getElementById("18ci").value="2080 calories"};
-if (!checkAnswers("18di", "lose")) {
+if (!checkAnswers("18di", "gain")) {
 if (set18.di===3) {
 document.getElementById("18di").style.background="#FFFF00";
  document.getElementById("18diAnswer3").innerHTML = document.getElementById("18di").value 
@@ -3801,7 +3717,7 @@ if (set18.di=== 1) {
 }
 };
 if(set18.di===3)
-{document.getElementById("18di").value="lose"};
+{document.getElementById("18di").value="gain"};
 if (!checkAnswers("18ei", "0.55 pounds per day")) {
 if (set18.ei===3) {
 document.getElementById("18ei").style.background="#FFFF00";
@@ -3839,54 +3755,47 @@ if(set18.ei===3)
 <div id="question19" style="display: none">
 <h3>Question 19</h3>
 <p></p>
-<p>19a. 
-We have learned a lot about metabolism. Which of the following is a component of your body’s metabolism?</p><p></p><select id="19ai">
+<p>19a. We have learned a lot about metabolism. Which of the following is a component of your body’s metabolism?</p><p><select id="19ai">
 <option></option>
 <option>Thermic effect of food</option>
 <option>Resting metabolic rate</option>
 <option>Physical activity level</option>
 <option>all of the above</option></select></p>
-<p>19b. 
-What is Joe’s weight after 90 days if all the parameters have their original values and are not changed using the sliders? </p><select id="19bi">
+<p>19b. What is Joe’s weight after 90 days if all the parameters have their original values and are not changed using the sliders? <select id="19bi">
 <option></option>
 <option>143 lbs</option>
 <option>147 lbs</option>
 <option>153 lbs</option>
 <option>157 lbs</option></select></p>
-<p>19c. 
-Suppose Joe eats only fast food for 3 months so his digestive energy factor is changed to 0.02. What would be his weight after 90 days?</p><select id="19ci">
+<p>19c. Suppose Joe eats only fast food for 3 months so his digestive energy factor is changed to 0.02. What would be his weight after 90 days?<select id="19ci">
 <option></option>
 <option>143 lbs</option>
 <option>147 lbs</option>
 <option>153 lbs</option>
 <option>157 lbs</option></select></p>
-<p>19d. 
-Suppose Joe changes his diet to a high protein diet for 3 months so that his digestive energy factor is changed to 0.3. What would be his weight after 90 days?</p><select id="19di">
+<p>19d. Suppose Joe changes his diet to a high protein diet for 3 months so that his digestive energy factor is changed to 0.3. What would be his weight after 90 days?<select id="19di">
 <option></option>
 <option>143 lbs</option>
 <option>147 lbs</option>
 <option>153 lbs</option>
 <option>157 lbs</option></select></p>
-<p>19e. 
-Suppose Joe continued with his normal diet (digestive factor = 0.1 **make sure to set this value) but he started moderate exercise this week. What is his weight after 30 days?</p><select id="19ei">
+<p>19e. Suppose Joe continued with his normal diet (digestive factor = 0.1 **make sure to set this value) but he started moderate exercise this week. What is his weight after 30 days?<select id="19ei">
 <option></option>
 <option>143 lbs</option>
 <option>147 lbs</option>
 <option>153 lbs</option>
 <option>157 lbs</option></select></p>
-<p>19f. 
-Will Joe lose or gain weight if he has moderate exercise every week and ingests 2500 calories? </p><select id="19fi">
+<p>19f. Will Joe lose or gain weight if he has moderate exercise every week and ingests 2500 calories? <select id="19fi">
 <option></option>
 <option>gain</option>
 <option>lose</option></select></p>
-<p>19g. 
-The resting energy expenditure, which is measured when you are doing no exercise and no ingestion of food, includes the energy used for breathing, blood circulation, and many other routine bodily functions. The bigger the body, the more energy these bodily functions require. However, young bodies burn more energy per pound than old bodies. The Mifflin equation, shown below, is the most accurate estimator known so far:<ul><li>REE = 4.5*weight + 15.9*height - 5*age + gender REE</li></ul>where:<ul><li>REE is resting energy expenditure</li><li>gender REE is 5 for men and -161 for women</li><li>weight is in pounds</li><li>height is in inches</li><li>age is in years</li></ul>In Joe's model below, modify the nodw for "resting energy expenditure" to implement this equation by filling in the blanks. assume Joe is a 20-year-old, 65-inch-tall male.</p><table>
+<p>19g. The resting energy expenditure, which is measured when you are doing no exercise and no ingestion of food, includes the energy used for breathing, blood circulation, and many other routine bodily functions. The bigger the body, the more energy these bodily functions require. However, young bodies burn more energy per pound than old bodies. The Mifflin equation, shown below, is the most accurate estimator known so far:<ul><li>REE = 4.5*weight + 15.9*height - 5*age + gender REE</li></ul>where:<ul><li>REE is resting energy expenditure</li><li>gender REE is 5 for men and -161 for women</li><li>weight is in pounds</li><li>height is in inches</li><li>age is in years</li></ul>In Joe's model below, modify the nodw for "resting energy expenditure" to implement this equation by filling in the blanks. assume Joe is a 20-year-old, 65-inch-tall male.<table>
 <thead>
 <td style="border: 2pt black solid"><b>Node Name</b></td>
 <td style="border: 2pt black solid"><b>Type</b></td>
 <td style="border: 2pt black solid"><b>Description</b></td>
 </thead>
-<tbody>
+<tbody><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr>
 <td style="border: 2pt black solid">Energy balance</td>
 <td style="border: 2pt black solid">Function</td>
 <td style="border: 2pt black solid">Energy surplus or deficit daily; value = energy ingested - energy expended</td></tr>
@@ -4580,29 +4489,25 @@ if (set19.gxiii=== 1) {
 <div id="question20" style="display: none">
 <h3>Question 20</h3>
 <p></p>
-<p>20a. 
-Suppose Madison was 15 years old when she entered high school. She weighed 120 lbs and was 60 inches tall. She is female, so her gender REE is -161. Use the model to calculate her weight after 1000 days. <select id="20ai">
+<p>20a. Suppose Madison was 15 years old when she entered high school. She weighed 120 lbs and was 60 inches tall. She is female, so her gender REE is -161. Use the model to calculate her weight after 1000 days.<select id="20ai">
 <option></option>
 <option>150 lbs</option>
 <option>160 lbs</option>
 <option>170 lbs</option>
 <option>180 lbs</option></select></p>
-<p>20b. 
-Go to the graph and insert Madison’s values from 16a. Now the author’s solution shows Joe’s weight, and the variable solution shows Madison’s.</p><p>Madison’s weight graph is clearly very different than Joe’s weight graph. Everyone has different graphs and experience different challenges when trying to gain or lose weight. As you age, your graphs will change as well. Leave all the values the same, but change Madison’s age to 30. Estimate her weight after 1000 days. <select id="20bi">
+<p>20b. Go to the graph and insert Madison’s values from 16a. Now the author’s solution shows Joe’s weight, and the variable solution shows Madison’s.</p><p>Madison’s weight graph is clearly very different than Joe’s weight graph. Everyone has different graphs and experience different challenges when trying to gain or lose weight. As you age, your graphs will change as well. Leave all the values the same, but change Madison’s age to 30. Estimate her weight after 1000 days.</p><p><select id="20bi">
 <option></option>
 <option>150-160 lbs</option>
 <option>160-170 lbs</option>
 <option>170-180 lbs</option>
 <option>180-190 lbs</option></select></p>
-<p>20c. 
-Is she gaining weight faster, slower, or about the same OR losing weight? <select id="20ci">
+<p>20c. Is she gaining weight faster, slower, or about the same OR losing weight? <select id="20ci">
 <option></option>
 <option>faster</option>
 <option>slower</option>
 <option>same</option>
 <option>losing weight</option></select></p>
-<p>20d. 
-Why?</p><div id="new20di"><textarea id="20di" cols="40" rows="5"></textarea></div>
+<p>20d. Why?<div id="new20di"><textarea id="20di" cols="40" rows="5"></textarea></div></p>
 <script type="text/javascript">var set20 = {
 ai:0,
 bi:0,
@@ -4736,20 +4641,15 @@ if(set20.ci===3)
 <div id="question21" style="display: none">
 <h3>Question 21</h3>
 <p></p>
-<p>21a. 
-Graph “fats proportion of weight change.” Notice how high it gets after Day 300. After Day 300, for every pound that Joe gains, <select id="21ai">
+<p>21a. Graph “fats proportion of weight change.” Notice how high it gets after Day 300. After Day 300, for every pound that Joe gains, <select id="21ai">
 <option></option>
 <option>all</option>
 <option>almost all</option>
 <option>a little</option>
-<option>none</option></select>
-   goes into fat.</p>
-<p>21b. 
-Compare the graphs of weight and lean tissue. Which one is linear? Why is it linear?</p><div id="new21bi"><textarea id="21bi" cols="40" rows="5"></textarea></div>
-<p>21c. 
-After Day 300, what is the main difference between the graph of the amount of fat and the amount of lean tissue that Joe has?</p><div id="new21ci"><textarea id="21ci" cols="40" rows="5"></textarea></div>
-<p>21d. 
-Uncheck the other graphs and click Show lean tissue change only. What does this graph tell you about lean tissue change?</p><div id="new21di"><textarea id="21di" cols="40" rows="5"></textarea></div>
+<option>none</option></select>   goes into fat.</p>
+<p>21b. Compare the graphs of weight and lean tissue. Which one is linear? Why is it linear?<div id="new21bi"><textarea id="21bi" cols="40" rows="5"></textarea></div></p>
+<p>21c. After Day 300, what is the main difference between the graph of the amount of fat and the amount of lean tissue that Joe has?<div id="new21ci"><textarea id="21ci" cols="40" rows="5"></textarea></div></p>
+<p>21d. Uncheck the other graphs and click <b>Show lean tissue change</b> only. What does this graph tell you about lean tissue change?<div id="new21di"><textarea id="21di" cols="40" rows="5"></textarea></div></p>
 <script type="text/javascript">var set21 = {
 ai:0,}; 
 function cont21() {
@@ -4825,7 +4725,7 @@ if(set21.ai===3)
 <div id="question22" style="display: none">
 <h3>Question 22</h3>
 <p>Please describe how you modified the given model in order to incorporate the fact that lean tissue burns much more energy than fat.</p>
-<p>22a. <div id="new22ai"><textarea id="22ai" cols="40" rows="5"></textarea></div>
+<p>22a. <div id="new22ai"><textarea id="22ai" cols="40" rows="5"></textarea></div></p>
 <script type="text/javascript">var set22 = {}; 
 function cont22() {
 var yestim22 = 0;
@@ -5155,14 +5055,14 @@ displayAnswers();
 </tr>
 <tr>
 <td style="border: 2pt black solid">10e. i.</td>
-<td style="border: 2pt black solid">-330</td>
+<td style="border: 2pt black solid">3.15e+5</td>
 <td style="border: 2pt black solid"><div id="10eiAnswer1"></div><div id="10eiAnswer2"></div><div id="10eiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="10eiTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
 <td style="border: 2pt black solid">10e. ii.</td>
-<td style="border: 2pt black solid">-111</td>
+<td style="border: 2pt black solid">-1.01e+3</td>
 <td style="border: 2pt black solid"><div id="10eiiAnswer1"></div><div id="10eiiAnswer2"></div><div id="10eiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="10eiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
@@ -5365,7 +5265,7 @@ displayAnswers();
 </tr>
 <tr>
 <td style="border: 2pt black solid">15c. i.</td>
-<td style="border: 2pt black solid">3.85e+5</td>
+<td style="border: 2pt black solid">0.03</td>
 <td style="border: 2pt black solid"><div id="15ciAnswer1"></div><div id="15ciAnswer2"></div><div id="15ciAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="15ciTries"></div></td>
 <td style="border: 2pt black solid"></td>
@@ -5484,7 +5384,7 @@ displayAnswers();
 </tr>
 <tr>
 <td style="border: 2pt black solid">18d. i.</td>
-<td style="border: 2pt black solid">lose</td>
+<td style="border: 2pt black solid">gain</td>
 <td style="border: 2pt black solid"><div id="18diAnswer1"></div><div id="18diAnswer2"></div><div id="18diAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="18diTries"></div></td>
 <td style="border: 2pt black solid"></td>

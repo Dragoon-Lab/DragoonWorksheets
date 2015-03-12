@@ -997,12 +997,12 @@
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "-330",
+                                            "correct": "3.15e+5",
                                             "options": [
-                                                "330",
-                                                "-330",
-                                                "-111",
-                                                "111"
+                                                "1.01e+3",
+                                                "3.15e+5",
+                                                "-1.01e+3",
+                                                "-3.15e+5"
                                             ]
                                         }
                                     },
@@ -1013,12 +1013,12 @@
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "-111",
+                                            "correct": "-1.01e+3",
                                             "options": [
-                                                "330",
-                                                "-330",
-                                                "-111",
-                                                "111"
+                                                 "1.01e+3",
+                                                "3.15e+5",
+                                                "-1.01e+3",
+                                                "-3.15e+5"
                                             ]
                                         }
                                     },
@@ -1191,10 +1191,10 @@
                                         "__Dropdown__": {
                                             "correct": "615",
                                             "options": [
-                                                "632",
-                                                "647",
+                                                "415",
+                                                "515",
                                                 "615",
-                                                "646"
+                                                "715"
                                             ]
                                         }
                                     },
@@ -1473,7 +1473,7 @@
                             }
                         }
                     ],
-                    "gen": ""
+                    "gen": "Please open the Dragoon problem below and then answer the following questions."
                 }
             },
             {
@@ -1698,12 +1698,12 @@
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "3.85e+5",
+                                            "correct": "0.03",
                                             "options": [
-                                                "3.85e+5",
-                                                "1.88e+3",
-                                                "3.85e-5",
-                                                "1.88e-3"
+                                                "0.003",
+                                                "0.03",
+                                                "0.3",
+                                                "3"
                                             ]
                                         }
                                     },
@@ -1787,6 +1787,12 @@
                                         }
                                     }
                                 ]
+                            }
+                        },
+						{
+                            "__Dragoon__": {
+                                "mode": "STUDENT",
+                                "problem": "Energy-balance-5"
                             }
                         }
                     ],
@@ -2080,7 +2086,7 @@
                                     },
                                     {
                                         "__Dropdown__": {
-                                            "correct": "lose",
+                                            "correct": "gain",
                                             "options": [
                                                 "gain",
                                                 "lose"
@@ -2642,7 +2648,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "Uncheck the other graphs and click Show lean tissue change only. What does this graph tell you about lean tissue change?"
+                                            "text": "Uncheck the other graphs and click <b>Show lean tissue change</b> only. What does this graph tell you about lean tissue change?"
                                         }
                                     },
                                     {
