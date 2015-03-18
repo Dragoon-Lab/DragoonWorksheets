@@ -164,10 +164,10 @@ class Checkbox:
 		if isinstance (sect,Section):
 			self.options_c = input ("Answers: ").split(",")
 			self.correct_c = input ("Right answers: ").split(",")
-			#for item in self.correct_c:
-				#if not item in self.options_c:
-					#print("Please choose one of the given answers as the right answer.")
-					#self.correct_c = input ("Right answers: ")
+			for item in self.correct_c:
+				if not item in self.options_c:
+					print("Please choose one of the given answers as the right answer.")
+					self.correct_c = input ("Right answers: ")
 			sect.content.append(self)
 		else:
 			self.options_c = []
@@ -185,6 +185,7 @@ TYPES = { 'Worksheet': Worksheet,
 		  'Table': Table,
 		  'Dropdown': Dropdown,
 		  'Textbox': Textbox,
+		  'Checkbox': Checkbox,
 		  'Text': Text,
 		  'Image': Image
 		  }
@@ -223,7 +224,7 @@ def CustomTypeDecoder(dct):
 
 def generateHTMLWorksheet(wks):
 	# Converts Worksheet object, "wks" into an html/javascript file
-	worksheet = "<!DOCTYPE html>\n<html>\n<head>\n<title>Dragoon Worksheet</title>\n<script type=\"text/javascript\">\nfunction\nopenDragoonProblem(num){\nvar u = document.getElementById(\"user\").value;\nvar s = document.getElementById(\"section\").value;\nvar problemID = \"problem\" + num.toString();\nvar p = document.getElementById(problemID).value;\nvar modeID = \"mode\" + num.toString();\nvar m = document.getElementById(modeID).value;\nvar urlString = \"http://dragoon.asu.edu/demo/index.html?u=\"+u+\"&m=\"+m+\"&p=\"+p+\"&s=\"+s;\nwindow.open(urlString);\n}\nfunction checkAnswers(inputId, rightAnswer)\n{\nif(document.getElementById(inputId).value===rightAnswer) {\ndocument.getElementById(inputId).style.background=\"#66FF33\";\nreturn true;\n}\nelse\n{\ndocument.getElementById(inputId).style.background=\"#FF3333\";\nreturn false;\n}\n};\nfunction checkTextbox(inputId) {\nif (!(document.getElementById(inputId).value===\"\")) {\ndocument.getElementById(inputId).style.background=\"#66FF33\";\nreturn true;\n}\nelse {\ndocument.getElementById(inputId).style.background=\"#FF3333\";\nreturn false;\n}\n};\n\nfunction checkbox(checked,unchecked) {\nc = 0\nu = 0\nfor (i = 0; i<checked.length; i++) {\nif (document.getElementById(checked[i]).checked) {\nck = c + 1\n}\n};\nfor (i = 0; i<unchecked.length; i++) {\nif (!(document.getElementById(unchecked[i]).checked)) {\nunck = u + 1\n}\n};\nif (checked.length == c && unchecked.length == u) {\nreturn true\n}\n};\n\nvar tim1 = 0;\nfunction time1 () {\nif (yestim1=1){\ntim1 = tim1 + 1;\nt = setTimeout(function() {time1()},1000);\n}\n};\nvar yestim1 = 1;\ntime1();\nfunction checkCompletion(num){\n// id is the id of the continue button or I just need a the number of the question i.e. if its cont1 just send me 1 and it will do\nvar u = document.getElementById(\"user\").value;\nvar s = document.getElementById(\"section\").value;\nvar problemID = \"problem\" + num.toString();\nvar p = document.getElementById(problemID).value;\nvar modeID = \"mode\" + num.toString();\nvar m = document.getElementById(modeID).value;\nvar xmlHTTP = new XMLHttpRequest();\nvar userObject;\nxmlHTTP.onreadystatechange = function(){\nif(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){\nuserObject = JSON.parse(xmlHTTP.responseText);\n}\n}\nvar url = \"../demo/log/dashboard_js.php?m=\"+m+\"&u=\"+u+\"&s=\"+s+\"&p=\"+p;\n//var url = \"log/dashboard_js.php?m=\"+m+\"&u=\"+u+\"&s=\"+s+\"&p=\"+p;\nxmlHTTP.open(\"GET\", url, false);\nxmlHTTP.send();\nvar id = \"dragoonErrorMessage\" + num.toString();\nvar result = false;\n if(userObject != null){\nresult = userObject[0].problemComplete;\n}\nif(result) {\ndocument.getElementById(id).style.display = \"none\";\n} else {\ndocument.getElementById(id).style.display = \"\";\n}\nreturn result;\n}</script>\n</head>\n<body>\n<label>Username :</label>&nbsp;<input type=\"text\" name=\"user\" id=\"user\">\n<input type=\"hidden\" name=\"section\" id=\"section\" value=\"public-worksheet\">"
+	worksheet = "<!DOCTYPE html>\n<html>\n<head>\n<title>Dragoon Worksheet</title>\n<script type=\"text/javascript\">\nfunction\nopenDragoonProblem(num){\nvar u = document.getElementById(\"user\").value;\nvar s = document.getElementById(\"section\").value;\nvar problemID = \"problem\" + num.toString();\nvar p = document.getElementById(problemID).value;\nvar modeID = \"mode\" + num.toString();\nvar m = document.getElementById(modeID).value;\nvar urlString = \"http://dragoon.asu.edu/demo/index.html?u=\"+u+\"&m=\"+m+\"&p=\"+p+\"&s=\"+s;\nwindow.open(urlString);\n}\nfunction checkAnswers(inputId, rightAnswer)\n{\nif(document.getElementById(inputId).value===rightAnswer) {\ndocument.getElementById(inputId).style.background=\"#66FF33\";\nreturn true;\n}\nelse\n{\ndocument.getElementById(inputId).style.background=\"#FF3333\";\nreturn false;\n}\n};\nfunction checkTextbox(inputId) {\nif (!(document.getElementById(inputId).value===\"\")) {\ndocument.getElementById(inputId).style.background=\"#66FF33\";\nreturn true;\n}\nelse {\ndocument.getElementById(inputId).style.background=\"#FF3333\";\nreturn false;\n}\n};\n\nfunction checkbox(textId,checkedId,uncheckedId) {\nck = 0\nunck = 0\nfor (i = 0; i<checkedId.length; i++) {\nif (document.getElementById(checkedId[i]).checked) {\nck = ck + 1;\n}\n};\nfor (i = 0; i<uncheckedId.length; i++) {\nif (!(document.getElementById(uncheckedId[i]).checked)) {\nunck = unck + 1;\n}\n};\nif (checkedId.length == ck && uncheckedId.length == unck)\n{\ndocument.getElementById(textId).style.background=\"#66FF33\";\nreturn true\n}\nelse {\ndocument.getElementById(textId).style.background=\"#FF3333\";\nreturn false\n}\n};\n\nfunction checkboxCorrection(textId,checkedId,uncheckedId) {\nfor (i=0; i<checkedId.length; i++) {\ndocument.getElementById(checkedId[i]).checked = true;\n};\nfor (i=0; i<uncheckedId.length; i++) {\ndocument.getElementById(uncheckedId[i]).checked = false;\n};\ndocument.getElementById(textId).style.background = \"#FFFF00\"\n};\n\nfunction retrieveCheckboxValue(total) {\nresponse = []\nfor (i=0; i<total.length; i++) {\nif\n(document.getElementById (total[i]).checked) {\nresponse.push(total[i])\n}\n};\nreturn response\n};\n\nvar tim1 = 0;\nfunction time1 () {\nif (yestim1=1){\ntim1 = tim1 + 1;\nt = setTimeout(function() {time1()},1000);\n}\n};\nvar yestim1 = 1;\ntime1();\nfunction checkCompletion(num){\n// id is the id of the continue button or I just need a the number of the question i.e. if its cont1 just send me 1 and it will do\nvar u = document.getElementById(\"user\").value;\nvar s = document.getElementById(\"section\").value;\nvar problemID = \"problem\" + num.toString();\nvar p = document.getElementById(problemID).value;\nvar modeID = \"mode\" + num.toString();\nvar m = document.getElementById(modeID).value;\nvar xmlHTTP = new XMLHttpRequest();\nvar userObject;\nxmlHTTP.onreadystatechange = function(){\nif(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){\nuserObject = JSON.parse(xmlHTTP.responseText);\n}\n}\nvar url = \"../demo/log/dashboard_js.php?m=\"+m+\"&u=\"+u+\"&s=\"+s+\"&p=\"+p;\n//var url = \"log/dashboard_js.php?m=\"+m+\"&u=\"+u+\"&s=\"+s+\"&p=\"+p;\nxmlHTTP.open(\"GET\", url, false);\nxmlHTTP.send();\nvar id = \"dragoonErrorMessage\" + num.toString();\nvar result = false;\n if(userObject != null){\nresult = userObject[0].problemComplete;\n}\nif(result) {\ndocument.getElementById(id).style.display = \"none\";\n} else {\ndocument.getElementById(id).style.display = \"\";\n}\nreturn result;\n}</script>\n</head>\n<body>\n<label>Username :</label>&nbsp;<input type=\"text\" name=\"user\" id=\"user\">\n<input type=\"hidden\" name=\"section\" id=\"section\" value=\"public-worksheet\">"
 	divset = "\n"
 	endtbl = "<div id=\"resultsTable\" style=\"display:none\">\n<table>\n<thead>\n<td style=\"border: 2pt black solid\">Question</td>\n<td style=\"border: 2pt black solid\">Correct Answer</td>\n<td style=\"border: 2pt black solid\">Student Answers</td>\n<td style=\"border: 2pt black solid\">Number of Wrong Tries</td>\n<td style=\"border: 2pt black solid\">Time for Entire Question (s)</td>\n</thead>\n<tbody>"
 	endfn = "<script type=\"text/javascript\">\nfunction displayAnswers () {\ndocument.getElementById(\"resultsTable\").style.display=\"\""
@@ -269,7 +270,7 @@ def generateHTMLWorksheet(wks):
 							allans = allans + item
 						varset = varset + "\n" + lno + rno + ":0,"
 						chkans = chkans + "\ncheckAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\");"
-						chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" ||"
+						chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" || "
 						ctr = ctr + "if (!checkAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
 						contif = contif + "(checkAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\") || set" + qno + "." + lno + rno + "===3) &&"
 						ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\")) {\nif (set" + qno + "." + lno + rno + "===3) {\ndocument.getElementById(\"" + qno + lno + rno + "\").style.background=\"#FFFF00\";\n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = document.getElementById(\"" + qno + lno + rno + "\").value \n }\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value\n}\n};\nif(set" + qno + "." + lno + rno + "===3)\n{document.getElementById(\"" + qno + lno + rno + "\").value=\"" + part.correct + "\"};"
@@ -286,7 +287,7 @@ def generateHTMLWorksheet(wks):
 						rno = rnum[romannum]
 						romannum = romannum + 1
 						chkans = chkans + "\ncheckTextbox(\"" + qno + lno + rno + "\");\ndocument.getElementById(\"" + qno + lno + rno + "Example\").innerHTML = document.getElementById(\"" + qno + lno + rno + "\").value"
-						chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" ||"
+						chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" || "
 						contif = contif + "checkTextbox(\"" + qno + lno + rno + "\") &&"
 						worksheet = worksheet + "<div id=\"new" + qno + lno + rno + "\"><textarea id=\"" + qno + lno + rno + "\" cols=\"40\" rows=\"5\"></textarea></div>"
 						endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + part.example + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Example\"</div></td>\n<td style=\"border: 2pt black solid\"></td>\n<td style=\"border: 2pt black solid\">"
@@ -320,7 +321,7 @@ def generateHTMLWorksheet(wks):
 									romannum = romannum + 1
 									varset = varset + "\n" + lno + rno + ":0,"
 									chkans = chkans + "checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\");"
-									chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" ||"
+									chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" || "
 									ctr = ctr + "if (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
 									contif = contif + "(checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\") || set" + qno + "." + lno + rno + "===3) &&"
 									ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) {\nif (set" + qno + "." + lno + rno + "===3) {\ndocument.getElementById(\"" + qno + lno + rno + "\").value=\"" + rta + "\";\ndocument.getElementById(\"" + qno + lno + rno + "\").style.background=\"#FFFF00\"}\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value\n}\n};"
@@ -344,20 +345,34 @@ def generateHTMLWorksheet(wks):
 						rno = rnum[romannum]
 						romannum = romannum + 1
 						allans = ""
+						wrngcb = []
 						for item in part.options_c:
 							if not item in part.correct_c:
-								wrngcb.append("\"" + item + "\"")
-								print(wrngcb)
+								wrngcb.append(item)
 							item = "\n<input type=\"checkbox\" name=\"" + qno + lno + rno + "\" id=\"" + str(item) + "\">" + str(item) + "<br>"
 							allans = allans + item
-							wrngcb = []
 							chkbox = "1"
 						for item in part.correct_c:
 							item = "\n(document.getElementById(\"" + qno + lno + rno + "\")"
 							chkbox = chkbox + " && " + item
 						varset = varset + "\n" + lno + rno + ":0,"
-						contfn = contfn + "(" + chkbox + ") &&"
-						worksheet = worksheet + allans
+						chkans = chkans + "checkbox(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")"
+						chkcpl = chkcpl + "checkbox(\"" + qno + lno + rno + "\",[]," + str(part.options_c) + ") || "
+						ctr = ctr + "if (!checkbox(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
+						contif = contif + "(checkbox(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")|| set" + qno + "." + lno + rno + "===3) && "
+						ctwrng = ctwrng + "\nif (!checkbox(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")) {\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n}\nelse {\ndocument.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n } \nif (set" + qno + "." + lno + rno + "===3) {\ncheckboxCorrection(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")}\n} \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n}\n};"
+						worksheet = worksheet + "<div id=\"" + qno + lno + rno + "\">" + allans + "</div>"
+						endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + str(part.correct_c) + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
+						disset = ""
+						for item in part.options_c:
+							disset = disset + "\ndocument.getElementById(\"" + item + "\").disabled=true;"
+						disabl = disabl + disset
+						if lno == "a" and rno == "i":
+							endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+							contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
+						else:
+							endtbl = endtbl + "</td>\n</tr>"
+						endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
 				worksheet = worksheet + "</p>"
 		if int(qno) < len(list(wks.questions)):
 			varset = varset + "}; \n"
@@ -391,7 +406,5 @@ def testload():
 		
 '''Tasks:
 --Add ability to do checkboxes:
-	--Count entire checkbox set as a whole
 	--Apply rules of dropdown boxes
-	--Have entire set turn red/green?
 '''
