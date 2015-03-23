@@ -1,0 +1,40 @@
+{
+    "__Worksheet__": {
+        "loose": [],
+        "questions": [
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Checkbox__": {
+                                            "correct_c": [
+                                                "a",
+                                                "c",
+                                                "e",
+                                                "g"
+                                            ],
+                                            "options_c": [
+                                                "a",
+                                                "b",
+                                                "c",
+                                                "d",
+                                                "e",
+                                                "f",
+                                                "g"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "gen": "This is a test."
+                }
+            }
+        ],
+        "name": "checkbox_sample"
+    }
+}

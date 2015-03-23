@@ -175,6 +175,7 @@ class Checkbox:
 	def from_dict(dct):
 		chk = Checkbox(dct['correct_c'])
 		chk.options_c = list(map(CustomTypeDecoder,dct['options_c']))
+		return chk
 		
 TYPES = { 'Worksheet': Worksheet,
 		  'LsText': LsText,
@@ -335,13 +336,16 @@ def generateHTMLWorksheet(wks):
 										endtbl = endtbl + "</td>\n</tr>"
 									endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
 							allline = "<tr>" + allline + "</tr>"
+							print(allline)
 						allbody = allbody + allline
+						print(allbody)
 						worksheet = worksheet + "<table>\n<thead>" + allhead + "\n</thead>\n<tbody>" + allbody + "\n</tbody>\n</table>"
 					elif part.__class__.__name__ == "Text":
 						worksheet = worksheet + part.text
 					elif part.__class__.__name__ == "Image":
 						worksheet = worksheet + "\n<img src =\"" + part.image + ".JPG\"/>"
 					elif part.__class__.__name__ == "Checkbox":
+						print("Checkbox")
 						rno = rnum[romannum]
 						romannum = romannum + 1
 						allans = ""

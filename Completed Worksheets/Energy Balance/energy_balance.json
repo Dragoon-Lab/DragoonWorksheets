@@ -1268,7 +1268,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "Vary the ingested values. How many calories can Joe ingest and keep his weight constant?"
+                                            "text": "Vary the ingested values. How many calories can Joe ingest and keep his weight constant? "
                                         }
                                     },
                                     {
@@ -1816,13 +1816,24 @@
                                         }
                                     },
                                     {
-                                        "__Dropdown__": {
-                                            "correct": "Energy balance; Energy expended; Physical activity expenditure; Weight; and Weight change",
-                                            "options": [
-                                                "Calories per pound; Energy balance; and Weight change",
-                                                "Energy balance; Energy expended; Physical activity expenditure; Weight; and Weight change",
-                                                "Only Energy balance",
-                                                "Only Energy balance; Weight; and Weight change"
+                                        "__Checkbox__": {
+                                            "correct_c": [
+                                                "Energy balance",
+												"Energy expended",
+												"Physical activity expenditure",
+												"Weight",
+												"Weight change"
+                                            ],
+                                            "options_c": [
+                                                "Calories per pound",
+												"Digestive activity expenditure",
+												"Energy balance",
+												"Energy expended",
+												"Energy ingested",
+												"Physical activity expenditure",
+												"Physical activity level",
+												"Weight",
+												"Weight change"
                                             ]
                                         }
                                     }
@@ -1922,7 +1933,7 @@
                                                     "energy expended per day by basic body function; value = 1400 calories"
                                                 ],
                                                 [
-                                                    "digestive activity expenditure",
+                                                    "Digestive activity expenditure",
                                                     [
                                                         [
                                                             "parameter",
@@ -2139,14 +2150,17 @@
                                             "text": "We have learned a lot about metabolism. Which of the following is a component of your body&#39s metabolism?</p><p>"
                                         }
                                     },
-                                    {
-                                        "__Dropdown__": {
-                                            "correct": "all of the above",
-                                            "options": [
+									{
+                                        "__Checkbox__": {
+                                            "correct_c": [
                                                 "Thermic effect of food",
                                                 "Resting metabolic rate",
-                                                "Physical activity level",
-                                                "all of the above"
+                                                "Physical activity level"
+                                            ],
+                                            "options_c": [
+                                                "Thermic effect of food",
+                                                "Resting metabolic rate",
+                                                "Physical activity level"
                                             ]
                                         }
                                     }

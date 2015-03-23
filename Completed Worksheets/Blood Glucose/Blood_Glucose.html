@@ -8,7 +8,7 @@ openDragoonProblem(num){
 var u = document.getElementById("user").value;
 var s = document.getElementById("section").value;
 var problemID = "problem" + num.toString();
-var p = document.getElementById(problemID).value;
+var p = document.getElementById(problemID).value.slice(0,30);
 var modeID = "mode" + num.toString();
 var m = document.getElementById(modeID).value;
 var urlString = "http://dragoon.asu.edu/demo/index.html?u="+u+"&m="+m+"&p="+p+"&s="+s;
