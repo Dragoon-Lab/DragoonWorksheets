@@ -45,7 +45,8 @@ if (document.getElementById(checkedId[i]).checked) {
 ck = ck + 1;
 }
 };
-for (i = 0; i<uncheckedId.length; i++) {
+for (i = 0;
+i<uncheckedId.length; i++) {
 if (!(document.getElementById(uncheckedId[i]).checked)) {
 unck = unck + 1;
 }
@@ -59,27 +60,6 @@ else {
 document.getElementById(textId).style.background="#FF3333";
 return false
 }
-};
-
-function checkboxCorrection(textId,checkedId,uncheckedId) {
-for (i=0; i<checkedId.length; i++) {
-document.getElementById(checkedId[i]).checked = true;
-};
-for (i=0; i<uncheckedId.length; i++) {
-document.getElementById(uncheckedId[i]).checked = false;
-};
-document.getElementById(textId).style.background = "#FFFF00"
-};
-
-function retrieveCheckboxValue(total) {
-response = []
-for (i=0; i<total.length; i++) {
-if
-(document.getElementById (total[i]).checked) {
-response.push(total[i])
-}
-};
-return response
 };
 
 var tim1 = 0;
@@ -175,7 +155,7 @@ checkAnswers("1aii", "20");
 checkAnswers("1bi", "30%");
 checkAnswers("1ci", "beaver population");
 checkAnswers("1cii", "beaver birth rate");
-if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1bi").value==="" || document.getElementById("1ci").value==="" || document.getElementById("1cii").value==="" || 0) {
+if (document.getElementById("1ai").value==="" ||document.getElementById("1aii").value==="" ||document.getElementById("1bi").value==="" ||document.getElementById("1ci").value==="" ||document.getElementById("1cii").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("1ai", "beaver births")) { 
@@ -377,7 +357,7 @@ document.getElementById("2Time").innerHTML = tim2;
 checkAnswers("2ai", "parameter");
 checkAnswers("2aii", "2");
 checkAnswers("2bi", "accumulator");
-if (document.getElementById("2ai").value==="" || document.getElementById("2aii").value==="" || document.getElementById("2bi").value==="" || 0) {
+if (document.getElementById("2ai").value==="" ||document.getElementById("2aii").value==="" ||document.getElementById("2bi").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("2ai", "parameter")) { 
@@ -583,7 +563,7 @@ function cont3() {
 var yestim3 = 0;
 document.getElementById("3Time").innerHTML = tim3;
 checkAnswers("3ai", "parameter");checkAnswers("3aii", "accumulator");checkAnswers("3bi", "345000 + 100");checkAnswers("3bii", "345100");checkAnswers("3biii", "345100 + 100");checkAnswers("3biv", "345200");checkAnswers("3bv", "345200 + 100");checkAnswers("3bvi", "345300 + 100");checkAnswers("3bvii", "345400 + 100");
-if (document.getElementById("3ai").value==="" || document.getElementById("3aii").value==="" || document.getElementById("3bi").value==="" || document.getElementById("3bii").value==="" || document.getElementById("3biii").value==="" || document.getElementById("3biv").value==="" || document.getElementById("3bv").value==="" || document.getElementById("3bvi").value==="" || document.getElementById("3bvii").value==="" || 0) {
+if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||document.getElementById("3bi").value==="" ||document.getElementById("3bii").value==="" ||document.getElementById("3biii").value==="" ||document.getElementById("3biv").value==="" ||document.getElementById("3bv").value==="" ||document.getElementById("3bvi").value==="" ||document.getElementById("3bvii").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("3ai", "parameter")) { 
@@ -871,7 +851,7 @@ checkTextbox("4bi");
 document.getElementById("4biExample").innerHTML = document.getElementById("4bi").value
 checkTextbox("4ci");
 document.getElementById("4ciExample").innerHTML = document.getElementById("4ci").value
-if (document.getElementById("4ai").value==="" || document.getElementById("4bi").value==="" || document.getElementById("4ci").value==="" || 0) {
+if (document.getElementById("4ai").value==="" ||document.getElementById("4bi").value==="" ||document.getElementById("4ci").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("4ai", "energy stored")) { 
@@ -1000,7 +980,7 @@ checkAnswers("5fi", "3.00e+3");
 checkAnswers("5fii", "5.95e+3");
 checkTextbox("5gi");
 document.getElementById("5giExample").innerHTML = document.getElementById("5gi").value
-if (document.getElementById("5ai").value==="" || document.getElementById("5bi").value==="" || document.getElementById("5ci").value==="" || document.getElementById("5di").value==="" || document.getElementById("5dii").value==="" || document.getElementById("5ei").value==="" || document.getElementById("5fi").value==="" || document.getElementById("5fii").value==="" || document.getElementById("5gi").value==="" || 0) {
+if (document.getElementById("5ai").value==="" ||document.getElementById("5bi").value==="" ||document.getElementById("5ci").value==="" ||document.getElementById("5di").value==="" ||document.getElementById("5dii").value==="" ||document.getElementById("5ei").value==="" ||document.getElementById("5fi").value==="" ||document.getElementById("5fii").value==="" ||document.getElementById("5gi").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("5ai", "5")) { 
@@ -1285,19 +1265,19 @@ if(set5.fii===3)
 <td style="border: 2pt black solid">Energy stored</td>
 <td style="border: 2pt black solid">Accumulator</td>
 <td style="border: 2pt black solid">Energy stored in the body ; initial value = 34500 cal.</td>
-<td style="border: 2pt black solid">New energy stored = old energy stored + energy balance</td></tr><tr>
+<td style="border: 2pt black solid">New energy stored = old energy stored + energy balance</td></tr>
 <td style="border: 2pt black solid">Energy ingested</td><td style="border: 2pt black solid"><select id="6aii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td>
+<option>function</option></select></td><tr>
 <td style="border: 2pt black solid">Energy ingested daily; initial value = 1989 cal.</td>
-<td style="border: 2pt black solid">N/A</td></tr><tr>
+<td style="border: 2pt black solid">N/A</td></tr>
 <td style="border: 2pt black solid">Energy balance</td><td style="border: 2pt black solid"><select id="6aiii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td>
+<option>function</option></select></td><tr>
 <td style="border: 2pt black solid">difference between igestion and expenditure of energy per day</td><td style="border: 2pt black solid">Energy balance = energy ingested - <select id="6aiv">
 <option></option>
 <option>old energy balance</option>
@@ -1315,7 +1295,7 @@ function cont6() {
 var yestim6 = 0;
 document.getElementById("6Time").innerHTML = tim6;
 checkAnswers("6ai", "parameter");checkAnswers("6aii", "parameter");checkAnswers("6aiii", "function");checkAnswers("6aiv", "energy expended");
-if (document.getElementById("6ai").value==="" || document.getElementById("6aii").value==="" || document.getElementById("6aiii").value==="" || document.getElementById("6aiv").value==="" || 0) {
+if (document.getElementById("6ai").value==="" ||document.getElementById("6aii").value==="" ||document.getElementById("6aiii").value==="" ||document.getElementById("6aiv").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("6ai", "parameter")) { 
@@ -1489,7 +1469,7 @@ time8();
 <img src ="energy_balance/energy17.JPG"/></p>
 <p>8c. Click on the Dragoon button below. After the problem opens, read the text on the left of the screen. Notice that some nodes have been created for you already.</p>
 <p>8d. Start defining/refining your nodes. Click on the <b>Create Node</b> button in the top left corner as you did before, or you can double-click on an already created node in the window. If you have described your nodes properly in the above table, creating nodes should be simple—you have all the information you need right here!</p>
-<p>8e. As you can see from your table, four nodes are needed. After you have created them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren&#39;t completely defined. Look for nodes that have dotted lines around them.</p><p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b></p>
+<p>8e. As you can see from your table, four nodes are needed. After you have created them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren&#39t completely defined. Look for nodes that have dotted lines around them.</p><p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b></p>
 <script type="text/javascript">var set8 = {}; 
 function cont8() {
 var yestim8 = 0;
@@ -1524,7 +1504,7 @@ time9();
 <h3>Question 9</h3>
 <p></p>
 <p>9a. In the graph window, check <b>Show energy stored</b> and make sure <b>Show energy balance</b> is not checked, as boxed in the screenshot below.
-<img src ="energy_balance/energy18.JPG"/></p><p>Vary the values of energy ingested, energy expended, and initial energy stored. Notice that the graph can change with these values.</p><p>When you&#39;re done playing with the values, close and reopen the graph window to reset the sliders to their original positions, and then answer the following questions.</p><p>What is the unit of the independent variable on the graph?</p><p><select id="9ai">
+<img src ="energy_balance/energy18.JPG"/></p><p>Vary the values of energy ingested, energy expended, and initial energy stored. Notice that the graph can change with these values.</p><p>When you&#39re done playing with the values, close and reopen the graph window to reset the sliders to their original positions, and then answer the following questions.</p><p>What is the unit of the independent variable on the graph?</p><p><select id="9ai">
 <option></option>
 <option>days</option>
 <option>calories</option></select></p>
@@ -1541,7 +1521,7 @@ checkTextbox("9bi");
 document.getElementById("9biExample").innerHTML = document.getElementById("9bi").value
 checkTextbox("9ci");
 document.getElementById("9ciExample").innerHTML = document.getElementById("9ci").value
-if (document.getElementById("9ai").value==="" || document.getElementById("9bi").value==="" || document.getElementById("9ci").value==="" || 0) {
+if (document.getElementById("9ai").value==="" ||document.getElementById("9bi").value==="" ||document.getElementById("9ci").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("9ai", "days")) { 
@@ -1598,8 +1578,8 @@ if(set9.ai===3)
 <br><button id="button9" onClick="cont9();">Continue</button>
 <div id="question10" style="display: none">
 <h3>Question 10</h3>
-<p>In the table window, scroll to the bottom and vary the values of energy balance and initial energy stored. Notice how the table may change.</p><p>When you&#39;re done testing different values for energy expended, energy ingested, and energy stored, close and reopen the table window to reset the sliders to their original positions. Answer the following questions.</p>
-<p>10a. What does the -111 represent in the last column and why doesn&#39;t it change?<div id="new10ai"><textarea id="10ai" cols="40" rows="5"></textarea></div></p>
+<p>In the table window, scroll to the bottom and vary the values of energy balance and initial energy stored. Notice how the table may change.</p><p>When you&#39re done testing different values for energy expended, energy ingested, and energy stored, close and reopen the table window to reset the sliders to their original positions. Answer the following questions.</p>
+<p>10a. What does the -111 represent in the last column and why doesn&#39t it change?<div id="new10ai"><textarea id="10ai" cols="40" rows="5"></textarea></div></p>
 <p>10b. On what day does energy stored hit 3.43e+5 calories?</p><p>Day <select id="10bi">
 <option></option>
 <option>23.00</option>
@@ -1660,7 +1640,7 @@ checkAnswers("10di", "3.00e+3");
 checkAnswers("10dii", "-1.08e+5");
 checkAnswers("10ei", "3.15e+5");
 checkAnswers("10eii", "-1.01e+3");
-if (document.getElementById("10ai").value==="" || document.getElementById("10bi").value==="" || document.getElementById("10ci").value==="" || document.getElementById("10cii").value==="" || document.getElementById("10di").value==="" || document.getElementById("10dii").value==="" || document.getElementById("10ei").value==="" || document.getElementById("10eii").value==="" || 0) {
+if (document.getElementById("10ai").value==="" ||document.getElementById("10bi").value==="" ||document.getElementById("10ci").value==="" ||document.getElementById("10cii").value==="" ||document.getElementById("10di").value==="" ||document.getElementById("10dii").value==="" ||document.getElementById("10ei").value==="" ||document.getElementById("10eii").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("10bi", "14.00")) { 
@@ -1910,7 +1890,7 @@ if(set10.eii===3)
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td><td style="border: 2pt black solid">The weight of the body as it varies day to day; initial value = <select id="11bii">
+<option>function</option></select></td><td style="border: 2pt black solid">The weight of the body as it varies day by day; initial value = <select id="11bii">
 <option></option>
 <option>140 lbs</option>
 <option>150 lbs</option>
@@ -1960,7 +1940,7 @@ bv:0,};
 function cont11() {
 var yestim11 = 0;
 checkAnswers("11bi", "accumulator");checkAnswers("11bii", "150 lbs");checkAnswers("11biii", "function");checkAnswers("11biv", "parameter");checkAnswers("11bv", "N/A");
-if (document.getElementById("11bi").value==="" || document.getElementById("11bii").value==="" || document.getElementById("11biii").value==="" || document.getElementById("11biv").value==="" || document.getElementById("11bv").value==="" || 0) {
+if (document.getElementById("11bi").value==="" ||document.getElementById("11bii").value==="" ||document.getElementById("11biii").value==="" ||document.getElementById("11biv").value==="" ||document.getElementById("11bv").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("11bi", "accumulator")) { 
@@ -2136,7 +2116,7 @@ if (set11.bv=== 1) {
 <option></option>
 <option>constant</option>
 <option>dynamic</option></select>.</p>
-<p>12e. Vary the ingested values. How many calories can Joe ingest and keep his weight constant? <select id="12ei">
+<p>12e. Vary the ingested values. How many calories can Joe ingest and keep his weight constant?<select id="12ei">
 <option></option>
 <option>1989</option>
 <option>2.10e+3</option>
@@ -2160,7 +2140,7 @@ checkAnswers("12di", "constant");
 checkAnswers("12ei", "2.10e+3");
 checkTextbox("12fi");
 document.getElementById("12fiExample").innerHTML = document.getElementById("12fi").value
-if (document.getElementById("12ai").value==="" || document.getElementById("12bi").value==="" || document.getElementById("12ci").value==="" || document.getElementById("12di").value==="" || document.getElementById("12ei").value==="" || document.getElementById("12fi").value==="" || 0) {
+if (document.getElementById("12ai").value==="" ||document.getElementById("12bi").value==="" ||document.getElementById("12ci").value==="" ||document.getElementById("12di").value==="" ||document.getElementById("12ei").value==="" ||document.getElementById("12fi").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("12ai", "615")) { 
@@ -2349,7 +2329,7 @@ checkAnswers("13ai", "parameter");checkAnswers("13aii", "parameter");checkAnswer
 checkAnswers("13bi", "1400");
 checkAnswers("13ci", "negative");
 checkAnswers("13di", "negative");
-if (document.getElementById("13ai").value==="" || document.getElementById("13aii").value==="" || document.getElementById("13aiii").value==="" || document.getElementById("13aiv").value==="" || document.getElementById("13av").value==="" || document.getElementById("13bi").value==="" || document.getElementById("13ci").value==="" || document.getElementById("13di").value==="" || 0) {
+if (document.getElementById("13ai").value==="" ||document.getElementById("13aii").value==="" ||document.getElementById("13aiii").value==="" ||document.getElementById("13aiv").value==="" ||document.getElementById("13av").value==="" ||document.getElementById("13bi").value==="" ||document.getElementById("13ci").value==="" ||document.getElementById("13di").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("13ai", "parameter")) { 
@@ -2610,7 +2590,7 @@ if(set13.di===3)
 <option>2.35e+3</option>
 <option>2.40e+3</option>
 <option>2.45e+3</option></select> calories</p>
-<p>14c. The amount of physical activity energy burned per day depends mostly on two factors: how much exercise you do and your resting energy expenditure. The energy spent on exercise is estimated by multiplying the resting energy expenditure by a physical activity factor, which is:<ul><li>0.2 for little or no exercise</li><li>0.375 for light exercise</li><li>0.55 for moderate exercise</li><li>0.75 for hard exercise but not every day</li><li>0.9 for daily hard exercise</li></ul></p><p>Instead of using a parameter for "physical activity expenditure" with a value of 400, Joe decides to make it a function whose value is the product of resting energy expenditure and a new node, physical activity level. Joe does little exercise, so he sets the physical activity level as 0.2. However, his model is now set up so that he can easily see the effect of increasing his exercise level. Here&#40s his whole model, expressed as a table. Fill in the blanks:<table>
+<p>14c. The amount of physical activity energy burned per day depends mostly on two factors: how much exercise you do and your resting energy expenditure. The energy spent on exercise is estimated by multiplying the resting energy expenditure by a physical activity factor, which is:<ul><li>0.2 for little or no exercise</li><li>0.375 for light exercise</li><li>0.55 for moderate exercise</li><li>0.75 for hard exercise but not every day</li><li>0.9 for daily hard exercise</li></ul></p><p>Instead of using a parameter for "physical activity expenditure" with a value of 400, Joe decides to make it a function whose value is the product of resting energy expenditure and a new node, physical activity level. Joe does little exercise, so he sets the physical activity level as 0.2. However, his model is now set up so that he can easily see the effect of increasing his exercise level. Hereâ€™s his whole model, expressed as a table. Fill in the blanks:<table>
 <thead>
 <td style="border: 2pt black solid"><b>Node Name</b></td>
 <td style="border: 2pt black solid"><b>Type</b></td>
@@ -2682,7 +2662,7 @@ document.getElementById("14Time").innerHTML = tim14;
 checkTextbox("14ai");
 document.getElementById("14aiExample").innerHTML = document.getElementById("14ai").value
 checkAnswers("14bi", "2.30e+3");checkAnswers("14ci", "function");checkAnswers("14cii", "resting energy expenditure");checkAnswers("14ciii", "physical activity level");checkAnswers("14civ", "digestive activity expenditure");checkAnswers("14cv", "parameter");
-if (document.getElementById("14ai").value==="" || document.getElementById("14bi").value==="" || document.getElementById("14ci").value==="" || document.getElementById("14cii").value==="" || document.getElementById("14ciii").value==="" || document.getElementById("14civ").value==="" || document.getElementById("14cv").value==="" || 0) {
+if (document.getElementById("14ai").value==="" ||document.getElementById("14bi").value==="" ||document.getElementById("14ci").value==="" ||document.getElementById("14cii").value==="" ||document.getElementById("14ciii").value==="" ||document.getElementById("14civ").value==="" ||document.getElementById("14cv").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("14bi", "2.30e+3")) { 
@@ -2926,7 +2906,7 @@ checkAnswers("15ci", "0.03");
 checkAnswers("15di", "2860");
 checkAnswers("15ei", "lose");
 checkAnswers("15fi", "0.25");
-if (document.getElementById("15ai").value==="" || document.getElementById("15bi").value==="" || document.getElementById("15ci").value==="" || document.getElementById("15di").value==="" || document.getElementById("15ei").value==="" || document.getElementById("15fi").value==="" || 0) {
+if (document.getElementById("15ai").value==="" ||document.getElementById("15bi").value==="" ||document.getElementById("15ci").value==="" ||document.getElementById("15di").value==="" ||document.getElementById("15ei").value==="" ||document.getElementById("15fi").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("15ai", "1.88e+3 cal")) { 
@@ -3135,16 +3115,12 @@ if(set15.fi===3)
 <div id="question16" style="display: none">
 <h3>Question 16</h3>
 <p></p>
-<p>16a. If Joe&#39;s resting energy expenditure changes, which nodes <b>will</b> be affected by the changes?</p><p><div id="16ai">
-<input type="checkbox" name="16ai" id="Calories per pound">Calories per pound<br>
-<input type="checkbox" name="16ai" id="Digestive activity expenditure">Digestive activity expenditure<br>
-<input type="checkbox" name="16ai" id="Energy balance">Energy balance<br>
-<input type="checkbox" name="16ai" id="Energy expended">Energy expended<br>
-<input type="checkbox" name="16ai" id="Energy ingested">Energy ingested<br>
-<input type="checkbox" name="16ai" id="Physical activity expenditure">Physical activity expenditure<br>
-<input type="checkbox" name="16ai" id="Physical activity level">Physical activity level<br>
-<input type="checkbox" name="16ai" id="Weight">Weight<br>
-<input type="checkbox" name="16ai" id="Weight change">Weight change<br></div></p>
+<p>16a. If Joe&#39s resting energy expenditure changes, which nodes <b>will</b> be affected by the changes?</p><p><select id="16ai">
+<option></option>
+<option>Calories per pound; Energy balance; and Weight change</option>
+<option>Energy balance; Energy expended; Physical activity expenditure; Weight; and Weight change</option>
+<option>Only Energy balance</option>
+<option>Only Energy balance; Weight; and Weight change</option></select></p>
 <p>16b. What is Joe's weight after 999 days if he keeps his current physical activity level?</p><p><select id="16bi">
 <option></option>
 <option>98.6 lbs</option>
@@ -3157,27 +3133,20 @@ bi:0,};
 function cont16() {
 var yestim16 = 0;
 document.getElementById("16Time").innerHTML = tim16;
-checkbox("16ai",['Energy balance', 'Energy expended', 'Physical activity expenditure', 'Weight', 'Weight change'],['Calories per pound', 'Digestive activity expenditure', 'Energy ingested', 'Physical activity level'])
+
+checkAnswers("16ai", "Energy balance; Energy expended; Physical activity expenditure; Weight; and Weight change");
 checkAnswers("16bi", "151 lbs");
-if (checkbox("16ai",[],['Calories per pound', 'Digestive activity expenditure', 'Energy balance', 'Energy expended', 'Energy ingested', 'Physical activity expenditure', 'Physical activity level', 'Weight', 'Weight change']) || document.getElementById("16bi").value==="" || 0) {
+if (document.getElementById("16ai").value==="" ||document.getElementById("16bi").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
-if (!checkbox("16ai",['Energy balance', 'Energy expended', 'Physical activity expenditure', 'Weight', 'Weight change'],['Calories per pound', 'Digestive activity expenditure', 'Energy ingested', 'Physical activity level'])) { 
+if (!checkAnswers("16ai", "Energy balance; Energy expended; Physical activity expenditure; Weight; and Weight change")) { 
  set16.ai = set16.ai + 1;}if (!checkAnswers("16bi", "151 lbs")) { 
  set16.bi = set16.bi + 1;}
-if ((checkbox("16ai",['Energy balance', 'Energy expended', 'Physical activity expenditure', 'Weight', 'Weight change'],['Calories per pound', 'Digestive activity expenditure', 'Energy ingested', 'Physical activity level'])|| set16.ai===3) && (checkAnswers("16bi", "151 lbs") || set16.bi===3) &&1) {
+if ((checkAnswers("16ai", "Energy balance; Energy expended; Physical activity expenditure; Weight; and Weight change") || set16.ai===3) &&(checkAnswers("16bi", "151 lbs") || set16.bi===3) &&1) {
  document.getElementById("question17").style.display = "";
  document.getElementById("button16").style.display = "none";
 
-document.getElementById("Calories per pound").disabled=true;
-document.getElementById("Digestive activity expenditure").disabled=true;
-document.getElementById("Energy balance").disabled=true;
-document.getElementById("Energy expended").disabled=true;
-document.getElementById("Energy ingested").disabled=true;
-document.getElementById("Physical activity expenditure").disabled=true;
-document.getElementById("Physical activity level").disabled=true;
-document.getElementById("Weight").disabled=true;
-document.getElementById("Weight change").disabled=true;
+document.getElementById("16ai").disabled=true;
 document.getElementById("16bi").disabled=true;
 tim17= 0;
 
@@ -3191,30 +3160,34 @@ var yestim17 = 1;
 time17();
 }
 
-if (!checkbox("16ai",['Energy balance', 'Energy expended', 'Physical activity expenditure', 'Weight', 'Weight change'],['Calories per pound', 'Digestive activity expenditure', 'Energy ingested', 'Physical activity level'])) {
+if (!checkAnswers("16ai", "Energy balance; Energy expended; Physical activity expenditure; Weight; and Weight change")) {
+if (set16.ai===3) {
+document.getElementById("16ai").style.background="#FFFF00";
+ document.getElementById("16aiAnswer3").innerHTML = document.getElementById("16ai").value 
+ }
 if (set16.ai=== 1) { 
- document.getElementById("16aiAnswer1").innerHTML = retrieveCheckboxValue(['Calories per pound', 'Digestive activity expenditure', 'Energy balance', 'Energy expended', 'Energy ingested', 'Physical activity expenditure', 'Physical activity level', 'Weight', 'Weight change'])
+ document.getElementById("16aiAnswer1").innerHTML = "; " + document.getElementById("16ai").value 
  } 
  else if (set16.ai=== 2) { 
- document.getElementById("16aiAnswer2").innerHTML = retrieveCheckboxValue(['Calories per pound', 'Digestive activity expenditure', 'Energy balance', 'Energy expended', 'Energy ingested', 'Physical activity expenditure', 'Physical activity level', 'Weight', 'Weight change'])
-}
-else {
-document.getElementById("16aiAnswer3").innerHTML = retrieveCheckboxValue(['Calories per pound', 'Digestive activity expenditure', 'Energy balance', 'Energy expended', 'Energy ingested', 'Physical activity expenditure', 'Physical activity level', 'Weight', 'Weight change'])
+ document.getElementById("16aiAnswer2").innerHTML = "; " + document.getElementById("16ai").value 
  } 
-if (set16.ai===3) {
-checkboxCorrection("16ai",['Energy balance', 'Energy expended', 'Physical activity expenditure', 'Weight', 'Weight change'],['Calories per pound', 'Digestive activity expenditure', 'Energy ingested', 'Physical activity level'])}
-} 
+ else { 
+ document.getElementById("16aiAnswer3").innerHTML = "; " + document.getElementById("16ai").value 
+ } 
+ } 
  else { 
  if (set16.ai=== 0) { 
- document.getElementById("16aiAnswer1").innerHTML = retrieveCheckboxValue(['Calories per pound', 'Digestive activity expenditure', 'Energy balance', 'Energy expended', 'Energy ingested', 'Physical activity expenditure', 'Physical activity level', 'Weight', 'Weight change'])
+ document.getElementById("16aiAnswer1").innerHTML = "; " + document.getElementById("16ai").value 
  } 
  else if (set16.ai=== 1) { 
- document.getElementById("16aiAnswer2").innerHTML = retrieveCheckboxValue(['Calories per pound', 'Digestive activity expenditure', 'Energy balance', 'Energy expended', 'Energy ingested', 'Physical activity expenditure', 'Physical activity level', 'Weight', 'Weight change'])
+ document.getElementById("16aiAnswer2").innerHTML = "; " + document.getElementById("16ai").value 
  } 
  else { 
- document.getElementById("16aiAnswer3").innerHTML = retrieveCheckboxValue(['Calories per pound', 'Digestive activity expenditure', 'Energy balance', 'Energy expended', 'Energy ingested', 'Physical activity expenditure', 'Physical activity level', 'Weight', 'Weight change'])
+ document.getElementById("16aiAnswer3").innerHTML = "; " + document.getElementById("16ai").value
 }
 };
+if(set16.ai===3)
+{document.getElementById("16ai").value="Energy balance; Energy expended; Physical activity expenditure; Weight; and Weight change"};
 if (!checkAnswers("16bi", "151 lbs")) {
 if (set16.bi===3) {
 document.getElementById("16bi").style.background="#FFFF00";
@@ -3332,7 +3305,7 @@ function cont17() {
 var yestim17 = 0;
 document.getElementById("17Time").innerHTML = tim17;
 checkAnswers("17ai", "resting energy expenditure");checkAnswers("17aii", "physical activity level");checkAnswers("17aiii", "function");checkAnswers("17aiv", "energy ingested");checkAnswers("17av", "digestive energy factor");checkAnswers("17avi", "digestive activity expenditure");checkAnswers("17avii", "0.10");
-if (document.getElementById("17ai").value==="" || document.getElementById("17aii").value==="" || document.getElementById("17aiii").value==="" || document.getElementById("17aiv").value==="" || document.getElementById("17av").value==="" || document.getElementById("17avi").value==="" || document.getElementById("17avii").value==="" || 0) {
+if (document.getElementById("17ai").value==="" ||document.getElementById("17aii").value==="" ||document.getElementById("17aiii").value==="" ||document.getElementById("17aiv").value==="" ||document.getElementById("17av").value==="" ||document.getElementById("17avi").value==="" ||document.getElementById("17avii").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("17ai", "resting energy expenditure")) { 
@@ -3597,7 +3570,7 @@ checkAnswers("18bii", "280 calories");
 checkAnswers("18ci", "2080 calories");
 checkAnswers("18di", "gain");
 checkAnswers("18ei", "0.55 pounds per day");
-if (document.getElementById("18ai").value==="" || document.getElementById("18bi").value==="" || document.getElementById("18bii").value==="" || document.getElementById("18ci").value==="" || document.getElementById("18di").value==="" || document.getElementById("18ei").value==="" || 0) {
+if (document.getElementById("18ai").value==="" ||document.getElementById("18bi").value==="" ||document.getElementById("18bii").value==="" ||document.getElementById("18ci").value==="" ||document.getElementById("18di").value==="" ||document.getElementById("18ei").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("18ai", "199 calories")) { 
@@ -3806,11 +3779,13 @@ if(set18.ei===3)
 <div id="question19" style="display: none">
 <h3>Question 19</h3>
 <p></p>
-<p>19a. We have learned a lot about metabolism. Which of the following is a component of your body&#39;s metabolism?</p><p><div id="19ai">
-<input type="checkbox" name="19ai" id="Thermic effect of food">Thermic effect of food<br>
-<input type="checkbox" name="19ai" id="Resting metabolic rate">Resting metabolic rate<br>
-<input type="checkbox" name="19ai" id="Physical activity level">Physical activity level<br></div></p>
-<p>19b. What is Joe&#39;s weight after 90 days if all the parameters have their original values and are not changed using the sliders? <select id="19bi">
+<p>19a. We have learned a lot about metabolism. Which of the following is a component of your body&#39s metabolism?</p><p><select id="19ai">
+<option></option>
+<option>Thermic effect of food</option>
+<option>Resting metabolic rate</option>
+<option>Physical activity level</option>
+<option>all of the above</option></select></p>
+<p>19b. What is Joe&#39s weight after 90 days if all the parameters have their original values and are not changed using the sliders? <select id="19bi">
 <option></option>
 <option>143 lbs</option>
 <option>147 lbs</option>
@@ -3863,19 +3838,19 @@ if(set18.ei===3)
 <td style="border: 2pt black solid">Physical activity expenditure</td>
 <td style="border: 2pt black solid">Function</td>
 <td style="border: 2pt black solid">energy burned by physical exercise; value = resting energy expenditure * physical activity level</td></tr><tr>
-<td style="border: 2pt black solid">Resting energy expenditure</td><td style="border: 2pt black solid"><select id="19gi">
+<td style="border: 2pt black solid">Resting energy expenditure</td><td style="border: 2pt black solid">energy expended per day by basic bodily function; value = <select id="19gi">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td><td style="border: 2pt black solid">energy expended per day by basic body function; value = <select id="19gii">
+<option>function</option></select> - <select id="19gii">
 <option></option>
 <option>weight REE</option>
 <option>calories per pound</option>
-<option>age REE</option></select> - <select id="19giii">
+<option>age REE</option></select> + <select id="19giii">
 <option></option>
 <option>weight REE</option>
 <option>age REE</option>
-<option>height REE</option></select> + <select id="19giv">
+<option>height REE</option></select></td><td style="border: 2pt black solid"><select id="19giv">
 <option></option>
 <option>weight REE</option>
 <option>age REE</option>
@@ -3971,16 +3946,17 @@ gxiii:0,};
 function cont19() {
 var yestim19 = 0;
 document.getElementById("19Time").innerHTML = tim19;
-checkbox("19ai",['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'],[])
+
+checkAnswers("19ai", "all of the above");
 checkAnswers("19bi", "153 lbs");
 checkAnswers("19ci", "157 lbs");
 checkAnswers("19di", "143 lbs");
 checkAnswers("19ei", "147 lbs");
 checkAnswers("19fi", "gain");checkAnswers("19gi", "function");checkAnswers("19gii", "weight REE");checkAnswers("19giii", "age REE");checkAnswers("19giv", "height REE");checkAnswers("19gv", "function");checkAnswers("19gvi", "parameter");checkAnswers("19gvii", "function");checkAnswers("19gviii", "parameter");checkAnswers("19gix", "parameter");checkAnswers("19gx", "function");checkAnswers("19gxi", "parameter");checkAnswers("19gxii", "parameter");checkAnswers("19gxiii", "parameter");
-if (checkbox("19ai",[],['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level']) || document.getElementById("19bi").value==="" || document.getElementById("19ci").value==="" || document.getElementById("19di").value==="" || document.getElementById("19ei").value==="" || document.getElementById("19fi").value==="" || document.getElementById("19gi").value==="" || document.getElementById("19gii").value==="" || document.getElementById("19giii").value==="" || document.getElementById("19giv").value==="" || document.getElementById("19gv").value==="" || document.getElementById("19gvi").value==="" || document.getElementById("19gvii").value==="" || document.getElementById("19gviii").value==="" || document.getElementById("19gix").value==="" || document.getElementById("19gx").value==="" || document.getElementById("19gxi").value==="" || document.getElementById("19gxii").value==="" || document.getElementById("19gxiii").value==="" || 0) {
+if (document.getElementById("19ai").value==="" ||document.getElementById("19bi").value==="" ||document.getElementById("19ci").value==="" ||document.getElementById("19di").value==="" ||document.getElementById("19ei").value==="" ||document.getElementById("19fi").value==="" ||document.getElementById("19gi").value==="" ||document.getElementById("19gii").value==="" ||document.getElementById("19giii").value==="" ||document.getElementById("19giv").value==="" ||document.getElementById("19gv").value==="" ||document.getElementById("19gvi").value==="" ||document.getElementById("19gvii").value==="" ||document.getElementById("19gviii").value==="" ||document.getElementById("19gix").value==="" ||document.getElementById("19gx").value==="" ||document.getElementById("19gxi").value==="" ||document.getElementById("19gxii").value==="" ||document.getElementById("19gxiii").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
-if (!checkbox("19ai",['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'],[])) { 
+if (!checkAnswers("19ai", "all of the above")) { 
  set19.ai = set19.ai + 1;}if (!checkAnswers("19bi", "153 lbs")) { 
  set19.bi = set19.bi + 1;}if (!checkAnswers("19ci", "157 lbs")) { 
  set19.ci = set19.ci + 1;}if (!checkAnswers("19di", "143 lbs")) { 
@@ -4000,13 +3976,11 @@ if (!checkbox("19ai",['Thermic effect of food', 'Resting metabolic rate', 'Physi
  set19.gxi = set19.gxi + 1;}if (!checkAnswers("19gxii", "parameter")) { 
  set19.gxii = set19.gxii + 1;}if (!checkAnswers("19gxiii", "parameter")) { 
  set19.gxiii = set19.gxiii + 1;}
-if ((checkbox("19ai",['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'],[])|| set19.ai===3) && (checkAnswers("19bi", "153 lbs") || set19.bi===3) &&(checkAnswers("19ci", "157 lbs") || set19.ci===3) &&(checkAnswers("19di", "143 lbs") || set19.di===3) &&(checkAnswers("19ei", "147 lbs") || set19.ei===3) &&(checkAnswers("19fi", "gain") || set19.fi===3) &&(checkAnswers("19gi", "function") || set19.gi===3) &&(checkAnswers("19gii", "weight REE") || set19.gii===3) &&(checkAnswers("19giii", "age REE") || set19.giii===3) &&(checkAnswers("19giv", "height REE") || set19.giv===3) &&(checkAnswers("19gv", "function") || set19.gv===3) &&(checkAnswers("19gvi", "parameter") || set19.gvi===3) &&(checkAnswers("19gvii", "function") || set19.gvii===3) &&(checkAnswers("19gviii", "parameter") || set19.gviii===3) &&(checkAnswers("19gix", "parameter") || set19.gix===3) &&(checkAnswers("19gx", "function") || set19.gx===3) &&(checkAnswers("19gxi", "parameter") || set19.gxi===3) &&(checkAnswers("19gxii", "parameter") || set19.gxii===3) &&(checkAnswers("19gxiii", "parameter") || set19.gxiii===3) &&checkCompletion(19) && 1) {
+if ((checkAnswers("19ai", "all of the above") || set19.ai===3) &&(checkAnswers("19bi", "153 lbs") || set19.bi===3) &&(checkAnswers("19ci", "157 lbs") || set19.ci===3) &&(checkAnswers("19di", "143 lbs") || set19.di===3) &&(checkAnswers("19ei", "147 lbs") || set19.ei===3) &&(checkAnswers("19fi", "gain") || set19.fi===3) &&(checkAnswers("19gi", "function") || set19.gi===3) &&(checkAnswers("19gii", "weight REE") || set19.gii===3) &&(checkAnswers("19giii", "age REE") || set19.giii===3) &&(checkAnswers("19giv", "height REE") || set19.giv===3) &&(checkAnswers("19gv", "function") || set19.gv===3) &&(checkAnswers("19gvi", "parameter") || set19.gvi===3) &&(checkAnswers("19gvii", "function") || set19.gvii===3) &&(checkAnswers("19gviii", "parameter") || set19.gviii===3) &&(checkAnswers("19gix", "parameter") || set19.gix===3) &&(checkAnswers("19gx", "function") || set19.gx===3) &&(checkAnswers("19gxi", "parameter") || set19.gxi===3) &&(checkAnswers("19gxii", "parameter") || set19.gxii===3) &&(checkAnswers("19gxiii", "parameter") || set19.gxiii===3) &&checkCompletion(19) && 1) {
  document.getElementById("question20").style.display = "";
  document.getElementById("button19").style.display = "none";
 
-document.getElementById("Thermic effect of food").disabled=true;
-document.getElementById("Resting metabolic rate").disabled=true;
-document.getElementById("Physical activity level").disabled=true;
+document.getElementById("19ai").disabled=true;
 document.getElementById("19bi").disabled=true;
 document.getElementById("19ci").disabled=true;
 document.getElementById("19di").disabled=true;
@@ -4037,30 +4011,34 @@ var yestim20 = 1;
 time20();
 }
 
-if (!checkbox("19ai",['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'],[])) {
+if (!checkAnswers("19ai", "all of the above")) {
+if (set19.ai===3) {
+document.getElementById("19ai").style.background="#FFFF00";
+ document.getElementById("19aiAnswer3").innerHTML = document.getElementById("19ai").value 
+ }
 if (set19.ai=== 1) { 
- document.getElementById("19aiAnswer1").innerHTML = retrieveCheckboxValue(['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'])
+ document.getElementById("19aiAnswer1").innerHTML = "; " + document.getElementById("19ai").value 
  } 
  else if (set19.ai=== 2) { 
- document.getElementById("19aiAnswer2").innerHTML = retrieveCheckboxValue(['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'])
-}
-else {
-document.getElementById("19aiAnswer3").innerHTML = retrieveCheckboxValue(['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'])
+ document.getElementById("19aiAnswer2").innerHTML = "; " + document.getElementById("19ai").value 
  } 
-if (set19.ai===3) {
-checkboxCorrection("19ai",['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'],[])}
-} 
+ else { 
+ document.getElementById("19aiAnswer3").innerHTML = "; " + document.getElementById("19ai").value 
+ } 
+ } 
  else { 
  if (set19.ai=== 0) { 
- document.getElementById("19aiAnswer1").innerHTML = retrieveCheckboxValue(['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'])
+ document.getElementById("19aiAnswer1").innerHTML = "; " + document.getElementById("19ai").value 
  } 
  else if (set19.ai=== 1) { 
- document.getElementById("19aiAnswer2").innerHTML = retrieveCheckboxValue(['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'])
+ document.getElementById("19aiAnswer2").innerHTML = "; " + document.getElementById("19ai").value 
  } 
  else { 
- document.getElementById("19aiAnswer3").innerHTML = retrieveCheckboxValue(['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'])
+ document.getElementById("19aiAnswer3").innerHTML = "; " + document.getElementById("19ai").value
 }
 };
+if(set19.ai===3)
+{document.getElementById("19ai").value="all of the above"};
 if (!checkAnswers("19bi", "153 lbs")) {
 if (set19.bi===3) {
 document.getElementById("19bi").style.background="#FFFF00";
@@ -4541,7 +4519,7 @@ if (set19.gxiii=== 1) {
 <option>160 lbs</option>
 <option>170 lbs</option>
 <option>180 lbs</option></select></p>
-<p>20b. Go to the graph and insert Madison&#39;s values from 16a. Now the author&#39;s solution shows Joe&#39;s weight, and the variable solution shows Madison&#39;s.</p><p>Madison&#39;s weight graph is clearly very different than Joe&#39;s weight graph. Everyone has different graphs and experience different challenges when trying to gain or lose weight. As you age, your graphs will change as well. Leave all the values the same, but change Madison&#39;s age to 30. Estimate her weight after 1000 days.</p><p><select id="20bi">
+<p>20b. Go to the graph and insert Madison&#39s values from 16a. Now the author&#39s solution shows Joe&#39s weight, and the variable solution shows Madison&#39s.</p><p>Madison&#39s weight graph is clearly very different than Joe&#39s weight graph. Everyone has different graphs and experience different challenges when trying to gain or lose weight. As you age, your graphs will change as well. Leave all the values the same, but change Madison&#39s age to 30. Estimate her weight after 1000 days.</p><p><select id="20bi">
 <option></option>
 <option>150-160 lbs</option>
 <option>160-170 lbs</option>
@@ -4567,7 +4545,7 @@ checkAnswers("20bi", "170-180 lbs");
 checkAnswers("20ci", "faster");
 checkTextbox("20di");
 document.getElementById("20diExample").innerHTML = document.getElementById("20di").value
-if (document.getElementById("20ai").value==="" || document.getElementById("20bi").value==="" || document.getElementById("20ci").value==="" || document.getElementById("20di").value==="" || 0) {
+if (document.getElementById("20ai").value==="" ||document.getElementById("20bi").value==="" ||document.getElementById("20ci").value==="" ||document.getElementById("20di").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("20ai", "160 lbs")) { 
@@ -4687,7 +4665,7 @@ if(set20.ci===3)
 <div id="question21" style="display: none">
 <h3>Question 21</h3>
 <p></p>
-<p>21a. Graph &quot;fats proportion of weight change.&quot; Notice how high it gets after Day 300. After Day 300, for every pound that Joe gains, <select id="21ai">
+<p>21a. Graph &quotfats proportion of weight change.&quot Notice how high it gets after Day 300. After Day 300, for every pound that Joe gains, <select id="21ai">
 <option></option>
 <option>all</option>
 <option>almost all</option>
@@ -4709,7 +4687,7 @@ checkTextbox("21ci");
 document.getElementById("21ciExample").innerHTML = document.getElementById("21ci").value
 checkTextbox("21di");
 document.getElementById("21diExample").innerHTML = document.getElementById("21di").value
-if (document.getElementById("21ai").value==="" || document.getElementById("21bi").value==="" || document.getElementById("21ci").value==="" || document.getElementById("21di").value==="" || 0) {
+if (document.getElementById("21ai").value==="" ||document.getElementById("21bi").value==="" ||document.getElementById("21ci").value==="" ||document.getElementById("21di").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("21ai", "almost all")) { 
@@ -4779,7 +4757,7 @@ document.getElementById("22Time").innerHTML = tim22;
 
 checkTextbox("22ai");
 document.getElementById("22aiExample").innerHTML = document.getElementById("22ai").value
-if (document.getElementById("22ai").value==="" || 0) {
+if (document.getElementById("22ai").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 
@@ -5045,21 +5023,21 @@ displayAnswers();
 <tr>
 <tr>
 <td style="border: 2pt black solid">9b. i.</td>
-<td style="border: 2pt black solid">The graph changes from having a negative slope to having a positive slope. This means that Joe&#39;s energy balance changed from a deficit to a surplus of calories.</td>
+<td style="border: 2pt black solid">The graph changes from having a negative slope to having a positive slope. This means that Joe&#39s energy balance changed from a deficit to a surplus of calories.</td>
 <td style="border: 2pt black solid"><div id="9biExample"</div></td>
 <td style="border: 2pt black solid"></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
 <td style="border: 2pt black solid">9c. i.</td>
-<td style="border: 2pt black solid">The graph changes from having a negative slope to having a positive slope. This means that Joe&#39;s energy balance changed from a deficit to a surplus of calories.</td>
+<td style="border: 2pt black solid">The graph changes from having a negative slope to having a positive slope. This means that Joe&#39s energy balance changed from a deficit to a surplus of calories.</td>
 <td style="border: 2pt black solid"><div id="9ciExample"</div></td>
 <td style="border: 2pt black solid"></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
 <td style="border: 2pt black solid">10a. i.</td>
-<td style="border: 2pt black solid">Energy balance (calories), the value of energy ingested &#45; energy expended. It doesn&#39;t change because energy balance is always a set value of the difference between energy ingested and energy expended.</td>
+<td style="border: 2pt black solid">Energy balance (calories), the value of energy ingested – energy expended. It doesn&#39t change because energy balance is always a set value of the difference between energy ingested and energy expended.</td>
 <td style="border: 2pt black solid"><div id="10aiExample"</div></td>
 <td style="border: 2pt black solid"></td>
 <td style="border: 2pt black solid"><div id="10Time"></div></td>
@@ -5185,7 +5163,7 @@ displayAnswers();
 </tr>
 <tr>
 <td style="border: 2pt black solid">12f. i.</td>
-<td style="border: 2pt black solid">energy balance = energy ingested &#45; energy expended. Energy expended = 2100, so if energy ingested = 2100, then energy balance = 0 and thus weight change is zero.</td>
+<td style="border: 2pt black solid">energy balance = energy ingested – energy expended. Energy expended = 2100, so if energy ingested = 2100, then energy balance = 0 and thus weight change is zero.</td>
 <td style="border: 2pt black solid"><div id="12fiExample"</div></td>
 <td style="border: 2pt black solid"></td>
 <td style="border: 2pt black solid"></td>
@@ -5339,7 +5317,7 @@ displayAnswers();
 </tr>
 <tr>
 <td style="border: 2pt black solid">16a. i.</td>
-<td style="border: 2pt black solid">['Energy balance', 'Energy expended', 'Physical activity expenditure', 'Weight', 'Weight change']</td>
+<td style="border: 2pt black solid">Energy balance; Energy expended; Physical activity expenditure; Weight; and Weight change</td>
 <td style="border: 2pt black solid"><div id="16aiAnswer1"></div><div id="16aiAnswer2"></div><div id="16aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="16aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="16Time"></div></td>
@@ -5444,7 +5422,7 @@ displayAnswers();
 </tr>
 <tr>
 <td style="border: 2pt black solid">19a. i.</td>
-<td style="border: 2pt black solid">['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level']</td>
+<td style="border: 2pt black solid">all of the above</td>
 <td style="border: 2pt black solid"><div id="19aiAnswer1"></div><div id="19aiAnswer2"></div><div id="19aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="19aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="19Time"></div></td>

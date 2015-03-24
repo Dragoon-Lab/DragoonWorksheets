@@ -26,61 +26,6 @@ document.getElementById(inputId).style.background="#FF3333";
 return false;
 }
 };
-function checkTextbox(inputId) {
-if (!(document.getElementById(inputId).value==="")) {
-document.getElementById(inputId).style.background="#66FF33";
-return true;
-}
-else {
-document.getElementById(inputId).style.background="#FF3333";
-return false;
-}
-};
-
-function checkbox(textId,checkedId,uncheckedId) {
-ck = 0
-unck = 0
-for (i = 0; i<checkedId.length; i++) {
-if (document.getElementById(checkedId[i]).checked) {
-ck = ck + 1;
-}
-};
-for (i = 0; i<uncheckedId.length; i++) {
-if (!(document.getElementById(uncheckedId[i]).checked)) {
-unck = unck + 1;
-}
-};
-if (checkedId.length == ck && uncheckedId.length == unck)
-{
-document.getElementById(textId).style.background="#66FF33";
-return true
-}
-else {
-document.getElementById(textId).style.background="#FF3333";
-return false
-}
-};
-
-function checkboxCorrection(textId,checkedId,uncheckedId) {
-for (i=0; i<checkedId.length; i++) {
-document.getElementById(checkedId[i]).checked = true;
-};
-for (i=0; i<uncheckedId.length; i++) {
-document.getElementById(uncheckedId[i]).checked = false;
-};
-document.getElementById(textId).style.background = "#FFFF00"
-};
-
-function retrieveCheckboxValue(total) {
-response = []
-for (i=0; i<total.length; i++) {
-if
-(document.getElementById (total[i]).checked) {
-response.push(total[i])
-}
-};
-return response
-};
 
 var tim1 = 0;
 function time1 () {
@@ -126,7 +71,7 @@ return result;
 <body>
 <label>Username :</label>&nbsp;<input type="text" name="user" id="user">
 <input type="hidden" name="section" id="section" value="public-worksheet">
-<p><h3><b>Systems Dynamics Modeling with Dragoon: An introduction</b></h3></p><p>Systems Dynamics Modeling is a method of understanding systems (i.e., parts of the world that you are interested in) that change over time (i.e., they are dynamic).  It works by viewing the system as interacting quantities&mdash;called &quotnodes&quot in the Dragoon software.  A model is made by defining both nodes and the relationships between them.  In particular, if Node A has an effect on Node B, Node A is considered an &quotinput&quot of Node B.  Once all the nodes and inputs are defined, the computer can calculate the change in the system over time and provide you with graphs showing the results.</p><p><b>Parameters, Accumulators, and Functions</b></p><p>Models in Dragoon are made up of three types of nodes:  Parameters, Accumulators, and Functions.<ul><li>Parameters are the simplest type of node.  A parameter represents a <b>fixed quantity that never changes</b>.  Parameters are used to represent constant values (height of building being 12 m).</li><li>An accumulator represents a <b>quantity that accumulates the values of its inputs over time</b>.  As each input arrives, it changes the value of the accumulator, so inputs represent changes to the accumulator’s value.  At each time step, the inputs are added or subtracted from the value for the accumulator at the current time step&mdash;that determines its value at the next time step.</li><li>Functions represent <b>a value that is directly related to the values of its inputs, without regard to its own previous value</b>.  The inputs to functions determine the value of the function.  A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value.</li><ul>Accumulators and functions seem very similar at first, and it can take some practice to determine if a particular quantity should be represented as one or the other.  To determine if a quantity should be an accumulator, ask the question:  &quotDoes this quantity add or subtract new values to itself each time step to find its new value?&quot  If it does, then the quantity is an Accumulator.  If it does not, then the quantity is a Function.  Additionally, Accumulators typically have an initial value associated with them, whereas functions do not.</p><p><b>Example system:</b> Let’s start by modeling a simple system: a population of dodo birds as they were becoming extinct.  Suppose that there were 1000 dodo birds (pronounced &quotdoh doh&quot) in the population initially and that 20% of the dodo birds died each year.  Thus, the number of deaths in the first year was 1000 * 20% = 200 deaths, leaving 800 dodos alive at the beginning of the second year.  The number of deaths in the second year was 800 * 20% = 160 deaths, leaving 640 dodos alive for the start of the third year.   Because the number of dodo birds and the number of deaths change over the years, this is a dynamic system.</p>
+<p><h3><b>Systems Dynamics Modeling with Dragoon: An introduction</b></h3></p><p>Systems Dynamics Modeling is a method of understanding systems (i.e., parts of the world that you are interested in) that change over time (i.e., they are dynamic).  It works by viewing the system as interacting quantities&mdash;called &quotnodes&quot in the Dragoon software.  A model is made by defining both nodes and the relationships between them.  In particular, if Node A has an effect on Node B, Node A is considered an “input” of Node B.  Once all the nodes and inputs are defined, the computer can calculate the change in the system over time and provide you with graphs showing the results.</p><p><b>Parameters, Accumulators, and Functions</b></p><p>Models in Dragoon are made up of three types of nodes:  Parameters, Accumulators, and Functions.<ul><li>Parameters are the simplest type of node.  A parameter represents a <b>fixed quantity that never changes</b>.  Parameters are used to represent constant values (height of building being 12 m).</li><li>An accumulator represents a <b>quantity that accumulates the values of its inputs over time</b>.  As each input arrives, it changes the value of the accumulator, so inputs represent changes to the accumulator’s value.  At each time step, the inputs are added or subtracted from the value for the accumulator at the current time step—that determines its value at the next time step.</li><li>Functions represent <b>a value that is directly related to the values of its inputs, without regard to its own previous value</b>.  The inputs to functions determine the value of the function.  A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value.</li><ul>Accumulators and functions seem very similar at first, and it can take some practice to determine if a particular quantity should be represented as one or the other.  To determine if a quantity should be an accumulator, ask the question:  “Does this quantity add or subtract new values to itself each time step to find its new value?”  If it does, then the quantity is an Accumulator.  If it does not, then the quantity is a Function.  Additionally, Accumulators typically have an initial value associated with them, whereas functions do not.</p><p><b>Example system:</b> Let’s start by modeling a simple system: a population of dodo birds as they were becoming extinct.  Suppose that there were 1000 dodo birds (pronounced “doh doh”) in the population initially and that 20% of the dodo birds died each year.  Thus, the number of deaths in the first year was 1000 * 20% = 200 deaths, leaving 800 dodos alive at the beginning of the second year.  The number of deaths in the second year was 800 * 20% = 160 deaths, leaving 640 dodos alive for the start of the third year.   Because the number of dodo birds and the number of deaths change over the years, this is a dynamic system.</p>
 <h3>Question 1</h3>
 <p><b>Example Problem:</b> To make sure you understand the system's behavior, please fill in the next few years in the table below.</p>
 <p>1a. <table>
@@ -135,7 +80,7 @@ return result;
 <td style="border: 2pt black solid"><b>dodo population at the start of the year</b></td>
 <td style="border: 2pt black solid"><b>Deaths during the year</b></td>
 </thead>
-<tbody><tr><tr><tr><tr><tr>
+<tbody>
 <td style="border: 2pt black solid">Year 0 (starting values)</td>
 <td style="border: 2pt black solid">1000</td>
 <td style="border: 2pt black solid">200</td></tr>
@@ -188,12 +133,16 @@ return result;
 <option>512</option>
 <option>410</option></select></td></tr>
 </tbody>
-</table>It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking dodo population.  Let’s start by defining our nodes, of which there are 3:<ul><li><i>Death rate</i> is the percentage of the dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn’t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i> represents the number of dodos still alive.  We are given an initial value for this quantity, 1000 dodos, and the number of dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population – deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>.</li><li><i>Deaths</i> represents the number of dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (population * death probability).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.<li><ul>A Dragoon model for this system would look like this:
-<img src ="introductory_worksheet/image1.JPG"/>This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes.  Parameter nodes are diamonds, and the inside of a Parameter node shows its value.  Function nodes are circles.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node, which is a square, shows both its mathematical operation and its <i>initial</i> value.</p><p>You create such nodes by clicking on a “Create node” button and filling out the form that it pops up.   The form is called the <i>node editor</i>.  You can also click on an existing node to edit it.  Below are snapshots showing the node editor just as each node has been fully defined and the node editor is about to be closed.  See if you can figure out which node editor snapshot goes with which node above.
-<img src ="introductory_worksheet/image2.JPG"/>
-<img src ="introductory_worksheet/image3.JPG"/>
-<img src ="introductory_worksheet/image4.JPG"/>Notice that the node editor snapshots look slightly different from each other.  Do the differences make sense to you?</p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button would display the same information in graph form (see right figure).
-<img src ="introductory_worksheet/image5.JPG"/>While the dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.</p>
+</table></p>
+It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking dodo population.  Let’s start by defining our nodes, of which there are 3:<ul><li><i>Death rate</i> is the percentage of the dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn’t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i> represents the number of dodos still alive.  We are given an initial value for this quantity, 1000 dodos, and the number of dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population – deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>.</li><li><i>Deaths</i> represents the number of dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (population * death probability).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.<li><ul>A Dragoon model for this system would look like this:</p>
+<img src ="introductory_worksheet/image1.JPG"/></p>
+This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes.  Parameter nodes are diamonds, and the inside of a Parameter node shows its value.  Function nodes are circles.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node, which is a square, shows both its mathematical operation and its <i>initial</i> value.</p><p>You create such nodes by clicking on a “Create node” button and filling out the form that it pops up.   The form is called the <i>node editor</i>.  You can also click on an existing node to edit it.  Below are snapshots showing the node editor just as each node has been fully defined and the node editor is about to be closed.  See if you can figure out which node editor snapshot goes with which node above.</p>
+<img src ="introductory_worksheet/image2.JPG"/></p>
+<img src ="introductory_worksheet/image3.JPG"/></p>
+<img src ="introductory_worksheet/image4.JPG"/></p>
+Notice that the node editor snapshots look slightly different from each other.  Do the differences make sense to you?</p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button would display the same information in graph form (see right figure).</p>
+<img src ="introductory_worksheet/image5.JPG"/></p>
+While the dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.</p>
 <script type="text/javascript">var set1 = {
 ai:0,
 aii:0,
@@ -205,7 +154,7 @@ function cont1() {
 var yestim1 = 0;
 document.getElementById("1Time").innerHTML = tim1;
 checkAnswers("1ai", "640");checkAnswers("1aii", "128");checkAnswers("1aiii", "512");checkAnswers("1aiv", "102");checkAnswers("1av", "410");checkAnswers("1avi", "81.9");
-if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1aiii").value==="" || document.getElementById("1aiv").value==="" || document.getElementById("1av").value==="" || document.getElementById("1avi").value==="" || 0) {
+if (document.getElementById("1ai").value==="" ||document.getElementById("1aii").value==="" ||document.getElementById("1aiii").value==="" ||document.getElementById("1aiv").value==="" ||document.getElementById("1av").value==="" ||document.getElementById("1avi").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("1ai", "640")) { 
@@ -393,7 +342,8 @@ if (set1.avi=== 1) {
 <div id="question2" style="display: none">
 <h3>Question 2</h3>
 <p><b>How to open problems</b></p>
-<p>2a. Now let’s start learning how to make models using Dragoon.  The rest of this worksheet will alternate between reading about model construction and solving model construction problems on Dragoon.</p><p>When the worksheet asks you to solve a problem, it will give you a problem category name (such as “Miscellaneous”) and a problem name (such as “dodo extinction”).  However, exactly how you open that problem depends on what type of user you are.  If you don’t know what type of user you are, please click on the menu item Introduction at the top of dragoon.asu.edu.  User types are explained at the bottom of that page.<ul><li>If you are a <i>student</i>, you should log in via the URL that your instructor gave you, and then navigate to the problem.</li><li>If you are a <i>camper</i>, then you should login via the Login tab at the top of dragoon.asu.edu, and then navigate to the problem.</li><li>If you are a <i>visitor</i>, you should navigate to the problem via the Problem menu item at the top of dragoon.asu.edu.</li><ul></p>
+<p>2a. 
+Now let’s start learning how to make models using Dragoon.  The rest of this worksheet will alternate between reading about model construction and solving model construction problems on Dragoon.</p><p>When the worksheet asks you to solve a problem, it will give you a problem category name (such as “Miscellaneous”) and a problem name (such as “dodo extinction”).  However, exactly how you open that problem depends on what type of user you are.  If you don’t know what type of user you are, please click on the menu item Introduction at the top of dragoon.asu.edu.  User types are explained at the bottom of that page.<ul><li>If you are a <i>student</i>, you should log in via the URL that your instructor gave you, and then navigate to the problem.</li><li>If you are a <i>camper</i>, then you should login via the Login tab at the top of dragoon.asu.edu, and then navigate to the problem.</li><li>If you are a <i>visitor</i>, you should navigate to the problem via the Problem menu item at the top of dragoon.asu.edu.</li><ul></p>
 <script type="text/javascript">var set2 = {}; 
 function cont2() {
 var yestim2 = 0;
@@ -424,12 +374,13 @@ time3();
 <div id="question3" style="display: none">
 <h3>Question 3</h3>
 <p><b>A linear increase problem</b></p>
-<p>3a. The simplest type of system is one where there is a single quantity that goes up or down by the same constant amount each time step.  For example, consider this system:</p><p>Rod is a bookworm.  He already has 100 books.  Each week, he buys two more books.  Construct a model that shows how many books he has each week.</p>The time step here is a week.  The main quantity here is the number of books that Rod owns.  It starts at 100, and then rises to 102 during week 1, to 104 during week 2, to 106 during week 3, etc. If you were to graph the number of books Rod owns versus the weeks, the graph would be a straight line tilted upward.  That’s why this kind of system is said to exhibit <i>linear growth or linear increase</i>.<p></p>One way to solve such problems is to think about each quantity, decide how it changes, and define a node for it.  Let’s try that method on the bookworm problem.</p><p>The problem has two quantities.  Please decide which type of node is appropriate for each quantity, and select it in the table below:<table>
+<p>3a. 
+The simplest type of system is one where there is a single quantity that goes up or down by the same constant amount each time step.  For example, consider this system:</p><p>Rod is a bookworm.  He already has 100 books.  Each week, he buys two more books.  Construct a model that shows how many books he has each week.</p>The time step here is a week.  The main quantity here is the number of books that Rod owns.  It starts at 100, and then rises to 102 during week 1, to 104 during week 2, to 106 during week 3, etc.  If you were to graph the number of books Rod owns versus the weeks, the graph would be a straight line tilted upward.  That’s why this kind of system is said to exhibit <i>linear growth or linear increase</i>.<p></p>One way to solve such problems is to think about each quantity, decide how it changes, and define a node for it.  Let’s try that method on the bookworm problem.</p><p>The problem has two quantities.  Please decide which type of node is appropriate for each quantity, and select it in the table below:</p><table>
 <thead>
 <td style="border: 2pt black solid"><b>Quantity</b></td>
 <td style="border: 2pt black solid"><b>Node Type</b></td>
 </thead>
-<tbody><tr><tr>
+<tbody>
 <td style="border: 2pt black solid">number of books Rod owns</td><td style="border: 2pt black solid"><select id="3ai">
 <option></option>
 <option>parameter</option>
@@ -441,8 +392,10 @@ time3();
 <option>accumulator</option>
 <option>function</option></select></td></tr>
 </tbody>
-</table>Hopefully, you decided the number of books Rod owns is an accumulator and the books he buys each week is a parameter.   Now we need to decide about inputs for each node.  A parameter never has inputs, because its value is just a constant (2 in this case).  The accumulator, namely Rod’s books, goes up by 2 each week, so it needs an input whose value is 2.  Thus, the accumulator needs to have the parameter as its input.  The resulting model is:
-<img src ="introductory_worksheet/image6.JPG"/>Now solve the Dragoon problem below. Your model need not look exactly like the one above—the positions and colors of the nodes do not affect the calculations of the model.   You can move nodes by dragging on them.</p><p>When you have finished constructing the model, click on the Graph button to see how the main value of “books” changes over time.  Please manipulate the sliders on the right side of the Graph window; do the movements of the graph make sense to you?</p><p>This kind of model is called linear because the graph of the main quantity, books, is a straight line.  Because the main quantity increases, it’s called a linear growth model.</p><p>Now click on the Done button.</p>
+</table></p>
+Hopefully, you decided the number of books Rod owns is an accumulator and the books he buys each week is a parameter.   Now we need to decide about inputs for each node.  A parameter never has inputs, because its value is just a constant (2 in this case).  The accumulator, namely Rod’s books, goes up by 2 each week, so it needs an input whose value is 2.  Thus, the accumulator needs to have the parameter as its input.  The resulting model is:</p>
+<img src ="introductory_worksheet/image6.JPG"/></p>
+Now solve the Dragoon problem below. Your model need not look exactly like the one above—the positions and colors of the nodes do not affect the calculations of the model.   You can move nodes by dragging on them.</p><p>When you have finished constructing the model, click on the Graph button to see how the main value of “books” changes over time.  Please manipulate the sliders on the right side of the Graph window; do the movements of the graph make sense to you?</p><p>This kind of model is called linear because the graph of the main quantity, books, is a straight line.  Because the main quantity increases, it’s called a linear growth model.</p><p>Now click on the Done button.</p>
 <script type="text/javascript">var set3 = {
 ai:0,
 aii:0,}; 
@@ -450,7 +403,7 @@ function cont3() {
 var yestim3 = 0;
 document.getElementById("3Time").innerHTML = tim3;
 checkAnswers("3ai", "accumulator");checkAnswers("3aii", "parameter");
-if (document.getElementById("3ai").value==="" || document.getElementById("3aii").value==="" || 0) {
+if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("3ai", "accumulator")) { 
@@ -533,10 +486,14 @@ if (set3.aii=== 1) {
 <div id="question4" style="display: none">
 <h3>Question 4</h3>
 <p><b>Generic models</b></p>
-<p>4a. In order to model a complicated system, you must decompose it into elementary processes that can each be easily modelled.  In the case of Rod’s books, the system is so simple that there is just one process:  Books changing state from being owned by a bookseller to being owned by Rod, and the key feature of this process is that the amount of change per time step is constant, namely 2 books per week.  A handy format that summarizes this analysis is:<ul><li><i>Process</i>: Buying books</li><li><i>Source</i> of books: Irrelevant to this problem (probably a bookseller</li><li><i>Destination</i> of books: Rod's book collection</li><li>Number changing</i> per time step: a constant, 2 books, per week</li></ul>Once you have such an analysis, it is straightforward to convert it to a Dragoon model.  In fact, for simple analyses like this, you can look up a generic model in the problem category “Generic changes” and just copy it.  Here is the generic model named “Constant” in that problem category:
-<img src ="introductory_worksheet/image7.JPG"/>There are numbers and names shown here, but they are just examples.  When you copy the model, you’ll use your own names and numbers.  For the Bookworm problem, we only need part of the model, because the source of Rod’s books isn’t specified or relevant.  Thus, you would copy only the nodes “changing” and “destination.”  Compare the right half of the generic model above to the Bookworm model shown earlier.   See how the copy/change idea works?</p>
-<p>4b. <b>a linear decrease problem</b></p><p>Now let’s look at another linear model. Please try solving the Dragoon problem below.  Note that because Jared’s weight is decreasing, a subtraction is required.  When you get around to defining the expression for Jared’s weight, you’ll need to click on the “—” button first and then select “weight change”   When you get done, you’ll see “new Jared weight = old Jared weight + - weight change.”  The fact that there is a plus sign followed by a minus sign seems odd to some people, but it is actually completely proper math notation.</p><p>When you get done, your model should look something like this:
-<img src ="introductory_worksheet/image8.JPG"/>You can drag nodes around to make the model easy to understand.  Positions don’t affect the computations of the model at all.  Also, your colors might be different from the ones shown above.  Here’s the code:<ul><li>A dotted border means incomplete.  That is, at least one of the entries inside the node has been left blank.</li><li>a red border means something inside the node is still wrong</li><li>A yellow border means that at least one of the entries inside the node was supplied by Dragoon because the user guessed too much</li><li>A gree border means the user got everything right, eventually</li><li>A green interior means the user got everything right on the first try-- congratulations!</li></ul>Notice the minus sign inside the circle near the arrowhead.  This indicates that the input is subtracted from the accumulator’s old value.  When the minus sign is absent, as it was in the Bookworm model, then the input is added to the accumulator’s value.  These details mean that you don’t have to open a node in order to see what expression it has inside it.</p><p>This model is called a <i>linear decay</i> or <i>linear decrease</i> model because the graph of the main quantity is a line and it goes downward.</p>
+<p>4a. 
+In order to model a complicated system, you must decompose it into elementary processes that can each be easily modelled.  In the case of Rod’s books, the system is so simple that there is just one process:  Books changing state from being owned by a bookseller to being owned by Rod, and the key feature of this process is that the amount of change per time step is constant, namely 2 books per week.  A handy format that summarizes this analysis is:<ul><li><i>Process</i>: Buying books</li><li><i>Source</i> of books: Irrelevant to this problem (probably a bookseller</li><li><i>Destination</i> of books: Rod's book collection</li><li>Number changing</i> per time step: a constant, 2 books, per week</li></ul>Once you have such an analysis, it is straightforward to convert it to a Dragoon model.  In fact, for simple analyses like this, you can look up a generic model in the problem category “Generic changes” and just copy it.  Here is the generic model named “Constant” in that problem category:</p>
+<img src ="introductory_worksheet/image7.JPG"/></p>
+There are numbers and names shown here, but they are just examples.  When you copy the model, you’ll use your own names and numbers.  For the Bookworm problem, we only need part of the model, because the source of Rod’s books isn’t specified or relevant.  Thus, you would copy only the nodes “changing” and “destination.”  Compare the right half of the generic model above to the Bookworm model shown earlier.   See how the copy/change idea works?</p>
+<p>4b. 
+<b>a linear decrease problem</b></p><p>Now let’s look at another linear model. Please try solving the Dragoon problem below.  Note that because Jared’s weight is decreasing, a subtraction is required.  When you get around to defining the expression for Jared’s weight, you’ll need to click on the “—” button first and then select “weight change”   When you get done, you’ll see “new Jared weight = old Jared weight + - weight change.”  The fact that there is a plus sign followed by a minus sign seems odd to some people, but it is actually completely proper math notation.</p><p>When you get done, your model should look something like this:</p>
+<img src ="introductory_worksheet/image8.JPG"/></p>
+You can drag nodes around to make the model easy to understand.  Positions don’t affect the computations of the model at all.  Also, your colors might be different from the ones shown above.  Here’s the code:<ul><li>A dotted border means incomplete.  That is, at least one of the entries inside the node has been left blank.</li><li>a red border means something inside the node is still wrong</li><li>A yellow border means that at least one of the entries inside the node was supplied by Dragoon because the user guessed too much</li><li>A gree border means the user got everything right, eventually</li><li>A green interior means the user got everything right on the first try-- congratulations!</li></ul>Notice the minus sign inside the circle near the arrowhead.  This indicates that the input is subtracted from the accumulator’s old value.  When the minus sign is absent, as it was in the Bookworm model, then the input is added to the accumulator’s value.  These details mean that you don’t have to open a node in order to see what expression it has inside it.</p><p>This model is called a <i>linear decay</i> or <i>linear decrease</i> model because the graph of the main quantity is a line and it goes downward.</p>
 <script type="text/javascript">var set4 = {}; 
 function cont4() {
 var yestim4 = 0;
@@ -570,7 +527,8 @@ time5();
 <div id="question5" style="display: none">
 <h3>Question 5</h3>
 <p><b>A linear transfer problem</b></p>
-<p>5a. Now let’s build a third kind of linear model.  Please open the Dragoon problem below.  You can use either the first solution method (figuring out a definition for each node) or the second solution method (copying the appropriate generic model).</p><p>When you have finished constructing the model, be sure to look at the graphs and play with the sliders.  This kind of system exhibits a <i>linear transfer</i> behavior, because it includes both a source and a destination, and the graphs of both quantities are straight lines.</p>
+<p>5a. 
+Now let’s build a third kind of linear model.  Please open the Dragoon problem below.  You can use either the first solution method (figuring out a definition for each node) or the second solution method (copying the appropriate generic model).</p><p>When you have finished constructing the model, be sure to look at the graphs and play with the sliders.  This kind of system exhibits a <i>linear transfer</i> behavior, because it includes both a source and a destination, and the graphs of both quantities are straight lines.</p>
 <script type="text/javascript">var set5 = {}; 
 function cont5() {
 var yestim5 = 0;
@@ -604,7 +562,8 @@ time6();
 <div id="question6" style="display: none">
 <h3>Question 6</h3>
 <p><b>Exponential change problems</b></p>
-<p>6a. The dodo extinction problem, which was discussed earlier, is an example of a system with an exponential decrease in its main variable.   That is, the amount of decrease in the main variable is proportional to its value.  The corresponding generic model is called “proportional to source.”   Try solving the problem below.   If you move the sliders, is the graph always an exponential curve?</p>
+<p>6a. 
+The dodo extinction problem, which was discussed earlier, is an example of a system with an exponential decrease in its main variable.   That is, the amount of decrease in the main variable is proportional to its value.  The corresponding generic model is called “proportional to source.”   Try solving the problem below.   If you move the sliders, is the graph always an exponential curve?</p>
 <script type="text/javascript">var set6 = {}; 
 function cont6() {
 var yestim6 = 0;
@@ -734,7 +693,8 @@ time10();
 <div id="question10" style="display: none">
 <h3>Question 10</h3>
 <p><b>The Target Node Strategy</b></p>
-<p>10a. We have done several problems now, all corresponding to the generic models.  As you can see, copying a generic model can be easier than figuring out the model by considering each quantity individually.  However, sometime the system doesn’t correspond to any generic model.  Then you have no choice and must figure out the model quantity by quantity.</p><p>When systems get complicated, or fail to match a generic model or have extra information that isn’t needed in the model, you can waste a lot of time creating unnecessary nodes.  This can also create a confusing mess.  To avoid creating unnecessary nodes, you may use the <i>Target Node Strategy</i>.  The basic idea is to start with a quantity that you know you will need, namely the quantity that the problem asks you to graph, and make it your “target.”  Create a node for it, and be sure to create the expression it needs.  As a side effect of creating the expression, you will probably get some new nodes created, which appear as triangles.  When you are completely done with the first target node (the border is not dotted), then choose any one of the triangular nodes as your next “target.”  Repeat this process until there are no triangular nodes left.</p><p>Try the Dragoon problem below. You may see a new color, blue, which means that the entry you made is not wrong, but it is premature according to the Target Node Strategy.  You should define it later.</p>
+<p>10a. 
+We have done several problems now, all corresponding to the generic models.  As you can see, copying a generic model can be easier than figuring out the model by considering each quantity individually.  However, sometime the system doesn’t correspond to any generic model.  Then you have no choice and must figure out the model quantity by quantity.</p><p>When systems get complicated, or fail to match a generic model or have extra information that isn’t needed in the model, you can waste a lot of time creating unnecessary nodes.  This can also create a confusing mess.  To avoid creating unnecessary nodes, you may use the <i>Target Node Strategy</i>.  The basic idea is to start with a quantity that you know you will need, namely the quantity that the problem asks you to graph, and make it your “target.”  Create a node for it, and be sure to create the expression it needs.  As a side effect of creating the expression, you will probably get some new nodes created, which appear as triangles.  When you are completely done with the first target node (the border is not dotted), then choose any one of the triangular nodes as your next “target.”  Repeat this process until there are no triangular nodes left.</p><p>Try the Dragoon problem below. You may see a new color, blue, which means that the entry you made is not wrong, but it is premature according to the Target Node Strategy.  You should define it later.</p>
 <script type="text/javascript">var set10 = {}; 
 function cont10() {
 var yestim10 = 0;
@@ -768,7 +728,8 @@ time11();
 <div id="question11" style="display: none">
 <h3>Question 11</h3>
 <p><b>Adding ordinary algebraic relationships</b></p>
-<p>11a. Sometimes it is necessary to include ordinary algebraic relationships in a model.  For instance, the next problem asks you to graph the ratio of two quantities.  Thus, you’ll have to define a function node to represent that ratio, and its expression will have a division in it.</p><p>Please solve the Dragoon problem below. When you get done, look carefully at the node that represents the ratio.  It should reveal its contents by showing a multiplication symbol inside it and one of the inputs will have a division sign near its arrowhead, indicating that its quantity is inverted before being included in the product.   These little details allow you to see all the math in a model without having to open the node editor.</p>
+<p>11a. 
+Sometimes it is necessary to include ordinary algebraic relationships in a model.  For instance, the next problem asks you to graph the ratio of two quantities.  Thus, you’ll have to define a function node to represent that ratio, and its expression will have a division in it.</p><p>Please solve the Dragoon problem below. When you get done, look carefully at the node that represents the ratio.  It should reveal its contents by showing a multiplication symbol inside it and one of the inputs will have a division sign near its arrowhead, indicating that its quantity is inverted before being included in the product.   These little details allow you to see all the math in a model without having to open the node editor.</p>
 <script type="text/javascript">var set11 = {}; 
 function cont11() {
 var yestim11 = 0;
@@ -802,7 +763,8 @@ time12();
 <div id="question12" style="display: none">
 <h3>Question 12</h3>
 <p><b>More generic models</b></p>
-<p>12a. Generic models for linear change and exponential change have been introduced, but there are other generic models as well.  For instance, one of them is called “propor. to set point minus destination” in the “generic models” problem category.   This kind of change is also known as “goal seeking” or “homeostasis.”   Try the Dragoon problem below.</p>
+<p>12a. 
+Generic models for linear change and exponential change have been introduced, but there are other generic models as well.  For instance, one of them is called “propor. to set point minus destination” in the “generic models” problem category.   This kind of change is also known as “goal seeking” or “homeostasis.”   Try the Dragoon problem below.</p>
 <script type="text/javascript">var set12 = {}; 
 function cont12() {
 var yestim12 = 0;
@@ -836,7 +798,8 @@ time13();
 <div id="question13" style="display: none">
 <h3>Question 13</h3>
 <p><b>Simple system for which there are no generic models</b></p>
-<p>13a. Although generic models, alone or in combination, work for many systems, there are many other systems that cannot be modelled in such a way.  Thus, you will sometimes need to figure out how to solve such problems by considering each quantity and deciding how to model it.  The Target Node Strategy can be a big help.</p><p>Try the Dragoon problem below.</p>
+<p>13a. 
+Although generic models, alone or in combination, work for many systems, there are many other systems that cannot be modelled in such a way.  Thus, you will sometimes need to figure out how to solve such problems by considering each quantity and deciding how to model it.  The Target Node Strategy can be a big help.</p><p>Try the Dragoon problem below.</p>
 <script type="text/javascript">var set13 = {}; 
 function cont13() {
 var yestim13 = 0;
