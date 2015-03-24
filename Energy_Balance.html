@@ -499,13 +499,13 @@ if(set2.bi===3)
 <td style="border: 2pt black solid"><b>Type</b></td>
 <td style="border: 2pt black solid"><b>Description</b></td>
 </thead>
-<tbody><tr><tr>
+<tbody><tr>
 <td style="border: 2pt black solid">energy balance</td><td style="border: 2pt black solid"><select id="3ai">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">Small surplus per day; value = 100 calories</td></tr>
+<td style="border: 2pt black solid">Small surplus per day; value = 100 calories</td></tr><tr>
 <td style="border: 2pt black solid">energy stored</td><td style="border: 2pt black solid"><select id="3aii">
 <option></option>
 <option>parameter</option>
@@ -520,10 +520,10 @@ if(set2.bi===3)
 <td style="border: 2pt black solid"><b>calculation</b></td>
 <td style="border: 2pt black solid"><b>energy stored (cal)</b></td>
 </thead>
-<tbody><tr><tr><tr><tr><tr><tr>
+<tbody><tr>
 <td style="border: 2pt black solid">0</td>
 <td style="border: 2pt black solid"></td>
-<td style="border: 2pt black solid">345000</td></tr>
+<td style="border: 2pt black solid">345000</td></tr><tr>
 <td style="border: 2pt black solid">1</td><td style="border: 2pt black solid"><select id="3bi">
 <option></option>
 <option>345000 + 100</option>
@@ -534,7 +534,7 @@ if(set2.bi===3)
 <option>345000</option>
 <option>345100</option>
 <option>345200</option>
-<option>345500</option></select></td></tr>
+<option>345500</option></select></td></tr><tr>
 <td style="border: 2pt black solid">2</td><td style="border: 2pt black solid"><select id="3biii">
 <option></option>
 <option>345100 + 100</option>
@@ -545,21 +545,21 @@ if(set2.bi===3)
 <option>345000</option>
 <option>345100</option>
 <option>345200</option>
-<option>345500</option></select></td></tr>
+<option>345500</option></select></td></tr><tr>
 <td style="border: 2pt black solid">3</td><td style="border: 2pt black solid"><select id="3bv">
 <option></option>
 <option>345100 + 100</option>
 <option>345200 + 100</option>
 <option>345300 + 100</option>
 <option>345400 + 100</option></select></td>
-<td style="border: 2pt black solid">345300</td></tr>
+<td style="border: 2pt black solid">345300</td></tr><tr>
 <td style="border: 2pt black solid">4</td><td style="border: 2pt black solid"><select id="3bvi">
 <option></option>
 <option>345100 + 100</option>
 <option>345200 + 100</option>
 <option>345300 + 100</option>
 <option>345400 + 100</option></select></td>
-<td style="border: 2pt black solid">345400</td></tr>
+<td style="border: 2pt black solid">345400</td></tr><tr>
 <td style="border: 2pt black solid">5</td><td style="border: 2pt black solid"><select id="3bvii">
 <option></option>
 <option>345100 + 100</option>
@@ -1274,31 +1274,31 @@ if(set5.fii===3)
 <td style="border: 2pt black solid"><b>Description</b></td>
 <td style="border: 2pt black solid"><b>Expression</b></td>
 </thead>
-<tbody><tr><tr><tr><tr>
+<tbody><tr>
 <td style="border: 2pt black solid">Energy expended</td><td style="border: 2pt black solid"><select id="6ai">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
 <td style="border: 2pt black solid">Energy expended daily; initial value = 2100 cal.</td>
-<td style="border: 2pt black solid">N/A</td></tr>
+<td style="border: 2pt black solid">N/A</td></tr><tr>
 <td style="border: 2pt black solid">Energy stored</td>
 <td style="border: 2pt black solid">Accumulator</td>
 <td style="border: 2pt black solid">Energy stored in the body ; initial value = 34500 cal.</td>
-<td style="border: 2pt black solid">New energy stored = old energy stored + energy balance</td></tr>
+<td style="border: 2pt black solid">New energy stored = old energy stored + energy balance</td></tr><tr>
 <td style="border: 2pt black solid">Energy ingested</td><td style="border: 2pt black solid"><select id="6aii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
 <td style="border: 2pt black solid">Energy ingested daily; initial value = 1989 cal.</td>
-<td style="border: 2pt black solid">N/A</td></tr>
+<td style="border: 2pt black solid">N/A</td></tr><tr>
 <td style="border: 2pt black solid">Energy balance</td><td style="border: 2pt black solid"><select id="6aiii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">difference between igestion and expenditure of energy per day</td><td style="border: 2pt black solid"><select id="6aiv">
+<td style="border: 2pt black solid">difference between igestion and expenditure of energy per day</td><td style="border: 2pt black solid">Energy balance = energy ingested - <select id="6aiv">
 <option></option>
 <option>old energy balance</option>
 <option>energy stored</option>
@@ -1905,37 +1905,37 @@ if(set10.eii===3)
 <td style="border: 2pt black solid"><b>Description</b></td>
 <td style="border: 2pt black solid"><b>Expression</b></td>
 </thead>
-<tbody><tr><tr><tr><tr><tr><tr>
+<tbody><tr>
 <td style="border: 2pt black solid">Weight</td><td style="border: 2pt black solid"><select id="11bi">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td><td style="border: 2pt black solid"><select id="11bii">
+<option>function</option></select></td><td style="border: 2pt black solid">The weight of the body as it varies day to day; initial value = <select id="11bii">
 <option></option>
 <option>140 lbs</option>
 <option>150 lbs</option>
 <option>125 lbs</option>
 <option>118 lbs</option></select></td>
-<td style="border: 2pt black solid">New weight = old weight + weight change</td></tr>
+<td style="border: 2pt black solid">New weight = old weight + weight change</td></tr><tr>
 <td style="border: 2pt black solid">Weight change</td><td style="border: 2pt black solid"><select id="11biii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
 <td style="border: 2pt black solid">weight of tissue added or subtracted from storage</td>
-<td style="border: 2pt black solid">weight change = energy balance/calories per pound</td></tr>
+<td style="border: 2pt black solid">weight change = energy balance/calories per pound</td></tr><tr>
 <td style="border: 2pt black solid">Energy expended</td>
 <td style="border: 2pt black solid">Parameter</td>
 <td style="border: 2pt black solid">energy burned by nody each day; inital value = 2100 cal</td>
-<td style="border: 2pt black solid">N/A</td></tr>
+<td style="border: 2pt black solid">N/A</td></tr><tr>
 <td style="border: 2pt black solid">Energy balance</td>
 <td style="border: 2pt black solid">Function</td>
 <td style="border: 2pt black solid">energy balance in calories</td>
-<td style="border: 2pt black solid">Energy balance = energy ingested - energy expended</td></tr>
+<td style="border: 2pt black solid">Energy balance = energy ingested - energy expended</td></tr><tr>
 <td style="border: 2pt black solid">Energy ingested</td>
 <td style="border: 2pt black solid">Parameter</td>
 <td style="border: 2pt black solid">energy from food each day; initial value = 1989 cal/lbs</td>
-<td style="border: 2pt black solid">N/A</td></tr>
+<td style="border: 2pt black solid">N/A</td></tr><tr>
 <td style="border: 2pt black solid">Calories per pound</td><td style="border: 2pt black solid"><select id="11biv">
 <option></option>
 <option>parameter</option>
@@ -2286,34 +2286,34 @@ if(set12.ei===3)
 <td style="border: 2pt black solid"><b>Description</b></td>
 <td style="border: 2pt black solid"><b>Expression</b></td>
 </thead>
-<tbody><tr><tr><tr><tr>
+<tbody><tr>
 <td style="border: 2pt black solid">Physical activity expenditure</td><td style="border: 2pt black solid"><select id="13ai">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
 <td style="border: 2pt black solid">energy burned by physical exercise; value = 400 calories</td>
-<td style="border: 2pt black solid">N/A</td></tr>
+<td style="border: 2pt black solid">N/A</td></tr><tr>
 <td style="border: 2pt black solid">Resting energy expenditure</td><td style="border: 2pt black solid"><select id="13aii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
 <td style="border: 2pt black solid">energy expended per day by basic body function; value = 1400 calories</td>
-<td style="border: 2pt black solid">N/A</td></tr>
+<td style="border: 2pt black solid">N/A</td></tr><tr>
 <td style="border: 2pt black solid">Digestive activity expenditure</td><td style="border: 2pt black solid"><select id="13aiii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
 <td style="border: 2pt black solid">energy burned in order to digest food; value = 200 calories</td>
-<td style="border: 2pt black solid">N/A</td></tr>
+<td style="border: 2pt black solid">N/A</td></tr><tr>
 <td style="border: 2pt black solid">Energy expended</td><td style="border: 2pt black solid"><select id="13aiv">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">energy burned by the body in a day</td><td style="border: 2pt black solid"><select id="13av">
+<td style="border: 2pt black solid">energy burned by the body in a day</td><td style="border: 2pt black solid">value = physical activity expenditure + resting energy expenditure + <select id="13av">
 <option></option>
 <option>physical activity expenditure</option>
 <option>resting energy expenditure</option>
@@ -2610,56 +2610,56 @@ if(set13.di===3)
 <option>2.35e+3</option>
 <option>2.40e+3</option>
 <option>2.45e+3</option></select> calories</p>
-<p>14c. The amount of physical activity energy burned per day depends mostly on two factors: how much exercise you do and your resting energy expenditure. The energy spent on exercise is estimated by multiplying the resting energy expenditure by a physical activity factor, which is:<ul><li>0.2 for little or no exercise</li><li>0.375 for light exercise</li><li>0.55 for moderate exercise</li><li>0.75 for hard exercise but not every day</li><li>0.9 for daily hard exercise</li></ul></p><p>Instead of using a parameter for "physical activity expenditure" with a value of 400, Joe decides to make it a function whose value is the product of resting energy expenditure and a new node, physical activity level. Joe does little exercise, so he sets the physical activity level as 0.2. However, his model is now set up so that he can easily see the effect of increasing his exercise level. Here’s his whole model, expressed as a table. Fill in the blanks:<table>
+<p>14c. The amount of physical activity energy burned per day depends mostly on two factors: how much exercise you do and your resting energy expenditure. The energy spent on exercise is estimated by multiplying the resting energy expenditure by a physical activity factor, which is:<ul><li>0.2 for little or no exercise</li><li>0.375 for light exercise</li><li>0.55 for moderate exercise</li><li>0.75 for hard exercise but not every day</li><li>0.9 for daily hard exercise</li></ul></p><p>Instead of using a parameter for "physical activity expenditure" with a value of 400, Joe decides to make it a function whose value is the product of resting energy expenditure and a new node, physical activity level. Joe does little exercise, so he sets the physical activity level as 0.2. However, his model is now set up so that he can easily see the effect of increasing his exercise level. Here&#40s his whole model, expressed as a table. Fill in the blanks:<table>
 <thead>
 <td style="border: 2pt black solid"><b>Node Name</b></td>
 <td style="border: 2pt black solid"><b>Type</b></td>
 <td style="border: 2pt black solid"><b>Description</b></td>
 </thead>
-<tbody><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr>
+<tbody><tr>
 <td style="border: 2pt black solid">Energy balance</td>
 <td style="border: 2pt black solid">Function</td>
-<td style="border: 2pt black solid">Energy surplus or deficit daily; value = energy ingested – energy expended</td></tr>
+<td style="border: 2pt black solid">Energy surplus or deficit daily; value = energy ingested – energy expended</td></tr><tr>
 <td style="border: 2pt black solid">Energy ingested</td>
 <td style="border: 2pt black solid">Parameter</td>
-<td style="border: 2pt black solid">energy ingested daily; value = 1989 calories</td></tr>
+<td style="border: 2pt black solid">energy ingested daily; value = 1989 calories</td></tr><tr>
 <td style="border: 2pt black solid">Weight</td>
 <td style="border: 2pt black solid">Accumulator</td>
-<td style="border: 2pt black solid">The weight of the body as it varies day by day. Its new value is its old value + weight change. initial value = 150 lbs</td></tr>
+<td style="border: 2pt black solid">The weight of the body as it varies day by day. Its new value is its old value + weight change. initial value = 150 lbs</td></tr><tr>
 <td style="border: 2pt black solid">Weight change</td>
 <td style="border: 2pt black solid">Function</td>
-<td style="border: 2pt black solid">weight of tissue added or subtracted from storage; value = (energy balance)/(calories per pound)</td></tr>
+<td style="border: 2pt black solid">weight of tissue added or subtracted from storage; value = (energy balance)/(calories per pound)</td></tr><tr>
 <td style="border: 2pt black solid">Calories per pound</td>
 <td style="border: 2pt black solid">Parameter</td>
-<td style="border: 2pt black solid">Number of calories in a pound of tissue; value = 3500 calories/lbs</td></tr>
+<td style="border: 2pt black solid">Number of calories in a pound of tissue; value = 3500 calories/lbs</td></tr><tr>
 <td style="border: 2pt black solid">Physical activity expenditure</td><td style="border: 2pt black solid"><select id="14ci">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td><td style="border: 2pt black solid"><select id="14cii">
+<option>function</option></select></td><td style="border: 2pt black solid">energy burned by physical exercise; value = <select id="14cii">
 <option></option>
 <option>digestive activity expenditure</option>
 <option>energy balance</option>
 <option>resting energy expenditure</option>
-<option>energy expended</option></select></td><td style="border: 2pt black solid"><select id="14ciii">
+<option>energy expended</option></select> * <select id="14ciii">
 <option></option>
 <option>physical activity level</option>
 <option>energy expended</option>
 <option>resting energy expenditure</option>
-<option>calories per pound</option></select></td></tr>
+<option>calories per pound</option></select></td></tr><tr>
 <td style="border: 2pt black solid">Resting energy expenditure</td>
 <td style="border: 2pt black solid">Parameter</td>
-<td style="border: 2pt black solid">energy expended per day by basic body function; value = 1400 calories</td></tr>
+<td style="border: 2pt black solid">energy expended per day by basic body function; value = 1400 calories</td></tr><tr>
 <td style="border: 2pt black solid">Digestive activity expenditure</td>
 <td style="border: 2pt black solid">Parameter</td>
-<td style="border: 2pt black solid">energy burned in order to digest food; value = 200 calories</td></tr>
+<td style="border: 2pt black solid">energy burned in order to digest food; value = 200 calories</td></tr><tr>
 <td style="border: 2pt black solid">Energy expended</td>
-<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid"><select id="14civ">
+<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <select id="14civ">
 <option></option>
 <option>physical activity level</option>
 <option>digestive activity expenditure</option>
 <option>energy balance</option>
-<option>resting energy expenditure</option></select></td></tr>
+<option>resting energy expenditure</option></select></td></tr><tr>
 <td style="border: 2pt black solid">Physical activity level</td><td style="border: 2pt black solid"><select id="14cv">
 <option></option>
 <option>parameter</option>
@@ -3255,64 +3255,64 @@ if(set16.bi===3)
 <td style="border: 2pt black solid"><b>Type</b></td>
 <td style="border: 2pt black solid"><b>Description</b></td>
 </thead>
-<tbody><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr>
+<tbody><tr>
 <td style="border: 2pt black solid">Energy balance</td>
 <td style="border: 2pt black solid">Function</td>
-<td style="border: 2pt black solid">Energy surplus or deficit daily; value = energy ingested - energy expended</td></tr>
+<td style="border: 2pt black solid">Energy surplus or deficit daily; value = energy ingested - energy expended</td></tr><tr>
 <td style="border: 2pt black solid">Energy ingested</td>
 <td style="border: 2pt black solid">Parameter</td>
-<td style="border: 2pt black solid">energy ingested daily; value = 1989 calories</td></tr>
+<td style="border: 2pt black solid">energy ingested daily; value = 1989 calories</td></tr><tr>
 <td style="border: 2pt black solid">Weight</td>
 <td style="border: 2pt black solid">Accumulator</td>
-<td style="border: 2pt black solid">The weight of the body as it varies day by day. Its new value is its old value + weight change; initial value = 150 lbs</td></tr>
+<td style="border: 2pt black solid">The weight of the body as it varies day by day. Its new value is its old value + weight change; initial value = 150 lbs</td></tr><tr>
 <td style="border: 2pt black solid">Weight change</td>
 <td style="border: 2pt black solid">Function</td>
-<td style="border: 2pt black solid">weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td></tr>
+<td style="border: 2pt black solid">weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td></tr><tr>
 <td style="border: 2pt black solid">Calories per pound</td>
 <td style="border: 2pt black solid">Parameter</td>
-<td style="border: 2pt black solid">Number of calories in a pound of tissue; value = 3500 calories/lbs</td></tr>
+<td style="border: 2pt black solid">Number of calories in a pound of tissue; value = 3500 calories/lbs</td></tr><tr>
 <td style="border: 2pt black solid">Physical activity expenditure</td>
-<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid"><select id="17ai">
+<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid">energy burned by physical exercise; value = <select id="17ai">
 <option></option>
 <option>digestive activity expenditure</option>
 <option>physical activity level</option>
 <option>calories per pound</option>
-<option>resting energy expenditure</option></select></td><td style="border: 2pt black solid"><select id="17aii">
+<option>resting energy expenditure</option></select> * <select id="17aii">
 <option></option>
 <option>physical activity level</option>
 <option>calories per pound</option>
 <option>digestive activity expenditure</option>
-<option>weight change</option></select></td></tr>
+<option>weight change</option></select></td></tr><tr>
 <td style="border: 2pt black solid">Resting energy expenditure</td>
 <td style="border: 2pt black solid">Parameter</td>
-<td style="border: 2pt black solid">energy expended per day by basic body function; value = 1400 calories</td></tr>
+<td style="border: 2pt black solid">energy expended per day by basic body function; value = 1400 calories</td></tr><tr>
 <td style="border: 2pt black solid">Digestive activity expenditure</td><td style="border: 2pt black solid"><select id="17aiii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td><td style="border: 2pt black solid"><select id="17aiv">
+<option>function</option></select></td><td style="border: 2pt black solid">energy burned in order to digest food; value = <select id="17aiv">
 <option></option>
 <option>energy balance</option>
 <option>energy ingested</option>
 <option>physical activity level</option>
-<option>calories per pound</option></select></td><td style="border: 2pt black solid"><select id="17av">
+<option>calories per pound</option></select> * <select id="17av">
 <option></option>
 <option>resting energy expenditure</option>
 <option>calories per pound</option>
 <option>digestive energy factor</option>
-<option>energy ingested</option></select></td></tr>
+<option>energy ingested</option></select></td></tr><tr>
 <td style="border: 2pt black solid">Energy expended</td>
-<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid"><select id="17avi">
+<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid">energy burned in a day; value = physical activity expenditure + resting energy expenditure + <select id="17avi">
 <option></option>
 <option>digestive energy factor</option>
 <option>physical activity level</option>
 <option>physical activity expenditure</option>
-<option>digestive activity expenditure</option></select></td></tr>
+<option>digestive activity expenditure</option></select></td></tr><tr>
 <td style="border: 2pt black solid">Physical activity level</td>
 <td style="border: 2pt black solid">Parameter</td>
-<td style="border: 2pt black solid">Amount of physical activity e.g. 0.2 for little or no exercise; 0.55 for moderate exercise; or 0.9 for daily hard exercise</td></tr>
+<td style="border: 2pt black solid">Amount of physical activity e.g. 0.2 for little or no exercise; 0.55 for moderate exercise; or 0.9 for daily hard exercise</td></tr><tr>
 <td style="border: 2pt black solid">Digestive energy factor</td>
-<td style="border: 2pt black solid">Parameter</td><td style="border: 2pt black solid"><select id="17avii">
+<td style="border: 2pt black solid">Parameter</td><td style="border: 2pt black solid">The proportion of ingested energy that is required to process it; value = <select id="17avii">
 <option></option>
 <option>0.08</option>
 <option>0.10</option>
@@ -3844,102 +3844,102 @@ if(set18.ei===3)
 <td style="border: 2pt black solid"><b>Type</b></td>
 <td style="border: 2pt black solid"><b>Description</b></td>
 </thead>
-<tbody><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr>
+<tbody><tr>
 <td style="border: 2pt black solid">Energy balance</td>
 <td style="border: 2pt black solid">Function</td>
-<td style="border: 2pt black solid">Energy surplus or deficit daily; value = energy ingested - energy expended</td></tr>
+<td style="border: 2pt black solid">Energy surplus or deficit daily; value = energy ingested - energy expended</td></tr><tr>
 <td style="border: 2pt black solid">Energy ingested</td>
 <td style="border: 2pt black solid">Parameter</td>
-<td style="border: 2pt black solid">energy ingested daily; value = 1989 calories</td></tr>
+<td style="border: 2pt black solid">energy ingested daily; value = 1989 calories</td></tr><tr>
 <td style="border: 2pt black solid">Weight</td>
 <td style="border: 2pt black solid">Accumulator</td>
-<td style="border: 2pt black solid">The weight of the body as it varies day by day. Its new value is its old value + weight change; initial value = 150 lbs</td></tr>
+<td style="border: 2pt black solid">The weight of the body as it varies day by day. Its new value is its old value + weight change; initial value = 150 lbs</td></tr><tr>
 <td style="border: 2pt black solid">Weight change</td>
 <td style="border: 2pt black solid">Function</td>
-<td style="border: 2pt black solid">weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td></tr>
+<td style="border: 2pt black solid">weight of tissue added or subtracted from storage; value = energy balance/calories per pound</td></tr><tr>
 <td style="border: 2pt black solid">Calories per pound</td>
 <td style="border: 2pt black solid">Parameter</td>
-<td style="border: 2pt black solid">Number of calories in a pound of tissue; value = 3500 calories/lbs</td></tr>
+<td style="border: 2pt black solid">Number of calories in a pound of tissue; value = 3500 calories/lbs</td></tr><tr>
 <td style="border: 2pt black solid">Physical activity expenditure</td>
 <td style="border: 2pt black solid">Function</td>
-<td style="border: 2pt black solid">energy burned by physical exercise; value = resting energy expenditure * physical activity level</td></tr>
+<td style="border: 2pt black solid">energy burned by physical exercise; value = resting energy expenditure * physical activity level</td></tr><tr>
 <td style="border: 2pt black solid">Resting energy expenditure</td><td style="border: 2pt black solid"><select id="19gi">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td><td style="border: 2pt black solid"><select id="19gii">
+<option>function</option></select></td><td style="border: 2pt black solid">energy expended per day by basic body function; value = <select id="19gii">
 <option></option>
 <option>weight REE</option>
 <option>calories per pound</option>
-<option>age REE</option></select></td><td style="border: 2pt black solid"><select id="19giii">
+<option>age REE</option></select> - <select id="19giii">
 <option></option>
 <option>weight REE</option>
 <option>age REE</option>
-<option>height REE</option></select></td><td style="border: 2pt black solid"><select id="19giv">
+<option>height REE</option></select> + <select id="19giv">
 <option></option>
 <option>weight REE</option>
 <option>age REE</option>
-<option>height REE</option></select></td></tr>
+<option>height REE</option></select></td></tr><tr>
 <td style="border: 2pt black solid">Digestive activity expenditure</td>
 <td style="border: 2pt black solid">Function</td>
-<td style="border: 2pt black solid">energy burned in order to digest food; value = energy ingested * digestive energy factor</td></tr>
+<td style="border: 2pt black solid">energy burned in order to digest food; value = energy ingested * digestive energy factor</td></tr><tr>
 <td style="border: 2pt black solid">Energy expended</td>
 <td style="border: 2pt black solid">Function</td>
-<td style="border: 2pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + digestive activity expenditure</td></tr>
+<td style="border: 2pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + digestive activity expenditure</td></tr><tr>
 <td style="border: 2pt black solid">Physical activity level</td>
 <td style="border: 2pt black solid">Parameter</td>
-<td style="border: 2pt black solid">Amount of physical activity; e.g., 0.2 for little or no exercise, 0.55 for moderate exercise, 0.9 for daily hard exercise.</td></tr>
+<td style="border: 2pt black solid">Amount of physical activity; e.g., 0.2 for little or no exercise, 0.55 for moderate exercise, 0.9 for daily hard exercise.</td></tr><tr>
 <td style="border: 2pt black solid">Digestive energy factor</td>
 <td style="border: 2pt black solid">Parameter</td>
-<td style="border: 2pt black solid">The proportion of ingested energy that is required to process it; value = 0.10</td></tr>
+<td style="border: 2pt black solid">The proportion of ingested energy that is required to process it; value = 0.10</td></tr><tr>
 <td style="border: 2pt black solid">Weight REE</td><td style="border: 2pt black solid"><select id="19gv">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">Contribution of weight to REE; value = weight * weight REE multiplier</td></tr>
+<td style="border: 2pt black solid">Contribution of weight to REE; value = weight * weight REE multiplier</td></tr><tr>
 <td style="border: 2pt black solid">Weight REE multiplier</td><td style="border: 2pt black solid"><select id="19gvi">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">Amount of REE per pound of weight; value 4.5 calories/pound</td></tr>
+<td style="border: 2pt black solid">Amount of REE per pound of weight; value 4.5 calories/pound</td></tr><tr>
 <td style="border: 2pt black solid">Height REE</td><td style="border: 2pt black solid"><select id="19gvii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">Contribution of height to REE; value = height * height REE multiplier</td></tr>
+<td style="border: 2pt black solid">Contribution of height to REE; value = height * height REE multiplier</td></tr><tr>
 <td style="border: 2pt black solid">Height REE multiplier</td><td style="border: 2pt black solid"><select id="19gviii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">Amount of REE per inch of height; value = 15.9 calories/inch</td></tr>
+<td style="border: 2pt black solid">Amount of REE per inch of height; value = 15.9 calories/inch</td></tr><tr>
 <td style="border: 2pt black solid">Height</td><td style="border: 2pt black solid"><select id="19gix">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">Joe's height in inches; value = 65 inches</td></tr>
+<td style="border: 2pt black solid">Joe's height in inches; value = 65 inches</td></tr><tr>
 <td style="border: 2pt black solid">Age REE</td><td style="border: 2pt black solid"><select id="19gx">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">Contribution of age to REE; valeue = age * age REE multiplier</td></tr>
+<td style="border: 2pt black solid">Contribution of age to REE; valeue = age * age REE multiplier</td></tr><tr>
 <td style="border: 2pt black solid">Age REE multiplier</td><td style="border: 2pt black solid"><select id="19gxi">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">Amount of REE per year of age; value = 5 calories/year</td></tr>
+<td style="border: 2pt black solid">Amount of REE per year of age; value = 5 calories/year</td></tr><tr>
 <td style="border: 2pt black solid">Age</td><td style="border: 2pt black solid"><select id="19gxii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">Joe's age in years; value = 20 years</td></tr>
+<td style="border: 2pt black solid">Joe's age in years; value = 20 years</td></tr><tr>
 <td style="border: 2pt black solid">Gender REE</td><td style="border: 2pt black solid"><select id="19gxiii">
 <option></option>
 <option>parameter</option>

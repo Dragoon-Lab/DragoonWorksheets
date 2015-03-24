@@ -775,7 +775,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "As you can see from your table, four nodes are needed. After you have created them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren&#39t completely defined. Look for nodes that have dotted lines around them.</p><p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b>"
+                                            "text": "As you can see from your table, four nodes are needed. After you have created them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren&#39;t completely defined. Look for nodes that have dotted lines around them.</p><p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b>"
                                         }
                                     }
                                 ]
@@ -809,7 +809,7 @@
                                     },
                                     {
                                         "__Text__": {
-                                            "text": "</p><p>Vary the values of energy ingested, energy expended, and initial energy stored. Notice that the graph can change with these values.</p><p>When you&#39re done playing with the values, close and reopen the graph window to reset the sliders to their original positions, and then answer the following questions.</p><p>What is the unit of the independent variable on the graph?</p><p>"
+                                            "text": "</p><p>Vary the values of energy ingested, energy expended, and initial energy stored. Notice that the graph can change with these values.</p><p>When you&#39;re done playing with the values, close and reopen the graph window to reset the sliders to their original positions, and then answer the following questions.</p><p>What is the unit of the independent variable on the graph?</p><p>"
                                         }
                                     },
                                     {
@@ -834,7 +834,7 @@
                                     },
                                     {
                                         "__Textbox__": {
-                                            "example": "The graph changes from having a negative slope to having a positive slope. This means that Joe&#39s energy balance changed from a deficit to a surplus of calories."
+                                            "example": "The graph changes from having a negative slope to having a positive slope. This means that Joe&#39;s energy balance changed from a deficit to a surplus of calories."
                                         }
                                     }
                                 ]
@@ -850,7 +850,7 @@
                                     },
                                     {
                                         "__Textbox__": {
-                                            "example": "The graph changes from having a negative slope to having a positive slope. This means that Joe&#39s energy balance changed from a deficit to a surplus of calories."
+                                            "example": "The graph changes from having a negative slope to having a positive slope. This means that Joe&#39;s energy balance changed from a deficit to a surplus of calories."
                                         }
                                     },
                                     {
@@ -873,12 +873,12 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "What does the -111 represent in the last column and why doesn&#39t it change?"
+                                            "text": "What does the -111 represent in the last column and why doesn&#39;t it change?"
                                         }
                                     },
                                     {
                                         "__Textbox__": {
-                                            "example": "Energy balance (calories), the value of energy ingested \u2013 energy expended. It doesn&#39t change because energy balance is always a set value of the difference between energy ingested and energy expended."
+                                            "example": "Energy balance (calories), the value of energy ingested &#45; energy expended. It doesn&#39;t change because energy balance is always a set value of the difference between energy ingested and energy expended."
                                         }
                                     }
                                 ]
@@ -1031,7 +1031,7 @@
                             }
                         }
                     ],
-                    "gen": "In the table window, scroll to the bottom and vary the values of energy balance and initial energy stored. Notice how the table may change.</p><p>When you&#39re done testing different values for energy expended, energy ingested, and energy stored, close and reopen the table window to reset the sliders to their original positions. Answer the following questions."
+                    "gen": "In the table window, scroll to the bottom and vary the values of energy balance and initial energy stored. Notice how the table may change.</p><p>When you&#39;re done testing different values for energy expended, energy ingested, and energy stored, close and reopen the table window to reset the sliders to their original positions. Answer the following questions."
                 }
             },
             {
@@ -1300,7 +1300,7 @@
                                     },
                                     {
                                         "__Textbox__": {
-                                            "example": "energy balance = energy ingested \u2013 energy expended. Energy expended = 2100, so if energy ingested = 2100, then energy balance = 0 and thus weight change is zero."
+                                            "example": "energy balance = energy ingested &#45; energy expended. Energy expended = 2100, so if energy ingested = 2100, then energy balance = 0 and thus weight change is zero."
                                         }
                                     }
                                 ]
@@ -1807,7 +1807,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "If Joe&#39s resting energy expenditure changes, which nodes <b>will</b> be affected by the changes?"
+                                            "text": "If Joe&#39;s resting energy expenditure changes, which nodes <b>will</b> be affected by the changes?"
                                         }
                                     },
                                     {
@@ -2147,7 +2147,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "We have learned a lot about metabolism. Which of the following is a component of your body&#39s metabolism?</p><p>"
+                                            "text": "We have learned a lot about metabolism. Which of the following is a component of your body&#39;s metabolism?</p><p>"
                                         }
                                     },
 									{
@@ -2172,7 +2172,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "What is Joe&#39s weight after 90 days if all the parameters have their original values and are not changed using the sliders? "
+                                            "text": "What is Joe&#39;s weight after 90 days if all the parameters have their original values and are not changed using the sliders? "
                                         }
                                     },
                                     {
@@ -2530,7 +2530,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "Go to the graph and insert Madison&#39s values from 16a. Now the author&#39s solution shows Joe&#39s weight, and the variable solution shows Madison&#39s.</p><p>Madison&#39s weight graph is clearly very different than Joe&#39s weight graph. Everyone has different graphs and experience different challenges when trying to gain or lose weight. As you age, your graphs will change as well. Leave all the values the same, but change Madison&#39s age to 30. Estimate her weight after 1000 days.</p><p>"
+                                            "text": "Go to the graph and insert Madison&#39;s values from 16a. Now the author&#39;s solution shows Joe&#39;s weight, and the variable solution shows Madison&#39;s.</p><p>Madison&#39;s weight graph is clearly very different than Joe&#39;s weight graph. Everyone has different graphs and experience different challenges when trying to gain or lose weight. As you age, your graphs will change as well. Leave all the values the same, but change Madison&#39;s age to 30. Estimate her weight after 1000 days.</p><p>"
                                         }
                                     },
 									{
@@ -2603,7 +2603,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "Graph &quotfats proportion of weight change.&quot Notice how high it gets after Day 300. After Day 300, for every pound that Joe gains, "
+                                            "text": "Graph &quot;fats proportion of weight change.&quot; Notice how high it gets after Day 300. After Day 300, for every pound that Joe gains, "
                                         }
                                     },
                                     {
