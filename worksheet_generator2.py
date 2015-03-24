@@ -308,6 +308,7 @@ def generateHTMLWorksheet(wks):
 							item = "\n<td style=\"border: 2pt black solid\"><b>" + str(item) + "</b></td>"
 							allhead = allhead + item
 						for body in part.rows:
+							allline = allline + "<tr>"
 							for drdn in body:
 								if isinstance(drdn, str):
 									item = "\n<td style=\"border: 2pt black solid\">" + drdn + "</td>"
@@ -335,8 +336,8 @@ def generateHTMLWorksheet(wks):
 									else:
 										endtbl = endtbl + "</td>\n</tr>"
 									endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
-							allline = "<tr>" + allline + "</tr>"
-							print(allline)
+							allline = allline + "</tr>"
+							#print(allline)
 						allbody = allbody + allline
 						print(allbody)
 						worksheet = worksheet + "<table>\n<thead>" + allhead + "\n</thead>\n<tbody>" + allbody + "\n</tbody>\n</table>"
@@ -345,7 +346,6 @@ def generateHTMLWorksheet(wks):
 					elif part.__class__.__name__ == "Image":
 						worksheet = worksheet + "\n<img src =\"" + part.image + ".JPG\"/>"
 					elif part.__class__.__name__ == "Checkbox":
-						print("Checkbox")
 						rno = rnum[romannum]
 						romannum = romannum + 1
 						allans = ""
@@ -404,7 +404,7 @@ def generateHTMLWorksheet(wks):
 	#json.dump(wk1,outfile,cls = CustomTypeEncoder, indent = 4)
 
 def testload():
-	with open("Completed Worksheets/Energy Balance/energy_balance.json","r") as outfile:
+	with open("fix_table.json","r") as outfile:
 		wksht_dct = json.load(outfile)
 		return CustomTypeDecoder(wksht_dct)
 		
