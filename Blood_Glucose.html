@@ -8,7 +8,7 @@ openDragoonProblem(num){
 var u = document.getElementById("user").value;
 var s = document.getElementById("section").value;
 var problemID = "problem" + num.toString();
-var p = document.getElementById(problemID).value.slice(0,30);
+var p = document.getElementById(problemID).value;
 var modeID = "mode" + num.toString();
 var m = document.getElementById(modeID).value;
 var urlString = "http://dragoon.asu.edu/demo/index.html?u="+u+"&m="+m+"&p="+p+"&s="+s;
@@ -45,8 +45,7 @@ if (document.getElementById(checkedId[i]).checked) {
 ck = ck + 1;
 }
 };
-for (i = 0;
-i<uncheckedId.length; i++) {
+for (i = 0; i<uncheckedId.length; i++) {
 if (!(document.getElementById(uncheckedId[i]).checked)) {
 unck = unck + 1;
 }
@@ -60,6 +59,27 @@ else {
 document.getElementById(textId).style.background="#FF3333";
 return false
 }
+};
+
+function checkboxCorrection(textId,checkedId,uncheckedId) {
+for (i=0; i<checkedId.length; i++) {
+document.getElementById(checkedId[i]).checked = true;
+};
+for (i=0; i<uncheckedId.length; i++) {
+document.getElementById(uncheckedId[i]).checked = false;
+};
+document.getElementById(textId).style.background = "#FFFF00"
+};
+
+function retrieveCheckboxValue(total) {
+response = []
+for (i=0; i<total.length; i++) {
+if
+(document.getElementById (total[i]).checked) {
+response.push(total[i])
+}
+};
+return response
 };
 
 var tim1 = 0;
@@ -126,7 +146,7 @@ checkTextbox("1ci");
 document.getElementById("1ciExample").innerHTML = document.getElementById("1ci").value
 checkTextbox("1di");
 document.getElementById("1diExample").innerHTML = document.getElementById("1di").value
-if (document.getElementById("1ai").value==="" ||document.getElementById("1bi").value==="" ||document.getElementById("1ci").value==="" ||document.getElementById("1di").value==="" ||0) {
+if (document.getElementById("1ai").value==="" || document.getElementById("1bi").value==="" || document.getElementById("1ci").value==="" || document.getElementById("1di").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 
@@ -173,7 +193,7 @@ checkTextbox("2ci");
 document.getElementById("2ciExample").innerHTML = document.getElementById("2ci").value
 checkTextbox("2di");
 document.getElementById("2diExample").innerHTML = document.getElementById("2di").value
-if (document.getElementById("2bi").value==="" ||document.getElementById("2ci").value==="" ||document.getElementById("2di").value==="" ||0) {
+if (document.getElementById("2bi").value==="" || document.getElementById("2ci").value==="" || document.getElementById("2di").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 
@@ -240,7 +260,7 @@ checkAnswers("3aii", "5");
 checkAnswers("3aiii", "0");
 checkAnswers("3aiv", "0");
 checkAnswers("3av", "5");
-if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||document.getElementById("3aiii").value==="" ||document.getElementById("3aiv").value==="" ||document.getElementById("3av").value==="" ||0) {
+if (document.getElementById("3ai").value==="" || document.getElementById("3aii").value==="" || document.getElementById("3aiii").value==="" || document.getElementById("3aiv").value==="" || document.getElementById("3av").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("3ai", "temperature1")) { 
@@ -466,7 +486,7 @@ checkAnswers("4biii", "Reducing the deficit");
 checkAnswers("4ci", "true");
 checkTextbox("4di");
 document.getElementById("4diExample").innerHTML = document.getElementById("4di").value
-if (document.getElementById("4ai").value==="" ||document.getElementById("4aii").value==="" ||document.getElementById("4aiii").value==="" ||document.getElementById("4bi").value==="" ||document.getElementById("4bii").value==="" ||document.getElementById("4biii").value==="" ||document.getElementById("4ci").value==="" ||document.getElementById("4di").value==="" ||0) {
+if (document.getElementById("4ai").value==="" || document.getElementById("4aii").value==="" || document.getElementById("4aiii").value==="" || document.getElementById("4bi").value==="" || document.getElementById("4bii").value==="" || document.getElementById("4biii").value==="" || document.getElementById("4ci").value==="" || document.getElementById("4di").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("4ai", "0,0,0")) { 
@@ -730,7 +750,7 @@ document.getElementById("5Time").innerHTML = tim5;
 checkAnswers("5ai", "quadrupled");
 checkAnswers("5bi", "slower");
 checkAnswers("5bii", "smaller");
-if (document.getElementById("5ai").value==="" ||document.getElementById("5bi").value==="" ||document.getElementById("5bii").value==="" ||0) {
+if (document.getElementById("5ai").value==="" || document.getElementById("5bi").value==="" || document.getElementById("5bii").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("5ai", "quadrupled")) { 
@@ -889,7 +909,7 @@ checkAnswers("6aii", "Glucose removed via insulin");
 checkAnswers("6bi", "Glucose removed without insulin");
 checkAnswers("6ci", "insulin sensitivity");
 checkAnswers("6di", "50 to 60");
-if (document.getElementById("6ai").value==="" ||document.getElementById("6aii").value==="" ||document.getElementById("6bi").value==="" ||document.getElementById("6ci").value==="" ||document.getElementById("6di").value==="" ||0) {
+if (document.getElementById("6ai").value==="" || document.getElementById("6aii").value==="" || document.getElementById("6bi").value==="" || document.getElementById("6ci").value==="" || document.getElementById("6di").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("6ai", "Blood insulin difference")) { 
