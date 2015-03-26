@@ -1,4 +1,6 @@
 import json
+A = ["\u0022","\"","\u0027","'","-","\u2014","^o","/="]
+B = ["&quot;","&quot;","&#39;","&#39;","&#45;","&#45;","&#176;","&#8800"]
 class Worksheet:
 	def __init__(self, filename):
 		self.name = filename
@@ -18,6 +20,8 @@ class LsText:
 	def from_scratch(qstn,wkst):
 		ltx = LsText(qstn)
 		ltx.text = input ("Text: ")
+		for x in A:
+			ltx.text = ltx.text.replace(x,B[A.index(x)])
 		wkst.loose.append(self.from_scratch)
 	def from_dict(dct):
 		ltx = LsText(dct['before'])
@@ -40,6 +44,9 @@ class Question:
 	def __init__ (self,initializer):
 		if isinstance(initializer,Worksheet):
 			self.gen = input ("General description: ")
+			for x in A:
+				self.gen = self.gen.replace(x,B[A.index(x)])
+				print(self.gen)
 			self.sections = []
 			initializer.questions.append(self)
 		elif isinstance(initializer,str):
@@ -66,7 +73,9 @@ class Section:
 class Dragoon:
 	def __init__ (self,qstn):
 		if isinstance(qstn,Question):
-			self.problem = input("Problem: ")
+			self.problem = input ("Problem: ")
+			for x in A:
+				self.problem = self.problem.replace(x,B[A.index(x)])
 			self.mode = input ("Mode: ").upper()
 		else:
 			self.problem = qstn
@@ -80,28 +89,39 @@ class Table:
 	def __init__(self,sect):
 		if isinstance(sect,Section):
 			self.header = input ("Header: ").split(",")
+			for x in A:
+				self.header = self.header.replace(x,B[A.index(x)])
 			self.rows = []
-			line = input("Line: ").split(",")
+			line = input ("Line: ").split(",")
+			for x in A:
+				line = line.replace(x,B[A.index(x)])
 			while not "end" in line:
 				line2 = []
 				for item in line:
 					if item == "dropdown":
 						item = []
 						options = input ("Answers: ").split(",")
+						for x in A:
+							options = options.replace(x,B[A.index(x)])
 						correct = input ("Right answer: ")
+						for x in A:
+							correct = correct.replace(x,B[A.index(x)])
 						if not correct in options:
 							print("Please choose one of the given answers as the right answer.")
 							correct = input ("Right answer: ")
+							for x in A:
+								correct = correct.replace(x,B[A.index(x)])
 						item.append(options)
 						item.append(correct)
 					line2.append(item)	
-				self.rows.append(line2)			
-				line = input ("Line: ").split(",")			
+				self.rows.append(line2)
+				line = input ("Line: ")
+				for x in A:
+					line = line.split(",").replace(x,B[A.index(x)])
 			sect.content.append(self)
 		else:
 			self.header = sect
 			self.rows = []
-			
 	def from_dict(dct):
 		tbl = Table(dct['header'])
 		tbl.rows = list(map(Table.decodeRow,dct['rows']))
@@ -113,10 +133,16 @@ class Dropdown:
 	def __init__(self,sect):
 		if isinstance (sect,Section):
 			self.options = input ("Answers: ").split(",")
+			for x in A:
+				self.options = self.options.replace(x,B[A.index(x)])
 			self.correct = input ("Right answer: ")
+			for x in A:
+				self.correct = self.correct.replace(x,B[A.index(x)])
 			if not self.correct in self.options:
 				print("Please choose one of the given answers as the right answer.")
 				self.correct = input ("Right answer: ")
+				for x in A:
+					self.correct = self.correct.replace(x,B[A.index(x)])
 			sect.content.append(self)
 		else:#elif isinstance (sect,list):
 			self.options = []
@@ -130,6 +156,8 @@ class Textbox:
 	def __init__(self,sect):
 		if isinstance (sect,Section):
 			self.example = input ("Example right answer: ")
+			for x in A:
+				self.example = self.example.replace(x,B[A.index(x)])
 			sect.content.append(self)
 		else:
 			self.example = sect
@@ -140,7 +168,9 @@ class Textbox:
 class Text:
 	def __init__ (self,sect):
 		if isinstance (sect,Section):
-			self.text = input("Text: ").replace("\u201c","&#45;")
+			self.text = input ("Text: ")
+			for x in A:
+				self.text = self.text.replace(x,B[A.index(x)])
 			sect.content.append(self)
 		else:#elif isinstance (sect,list):
 			self.text = sect
@@ -151,7 +181,7 @@ class Text:
 class Image:
 	def __init__ (self,sect):
 		if isinstance (sect,Section):
-			self.image = input("Folder/file name: ")
+			self.image = input ("Folder/file name: ")
 			sect.content.append(self)
 		else:#elif isinstance (sect,list):
 			self.image = sect
@@ -163,11 +193,17 @@ class Checkbox:
 	def __init__(self,sect):
 		if isinstance (sect,Section):
 			self.options_c = input ("Answers: ").split(",")
+			for x in A:
+				self.options_c = self.options_c.replace(x,B[A.index(x)])
 			self.correct_c = input ("Right answers: ").split(",")
+			for x in A:
+				self.correct_c = self.correct.replace(x,B[A.index(x)])
 			for item in self.correct_c:
 				if not item in self.options_c:
 					print("Please choose one of the given answers as the right answer.")
-					self.correct_c = input ("Right answers: ")
+					self.correct = input ("Right answers: ").split(",")
+					for x in A:
+						self.correct_c = self.correct.replace(x,B[A.index(x)])
 			sect.content.append(self)
 		else:
 			self.options_c = []
@@ -405,3 +441,7 @@ def testload():
 	with open("Completed Worksheets/Blood Glucose/blood_glucose.json","r") as outfile:
 		wksht_dct = json.load(outfile)
 		return CustomTypeDecoder(wksht_dct)
+		
+'''
+--Freeze username after first Dragoon problem.
+'''
