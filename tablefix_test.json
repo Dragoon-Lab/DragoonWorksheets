@@ -1,0 +1,51 @@
+{
+    "__Worksheet__": {
+        "questions": [
+            {
+                "__Question__": {
+                    "gen": "This is a test.",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "a",
+                                                "b",
+                                                "c",
+                                                "d"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "e",
+                                                    "f",
+                                                    "g",
+                                                    "h"
+                                                ],
+                                                [
+                                                    "i",
+                                                    "j",
+                                                    "k",
+                                                    [
+                                                        "one",
+                                                        "dropdown",
+                                                        "three",
+                                                        "dropdown",
+                                                        "five"
+                                                    ]
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "name": "w",
+        "loose": []
+    }
+}

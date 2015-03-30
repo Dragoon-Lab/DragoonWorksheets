@@ -46,7 +46,6 @@ class Question:
 			self.gen = input ("General description: ")
 			for x in A:
 				self.gen = self.gen.replace(x,B[A.index(x)])
-				print(self.gen)
 			self.sections = []
 			initializer.questions.append(self)
 		elif isinstance(initializer,str):
@@ -89,35 +88,31 @@ class Table:
 	def __init__(self,sect):
 		if isinstance(sect,Section):
 			self.header = input ("Header: ").split(",")
-			for x in A:
-				self.header = self.header.replace(x,B[A.index(x)])
 			self.rows = []
 			line = input ("Line: ").split(",")
-			for x in A:
-				line = line.replace(x,B[A.index(x)])
 			while not "end" in line:
 				line2 = []
-				for item in line:
-					if item == "dropdown":
-						item = []
-						options = input ("Answers: ").split(",")
-						for x in A:
-							options = options.replace(x,B[A.index(x)])
-						correct = input ("Right answer: ")
-						for x in A:
-							correct = correct.replace(x,B[A.index(x)])
-						if not correct in options:
-							print("Please choose one of the given answers as the right answer.")
-							correct = input ("Right answer: ")
-							for x in A:
-								correct = correct.replace(x,B[A.index(x)])
-						item.append(options)
-						item.append(correct)
-					line2.append(item)	
+				for cell in line:
+					if cell == "dropdown":
+						cell = input ("Cell: ").split(",")
+						for item in cell:
+							if item == "dropdown":
+								item = []
+								options = input ("Answers: ").split(",")
+								correct = input ("Right answer: ")
+								for x in A:
+									correct = correct.replace(x,B[A.index(x)])
+								if not correct in options:
+									print("Please choose one of the given answers as the right answer.")
+									correct = input ("Right answer: ")
+									for x in A:
+										correct = correct.replace(x,B[A.index(x)])
+								item.append(options)
+								item.append(correct)
+								print(item)
+					line2.append(cell)	
 				self.rows.append(line2)
-				line = input ("Line: ")
-				for x in A:
-					line = line.split(",").replace(x,B[A.index(x)])
+				line = input ("Line: ").split(",")
 			sect.content.append(self)
 		else:
 			self.header = sect
