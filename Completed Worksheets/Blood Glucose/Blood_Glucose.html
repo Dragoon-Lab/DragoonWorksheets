@@ -146,14 +146,15 @@ checkTextbox("1ci");
 document.getElementById("1ciExample").innerHTML = document.getElementById("1ci").value
 checkTextbox("1di");
 document.getElementById("1diExample").innerHTML = document.getElementById("1di").value
-if (document.getElementById("1ai").value==="" || document.getElementById("1bi").value==="" || document.getElementById("1ci").value==="" || document.getElementById("1di").value==="" || 0) {
- alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+if (document.getElementById("1ai").value==="" || document.getElementById("1bi").value==="" || document.getElementById("1ci").value==="" || document.getElementById("1di").value==="" || (document.getElementById("user").value==="" || document.getElementById("user").value.length>30)) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately. Remember that you must enter a username at the top between 1 and 30 characters.");
 }
 
-if (checkTextbox("1ai") &&checkTextbox("1bi") &&checkTextbox("1ci") &&checkTextbox("1di") &&checkCompletion(1) && 1) {
+if (checkTextbox("1ai") &&checkTextbox("1bi") &&checkTextbox("1ci") &&checkTextbox("1di") &&checkCompletion(1) && (document.getElementById("user").value!== ""&& document.getElementById("user").value.length<=30)) {
  document.getElementById("question2").style.display = "";
  document.getElementById("button1").style.display = "none";
 
+document.getElementById("user").disabled=true;
 document.getElementById("1ai").disabled=true;
 document.getElementById("1bi").disabled=true;
 document.getElementById("1ci").disabled=true;
@@ -274,6 +275,7 @@ if ((checkAnswers("3ai", "temperature1") || set3.ai===3) &&(checkAnswers("3aii",
  document.getElementById("button3").style.display = "none";
 
 document.getElementById("3ai").disabled=true;
+document.getElementById("user").disabled=true;
 document.getElementById("3aii").disabled=true;
 document.getElementById("3aiii").disabled=true;
 document.getElementById("3aiv").disabled=true;
@@ -502,6 +504,7 @@ if ((checkAnswers("4ai", "0,0,0") || set4.ai===3) &&(checkAnswers("4aii", "2.0,1
  document.getElementById("button4").style.display = "none";
 
 document.getElementById("4ai").disabled=true;
+document.getElementById("user").disabled=true;
 document.getElementById("4aii").disabled=true;
 document.getElementById("4aiii").disabled=true;
 document.getElementById("4bi").disabled=true;
@@ -762,6 +765,7 @@ if ((checkAnswers("5ai", "quadrupled") || set5.ai===3) &&(checkAnswers("5bi", "s
  document.getElementById("button5").style.display = "none";
 
 document.getElementById("5ai").disabled=true;
+document.getElementById("user").disabled=true;
 document.getElementById("5bi").disabled=true;
 document.getElementById("5bii").disabled=true;
 tim6= 0;
@@ -923,6 +927,7 @@ if ((checkAnswers("6ai", "Blood insulin difference") || set6.ai===3) &&(checkAns
  document.getElementById("button6").style.display = "none";
 
 document.getElementById("6ai").disabled=true;
+document.getElementById("user").disabled=true;
 document.getElementById("6aii").disabled=true;
 document.getElementById("6bi").disabled=true;
 document.getElementById("6ci").disabled=true;

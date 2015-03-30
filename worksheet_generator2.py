@@ -317,6 +317,7 @@ def generateHTMLWorksheet(wks):
 						if lno == "a" and rno == "i":
 							endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
 							contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
+							disabl = disabl + "\ndocument.getElementById(\"user\").disabled=true;"
 						else:
 							endtbl = endtbl + "</td>\n</tr>"
 						endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
@@ -329,6 +330,7 @@ def generateHTMLWorksheet(wks):
 						worksheet = worksheet + "<div id=\"new" + qno + lno + rno + "\"><textarea id=\"" + qno + lno + rno + "\" cols=\"40\" rows=\"5\"></textarea></div>"
 						endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + part.example + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Example\"</div></td>\n<td style=\"border: 2pt black solid\"></td>\n<td style=\"border: 2pt black solid\">"
 						if lno == "a" and rno == "i":
+							disabl = disabl + "\ndocument.getElementById(\"user\").disabled=true;"
 							endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
 							contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
 						else:
@@ -369,6 +371,7 @@ def generateHTMLWorksheet(wks):
 									if lno == "a" and rno == "i":
 										endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
 										contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
+										disabl = disabl + "\ndocument.getElementById(\"user\").disabled=true;"
 									else:
 										endtbl = endtbl + "</td>\n</tr>"
 									endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
@@ -408,14 +411,19 @@ def generateHTMLWorksheet(wks):
 						if lno == "a" and rno == "i":
 							endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
 							contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
+							disabl = disabl + "\ndocument.getElementById(\"user\").disabled=true;"
 						else:
 							endtbl = endtbl + "</td>\n</tr>"
 						endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
 				worksheet = worksheet + "</p>"
 		if int(qno) < len(list(wks.questions)):
+			if int(qno) == 1:
+				chkcpl = chkcpl + "(document.getElementById(\"user\").value===\"\" || document.getElementById(\"user\").value.length>30)) {\n alert(\"It appears you have left at least one of these fields blank. Please remedy this immediately. Remember that you must enter a username at the top between 1 and 30 characters.\");\n}"
+				contif = contif + "(document.getElementById(\"user\").value!== \"\"&& document.getElementById(\"user\").value.length<=30)) {\n document.getElementById(\"question" + str(int(qno)+1) + "\").style.display = \"\";\n document.getElementById(\"button" + qno + "\").style.display = \"none\";\n" + disabl + "\ntim" + str(int(qno)+1) + "= 0;\n\nfunction time" + str(int(qno)+1) + "() {\nif (yestim" + str(int(qno)+1) + "){\ntim" + str(int(qno)+1) + " = tim" + str(int(qno)+1) + " + 1;\nt = setTimeout(function() {time" + str(int(qno)+1) + "()},1000);\n}\n};\nvar yestim" + str(int(qno)+1) + " = 1;\ntime" + str(int(qno)+1) + "();\n}"
+			else:
+				chkcpl = chkcpl + "0) {\n alert(\"It appears you have left at least one of these fields blank. Please remedy this immediately.\");\n}"
+				contif = contif + "1) {\n document.getElementById(\"question" + str(int(qno)+1) + "\").style.display = \"\";\n document.getElementById(\"button" + qno + "\").style.display = \"none\";\n" + disabl + "\ntim" + str(int(qno)+1) + "= 0;\n\nfunction time" + str(int(qno)+1) + "() {\nif (yestim" + str(int(qno)+1) + "){\ntim" + str(int(qno)+1) + " = tim" + str(int(qno)+1) + " + 1;\nt = setTimeout(function() {time" + str(int(qno)+1) + "()},1000);\n}\n};\nvar yestim" + str(int(qno)+1) + " = 1;\ntime" + str(int(qno)+1) + "();\n}"
 			varset = varset + "}; \n"
-			chkcpl = chkcpl + "0) {\n alert(\"It appears you have left at least one of these fields blank. Please remedy this immediately.\");\n}"
-			contif = contif + "1) {\n document.getElementById(\"question" + str(int(qno)+1) + "\").style.display = \"\";\n document.getElementById(\"button" + qno + "\").style.display = \"none\";\n" + disabl + "\ntim" + str(int(qno)+1) + "= 0;\n\nfunction time" + str(int(qno)+1) + "() {\nif (yestim" + str(int(qno)+1) + "){\ntim" + str(int(qno)+1) + " = tim" + str(int(qno)+1) + " + 1;\nt = setTimeout(function() {time" + str(int(qno)+1) + "()},1000);\n}\n};\nvar yestim" + str(int(qno)+1) + " = 1;\ntime" + str(int(qno)+1) + "();\n}"
 			contfn = contfn + "\n" + chkans + "\n" + chkcpl + "\n" + ctr + "\n" + contif + "\n" + ctwrng
 			worksheet = worksheet + "\n<script type=\"text/javascript\">" + varset + contfn + "};\n</script>\n" + dragoon_link + "\n<br><button id=\"button" + qno + "\" onClick=\"cont" + qno + "();\">Continue</button>\n<div id=\"question" + str(int(qno)+1) + "\" style=\"display: none\">"
 			divset = divset + "</div>"
@@ -438,10 +446,6 @@ def generateHTMLWorksheet(wks):
 	#json.dump(wk1,outfile,cls = CustomTypeEncoder, indent = 4)
 
 def testload():
-	with open("Completed Worksheets/Blood Glucose/blood_glucose.json","r") as outfile:
+	with open("Completed Worksheets/Energy Balance/energy_balance.json","r") as outfile:
 		wksht_dct = json.load(outfile)
 		return CustomTypeDecoder(wksht_dct)
-		
-'''
---Freeze username after first Dragoon problem.
-'''

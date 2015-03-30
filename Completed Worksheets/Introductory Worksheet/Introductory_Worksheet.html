@@ -205,8 +205,8 @@ function cont1() {
 var yestim1 = 0;
 document.getElementById("1Time").innerHTML = tim1;
 checkAnswers("1ai", "640");checkAnswers("1aii", "128");checkAnswers("1aiii", "512");checkAnswers("1aiv", "102");checkAnswers("1av", "410");checkAnswers("1avi", "81.9");
-if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1aiii").value==="" || document.getElementById("1aiv").value==="" || document.getElementById("1av").value==="" || document.getElementById("1avi").value==="" || 0) {
- alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1aiii").value==="" || document.getElementById("1aiv").value==="" || document.getElementById("1av").value==="" || document.getElementById("1avi").value==="" || (document.getElementById("user").value==="" || document.getElementById("user").value.length>30)) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately. Remember that you must enter a username at the top between 1 and 30 characters.");
 }
 if (!checkAnswers("1ai", "640")) { 
  set1.ai = set1.ai + 1;}if (!checkAnswers("1aii", "128")) { 
@@ -215,11 +215,12 @@ if (!checkAnswers("1ai", "640")) {
  set1.aiv = set1.aiv + 1;}if (!checkAnswers("1av", "410")) { 
  set1.av = set1.av + 1;}if (!checkAnswers("1avi", "81.9")) { 
  set1.avi = set1.avi + 1;}
-if ((checkAnswers("1ai", "640") || set1.ai===3) &&(checkAnswers("1aii", "128") || set1.aii===3) &&(checkAnswers("1aiii", "512") || set1.aiii===3) &&(checkAnswers("1aiv", "102") || set1.aiv===3) &&(checkAnswers("1av", "410") || set1.av===3) &&(checkAnswers("1avi", "81.9") || set1.avi===3) &&1) {
+if ((checkAnswers("1ai", "640") || set1.ai===3) &&(checkAnswers("1aii", "128") || set1.aii===3) &&(checkAnswers("1aiii", "512") || set1.aiii===3) &&(checkAnswers("1aiv", "102") || set1.aiv===3) &&(checkAnswers("1av", "410") || set1.av===3) &&(checkAnswers("1avi", "81.9") || set1.avi===3) &&(document.getElementById("user").value!== ""&& document.getElementById("user").value.length<=30)) {
  document.getElementById("question2").style.display = "";
  document.getElementById("button1").style.display = "none";
 
 document.getElementById("1ai").disabled=true;
+document.getElementById("user").disabled=true;
 document.getElementById("1aii").disabled=true;
 document.getElementById("1aiii").disabled=true;
 document.getElementById("1aiv").disabled=true;
@@ -461,6 +462,7 @@ if ((checkAnswers("3ai", "accumulator") || set3.ai===3) &&(checkAnswers("3aii", 
  document.getElementById("button3").style.display = "none";
 
 document.getElementById("3ai").disabled=true;
+document.getElementById("user").disabled=true;
 document.getElementById("3aii").disabled=true;
 tim4= 0;
 

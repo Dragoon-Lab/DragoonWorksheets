@@ -26,6 +26,61 @@ document.getElementById(inputId).style.background="#FF3333";
 return false;
 }
 };
+function checkTextbox(inputId) {
+if (!(document.getElementById(inputId).value==="")) {
+document.getElementById(inputId).style.background="#66FF33";
+return true;
+}
+else {
+document.getElementById(inputId).style.background="#FF3333";
+return false;
+}
+};
+
+function checkbox(textId,checkedId,uncheckedId) {
+ck = 0
+unck = 0
+for (i = 0; i<checkedId.length; i++) {
+if (document.getElementById(checkedId[i]).checked) {
+ck = ck + 1;
+}
+};
+for (i = 0; i<uncheckedId.length; i++) {
+if (!(document.getElementById(uncheckedId[i]).checked)) {
+unck = unck + 1;
+}
+};
+if (checkedId.length == ck && uncheckedId.length == unck)
+{
+document.getElementById(textId).style.background="#66FF33";
+return true
+}
+else {
+document.getElementById(textId).style.background="#FF3333";
+return false
+}
+};
+
+function checkboxCorrection(textId,checkedId,uncheckedId) {
+for (i=0; i<checkedId.length; i++) {
+document.getElementById(checkedId[i]).checked = true;
+};
+for (i=0; i<uncheckedId.length; i++) {
+document.getElementById(uncheckedId[i]).checked = false;
+};
+document.getElementById(textId).style.background = "#FFFF00"
+};
+
+function retrieveCheckboxValue(total) {
+response = []
+for (i=0; i<total.length; i++) {
+if
+(document.getElementById (total[i]).checked) {
+response.push(total[i])
+}
+};
+return response
+};
 
 var tim1 = 0;
 function time1 () {
@@ -41,7 +96,7 @@ function checkCompletion(num){
 var u = document.getElementById("user").value;
 var s = document.getElementById("section").value;
 var problemID = "problem" + num.toString();
-var p = document.getElementById(problemID).value;
+var p = document.getElementById(problemID).value.slice(0,30);
 var modeID = "mode" + num.toString();
 var m = document.getElementById(modeID).value;
 var xmlHTTP = new XMLHttpRequest();
@@ -71,7 +126,7 @@ return result;
 <body>
 <label>Username :</label>&nbsp;<input type="text" name="user" id="user">
 <input type="hidden" name="section" id="section" value="public-worksheet">
-<p><b>Systems Dynamics Modeling</b></p><p>Systems Dynamics Modeling is a method of understanding systems (i.e., parts of the world that you are interested in) that change over time (i.e., they are dynamic).  It works by breaking down a system into distinct pieces—called “nodes” in the Dragoon software.  A model is made by defining both nodes and the relationships between them.  In particular, if Node A has an effect on Node B, Node A is considered an “input” of Node B.  Once all the nodes and inputs are defined, the computer can calculate the change in the system over time and provide you with graphs showing the results.</p><p><b>Parameters, Actuators, Functions</b></p><p>Models in Dragoon are made up of three types of nodes: Paramters, Accumulators, and Functions.<ul><li>Parameters are the simplest type of node. A parameter represents a <b>fixed quantity that never changes</b>. Parameters are used to represent constant values (<i>height of a building</i> being 12 m.</li><li>Accumulators represent <b>a quantity that increases or decreases over time based on its previous value and the value of its inputs</b>. The inputs to an accumulator govern how much it changes over time. At each time step, the inputs are added or subtracted from the value for the accumulator at the current time step to determine its value at the next time step.</li><li>Functions represent a <b>value that is directly related to the values of other quantities, without regard to its own previous value</b>. The inputs to functions determine the value of the function.  A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value.</li></ul>Accumulators and functions seem very similar at first, and it can take some practice to determine if a particular quantity should be represented as one or the other.  To determine if a quantity should be an accumulator, ask the question:  “Does this quantity add or subtract new values to itself each time step to find its new value?”  If it does, then the quantity is an Accumulator.  If it does not, then the quantity is a Function.  Additionally, Accumulators typically have an initial value associated with them, whereas functions do not.</p><p><b>Example system</b>: Let’s start by modeling a simple system: a population of Dodo birds as they were becoming extinct.  Suppose that there were 1000 Dodo birds in the population initially and that 20% of the Dodo birds died each year.  Thus, the number of deaths in the first year was 1000 * 20% = 200 deaths, leaving 800 Dodos alive at the beginning of the second year.  The number of deaths in the second year was 800 * 20% = 160 deaths, leaving 640 Dodos alive for the start of the third year.   Because the number of Dodo birds and the number of deaths change over the years, this is a dynamic system.</p>
+<p><b>Systems Dynamics Modeling</b></p><p>Systems Dynamics Modeling is a method of understanding systems (i.e., parts of the world that you are interested in) that change over time (i.e., they are dynamic).  It works by breaking down a system into distinct pieces—called “nodes” in the Dragoon software.  A model is made by defining both nodes and the relationships between them.  In particular, if Node A has an effect on Node B, Node A is considered an “input” of Node B.  Once all the nodes and inputs are defined, the computer can calculate the change in the system over time and provide you with graphs showing the results.</p><p><b>Parameters, Actuators, Functions</b></p><p>Models in Dragoon are made up of three types of nodes: Paramters, Accumulators, and Functions.<ul><li>Parameters are the simplest type of node. A parameter represents a <b>fixed quantity that never changes</b>. Parameters are used to represent constant values (<i>height of a building</i> being 12 m.</li><li>Accumulators represent <b>a quantity that increases or decreases over time based on its previous value and the value of its inputs</b>. The inputs to an accumulator govern how much it changes over time. At each time step, the inputs are added or subtracted from the value for the accumulator at the current time step to determine its value at the next time step.</li><li>Functions represent a <b>value that is directly related to the values of other quantities, without regard to its own previous value</b>. The inputs to functions determine the value of the function.  A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value.</li></ul>Accumulators and functions seem very similar at first, and it can take some practice to determine if a particular quantity should be represented as one or the other.  To determine if a quantity should be an accumulator, ask the question:  “Does this quantity add or subtract new values to itself each time step to find its new value?”  If it does, then the quantity is an Accumulator.  If it does not, then the quantity is a Function.  Additionally, Accumulators typically have an initial value associated with them, whereas functions do not.</p><p><b>Example system<b>: Let’s start by modeling a simple system: a population of Dodo birds as they were becoming extinct.  Suppose that there were 1000 Dodo birds in the population initially and that 20% of the Dodo birds died each year.  Thus, the number of deaths in the first year was 1000 * 20% = 200 deaths, leaving 800 Dodos alive at the beginning of the second year.  The number of deaths in the second year was 800 * 20% = 160 deaths, leaving 640 Dodos alive for the start of the third year.   Because the number of Dodo birds and the number of deaths change over the years, this is a dynamic system.</p>
 <h3>Question 1</h3>
 <p>To make sure you understand the system's behavior, please fill in the next few years in the table below.</p>
 <p>1a. <table>
@@ -80,61 +135,60 @@ return result;
 <td style="border: 2pt black solid"><b>Dodo population at the start of the year</b></td>
 <td style="border: 2pt black solid"><b>Deaths during the year</b></td>
 </thead>
-<tbody>
+<tbody><tr>
 <td style="border: 2pt black solid">Year 0 (starting values)</td>
 <td style="border: 2pt black solid">1000</td>
-<td style="border: 2pt black solid">200</td></tr>
+<td style="border: 2pt black solid">200</td></tr><tr>
 <td style="border: 2pt black solid">Year 1</td>
 <td style="border: 2pt black solid">800</td>
-<td style="border: 2pt black solid">160</td></tr>
+<td style="border: 2pt black solid">160</td></tr><tr>
 <td style="border: 2pt black solid">Year 2</td><td style="border: 2pt black solid"><select id="1ai">
 <option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td><td style="border: 2pt black solid"><select id="1aii">
+<option>94.72</option>
+<option>118.4</option>
+<option>740</option>
+<option>148</option>
+<option>592</option>
+<option>473.6</option></select></td><td style="border: 2pt black solid"><select id="1aii">
 <option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td></tr>
+<option>94.72</option>
+<option>118.4</option>
+<option>740</option>
+<option>148</option>
+<option>592</option>
+<option>473.6</option></select></td></tr><tr>
 <td style="border: 2pt black solid">Year 3</td><td style="border: 2pt black solid"><select id="1aiii">
 <option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td><td style="border: 2pt black solid"><select id="1aiv">
+<option>94.72</option>
+<option>118.4</option>
+<option>740</option>
+<option>148</option>
+<option>592</option>
+<option>473.6</option></select></td><td style="border: 2pt black solid"><select id="1aiv">
 <option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td></tr>
+<option>94.72</option>
+<option>118.4</option>
+<option>740</option>
+<option>148</option>
+<option>592</option>
+<option>473.6</option></select></td></tr><tr>
 <td style="border: 2pt black solid">Year 4</td><td style="border: 2pt black solid"><select id="1av">
 <option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td><td style="border: 2pt black solid"><select id="1avi">
+<option>94.72</option>
+<option>118.4</option>
+<option>740</option>
+<option>148</option>
+<option>592</option>
+<option>473.6</option></select></td><td style="border: 2pt black solid"><select id="1avi">
 <option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td></tr>
+<option>94.72</option>
+<option>118.4</option>
+<option>740</option>
+<option>148</option>
+<option>592</option>
+<option>473.6</option></select></td></tr>
 </tbody>
-</table></p>
-It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let’s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn’t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity – 1000 Dodos – and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population – deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the “Dodo extinction” model in the “Introductory” category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):</p>
+</table>It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let’s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn’t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity – 1000 Dodos – and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population – deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the “Dodo extinction” model in the “Introductory” category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):</p>
 <script type="text/javascript">var set1 = {
 ai:0,
 aii:0,
@@ -145,22 +199,23 @@ avi:0,};
 function cont1() {
 var yestim1 = 0;
 document.getElementById("1Time").innerHTML = tim1;
-checkAnswers("1ai", "640");checkAnswers("1aii", "128");checkAnswers("1aiii", "512");checkAnswers("1aiv", "102");checkAnswers("1av", "410");checkAnswers("1avi", "81.9");
-if (document.getElementById("1ai").value==="" ||document.getElementById("1aii").value==="" ||document.getElementById("1aiii").value==="" ||document.getElementById("1aiv").value==="" ||document.getElementById("1av").value==="" ||document.getElementById("1avi").value==="" ||0) {
- alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+checkAnswers("1ai", "740");checkAnswers("1aii", "148");checkAnswers("1aiii", "592");checkAnswers("1aiv", "118.4");checkAnswers("1av", "473.6");checkAnswers("1avi", "94.72");
+if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1aiii").value==="" || document.getElementById("1aiv").value==="" || document.getElementById("1av").value==="" || document.getElementById("1avi").value==="" || (document.getElementById("user").value==="" || document.getElementById("user").value.length>30)) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately. Remember that you must enter a username at the top between 1 and 30 characters.");
 }
-if (!checkAnswers("1ai", "640")) { 
- set1.ai = set1.ai + 1;}if (!checkAnswers("1aii", "128")) { 
- set1.aii = set1.aii + 1;}if (!checkAnswers("1aiii", "512")) { 
- set1.aiii = set1.aiii + 1;}if (!checkAnswers("1aiv", "102")) { 
- set1.aiv = set1.aiv + 1;}if (!checkAnswers("1av", "410")) { 
- set1.av = set1.av + 1;}if (!checkAnswers("1avi", "81.9")) { 
+if (!checkAnswers("1ai", "740")) { 
+ set1.ai = set1.ai + 1;}if (!checkAnswers("1aii", "148")) { 
+ set1.aii = set1.aii + 1;}if (!checkAnswers("1aiii", "592")) { 
+ set1.aiii = set1.aiii + 1;}if (!checkAnswers("1aiv", "118.4")) { 
+ set1.aiv = set1.aiv + 1;}if (!checkAnswers("1av", "473.6")) { 
+ set1.av = set1.av + 1;}if (!checkAnswers("1avi", "94.72")) { 
  set1.avi = set1.avi + 1;}
-if (checkCompletion(1) && (checkAnswers("1ai", "640") || set1.ai===3) &&(checkAnswers("1aii", "128") || set1.aii===3) &&(checkAnswers("1aiii", "512") || set1.aiii===3) &&(checkAnswers("1aiv", "102") || set1.aiv===3) &&(checkAnswers("1av", "410") || set1.av===3) &&(checkAnswers("1avi", "81.9") || set1.avi===3) &&1) {
+if ((checkAnswers("1ai", "740") || set1.ai===3) &&(checkAnswers("1aii", "148") || set1.aii===3) &&(checkAnswers("1aiii", "592") || set1.aiii===3) &&(checkAnswers("1aiv", "118.4") || set1.aiv===3) &&(checkAnswers("1av", "473.6") || set1.av===3) &&(checkAnswers("1avi", "94.72") || set1.avi===3) &&(document.getElementById("user").value!== ""&& document.getElementById("user").value.length<=30)) {
  document.getElementById("question2").style.display = "";
  document.getElementById("button1").style.display = "none";
 
 document.getElementById("1ai").disabled=true;
+document.getElementById("user").disabled=true;
 document.getElementById("1aii").disabled=true;
 document.getElementById("1aiii").disabled=true;
 document.getElementById("1aiv").disabled=true;
@@ -178,9 +233,9 @@ var yestim2 = 1;
 time2();
 }
 
-if (!checkAnswers("1ai", "640")) {
+if (!checkAnswers("1ai", "740")) {
 if (set1.ai===3) {
-document.getElementById("1ai").value="640";
+document.getElementById("1ai").value="740";
 document.getElementById("1ai").style.background="#FFFF00"}
 if (set1.ai=== 1) { 
  document.getElementById("1aiAnswer1").innerHTML = "; " + document.getElementById("1ai").value 
@@ -203,9 +258,9 @@ if (set1.ai=== 1) {
  document.getElementById("1aiAnswer3").innerHTML = "; " + document.getElementById("1ai").value
 }
 };
-if (!checkAnswers("1aii", "128")) {
+if (!checkAnswers("1aii", "148")) {
 if (set1.aii===3) {
-document.getElementById("1aii").value="128";
+document.getElementById("1aii").value="148";
 document.getElementById("1aii").style.background="#FFFF00"}
 if (set1.aii=== 1) { 
  document.getElementById("1aiiAnswer1").innerHTML = "; " + document.getElementById("1aii").value 
@@ -228,9 +283,9 @@ if (set1.aii=== 1) {
  document.getElementById("1aiiAnswer3").innerHTML = "; " + document.getElementById("1aii").value
 }
 };
-if (!checkAnswers("1aiii", "512")) {
+if (!checkAnswers("1aiii", "592")) {
 if (set1.aiii===3) {
-document.getElementById("1aiii").value="512";
+document.getElementById("1aiii").value="592";
 document.getElementById("1aiii").style.background="#FFFF00"}
 if (set1.aiii=== 1) { 
  document.getElementById("1aiiiAnswer1").innerHTML = "; " + document.getElementById("1aiii").value 
@@ -253,9 +308,9 @@ if (set1.aiii=== 1) {
  document.getElementById("1aiiiAnswer3").innerHTML = "; " + document.getElementById("1aiii").value
 }
 };
-if (!checkAnswers("1aiv", "102")) {
+if (!checkAnswers("1aiv", "118.4")) {
 if (set1.aiv===3) {
-document.getElementById("1aiv").value="102";
+document.getElementById("1aiv").value="118.4";
 document.getElementById("1aiv").style.background="#FFFF00"}
 if (set1.aiv=== 1) { 
  document.getElementById("1aivAnswer1").innerHTML = "; " + document.getElementById("1aiv").value 
@@ -278,9 +333,9 @@ if (set1.aiv=== 1) {
  document.getElementById("1aivAnswer3").innerHTML = "; " + document.getElementById("1aiv").value
 }
 };
-if (!checkAnswers("1av", "410")) {
+if (!checkAnswers("1av", "473.6")) {
 if (set1.av===3) {
-document.getElementById("1av").value="410";
+document.getElementById("1av").value="473.6";
 document.getElementById("1av").style.background="#FFFF00"}
 if (set1.av=== 1) { 
  document.getElementById("1avAnswer1").innerHTML = "; " + document.getElementById("1av").value 
@@ -303,9 +358,9 @@ if (set1.av=== 1) {
  document.getElementById("1avAnswer3").innerHTML = "; " + document.getElementById("1av").value
 }
 };
-if (!checkAnswers("1avi", "81.9")) {
+if (!checkAnswers("1avi", "94.72")) {
 if (set1.avi===3) {
-document.getElementById("1avi").value="81.9";
+document.getElementById("1avi").value="94.72";
 document.getElementById("1avi").style.background="#FFFF00"}
 if (set1.avi=== 1) { 
  document.getElementById("1aviAnswer1").innerHTML = "; " + document.getElementById("1avi").value 
@@ -329,16 +384,13 @@ if (set1.avi=== 1) {
 }
 };};
 </script>
-<input type="hidden" name="problem1" id="problem1" value="dodos">
-<input type="hidden" name="mode1" id="mode1" value="STUDENT">
-<br><button id="dragoonButton1" onClick="openDragoonProblem(1);">Open Dragoon</button>
-<div id="dragoonErrorMessage1" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+
 <br><button id="button1" onClick="cont1();">Continue</button>
 <div id="question2" style="display: none">
 <p>It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let’s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn’t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity – 1000 Dodos – and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population – deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the “Dodo extinction” model in the “Introductory” category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):</p>
-<img src ="Demo/Image1.JPG"/>
+<img src ="Image1/Demo.JPG"/>
 <p>This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes e.g., Parameter nodes are diamonds.  The inside of a Parameter node shows its value.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node shows both its mathematical operation and its <i>initial</i> value.</p><p>If you click on the Table button, you can see the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button displays the same information in graph form (see right figure).</p>
-<img src ="Demo/Image2.JPG"/>
+<img src ="Image2/Demo.JPG"/>
 <p>While the Dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.</p><p><b>Problem Worksheet</b></p><p>In these problems, we will be modeling the population of moose and wolves that lived on the Isle Royale.  Wolves preyed on the moose, so their populations were tied together in what is known as a “predator-prey” relationship—as the number of moose grew, the number of wolves grew in response to having more food available, but then the wolves would eat more moose, causing the moose population to decrease, meaning less food is available for wolves, etc.  This relationship is complicated, so creating a model is necessary for fully understanding the relationship between the two populations.  Let us build up to the final model by making a series of models of simpler systems.  For instance, the first few systems pretend that Isle Royale has only moose on it and no wolves on it.</p>
 <h3>Question 2</h3>
 <p>Assume that the moose population on the Isle Royale begins at 20 moose and that 2 moose are born each year.  In the table below, identify what types of nodes would represent this information.</p>
@@ -347,38 +399,38 @@ if (set1.avi=== 1) {
 <td style="border: 2pt black solid"><b>Quantity</b></td>
 <td style="border: 2pt black solid"><b>Node Type</b></td>
 </thead>
-<tbody>
+<tbody><tr>
 <td style="border: 2pt black solid">moose population</td><td style="border: 2pt black solid"><select id="2ai">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td></tr>
+<option>function</option></select></td></tr><tr>
 <td style="border: 2pt black solid">number of moose births per year</td><td style="border: 2pt black solid"><select id="2aii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td></tr>
 </tbody>
-</table></p>
-Now select the Isle Royale problem category and solve the “Moose Population 1” problem in Dragoon by creating a model.  When you have finished, click on the Graph and/or Table button to confirm that the changing values of the variables make sense. Now click here (button) and it will open the Dragoon problem.</p>
+</table>Now select the Isle Royale problem category and solve the “Moose Population 1” problem in Dragoon by creating a model.  When you have finished, click on the Graph and/or Table button to confirm that the changing values of the variables make sense. Now click here (button) and it will open the Dragoon problem.</p>
 <script type="text/javascript">var set2 = {
 ai:0,
 aii:0,}; 
 function cont2() {
 var yestim2 = 0;
 document.getElementById("2Time").innerHTML = tim2;
-checkAnswers("2ai", "accumulator");checkAnswers("2aii", "function");
-if (document.getElementById("2ai").value==="" ||document.getElementById("2aii").value==="" ||0) {
+checkAnswers("2ai", "parameter");checkAnswers("2aii", "function");
+if (document.getElementById("2ai").value==="" || document.getElementById("2aii").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
-if (!checkAnswers("2ai", "accumulator")) { 
+if (!checkAnswers("2ai", "parameter")) { 
  set2.ai = set2.ai + 1;}if (!checkAnswers("2aii", "function")) { 
  set2.aii = set2.aii + 1;}
-if (checkCompletion(2) && (checkAnswers("2ai", "accumulator") || set2.ai===3) &&(checkAnswers("2aii", "function") || set2.aii===3) &&1) {
+if ((checkAnswers("2ai", "parameter") || set2.ai===3) &&(checkAnswers("2aii", "function") || set2.aii===3) &&1) {
  document.getElementById("question3").style.display = "";
  document.getElementById("button2").style.display = "none";
 
 document.getElementById("2ai").disabled=true;
+document.getElementById("user").disabled=true;
 document.getElementById("2aii").disabled=true;
 tim3= 0;
 
@@ -392,9 +444,9 @@ var yestim3 = 1;
 time3();
 }
 
-if (!checkAnswers("2ai", "accumulator")) {
+if (!checkAnswers("2ai", "parameter")) {
 if (set2.ai===3) {
-document.getElementById("2ai").value="accumulator";
+document.getElementById("2ai").value="parameter";
 document.getElementById("2ai").style.background="#FFFF00"}
 if (set2.ai=== 1) { 
  document.getElementById("2aiAnswer1").innerHTML = "; " + document.getElementById("2ai").value 
@@ -443,10 +495,7 @@ if (set2.aii=== 1) {
 }
 };};
 </script>
-<input type="hidden" name="problem2" id="problem2" value="isle1">
-<input type="hidden" name="mode2" id="mode2" value="STUDENT">
-<br><button id="dragoonButton2" onClick="openDragoonProblem(2);">Open Dragoon</button>
-<div id="dragoonErrorMessage2" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+
 <br><button id="button2" onClick="cont2();">Continue</button>
 <div id="question3" style="display: none">
 <h3>Question 3</h3>
@@ -456,34 +505,31 @@ if (set2.aii=== 1) {
 <td style="border: 2pt black solid"><b>Quantity</b></td>
 <td style="border: 2pt black solid"><b>Node Type</b></td>
 </thead>
-<tbody>
+<tbody><tr>
 <td style="border: 2pt black solid">moose population</td><td style="border: 2pt black solid"><select id="3ai">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td></tr>
+<option>function</option></select></td></tr><tr>
 <td style="border: 2pt black solid">number of moose births per year</td><td style="border: 2pt black solid"><select id="3aii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td></tr>
+<option>function</option></select></td></tr><tr>
 <td style="border: 2pt black solid">moose birth rate</td><td style="border: 2pt black solid"><select id="3aiii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td></tr>
 </tbody>
-</table></p>
-Which node(s) do <i>moose population</i> use as inputs to determine its value?</p><select id="3aiv">
+</table>Which node(s) do <i>moose population</i> use as inputs to determine its value?<select id="3aiv">
 <option></option>
 <option>number of moose births per year</option>
-<option>moose birth rate</option></select></p>
-Which node(s) do <i>number of births per year</i> use as inputs to determine its value?</p><select id="3av">
+<option>moose birth rate</option></select>Which node(s) do <i>number of births per year</i> use as inputs to determine its value?<select id="3av">
 <option></option>
 <option>moose birth rate</option>
 <option>moose population</option>
-<option>both moose birth rate and moose population</option></select></p>
-Now please solve the "Moose population 2" problem in Dragoon.</p>
+<option>both moose birth rate and moose population</option></select>Now please solve the "Moose population 2" problem in Dragoon.</p>
 <script type="text/javascript">var set3 = {
 ai:0,
 aii:0,
@@ -493,8 +539,10 @@ av:0,};
 function cont3() {
 var yestim3 = 0;
 document.getElementById("3Time").innerHTML = tim3;
-checkAnswers("3ai", "accumulator");checkAnswers("3aii", "function");checkAnswers("3aiii", "parameter");checkAnswers("3aiv", "number of moose births per year");checkAnswers("3av", "both moose birth rate and moose population");
-if (document.getElementById("3ai").value==="" ||document.getElementById("3aii").value==="" ||document.getElementById("3aiii").value==="" ||document.getElementById("3aiv").value==="" ||document.getElementById("3av").value==="" ||0) {
+checkAnswers("3ai", "accumulator");checkAnswers("3aii", "function");checkAnswers("3aiii", "parameter");
+checkAnswers("3aiv", "number of moose births per year");
+checkAnswers("3av", "both moose birth rate and moose population");
+if (document.getElementById("3ai").value==="" || document.getElementById("3aii").value==="" || document.getElementById("3aiii").value==="" || document.getElementById("3aiv").value==="" || document.getElementById("3av").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("3ai", "accumulator")) { 
@@ -503,11 +551,12 @@ if (!checkAnswers("3ai", "accumulator")) {
  set3.aiii = set3.aiii + 1;}if (!checkAnswers("3aiv", "number of moose births per year")) { 
  set3.aiv = set3.aiv + 1;}if (!checkAnswers("3av", "both moose birth rate and moose population")) { 
  set3.av = set3.av + 1;}
-if (checkCompletion(3) && (checkAnswers("3ai", "accumulator") || set3.ai===3) &&(checkAnswers("3aii", "function") || set3.aii===3) &&(checkAnswers("3aiii", "parameter") || set3.aiii===3) &&(checkAnswers("3aiv", "number of moose births per year") || set3.aiv===3) &&(checkAnswers("3av", "both moose birth rate and moose population") || set3.av===3) &&1) {
+if ((checkAnswers("3ai", "accumulator") || set3.ai===3) &&(checkAnswers("3aii", "function") || set3.aii===3) &&(checkAnswers("3aiii", "parameter") || set3.aiii===3) &&(checkAnswers("3aiv", "number of moose births per year") || set3.aiv===3) &&(checkAnswers("3av", "both moose birth rate and moose population") || set3.av===3) &&1) {
  document.getElementById("question4").style.display = "";
  document.getElementById("button3").style.display = "none";
 
 document.getElementById("3ai").disabled=true;
+document.getElementById("user").disabled=true;
 document.getElementById("3aii").disabled=true;
 document.getElementById("3aiii").disabled=true;
 document.getElementById("3aiv").disabled=true;
@@ -656,10 +705,7 @@ if (set3.av=== 1) {
 if(set3.av===3)
 {document.getElementById("3av").value="both moose birth rate and moose population"};};
 </script>
-<input type="hidden" name="problem3" id="problem3" value="isle2">
-<input type="hidden" name="mode3" id="mode3" value="STUDENT">
-<br><button id="dragoonButton3" onClick="openDragoonProblem(3);">Open Dragoon</button>
-<div id="dragoonErrorMessage3" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+
 <br><button id="button3" onClick="cont3();">Continue</button>
 <div id="question4" style="display: none">
 <h3>Question 4</h3>
@@ -672,7 +718,7 @@ if (0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 
-if (checkCompletion(4) && 1) {
+if (1) {
  document.getElementById("question5").style.display = "";
  document.getElementById("button4").style.display = "none";
 
@@ -689,37 +735,34 @@ time5();
 }
 };
 </script>
-<input type="hidden" name="problem4" id="problem4" value="isle3">
-<input type="hidden" name="mode4" id="mode4" value="STUDENT">
-<br><button id="dragoonButton4" onClick="openDragoonProblem(4);">Open Dragoon</button>
-<div id="dragoonErrorMessage4" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+
 <br><button id="button4" onClick="cont4();">Continue</button>
 <div id="question5" style="display: none">
 <h3>Question 5</h3>
 <p>: We can see from “Moose population 3” that having a simple death rate still doesn’t simulate a real population—the population still grows infinitely, when in reality there would be some limit to the number of moose the island could sustain.  In this problem, we will change the <i>moose death rate</i> node so that it represents this relationship:</p><p><i>moose death rate = moose birth rate * (moose population / carrying capacity)</i></p><p>If there were no wolves on Isle Royale, this equation would represent that the moose population is limited by the amount of moose food growing on the island.  Carrying capacity, or the number of moose the island can support, is a Parameter node with a value of 500; when the moose population reaches 500, the death rate will equal the birth rate, and the moose population growth will stagnate.</p>
-<p>5a. 
-The new <i>death rate</i> node is a </p><select id="5ai">
+<p>5a. The new <i>death rate</i> node is a <select id="5ai">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></p>
-.</p><p>Solve the “Moose population 4” problem in Dragoon.  A model for “Moose population 3” is provided.  You will need to modify it.</p>
+<option>function</option></select>.</p><p>Solve the “Moose population 4” problem in Dragoon.  A model for “Moose population 3” is provided.  You will need to modify it.</p>
 <script type="text/javascript">var set5 = {
 ai:0,}; 
 function cont5() {
 var yestim5 = 0;
 document.getElementById("5Time").innerHTML = tim5;
+
 checkAnswers("5ai", "function");
-if (document.getElementById("5ai").value==="" ||0) {
+if (document.getElementById("5ai").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("5ai", "function")) { 
  set5.ai = set5.ai + 1;}
-if (checkCompletion(5) && (checkAnswers("5ai", "function") || set5.ai===3) &&1) {
+if ((checkAnswers("5ai", "function") || set5.ai===3) &&1) {
  document.getElementById("question6").style.display = "";
  document.getElementById("button5").style.display = "none";
 
 document.getElementById("5ai").disabled=true;
+document.getElementById("user").disabled=true;
 tim6= 0;
 
 function time6() {
@@ -761,10 +804,7 @@ if (set5.ai=== 1) {
 if(set5.ai===3)
 {document.getElementById("5ai").value="function"};};
 </script>
-<input type="hidden" name="problem5" id="problem5" value="isle4">
-<input type="hidden" name="mode5" id="mode5" value="STUDENT">
-<br><button id="dragoonButton5" onClick="openDragoonProblem(5);">Open Dragoon</button>
-<div id="dragoonErrorMessage5" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+
 <br><button id="button5" onClick="cont5();">Continue</button>
 <div id="question6" style="display: none">
 <h3>Question 6</h3>
@@ -777,7 +817,7 @@ if (0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 
-if (checkCompletion(6) && 1) {
+if (1) {
  document.getElementById("question7").style.display = "";
  document.getElementById("button6").style.display = "none";
 
@@ -794,14 +834,11 @@ time7();
 }
 };
 </script>
-<input type="hidden" name="problem6" id="problem6" value="isle5">
-<input type="hidden" name="mode6" id="mode6" value="STUDENT">
-<br><button id="dragoonButton6" onClick="openDragoonProblem(6);">Open Dragoon</button>
-<div id="dragoonErrorMessage6" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+
 <br><button id="button6" onClick="cont6();">Continue</button>
 <div id="question7" style="display: none">
 <h3>Question 7</h3>
-<p>Our final step is to build a model of both the wolf and moose populations and establish a predator-prey relationship between their birth and death rates.  Our new model will show a relationship between the number of wolves and the death rate of moose, as well as a relationship between the number of moose and the birth rate of the wolf population.  Here are our assumptions about the populations and their relationships: <ul><li>The <i>moose population</i> is 500 moose in the first year.</li><li>The <i>moose birth rate</i> is 10%</li><li>The <i>moose births each year</i> is <i>moose population</i> * <i>moose birth rate</i>.</li><li>The <i>moose deaths each year</i> is <i>moose population</i> * <i>moose death rate</i>.</li><li>The <i>moose death rate</i> is <i>wolf population</i> * <i>the effect of wolves on moose</i>.</li><li><i>The effect of wolves on moose</i> is .003.</li><li>The <i>wolf population</i> is 20 wolves in the first year.</li><li>The <i>wolf death rate</i> is 25%</li><li>The <i>wolf deaths each year</i> is <i>wolf population</i> * <i>wolf death rate</i></li><li>The <i>wolf births each year</i> is <i>wolf population</i> * <i>wolf birth rate</i>.</li><li>The <i>wolf birth rate</i> is <i>moose population</i> * <i>the effect of moose on the wolves</i>.</li><li><i>The effect of moose on wolves</i> is 0.00075</li></ul>Solve the “Moose and Wolves” problem in Dragoon.  Note that copies of the solutions to “Moose population 3” and “Wolves” have been provided.  You will need to modify them.</p>
+<p>Our final step is to build a model of both the wolf and moose populations and establish a predator-prey relationship between their birth and death rates.  Our new model will show a relationship between the number of wolves and the death rate of moose, as well as a relationship between the number of moose and the birth rate of the wolf population.  Here are our assumptions about the populations and their relationships: <u><li>The <i>moose population</i> is 500 moose in the first year.</li><li>The <i>moose birth rate</i> is 10%</li><li>The <i>moose births each year</i> is <i>moose population</i> * <i>moose birth rate</i>.</li><li>The <i>moose deaths each year</i> is <i>moose population</i> * <i>moose death rate</i>.</li><li>The <i>moose death rate</i> is <i>wolf population</i> * <i>the effect of wolves on moose</i>.</li><li><i>The effect of wolves on moose</i> is .003.</li><li>The <i>wolf population</i> is 20 wolves in the first year.</li><li>The <i>wolf death rate</i> is 25%</li><li>The <i>wolf deaths each year</i> is <i>wolf population</i> * <i>wolf death rate</i></li><li>The <i>wolf births each year</i> is <i>wolf population</i> * <i>wolf birth rate</i>.</li><li>The <i>wolf birth rate</i> is <i>moose population</i> * <i>the effect of moose on the wolves</i>.</li><li><i>The effect of moose on wolves</i> is 0.00075</li></ul>Solve the “Moose and Wolves” problem in Dragoon.  Note that copies of the solutions to “Moose population 3” and “Wolves” have been provided.  You will need to modify them.</p>
 <script type="text/javascript">var set7 = {}; 
 function cont7() {
 var yestim7 = 0;
@@ -810,7 +847,7 @@ if (0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 
-if (checkCompletion(7) && 1) {
+if (1) {
  document.getElementById("question8").style.display = "";
  document.getElementById("button7").style.display = "none";
 
@@ -818,10 +855,7 @@ displayAnswers();
 }
 };
 </script>
-<input type="hidden" name="problem7" id="problem7" value="isle6">
-<input type="hidden" name="mode7" id="mode7" value="STUDENT">
-<br><button id="dragoonButton7" onClick="openDragoonProblem(7);">Open Dragoon</button>
-<div id="dragoonErrorMessage7" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
+
 <br><button id="button7" onClick="cont7();">Continue</button>
 <div id="question8" style="display: none">
 </div></div></div></div></div></div></div><div id="resultsTable" style="display:none">
@@ -836,49 +870,49 @@ displayAnswers();
 <tbody>
 <tr>
 <td style="border: 2pt black solid">1a. i.</td>
-<td style="border: 2pt black solid">640</td>
+<td style="border: 2pt black solid">740</td>
 <td style="border: 2pt black solid"><div id="1aiAnswer1"></div><div id="1aiAnswer2"></div><div id="1aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="1Time"></div></td>
 <tr>
 <tr>
 <td style="border: 2pt black solid">1a. ii.</td>
-<td style="border: 2pt black solid">128</td>
+<td style="border: 2pt black solid">148</td>
 <td style="border: 2pt black solid"><div id="1aiiAnswer1"></div><div id="1aiiAnswer2"></div><div id="1aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
 <td style="border: 2pt black solid">1a. iii.</td>
-<td style="border: 2pt black solid">512</td>
+<td style="border: 2pt black solid">592</td>
 <td style="border: 2pt black solid"><div id="1aiiiAnswer1"></div><div id="1aiiiAnswer2"></div><div id="1aiiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aiiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
 <td style="border: 2pt black solid">1a. iv.</td>
-<td style="border: 2pt black solid">102</td>
+<td style="border: 2pt black solid">118.4</td>
 <td style="border: 2pt black solid"><div id="1aivAnswer1"></div><div id="1aivAnswer2"></div><div id="1aivAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aivTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
 <td style="border: 2pt black solid">1a. v.</td>
-<td style="border: 2pt black solid">410</td>
+<td style="border: 2pt black solid">473.6</td>
 <td style="border: 2pt black solid"><div id="1avAnswer1"></div><div id="1avAnswer2"></div><div id="1avAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1avTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
 <td style="border: 2pt black solid">1a. vi.</td>
-<td style="border: 2pt black solid">81.9</td>
+<td style="border: 2pt black solid">94.72</td>
 <td style="border: 2pt black solid"><div id="1aviAnswer1"></div><div id="1aviAnswer2"></div><div id="1aviAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aviTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
 <td style="border: 2pt black solid">2a. i.</td>
-<td style="border: 2pt black solid">accumulator</td>
+<td style="border: 2pt black solid">parameter</td>
 <td style="border: 2pt black solid"><div id="2aiAnswer1"></div><div id="2aiAnswer2"></div><div id="2aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="2aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="2Time"></div></td>
