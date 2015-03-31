@@ -43,18 +43,18 @@ class LsImage:
 class Question:
 	def __init__ (self,initializer):
 		if isinstance(initializer,Worksheet):
-			self.gen = input ("General description: ")
+			self.sub = input ("Subheading: ")
 			for x in A:
-				self.gen = self.gen.replace(x,B[A.index(x)])
+				self.sub = self.sub.replace(x,B[A.index(x)])
 			self.sections = []
 			initializer.questions.append(self)
 		elif isinstance(initializer,str):
-			self.gen = initializer
+			self.sub = initializer
 			self.sections = []
 		else:
 			raise Exception("Bad initializer to question")
 	def from_dict(dct):
-		qes = Question(dct['gen'])
+		qes = Question(dct['sub'])
 		qes.sections = list(map(CustomTypeDecoder,dct['sections']))
 		return qes
 		
@@ -70,14 +70,15 @@ class Section:
 		return sct
 		
 class Dragoon:
-	def __init__ (self,qstn):
-		if isinstance(qstn,Question):
+	def __init__ (self,sect):
+		if isinstance(sect,Question):
 			self.problem = input ("Problem: ")
 			for x in A:
 				self.problem = self.problem.replace(x,B[A.index(x)])
 			self.mode = input ("Mode: ").upper()
+			qstn.sections.append(self)
 		else:
-			self.problem = qstn
+			self.problem = sect
 			self.mode = ""
 	def from_dict(dct):
 		drg = Dragoon(dct['problem'])
@@ -281,132 +282,130 @@ def generateHTMLWorksheet(wks):
 		ctwrng = ""
 		ctr = ""
 		varset = "var set" + str(qno) + " = {"
-		worksheet = worksheet + "\n<h3>Question " + qno + "</h3>\n<p>" + ques.gen + "</p>"
+		worksheet = worksheet + "\n<h3>" + ques.sub + "</h3>"
 		alphindex = 0
 		for sect in ques.sections:
-			if sect.__class__.__name__ == "Dragoon":
-				dragoon_link = "<input type=\"hidden\" name=\"problem" + qno + "\" id=\"problem" + qno + "\" value=\"" + sect.problem + "\">\n<input type=\"hidden\" name=\"mode" + qno + "\" id=\"mode" + qno + "\" value=\"" + sect.mode + "\">\n<br><button id=\"dragoonButton" + qno + "\" onClick=\"openDragoonProblem(" + qno + ");\">Open Dragoon</button>\n<div id=\"dragoonErrorMessage" + qno + "\" style=\"color:red;display:none\"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>"
-				contif = contif + "checkCompletion(" + qno + ") && "
-			else:
-				lno = alph[alphindex]
-				alphindex = alphindex + 1
-				worksheet = worksheet + "\n<p>" + qno + lno + ". "
-				romannum = 0
-				for part in sect.content:
-					if part.__class__.__name__ == "Dropdown":
-						rno = rnum[romannum]
-						romannum = romannum + 1
-						allans = ""
-						for item in part.options:
-							item = "\n<option>" + str(item) + "</option>"
-							allans = allans + item
-						varset = varset + "\n" + lno + rno + ":0,"
-						chkans = chkans + "\ncheckAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\");"
-						chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" || "
-						ctr = ctr + "if (!checkAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
-						contif = contif + "(checkAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\") || set" + qno + "." + lno + rno + "===3) &&"
-						ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\")) {\nif (set" + qno + "." + lno + rno + "===3) {\ndocument.getElementById(\"" + qno + lno + rno + "\").style.background=\"#FFFF00\";\n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = document.getElementById(\"" + qno + lno + rno + "\").value \n }\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value\n}\n};\nif(set" + qno + "." + lno + rno + "===3)\n{document.getElementById(\"" + qno + lno + rno + "\").value=\"" + part.correct + "\"};"
-						worksheet = worksheet + "<select id=\"" + qno + lno + rno + "\">\n<option></option>" + allans + "</select>"
-						endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + part.correct + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
-						disabl = disabl + "\ndocument.getElementById(\""+ qno + lno + rno +"\").disabled=true;"
-						if lno == "a" and rno == "i":
-							endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
-							contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
-						else:
-							endtbl = endtbl + "</td>\n</tr>"
-						endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
-					elif part.__class__.__name__ == "Textbox":
-						rno = rnum[romannum]
-						romannum = romannum + 1
-						chkans = chkans + "\ncheckTextbox(\"" + qno + lno + rno + "\");\ndocument.getElementById(\"" + qno + lno + rno + "Example\").innerHTML = document.getElementById(\"" + qno + lno + rno + "\").value"
-						chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" || "
-						contif = contif + "checkTextbox(\"" + qno + lno + rno + "\") &&"
-						worksheet = worksheet + "<div id=\"new" + qno + lno + rno + "\"><textarea id=\"" + qno + lno + rno + "\" cols=\"40\" rows=\"5\"></textarea></div>"
-						endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + part.example + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Example\"</div></td>\n<td style=\"border: 2pt black solid\"></td>\n<td style=\"border: 2pt black solid\">"
-						if lno == "a" and rno == "i":
-							endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
-							contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
-						else:
-							endtbl = endtbl + "</td>\n</tr>"
-						disabl = disabl + "\ndocument.getElementById(\""+ qno + lno + rno +"\").disabled=true;"
-					elif part.__class__.__name__ == "Table":
-						chktbl = ""
-						allhead = ""
-						allbody = ""
-						allline = ""
-						for item in part.header:
-							item = "\n<td style=\"border: 2pt black solid\"><b>" + str(item) + "</b></td>"
-							allhead = allhead + item
-						for body in part.rows:
-							allline = allline + "<tr>"
-							for drdn in body:
-								if isinstance(drdn, str):
-									item = "\n<td style=\"border: 2pt black solid\">" + drdn + "</td>"
-									allline = allline + item
+			lno = alph[alphindex]
+			alphindex = alphindex + 1
+			romannum = 0
+			for part in sect.content:
+				if part.__class__.__name__ == "Dragoon":
+					worksheet = worksheet + "</p>\n<input type=\"hidden\" name=\"problem" + qno + "\" id=\"problem" + qno + "\" value=\"" + part.problem + "\">\n<input type=\"hidden\" name=\"mode" + qno + "\" id=\"mode" + qno + "\" value=\"" + part.mode + "\">\n<br><button id=\"dragoonButton" + qno + "\" onClick=\"openDragoonProblem(" + qno + ");\">Open Dragoon</button>\n<div id=\"dragoonErrorMessage" + qno + "\" style=\"color:red;display:none\"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p>"
+					contif = contif + "checkCompletion(" + qno + ") && "
+				elif part.__class__.__name__ == "Dropdown":
+					rno = rnum[romannum]
+					romannum = romannum + 1
+					allans = ""
+					for item in part.options:
+						item = "\n<option>" + str(item) + "</option>"
+						allans = allans + item
+					varset = varset + "\n" + lno + rno + ":0,"
+					chkans = chkans + "\ncheckAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\");"
+					chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" || "
+					ctr = ctr + "if (!checkAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
+					contif = contif + "(checkAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\") || set" + qno + "." + lno + rno + "===3) &&"
+					ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + lno + rno + "\", \"" + part.correct + "\")) {\nif (set" + qno + "." + lno + rno + "===3) {\ndocument.getElementById(\"" + qno + lno + rno + "\").style.background=\"#FFFF00\";\n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = document.getElementById(\"" + qno + lno + rno + "\").value \n }\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value\n}\n};\nif(set" + qno + "." + lno + rno + "===3)\n{document.getElementById(\"" + qno + lno + rno + "\").value=\"" + part.correct + "\"};"
+					worksheet = worksheet + "<select id=\"" + qno + lno + rno + "\">\n<option></option>" + allans + "</select>"
+					endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + part.correct + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
+					disabl = disabl + "\ndocument.getElementById(\""+ qno + lno + rno +"\").disabled=true;"
+					if lno == "a" and rno == "i":
+						endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+						contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
+					else:
+						endtbl = endtbl + "</td>\n</tr>"
+					endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
+				elif part.__class__.__name__ == "Textbox":
+					rno = rnum[romannum]
+					romannum = romannum + 1
+					chkans = chkans + "\ncheckTextbox(\"" + qno + lno + rno + "\");\ndocument.getElementById(\"" + qno + lno + rno + "Example\").innerHTML = document.getElementById(\"" + qno + lno + rno + "\").value"
+					chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" || "
+					contif = contif + "checkTextbox(\"" + qno + lno + rno + "\") &&"
+					worksheet = worksheet + "<div id=\"new" + qno + lno + rno + "\"><textarea id=\"" + qno + lno + rno + "\" cols=\"40\" rows=\"5\"></textarea></div>"
+					endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + part.example + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Example\"</div></td>\n<td style=\"border: 2pt black solid\"></td>\n<td style=\"border: 2pt black solid\">"
+					if lno == "a" and rno == "i":
+						endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+						contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
+					else:
+						endtbl = endtbl + "</td>\n</tr>"
+					disabl = disabl + "\ndocument.getElementById(\""+ qno + lno + rno +"\").disabled=true;"
+				elif part.__class__.__name__ == "Table":
+					chktbl = ""
+					allhead = ""
+					allbody = ""
+					allline = ""
+					for item in part.header:
+						item = "\n<td style=\"border: 2pt black solid\"><b>" + str(item) + "</b></td>"
+						allhead = allhead + item
+					for body in part.rows:
+						allline = allline + "<tr>"
+						for drdn in body:
+							if isinstance(drdn, str):
+								item = "\n<td style=\"border: 2pt black solid\">" + drdn + "</td>"
+								allline = allline + item
+							else:
+								allans = ""
+								rta = drdn[1]
+								for choice in drdn[0]:
+									option = "\n<option>" + str(choice) + "</option>"
+									allans = allans + option
+								rno = rnum[romannum]
+								romannum = romannum + 1
+								varset = varset + "\n" + lno + rno + ":0,"
+								chkans = chkans + "checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\");"
+								chktbl = chktbl + "checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\");"
+								chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" || "
+								ctr = ctr + "if (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
+								contif = contif + "(checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\") || set" + qno + "." + lno + rno + "===3) &&"
+								ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) {\nif (set" + qno + "." + lno + rno + "===3) {\ndocument.getElementById(\"" + qno + lno + rno + "\").value=\"" + rta + "\";\ndocument.getElementById(\"" + qno + lno + rno + "\").style.background=\"#FFFF00\"}\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value\n}\n};"
+								allline = allline + "<td style=\"border: 2pt black solid\"><select id=\"" + qno + lno + rno + "\">\n<option></option>" + allans + "</select></td>"
+								endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
+								disabl = disabl + "\ndocument.getElementById(\""+ qno + lno + rno +"\").disabled=true;"
+								if lno == "a" and rno == "i":
+									endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+									contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
 								else:
-									allans = ""
-									rta = drdn[1]
-									for choice in drdn[0]:
-										option = "\n<option>" + str(choice) + "</option>"
-										allans = allans + option
-									rno = rnum[romannum]
-									romannum = romannum + 1
-									varset = varset + "\n" + lno + rno + ":0,"
-									chkans = chkans + "checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\");"
-									chktbl = chktbl + "checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\");"
-									chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" || "
-									ctr = ctr + "if (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
-									contif = contif + "(checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\") || set" + qno + "." + lno + rno + "===3) &&"
-									ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) {\nif (set" + qno + "." + lno + rno + "===3) {\ndocument.getElementById(\"" + qno + lno + rno + "\").value=\"" + rta + "\";\ndocument.getElementById(\"" + qno + lno + rno + "\").style.background=\"#FFFF00\"}\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value\n}\n};"
-									allline = allline + "<td style=\"border: 2pt black solid\"><select id=\"" + qno + lno + rno + "\">\n<option></option>" + allans + "</select></td>"
-									endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
-									disabl = disabl + "\ndocument.getElementById(\""+ qno + lno + rno +"\").disabled=true;"
-									if lno == "a" and rno == "i":
-										endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
-										contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
-									else:
-										endtbl = endtbl + "</td>\n</tr>"
-									endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
-							allline = allline + "</tr>"
-						allbody = allbody + allline
-						worksheet = worksheet + "<table>\n<thead>" + allhead + "\n</thead>\n<tbody>" + allbody + "\n</tbody>\n</table>\n<script type=\"text/javascript\">\nfunction checkTable" + qno + lno + rno + "() {\n" + chktbl + "\n};\n</script>\n<br><br><button id=\"table" + qno + lno + rno + "\" onClick=\"checkTable" + qno + lno + rno + "();\">Check Table</button><br><br>"
-					elif part.__class__.__name__ == "Text":
-						worksheet = worksheet + part.text
-					elif part.__class__.__name__ == "Image":
-						worksheet = worksheet + "\n</p><img src =\"" + part.image + ".JPG\"/><p>"
-					elif part.__class__.__name__ == "Checkbox":
-						rno = rnum[romannum]
-						romannum = romannum + 1
-						allans = ""
-						wrngcb = []
-						for item in part.options_c:
-							if not item in part.correct_c:
-								wrngcb.append(item)
-							item = "\n<input type=\"checkbox\" name=\"" + qno + lno + rno + "\" id=\"" + str(item) + "\">" + str(item) + "<br>"
-							allans = allans + item
-							chkbox = "1"
-						for item in part.correct_c:
-							item = "\n(document.getElementById(\"" + qno + lno + rno + "\")"
-							chkbox = chkbox + " && " + item
-						varset = varset + "\n" + lno + rno + ":0,"
-						chkans = chkans + "checkbox(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")"
-						chkcpl = chkcpl + "checkbox(\"" + qno + lno + rno + "\",[]," + str(part.options_c) + ") || "
-						ctr = ctr + "if (!checkbox(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
-						contif = contif + "(checkbox(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")|| set" + qno + "." + lno + rno + "===3) && "
-						ctwrng = ctwrng + "\nif (!checkbox(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")) {\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n}\nelse {\ndocument.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n } \nif (set" + qno + "." + lno + rno + "===3) {\ncheckboxCorrection(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")}\n} \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n}\n};"
-						worksheet = worksheet + "<div id=\"" + qno + lno + rno + "\">" + allans + "</div>"
-						endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + str(part.correct_c) + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
-						disset = ""
-						for item in part.options_c:
-							disset = disset + "\ndocument.getElementById(\"" + item + "\").disabled=true;"
-						disabl = disabl + disset
-						if lno == "a" and rno == "i":
-							endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
-							contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
-						else:
-							endtbl = endtbl + "</td>\n</tr>"
-						endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
-				worksheet = worksheet + "</p>"
+									endtbl = endtbl + "</td>\n</tr>"
+								endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
+						allline = allline + "</tr>"
+					allbody = allbody + allline
+					worksheet = worksheet + "<table>\n<thead>" + allhead + "\n</thead>\n<tbody>" + allbody + "\n</tbody>\n</table>"#"\n<script type=\"text/javascript\">\nfunction checkTable" + qno + lno + rno + "() {\n" + chktbl + "\n};\n</script>\n<br><br><button id=\"table" + qno + lno + rno + "\" onClick=\"checkTable" + qno + lno + rno + "();\">Check Table</button><br><br>"
+				elif part.__class__.__name__ == "Text":
+					worksheet = worksheet + part.text
+				elif part.__class__.__name__ == "Image":
+					worksheet = worksheet + "\n</p><img src =\"" + part.image + ".JPG\"/><p>"
+				elif part.__class__.__name__ == "Checkbox":
+					rno = rnum[romannum]
+					romannum = romannum + 1
+					allans = ""
+					wrngcb = []
+					for item in part.options_c:
+						if not item in part.correct_c:
+							wrngcb.append(item)
+						item = "\n<input type=\"checkbox\" name=\"" + qno + lno + rno + "\" id=\"" + str(item) + "\">" + str(item) + "<br>"
+						allans = allans + item
+						chkbox = "1"
+					for item in part.correct_c:
+						item = "\n(document.getElementById(\"" + qno + lno + rno + "\")"
+						chkbox = chkbox + " && " + item
+					varset = varset + "\n" + lno + rno + ":0,"
+					chkans = chkans + "checkbox(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")"
+					chkcpl = chkcpl + "checkbox(\"" + qno + lno + rno + "\",[]," + str(part.options_c) + ") || "
+					ctr = ctr + "if (!checkbox(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
+					contif = contif + "(checkbox(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")|| set" + qno + "." + lno + rno + "===3) && "
+					ctwrng = ctwrng + "\nif (!checkbox(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")) {\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n}\nelse {\ndocument.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n } \nif (set" + qno + "." + lno + rno + "===3) {\ncheckboxCorrection(\"" + qno + lno + rno + "\"," + str(part.correct_c) + "," + str(wrngcb) + ")}\n} \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = retrieveCheckboxValue(" + str(part.options_c) + ")\n}\n};"
+					worksheet = worksheet + "<div id=\"" + qno + lno + rno + "\">" + allans + "</div>"
+					endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + str(part.correct_c) + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
+					disset = ""
+					for item in part.options_c:
+						disset = disset + "\ndocument.getElementById(\"" + item + "\").disabled=true;"
+					disabl = disabl + disset
+					if lno == "a" and rno == "i":
+						endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+						contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
+					else:
+						endtbl = endtbl + "</td>\n</tr>"
+					endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
+			worksheet = worksheet + "</p>"
 		if int(qno) < len(list(wks.questions)):
 			chkcpl = chkcpl + "0) {\n alert(\"It appears you have left at least one of these fields blank. Please remedy this immediately.\");\n}"
 			contif = contif + "1) {\n document.getElementById(\"question" + str(int(qno)+1) + "\").style.display = \"\";\n document.getElementById(\"button" + qno + "\").style.display = \"none\";\n" + disabl + "\ntim" + str(int(qno)+1) + "= 0;\n\nfunction time" + str(int(qno)+1) + "() {\nif (yestim" + str(int(qno)+1) + "){\ntim" + str(int(qno)+1) + " = tim" + str(int(qno)+1) + " + 1;\nt = setTimeout(function() {time" + str(int(qno)+1) + "()},1000);\n}\n};\nvar yestim" + str(int(qno)+1) + " = 1;\ntime" + str(int(qno)+1) + "();\n}"
@@ -433,6 +432,6 @@ def generateHTMLWorksheet(wks):
 	#json.dump(wk1,outfile,cls = CustomTypeEncoder, indent = 4)
 
 def testload():
-	with open("Completed Worksheets/Energy Balance/energy_balance.json","r") as outfile:
+	with open("Completed Worksheets/Introductory Worksheet/introductory_worksheet.json","r") as outfile:
 		wksht_dct = json.load(outfile)
 		return CustomTypeDecoder(wksht_dct)

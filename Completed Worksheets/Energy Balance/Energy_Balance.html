@@ -1522,7 +1522,7 @@ time8();
 </p><img src ="energy_balance/energy17.JPG"/><p></p>
 <p>8c. Click on the Dragoon button below. After the problem opens, read the text on the left of the screen. Notice that some nodes have been created for you already.</p>
 <p>8d. Start defining/refining your nodes. Click on the <b>Create Node</b> button in the top left corner as you did before, or you can double-click on an already created node in the window. If you have described your nodes properly in the above table, creating nodes should be simple—you have all the information you need right here!</p>
-<p>8e. As you can see from your table, four nodes are needed. After you have created them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren&#39t completely defined. Look for nodes that have dotted lines around them.</p><p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b></p>
+<p>8e. As you can see from your table, four nodes are needed. After you have created them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren&#39;t completely defined. Look for nodes that have dotted lines around them.</p><p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b></p>
 <script type="text/javascript">var set8 = {}; 
 function cont8() {
 var yestim8 = 0;
@@ -1557,7 +1557,7 @@ time9();
 <h3>Question 9</h3>
 <p></p>
 <p>9a. In the graph window, check <b>Show energy stored</b> and make sure <b>Show energy balance</b> is not checked, as boxed in the screenshot below.
-</p><img src ="energy_balance/energy18.JPG"/><p></p><p>Vary the values of energy ingested, energy expended, and initial energy stored. Notice that the graph can change with these values.</p><p>When you&#39re done playing with the values, close and reopen the graph window to reset the sliders to their original positions, and then answer the following questions.</p><p>What is the unit of the independent variable on the graph?</p><p><select id="9ai">
+</p><img src ="energy_balance/energy18.JPG"/><p></p><p>Vary the values of energy ingested, energy expended, and initial energy stored. Notice that the graph can change with these values.</p><p>When you&#39;re done playing with the values, close and reopen the graph window to reset the sliders to their original positions, and then answer the following questions.</p><p>What is the unit of the independent variable on the graph?</p><p><select id="9ai">
 <option></option>
 <option>days</option>
 <option>calories</option></select></p>
@@ -1631,8 +1631,8 @@ if(set9.ai===3)
 <br><button id="button9" onClick="cont9();">Continue</button>
 <div id="question10" style="display: none">
 <h3>Question 10</h3>
-<p>In the table window, scroll to the bottom and vary the values of energy balance and initial energy stored. Notice how the table may change.</p><p>When you&#39re done testing different values for energy expended, energy ingested, and energy stored, close and reopen the table window to reset the sliders to their original positions. Answer the following questions.</p>
-<p>10a. What does the -111 represent in the last column and why doesn&#39t it change?<div id="new10ai"><textarea id="10ai" cols="40" rows="5"></textarea></div></p>
+<p>In the table window, scroll to the bottom and vary the values of energy balance and initial energy stored. Notice how the table may change.</p><p>When you&#39;re done testing different values for energy expended, energy ingested, and energy stored, close and reopen the table window to reset the sliders to their original positions. Answer the following questions.</p>
+<p>10a. What does the -111 represent in the last column and why doesn&#39;t it change?<div id="new10ai"><textarea id="10ai" cols="40" rows="5"></textarea></div></p>
 <p>10b. On what day does energy stored hit 3.43e+5 calories?</p><p>Day <select id="10bi">
 <option></option>
 <option>23.00</option>
@@ -3186,7 +3186,7 @@ if(set15.fi===3)
 <div id="question16" style="display: none">
 <h3>Question 16</h3>
 <p></p>
-<p>16a. If Joe&#39s resting energy expenditure changes, which nodes <b>will</b> be affected by the changes?</p><p><div id="16ai">
+<p>16a. If Joe&#39;s resting energy expenditure changes, which nodes <b>will</b> be affected by the changes?</p><p><div id="16ai">
 <input type="checkbox" name="16ai" id="Calories per pound">Calories per pound<br>
 <input type="checkbox" name="16ai" id="Digestive activity expenditure">Digestive activity expenditure<br>
 <input type="checkbox" name="16ai" id="Energy balance">Energy balance<br>
@@ -3863,11 +3863,11 @@ if(set18.ei===3)
 <div id="question19" style="display: none">
 <h3>Question 19</h3>
 <p></p>
-<p>19a. We have learned a lot about metabolism. Which of the following is a component of your body&#39s metabolism?</p><p><div id="19ai">
+<p>19a. We have learned a lot about metabolism. Which of the following is a component of your body&#39;s metabolism?</p><p><div id="19ai">
 <input type="checkbox" name="19ai" id="Thermic effect of food">Thermic effect of food<br>
 <input type="checkbox" name="19ai" id="Resting metabolic rate">Resting metabolic rate<br>
 <input type="checkbox" name="19ai" id="Physical activity level">Physical activity level<br></div></p>
-<p>19b. What is Joe&#39s weight after 90 days if all the parameters have their original values and are not changed using the sliders? <select id="19bi">
+<p>19b. What is Joe&#39;s weight after 90 days if all the parameters have their original values and are not changed using the sliders? <select id="19bi">
 <option></option>
 <option>143 lbs</option>
 <option>147 lbs</option>
@@ -4034,7 +4034,7 @@ gxiii:0,};
 function cont19() {
 var yestim19 = 0;
 document.getElementById("19Time").innerHTML = tim19;
-checkbox("19ai",['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'],['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'])
+checkbox("19ai",['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'],[])
 checkAnswers("19bi", "153 lbs");
 checkAnswers("19ci", "157 lbs");
 checkAnswers("19di", "143 lbs");
@@ -4604,7 +4604,7 @@ if (set19.gxiii=== 1) {
 <option>160 lbs</option>
 <option>170 lbs</option>
 <option>180 lbs</option></select></p>
-<p>20b. Go to the graph and insert Madison&#39s values from 16a. Now the author&#39s solution shows Joe&#39s weight, and the variable solution shows Madison&#39s.</p><p>Madison&#39s weight graph is clearly very different than Joe&#39s weight graph. Everyone has different graphs and experience different challenges when trying to gain or lose weight. As you age, your graphs will change as well. Leave all the values the same, but change Madison&#39s age to 30. Estimate her weight after 1000 days.</p><p><select id="20bi">
+<p>20b. Go to the graph and insert Madison&#39;s values from 16a. Now the author&#39;s solution shows Joe&#39;s weight, and the variable solution shows Madison&#39;s.</p><p>Madison&#39;s weight graph is clearly very different than Joe&#39;s weight graph. Everyone has different graphs and experience different challenges when trying to gain or lose weight. As you age, your graphs will change as well. Leave all the values the same, but change Madison&#39;s age to 30. Estimate her weight after 1000 days.</p><p><select id="20bi">
 <option></option>
 <option>150-160 lbs</option>
 <option>160-170 lbs</option>
@@ -5108,21 +5108,21 @@ displayAnswers();
 <tr>
 <tr>
 <td style="border: 2pt black solid">9b. i.</td>
-<td style="border: 2pt black solid">The graph changes from having a negative slope to having a positive slope. This means that Joe&#39s energy balance changed from a deficit to a surplus of calories.</td>
+<td style="border: 2pt black solid">The graph changes from having a negative slope to having a positive slope. This means that Joe&#39;s energy balance changed from a deficit to a surplus of calories.</td>
 <td style="border: 2pt black solid"><div id="9biExample"</div></td>
 <td style="border: 2pt black solid"></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
 <td style="border: 2pt black solid">9c. i.</td>
-<td style="border: 2pt black solid">The graph changes from having a negative slope to having a positive slope. This means that Joe&#39s energy balance changed from a deficit to a surplus of calories.</td>
+<td style="border: 2pt black solid">The graph changes from having a negative slope to having a positive slope. This means that Joe&#39;s energy balance changed from a deficit to a surplus of calories.</td>
 <td style="border: 2pt black solid"><div id="9ciExample"</div></td>
 <td style="border: 2pt black solid"></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
 <td style="border: 2pt black solid">10a. i.</td>
-<td style="border: 2pt black solid">Energy balance (calories), the value of energy ingested – energy expended. It doesn&#39t change because energy balance is always a set value of the difference between energy ingested and energy expended.</td>
+<td style="border: 2pt black solid">Energy balance (calories), the value of energy ingested – energy expended. It doesn&#39;t change because energy balance is always a set value of the difference between energy ingested and energy expended.</td>
 <td style="border: 2pt black solid"><div id="10aiExample"</div></td>
 <td style="border: 2pt black solid"></td>
 <td style="border: 2pt black solid"><div id="10Time"></div></td>
