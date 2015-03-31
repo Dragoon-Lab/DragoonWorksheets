@@ -126,6 +126,21 @@ return result;
 <body>
 <label>Username :</label>&nbsp;<input type="text" name="user" id="user">
 <input type="hidden" name="section" id="section" value="public-worksheet">
+<script type="text/javascript">
+function enterUsername() {
+if (document.getElementById("user").value!=="" && document.getElementById("user").value.length<=30) {
+document.getElementById("wkstBody").style.display="";
+document.getElementById("usernameCheck").style.display="none";
+document.getElementById("user").style.background="";
+document.getElementById("user").disabled=true;
+}
+else {
+document.getElementById("user").style.background="#FF3333";
+alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
+}
+};
+</script>
+<br><br><button id="usernameCheck" onClick="enterUsername();">Start Worksheet</button><div id="wkstBody" style="display: none">
 <p></p><h3>Blood Glucose Homeostasis</h3><p>Today you will learn more about an important concept of physiology: homeostasis. Homeostasis refers to physiological processes that maintain certain conditions in the body at a steady state. For instance, your body temperature tends to stay at 98.6&deg F (37&deg C) because there is a process that keeps your body at that temperature, despite variations in the outside temperature or in how hard you exercise. This process is called a homeostatic process because its function is to keep the body temperature steady.</p><p>Maintaining homeostasis requires that the body continuously monitor its internal conditions. From body temperature to blood pressure to levels of certain nutrients, each physiological condition has a particular set point. <u>A <i><b>set point</b></i> is the physiological value around which the normal range fluctuates. The <b><i>normal range</i></b> is the restricted set of values that is optimally healthful and stable.</u> For example, the set point for normal human body temperature is approximately 37&degC (98.6&degF). Physiological quantities, such as body temperature, tend to fluctuate within a normal range a few degrees above and below that point. Control centers in the brain play roles in regulating physiological quantities and keeping them within the normal range. As the body works to maintain homeostasis, any significant deviation from the normal range will be resisted and homeostasis restored through a process called negative feedback. <u><i><b>Negative feedback</b></i> is a mechanism that prevents a physiological response from going beyond the normal range by reversing the action once the normal range is exceeded.</u> The maintenance of homeostasis by negative feedback goes on throughout the body at all times, and an understanding of negative feedback is thus fundamental to an understanding of human physiology.</p><p>For many purposes in science and medicine, it suffices just to know whether the homeostatic process is functioning properly. This requires knowing how a properly functioning homeostatic process behaves. Then measurements of a person&#39s physiological quantity (e.g., body temperature) can be compared to the values when the process is properly functioning. For example, we know that when the negative feedback loop for body temperature is properly functioning, the body&#39s temperature should be close to 98.6&deg F. If the temperature is too high, then the person is sick with a fever. If the temperature is too low, the person has something else wrong with them.</p><p>Sometimes it is important not only to know the steady state value of a quantity, but also how quickly the body reacts to a stimulus that pushes that value out of its normal range. For instance, if a person is immersed in frigid water, how fast does the body react? Measuring the dynamic response of the body as it tries to restore homeostasis can be an important measure of fitness.</p><p>This is where system dynamics modeling becomes important. A system dynamics model can represent how the body behaves when the negative feedback loop is working properly. If the graphs produced by the model do not match the measurements observed of a person, then the researcher or doctor can tell that something is wrong with the person&#39s negative feedback loop.</p><h3>The Simplest Model of Homeostasis</h3><p>Often, a very simple model suffices. In fact, the simplest model of negative feedback in Dragoon has just three nodes. It&#39s simple because it assumes that the set point of the homeostatic process is zero.</p><p>Here&#39s how the model works. If the value of the physiological quantity becomes positive (i.e., greater than zero), then the loop subtracts a little bit from it until the quantity falls to zero. On the other hand, if the value becomes negative, then the loop adding a little bit to the value until it rises back to zero.</p><p>To be more concrete, suppose that if the <b>value > 0</b>, we <b>subtract 10%</b> of the value. On the other hand, if <b>value < 0</b>, then we <b>add 10%</b> of its absolute value. Actually, adding 10% of the absolute value of a negative number is the same thing as subtracting 10% of the value. Thus, we have this very simple rule: <b>If value &#8800 0, then subtract 10% of the value.</b></p>
 <h3>Question 1</h3>
 <p>Please click on the Dragoon button below and complete the problem before answering these questions.</p>
@@ -146,15 +161,14 @@ checkTextbox("1ci");
 document.getElementById("1ciExample").innerHTML = document.getElementById("1ci").value
 checkTextbox("1di");
 document.getElementById("1diExample").innerHTML = document.getElementById("1di").value
-if (document.getElementById("1ai").value==="" || document.getElementById("1bi").value==="" || document.getElementById("1ci").value==="" || document.getElementById("1di").value==="" || (document.getElementById("user").value==="" || document.getElementById("user").value.length>30)) {
- alert("It appears you have left at least one of these fields blank. Please remedy this immediately. Remember that you must enter a username at the top between 1 and 30 characters.");
+if (document.getElementById("1ai").value==="" || document.getElementById("1bi").value==="" || document.getElementById("1ci").value==="" || document.getElementById("1di").value==="" || 0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 
-if (checkTextbox("1ai") &&checkTextbox("1bi") &&checkTextbox("1ci") &&checkTextbox("1di") &&checkCompletion(1) && (document.getElementById("user").value!== ""&& document.getElementById("user").value.length<=30)) {
+if (checkTextbox("1ai") &&checkTextbox("1bi") &&checkTextbox("1ci") &&checkTextbox("1di") &&checkCompletion(1) && 1) {
  document.getElementById("question2").style.display = "";
  document.getElementById("button1").style.display = "none";
 
-document.getElementById("user").disabled=true;
 document.getElementById("1ai").disabled=true;
 document.getElementById("1bi").disabled=true;
 document.getElementById("1ci").disabled=true;
@@ -275,7 +289,6 @@ if ((checkAnswers("3ai", "temperature1") || set3.ai===3) &&(checkAnswers("3aii",
  document.getElementById("button3").style.display = "none";
 
 document.getElementById("3ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("3aii").disabled=true;
 document.getElementById("3aiii").disabled=true;
 document.getElementById("3aiv").disabled=true;
@@ -504,7 +517,6 @@ if ((checkAnswers("4ai", "0,0,0") || set4.ai===3) &&(checkAnswers("4aii", "2.0,1
  document.getElementById("button4").style.display = "none";
 
 document.getElementById("4ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("4aii").disabled=true;
 document.getElementById("4aiii").disabled=true;
 document.getElementById("4bi").disabled=true;
@@ -765,7 +777,6 @@ if ((checkAnswers("5ai", "quadrupled") || set5.ai===3) &&(checkAnswers("5bi", "s
  document.getElementById("button5").style.display = "none";
 
 document.getElementById("5ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("5bi").disabled=true;
 document.getElementById("5bii").disabled=true;
 tim6= 0;
@@ -927,7 +938,6 @@ if ((checkAnswers("6ai", "Blood insulin difference") || set6.ai===3) &&(checkAns
  document.getElementById("button6").style.display = "none";
 
 document.getElementById("6ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("6aii").disabled=true;
 document.getElementById("6bi").disabled=true;
 document.getElementById("6ci").disabled=true;
@@ -1082,7 +1092,7 @@ if(set6.di===3)
 <div id="dragoonErrorMessage6" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div>
 <br><button id="button6" onClick="cont6();">Continue</button>
 <div id="question7" style="display: none">
-</div></div></div></div></div></div><div id="resultsTable" style="display:none">
+</div></div></div></div></div></div></div><div id="resultsTable" style="display:none">
 <table>
 <thead>
 <td style="border: 2pt black solid">Question</td>

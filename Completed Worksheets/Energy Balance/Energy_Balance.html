@@ -126,6 +126,21 @@ return result;
 <body>
 <label>Username :</label>&nbsp;<input type="text" name="user" id="user">
 <input type="hidden" name="section" id="section" value="public-worksheet">
+<script type="text/javascript">
+function enterUsername() {
+if (document.getElementById("user").value!=="" && document.getElementById("user").value.length<=30) {
+document.getElementById("wkstBody").style.display="";
+document.getElementById("usernameCheck").style.display="none";
+document.getElementById("user").style.background="";
+document.getElementById("user").disabled=true;
+}
+else {
+document.getElementById("user").style.background="#FF3333";
+alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
+}
+};
+</script>
+<br><br><button id="usernameCheck" onClick="enterUsername();">Start Worksheet</button><div id="wkstBody" style="display: none">
 <p></p><h1>Modeling Practice (Working with Dragoon)</h1><h3>Key Terms & Concepts</h3><p><b>A parameter</b> represents a fixed quantity that never changes. Parameters are used to represnt constant values.</p><p><i>Example: pi is a <b>parameter</b> because it is always 3.1415.</i></p><p><b>An accumulator</b> represents a quantity that increases or decreases over time based on its previous value and the value of its inputs. These take the form: "new value = old value + inputs". It has an initial value that serves as the first "old value."</p><p><i>Example: Population can be an <b>accumulator</b> because its new value is depndent on its old value and its inputs. Current population size = last year's population size + inputs.</i></p><p><b>A function</b> represents a value  that is calculated directly from the values of other quantities, without referencing its previous value. A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value. Thus, a function does not need and does not have a special initial value, whereas an accumulator does.</p><p><i>Example: Suppose you know 20% of the population dies each year, then the number of deaths is a <b>function</b>, namely population * 0.2. Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute it (if it did, itâ€™d be an <b>accumulator</b>).</i></p><p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be written in scientific notation to be <b>3.45e+5</b> or <b>3.45 x 10<sup>5</sup></b>.</p><p>To do this, move the decimal place from the end of <b>345000</b> to between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for "exponenet is +5" or <b>10<sup5</sup></b>. This indicates how many zeros there are.</p><p>Similarly, </b>0.0000000000000000345</b> can be written as <b>3.45e-17</b> or <b>3.45 x 10<sup>-17</sup></b>.</p>
 <h3>Question 1</h3>
 <p>Suppose you are creating a model of the system described in the italicized paragraph below.</p><p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p>
@@ -175,8 +190,8 @@ checkAnswers("1aii", "20");
 checkAnswers("1bi", "30%");
 checkAnswers("1ci", "beaver population");
 checkAnswers("1cii", "beaver birth rate");
-if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1bi").value==="" || document.getElementById("1ci").value==="" || document.getElementById("1cii").value==="" || (document.getElementById("user").value==="" || document.getElementById("user").value.length>30)) {
- alert("It appears you have left at least one of these fields blank. Please remedy this immediately. Remember that you must enter a username at the top between 1 and 30 characters.");
+if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1bi").value==="" || document.getElementById("1ci").value==="" || document.getElementById("1cii").value==="" || 0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("1ai", "beaver births")) { 
  set1.ai = set1.ai + 1;}if (!checkAnswers("1aii", "20")) { 
@@ -184,12 +199,11 @@ if (!checkAnswers("1ai", "beaver births")) {
  set1.bi = set1.bi + 1;}if (!checkAnswers("1ci", "beaver population")) { 
  set1.ci = set1.ci + 1;}if (!checkAnswers("1cii", "beaver birth rate")) { 
  set1.cii = set1.cii + 1;}
-if ((checkAnswers("1ai", "beaver births") || set1.ai===3) &&(checkAnswers("1aii", "20") || set1.aii===3) &&(checkAnswers("1bi", "30%") || set1.bi===3) &&(checkAnswers("1ci", "beaver population") || set1.ci===3) &&(checkAnswers("1cii", "beaver birth rate") || set1.cii===3) &&(document.getElementById("user").value!== ""&& document.getElementById("user").value.length<=30)) {
+if ((checkAnswers("1ai", "beaver births") || set1.ai===3) &&(checkAnswers("1aii", "20") || set1.aii===3) &&(checkAnswers("1bi", "30%") || set1.bi===3) &&(checkAnswers("1ci", "beaver population") || set1.ci===3) &&(checkAnswers("1cii", "beaver birth rate") || set1.cii===3) &&1) {
  document.getElementById("question2").style.display = "";
  document.getElementById("button1").style.display = "none";
 
 document.getElementById("1ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("1aii").disabled=true;
 document.getElementById("1bi").disabled=true;
 document.getElementById("1ci").disabled=true;
@@ -390,7 +404,6 @@ if ((checkAnswers("2ai", "parameter") || set2.ai===3) &&(checkAnswers("2aii", "2
  document.getElementById("button2").style.display = "none";
 
 document.getElementById("2ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("2aii").disabled=true;
 document.getElementById("2bi").disabled=true;
 tim3= 0;
@@ -515,7 +528,13 @@ if(set2.bi===3)
 <option>function</option></select></td>
 <td style="border: 2pt black solid">energy stored in the body is equal to its value yesterday plus energy balance for today; initial value = 345000 calories</td></tr>
 </tbody>
-</table></p>
+</table>
+<script type="text/javascript">
+function checkTable3aii() {
+checkAnswers("3ai", "parameter");checkAnswers("3aii", "accumulator");
+};
+</script>
+<br><br><button id="table3aii" onClick="checkTable3aii();">Check Table</button><br><br></p>
 <p>3b. How would Joe measure changes to his energy storage?<table>
 <thead>
 <td style="border: 2pt black solid"><b>time (days)</b></td>
@@ -570,7 +589,13 @@ if(set2.bi===3)
 <option>345400 + 100</option></select></td>
 <td style="border: 2pt black solid">345500</td></tr>
 </tbody>
-</table></p>
+</table>
+<script type="text/javascript">
+function checkTable3bvii() {
+checkAnswers("3bi", "345000 + 100");checkAnswers("3bii", "345100");checkAnswers("3biii", "345100 + 100");checkAnswers("3biv", "345200");checkAnswers("3bv", "345200 + 100");checkAnswers("3bvi", "345300 + 100");checkAnswers("3bvii", "345400 + 100");
+};
+</script>
+<br><br><button id="table3bvii" onClick="checkTable3bvii();">Check Table</button><br><br></p>
 <script type="text/javascript">var set3 = {
 ai:0,
 aii:0,
@@ -603,7 +628,6 @@ if ((checkAnswers("3ai", "parameter") || set3.ai===3) &&(checkAnswers("3aii", "a
  document.getElementById("button3").style.display = "none";
 
 document.getElementById("3ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("3aii").disabled=true;
 document.getElementById("3bi").disabled=true;
 document.getElementById("3bii").disabled=true;
@@ -857,7 +881,7 @@ if (set3.bvii=== 1) {
 <h3>Question 4</h3>
 <p>In the graoh window, vary the values of energy balance and initial energy stored by dragging the sliders back and forth along the lines (boxed below) or by typing in different values in the boxes (boxed below).</p>
 <p>4a. 
-<img src ="energy_balance/energy14.JPG"/>Notice that the graph can change with these values. A red line should pop up showing you the author's solution. The value that you have changed by varying the values should be green. When you're done playing with the values, answer the following questions.</p><p>What is the vertical axis on the graph? <select id="4ai">
+</p><img src ="energy_balance/energy14.JPG"/><p>Notice that the graph can change with these values. A red line should pop up showing you the author's solution. The value that you have changed by varying the values should be green. When you're done playing with the values, answer the following questions.</p><p>What is the vertical axis on the graph? <select id="4ai">
 <option></option>
 <option>time</option>
 <option>energy stored</option></select></p>
@@ -884,7 +908,6 @@ if ((checkAnswers("4ai", "energy stored") || set4.ai===3) &&checkTextbox("4bi") 
  document.getElementById("button4").style.display = "none";
 
 document.getElementById("4ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("4bi").disabled=true;
 document.getElementById("4ci").disabled=true;
 tim5= 0;
@@ -934,7 +957,7 @@ if(set4.ai===3)
 <h3>Question 5</h3>
 <p>In the table window, scroll to the very bottom and vary the values of energy balance and initial energy storeed, just as you did before with the graph (by dragging the sliders back and forth along the lines or by typing in different values in the boxes).</p><p>Notice how the table may change. When you're done playing with the values, answer the following questions.</p>
 <p>5a. 
-<img src ="energy_balance/energy15.JPG"/></p><p>On what day does energy stored hit 3.46e+5?</p><p>Day <select id="5ai">
+</p><img src ="energy_balance/energy15.JPG"/><p></p><p>On what day does energy stored hit 3.46e+5?</p><p>Day <select id="5ai">
 <option></option>
 <option>5</option>
 <option>7</option>
@@ -1021,7 +1044,6 @@ if ((checkAnswers("5ai", "5") || set5.ai===3) &&(checkAnswers("5bi", "15") || se
  document.getElementById("button5").style.display = "none";
 
 document.getElementById("5ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("5bi").disabled=true;
 document.getElementById("5ci").disabled=true;
 document.getElementById("5di").disabled=true;
@@ -1303,14 +1325,20 @@ if(set5.fii===3)
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td>
-<td style="border: 2pt black solid">difference between igestion and expenditure of energy per day</td><td style="border: 2pt black solid">Energy balance = energy ingested - <select id="6aiv">
+<td style="border: 2pt black solid">difference between ingestion and expenditure of energy per day</td><td style="border: 2pt black solid">Energy balance = energy ingested - <select id="6aiv">
 <option></option>
 <option>old energy balance</option>
 <option>energy stored</option>
 <option>energy expended</option>
 <option>new energy balance</option></select></td></tr>
 </tbody>
-</table></p>
+</table>
+<script type="text/javascript">
+function checkTable6aiv() {
+checkAnswers("6ai", "parameter");checkAnswers("6aii", "parameter");checkAnswers("6aiii", "function");checkAnswers("6aiv", "energy expended");
+};
+</script>
+<br><br><button id="table6aiv" onClick="checkTable6aiv();">Check Table</button><br><br></p>
 <script type="text/javascript">var set6 = {
 ai:0,
 aii:0,
@@ -1333,7 +1361,6 @@ if ((checkAnswers("6ai", "parameter") || set6.ai===3) &&(checkAnswers("6aii", "p
  document.getElementById("button6").style.display = "none";
 
 document.getElementById("6ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("6aii").disabled=true;
 document.getElementById("6aiii").disabled=true;
 document.getElementById("6aiv").disabled=true;
@@ -1490,11 +1517,11 @@ time8();
 <h3>Question 8</h3>
 <p>Do the following steps to create a new model for Joe's body.</p>
 <p>8a. If you have not done so already, click the <b>Done</b> button.
-<img src ="energy_balance/energy16.JPG"/></p>
+</p><img src ="energy_balance/energy16.JPG"/><p></p>
 <p>8b. Your current tab should close and you should see this screen again.
-<img src ="energy_balance/energy17.JPG"/></p>
+</p><img src ="energy_balance/energy17.JPG"/><p></p>
 <p>8c. Click on the Dragoon button below. After the problem opens, read the text on the left of the screen. Notice that some nodes have been created for you already.</p>
-<p>8d. Start defining/refining your nodes. Click on the <b>Create Node</b> button in the top left corner as you did before, or you can double-click on an already created node in the window. If you have described your nodes properly in the above table, creating nodes should be simple&mdash;you have all the information you need right here!</p>
+<p>8d. Start defining/refining your nodes. Click on the <b>Create Node</b> button in the top left corner as you did before, or you can double-click on an already created node in the window. If you have described your nodes properly in the above table, creating nodes should be simple—you have all the information you need right here!</p>
 <p>8e. As you can see from your table, four nodes are needed. After you have created them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren&#39t completely defined. Look for nodes that have dotted lines around them.</p><p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b></p>
 <script type="text/javascript">var set8 = {}; 
 function cont8() {
@@ -1530,7 +1557,7 @@ time9();
 <h3>Question 9</h3>
 <p></p>
 <p>9a. In the graph window, check <b>Show energy stored</b> and make sure <b>Show energy balance</b> is not checked, as boxed in the screenshot below.
-<img src ="energy_balance/energy18.JPG"/></p><p>Vary the values of energy ingested, energy expended, and initial energy stored. Notice that the graph can change with these values.</p><p>When you&#39re done playing with the values, close and reopen the graph window to reset the sliders to their original positions, and then answer the following questions.</p><p>What is the unit of the independent variable on the graph?</p><p><select id="9ai">
+</p><img src ="energy_balance/energy18.JPG"/><p></p><p>Vary the values of energy ingested, energy expended, and initial energy stored. Notice that the graph can change with these values.</p><p>When you&#39re done playing with the values, close and reopen the graph window to reset the sliders to their original positions, and then answer the following questions.</p><p>What is the unit of the independent variable on the graph?</p><p><select id="9ai">
 <option></option>
 <option>days</option>
 <option>calories</option></select></p>
@@ -1557,7 +1584,6 @@ if ((checkAnswers("9ai", "days") || set9.ai===3) &&checkTextbox("9bi") &&checkTe
  document.getElementById("button9").style.display = "none";
 
 document.getElementById("9ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("9bi").disabled=true;
 document.getElementById("9ci").disabled=true;
 tim10= 0;
@@ -1682,7 +1708,6 @@ if (checkTextbox("10ai") &&(checkAnswers("10bi", "14.00") || set10.bi===3) &&(ch
  document.getElementById("question11").style.display = "";
  document.getElementById("button10").style.display = "none";
 
-document.getElementById("user").disabled=true;
 document.getElementById("10ai").disabled=true;
 document.getElementById("10bi").disabled=true;
 document.getElementById("10ci").disabled=true;
@@ -1956,7 +1981,13 @@ if(set10.eii===3)
 <option>Calories per pound = weight/energy balance</option>
 <option>N/A</option></select></td></tr>
 </tbody>
-</table></p>
+</table>
+<script type="text/javascript">
+function checkTable11bv() {
+checkAnswers("11bi", "accumulator");checkAnswers("11bii", "150 lbs");checkAnswers("11biii", "function");checkAnswers("11biv", "parameter");checkAnswers("11bv", "N/A");
+};
+</script>
+<br><br><button id="table11bv" onClick="checkTable11bv();">Check Table</button><br><br></p>
 <p>11c. When you are done with your model, open the graph window and ensure that only <b>Show weight</b> is checked. Vary the values of the parameters, and check that the graph changes sensibly.</p>
 <p>11d. Close and reopen the graph window to reset the sliders to their original positions. You can use the <b>Graph</b> or <b>Table</b> buttons to answer the following questions.</p>
 <script type="text/javascript">var set11 = {
@@ -2180,7 +2211,6 @@ if ((checkAnswers("12ai", "615") || set12.ai===3) &&checkTextbox("12bi") &&check
  document.getElementById("button12").style.display = "none";
 
 document.getElementById("12ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("12bi").disabled=true;
 document.getElementById("12ci").disabled=true;
 document.getElementById("12di").disabled=true;
@@ -2328,7 +2358,13 @@ if(set12.ei===3)
 <option>resting energy expenditure</option>
 <option>digestive activity expenditure</option></select></td></tr>
 </tbody>
-</table></p>
+</table>
+<script type="text/javascript">
+function checkTable13av() {
+checkAnswers("13ai", "parameter");checkAnswers("13aii", "parameter");checkAnswers("13aiii", "parameter");checkAnswers("13aiv", "function");checkAnswers("13av", "digestive activity expenditure");
+};
+</script>
+<br><br><button id="table13av" onClick="checkTable13av();">Check Table</button><br><br></p>
 <p>13b. What is the value of Energy Expended? <select id="13bi">
 <option></option>
 <option>400</option>
@@ -2375,7 +2411,6 @@ if ((checkAnswers("13ai", "parameter") || set13.ai===3) &&(checkAnswers("13aii",
  document.getElementById("button13").style.display = "none";
 
 document.getElementById("13ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("13aii").disabled=true;
 document.getElementById("13aiii").disabled=true;
 document.getElementById("13aiv").disabled=true;
@@ -2664,7 +2699,7 @@ if(set13.di===3)
 <td style="border: 2pt black solid">Parameter</td>
 <td style="border: 2pt black solid">energy burned in order to digest food; value = 200 calories</td></tr><tr>
 <td style="border: 2pt black solid">Energy expended</td>
-<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting nergy expenditure + <select id="14civ">
+<td style="border: 2pt black solid">Function</td><td style="border: 2pt black solid">energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + <select id="14civ">
 <option></option>
 <option>physical activity level</option>
 <option>digestive activity expenditure</option>
@@ -2677,7 +2712,13 @@ if(set13.di===3)
 <option>function</option></select></td>
 <td style="border: 2pt black solid">Amount of physical activity, e.g., 0.2 for little or no exercise, 0.55 for moderate exercise, 0.9 for daily hard exercise</td></tr>
 </tbody>
-</table></p>
+</table>
+<script type="text/javascript">
+function checkTable14cv() {
+checkAnswers("14ci", "function");checkAnswers("14cii", "resting energy expenditure");checkAnswers("14ciii", "physical activity level");checkAnswers("14civ", "digestive activity expenditure");checkAnswers("14cv", "parameter");
+};
+</script>
+<br><br><button id="table14cv" onClick="checkTable14cv();">Check Table</button><br><br></p>
 <script type="text/javascript">var set14 = {
 bi:0,
 ci:0,
@@ -2706,7 +2747,6 @@ if (checkTextbox("14ai") &&(checkAnswers("14bi", "2.30e+3") || set14.bi===3) &&(
  document.getElementById("question15").style.display = "";
  document.getElementById("button14").style.display = "none";
 
-document.getElementById("user").disabled=true;
 document.getElementById("14ai").disabled=true;
 document.getElementById("14bi").disabled=true;
 document.getElementById("14ci").disabled=true;
@@ -2952,7 +2992,6 @@ if ((checkAnswers("15ai", "1.88e+3 cal") || set15.ai===3) &&(checkAnswers("15bi"
  document.getElementById("button15").style.display = "none";
 
 document.getElementById("15ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("15bi").disabled=true;
 document.getElementById("15ci").disabled=true;
 document.getElementById("15di").disabled=true;
@@ -3190,7 +3229,6 @@ document.getElementById("Physical activity expenditure").disabled=true;
 document.getElementById("Physical activity level").disabled=true;
 document.getElementById("Weight").disabled=true;
 document.getElementById("Weight change").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("16bi").disabled=true;
 tim17= 0;
 
@@ -3303,7 +3341,7 @@ if(set16.bi===3)
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
-<option>function</option></select></td><td style="border: 2pt black solid"> energy burned in order to digest food; value = <select id="17aiv">
+<option>function</option></select></td><td style="border: 2pt black solid">energy burned in order to digest food; value = <select id="17aiv">
 <option></option>
 <option>energy balance</option>
 <option>energy ingested</option>
@@ -3332,7 +3370,13 @@ if(set16.bi===3)
 <option>0.12</option>
 <option>0.20</option></select></td></tr>
 </tbody>
-</table></p>
+</table>
+<script type="text/javascript">
+function checkTable17avii() {
+checkAnswers("17ai", "resting energy expenditure");checkAnswers("17aii", "physical activity level");checkAnswers("17aiii", "function");checkAnswers("17aiv", "energy ingested");checkAnswers("17av", "digestive energy factor");checkAnswers("17avi", "digestive activity expenditure");checkAnswers("17avii", "0.10");
+};
+</script>
+<br><br><button id="table17avii" onClick="checkTable17avii();">Check Table</button><br><br></p>
 <script type="text/javascript">var set17 = {
 ai:0,
 aii:0,
@@ -3361,7 +3405,6 @@ if ((checkAnswers("17ai", "resting energy expenditure") || set17.ai===3) &&(chec
  document.getElementById("button17").style.display = "none";
 
 document.getElementById("17ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("17aii").disabled=true;
 document.getElementById("17aiii").disabled=true;
 document.getElementById("17aiv").disabled=true;
@@ -3626,7 +3669,6 @@ if ((checkAnswers("18ai", "199 calories") || set18.ai===3) &&(checkAnswers("18bi
  document.getElementById("button18").style.display = "none";
 
 document.getElementById("18ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("18bi").disabled=true;
 document.getElementById("18bii").disabled=true;
 document.getElementById("18ci").disabled=true;
@@ -3962,7 +4004,13 @@ if(set18.ei===3)
 <option>function</option></select></td>
 <td style="border: 2pt black solid">Contribution of gender to REE; value = 5 for men and  -161 for women.</td></tr>
 </tbody>
-</table></p>
+</table>
+<script type="text/javascript">
+function checkTable19gxiii() {
+checkAnswers("19gi", "function");checkAnswers("19gii", "weight REE");checkAnswers("19giii", "age REE");checkAnswers("19giv", "height REE");checkAnswers("19gv", "function");checkAnswers("19gvi", "parameter");checkAnswers("19gvii", "function");checkAnswers("19gviii", "parameter");checkAnswers("19gix", "parameter");checkAnswers("19gx", "function");checkAnswers("19gxi", "parameter");checkAnswers("19gxii", "parameter");checkAnswers("19gxiii", "parameter");
+};
+</script>
+<br><br><button id="table19gxiii" onClick="checkTable19gxiii();">Check Table</button><br><br></p>
 <script type="text/javascript">var set19 = {
 ai:0,
 bi:0,
@@ -3986,7 +4034,7 @@ gxiii:0,};
 function cont19() {
 var yestim19 = 0;
 document.getElementById("19Time").innerHTML = tim19;
-checkbox("19ai",['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'],[])
+checkbox("19ai",['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'],['Thermic effect of food', 'Resting metabolic rate', 'Physical activity level'])
 checkAnswers("19bi", "153 lbs");
 checkAnswers("19ci", "157 lbs");
 checkAnswers("19di", "143 lbs");
@@ -4022,7 +4070,6 @@ if ((checkbox("19ai",['Thermic effect of food', 'Resting metabolic rate', 'Physi
 document.getElementById("Thermic effect of food").disabled=true;
 document.getElementById("Resting metabolic rate").disabled=true;
 document.getElementById("Physical activity level").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("19bi").disabled=true;
 document.getElementById("19ci").disabled=true;
 document.getElementById("19di").disabled=true;
@@ -4595,7 +4642,6 @@ if ((checkAnswers("20ai", "160 lbs") || set20.ai===3) &&(checkAnswers("20bi", "1
  document.getElementById("button20").style.display = "none";
 
 document.getElementById("20ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("20bi").disabled=true;
 document.getElementById("20ci").disabled=true;
 document.getElementById("20di").disabled=true;
@@ -4736,7 +4782,6 @@ if ((checkAnswers("21ai", "almost all") || set21.ai===3) &&checkTextbox("21bi") 
  document.getElementById("button21").style.display = "none";
 
 document.getElementById("21ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("21bi").disabled=true;
 document.getElementById("21ci").disabled=true;
 document.getElementById("21di").disabled=true;
@@ -4805,7 +4850,6 @@ if (checkTextbox("22ai") &&1) {
  document.getElementById("question23").style.display = "";
  document.getElementById("button22").style.display = "none";
 
-document.getElementById("user").disabled=true;
 document.getElementById("22ai").disabled=true;
 displayAnswers();
 }
@@ -4814,7 +4858,7 @@ displayAnswers();
 
 <br><button id="button22" onClick="cont22();">Continue</button>
 <div id="question23" style="display: none">
-</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div id="resultsTable" style="display:none">
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div id="resultsTable" style="display:none">
 <table>
 <thead>
 <td style="border: 2pt black solid">Question</td>

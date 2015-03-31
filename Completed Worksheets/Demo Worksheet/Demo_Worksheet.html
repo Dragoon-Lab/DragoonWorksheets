@@ -126,6 +126,21 @@ return result;
 <body>
 <label>Username :</label>&nbsp;<input type="text" name="user" id="user">
 <input type="hidden" name="section" id="section" value="public-worksheet">
+<script type="text/javascript">
+function enterUsername() {
+if (document.getElementById("user").value!=="" && document.getElementById("user").value.length<=30) {
+document.getElementById("wkstBody").style.display="";
+document.getElementById("usernameCheck").style.display="none";
+document.getElementById("user").style.background="";
+document.getElementById("user").disabled=true;
+}
+else {
+document.getElementById("user").style.background="#FF3333";
+alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
+}
+};
+</script>
+<br><br><button id="usernameCheck" onClick="enterUsername();">Start Worksheet</button><div id="wkstBody" style="display: none">
 <p><b>Systems Dynamics Modeling</b></p><p>Systems Dynamics Modeling is a method of understanding systems (i.e., parts of the world that you are interested in) that change over time (i.e., they are dynamic).  It works by breaking down a system into distinct pieces—called “nodes” in the Dragoon software.  A model is made by defining both nodes and the relationships between them.  In particular, if Node A has an effect on Node B, Node A is considered an “input” of Node B.  Once all the nodes and inputs are defined, the computer can calculate the change in the system over time and provide you with graphs showing the results.</p><p><b>Parameters, Actuators, Functions</b></p><p>Models in Dragoon are made up of three types of nodes: Paramters, Accumulators, and Functions.<ul><li>Parameters are the simplest type of node. A parameter represents a <b>fixed quantity that never changes</b>. Parameters are used to represent constant values (<i>height of a building</i> being 12 m.</li><li>Accumulators represent <b>a quantity that increases or decreases over time based on its previous value and the value of its inputs</b>. The inputs to an accumulator govern how much it changes over time. At each time step, the inputs are added or subtracted from the value for the accumulator at the current time step to determine its value at the next time step.</li><li>Functions represent a <b>value that is directly related to the values of other quantities, without regard to its own previous value</b>. The inputs to functions determine the value of the function.  A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value.</li></ul>Accumulators and functions seem very similar at first, and it can take some practice to determine if a particular quantity should be represented as one or the other.  To determine if a quantity should be an accumulator, ask the question:  “Does this quantity add or subtract new values to itself each time step to find its new value?”  If it does, then the quantity is an Accumulator.  If it does not, then the quantity is a Function.  Additionally, Accumulators typically have an initial value associated with them, whereas functions do not.</p><p><b>Example system<b>: Let’s start by modeling a simple system: a population of Dodo birds as they were becoming extinct.  Suppose that there were 1000 Dodo birds in the population initially and that 20% of the Dodo birds died each year.  Thus, the number of deaths in the first year was 1000 * 20% = 200 deaths, leaving 800 Dodos alive at the beginning of the second year.  The number of deaths in the second year was 800 * 20% = 160 deaths, leaving 640 Dodos alive for the start of the third year.   Because the number of Dodo birds and the number of deaths change over the years, this is a dynamic system.</p>
 <h3>Question 1</h3>
 <p>To make sure you understand the system's behavior, please fill in the next few years in the table below.</p>
@@ -188,7 +203,13 @@ return result;
 <option>592</option>
 <option>473.6</option></select></td></tr>
 </tbody>
-</table>It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let’s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn’t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity – 1000 Dodos – and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population – deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the “Dodo extinction” model in the “Introductory” category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):</p>
+</table>
+<script type="text/javascript">
+function checkTable1avi() {
+checkAnswers("1ai", "740");checkAnswers("1aii", "148");checkAnswers("1aiii", "592");checkAnswers("1aiv", "118.4");checkAnswers("1av", "473.6");checkAnswers("1avi", "94.72");
+};
+</script>
+<br><br><button id="table1avi" onClick="checkTable1avi();">Check Table</button><br><br>It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let’s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn’t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity – 1000 Dodos – and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population – deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the “Dodo extinction” model in the “Introductory” category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):</p>
 <script type="text/javascript">var set1 = {
 ai:0,
 aii:0,
@@ -200,8 +221,8 @@ function cont1() {
 var yestim1 = 0;
 document.getElementById("1Time").innerHTML = tim1;
 checkAnswers("1ai", "740");checkAnswers("1aii", "148");checkAnswers("1aiii", "592");checkAnswers("1aiv", "118.4");checkAnswers("1av", "473.6");checkAnswers("1avi", "94.72");
-if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1aiii").value==="" || document.getElementById("1aiv").value==="" || document.getElementById("1av").value==="" || document.getElementById("1avi").value==="" || (document.getElementById("user").value==="" || document.getElementById("user").value.length>30)) {
- alert("It appears you have left at least one of these fields blank. Please remedy this immediately. Remember that you must enter a username at the top between 1 and 30 characters.");
+if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1aiii").value==="" || document.getElementById("1aiv").value==="" || document.getElementById("1av").value==="" || document.getElementById("1avi").value==="" || 0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("1ai", "740")) { 
  set1.ai = set1.ai + 1;}if (!checkAnswers("1aii", "148")) { 
@@ -210,12 +231,11 @@ if (!checkAnswers("1ai", "740")) {
  set1.aiv = set1.aiv + 1;}if (!checkAnswers("1av", "473.6")) { 
  set1.av = set1.av + 1;}if (!checkAnswers("1avi", "94.72")) { 
  set1.avi = set1.avi + 1;}
-if ((checkAnswers("1ai", "740") || set1.ai===3) &&(checkAnswers("1aii", "148") || set1.aii===3) &&(checkAnswers("1aiii", "592") || set1.aiii===3) &&(checkAnswers("1aiv", "118.4") || set1.aiv===3) &&(checkAnswers("1av", "473.6") || set1.av===3) &&(checkAnswers("1avi", "94.72") || set1.avi===3) &&(document.getElementById("user").value!== ""&& document.getElementById("user").value.length<=30)) {
+if ((checkAnswers("1ai", "740") || set1.ai===3) &&(checkAnswers("1aii", "148") || set1.aii===3) &&(checkAnswers("1aiii", "592") || set1.aiii===3) &&(checkAnswers("1aiv", "118.4") || set1.aiv===3) &&(checkAnswers("1av", "473.6") || set1.av===3) &&(checkAnswers("1avi", "94.72") || set1.avi===3) &&1) {
  document.getElementById("question2").style.display = "";
  document.getElementById("button1").style.display = "none";
 
 document.getElementById("1ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("1aii").disabled=true;
 document.getElementById("1aiii").disabled=true;
 document.getElementById("1aiv").disabled=true;
@@ -388,9 +408,9 @@ if (set1.avi=== 1) {
 <br><button id="button1" onClick="cont1();">Continue</button>
 <div id="question2" style="display: none">
 <p>It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let’s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn’t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity – 1000 Dodos – and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population – deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the “Dodo extinction” model in the “Introductory” category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):</p>
-<img src ="Image1/Demo.JPG"/>
+</p><img src ="Image1/Demo.JPG"/><p>
 <p>This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes e.g., Parameter nodes are diamonds.  The inside of a Parameter node shows its value.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node shows both its mathematical operation and its <i>initial</i> value.</p><p>If you click on the Table button, you can see the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button displays the same information in graph form (see right figure).</p>
-<img src ="Image2/Demo.JPG"/>
+</p><img src ="Image2/Demo.JPG"/><p>
 <p>While the Dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.</p><p><b>Problem Worksheet</b></p><p>In these problems, we will be modeling the population of moose and wolves that lived on the Isle Royale.  Wolves preyed on the moose, so their populations were tied together in what is known as a “predator-prey” relationship—as the number of moose grew, the number of wolves grew in response to having more food available, but then the wolves would eat more moose, causing the moose population to decrease, meaning less food is available for wolves, etc.  This relationship is complicated, so creating a model is necessary for fully understanding the relationship between the two populations.  Let us build up to the final model by making a series of models of simpler systems.  For instance, the first few systems pretend that Isle Royale has only moose on it and no wolves on it.</p>
 <h3>Question 2</h3>
 <p>Assume that the moose population on the Isle Royale begins at 20 moose and that 2 moose are born each year.  In the table below, identify what types of nodes would represent this information.</p>
@@ -411,7 +431,13 @@ if (set1.avi=== 1) {
 <option>accumulator</option>
 <option>function</option></select></td></tr>
 </tbody>
-</table>Now select the Isle Royale problem category and solve the “Moose Population 1” problem in Dragoon by creating a model.  When you have finished, click on the Graph and/or Table button to confirm that the changing values of the variables make sense. Now click here (button) and it will open the Dragoon problem.</p>
+</table>
+<script type="text/javascript">
+function checkTable2aii() {
+checkAnswers("2ai", "parameter");checkAnswers("2aii", "function");
+};
+</script>
+<br><br><button id="table2aii" onClick="checkTable2aii();">Check Table</button><br><br>Now select the Isle Royale problem category and solve the “Moose Population 1” problem in Dragoon by creating a model.  When you have finished, click on the Graph and/or Table button to confirm that the changing values of the variables make sense. Now click here (button) and it will open the Dragoon problem.</p>
 <script type="text/javascript">var set2 = {
 ai:0,
 aii:0,}; 
@@ -430,7 +456,6 @@ if ((checkAnswers("2ai", "parameter") || set2.ai===3) &&(checkAnswers("2aii", "f
  document.getElementById("button2").style.display = "none";
 
 document.getElementById("2ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("2aii").disabled=true;
 tim3= 0;
 
@@ -522,7 +547,13 @@ if (set2.aii=== 1) {
 <option>accumulator</option>
 <option>function</option></select></td></tr>
 </tbody>
-</table>Which node(s) do <i>moose population</i> use as inputs to determine its value?<select id="3aiv">
+</table>
+<script type="text/javascript">
+function checkTable3aiii() {
+checkAnswers("3ai", "accumulator");checkAnswers("3aii", "function");checkAnswers("3aiii", "parameter");
+};
+</script>
+<br><br><button id="table3aiii" onClick="checkTable3aiii();">Check Table</button><br><br>Which node(s) do <i>moose population</i> use as inputs to determine its value?<select id="3aiv">
 <option></option>
 <option>number of moose births per year</option>
 <option>moose birth rate</option></select>Which node(s) do <i>number of births per year</i> use as inputs to determine its value?<select id="3av">
@@ -556,7 +587,6 @@ if ((checkAnswers("3ai", "accumulator") || set3.ai===3) &&(checkAnswers("3aii", 
  document.getElementById("button3").style.display = "none";
 
 document.getElementById("3ai").disabled=true;
-document.getElementById("user").disabled=true;
 document.getElementById("3aii").disabled=true;
 document.getElementById("3aiii").disabled=true;
 document.getElementById("3aiv").disabled=true;
@@ -762,7 +792,6 @@ if ((checkAnswers("5ai", "function") || set5.ai===3) &&1) {
  document.getElementById("button5").style.display = "none";
 
 document.getElementById("5ai").disabled=true;
-document.getElementById("user").disabled=true;
 tim6= 0;
 
 function time6() {
@@ -858,7 +887,7 @@ displayAnswers();
 
 <br><button id="button7" onClick="cont7();">Continue</button>
 <div id="question8" style="display: none">
-</div></div></div></div></div></div></div><div id="resultsTable" style="display:none">
+</div></div></div></div></div></div></div></div><div id="resultsTable" style="display:none">
 <table>
 <thead>
 <td style="border: 2pt black solid">Question</td>

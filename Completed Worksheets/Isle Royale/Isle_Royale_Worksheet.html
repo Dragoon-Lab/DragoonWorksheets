@@ -126,21 +126,36 @@ return result;
 <body>
 <label>Username :</label>&nbsp;<input type="text" name="user" id="user">
 <input type="hidden" name="section" id="section" value="public-worksheet">
+<script type="text/javascript">
+function enterUsername() {
+if (document.getElementById("user").value!=="" && document.getElementById("user").value.length<=30) {
+document.getElementById("wkstBody").style.display="";
+document.getElementById("usernameCheck").style.display="none";
+document.getElementById("user").style.background="";
+document.getElementById("user").disabled=true;
+}
+else {
+document.getElementById("user").style.background="#FF3333";
+alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
+}
+};
+</script>
+<br><br><button id="usernameCheck" onClick="enterUsername();">Start Worksheet</button><div id="wkstBody" style="display: none">
 <p><h3>Isle Royale Worksheet</h3></p>
 <h3>Question 1</h3>
 <p>Although the wolves arrived on Isle Royale in 1949, the moose arrived much earlier. This worksheet will lead you through the process of developing a model of the moose population when it is unaffected by wolves. Although we have no records of moose population prior to 1949, biologists believe that a small herd migrated to the island around 1900, grew to around 500 and leveled off, so let’s pretend that this is the graph of moose population in the first half of the 20th century:</p>
 <p>1a. 
-<img src ="isle_royale/graph1.JPG"/>Let’s start by building a model of the early phase, when the herd was small, food was abundant and hardly any moose died. Here is the target graph, extracted from the one in Figure 1:
-<img src ="isle_royale/graph2.JPG"/>That is, you should build a model that makes the following assumptions:<ul><li>The population is 20 in the first year (1900).</li><li>Births are the only change in population. Deaths, immigration, and emigration do not occur.</li><li>The number of births each year is... <i>what?</i></li></ul>The third assumption is a problematic. In reality, the number of births is determined by the number of female moose of child-bearing age, their health, and many other factors. However, following Occam’s Razor, we want to start with the simplest assumption and see if it can explain the data. Looking closely at the graph, it appears the moose population increased from 20 to 24 during the first year, and to 28 during the second year, so let’s make the simple assumption that 4 moose are born each year and see if the resulting curve matches the first 20 years of the curve shown in Figure 2.</p><p>Please open the Dragoon problem and create a model for the moose population as described above.</p>
+</p><img src ="isle_royale/graph1.JPG"/><p>Let’s start by building a model of the early phase, when the herd was small, food was abundant and hardly any moose died. Here is the target graph, extracted from the one in Figure 1:
+</p><img src ="isle_royale/graph2.JPG"/><p>That is, you should build a model that makes the following assumptions:<ul><li>The population is 20 in the first year (1900).</li><li>Births are the only change in population. Deaths, immigration, and emigration do not occur.</li><li>The number of births each year is... <i>what?</i></li></ul>The third assumption is a problematic. In reality, the number of births is determined by the number of female moose of child-bearing age, their health, and many other factors. However, following Occam’s Razor, we want to start with the simplest assumption and see if it can explain the data. Looking closely at the graph, it appears the moose population increased from 20 to 24 during the first year, and to 28 during the second year, so let’s make the simple assumption that 4 moose are born each year and see if the resulting curve matches the first 20 years of the curve shown in Figure 2.</p><p>Please open the Dragoon problem and create a model for the moose population as described above.</p>
 <script type="text/javascript">var set1 = {}; 
 function cont1() {
 var yestim1 = 0;
 
-if ((document.getElementById("user").value==="" || document.getElementById("user").value.length>30)) {
- alert("It appears you have left at least one of these fields blank. Please remedy this immediately. Remember that you must enter a username at the top between 1 and 30 characters.");
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 
-if (checkCompletion(1) && (document.getElementById("user").value!== ""&& document.getElementById("user").value.length<=30)) {
+if (checkCompletion(1) && 1) {
  document.getElementById("question2").style.display = "";
  document.getElementById("button1").style.display = "none";
 
@@ -199,7 +214,7 @@ time3();
 <h3>Question 3</h3>
 <p>Your model’s graph does match the actual moose population for the first 20 years or so, so your modeling has been a success. Congratulations! Here’s what one student’s model produced:</p>
 <p>3a. 
-<img src ="isle_royale/graph3.JPG"/>Although our model matches the moose population for the first 20 years, the model’s predictions do not match the actual moose population for the remaining years. Please open the Dragoon problem and create a model for the moose population as described above. This contains the same model as you just completed, but the time span has been change from 20 years to 50 years. Click on “Graph”. When you have studied the graphs, DO NOT close Dragoon because you will need to edit the model in a moment. Just return to reading this section.</p>
+</p><img src ="isle_royale/graph3.JPG"/><p>Although our model matches the moose population for the first 20 years, the model’s predictions do not match the actual moose population for the remaining years. Please open the Dragoon problem and create a model for the moose population as described above. This contains the same model as you just completed, but the time span has been change from 20 years to 50 years. Click on “Graph”. When you have studied the graphs, DO NOT close Dragoon because you will need to edit the model in a moment. Just return to reading this section.</p>
 <script type="text/javascript">var set3 = {}; 
 function cont3() {
 var yestim3 = 0;
@@ -366,7 +381,7 @@ time8();
 <h3>Question 8</h3>
 <p>Your model should show cycles similar to the ones in the systems actual behavior, which is in the resources and (for convenience) also shown as Figure 1.</p>
 <p>8a. 
-<img src ="isle_royale/graph4.JPG"/>We have now created a model whose predictions come close to matching the actual Isle Royale curves. There are no obvious patterns left to explain, although perhaps the reader can find some non-obvious ones and try modeling them.</p><p>During the development of these models, we have touched upon some classic models in biology. The initial model of the moose population produced exponential growth, so such models are called <i>exponential growth models</i>. The moose population with only carrying capacity and not wolf predation is call a <i>logistic growth model</i>, because the curve it produces is a logistic curve. The model we finally produced is a famous early model of predation called the Lotka-volterra model. The Lotka-volterra model lacks the carrying capacity constraint on the moose population, and it often does not match real data well. When carrying capacity is added to the Lotka-Volterra model, then its accuracy improves. Using Author mode in Dragoon, you can try this yourself.</p>
+</p><img src ="isle_royale/graph4.JPG"/><p>We have now created a model whose predictions come close to matching the actual Isle Royale curves. There are no obvious patterns left to explain, although perhaps the reader can find some non-obvious ones and try modeling them.</p><p>During the development of these models, we have touched upon some classic models in biology. The initial model of the moose population produced exponential growth, so such models are called <i>exponential growth models</i>. The moose population with only carrying capacity and not wolf predation is call a <i>logistic growth model</i>, because the curve it produces is a logistic curve. The model we finally produced is a famous early model of predation called the Lotka-volterra model. The Lotka-volterra model lacks the carrying capacity constraint on the moose population, and it often does not match real data well. When carrying capacity is added to the Lotka-Volterra model, then its accuracy improves. Using Author mode in Dragoon, you can try this yourself.</p>
 <script type="text/javascript">var set8 = {}; 
 function cont8() {
 var yestim8 = 0;
@@ -428,9 +443,9 @@ time10();
 <h3>Question 10</h3>
 <p>Suppose that it wasn’t wolves that immigrated across the ice to Isle Royale, but instead some deer came over. The deer and moose eat similar food, so they are competing for a resource. Intuitively, the two populations interact, but not like the wolves and moose interacted. Thus, we need a new kind of model.</p><p>If you think about the equation for moose death rate, the term moose population / carrying capacity represents how close the moose are to exhausting the carrying capacity. The more moose, the closer this ratio is to 1. When it finally hits 1, then the moose population stabilizes because moose are dying as fast as they are being born. Now if the deer are also using up the same resource, then perhaps the ratio should be (moose population + deer population)/carrying capacity. That is, when the number of animals that eat balsam fir etc. reaches the carrying capacity then the moose are starving just enough to stabilize the moose population. The deer population should be limited in the same way. That is, when the ratio (moose population + deer population)/carrying capacity reaches 1, then the deer deaths should equal the deer births, and the deer population should stabilized.</p><p>This is all fine, but it assumes that moose and deer eat the same amount and that starvation has the same effect on both of them. That assumption is rather implausible. Because we don’t know exactly how the deer population effects moose starvation, nor do we know exactly how the moose population effects deer starvation, let us just add parameters (let’s call them just P1 and P2 for now) to the model that allow us to try different values for them until we get the model’s curves to match the actual system behavior. In particular, let us assume:</p><p><i>Moose death rate = moose birth rate*((moose population + P1*deer population)/carrying capacity)</p><p>Deer death rate = deer birth rate*((deer population + P2*moose population)/carrying capacity)</i></p>
 <p>10a. The parameters P1 and P2 are positive numbers, but it isn’t clear in advance what they should be, so you
-<img src ="isle_royale/graph5.JPG"/>This assumes that in 1900, 20 moose and 2 deer immigrated to Isle Royale.</p><p>Build a model for the moose-deer ecosystem</p>The deer and moose eat similar food, so they are competing for a resource. Intuitively, the two populations interact, but not like the wolves and moose interacted. Thus, we need a new kind of model.</p><p>If you think about the equation for moose death rate, the term <i>moose population / carrying capacity</i> represents how close the moose are to exhausting the carrying capacity. The more moose, the closer this ratio is to 1. When it finally hits 1, then the moose population stabilizes because moose are dying as fast as they are being born. Now if the deer are also using up the same resource, then perhaps the ratio should be (<i>moose population + deer population)/carrying capacity</i>. That is, when the number of animals that eat balsam fir etc. reaches the carrying capacity then the moose are starving just enough to stabilize the moose population. The deer population should be limited in the same way. That is, when the ratio (<i>moose population + deer population)/carrying capacity</i> reaches 1, then the deer deaths should equal the deer births, and the deer population should stabilized.</p>
+</p><img src ="isle_royale/graph5.JPG"/><p>This assumes that in 1900, 20 moose and 2 deer immigrated to Isle Royale.</p><p>Build a model for the moose-deer ecosystem</p>The deer and moose eat similar food, so they are competing for a resource. Intuitively, the two populations interact, but not like the wolves and moose interacted. Thus, we need a new kind of model.</p><p>If you think about the equation for moose death rate, the term <i>moose population / carrying capacity</i> represents how close the moose are to exhausting the carrying capacity. The more moose, the closer this ratio is to 1. When it finally hits 1, then the moose population stabilizes because moose are dying as fast as they are being born. Now if the deer are also using up the same resource, then perhaps the ratio should be (<i>moose population + deer population)/carrying capacity</i>. That is, when the number of animals that eat balsam fir etc. reaches the carrying capacity then the moose are starving just enough to stabilize the moose population. The deer population should be limited in the same way. That is, when the ratio (<i>moose population + deer population)/carrying capacity</i> reaches 1, then the deer deaths should equal the deer births, and the deer population should stabilized.</p>
 <p>10b. This is all fine, but it assumes that moose and deer eat the same amount and that starvation has the same effect on both of them. That assumption is rather implausible. Because we don’t know exactly how the deer population effects moose starvation, nor do we know exactly how the moose population affects deer starvation, let us just add parameters (lets call them just P1 and P2 for now) to the model that allow us to try different values for them until we get the model’s curves to match the actual system behavior. In particular, let us assume:</p><p><i>Moose death rate = moose birth rate*((moose population + P1*deer population)/carrying capacity)</p><p>Deer death rate = deer birth rate*((deer population + P2*moose population)/carrying capacity)</i></p><p>The parameters P1 and P2 are positive numbers, but it isn’t clear in advance what they should be, so you should find values by trial and error so that the model’s predictions fit the “observed” system behavior shown below:
-<img src ="isle_royale/graph5.JPG"/>This assumes that in 1900, 20 moose and 2 other deer immigrated to Isle Royale.</p><p>Build a mdoel for this moose-deer ecosystem.</p>
+</p><img src ="isle_royale/graph5.JPG"/><p>This assumes that in 1900, 20 moose and 2 other deer immigrated to Isle Royale.</p><p>Build a mdoel for this moose-deer ecosystem.</p>
 <script type="text/javascript">var set10 = {}; 
 function cont10() {
 var yestim10 = 0;
@@ -450,7 +465,7 @@ displayAnswers();
 
 <br><button id="button10" onClick="cont10();">Continue</button>
 <div id="question11" style="display: none">
-</div></div></div></div></div></div></div></div></div></div><div id="resultsTable" style="display:none">
+</div></div></div></div></div></div></div></div></div></div></div><div id="resultsTable" style="display:none">
 <table>
 <thead>
 <td style="border: 2pt black solid">Question</td>
