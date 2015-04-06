@@ -9,7 +9,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "The \"beaver population\" is an <b>accumulator</b> whose value is calculated by the following expression:</p><p>new beaver population = old beaver population + "
+                                            "text": "Suppose you are creating a model of the system described in the italicized paragraph below.</p><p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p><p>The \"beaver population\" is an <b>accumulator</b> whose value is calculated by the following expression:</p><p>new beaver population = old beaver population + "
                                         }
                                     },
                                     {
@@ -106,7 +106,7 @@
                             }
                         }
                     ],
-                    "gen": "Suppose you are creating a model of the system described in the italicized paragraph below.</p><p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i>"
+                    "sub": ""
                 }
             },
             {
@@ -159,7 +159,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "The number of video games Brandon has each week is the number of video games he had the preceding week plus the number of video games he buys this week. Therefore, the number of video games Brandon has is a(n): "
+                                            "text": "Assume you are modeling the system decribed below in italics.</p><p><i>Brandon has 100 video games. Each week, he buys two more games.</i></p><p>The number of video games Brandon has each week is the number of video games he had the preceding week plus the number of video games he buys this week. Therefore, the number of video games Brandon has is a(n): "
                                         }
                                     },
                                     {
@@ -176,7 +176,7 @@
                             }
                         }
                     ],
-                    "gen": "Assume you are modeling the system decribed below in italics.</p><p><i>Brandon has 100 video ganes. Each week, he buys two more games.</i>"
+                    "sub": ""
                 }
             },
             {
@@ -337,7 +337,7 @@
                             }
                         }
                     ],
-                    "gen": ""
+                    "sub": ""
                 }
             },
             {
@@ -389,7 +389,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "What happens to the graph if you change the initial energy stored? Change the value from 345000 calories to 3000 calories. Don't forget to reset energy balance to 100 calories."
+                                            "text": "In the graoh window, vary the values of energy balance and initial energy stored by dragging the sliders back and forth along the lines (boxed below) or by typing in different values in the boxes (boxed below).</p><p>What happens to the graph if you change the initial energy stored? Change the value from 345000 calories to 3000 calories. Don't forget to reset energy balance to 100 calories."
                                         }
                                     },
                                     {
@@ -401,7 +401,7 @@
                             }
                         }
                     ],
-                    "gen": "In the graoh window, vary the values of energy balance and initial energy stored by dragging the sliders back and forth along the lines (boxed below) or by typing in different values in the boxes (boxed below)."
+                    "sub": ""
                 }
             },
             {
@@ -586,7 +586,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "Why are your answers so different for questions 5d & 5f? What does this mean?"
+                                            "text": "In the table window, scroll to the very bottom and vary the values of energy balance and initial energy storeed, just as you did before with the graph (by dragging the sliders back and forth along the lines or by typing in different values in the boxes).</p><p>Notice how the table may change. When you're done playing with the values, answer the following questions.</p><p>Why are your answers so different for questions 5d & 5f? What does this mean?"
                                         }
                                     },
                                     {
@@ -598,7 +598,7 @@
                             }
                         }
                     ],
-                    "gen": "In the table window, scroll to the very bottom and vary the values of energy balance and initial energy storeed, just as you did before with the graph (by dragging the sliders back and forth along the lines or by typing in different values in the boxes).</p><p>Notice how the table may change. When you're done playing with the values, answer the following questions."
+                    "sub": ""
                 }
             },
             {
@@ -681,7 +681,7 @@
                             }
                         }
                     ],
-                    "gen": ""
+                    "sub": ""
                 }
             },
             {
@@ -699,18 +699,18 @@
                                         "__Text__": {
                                             "text": "It doesn't look like much, but that is because you still need to create your nodes."
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-0"
+										}
+									}
                                 ]
-                            }
-                        },
-                        {
-                            "__Dragoon__": {
-                                "mode": "STUDENT",
-                                "problem": "Energy-balance-0"
                             }
                         }
                     ],
-                    "gen": "Dragoon: Energy Balance - Level 0"
+                    "sub": "Dragoon: Energy Balance - Level 0"
                 }
             },
             {
@@ -721,7 +721,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "If you have not done so already, click the <b>Done</b> button."
+                                            "text": "Do the following steps to create a new model for Joe's body.</p><p>If you have not done so already, click the <b>Done</b> button."
                                         }
                                     },
                                     {
@@ -777,18 +777,18 @@
                                         "__Text__": {
                                             "text": "As you can see from your table, four nodes are needed. After you have created them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren&#39;t completely defined. Look for nodes that have dotted lines around them.</p><p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b>"
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-1"
+										}
+									}
                                 ]
-                            }
-                        },
-                        {
-                            "__Dragoon__": {
-                                "mode": "STUDENT",
-                                "problem": "Energy-balance-1"
                             }
                         }
                     ],
-                    "gen": "Do the following steps to create a new model for Joe's body."
+                    "sub": ""
                 }
             },
             {
@@ -862,7 +862,7 @@
                             }
                         }
                     ],
-                    "gen": ""
+                    "sub": ""
                 }
             },
             {
@@ -873,7 +873,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "What does the -111 represent in the last column and why doesn&#39;t it change?"
+                                            "text": "In the table window, scroll to the bottom and vary the values of energy balance and initial energy stored. Notice how the table may change.</p><p>When you&#39;re done testing different values for energy expended, energy ingested, and energy stored, close and reopen the table window to reset the sliders to their original positions. Answer the following questions.</p><p>What does the -111 represent in the last column and why doesn&#39;t it change?"
                                         }
                                     },
                                     {
@@ -1031,7 +1031,7 @@
                             }
                         }
                     ],
-                    "gen": "In the table window, scroll to the bottom and vary the values of energy balance and initial energy stored. Notice how the table may change.</p><p>When you&#39;re done testing different values for energy expended, energy ingested, and energy stored, close and reopen the table window to reset the sliders to their original positions. Answer the following questions."
+                    "sub": ""
                 }
             },
             {
@@ -1162,18 +1162,18 @@
                                         "__Text__": {
                                             "text": "Close and reopen the graph window to reset the sliders to their original positions. You can use the <b>Graph</b> or <b>Table</b> buttons to answer the following questions."
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-2"
+										}
+									}
                                 ]
-                            }
-                        },
-                        {
-                            "__Dragoon__": {
-                                "mode": "STUDENT",
-                                "problem": "Energy-balance-2"
                             }
                         }
                     ],
-                    "gen": "<b>Energy Balance - Level 2</b>"
+                    "sub": "Energy Balance - Level 2"
                 }
             },
             {
@@ -1307,7 +1307,7 @@
                             }
                         }
                     ],
-                    "gen": ""
+                    "sub": ""
                 }
             },
             {
@@ -1317,6 +1317,11 @@
                             "__Section__": {
                                 "content": [
                                     {
+										"__Text__": {
+											"text": "Please open the Dragoon problem below and then answer the following questions."
+										}
+									},
+									{
                                         "__Table__": {
                                             "header": [
                                                 "Node Name",
@@ -1389,13 +1394,20 @@
                                     }
                                 ]
                             }
-                        },
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
                         {
                             "__Section__": {
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "What is the value of Energy Expended? "
+                                            "text": "Please open the Dragoon problem below and then answer the following questions.</p><p>What is the value of Energy Expended? "
                                         }
                                     },
                                     {
@@ -1462,18 +1474,18 @@
                                         "__Text__": {
                                             "text": " slope."
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-3"
+										}
+									}
                                 ]
-                            }
-                        },
-                        {
-                            "__Dragoon__": {
-                                "mode": "STUDENT",
-                                "problem": "Energy-balance-3"
                             }
                         }
                     ],
-                    "gen": "Please open the Dragoon problem below and then answer the following questions."
+                    "sub": ""
                 }
             },
             {
@@ -1629,18 +1641,18 @@
                                                 ]
                                             ]
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-5"
+										}
+									}
                                 ]
-                            }
-                        },
-                        {
-                            "__Dragoon__": {
-                                "mode": "STUDENT",
-                                "problem": "Energy-balance-5"
                             }
                         }
                     ],
-                    "gen": ""
+                    "sub": ""
                 }
             },
             {
@@ -1785,18 +1797,18 @@
                                         "__Text__": {
                                             "text": " pounds per day"
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-5"
+										}
+									}
                                 ]
-                            }
-                        },
-						{
-                            "__Dragoon__": {
-                                "mode": "STUDENT",
-                                "problem": "Energy-balance-5"
                             }
                         }
                     ],
-                    "gen": ""
+                    "sub": ""
                 }
             },
             {
@@ -1863,7 +1875,7 @@
                             }
                         }
                     ],
-                    "gen": ""
+                    "sub": ""
                 }
             },
             {
@@ -1873,6 +1885,11 @@
                             "__Section__": {
                                 "content": [
                                     {
+                                        "__Text__": {
+                                            "text": "The more food you eat, the more energy it takes to digest it. The expression \"thermic effect of food\" is used to describe the energy expended by our bodies to consume (bite, chew, and swallow) and process (digest, transport, metabolize, and store) food.</p><p>A factor of 10% is generally used to account for the thermic effect of food. Thus, if you eat 500 calories of food, you will expend 50 calories processing it. However, this is only a rough estimate, because the factor is different for different foods. Processing protein requires the greatest expenditure of energy, with estimates ranging as high as 30%. Dietary fat, on the other hand, is so easily processed and turned into body fat that there is little thermic effect, perhaps only 2% or 3%. The amount of energy required to process carbohydrates falls between that of protein and fat.</p><p>Since we don't know much about Joe's diet, let's just use the default value of 10%. In the table below, which shows the complete model that Joe has developed so far, fill in the blanks to change the node \"digestive activity expenditure\" to be the product of \"energy ingested\" and a parameter \"digestive energy factor\" with the value 0.10."
+                                        }
+                                    },
+									{
                                         "__Table__": {
                                             "header": [
                                                 "Node Name",
@@ -1999,7 +2016,7 @@
                             }
                         }
                     ],
-                    "gen": "The more food you eat, the more energy it takes to digest it. The expression \"thermic effect of food\" is used to describe the energy expended by our bodies to consume (bite, chew, and swallow) and process (digest, transport, metabolize, and store) food.</p><p>A factor of 10% is generally used to account for the thermic effect of food. Thus, if you eat 500 calories of food, you will expend 50 calories processing it. However, this is only a rough estimate, because the factor is different for different foods. Processing protein requires the greatest expenditure of energy, with estimates ranging as high as 30%. Dietary fat, on the other hand, is so easily processed and turned into body fat that there is little thermic effect, perhaps only 2% or 3%. The amount of energy required to process carbohydrates falls between that of protein and fat.</p><p>Since we don't know much about Joe's diet, let's just use the default value of 10%. In the table below, which shows the complete model that Joe has developed so far, fill in the blanks to change the node \"digestive activity expenditure\" to be the product of \"energy ingested\" and a parameter \"digestive energy factor\" with the value 0.10."
+                    "sub": ""
                 }
             },
             {
@@ -2125,18 +2142,18 @@
                                                 "0.55 pounds per day"
                                             ]
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-4"
+										}
+									}
                                 ]
-                            }
-                        },
-                        {
-                            "__Dragoon__": {
-                                "mode": "STUDENT",
-                                "problem": "Energy-balance-4"
                             }
                         }
                     ],
-                    "gen": ""
+                    "sub": ""
                 }
             },
             {
@@ -2486,18 +2503,18 @@
                                                 ]
                                             ]
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-6"
+										}
+									}
                                 ]
-                            }
-                        },
-                        {
-                            "__Dragoon__": {
-                                "mode": "STUDENT",
-                                "problem": "Energy-balance-6"
                             }
                         }
                     ],
-                    "gen": ""
+                    "sub": ""
                 }
             },
             {
@@ -2581,18 +2598,18 @@
                                         "__Textbox__": {
                                             "example": "Madison is gaining weight faster because her metabolism is slowing as she gets older. So although everything is the same as before, she is burning fewer calories, which leads to more weight gain."
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-7"
+										}
+									}
                                 ]
-                            }
-                        },
-						{
-                            "__Dragoon__": {
-                                "mode": "STUDENT",
-                                "problem": "Energy-balance-7"
                             }
                         }
                     ],
-                    "gen": ""
+                    "sub": ""
                 }
             },
             {
@@ -2669,18 +2686,18 @@
                                         "__Textbox__": {
                                             "example": "In the beginning, you gain lean tissue at a much greater rate than later on. As time goes on, your change in lean tissue slows."
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-8"
+										}
+									}
                                 ]
-                            }
-                        },
-						{
-                            "__Dragoon__": {
-                                "mode": "STUDENT",
-                                "problem": "Energy-balance-8"
                             }
                         }
                     ],
-                    "gen": ""
+                    "sub": ""
                 }
             },
             {
@@ -2690,6 +2707,11 @@
                             "__Section__": {
                                 "content": [
                                     {
+                                        "__Text__": {
+                                            "text": "Please describe how you modified the given model in order to incorporate the fact that lean tissue burns much more energy than fat."
+                                        }
+                                    },
+									{
                                         "__Textbox__": {
                                             "example": "I changed weight REE so that it was a sum of two other quantities, REE of fat and REE of lean tissue. I made REE of fat be the product of REE per pound and fat. I made REE of lean tissue be the product of REE per pound of lean and lean tissue."
                                         }
@@ -2698,7 +2720,7 @@
                             }
                         }
                     ],
-                    "gen": "Please describe how you modified the given model in order to incorporate the fact that lean tissue burns much more energy than fat."
+                    "sub": ""
                 }
             }
         ],

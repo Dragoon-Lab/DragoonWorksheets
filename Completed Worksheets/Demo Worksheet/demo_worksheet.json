@@ -4,13 +4,13 @@
         "loose": [
             {
                 "__LsText__": {
-                    "text": "<b>Systems Dynamics Modeling</b></p><p>Systems Dynamics Modeling is a method of understanding systems (i.e., parts of the world that you are interested in) that change over time (i.e., they are dynamic).  It works by breaking down a system into distinct pieces\u2014called \u201cnodes\u201d in the Dragoon software.  A model is made by defining both nodes and the relationships between them.  In particular, if Node A has an effect on Node B, Node A is considered an \u201cinput\u201d of Node B.  Once all the nodes and inputs are defined, the computer can calculate the change in the system over time and provide you with graphs showing the results.</p><p><b>Parameters, Actuators, Functions</b></p><p>Models in Dragoon are made up of three types of nodes: Paramters, Accumulators, and Functions.<ul><li>Parameters are the simplest type of node. A parameter represents a <b>fixed quantity that never changes</b>. Parameters are used to represent constant values (<i>height of a building</i> being 12 m.</li><li>Accumulators represent <b>a quantity that increases or decreases over time based on its previous value and the value of its inputs</b>. The inputs to an accumulator govern how much it changes over time. At each time step, the inputs are added or subtracted from the value for the accumulator at the current time step to determine its value at the next time step.</li><li>Functions represent a <b>value that is directly related to the values of other quantities, without regard to its own previous value</b>. The inputs to functions determine the value of the function.  A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value.</li></ul>Accumulators and functions seem very similar at first, and it can take some practice to determine if a particular quantity should be represented as one or the other.  To determine if a quantity should be an accumulator, ask the question:  \u201cDoes this quantity add or subtract new values to itself each time step to find its new value?\u201d  If it does, then the quantity is an Accumulator.  If it does not, then the quantity is a Function.  Additionally, Accumulators typically have an initial value associated with them, whereas functions do not.</p><p><b>Example system<b>: Let\u2019s start by modeling a simple system: a population of Dodo birds as they were becoming extinct.  Suppose that there were 1000 Dodo birds in the population initially and that 20% of the Dodo birds died each year.  Thus, the number of deaths in the first year was 1000 * 20% = 200 deaths, leaving 800 Dodos alive at the beginning of the second year.  The number of deaths in the second year was 800 * 20% = 160 deaths, leaving 640 Dodos alive for the start of the third year.   Because the number of Dodo birds and the number of deaths change over the years, this is a dynamic system.",
+                    "text": "<b>Systems Dynamics Modeling</b></p><p>Systems Dynamics Modeling is a method of understanding systems (i.e., parts of the world that you are interested in) that change over time (i.e., they are dynamic).  It works by breaking down a system into distinct pieces&mdash;called &quot;nodes&quot; in the Dragoon software.  A model is made by defining both nodes and the relationships between them.  In particular, if Node A has an effect on Node B, Node A is considered an &quot;input&quot; of Node B.  Once all the nodes and inputs are defined, the computer can calculate the change in the system over time and provide you with graphs showing the results.</p><p><b>Parameters, Actuators, Functions</b></p><p>Models in Dragoon are made up of three types of nodes: Paramters, Accumulators, and Functions.<ul><li>Parameters are the simplest type of node. A parameter represents a <b>fixed quantity that never changes</b>. Parameters are used to represent constant values (<i>height of a building</i> being 12 m.</li><li>Accumulators represent <b>a quantity that increases or decreases over time based on its previous value and the value of its inputs</b>. The inputs to an accumulator govern how much it changes over time. At each time step, the inputs are added or subtracted from the value for the accumulator at the current time step to determine its value at the next time step.</li><li>Functions represent a <b>value that is directly related to the values of other quantities, without regard to its own previous value</b>. The inputs to functions determine the value of the function.  A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value.</li></ul>Accumulators and functions seem very similar at first, and it can take some practice to determine if a particular quantity should be represented as one or the other.  To determine if a quantity should be an accumulator, ask the question:  &quot;Does this quantity add or subtract new values to itself each time step to find its new value?&quot;  If it does, then the quantity is an Accumulator.  If it does not, then the quantity is a Function.  Additionally, Accumulators typically have an initial value associated with them, whereas functions do not.</p><p><b>Example system<b>: Let&#39;s start by modeling a simple system: a population of Dodo birds as they were becoming extinct.  Suppose that there were 1000 Dodo birds in the population initially and that 20% of the Dodo birds died each year.  Thus, the number of deaths in the first year was 1000 * 20% = 200 deaths, leaving 800 Dodos alive at the beginning of the second year.  The number of deaths in the second year was 800 * 20% = 160 deaths, leaving 640 Dodos alive for the start of the third year.   Because the number of Dodo birds and the number of deaths change over the years, this is a dynamic system.",
                     "before": 1
                 }
             },
             {
                 "__LsText__": {
-                    "text": "It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let\u2019s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn\u2019t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity \u2013 1000 Dodos \u2013 and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population \u2013 deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the \u201cDodo extinction\u201d model in the \u201cIntroductory\u201d category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):",
+                    "text": "It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let&#39;s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn&#39;t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity &mdash; 1000 Dodos &mdash; and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population &mdash; deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the &quot;Dodo extinction&quot; model in the &quot;Introductory&quot; category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):",
                     "before": 2
                 }
             },
@@ -34,7 +34,7 @@
             },
             {
                 "__LsText__": {
-                    "text": "While the Dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.</p><p><b>Problem Worksheet</b></p><p>In these problems, we will be modeling the population of moose and wolves that lived on the Isle Royale.  Wolves preyed on the moose, so their populations were tied together in what is known as a \u201cpredator-prey\u201d relationship\u2014as the number of moose grew, the number of wolves grew in response to having more food available, but then the wolves would eat more moose, causing the moose population to decrease, meaning less food is available for wolves, etc.  This relationship is complicated, so creating a model is necessary for fully understanding the relationship between the two populations.  Let us build up to the final model by making a series of models of simpler systems.  For instance, the first few systems pretend that Isle Royale has only moose on it and no wolves on it.",
+                    "text": "While the Dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.</p><p><b>Problem Worksheet</b></p><p>In these problems, we will be modeling the population of moose and wolves that lived on the Isle Royale.  Wolves preyed on the moose, so their populations were tied together in what is known as a &quot;predator-prey&quot; relationship&mdash;as the number of moose grew, the number of wolves grew in response to having more food available, but then the wolves would eat more moose, causing the moose population to decrease, meaning less food is available for wolves, etc.  This relationship is complicated, so creating a model is necessary for fully understanding the relationship between the two populations.  Let us build up to the final model by making a series of models of simpler systems.  For instance, the first few systems pretend that Isle Royale has only moose on it and no wolves on it.",
                     "before": 2
                 }
             }
@@ -47,6 +47,11 @@
                             "__Section__": {
                                 "content": [
                                     {
+                                        "__Text__": {
+                                            "text": "To make sure you understand the system's behavior, please fill in the next few years in the table below."
+                                        }
+                                    },
+									{
                                         "__Table__": {
                                             "header": [
                                                 "",
@@ -144,14 +149,14 @@
                                     },
                                     {
                                         "__Text__": {
-                                            "text": "It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let\u2019s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn\u2019t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity \u2013 1000 Dodos \u2013 and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population \u2013 deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the \u201cDodo extinction\u201d model in the \u201cIntroductory\u201d category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):"
+                                            "text": "It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let&#39;s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn&#39;t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity &mdash; 1000 Dodos &mdash; and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population &mdash; deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the &quot;Dodo extinction&quot; model in the &quot;Introductory&quot; category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):"
                                         }
                                     }
                                 ]
                             }
                         }
                     ],
-                    "gen": "To make sure you understand the system's behavior, please fill in the next few years in the table below."
+                    "sub": ""
                 }
             },
             {
@@ -161,6 +166,11 @@
                             "__Section__": {
                                 "content": [
                                     {
+                                        "__Text__": {
+                                            "text": "Assume that the moose population on the Isle Royale begins at 20 moose and that 2 moose are born each year.  In the table below, identify what types of nodes would represent this information."
+                                        }
+                                    },
+									{
                                         "__Table__": {
                                             "header": [
                                                 "Quantity",
@@ -194,14 +204,14 @@
                                     },
                                     {
                                         "__Text__": {
-                                            "text": "Now select the Isle Royale problem category and solve the \u201cMoose Population 1\u201d problem in Dragoon by creating a model.  When you have finished, click on the Graph and/or Table button to confirm that the changing values of the variables make sense. Now click here (button) and it will open the Dragoon problem."
+                                            "text": "Now select the Isle Royale problem category and solve the &quot;Moose Population 1&quot; problem in Dragoon by creating a model.  When you have finished, click on the Graph and/or Table button to confirm that the changing values of the variables make sense. Now click here (button) and it will open the Dragoon problem."
                                         }
                                     }
                                 ]
                             }
                         }
                     ],
-                    "gen": "Assume that the moose population on the Isle Royale begins at 20 moose and that 2 moose are born each year.  In the table below, identify what types of nodes would represent this information."
+                    "sub": ""
                 }
             },
             {
@@ -211,6 +221,11 @@
                             "__Section__": {
                                 "content": [
                                     {
+                                        "__Text__": {
+                                            "text": "Now let&#39;s assume the moose population on the Isle Royale begins at 20 moose and the population grows by 20% each year. For example, in the first year there are 4 moose births (20 moose population * 0.20 birth rate = 4 moose), so the population at the end of the first year is 24 (20 moose population + 4 moose births). In the table below, please select a type for each quantity/node."
+                                        }
+                                    },
+									{
                                         "__Table__": {
                                             "header": [
                                                 "Quantity",
@@ -252,7 +267,20 @@
                                                 ]
                                             ]
                                         }
-                                    },
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
                                     {
                                         "__Text__": {
                                             "text": "Which node(s) do <i>moose population</i> use as inputs to determine its value?"
@@ -291,13 +319,26 @@
                             }
                         }
                     ],
-                    "gen": "Now let\u2019s assume the moose population on the Isle Royale begins at 20 moose and the population grows by 20% each year.  For example, in the first year there are 4 moose births (20 moose population * 0.20 birth rate = 4 moose), so the population at the end of the first year is 24 (20 moose population + 4 moose births).  In the table below, please select a type for each quantity/node."
+                    "sub": ""
                 }
             },
             {
                 "__Question__": {
-                    "sections": [],
-                    "gen": "Now we will add a simple death rate to the previous model.   Assume that 5% of the moose die each year.  The number of moose deaths each year is calculated similar to the number of moose births each year:</p><p><i>moose deaths = moose population * moose death rate.</i></p><p>Solve the \u201cMoose population 3\u201d problem in Dragoon.   A model similar to the one you created for \u201cMoose population 2\u201d is provided; you will need to modify it.</p>"
+                    "sections": [
+						{
+							"__Section__": {
+								"content": [
+									{
+                                        "__Text__": {
+                                            "text": "Now we will add a simple death rate to the previous model. Assume that 5% of the moose die each year.  The number of moose deaths each year is calculated similar to the number of moose births each year:</p><p><i>moose deaths = moose population * moose death rate.</i></p><p>Solve the &quot;Moose population 3&quot; problem in Dragoon.   A model similar to the one you created for &quot;Moose population 2&quot; is provided; you will need to modify it."
+                                        }
+                                    }
+									
+								]
+							}
+						}
+					],
+                    "sub": ""
                 }
             },
             {
@@ -308,7 +349,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "The new <i>death rate</i> node is a "
+                                            "text": "We can see from &quot;Moose population 3&quot; that having a simple death rate still doesn&#39;t simulate a real population&mdash;the population still grows infinitely, when in reality there would be some limit to the number of moose the island could sustain.  In this problem, we will change the <i>moose death rate</i> node so that it represents this relationship:</p><p><i>moose death rate = moose birth rate * (moose population / carrying capacity)</i></p><p>If there were no wolves on Isle Royale, this equation would represent that the moose population is limited by the amount of moose food growing on the island.  Carrying capacity, or the number of moose the island can support, is a Parameter node with a value of 500; when the moose population reaches 500, the death rate will equal the birth rate, and the moose population growth will stagnate.</p><p>The new <i>death rate</i> node is a "
                                         }
                                     },
                                     {
@@ -323,26 +364,50 @@
                                     },
                                     {
                                         "__Text__": {
-                                            "text": ".</p><p>Solve the \u201cMoose population 4\u201d problem in Dragoon.  A model for \u201cMoose population 3\u201d is provided.  You will need to modify it."
+                                            "text": ".</p><p>Solve the &quot;Moose population 4&quot; problem in Dragoon.  A model for &quot;Moose population 3&quot; is provided.  You will need to modify it."
                                         }
                                     }
                                 ]
                             }
                         }
                     ],
-                    "gen": ": We can see from \u201cMoose population 3\u201d that having a simple death rate still doesn\u2019t simulate a real population\u2014the population still grows infinitely, when in reality there would be some limit to the number of moose the island could sustain.  In this problem, we will change the <i>moose death rate</i> node so that it represents this relationship:</p><p><i>moose death rate = moose birth rate * (moose population / carrying capacity)</i></p><p>If there were no wolves on Isle Royale, this equation would represent that the moose population is limited by the amount of moose food growing on the island.  Carrying capacity, or the number of moose the island can support, is a Parameter node with a value of 500; when the moose population reaches 500, the death rate will equal the birth rate, and the moose population growth will stagnate."
+                    "sub": ""
                 }
             },
             {
                 "__Question__": {
-                    "sections": [],
-                    "gen": "Now let\u2019s ignore the moose and pretend that Isle Royale has only wolves on it.  This model should look similar to the model you made for the moose population in \u201cMoose population 3.\u201d  Assume that the initial wolf population is 2, the birth rate is 75%, and the death rate is 67%.  Solve problem \u201cWolves\u201d in Dragoon."
+                    "sections": [
+						{
+							"__Section__": {
+								"content": [
+									{
+                                        "__Text__": {
+                                            "text": "Now let&#39;s ignore the moose and pretend that Isle Royale has only wolves on it.  This model should look similar to the model you made for the moose population in &quot;Moose population 3.&quot;  Assume that the initial wolf population is 2, the birth rate is 75%, and the death rate is 67%.  Solve problem &quot;Wolves&quot; in Dragoon."
+                                        }
+                                    }
+								]
+							}
+						}
+					],
+                    "sub": ""
                 }
             },
             {
                 "__Question__": {
-                    "sections": [],
-                    "gen": "Our final step is to build a model of both the wolf and moose populations and establish a predator-prey relationship between their birth and death rates.  Our new model will show a relationship between the number of wolves and the death rate of moose, as well as a relationship between the number of moose and the birth rate of the wolf population.  Here are our assumptions about the populations and their relationships: <u><li>The <i>moose population</i> is 500 moose in the first year.</li><li>The <i>moose birth rate</i> is 10%</li><li>The <i>moose births each year</i> is <i>moose population</i> * <i>moose birth rate</i>.</li><li>The <i>moose deaths each year</i> is <i>moose population</i> * <i>moose death rate</i>.</li><li>The <i>moose death rate</i> is <i>wolf population</i> * <i>the effect of wolves on moose</i>.</li><li><i>The effect of wolves on moose</i> is .003.</li><li>The <i>wolf population</i> is 20 wolves in the first year.</li><li>The <i>wolf death rate</i> is 25%</li><li>The <i>wolf deaths each year</i> is <i>wolf population</i> * <i>wolf death rate</i></li><li>The <i>wolf births each year</i> is <i>wolf population</i> * <i>wolf birth rate</i>.</li><li>The <i>wolf birth rate</i> is <i>moose population</i> * <i>the effect of moose on the wolves</i>.</li><li><i>The effect of moose on wolves</i> is 0.00075</li></ul>Solve the \u201cMoose and Wolves\u201d problem in Dragoon.  Note that copies of the solutions to \u201cMoose population 3\u201d and \u201cWolves\u201d have been provided.  You will need to modify them."
+                    "sections": [
+						{
+							"__Section__": {
+								"content": [
+									{
+                                        "__Text__": {
+                                            "text": "Our final step is to build a model of both the wolf and moose populations and establish a predator-prey relationship between their birth and death rates.  Our new model will show a relationship between the number of wolves and the death rate of moose, as well as a relationship between the number of moose and the birth rate of the wolf population.  Here are our assumptions about the populations and their relationships: <u><li>The <i>moose population</i> is 500 moose in the first year.</li><li>The <i>moose birth rate</i> is 10%</li><li>The <i>moose births each year</i> is <i>moose population</i> * <i>moose birth rate</i>.</li><li>The <i>moose deaths each year</i> is <i>moose population</i> * <i>moose death rate</i>.</li><li>The <i>moose death rate</i> is <i>wolf population</i> * <i>the effect of wolves on moose</i>.</li><li><i>The effect of wolves on moose</i> is .003.</li><li>The <i>wolf population</i> is 20 wolves in the first year.</li><li>The <i>wolf death rate</i> is 25%</li><li>The <i>wolf deaths each year</i> is <i>wolf population</i> * <i>wolf death rate</i></li><li>The <i>wolf births each year</i> is <i>wolf population</i> * <i>wolf birth rate</i>.</li><li>The <i>wolf birth rate</i> is <i>moose population</i> * <i>the effect of moose on the wolves</i>.</li><li><i>The effect of moose on wolves</i> is 0.00075</li></ul>Solve the &quot;Moose and Wolves&quot; problem in Dragoon.  Note that copies of the solutions to &quot;Moose population 3&quot; and &quot;Wolves&quot; have been provided.  You will need to modify them."
+                                        }
+                                    }
+								]
+							}
+						}
+					],
+                    "sub": ""
                 }
             }
         ]

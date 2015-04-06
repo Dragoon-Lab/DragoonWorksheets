@@ -12,19 +12,24 @@
         "questions": [
             {
                 "__Question__": {
-                    "gen": "Although the wolves arrived on Isle Royale in 1949, the moose arrived much earlier. This worksheet will lead you through the process of developing a model of the moose population when it is unaffected by wolves. Although we have no records of moose population prior to 1949, biologists believe that a small herd migrated to the island around 1900, grew to around 500 and leveled off, so let\u2019s pretend that this is the graph of moose population in the first half of the 20th century:",
+                    "sub": "",
                     "sections": [
                         {
                             "__Section__": {
                                 "content": [
                                     {
+                                        "__Text__": {
+                                            "text": "Although the wolves arrived on Isle Royale in 1949, the moose arrived much earlier. This worksheet will lead you through the process of developing a model of the moose population when it is unaffected by wolves. Although we have no records of moose population prior to 1949, biologists believe that a small herd migrated to the island around 1900, grew to around 500 and leveled off, so let&#39;s pretend that this is the graph of moose population in the first half of the 20th century:"
+                                        }
+                                    },
+									{
                                         "__Image__": {
                                             "image": "isle_royale/graph1"
                                         }
                                     },
                                     {
                                         "__Text__": {
-                                            "text": "Let\u2019s start by building a model of the early phase, when the herd was small, food was abundant and hardly any moose died. Here is the target graph, extracted from the one in Figure 1:"
+                                            "text": "Let&#39;s start by building a model of the early phase, when the herd was small, food was abundant and hardly any moose died. Here is the target graph, extracted from the one in Figure 1:"
                                         }
                                     },
                                     {
@@ -34,29 +39,40 @@
                                     },
                                     {
                                         "__Text__": {
-                                            "text": "That is, you should build a model that makes the following assumptions:<ul><li>The population is 20 in the first year (1900).</li><li>Births are the only change in population. Deaths, immigration, and emigration do not occur.</li><li>The number of births each year is... <i>what?</i></li></ul>The third assumption is a problematic. In reality, the number of births is determined by the number of female moose of child-bearing age, their health, and many other factors. However, following Occam\u2019s Razor, we want to start with the simplest assumption and see if it can explain the data. Looking closely at the graph, it appears the moose population increased from 20 to 24 during the first year, and to 28 during the second year, so let\u2019s make the simple assumption that 4 moose are born each year and see if the resulting curve matches the first 20 years of the curve shown in Figure 2.</p><p>Please open the Dragoon problem and create a model for the moose population as described above."
+                                            "text": "That is, you should build a model that makes the following assumptions:<ul><li>The population is 20 in the first year (1900).</li><li>Births are the only change in population. Deaths, immigration, and emigration do not occur.</li><li>The number of births each year is... <i>what?</i></li></ul>The third assumption is a problematic. In reality, the number of births is determined by the number of female moose of child-bearing age, their health, and many other factors. However, following Occam&#39;s Razor, we want to start with the simplest assumption and see if it can explain the data. Looking closely at the graph, it appears the moose population increased from 20 to 24 during the first year, and to 28 during the second year, so let&#39;s make the simple assumption that 4 moose are born each year and see if the resulting curve matches the first 20 years of the curve shown in Figure 2.</p><p>Please open the Dragoon problem and create a model for the moose population as described above."
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "isle1",
+											"mode": "STUDENT"
+										}
+									}
                                 ]
                             }
-                        },
-						{
-							"__Dragoon__": {
-								"problem": "isle1",
-								"mode": "STUDENT"
-							}
-						}
+                        }
                     ]
                 }
             },
             {
                 "__Question__": {
-                    "gen": "Although your models\u2019 graph is somewhat similar to figure 2, it should be a straight line whereas figure 2 shows a distinct upward curve. By 1919, the actual most population is rising faster than the model\u2019s prediction of 4 moose per year</p><p>If you think about how the herd grows, it doesn’t make sense that a large herd (e.g., 100 moose) would have the same number of births as a small herd (e.g., 20 moose). The number of births in a year ought to be proportional to the size of the herd that year. That is, in the first year, when the number of births is 4, that represents 20% of the size of the herd. So when the herd is at 100 moose, then 20% of the herd is 20, so about 20 births would occur. This makes much more sense biologically. As the size of the herd increases, the number of female moose of child-rearing age increase, so more moose calves should be born. The graph above confirms our intuition; it does seem that 20 would be pretty close to the number of births when the herd is at 100 moose. So let’s try the 20% assumption out in our model. Please open the Dragoon problem and create a model for the moose population as described above.",
+                    "sub": "",
                     "sections": [
 						{
-							"__Dragoon__": {
-								"problem": "isle2",
-								"mode": "STUDENT"
+                            "__Section__": {
+                                "content": [
+									{
+                                        "__Text__": {
+                                            "text": "Although your models&#39; graph is somewhat similar to figure 2, it should be a straight line whereas figure 2 shows a distinct upward curve. By 1919, the actual most population is rising faster than the model&#39;s prediction of 4 moose per year</p><p>If you think about how the herd grows, it doesn’t make sense that a large herd (e.g., 100 moose) would have the same number of births as a small herd (e.g., 20 moose). The number of births in a year ought to be proportional to the size of the herd that year. That is, in the first year, when the number of births is 4, that represents 20% of the size of the herd. So when the herd is at 100 moose, then 20% of the herd is 20, so about 20 births would occur. This makes much more sense biologically. As the size of the herd increases, the number of female moose of child-rearing age increase, so more moose calves should be born. The graph above confirms our intuition; it does seem that 20 would be pretty close to the number of births when the herd is at 100 moose. So let’s try the 20% assumption out in our model. Please open the Dragoon problem and create a model for the moose population as described above."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "isle2",
+											"mode": "STUDENT"
+										}
+									}
+								]
 							}
 						}
 					]
@@ -64,41 +80,57 @@
             },
             {
                 "__Question__": {
-                    "gen": "Your model\u2019s graph does match the actual moose population for the first 20 years or so, so your modeling has been a success. Congratulations! Here\u2019s what one student\u2019s model produced:\r",
+                    "sub": "",
                     "sections": [
                         {
                             "__Section__": {
                                 "content": [
                                     {
+                                        "__Text__": {
+                                            "text": "Your model&#39;s graph does match the actual moose population for the first 20 years or so, so your modeling has been a success. Congratulations! Here&#39;s what one student&#39;s model produced:"
+                                        }
+                                    },
+									{
                                         "__Image__": {
                                             "image": "isle_royale/graph3"
                                         }
                                     },
                                     {
                                         "__Text__": {
-                                            "text": "Although our model matches the moose population for the first 20 years, the model\u2019s predictions do not match the actual moose population for the remaining years. Please open the Dragoon problem and create a model for the moose population as described above. This contains the same model as you just completed, but the time span has been change from 20 years to 50 years. Click on “Graph”. When you have studied the graphs, DO NOT close Dragoon because you will need to edit the model in a moment. Just return to reading this section."
+                                            "text": "Although our model matches the moose population for the first 20 years, the model&#39;s predictions do not match the actual moose population for the remaining years. Please open the Dragoon problem and create a model for the moose population as described above. This contains the same model as you just completed, but the time span has been change from 20 years to 50 years. Click on “Graph”. When you have studied the graphs, DO NOT close Dragoon because you will need to edit the model in a moment. Just return to reading this section."
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "isle3",
+											"mode": "STUDENT"
+										}
+									}
                                 ]
                             }
-                        },
-						{
-							"__Dragoon__": {
-								"problem": "isle3",
-								"mode": "STUDENT"
-							}
-						}
+                        }
                     ]
                 }
             },
             {
                 "__Question__": {
-                    "gen": "Because the model accurately reflects the assumptions but the model\u2019s graph does not match the actual population\u2019s growth, at least one of the assumptions must be wrong. Which one?</p><p>The assumption \u201cNo deaths occur\u201d might be reasonable for the first 20 years but clearly it is not reasonable for longer periods. Suppose we change assumption 2 to be:</p><p>2. Two moose die each year.<p></p>This is simple, but it has the same problem as our first model of births. As the herd gets larger, the number of deaths per year should get larger. So let\u2019s consider changing assumption 2 to be:</p><p>2. 5% of the moose die each year.</p><p>This seems reasonable. One moose dies in the first year when the herd is at 20; when the herd reaches</p><p>100, then 5 moose die. This seems more plausible intuitively than having a fixed number of moose die each year.</p><p>Please return to Moose population 3, the model you just viewed. If you have closed it, then reopen it. Create a model of the moose population that includes both births and deaths. When you have completed the model and viewed the graphs, return to here.",
+                    "sub": "",
                     "sections": [
 						{
-							"__Dragoon__": {
-								"problem": "isle3",
-								"mode": "STUDENT"
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Because the model accurately reflects the assumptions but the model&#39;s graph does not match the actual population&#39;s growth, at least one of the assumptions must be wrong. Which one?</p><p>The assumption \u201cNo deaths occur\u201d might be reasonable for the first 20 years but clearly it is not reasonable for longer periods. Suppose we change assumption 2 to be:</p><p>2. Two moose die each year.<p></p>This is simple, but it has the same problem as our first model of births. As the herd gets larger, the number of deaths per year should get larger. So let&#39;s consider changing assumption 2 to be:</p><p>2. 5% of the moose die each year.</p><p>This seems reasonable. One moose dies in the first year when the herd is at 20; when the herd reaches</p><p>100, then 5 moose die. This seems more plausible intuitively than having a fixed number of moose die each year.</p><p>Please return to Moose population 3, the model you just viewed. If you have closed it, then reopen it. Create a model of the moose population that includes both births and deaths. When you have completed the model and viewed the graphs, return to here."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "isle3",
+											"mode": "STUDENT"
+										}
+									}
+								]
 							}
 						}
 					]
@@ -106,12 +138,23 @@
             },
             {
                 "__Question__": {
-                    "gen": "This model of moose deaths seems to have harmed the models\u2019 predictions. Now the model\u2019s graph and the target graph for the moose population don\u2019t match.</p><p>Given some more facts about moose behavior, we can solve this mystery. As we read earlier, the moose eat trees such as balsam fir. It\u2019s a small island, so there are a limited number of trees. If the moose population gets too big, then they strip the lower branches bare during the first few months of winter and there is little food left for the rest of the winter. So the larger the moose population, the more moose die from starvation. As the herd gets bigger, eventually the starvation rate equals the birth rate, and the net growth rate is zero. How big would the herd be at this point? From the graph above, it seems that the net growth rate is zero when the herd reaches about 500 moose. So when the population is around 500, the death rate due to starvation equals the birth rate, and the net growth rate is zero. When the population is near 0, then the death rate is near zero so the net growth rate equals the birth rate. To represent this assumption mathematically, we want a formula that equals the birth rate when population is 500, and it equals 0 when the population is 0. And we want the formula to be simple. So here it is:</p><p>Moose death rate = moose birth rate*(moose population / 500)</p><p>When the moose population is 500, the quantity inside the parentheses is 1, so the death rate and birth rate are equal, so the net growth is zero and the population is stable at 500—this occurs around 1945 and onwards. When the population is near 0, then the death rate is near zero, so the net growth rate is equal to the birth rate—this occurs around 1900.</p><p>We are just about ready to create a model, but one detail remains. Scientists do not like arbitrary numbers, such as 500, in their models, so they give them a name that conveys the number’s function in the model. In this case, the ecologists use the name “carrying capacity” for the 500. It represents the size of the moose population that the Isle Royale can “carry” stably. On a smaller island, the carrying capacity might be 200 moose. The carrying capacity for snowshoe hares on Isle Royale might be 1050. So carrying capacity varies with the species and the environment. By naming the constants in the model, scientists have created a convenient new concept that can now be explored further.</p><p>Whenever you are considering putting a numerical constant into your Dragoon model, please create a fixed value node instead, and give it a name that conveys the function of the constant in your model. This is good scientific practice. Thus, a better formulation of the above equation is:</p><p>Moose death rate = moose birth rate * (moose population / carrying capacity)</p><p>Please open the problem below. This contains the model that you just created, which includes both births and deaths of the moose. Please modify it to include carrying capacity. When you have completed the model and viewed the graphs, return here.",
+                    "sub": "",
                     "sections": [
 						{
-							"__Dragoon__": {
-								"problem": "isle4",
-								"mode": "STUDENT"
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "This model of moose deaths seems to have harmed the models&#39; predictions. Now the model&#39;s graph and the target graph for the moose population don&#39;t match.</p><p>Given some more facts about moose behavior, we can solve this mystery. As we read earlier, the moose eat trees such as balsam fir. It&#39;s a small island, so there are a limited number of trees. If the moose population gets too big, then they strip the lower branches bare during the first few months of winter and there is little food left for the rest of the winter. So the larger the moose population, the more moose die from starvation. As the herd gets bigger, eventually the starvation rate equals the birth rate, and the net growth rate is zero. How big would the herd be at this point? From the graph above, it seems that the net growth rate is zero when the herd reaches about 500 moose. So when the population is around 500, the death rate due to starvation equals the birth rate, and the net growth rate is zero. When the population is near 0, then the death rate is near zero so the net growth rate equals the birth rate. To represent this assumption mathematically, we want a formula that equals the birth rate when population is 500, and it equals 0 when the population is 0. And we want the formula to be simple. So here it is:</p><p>Moose death rate = moose birth rate*(moose population / 500)</p><p>When the moose population is 500, the quantity inside the parentheses is 1, so the death rate and birth rate are equal, so the net growth is zero and the population is stable at 500—this occurs around 1945 and onwards. When the population is near 0, then the death rate is near zero, so the net growth rate is equal to the birth rate—this occurs around 1900.</p><p>We are just about ready to create a model, but one detail remains. Scientists do not like arbitrary numbers, such as 500, in their models, so they give them a name that conveys the number’s function in the model. In this case, the ecologists use the name “carrying capacity” for the 500. It represents the size of the moose population that the Isle Royale can “carry” stably. On a smaller island, the carrying capacity might be 200 moose. The carrying capacity for snowshoe hares on Isle Royale might be 1050. So carrying capacity varies with the species and the environment. By naming the constants in the model, scientists have created a convenient new concept that can now be explored further.</p><p>Whenever you are considering putting a numerical constant into your Dragoon model, please create a fixed value node instead, and give it a name that conveys the function of the constant in your model. This is good scientific practice. Thus, a better formulation of the above equation is:</p><p>Moose death rate = moose birth rate * (moose population / carrying capacity)</p><p>Please open the problem below. This contains the model that you just created, which includes both births and deaths of the moose. Please modify it to include carrying capacity. When you have completed the model and viewed the graphs, return here."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "isle4",
+											"mode": "STUDENT"
+										}
+									}
+								]
 							}
 						}
 					]
@@ -119,12 +162,23 @@
             },
             {
                 "__Question__": {
-                    "gen": "As you can see, the match between the models\u2019 graph and the actual moose population is good. Granted, the actual moose population has some unexplained variations, but the variations appear to have no pattern. That is, the curves are not drifting apart or differing in any other organized fashion. This suggests that our model has captured the major pattern and the rest is noise. So let us declare this model to be finished. At the next class meeting, we will model the wolf population and how it interacts with the moose population.</p><p>Wolves are just like any other animal species in that there are only four general ways that their population can change: births, deaths, immigration and emigration. On Isle Royale, immigration and emigration are nearly zero, so only births and deaths need to be modeled. In this respect, the wolves are just like the moose. Thus, the wolf population model can have assumptions similar to the ones stated earlier:<ul><li>The wolf population is 2 in the first year (1950).</li><li>Births and deaths are the only change in the population. Immigration and emigration do not occur.</li><li>The number of deaths each year is... what?</li><li>the number of births each year is... what?</li></ul>As with the moose, it wouldn\u2019t make sense to assume that a fixed number of wolves (e.g., 1) are born each year. As the population gets larger, this wouldn\u2019t match reality. Similarly, it wouldn\u2019t make sense to assume that the same number of wolves (e.g., 1) die each year. Thus, let us assume<ul><li>The number of wolf births each year is proportional to the number of wolves. Let the number of births per wolf be called the <i>wolf birth rate</i>.</li><li>The number of wolf deaths each year is proportional to the number of wolves. Let the number of deaths per wolf be called the <i>wolf death rate</i>.</ul>Let\u2019s construct a model of the wolf population ignoring the fact that they prey on moose. Later we will add a model of the moose population and its interaction with the wolf population. Please open the Dragoon problem below.",
+                    "sub": "",
                     "sections": [
 						{
-							"__Dragoon__": {
-								"problem": "isle5",
-								"mode": "STUDENT"
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "As you can see, the match between the models&#39; graph and the actual moose population is good. Granted, the actual moose population has some unexplained variations, but the variations appear to have no pattern. That is, the curves are not drifting apart or differing in any other organized fashion. This suggests that our model has captured the major pattern and the rest is noise. So let us declare this model to be finished. At the next class meeting, we will model the wolf population and how it interacts with the moose population.</p><p>Wolves are just like any other animal species in that there are only four general ways that their population can change: births, deaths, immigration and emigration. On Isle Royale, immigration and emigration are nearly zero, so only births and deaths need to be modeled. In this respect, the wolves are just like the moose. Thus, the wolf population model can have assumptions similar to the ones stated earlier:<ul><li>The wolf population is 2 in the first year (1950).</li><li>Births and deaths are the only change in the population. Immigration and emigration do not occur.</li><li>The number of deaths each year is... what?</li><li>the number of births each year is... what?</li></ul>As with the moose, it wouldn&#39;t make sense to assume that a fixed number of wolves (e.g., 1) are born each year. As the population gets larger, this wouldn&#39;t match reality. Similarly, it wouldn&#39;t make sense to assume that the same number of wolves (e.g., 1) die each year. Thus, let us assume<ul><li>The number of wolf births each year is proportional to the number of wolves. Let the number of births per wolf be called the <i>wolf birth rate</i>.</li><li>The number of wolf deaths each year is proportional to the number of wolves. Let the number of deaths per wolf be called the <i>wolf death rate</i>.</ul>Let&#39;s construct a model of the wolf population ignoring the fact that they prey on moose. Later we will add a model of the moose population and its interaction with the wolf population. Please open the Dragoon problem below."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "isle5",
+											"mode": "STUDENT"
+										}
+									}
+								]
 							}
 						}
 					]
@@ -132,12 +186,23 @@
             },
             {
                 "__Question__": {
-                    "gen": "Now we need to model how the populations of the two species, wolves and moose, interact with each other. Let\u2019s start with how the size of the moose population affects the size of the wolf population. As mentioned earlier, all animal populations are changed only by births, deaths, immigration and emigration. Moreover, for Isle Royale, immigration and emigration are nearly zero. Thus, we need to look at how the moose population affects wolf births and wolf deaths. Let\u2019s start with wolf births. Here are some facts about the birth rates of wolves. Female wolves typically produce one litter of pups each year, starting in their third year and continuing for their whole life. A litter typically has 5 or 6 pups. However, the size of the litter depends on the abundance of food. A half-starved mother wolf will have fewer pups than a well-fed mother wolf. The later fact is extremely important for our purposes. It suggests that wolf birth rate is a function of the abundance of food. On Isle Royale, moose are the main source of wolf food. So the wolf birth rate depends on the moose population \u2013 the more moose, the more pups per liter and the higher the wolf birth rate. This suggests that we assume:</p><p>Wolf birth rate = effect of predation on wolf birth rate * moose population</p><p>The constant, <i>effect of predation on wolf birth rate</i>, indicates how much the birth rate rises as the moose population rises. We can guess at its value. Suppose this constant is really small: 0.75% (i.e., 0.0075). When it is multiplied by the moose population, which is a large number, then wolf birth rate is an intuitively satisfying size. For instance, if there were 500 moose, then the wolf birth rate would be 0.75 (which is 500* 0.0015) , which means that 10 wolves would have about 7 or 8 pups per year.</p><p>Now let\u2019s consider <i>wolf death rate</i>. On the one hand, it might seem that <i>wolf death rate</i> would be sensitive to the moose population, because when moose become scarce, wolves may starve to death. On the other hand, many wolves are killed by other wolves: estimates range from 14% to 65% of the wolf deaths are due to fights amongst wolves. This contribution to the wolf death rate may not be affected by the moose population. Let\u2019s just keep the model as simple as possible and assume that <i>wolf death rate</i> does not depend on the moose population. Let\u2019s assume it is a constant, e.g.,<p></p>wolf death rate = 0.25</p><p>Now let\u2019s consider how the wolves affect the moose population. As mentioned earlier, the only influences on moose (or other animal) populations are births, deaths, immigration and emigration. In the case of Isle Royale, immigration and emigration are nearly zero, so we are looking for ways that wolves can impact either moose births or moose deaths.</p><p>Clearly, wolves eat moose, so the more wolves the more moose deaths. This can be simply modeled as</p><p>moose death rate = effect of wolves on moose * wolf population</p><p>Because the constant <i>effect of wolves on moose</i> is going to be multiplied by some large numbers, and we don\u2019t want moose deaths to be extremely high, the constant needs to be a small number: 0.3% (i.e. 0.003).</p><p>Now let\u2019s consider the birth rate of moose. Just like wolves, the nutritional condition of a female moose determines how many children (called calves) she will have that year. A healthy female moose may have one or two calves. A half-starved one may have none. However, moose eat vegetation, so the moose nutritional condition does not depend on the wolf population, and hence the moose birth rate does not depend on the wolf population. Thus, for simplicity, let us assume</p><p>moose birth rate = 0.1</p><p>As shown on the graph below for 1959, the moose population should start at 500 and the wolf population should start at 20. Please open the Dragoon problem below.",
+                    "sub": "",
                     "sections": [
 						{
-							"__Dragoon__": {
-								"problem": "isle5",
-								"mode": "STUDENT"
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Now we need to model how the populations of the two species, wolves and moose, interact with each other. Let&#39;s start with how the size of the moose population affects the size of the wolf population. As mentioned earlier, all animal populations are changed only by births, deaths, immigration and emigration. Moreover, for Isle Royale, immigration and emigration are nearly zero. Thus, we need to look at how the moose population affects wolf births and wolf deaths. Let&#39;s start with wolf births. Here are some facts about the birth rates of wolves. Female wolves typically produce one litter of pups each year, starting in their third year and continuing for their whole life. A litter typically has 5 or 6 pups. However, the size of the litter depends on the abundance of food. A half-starved mother wolf will have fewer pups than a well-fed mother wolf. The later fact is extremely important for our purposes. It suggests that wolf birth rate is a function of the abundance of food. On Isle Royale, moose are the main source of wolf food. So the wolf birth rate depends on the moose population \u2013 the more moose, the more pups per liter and the higher the wolf birth rate. This suggests that we assume:</p><p>Wolf birth rate = effect of predation on wolf birth rate * moose population</p><p>The constant, <i>effect of predation on wolf birth rate</i>, indicates how much the birth rate rises as the moose population rises. We can guess at its value. Suppose this constant is really small: 0.75% (i.e., 0.0075). When it is multiplied by the moose population, which is a large number, then wolf birth rate is an intuitively satisfying size. For instance, if there were 500 moose, then the wolf birth rate would be 0.75 (which is 500* 0.0015) , which means that 10 wolves would have about 7 or 8 pups per year.</p><p>Now let&#39;s consider <i>wolf death rate</i>. On the one hand, it might seem that <i>wolf death rate</i> would be sensitive to the moose population, because when moose become scarce, wolves may starve to death. On the other hand, many wolves are killed by other wolves: estimates range from 14% to 65% of the wolf deaths are due to fights amongst wolves. This contribution to the wolf death rate may not be affected by the moose population. Let&#39;s just keep the model as simple as possible and assume that <i>wolf death rate</i> does not depend on the moose population. Let&#39;s assume it is a constant, e.g.,<p></p>wolf death rate = 0.25</p><p>Now let&#39;s consider how the wolves affect the moose population. As mentioned earlier, the only influences on moose (or other animal) populations are births, deaths, immigration and emigration. In the case of Isle Royale, immigration and emigration are nearly zero, so we are looking for ways that wolves can impact either moose births or moose deaths.</p><p>Clearly, wolves eat moose, so the more wolves the more moose deaths. This can be simply modeled as</p><p>moose death rate = effect of wolves on moose * wolf population</p><p>Because the constant <i>effect of wolves on moose</i> is going to be multiplied by some large numbers, and we don&#39;t want moose deaths to be extremely high, the constant needs to be a small number: 0.3% (i.e. 0.003).</p><p>Now let&#39;s consider the birth rate of moose. Just like wolves, the nutritional condition of a female moose determines how many children (called calves) she will have that year. A healthy female moose may have one or two calves. A half-starved one may have none. However, moose eat vegetation, so the moose nutritional condition does not depend on the wolf population, and hence the moose birth rate does not depend on the wolf population. Thus, for simplicity, let us assume</p><p>moose birth rate = 0.1</p><p>As shown on the graph below for 1959, the moose population should start at 500 and the wolf population should start at 20. Please open the Dragoon problem below."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "isle5",
+											"mode": "STUDENT"
+										}
+									}
+								]
 							}
 						}
 					]
@@ -145,12 +210,17 @@
             },
             {
                 "__Question__": {
-                    "gen": "Your model should show cycles similar to the ones in the systems actual behavior, which is in the resources and (for convenience) also shown as Figure 1.",
+                    "sub": "",
                     "sections": [
                         {
                             "__Section__": {
                                 "content": [
                                     {
+                                        "__Text__": {
+                                            "text": "Your model should show cycles similar to the ones in the systems actual behavior, which is in the resources and (for convenience) also shown as Figure 1."
+                                        }
+                                    },
+									{
                                         "__Image__": {
                                             "image": "isle_royale/graph4"
                                         }
@@ -168,20 +238,32 @@
             },
             {
                 "__Question__": {
-                    "gen": "Before the wolves arrived on Isle Royale, the moose population grew to around 500 and stayed there. This was because the death rate due to starvation equaled the birth rate. The moose were eating balsam fir and other plants just as fast as those plants could grow. You may recall that our assumptions for this ecosystem were:<ul><li>The only way the moose population changed was via births and deaths.</li><li>The moose births were proportional to the moose population. In particular, the number of moose born each year as 0.2 times the moose population. That is, the moose birth rate was a constant 0.2.</li><li>The moose deaths were proportional to the moose population.</li>However, the moose death rate was not constant. It starts near zero and rises to the moose birth rate as the number of moose approaches the carrying capacity of the ecosystem. In particular, moose death rate = moose birth rate*(moose population / carrying capacity)</li></ul>This kind of capacity-limited growth is called logistic growth. The logistic function, like the exponential function or the sine function, is a well-studied mathematical function with many interesting properties. However, we won\u2019t bother with discussing the logistic function here. It suffices that you know that this type of curve (like a squashed S) is called a logistic curve.",
-                    "sections": []
+                    "sub": "",
+                    "sections": [
+						{
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Before the wolves arrived on Isle Royale, the moose population grew to around 500 and stayed there. This was because the death rate due to starvation equaled the birth rate. The moose were eating balsam fir and other plants just as fast as those plants could grow. You may recall that our assumptions for this ecosystem were:<ul><li>The only way the moose population changed was via births and deaths.</li><li>The moose births were proportional to the moose population. In particular, the number of moose born each year as 0.2 times the moose population. That is, the moose birth rate was a constant 0.2.</li><li>The moose deaths were proportional to the moose population.</li>However, the moose death rate was not constant. It starts near zero and rises to the moose birth rate as the number of moose approaches the carrying capacity of the ecosystem. In particular, moose death rate = moose birth rate*(moose population / carrying capacity)</li></ul>This kind of capacity-limited growth is called logistic growth. The logistic function, like the exponential function or the sine function, is a well-studied mathematical function with many interesting properties. However, we won&#39;t bother with discussing the logistic function here. It suffices that you know that this type of curve (like a squashed S) is called a logistic curve."
+                                        }
+                                    }
+								]
+							}
+						}
+					]
                 }
             },
             {
                 "__Question__": {
-                    "gen": "Suppose that it wasn\u2019t wolves that immigrated across the ice to Isle Royale, but instead some deer came over. The deer and moose eat similar food, so they are competing for a resource. Intuitively, the two populations interact, but not like the wolves and moose interacted. Thus, we need a new kind of model.</p><p>If you think about the equation for moose death rate, the term moose population / carrying capacity represents how close the moose are to exhausting the carrying capacity. The more moose, the closer this ratio is to 1. When it finally hits 1, then the moose population stabilizes because moose are dying as fast as they are being born. Now if the deer are also using up the same resource, then perhaps the ratio should be (moose population + deer population)/carrying capacity. That is, when the number of animals that eat balsam fir etc. reaches the carrying capacity then the moose are starving just enough to stabilize the moose population. The deer population should be limited in the same way. That is, when the ratio (moose population + deer population)/carrying capacity reaches 1, then the deer deaths should equal the deer births, and the deer population should stabilized.</p><p>This is all fine, but it assumes that moose and deer eat the same amount and that starvation has the same effect on both of them. That assumption is rather implausible. Because we don\u2019t know exactly how the deer population effects moose starvation, nor do we know exactly how the moose population effects deer starvation, let us just add parameters (let\u2019s call them just P1 and P2 for now) to the model that allow us to try different values for them until we get the model\u2019s curves to match the actual system behavior. In particular, let us assume:</p><p><i>Moose death rate = moose birth rate*((moose population + P1*deer population)/carrying capacity)</p><p>Deer death rate = deer birth rate*((deer population + P2*moose population)/carrying capacity)</i>",
+                    "sub": "",
                     "sections": [
                         {
                             "__Section__": {
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "The parameters P1 and P2 are positive numbers, but it isn\u2019t clear in advance what they should be, so you"
+                                            "text": "Suppose that it wasn&#39;t wolves that immigrated across the ice to Isle Royale, but instead some deer came over. The deer and moose eat similar food, so they are competing for a resource. Intuitively, the two populations interact, but not like the wolves and moose interacted. Thus, we need a new kind of model.</p><p>If you think about the equation for moose death rate, the term moose population / carrying capacity represents how close the moose are to exhausting the carrying capacity. The more moose, the closer this ratio is to 1. When it finally hits 1, then the moose population stabilizes because moose are dying as fast as they are being born. Now if the deer are also using up the same resource, then perhaps the ratio should be (moose population + deer population)/carrying capacity. That is, when the number of animals that eat balsam fir etc. reaches the carrying capacity then the moose are starving just enough to stabilize the moose population. The deer population should be limited in the same way. That is, when the ratio (moose population + deer population)/carrying capacity reaches 1, then the deer deaths should equal the deer births, and the deer population should stabilized.</p><p>This is all fine, but it assumes that moose and deer eat the same amount and that starvation has the same effect on both of them. That assumption is rather implausible. Because we don&#39;t know exactly how the deer population effects moose starvation, nor do we know exactly how the moose population effects deer starvation, let us just add parameters (let&#39;s call them just P1 and P2 for now) to the model that allow us to try different values for them until we get the model&#39;s curves to match the actual system behavior. In particular, let us assume:</p><p><i>Moose death rate = moose birth rate*((moose population + P1*deer population)/carrying capacity)</p><p>Deer death rate = deer birth rate*((deer population + P2*moose population)/carrying capacity)</i></p><p>The parameters P1 and P2 are positive numbers, but it isn&#39;t clear in advance what they should be, so you"
                                         }
                                     },
                                     {
@@ -202,7 +284,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "This is all fine, but it assumes that moose and deer eat the same amount and that starvation has the same effect on both of them. That assumption is rather implausible. Because we don\u2019t know exactly how the deer population effects moose starvation, nor do we know exactly how the moose population affects deer starvation, let us just add parameters (lets call them just P1 and P2 for now) to the model that allow us to try different values for them until we get the model\u2019s curves to match the actual system behavior. In particular, let us assume:</p><p><i>Moose death rate = moose birth rate*((moose population + P1*deer population)/carrying capacity)</p><p>Deer death rate = deer birth rate*((deer population + P2*moose population)/carrying capacity)</i></p><p>The parameters P1 and P2 are positive numbers, but it isn\u2019t clear in advance what they should be, so you should find values by trial and error so that the model\u2019s predictions fit the \u201cobserved\u201d system behavior shown below:"
+                                            "text": "This is all fine, but it assumes that moose and deer eat the same amount and that starvation has the same effect on both of them. That assumption is rather implausible. Because we don&#39;t know exactly how the deer population effects moose starvation, nor do we know exactly how the moose population affects deer starvation, let us just add parameters (lets call them just P1 and P2 for now) to the model that allow us to try different values for them until we get the model&#39;s curves to match the actual system behavior. In particular, let us assume:</p><p><i>Moose death rate = moose birth rate*((moose population + P1*deer population)/carrying capacity)</p><p>Deer death rate = deer birth rate*((deer population + P2*moose population)/carrying capacity)</i></p><p>The parameters P1 and P2 are positive numbers, but it isn&#39;t clear in advance what they should be, so you should find values by trial and error so that the model&#39;s predictions fit the \u201cobserved\u201d system behavior shown below:"
                                         }
                                     },
                                     {
