@@ -121,13 +121,22 @@ document.getElementById(id).style.display = "none";
 document.getElementById(id).style.display = "";
 }
 return result;
-}</script>
+};
+</script>
 </head>
 <body>
 <label>Username :</label>&nbsp;<input type="text" name="user" id="user">
 <input type="hidden" name="section" id="section" value="public-worksheet">
 <script type="text/javascript">
 function enterUsername() {
+//
+if ((window.location.href.search("%20") != -1)) {
+document.getElementById("user").value = window.location.href.substr((window.location.href.search("%20")+2),((window.location.href.search("/Isle"))-(window.location.href.search("%20")+2)));
+document.getElementById("wkstBody").style.display="";
+document.getElementById("usernameCheck").style.display="none";
+document.getElementById("user").disabled=true;
+} else {
+//
 if (document.getElementById("user").value!=="" && document.getElementById("user").value.length<=30) {
 document.getElementById("wkstBody").style.display="";
 document.getElementById("usernameCheck").style.display="none";
@@ -137,6 +146,7 @@ document.getElementById("user").disabled=true;
 else {
 document.getElementById("user").style.background="#FF3333";
 alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
+}
 }
 };
 </script>

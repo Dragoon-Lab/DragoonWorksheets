@@ -73,8 +73,6 @@ class Dragoon:
 	def __init__ (self,sect):
 		if isinstance(sect,Question):
 			self.problem = input ("Problem: ")
-			for x in A:
-				self.problem = self.problem.replace(x,B[A.index(x)])
 			self.mode = input ("Mode: ").upper()
 			qstn.sections.append(self)
 		else:

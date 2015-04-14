@@ -1,16 +1,17 @@
 {
     "__Worksheet__": {
-        "name": "Isle_Royale_Worksheet",
+        "name": "Isle_Royale_Workbook",
         "loose": [
 			{
                 "__LsText__": {
-                    "text": "<h3>Isle Royale Worksheet</h3>",
+                    "text": "<h3>Isle Royale Workbook</h3>",
                     "before": 1
                 }
             }
 		],
         "questions": [
             {
+                "__Question__": {
                 "__Question__": {
                     "sub": "",
                     "sections": [
