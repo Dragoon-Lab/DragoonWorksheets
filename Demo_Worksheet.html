@@ -170,51 +170,69 @@ alert("Please make sure you have entered a username and that your username is be
 <td style="border: 2pt black solid">Year 1</td>
 <td style="border: 2pt black solid">800</td>
 <td style="border: 2pt black solid">160</td></tr><tr>
-<td style="border: 2pt black solid">Year 2</td><td style="border: 2pt black solid"><select id="1ai">
+<td style="border: 2pt black solid">Year 2</td><td style="border: 2pt black solid">
+<select id="1ai">
 <option></option>
-<option>94.72</option>
-<option>118.4</option>
-<option>740</option>
-<option>148</option>
-<option>592</option>
-<option>473.6</option></select></td><td style="border: 2pt black solid"><select id="1aii">
+<option>9</option>
+<option>4</option>
+<option>.</option>
+<option>7</option>
+<option>2</option></select>
+<select id="1aii">
 <option></option>
-<option>94.72</option>
-<option>118.4</option>
-<option>740</option>
-<option>148</option>
-<option>592</option>
-<option>473.6</option></select></td></tr><tr>
-<td style="border: 2pt black solid">Year 3</td><td style="border: 2pt black solid"><select id="1aiii">
+<option>7</option></select></td><td style="border: 2pt black solid">
+<select id="1aiii">
 <option></option>
-<option>94.72</option>
-<option>118.4</option>
-<option>740</option>
-<option>148</option>
-<option>592</option>
-<option>473.6</option></select></td><td style="border: 2pt black solid"><select id="1aiv">
+<option>9</option>
+<option>4</option>
+<option>.</option>
+<option>7</option>
+<option>2</option></select>
+<select id="1aiv">
 <option></option>
-<option>94.72</option>
-<option>118.4</option>
-<option>740</option>
-<option>148</option>
-<option>592</option>
-<option>473.6</option></select></td></tr><tr>
-<td style="border: 2pt black solid">Year 4</td><td style="border: 2pt black solid"><select id="1av">
+<option>1</option></select></td></tr><tr>
+<td style="border: 2pt black solid">Year 3</td><td style="border: 2pt black solid">
+<select id="1av">
 <option></option>
-<option>94.72</option>
-<option>118.4</option>
-<option>740</option>
-<option>148</option>
-<option>592</option>
-<option>473.6</option></select></td><td style="border: 2pt black solid"><select id="1avi">
+<option>9</option>
+<option>4</option>
+<option>.</option>
+<option>7</option>
+<option>2</option></select>
+<select id="1avi">
 <option></option>
-<option>94.72</option>
-<option>118.4</option>
-<option>740</option>
-<option>148</option>
-<option>592</option>
-<option>473.6</option></select></td></tr>
+<option>5</option></select></td><td style="border: 2pt black solid">
+<select id="1avii">
+<option></option>
+<option>9</option>
+<option>4</option>
+<option>.</option>
+<option>7</option>
+<option>2</option></select>
+<select id="1aviii">
+<option></option>
+<option>1</option></select></td></tr><tr>
+<td style="border: 2pt black solid">Year 4</td><td style="border: 2pt black solid">
+<select id="1aix">
+<option></option>
+<option>9</option>
+<option>4</option>
+<option>.</option>
+<option>7</option>
+<option>2</option></select>
+<select id="1ax">
+<option></option>
+<option>4</option></select></td><td style="border: 2pt black solid">
+<select id="1axi">
+<option></option>
+<option>9</option>
+<option>4</option>
+<option>.</option>
+<option>7</option>
+<option>2</option></select>
+<select id="1axii">
+<option></option>
+<option>9</option></select></td></tr>
 </tbody>
 </table>It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let&#39;s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn&#39;t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity &mdash; 1000 Dodos &mdash; and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population &mdash; deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the &quot;Dodo extinction&quot; model in the &quot;Introductory&quot; category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):</p>
 <script type="text/javascript">var set1 = {
@@ -223,31 +241,42 @@ aii:0,
 aiii:0,
 aiv:0,
 av:0,
-avi:0,}; 
+avi:0,
+avii:0,
+aviii:0,
+aix:0,
+ax:0,
+axi:0,
+axii:0,}; 
 function cont1() {
 var yestim1 = 0;
-document.getElementById("1Time").innerHTML = tim1;
-checkAnswers("1ai", "740");checkAnswers("1aii", "148");checkAnswers("1aiii", "592");checkAnswers("1aiv", "118.4");checkAnswers("1av", "473.6");checkAnswers("1avi", "94.72");
-if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1aiii").value==="" || document.getElementById("1aiv").value==="" || document.getElementById("1av").value==="" || document.getElementById("1avi").value==="" || 0) {
+checkAnswers("1ai", "118.4");checkAnswers("1aii", "4");checkAnswers("1aiii", "118.4");checkAnswers("1aiv", "4");checkAnswers("1av", "118.4");checkAnswers("1avi", "9");checkAnswers("1avii", "118.4");checkAnswers("1aviii", "1");checkAnswers("1aix", "118.4");checkAnswers("1ax", "7");checkAnswers("1axi", "118.4");checkAnswers("1axii", "4");
+if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1aiii").value==="" || document.getElementById("1aiv").value==="" || document.getElementById("1av").value==="" || document.getElementById("1avi").value==="" || document.getElementById("1avii").value==="" || document.getElementById("1aviii").value==="" || document.getElementById("1aix").value==="" || document.getElementById("1ax").value==="" || document.getElementById("1axi").value==="" || document.getElementById("1axii").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
-if (!checkAnswers("1ai", "740")) { 
- set1.ai = set1.ai + 1;}if (!checkAnswers("1aii", "148")) { 
- set1.aii = set1.aii + 1;}if (!checkAnswers("1aiii", "592")) { 
- set1.aiii = set1.aiii + 1;}if (!checkAnswers("1aiv", "118.4")) { 
- set1.aiv = set1.aiv + 1;}if (!checkAnswers("1av", "473.6")) { 
- set1.av = set1.av + 1;}if (!checkAnswers("1avi", "94.72")) { 
- set1.avi = set1.avi + 1;}
-if ((checkAnswers("1ai", "740") || set1.ai===3) &&(checkAnswers("1aii", "148") || set1.aii===3) &&(checkAnswers("1aiii", "592") || set1.aiii===3) &&(checkAnswers("1aiv", "118.4") || set1.aiv===3) &&(checkAnswers("1av", "473.6") || set1.av===3) &&(checkAnswers("1avi", "94.72") || set1.avi===3) &&1) {
+if (!checkAnswers("1ai", "118.4")) { 
+ set1.ai = set1.ai + 1;}if (!checkAnswers("1aii", "4")) { 
+ set1.aii = set1.aii + 1;}if (!checkAnswers("1aiii", "118.4")) { 
+ set1.aiii = set1.aiii + 1;}if (!checkAnswers("1aiv", "4")) { 
+ set1.aiv = set1.aiv + 1;}if (!checkAnswers("1av", "118.4")) { 
+ set1.av = set1.av + 1;}if (!checkAnswers("1avi", "9")) { 
+ set1.avi = set1.avi + 1;}if (!checkAnswers("1avii", "118.4")) { 
+ set1.avii = set1.avii + 1;}if (!checkAnswers("1aviii", "1")) { 
+ set1.aviii = set1.aviii + 1;}if (!checkAnswers("1aix", "118.4")) { 
+ set1.aix = set1.aix + 1;}if (!checkAnswers("1ax", "7")) { 
+ set1.ax = set1.ax + 1;}if (!checkAnswers("1axi", "118.4")) { 
+ set1.axi = set1.axi + 1;}if (!checkAnswers("1axii", "4")) { 
+ set1.axii = set1.axii + 1;}
+if ((checkAnswers("1ai", "118.4") || set1.ai===3) &&(checkAnswers("1aii", "4") || set1.aii===3) &&(checkAnswers("1aiii", "118.4") || set1.aiii===3) &&(checkAnswers("1aiv", "4") || set1.aiv===3) &&(checkAnswers("1av", "118.4") || set1.av===3) &&(checkAnswers("1avi", "9") || set1.avi===3) &&(checkAnswers("1avii", "118.4") || set1.avii===3) &&(checkAnswers("1aviii", "1") || set1.aviii===3) &&(checkAnswers("1aix", "118.4") || set1.aix===3) &&(checkAnswers("1ax", "7") || set1.ax===3) &&(checkAnswers("1axi", "118.4") || set1.axi===3) &&(checkAnswers("1axii", "4") || set1.axii===3) &&1) {
  document.getElementById("question2").style.display = "";
  document.getElementById("button1").style.display = "none";
 
-document.getElementById("1ai").disabled=true;
 document.getElementById("1aii").disabled=true;
-document.getElementById("1aiii").disabled=true;
 document.getElementById("1aiv").disabled=true;
-document.getElementById("1av").disabled=true;
 document.getElementById("1avi").disabled=true;
+document.getElementById("1aviii").disabled=true;
+document.getElementById("1ax").disabled=true;
+document.getElementById("1axii").disabled=true;
 tim2= 0;
 
 function time2() {
@@ -260,9 +289,9 @@ var yestim2 = 1;
 time2();
 }
 
-if (!checkAnswers("1ai", "740")) {
+if (!checkAnswers("1ai", "118.4")) {
 if (set1.ai===3) {
-document.getElementById("1ai").value="740";
+document.getElementById("1ai").value="118.4";
 document.getElementById("1ai").style.background="#FFFF00"}
 if (set1.ai=== 1) { 
  document.getElementById("1aiAnswer1").innerHTML = "; " + document.getElementById("1ai").value 
@@ -285,9 +314,9 @@ if (set1.ai=== 1) {
  document.getElementById("1aiAnswer3").innerHTML = "; " + document.getElementById("1ai").value
 }
 };
-if (!checkAnswers("1aii", "148")) {
+if (!checkAnswers("1aii", "4")) {
 if (set1.aii===3) {
-document.getElementById("1aii").value="148";
+document.getElementById("1aii").value="4";
 document.getElementById("1aii").style.background="#FFFF00"}
 if (set1.aii=== 1) { 
  document.getElementById("1aiiAnswer1").innerHTML = "; " + document.getElementById("1aii").value 
@@ -310,9 +339,9 @@ if (set1.aii=== 1) {
  document.getElementById("1aiiAnswer3").innerHTML = "; " + document.getElementById("1aii").value
 }
 };
-if (!checkAnswers("1aiii", "592")) {
+if (!checkAnswers("1aiii", "118.4")) {
 if (set1.aiii===3) {
-document.getElementById("1aiii").value="592";
+document.getElementById("1aiii").value="118.4";
 document.getElementById("1aiii").style.background="#FFFF00"}
 if (set1.aiii=== 1) { 
  document.getElementById("1aiiiAnswer1").innerHTML = "; " + document.getElementById("1aiii").value 
@@ -335,9 +364,9 @@ if (set1.aiii=== 1) {
  document.getElementById("1aiiiAnswer3").innerHTML = "; " + document.getElementById("1aiii").value
 }
 };
-if (!checkAnswers("1aiv", "118.4")) {
+if (!checkAnswers("1aiv", "4")) {
 if (set1.aiv===3) {
-document.getElementById("1aiv").value="118.4";
+document.getElementById("1aiv").value="4";
 document.getElementById("1aiv").style.background="#FFFF00"}
 if (set1.aiv=== 1) { 
  document.getElementById("1aivAnswer1").innerHTML = "; " + document.getElementById("1aiv").value 
@@ -360,9 +389,9 @@ if (set1.aiv=== 1) {
  document.getElementById("1aivAnswer3").innerHTML = "; " + document.getElementById("1aiv").value
 }
 };
-if (!checkAnswers("1av", "473.6")) {
+if (!checkAnswers("1av", "118.4")) {
 if (set1.av===3) {
-document.getElementById("1av").value="473.6";
+document.getElementById("1av").value="118.4";
 document.getElementById("1av").style.background="#FFFF00"}
 if (set1.av=== 1) { 
  document.getElementById("1avAnswer1").innerHTML = "; " + document.getElementById("1av").value 
@@ -385,9 +414,9 @@ if (set1.av=== 1) {
  document.getElementById("1avAnswer3").innerHTML = "; " + document.getElementById("1av").value
 }
 };
-if (!checkAnswers("1avi", "94.72")) {
+if (!checkAnswers("1avi", "9")) {
 if (set1.avi===3) {
-document.getElementById("1avi").value="94.72";
+document.getElementById("1avi").value="9";
 document.getElementById("1avi").style.background="#FFFF00"}
 if (set1.avi=== 1) { 
  document.getElementById("1aviAnswer1").innerHTML = "; " + document.getElementById("1avi").value 
@@ -409,15 +438,165 @@ if (set1.avi=== 1) {
  else { 
  document.getElementById("1aviAnswer3").innerHTML = "; " + document.getElementById("1avi").value
 }
+};
+if (!checkAnswers("1avii", "118.4")) {
+if (set1.avii===3) {
+document.getElementById("1avii").value="118.4";
+document.getElementById("1avii").style.background="#FFFF00"}
+if (set1.avii=== 1) { 
+ document.getElementById("1aviiAnswer1").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ else if (set1.avii=== 2) { 
+ document.getElementById("1aviiAnswer2").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ else { 
+ document.getElementById("1aviiAnswer3").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ } 
+ else { 
+ if (set1.avii=== 0) { 
+ document.getElementById("1aviiAnswer1").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ else if (set1.avii=== 1) { 
+ document.getElementById("1aviiAnswer2").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ else { 
+ document.getElementById("1aviiAnswer3").innerHTML = "; " + document.getElementById("1avii").value
+}
+};
+if (!checkAnswers("1aviii", "1")) {
+if (set1.aviii===3) {
+document.getElementById("1aviii").value="1";
+document.getElementById("1aviii").style.background="#FFFF00"}
+if (set1.aviii=== 1) { 
+ document.getElementById("1aviiiAnswer1").innerHTML = "; " + document.getElementById("1aviii").value 
+ } 
+ else if (set1.aviii=== 2) { 
+ document.getElementById("1aviiiAnswer2").innerHTML = "; " + document.getElementById("1aviii").value 
+ } 
+ else { 
+ document.getElementById("1aviiiAnswer3").innerHTML = "; " + document.getElementById("1aviii").value 
+ } 
+ } 
+ else { 
+ if (set1.aviii=== 0) { 
+ document.getElementById("1aviiiAnswer1").innerHTML = "; " + document.getElementById("1aviii").value 
+ } 
+ else if (set1.aviii=== 1) { 
+ document.getElementById("1aviiiAnswer2").innerHTML = "; " + document.getElementById("1aviii").value 
+ } 
+ else { 
+ document.getElementById("1aviiiAnswer3").innerHTML = "; " + document.getElementById("1aviii").value
+}
+};
+if (!checkAnswers("1aix", "118.4")) {
+if (set1.aix===3) {
+document.getElementById("1aix").value="118.4";
+document.getElementById("1aix").style.background="#FFFF00"}
+if (set1.aix=== 1) { 
+ document.getElementById("1aixAnswer1").innerHTML = "; " + document.getElementById("1aix").value 
+ } 
+ else if (set1.aix=== 2) { 
+ document.getElementById("1aixAnswer2").innerHTML = "; " + document.getElementById("1aix").value 
+ } 
+ else { 
+ document.getElementById("1aixAnswer3").innerHTML = "; " + document.getElementById("1aix").value 
+ } 
+ } 
+ else { 
+ if (set1.aix=== 0) { 
+ document.getElementById("1aixAnswer1").innerHTML = "; " + document.getElementById("1aix").value 
+ } 
+ else if (set1.aix=== 1) { 
+ document.getElementById("1aixAnswer2").innerHTML = "; " + document.getElementById("1aix").value 
+ } 
+ else { 
+ document.getElementById("1aixAnswer3").innerHTML = "; " + document.getElementById("1aix").value
+}
+};
+if (!checkAnswers("1ax", "7")) {
+if (set1.ax===3) {
+document.getElementById("1ax").value="7";
+document.getElementById("1ax").style.background="#FFFF00"}
+if (set1.ax=== 1) { 
+ document.getElementById("1axAnswer1").innerHTML = "; " + document.getElementById("1ax").value 
+ } 
+ else if (set1.ax=== 2) { 
+ document.getElementById("1axAnswer2").innerHTML = "; " + document.getElementById("1ax").value 
+ } 
+ else { 
+ document.getElementById("1axAnswer3").innerHTML = "; " + document.getElementById("1ax").value 
+ } 
+ } 
+ else { 
+ if (set1.ax=== 0) { 
+ document.getElementById("1axAnswer1").innerHTML = "; " + document.getElementById("1ax").value 
+ } 
+ else if (set1.ax=== 1) { 
+ document.getElementById("1axAnswer2").innerHTML = "; " + document.getElementById("1ax").value 
+ } 
+ else { 
+ document.getElementById("1axAnswer3").innerHTML = "; " + document.getElementById("1ax").value
+}
+};
+if (!checkAnswers("1axi", "118.4")) {
+if (set1.axi===3) {
+document.getElementById("1axi").value="118.4";
+document.getElementById("1axi").style.background="#FFFF00"}
+if (set1.axi=== 1) { 
+ document.getElementById("1axiAnswer1").innerHTML = "; " + document.getElementById("1axi").value 
+ } 
+ else if (set1.axi=== 2) { 
+ document.getElementById("1axiAnswer2").innerHTML = "; " + document.getElementById("1axi").value 
+ } 
+ else { 
+ document.getElementById("1axiAnswer3").innerHTML = "; " + document.getElementById("1axi").value 
+ } 
+ } 
+ else { 
+ if (set1.axi=== 0) { 
+ document.getElementById("1axiAnswer1").innerHTML = "; " + document.getElementById("1axi").value 
+ } 
+ else if (set1.axi=== 1) { 
+ document.getElementById("1axiAnswer2").innerHTML = "; " + document.getElementById("1axi").value 
+ } 
+ else { 
+ document.getElementById("1axiAnswer3").innerHTML = "; " + document.getElementById("1axi").value
+}
+};
+if (!checkAnswers("1axii", "4")) {
+if (set1.axii===3) {
+document.getElementById("1axii").value="4";
+document.getElementById("1axii").style.background="#FFFF00"}
+if (set1.axii=== 1) { 
+ document.getElementById("1axiiAnswer1").innerHTML = "; " + document.getElementById("1axii").value 
+ } 
+ else if (set1.axii=== 2) { 
+ document.getElementById("1axiiAnswer2").innerHTML = "; " + document.getElementById("1axii").value 
+ } 
+ else { 
+ document.getElementById("1axiiAnswer3").innerHTML = "; " + document.getElementById("1axii").value 
+ } 
+ } 
+ else { 
+ if (set1.axii=== 0) { 
+ document.getElementById("1axiiAnswer1").innerHTML = "; " + document.getElementById("1axii").value 
+ } 
+ else if (set1.axii=== 1) { 
+ document.getElementById("1axiiAnswer2").innerHTML = "; " + document.getElementById("1axii").value 
+ } 
+ else { 
+ document.getElementById("1axiiAnswer3").innerHTML = "; " + document.getElementById("1axii").value
+}
 };};
 </script>
 
 <br><button id="button1" onClick="cont1();">Continue</button>
 <div id="question2" style="display: none">
 <p>It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let&#39;s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn&#39;t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity &mdash; 1000 Dodos &mdash; and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population &mdash; deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the &quot;Dodo extinction&quot; model in the &quot;Introductory&quot; category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):</p>
-</p><img src ="Image1/Demo.JPG"/><p>
+<p></p>
 <p>This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes e.g., Parameter nodes are diamonds.  The inside of a Parameter node shows its value.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node shows both its mathematical operation and its <i>initial</i> value.</p><p>If you click on the Table button, you can see the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button displays the same information in graph form (see right figure).</p>
-</p><img src ="Image2/Demo.JPG"/><p>
+<p></p>
 <p>While the Dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.</p><p><b>Problem Worksheet</b></p><p>In these problems, we will be modeling the population of moose and wolves that lived on the Isle Royale.  Wolves preyed on the moose, so their populations were tied together in what is known as a &quot;predator-prey&quot; relationship&mdash;as the number of moose grew, the number of wolves grew in response to having more food available, but then the wolves would eat more moose, causing the moose population to decrease, meaning less food is available for wolves, etc.  This relationship is complicated, so creating a model is necessary for fully understanding the relationship between the two populations.  Let us build up to the final model by making a series of models of simpler systems.  For instance, the first few systems pretend that Isle Royale has only moose on it and no wolves on it.</p>
 <h3></h3>Assume that the moose population on the Isle Royale begins at 20 moose and that 2 moose are born each year.  In the table below, identify what types of nodes would represent this information.<table>
 <thead>
@@ -425,37 +604,60 @@ if (set1.avi=== 1) {
 <td style="border: 2pt black solid"><b>Node Type</b></td>
 </thead>
 <tbody><tr>
-<td style="border: 2pt black solid">moose population</td><td style="border: 2pt black solid"><select id="2ai">
+<td style="border: 2pt black solid">moose population</td><td style="border: 2pt black solid">
+<select id="2ai">
 <option></option>
-<option>parameter</option>
-<option>accumulator</option>
-<option>function</option></select></td></tr><tr>
-<td style="border: 2pt black solid">number of moose births per year</td><td style="border: 2pt black solid"><select id="2aii">
+<option>p</option>
+<option>a</option>
+<option>r</option>
+<option>a</option>
+<option>m</option>
+<option>e</option>
+<option>t</option>
+<option>e</option>
+<option>r</option></select>
+<select id="2aii">
 <option></option>
-<option>parameter</option>
-<option>accumulator</option>
-<option>function</option></select></td></tr>
+<option>p</option></select></td></tr><tr>
+<td style="border: 2pt black solid">number of moose births per year</td><td style="border: 2pt black solid">
+<select id="2aiii">
+<option></option>
+<option>p</option>
+<option>a</option>
+<option>r</option>
+<option>a</option>
+<option>m</option>
+<option>e</option>
+<option>t</option>
+<option>e</option>
+<option>r</option></select>
+<select id="2aiv">
+<option></option>
+<option>f</option></select></td></tr>
 </tbody>
 </table>Now select the Isle Royale problem category and solve the &quot;Moose Population 1&quot; problem in Dragoon by creating a model.  When you have finished, click on the Graph and/or Table button to confirm that the changing values of the variables make sense. Now click here (button) and it will open the Dragoon problem.</p>
 <script type="text/javascript">var set2 = {
 ai:0,
-aii:0,}; 
+aii:0,
+aiii:0,
+aiv:0,}; 
 function cont2() {
 var yestim2 = 0;
-document.getElementById("2Time").innerHTML = tim2;
-checkAnswers("2ai", "parameter");checkAnswers("2aii", "function");
-if (document.getElementById("2ai").value==="" || document.getElementById("2aii").value==="" || 0) {
+checkAnswers("2ai", "accumulator");checkAnswers("2aii", "a");checkAnswers("2aiii", "accumulator");checkAnswers("2aiv", "u");
+if (document.getElementById("2ai").value==="" || document.getElementById("2aii").value==="" || document.getElementById("2aiii").value==="" || document.getElementById("2aiv").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
-if (!checkAnswers("2ai", "parameter")) { 
- set2.ai = set2.ai + 1;}if (!checkAnswers("2aii", "function")) { 
- set2.aii = set2.aii + 1;}
-if ((checkAnswers("2ai", "parameter") || set2.ai===3) &&(checkAnswers("2aii", "function") || set2.aii===3) &&1) {
+if (!checkAnswers("2ai", "accumulator")) { 
+ set2.ai = set2.ai + 1;}if (!checkAnswers("2aii", "a")) { 
+ set2.aii = set2.aii + 1;}if (!checkAnswers("2aiii", "accumulator")) { 
+ set2.aiii = set2.aiii + 1;}if (!checkAnswers("2aiv", "u")) { 
+ set2.aiv = set2.aiv + 1;}
+if ((checkAnswers("2ai", "accumulator") || set2.ai===3) &&(checkAnswers("2aii", "a") || set2.aii===3) &&(checkAnswers("2aiii", "accumulator") || set2.aiii===3) &&(checkAnswers("2aiv", "u") || set2.aiv===3) &&1) {
  document.getElementById("question3").style.display = "";
  document.getElementById("button2").style.display = "none";
 
-document.getElementById("2ai").disabled=true;
 document.getElementById("2aii").disabled=true;
+document.getElementById("2aiv").disabled=true;
 tim3= 0;
 
 function time3() {
@@ -468,9 +670,9 @@ var yestim3 = 1;
 time3();
 }
 
-if (!checkAnswers("2ai", "parameter")) {
+if (!checkAnswers("2ai", "accumulator")) {
 if (set2.ai===3) {
-document.getElementById("2ai").value="parameter";
+document.getElementById("2ai").value="accumulator";
 document.getElementById("2ai").style.background="#FFFF00"}
 if (set2.ai=== 1) { 
  document.getElementById("2aiAnswer1").innerHTML = "; " + document.getElementById("2ai").value 
@@ -493,9 +695,9 @@ if (set2.ai=== 1) {
  document.getElementById("2aiAnswer3").innerHTML = "; " + document.getElementById("2ai").value
 }
 };
-if (!checkAnswers("2aii", "function")) {
+if (!checkAnswers("2aii", "a")) {
 if (set2.aii===3) {
-document.getElementById("2aii").value="function";
+document.getElementById("2aii").value="a";
 document.getElementById("2aii").style.background="#FFFF00"}
 if (set2.aii=== 1) { 
  document.getElementById("2aiiAnswer1").innerHTML = "; " + document.getElementById("2aii").value 
@@ -517,6 +719,56 @@ if (set2.aii=== 1) {
  else { 
  document.getElementById("2aiiAnswer3").innerHTML = "; " + document.getElementById("2aii").value
 }
+};
+if (!checkAnswers("2aiii", "accumulator")) {
+if (set2.aiii===3) {
+document.getElementById("2aiii").value="accumulator";
+document.getElementById("2aiii").style.background="#FFFF00"}
+if (set2.aiii=== 1) { 
+ document.getElementById("2aiiiAnswer1").innerHTML = "; " + document.getElementById("2aiii").value 
+ } 
+ else if (set2.aiii=== 2) { 
+ document.getElementById("2aiiiAnswer2").innerHTML = "; " + document.getElementById("2aiii").value 
+ } 
+ else { 
+ document.getElementById("2aiiiAnswer3").innerHTML = "; " + document.getElementById("2aiii").value 
+ } 
+ } 
+ else { 
+ if (set2.aiii=== 0) { 
+ document.getElementById("2aiiiAnswer1").innerHTML = "; " + document.getElementById("2aiii").value 
+ } 
+ else if (set2.aiii=== 1) { 
+ document.getElementById("2aiiiAnswer2").innerHTML = "; " + document.getElementById("2aiii").value 
+ } 
+ else { 
+ document.getElementById("2aiiiAnswer3").innerHTML = "; " + document.getElementById("2aiii").value
+}
+};
+if (!checkAnswers("2aiv", "u")) {
+if (set2.aiv===3) {
+document.getElementById("2aiv").value="u";
+document.getElementById("2aiv").style.background="#FFFF00"}
+if (set2.aiv=== 1) { 
+ document.getElementById("2aivAnswer1").innerHTML = "; " + document.getElementById("2aiv").value 
+ } 
+ else if (set2.aiv=== 2) { 
+ document.getElementById("2aivAnswer2").innerHTML = "; " + document.getElementById("2aiv").value 
+ } 
+ else { 
+ document.getElementById("2aivAnswer3").innerHTML = "; " + document.getElementById("2aiv").value 
+ } 
+ } 
+ else { 
+ if (set2.aiv=== 0) { 
+ document.getElementById("2aivAnswer1").innerHTML = "; " + document.getElementById("2aiv").value 
+ } 
+ else if (set2.aiv=== 1) { 
+ document.getElementById("2aivAnswer2").innerHTML = "; " + document.getElementById("2aiv").value 
+ } 
+ else { 
+ document.getElementById("2aivAnswer3").innerHTML = "; " + document.getElementById("2aiv").value
+}
 };};
 </script>
 
@@ -528,45 +780,80 @@ if (set2.aii=== 1) {
 <td style="border: 2pt black solid"><b>Node Type</b></td>
 </thead>
 <tbody><tr>
-<td style="border: 2pt black solid">moose population</td><td style="border: 2pt black solid"><select id="3ai">
+<td style="border: 2pt black solid">moose population</td><td style="border: 2pt black solid">
+<select id="3ai">
 <option></option>
-<option>parameter</option>
-<option>accumulator</option>
-<option>function</option></select></td></tr><tr>
-<td style="border: 2pt black solid">number of moose births per year</td><td style="border: 2pt black solid"><select id="3aii">
+<option>p</option>
+<option>a</option>
+<option>r</option>
+<option>a</option>
+<option>m</option>
+<option>e</option>
+<option>t</option>
+<option>e</option>
+<option>r</option></select>
+<select id="3aii">
 <option></option>
-<option>parameter</option>
-<option>accumulator</option>
-<option>function</option></select></td></tr><tr>
-<td style="border: 2pt black solid">moose birth rate</td><td style="border: 2pt black solid"><select id="3aiii">
+<option>a</option></select></td></tr><tr>
+<td style="border: 2pt black solid">number of moose births per year</td><td style="border: 2pt black solid">
+<select id="3aiii">
 <option></option>
-<option>parameter</option>
-<option>accumulator</option>
-<option>function</option></select></td></tr>
+<option>p</option>
+<option>a</option>
+<option>r</option>
+<option>a</option>
+<option>m</option>
+<option>e</option>
+<option>t</option>
+<option>e</option>
+<option>r</option></select>
+<select id="3aiv">
+<option></option>
+<option>f</option></select></td></tr><tr>
+<td style="border: 2pt black solid">moose birth rate</td><td style="border: 2pt black solid">
+<select id="3av">
+<option></option>
+<option>p</option>
+<option>a</option>
+<option>r</option>
+<option>a</option>
+<option>m</option>
+<option>e</option>
+<option>t</option>
+<option>e</option>
+<option>r</option></select>
+<select id="3avi">
+<option></option>
+<option>p</option></select></td></tr>
 </tbody>
 </table></p>
 <script type="text/javascript">var set3 = {
 ai:0,
 aii:0,
-aiii:0,}; 
+aiii:0,
+aiv:0,
+av:0,
+avi:0,}; 
 function cont3() {
 var yestim3 = 0;
-document.getElementById("3Time").innerHTML = tim3;
-checkAnswers("3ai", "accumulator");checkAnswers("3aii", "function");checkAnswers("3aiii", "parameter");
-if (document.getElementById("3ai").value==="" || document.getElementById("3aii").value==="" || document.getElementById("3aiii").value==="" || 0) {
+checkAnswers("3ai", "accumulator");checkAnswers("3aii", "c");checkAnswers("3aiii", "accumulator");checkAnswers("3aiv", "u");checkAnswers("3av", "accumulator");checkAnswers("3avi", "a");
+if (document.getElementById("3ai").value==="" || document.getElementById("3aii").value==="" || document.getElementById("3aiii").value==="" || document.getElementById("3aiv").value==="" || document.getElementById("3av").value==="" || document.getElementById("3avi").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("3ai", "accumulator")) { 
- set3.ai = set3.ai + 1;}if (!checkAnswers("3aii", "function")) { 
- set3.aii = set3.aii + 1;}if (!checkAnswers("3aiii", "parameter")) { 
- set3.aiii = set3.aiii + 1;}
-if ((checkAnswers("3ai", "accumulator") || set3.ai===3) &&(checkAnswers("3aii", "function") || set3.aii===3) &&(checkAnswers("3aiii", "parameter") || set3.aiii===3) &&1) {
+ set3.ai = set3.ai + 1;}if (!checkAnswers("3aii", "c")) { 
+ set3.aii = set3.aii + 1;}if (!checkAnswers("3aiii", "accumulator")) { 
+ set3.aiii = set3.aiii + 1;}if (!checkAnswers("3aiv", "u")) { 
+ set3.aiv = set3.aiv + 1;}if (!checkAnswers("3av", "accumulator")) { 
+ set3.av = set3.av + 1;}if (!checkAnswers("3avi", "a")) { 
+ set3.avi = set3.avi + 1;}
+if ((checkAnswers("3ai", "accumulator") || set3.ai===3) &&(checkAnswers("3aii", "c") || set3.aii===3) &&(checkAnswers("3aiii", "accumulator") || set3.aiii===3) &&(checkAnswers("3aiv", "u") || set3.aiv===3) &&(checkAnswers("3av", "accumulator") || set3.av===3) &&(checkAnswers("3avi", "a") || set3.avi===3) &&1) {
  document.getElementById("question4").style.display = "";
  document.getElementById("button3").style.display = "none";
 
-document.getElementById("3ai").disabled=true;
 document.getElementById("3aii").disabled=true;
-document.getElementById("3aiii").disabled=true;
+document.getElementById("3aiv").disabled=true;
+document.getElementById("3avi").disabled=true;
 tim4= 0;
 
 function time4() {
@@ -604,9 +891,9 @@ if (set3.ai=== 1) {
  document.getElementById("3aiAnswer3").innerHTML = "; " + document.getElementById("3ai").value
 }
 };
-if (!checkAnswers("3aii", "function")) {
+if (!checkAnswers("3aii", "c")) {
 if (set3.aii===3) {
-document.getElementById("3aii").value="function";
+document.getElementById("3aii").value="c";
 document.getElementById("3aii").style.background="#FFFF00"}
 if (set3.aii=== 1) { 
  document.getElementById("3aiiAnswer1").innerHTML = "; " + document.getElementById("3aii").value 
@@ -629,9 +916,9 @@ if (set3.aii=== 1) {
  document.getElementById("3aiiAnswer3").innerHTML = "; " + document.getElementById("3aii").value
 }
 };
-if (!checkAnswers("3aiii", "parameter")) {
+if (!checkAnswers("3aiii", "accumulator")) {
 if (set3.aiii===3) {
-document.getElementById("3aiii").value="parameter";
+document.getElementById("3aiii").value="accumulator";
 document.getElementById("3aiii").style.background="#FFFF00"}
 if (set3.aiii=== 1) { 
  document.getElementById("3aiiiAnswer1").innerHTML = "; " + document.getElementById("3aiii").value 
@@ -652,6 +939,81 @@ if (set3.aiii=== 1) {
  } 
  else { 
  document.getElementById("3aiiiAnswer3").innerHTML = "; " + document.getElementById("3aiii").value
+}
+};
+if (!checkAnswers("3aiv", "u")) {
+if (set3.aiv===3) {
+document.getElementById("3aiv").value="u";
+document.getElementById("3aiv").style.background="#FFFF00"}
+if (set3.aiv=== 1) { 
+ document.getElementById("3aivAnswer1").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ else if (set3.aiv=== 2) { 
+ document.getElementById("3aivAnswer2").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ else { 
+ document.getElementById("3aivAnswer3").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ } 
+ else { 
+ if (set3.aiv=== 0) { 
+ document.getElementById("3aivAnswer1").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ else if (set3.aiv=== 1) { 
+ document.getElementById("3aivAnswer2").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ else { 
+ document.getElementById("3aivAnswer3").innerHTML = "; " + document.getElementById("3aiv").value
+}
+};
+if (!checkAnswers("3av", "accumulator")) {
+if (set3.av===3) {
+document.getElementById("3av").value="accumulator";
+document.getElementById("3av").style.background="#FFFF00"}
+if (set3.av=== 1) { 
+ document.getElementById("3avAnswer1").innerHTML = "; " + document.getElementById("3av").value 
+ } 
+ else if (set3.av=== 2) { 
+ document.getElementById("3avAnswer2").innerHTML = "; " + document.getElementById("3av").value 
+ } 
+ else { 
+ document.getElementById("3avAnswer3").innerHTML = "; " + document.getElementById("3av").value 
+ } 
+ } 
+ else { 
+ if (set3.av=== 0) { 
+ document.getElementById("3avAnswer1").innerHTML = "; " + document.getElementById("3av").value 
+ } 
+ else if (set3.av=== 1) { 
+ document.getElementById("3avAnswer2").innerHTML = "; " + document.getElementById("3av").value 
+ } 
+ else { 
+ document.getElementById("3avAnswer3").innerHTML = "; " + document.getElementById("3av").value
+}
+};
+if (!checkAnswers("3avi", "a")) {
+if (set3.avi===3) {
+document.getElementById("3avi").value="a";
+document.getElementById("3avi").style.background="#FFFF00"}
+if (set3.avi=== 1) { 
+ document.getElementById("3aviAnswer1").innerHTML = "; " + document.getElementById("3avi").value 
+ } 
+ else if (set3.avi=== 2) { 
+ document.getElementById("3aviAnswer2").innerHTML = "; " + document.getElementById("3avi").value 
+ } 
+ else { 
+ document.getElementById("3aviAnswer3").innerHTML = "; " + document.getElementById("3avi").value 
+ } 
+ } 
+ else { 
+ if (set3.avi=== 0) { 
+ document.getElementById("3aviAnswer1").innerHTML = "; " + document.getElementById("3avi").value 
+ } 
+ else if (set3.avi=== 1) { 
+ document.getElementById("3aviAnswer2").innerHTML = "; " + document.getElementById("3avi").value 
+ } 
+ else { 
+ document.getElementById("3aviAnswer3").innerHTML = "; " + document.getElementById("3avi").value
 }
 };};
 </script>
@@ -914,80 +1276,80 @@ displayAnswers();
 </thead>
 <tbody>
 <tr>
-<td style="border: 2pt black solid">1a. i.</td>
-<td style="border: 2pt black solid">740</td>
-<td style="border: 2pt black solid"><div id="1aiAnswer1"></div><div id="1aiAnswer2"></div><div id="1aiAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="1aiTries"></div></td>
-<td style="border: 2pt black solid"><div id="1Time"></div></td>
-<tr>
-<tr>
 <td style="border: 2pt black solid">1a. ii.</td>
-<td style="border: 2pt black solid">148</td>
+<td style="border: 2pt black solid">4</td>
 <td style="border: 2pt black solid"><div id="1aiiAnswer1"></div><div id="1aiiAnswer2"></div><div id="1aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
-<td style="border: 2pt black solid">1a. iii.</td>
-<td style="border: 2pt black solid">592</td>
-<td style="border: 2pt black solid"><div id="1aiiiAnswer1"></div><div id="1aiiiAnswer2"></div><div id="1aiiiAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="1aiiiTries"></div></td>
-<td style="border: 2pt black solid"></td>
-</tr>
-<tr>
 <td style="border: 2pt black solid">1a. iv.</td>
-<td style="border: 2pt black solid">118.4</td>
+<td style="border: 2pt black solid">4</td>
 <td style="border: 2pt black solid"><div id="1aivAnswer1"></div><div id="1aivAnswer2"></div><div id="1aivAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aivTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
-<td style="border: 2pt black solid">1a. v.</td>
-<td style="border: 2pt black solid">473.6</td>
-<td style="border: 2pt black solid"><div id="1avAnswer1"></div><div id="1avAnswer2"></div><div id="1avAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="1avTries"></div></td>
-<td style="border: 2pt black solid"></td>
-</tr>
-<tr>
 <td style="border: 2pt black solid">1a. vi.</td>
-<td style="border: 2pt black solid">94.72</td>
+<td style="border: 2pt black solid">9</td>
 <td style="border: 2pt black solid"><div id="1aviAnswer1"></div><div id="1aviAnswer2"></div><div id="1aviAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aviTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
-<td style="border: 2pt black solid">2a. i.</td>
-<td style="border: 2pt black solid">parameter</td>
-<td style="border: 2pt black solid"><div id="2aiAnswer1"></div><div id="2aiAnswer2"></div><div id="2aiAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="2aiTries"></div></td>
-<td style="border: 2pt black solid"><div id="2Time"></div></td>
+<td style="border: 2pt black solid">1a. viii.</td>
+<td style="border: 2pt black solid">1</td>
+<td style="border: 2pt black solid"><div id="1aviiiAnswer1"></div><div id="1aviiiAnswer2"></div><div id="1aviiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="1aviiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
 <tr>
+<td style="border: 2pt black solid">1a. x.</td>
+<td style="border: 2pt black solid">7</td>
+<td style="border: 2pt black solid"><div id="1axAnswer1"></div><div id="1axAnswer2"></div><div id="1axAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="1axTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">1a. xii.</td>
+<td style="border: 2pt black solid">4</td>
+<td style="border: 2pt black solid"><div id="1axiiAnswer1"></div><div id="1axiiAnswer2"></div><div id="1axiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="1axiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
 <tr>
 <td style="border: 2pt black solid">2a. ii.</td>
-<td style="border: 2pt black solid">function</td>
+<td style="border: 2pt black solid">a</td>
 <td style="border: 2pt black solid"><div id="2aiiAnswer1"></div><div id="2aiiAnswer2"></div><div id="2aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="2aiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
-<td style="border: 2pt black solid">3a. i.</td>
-<td style="border: 2pt black solid">accumulator</td>
-<td style="border: 2pt black solid"><div id="3aiAnswer1"></div><div id="3aiAnswer2"></div><div id="3aiAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="3aiTries"></div></td>
-<td style="border: 2pt black solid"><div id="3Time"></div></td>
-<tr>
+<td style="border: 2pt black solid">2a. iv.</td>
+<td style="border: 2pt black solid">u</td>
+<td style="border: 2pt black solid"><div id="2aivAnswer1"></div><div id="2aivAnswer2"></div><div id="2aivAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="2aivTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
 <tr>
 <td style="border: 2pt black solid">3a. ii.</td>
-<td style="border: 2pt black solid">function</td>
+<td style="border: 2pt black solid">c</td>
 <td style="border: 2pt black solid"><div id="3aiiAnswer1"></div><div id="3aiiAnswer2"></div><div id="3aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3aiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
-<td style="border: 2pt black solid">3a. iii.</td>
-<td style="border: 2pt black solid">parameter</td>
-<td style="border: 2pt black solid"><div id="3aiiiAnswer1"></div><div id="3aiiiAnswer2"></div><div id="3aiiiAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="3aiiiTries"></div></td>
+<td style="border: 2pt black solid">3a. iv.</td>
+<td style="border: 2pt black solid">u</td>
+<td style="border: 2pt black solid"><div id="3aivAnswer1"></div><div id="3aivAnswer2"></div><div id="3aivAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="3aivTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">3a. vi.</td>
+<td style="border: 2pt black solid">a</td>
+<td style="border: 2pt black solid"><div id="3aviAnswer1"></div><div id="3aviAnswer2"></div><div id="3aviAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="3aviTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
@@ -1016,17 +1378,17 @@ displayAnswers();
 </div><script type="text/javascript">
 function displayAnswers () {
 document.getElementById("resultsTable").style.display=""
-document.getElementById("1aiTries").innerHTML=set1.ai;
 document.getElementById("1aiiTries").innerHTML=set1.aii;
-document.getElementById("1aiiiTries").innerHTML=set1.aiii;
 document.getElementById("1aivTries").innerHTML=set1.aiv;
-document.getElementById("1avTries").innerHTML=set1.av;
 document.getElementById("1aviTries").innerHTML=set1.avi;
-document.getElementById("2aiTries").innerHTML=set2.ai;
+document.getElementById("1aviiiTries").innerHTML=set1.aviii;
+document.getElementById("1axTries").innerHTML=set1.ax;
+document.getElementById("1axiiTries").innerHTML=set1.axii;
 document.getElementById("2aiiTries").innerHTML=set2.aii;
-document.getElementById("3aiTries").innerHTML=set3.ai;
+document.getElementById("2aivTries").innerHTML=set2.aiv;
 document.getElementById("3aiiTries").innerHTML=set3.aii;
-document.getElementById("3aiiiTries").innerHTML=set3.aiii;
+document.getElementById("3aivTries").innerHTML=set3.aiv;
+document.getElementById("3aviTries").innerHTML=set3.avi;
 document.getElementById("4aiTries").innerHTML=set4.ai;
 document.getElementById("4aiiTries").innerHTML=set4.aii;
 document.getElementById("6aiTries").innerHTML=set6.ai;

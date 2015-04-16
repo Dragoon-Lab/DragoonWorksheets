@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dragoon Worksheet</title>
+<script type="text/javascript">
+function
+openDragoonProblem(num){
+var u = document.getElementById("user").value;
+var s;
+if ((window.location.href.search("s=") != -1)) {
+s = window.location.href.substr(window.location.href.search("s=")+2)
+} else {
+s = document.getElementById("section").value;
+};
+var problemID = "problem" + num.toString();
+var p = document.getElementById(problemID).value;
+var modeID = "mode" + num.toString();
+var m = document.getElementById(modeID).value;
+var urlString = "http://dragoon.asu.edu/demo/index.html?u="+u+"&m="+m+"&p="+p+"&s="+s;
+window.open(urlString);
+}
+function checkAnswers(inputId, rightAnswer)
+{
+if(document.getElementById(inputId).value===rightAnswer) {
+document.getElementById(inputId).style.background="#66FF33";
+return true;
+}
+else
+{
+document.getElementById(inputId).style.background="#FF3333";
+return false;
+}
+};
+function checkTextbox(inputId) {
+if (!(document.getElementById(inputId).value==="")) {
+document.getElementById(inputId).style.background="#66FF33";
+return true;
+}
+else {
+document.getElementById(inputId).style.background="#FF3333";
+return false;
+}
+};
+
+function checkbox(textId,checkedId,uncheckedId) {
+ck = 0
+unck = 0
+for (i = 0; i<checkedId.length; i++) {
+if (document.getElementById(checkedId[i]).checked) {
+ck = ck + 1;
+}
+};
+for (i = 0; i<uncheckedId.length; i++) {
+if (!(document.getElementById(uncheckedId[i]).checked)) {
+unck = unck + 1;
+}
+};
+if (checkedId.length == ck && uncheckedId.length == unck)
+{
+document.getElementById(textId).style.background="#66FF33";
+return true
+}
+else {
+document.getElementById(textId).style.background="#FF3333";
+return false
+}
+};
+
+function checkboxCorrection(textId,checkedId,uncheckedId) {
+for (i=0; i<checkedId.length; i++) {
+document.getElementById(checkedId[i]).checked = true;
+};
+for (i=0; i<uncheckedId.length; i++) {
+document.getElementById(uncheckedId[i]).checked = false;
+};
+document.getElementById(textId).style.background = "#FFFF00"
+};
+
+function retrieveCheckboxValue(total) {
+response = []
+for (i=0; i<total.length; i++) {
+if
+(document.getElementById (total[i]).checked) {
+response.push(total[i])
+}
+};
+return response
+};
+
+var tim1 = 0;
+function time1 () {
+if (yestim1=1){
+tim1 = tim1 + 1;
+t = setTimeout(function() {time1()},1000);
+}
+};
+var yestim1 = 1;
+time1();
+function checkCompletion(num){
+// id is the id of the continue button or I just need a the number of the question i.e. if its cont1 just send me 1 and it will do
+var u = document.getElementById("user").value;
+var s = document.getElementById("section").value;
+var problemID = "problem" + num.toString();
+var p = document.getElementById(problemID).value.slice(0,30);
+var modeID = "mode" + num.toString();
+var m = document.getElementById(modeID).value;
+var xmlHTTP = new XMLHttpRequest();
+var userObject;
+xmlHTTP.onreadystatechange = function(){
+if(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){
+userObject = JSON.parse(xmlHTTP.responseText);
+}
+}
+var url = "../demo/log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
+//var url = "log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
+xmlHTTP.open("GET", url, false);
+xmlHTTP.send();
+var id = "dragoonErrorMessage" + num.toString();
+var result = false;
+ if(userObject != null){
+result = userObject[0].problemComplete;
+}
+if(result) {
+document.getElementById(id).style.display = "none";
+} else {
+document.getElementById(id).style.display = "";
+}
+return result;
+}</script>
+</head>
+<body>
+<label>Username :</label>&nbsp;<input type="text" name="user" id="user">
+<input type="hidden" name="section" id="section" value="public-worksheet">
+<br><br><button id="usernameCheck" onClick="enterUsername();">Start Worksheet</button><div id="wkstBody" style="display: none">
+<script type="text/javascript">
+if ((window.location.href.search("u=") != -1)) {
+document.getElementById("user").value = window.location.href.substr((window.location.href.search("u=")+2),((window.location.href.search("&s="))-(window.location.href.search("u=")+2)));
+document.getElementById("wkstBody").style.display="";
+document.getElementById("usernameCheck").style.display="none";
+document.getElementById("user").disabled=true;
+};
+function enterUsername() {
+if (document.getElementById("user").value!=="" && document.getElementById("user").value.length<=30) {
+document.getElementById("wkstBody").style.display="";
+document.getElementById("usernameCheck").style.display="none";
+document.getElementById("user").style.background="";
+document.getElementById("user").disabled=true;
+}
+else {
+document.getElementById("user").style.background="#FF3333";
+alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
+}
+};
+</script>
+<h3>This is a test.</h3><table>
+<thead>
+<td style="border: 2pt black solid"><b>a</b></td>
+<td style="border: 2pt black solid"><b>b</b></td>
+<td style="border: 2pt black solid"><b>c</b></td>
+<td style="border: 2pt black solid"><b>d</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">e</td>
+<td style="border: 2pt black solid">f</td>
+<td style="border: 2pt black solid">g</td>
+<td style="border: 2pt black solid">h</td></tr><tr>
+<td style="border: 2pt black solid">i</td>
+<td style="border: 2pt black solid">j</td><td style="border: 2pt black solid">
+<select id="1ai">
+<option></option>
+<option>d</option></select></td><td style="border: 2pt black solid">
+<select id="1aii">
+<option></option>
+<option>T</option></select>
+<select id="1aiii">
+<option></option>
+<option>d</option></select>
+<select id="1aiv">
+<option></option>
+<option> </option></select></td></tr><tr>
+<td style="border: 2pt black solid">m</td>
+<td style="border: 2pt black solid">n</td>
+<td style="border: 2pt black solid">o</td><td style="border: 2pt black solid">
+<select id="1av">
+<option></option>
+<option>d</option></select>
+<select id="1avi">
+<option></option>
+<option> </option></select>
+<select id="1avii">
+<option></option>
+<option>d</option></select></td></tr>
+</tbody>
+</table></p>
+<script type="text/javascript">var set1 = {
+ai:0,
+aii:0,
+aiii:0,
+aiv:0,
+av:0,
+avi:0,
+avii:0,}; 
+function cont1() {
+var yestim1 = 0;
+document.getElementById("1Time").innerHTML = tim1;
+checkAnswers("1ai", "r");checkAnswers("1aii", "h");checkAnswers("1aiii", "r");checkAnswers("1aiv", "i");checkAnswers("1av", "r");checkAnswers("1avi", "o");checkAnswers("1avii", "r");
+if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1aiii").value==="" || document.getElementById("1aiv").value==="" || document.getElementById("1av").value==="" || document.getElementById("1avi").value==="" || document.getElementById("1avii").value==="" || 0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("1ai", "r")) { 
+ set1.ai = set1.ai + 1;}if (!checkAnswers("1aii", "h")) { 
+ set1.aii = set1.aii + 1;}if (!checkAnswers("1aiii", "r")) { 
+ set1.aiii = set1.aiii + 1;}if (!checkAnswers("1aiv", "i")) { 
+ set1.aiv = set1.aiv + 1;}if (!checkAnswers("1av", "r")) { 
+ set1.av = set1.av + 1;}if (!checkAnswers("1avi", "o")) { 
+ set1.avi = set1.avi + 1;}if (!checkAnswers("1avii", "r")) { 
+ set1.avii = set1.avii + 1;}
+if ((checkAnswers("1ai", "r") || set1.ai===3) &&(checkAnswers("1aii", "h") || set1.aii===3) &&(checkAnswers("1aiii", "r") || set1.aiii===3) &&(checkAnswers("1aiv", "i") || set1.aiv===3) &&(checkAnswers("1av", "r") || set1.av===3) &&(checkAnswers("1avi", "o") || set1.avi===3) &&(checkAnswers("1avii", "r") || set1.avii===3) &&1) {
+ document.getElementById("question2").style.display = "";
+ document.getElementById("button1").style.display = "none";
+
+document.getElementById("1ai").disabled=true;
+document.getElementById("1aiv").disabled=true;
+document.getElementById("1avii").disabled=true;
+displayAnswers();
+}
+
+if (!checkAnswers("1ai", "r")) {
+if (set1.ai===3) {
+document.getElementById("1ai").value="r";
+document.getElementById("1ai").style.background="#FFFF00"}
+if (set1.ai=== 1) { 
+ document.getElementById("1aiAnswer1").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ else if (set1.ai=== 2) { 
+ document.getElementById("1aiAnswer2").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ else { 
+ document.getElementById("1aiAnswer3").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ } 
+ else { 
+ if (set1.ai=== 0) { 
+ document.getElementById("1aiAnswer1").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ else if (set1.ai=== 1) { 
+ document.getElementById("1aiAnswer2").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ else { 
+ document.getElementById("1aiAnswer3").innerHTML = "; " + document.getElementById("1ai").value
+}
+};
+if (!checkAnswers("1aii", "h")) {
+if (set1.aii===3) {
+document.getElementById("1aii").value="h";
+document.getElementById("1aii").style.background="#FFFF00"}
+if (set1.aii=== 1) { 
+ document.getElementById("1aiiAnswer1").innerHTML = "; " + document.getElementById("1aii").value 
+ } 
+ else if (set1.aii=== 2) { 
+ document.getElementById("1aiiAnswer2").innerHTML = "; " + document.getElementById("1aii").value 
+ } 
+ else { 
+ document.getElementById("1aiiAnswer3").innerHTML = "; " + document.getElementById("1aii").value 
+ } 
+ } 
+ else { 
+ if (set1.aii=== 0) { 
+ document.getElementById("1aiiAnswer1").innerHTML = "; " + document.getElementById("1aii").value 
+ } 
+ else if (set1.aii=== 1) { 
+ document.getElementById("1aiiAnswer2").innerHTML = "; " + document.getElementById("1aii").value 
+ } 
+ else { 
+ document.getElementById("1aiiAnswer3").innerHTML = "; " + document.getElementById("1aii").value
+}
+};
+if (!checkAnswers("1aiii", "r")) {
+if (set1.aiii===3) {
+document.getElementById("1aiii").value="r";
+document.getElementById("1aiii").style.background="#FFFF00"}
+if (set1.aiii=== 1) { 
+ document.getElementById("1aiiiAnswer1").innerHTML = "; " + document.getElementById("1aiii").value 
+ } 
+ else if (set1.aiii=== 2) { 
+ document.getElementById("1aiiiAnswer2").innerHTML = "; " + document.getElementById("1aiii").value 
+ } 
+ else { 
+ document.getElementById("1aiiiAnswer3").innerHTML = "; " + document.getElementById("1aiii").value 
+ } 
+ } 
+ else { 
+ if (set1.aiii=== 0) { 
+ document.getElementById("1aiiiAnswer1").innerHTML = "; " + document.getElementById("1aiii").value 
+ } 
+ else if (set1.aiii=== 1) { 
+ document.getElementById("1aiiiAnswer2").innerHTML = "; " + document.getElementById("1aiii").value 
+ } 
+ else { 
+ document.getElementById("1aiiiAnswer3").innerHTML = "; " + document.getElementById("1aiii").value
+}
+};
+if (!checkAnswers("1aiv", "i")) {
+if (set1.aiv===3) {
+document.getElementById("1aiv").value="i";
+document.getElementById("1aiv").style.background="#FFFF00"}
+if (set1.aiv=== 1) { 
+ document.getElementById("1aivAnswer1").innerHTML = "; " + document.getElementById("1aiv").value 
+ } 
+ else if (set1.aiv=== 2) { 
+ document.getElementById("1aivAnswer2").innerHTML = "; " + document.getElementById("1aiv").value 
+ } 
+ else { 
+ document.getElementById("1aivAnswer3").innerHTML = "; " + document.getElementById("1aiv").value 
+ } 
+ } 
+ else { 
+ if (set1.aiv=== 0) { 
+ document.getElementById("1aivAnswer1").innerHTML = "; " + document.getElementById("1aiv").value 
+ } 
+ else if (set1.aiv=== 1) { 
+ document.getElementById("1aivAnswer2").innerHTML = "; " + document.getElementById("1aiv").value 
+ } 
+ else { 
+ document.getElementById("1aivAnswer3").innerHTML = "; " + document.getElementById("1aiv").value
+}
+};
+if (!checkAnswers("1av", "r")) {
+if (set1.av===3) {
+document.getElementById("1av").value="r";
+document.getElementById("1av").style.background="#FFFF00"}
+if (set1.av=== 1) { 
+ document.getElementById("1avAnswer1").innerHTML = "; " + document.getElementById("1av").value 
+ } 
+ else if (set1.av=== 2) { 
+ document.getElementById("1avAnswer2").innerHTML = "; " + document.getElementById("1av").value 
+ } 
+ else { 
+ document.getElementById("1avAnswer3").innerHTML = "; " + document.getElementById("1av").value 
+ } 
+ } 
+ else { 
+ if (set1.av=== 0) { 
+ document.getElementById("1avAnswer1").innerHTML = "; " + document.getElementById("1av").value 
+ } 
+ else if (set1.av=== 1) { 
+ document.getElementById("1avAnswer2").innerHTML = "; " + document.getElementById("1av").value 
+ } 
+ else { 
+ document.getElementById("1avAnswer3").innerHTML = "; " + document.getElementById("1av").value
+}
+};
+if (!checkAnswers("1avi", "o")) {
+if (set1.avi===3) {
+document.getElementById("1avi").value="o";
+document.getElementById("1avi").style.background="#FFFF00"}
+if (set1.avi=== 1) { 
+ document.getElementById("1aviAnswer1").innerHTML = "; " + document.getElementById("1avi").value 
+ } 
+ else if (set1.avi=== 2) { 
+ document.getElementById("1aviAnswer2").innerHTML = "; " + document.getElementById("1avi").value 
+ } 
+ else { 
+ document.getElementById("1aviAnswer3").innerHTML = "; " + document.getElementById("1avi").value 
+ } 
+ } 
+ else { 
+ if (set1.avi=== 0) { 
+ document.getElementById("1aviAnswer1").innerHTML = "; " + document.getElementById("1avi").value 
+ } 
+ else if (set1.avi=== 1) { 
+ document.getElementById("1aviAnswer2").innerHTML = "; " + document.getElementById("1avi").value 
+ } 
+ else { 
+ document.getElementById("1aviAnswer3").innerHTML = "; " + document.getElementById("1avi").value
+}
+};
+if (!checkAnswers("1avii", "r")) {
+if (set1.avii===3) {
+document.getElementById("1avii").value="r";
+document.getElementById("1avii").style.background="#FFFF00"}
+if (set1.avii=== 1) { 
+ document.getElementById("1aviiAnswer1").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ else if (set1.avii=== 2) { 
+ document.getElementById("1aviiAnswer2").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ else { 
+ document.getElementById("1aviiAnswer3").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ } 
+ else { 
+ if (set1.avii=== 0) { 
+ document.getElementById("1aviiAnswer1").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ else if (set1.avii=== 1) { 
+ document.getElementById("1aviiAnswer2").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ else { 
+ document.getElementById("1aviiAnswer3").innerHTML = "; " + document.getElementById("1avii").value
+}
+};};
+</script>
+
+<br><button id="button1" onClick="cont1();">Continue</button>
+<div id="question2" style="display: none">
+</div></div><div id="resultsTable" style="display:none">
+<table>
+<thead>
+<td style="border: 2pt black solid">Question</td>
+<td style="border: 2pt black solid">Correct Answer</td>
+<td style="border: 2pt black solid">Student Answers</td>
+<td style="border: 2pt black solid">Number of Wrong Tries</td>
+<td style="border: 2pt black solid">Time for Entire Question (s)</td>
+</thead>
+<tbody>
+<tr>
+<td style="border: 2pt black solid">1a. i.</td>
+<td style="border: 2pt black solid">r</td>
+<td style="border: 2pt black solid"><div id="1aiAnswer1"></div><div id="1aiAnswer2"></div><div id="1aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="1aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="1Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">1a. iv.</td>
+<td style="border: 2pt black solid">i</td>
+<td style="border: 2pt black solid"><div id="1aivAnswer1"></div><div id="1aivAnswer2"></div><div id="1aivAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="1aivTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">1a. vii.</td>
+<td style="border: 2pt black solid">r</td>
+<td style="border: 2pt black solid"><div id="1aviiAnswer1"></div><div id="1aviiAnswer2"></div><div id="1aviiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="1aviiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+</tbody>
+</table>
+</div><script type="text/javascript">
+function displayAnswers () {
+document.getElementById("resultsTable").style.display=""
+document.getElementById("1aiTries").innerHTML=set1.ai;
+document.getElementById("1aivTries").innerHTML=set1.aiv;
+document.getElementById("1aviiTries").innerHTML=set1.avii;
+};
+</script></body></html>

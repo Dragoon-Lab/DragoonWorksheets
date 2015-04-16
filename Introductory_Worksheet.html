@@ -170,51 +170,63 @@ alert("Please make sure you have entered a username and that your username is be
 <td style="border: 2pt black solid">Year 1</td>
 <td style="border: 2pt black solid">800</td>
 <td style="border: 2pt black solid">160</td></tr><tr>
-<td style="border: 2pt black solid">Year 2</td><td style="border: 2pt black solid"><select id="1ai">
+<td style="border: 2pt black solid">Year 2</td><td style="border: 2pt black solid">
+<select id="1ai">
 <option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td><td style="border: 2pt black solid"><select id="1aii">
+<option>8</option>
+<option>1</option>
+<option>.</option>
+<option>9</option></select>
+<select id="1aii">
 <option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td></tr><tr>
-<td style="border: 2pt black solid">Year 3</td><td style="border: 2pt black solid"><select id="1aiii">
+<option>6</option></select></td><td style="border: 2pt black solid">
+<select id="1aiii">
 <option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td><td style="border: 2pt black solid"><select id="1aiv">
+<option>8</option>
+<option>1</option>
+<option>.</option>
+<option>9</option></select>
+<select id="1aiv">
 <option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td></tr><tr>
-<td style="border: 2pt black solid">Year 4</td><td style="border: 2pt black solid"><select id="1av">
+<option>1</option></select></td></tr><tr>
+<td style="border: 2pt black solid">Year 3</td><td style="border: 2pt black solid">
+<select id="1av">
 <option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td><td style="border: 2pt black solid"><select id="1avi">
+<option>8</option>
+<option>1</option>
+<option>.</option>
+<option>9</option></select>
+<select id="1avi">
 <option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td></tr>
+<option>5</option></select></td><td style="border: 2pt black solid">
+<select id="1avii">
+<option></option>
+<option>8</option>
+<option>1</option>
+<option>.</option>
+<option>9</option></select>
+<select id="1aviii">
+<option></option>
+<option>1</option></select></td></tr><tr>
+<td style="border: 2pt black solid">Year 4</td><td style="border: 2pt black solid">
+<select id="1aix">
+<option></option>
+<option>8</option>
+<option>1</option>
+<option>.</option>
+<option>9</option></select>
+<select id="1ax">
+<option></option>
+<option>4</option></select></td><td style="border: 2pt black solid">
+<select id="1axi">
+<option></option>
+<option>8</option>
+<option>1</option>
+<option>.</option>
+<option>9</option></select>
+<select id="1axii">
+<option></option>
+<option>8</option></select></td></tr>
 </tbody>
 </table></p>
 <script type="text/javascript">var set1 = {
@@ -223,31 +235,42 @@ aii:0,
 aiii:0,
 aiv:0,
 av:0,
-avi:0,}; 
+avi:0,
+avii:0,
+aviii:0,
+aix:0,
+ax:0,
+axi:0,
+axii:0,}; 
 function cont1() {
 var yestim1 = 0;
-document.getElementById("1Time").innerHTML = tim1;
-checkAnswers("1ai", "640");checkAnswers("1aii", "128");checkAnswers("1aiii", "512");checkAnswers("1aiv", "102");checkAnswers("1av", "410");checkAnswers("1avi", "81.9");
-if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1aiii").value==="" || document.getElementById("1aiv").value==="" || document.getElementById("1av").value==="" || document.getElementById("1avi").value==="" || 0) {
+checkAnswers("1ai", "102");checkAnswers("1aii", "4");checkAnswers("1aiii", "102");checkAnswers("1aiv", "2");checkAnswers("1av", "102");checkAnswers("1avi", "1");checkAnswers("1avii", "102");checkAnswers("1aviii", "0");checkAnswers("1aix", "102");checkAnswers("1ax", "1");checkAnswers("1axi", "102");checkAnswers("1axii", "1");
+if (document.getElementById("1ai").value==="" || document.getElementById("1aii").value==="" || document.getElementById("1aiii").value==="" || document.getElementById("1aiv").value==="" || document.getElementById("1av").value==="" || document.getElementById("1avi").value==="" || document.getElementById("1avii").value==="" || document.getElementById("1aviii").value==="" || document.getElementById("1aix").value==="" || document.getElementById("1ax").value==="" || document.getElementById("1axi").value==="" || document.getElementById("1axii").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
-if (!checkAnswers("1ai", "640")) { 
- set1.ai = set1.ai + 1;}if (!checkAnswers("1aii", "128")) { 
- set1.aii = set1.aii + 1;}if (!checkAnswers("1aiii", "512")) { 
- set1.aiii = set1.aiii + 1;}if (!checkAnswers("1aiv", "102")) { 
- set1.aiv = set1.aiv + 1;}if (!checkAnswers("1av", "410")) { 
- set1.av = set1.av + 1;}if (!checkAnswers("1avi", "81.9")) { 
- set1.avi = set1.avi + 1;}
-if ((checkAnswers("1ai", "640") || set1.ai===3) &&(checkAnswers("1aii", "128") || set1.aii===3) &&(checkAnswers("1aiii", "512") || set1.aiii===3) &&(checkAnswers("1aiv", "102") || set1.aiv===3) &&(checkAnswers("1av", "410") || set1.av===3) &&(checkAnswers("1avi", "81.9") || set1.avi===3) &&1) {
+if (!checkAnswers("1ai", "102")) { 
+ set1.ai = set1.ai + 1;}if (!checkAnswers("1aii", "4")) { 
+ set1.aii = set1.aii + 1;}if (!checkAnswers("1aiii", "102")) { 
+ set1.aiii = set1.aiii + 1;}if (!checkAnswers("1aiv", "2")) { 
+ set1.aiv = set1.aiv + 1;}if (!checkAnswers("1av", "102")) { 
+ set1.av = set1.av + 1;}if (!checkAnswers("1avi", "1")) { 
+ set1.avi = set1.avi + 1;}if (!checkAnswers("1avii", "102")) { 
+ set1.avii = set1.avii + 1;}if (!checkAnswers("1aviii", "0")) { 
+ set1.aviii = set1.aviii + 1;}if (!checkAnswers("1aix", "102")) { 
+ set1.aix = set1.aix + 1;}if (!checkAnswers("1ax", "1")) { 
+ set1.ax = set1.ax + 1;}if (!checkAnswers("1axi", "102")) { 
+ set1.axi = set1.axi + 1;}if (!checkAnswers("1axii", "1")) { 
+ set1.axii = set1.axii + 1;}
+if ((checkAnswers("1ai", "102") || set1.ai===3) &&(checkAnswers("1aii", "4") || set1.aii===3) &&(checkAnswers("1aiii", "102") || set1.aiii===3) &&(checkAnswers("1aiv", "2") || set1.aiv===3) &&(checkAnswers("1av", "102") || set1.av===3) &&(checkAnswers("1avi", "1") || set1.avi===3) &&(checkAnswers("1avii", "102") || set1.avii===3) &&(checkAnswers("1aviii", "0") || set1.aviii===3) &&(checkAnswers("1aix", "102") || set1.aix===3) &&(checkAnswers("1ax", "1") || set1.ax===3) &&(checkAnswers("1axi", "102") || set1.axi===3) &&(checkAnswers("1axii", "1") || set1.axii===3) &&1) {
  document.getElementById("question2").style.display = "";
  document.getElementById("button1").style.display = "none";
 
-document.getElementById("1ai").disabled=true;
 document.getElementById("1aii").disabled=true;
-document.getElementById("1aiii").disabled=true;
 document.getElementById("1aiv").disabled=true;
-document.getElementById("1av").disabled=true;
 document.getElementById("1avi").disabled=true;
+document.getElementById("1aviii").disabled=true;
+document.getElementById("1ax").disabled=true;
+document.getElementById("1axii").disabled=true;
 tim2= 0;
 
 function time2() {
@@ -260,9 +283,9 @@ var yestim2 = 1;
 time2();
 }
 
-if (!checkAnswers("1ai", "640")) {
+if (!checkAnswers("1ai", "102")) {
 if (set1.ai===3) {
-document.getElementById("1ai").value="640";
+document.getElementById("1ai").value="102";
 document.getElementById("1ai").style.background="#FFFF00"}
 if (set1.ai=== 1) { 
  document.getElementById("1aiAnswer1").innerHTML = "; " + document.getElementById("1ai").value 
@@ -285,9 +308,9 @@ if (set1.ai=== 1) {
  document.getElementById("1aiAnswer3").innerHTML = "; " + document.getElementById("1ai").value
 }
 };
-if (!checkAnswers("1aii", "128")) {
+if (!checkAnswers("1aii", "4")) {
 if (set1.aii===3) {
-document.getElementById("1aii").value="128";
+document.getElementById("1aii").value="4";
 document.getElementById("1aii").style.background="#FFFF00"}
 if (set1.aii=== 1) { 
  document.getElementById("1aiiAnswer1").innerHTML = "; " + document.getElementById("1aii").value 
@@ -310,9 +333,9 @@ if (set1.aii=== 1) {
  document.getElementById("1aiiAnswer3").innerHTML = "; " + document.getElementById("1aii").value
 }
 };
-if (!checkAnswers("1aiii", "512")) {
+if (!checkAnswers("1aiii", "102")) {
 if (set1.aiii===3) {
-document.getElementById("1aiii").value="512";
+document.getElementById("1aiii").value="102";
 document.getElementById("1aiii").style.background="#FFFF00"}
 if (set1.aiii=== 1) { 
  document.getElementById("1aiiiAnswer1").innerHTML = "; " + document.getElementById("1aiii").value 
@@ -335,9 +358,9 @@ if (set1.aiii=== 1) {
  document.getElementById("1aiiiAnswer3").innerHTML = "; " + document.getElementById("1aiii").value
 }
 };
-if (!checkAnswers("1aiv", "102")) {
+if (!checkAnswers("1aiv", "2")) {
 if (set1.aiv===3) {
-document.getElementById("1aiv").value="102";
+document.getElementById("1aiv").value="2";
 document.getElementById("1aiv").style.background="#FFFF00"}
 if (set1.aiv=== 1) { 
  document.getElementById("1aivAnswer1").innerHTML = "; " + document.getElementById("1aiv").value 
@@ -360,9 +383,9 @@ if (set1.aiv=== 1) {
  document.getElementById("1aivAnswer3").innerHTML = "; " + document.getElementById("1aiv").value
 }
 };
-if (!checkAnswers("1av", "410")) {
+if (!checkAnswers("1av", "102")) {
 if (set1.av===3) {
-document.getElementById("1av").value="410";
+document.getElementById("1av").value="102";
 document.getElementById("1av").style.background="#FFFF00"}
 if (set1.av=== 1) { 
  document.getElementById("1avAnswer1").innerHTML = "; " + document.getElementById("1av").value 
@@ -385,9 +408,9 @@ if (set1.av=== 1) {
  document.getElementById("1avAnswer3").innerHTML = "; " + document.getElementById("1av").value
 }
 };
-if (!checkAnswers("1avi", "81.9")) {
+if (!checkAnswers("1avi", "1")) {
 if (set1.avi===3) {
-document.getElementById("1avi").value="81.9";
+document.getElementById("1avi").value="1";
 document.getElementById("1avi").style.background="#FFFF00"}
 if (set1.avi=== 1) { 
  document.getElementById("1aviAnswer1").innerHTML = "; " + document.getElementById("1avi").value 
@@ -408,6 +431,156 @@ if (set1.avi=== 1) {
  } 
  else { 
  document.getElementById("1aviAnswer3").innerHTML = "; " + document.getElementById("1avi").value
+}
+};
+if (!checkAnswers("1avii", "102")) {
+if (set1.avii===3) {
+document.getElementById("1avii").value="102";
+document.getElementById("1avii").style.background="#FFFF00"}
+if (set1.avii=== 1) { 
+ document.getElementById("1aviiAnswer1").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ else if (set1.avii=== 2) { 
+ document.getElementById("1aviiAnswer2").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ else { 
+ document.getElementById("1aviiAnswer3").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ } 
+ else { 
+ if (set1.avii=== 0) { 
+ document.getElementById("1aviiAnswer1").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ else if (set1.avii=== 1) { 
+ document.getElementById("1aviiAnswer2").innerHTML = "; " + document.getElementById("1avii").value 
+ } 
+ else { 
+ document.getElementById("1aviiAnswer3").innerHTML = "; " + document.getElementById("1avii").value
+}
+};
+if (!checkAnswers("1aviii", "0")) {
+if (set1.aviii===3) {
+document.getElementById("1aviii").value="0";
+document.getElementById("1aviii").style.background="#FFFF00"}
+if (set1.aviii=== 1) { 
+ document.getElementById("1aviiiAnswer1").innerHTML = "; " + document.getElementById("1aviii").value 
+ } 
+ else if (set1.aviii=== 2) { 
+ document.getElementById("1aviiiAnswer2").innerHTML = "; " + document.getElementById("1aviii").value 
+ } 
+ else { 
+ document.getElementById("1aviiiAnswer3").innerHTML = "; " + document.getElementById("1aviii").value 
+ } 
+ } 
+ else { 
+ if (set1.aviii=== 0) { 
+ document.getElementById("1aviiiAnswer1").innerHTML = "; " + document.getElementById("1aviii").value 
+ } 
+ else if (set1.aviii=== 1) { 
+ document.getElementById("1aviiiAnswer2").innerHTML = "; " + document.getElementById("1aviii").value 
+ } 
+ else { 
+ document.getElementById("1aviiiAnswer3").innerHTML = "; " + document.getElementById("1aviii").value
+}
+};
+if (!checkAnswers("1aix", "102")) {
+if (set1.aix===3) {
+document.getElementById("1aix").value="102";
+document.getElementById("1aix").style.background="#FFFF00"}
+if (set1.aix=== 1) { 
+ document.getElementById("1aixAnswer1").innerHTML = "; " + document.getElementById("1aix").value 
+ } 
+ else if (set1.aix=== 2) { 
+ document.getElementById("1aixAnswer2").innerHTML = "; " + document.getElementById("1aix").value 
+ } 
+ else { 
+ document.getElementById("1aixAnswer3").innerHTML = "; " + document.getElementById("1aix").value 
+ } 
+ } 
+ else { 
+ if (set1.aix=== 0) { 
+ document.getElementById("1aixAnswer1").innerHTML = "; " + document.getElementById("1aix").value 
+ } 
+ else if (set1.aix=== 1) { 
+ document.getElementById("1aixAnswer2").innerHTML = "; " + document.getElementById("1aix").value 
+ } 
+ else { 
+ document.getElementById("1aixAnswer3").innerHTML = "; " + document.getElementById("1aix").value
+}
+};
+if (!checkAnswers("1ax", "1")) {
+if (set1.ax===3) {
+document.getElementById("1ax").value="1";
+document.getElementById("1ax").style.background="#FFFF00"}
+if (set1.ax=== 1) { 
+ document.getElementById("1axAnswer1").innerHTML = "; " + document.getElementById("1ax").value 
+ } 
+ else if (set1.ax=== 2) { 
+ document.getElementById("1axAnswer2").innerHTML = "; " + document.getElementById("1ax").value 
+ } 
+ else { 
+ document.getElementById("1axAnswer3").innerHTML = "; " + document.getElementById("1ax").value 
+ } 
+ } 
+ else { 
+ if (set1.ax=== 0) { 
+ document.getElementById("1axAnswer1").innerHTML = "; " + document.getElementById("1ax").value 
+ } 
+ else if (set1.ax=== 1) { 
+ document.getElementById("1axAnswer2").innerHTML = "; " + document.getElementById("1ax").value 
+ } 
+ else { 
+ document.getElementById("1axAnswer3").innerHTML = "; " + document.getElementById("1ax").value
+}
+};
+if (!checkAnswers("1axi", "102")) {
+if (set1.axi===3) {
+document.getElementById("1axi").value="102";
+document.getElementById("1axi").style.background="#FFFF00"}
+if (set1.axi=== 1) { 
+ document.getElementById("1axiAnswer1").innerHTML = "; " + document.getElementById("1axi").value 
+ } 
+ else if (set1.axi=== 2) { 
+ document.getElementById("1axiAnswer2").innerHTML = "; " + document.getElementById("1axi").value 
+ } 
+ else { 
+ document.getElementById("1axiAnswer3").innerHTML = "; " + document.getElementById("1axi").value 
+ } 
+ } 
+ else { 
+ if (set1.axi=== 0) { 
+ document.getElementById("1axiAnswer1").innerHTML = "; " + document.getElementById("1axi").value 
+ } 
+ else if (set1.axi=== 1) { 
+ document.getElementById("1axiAnswer2").innerHTML = "; " + document.getElementById("1axi").value 
+ } 
+ else { 
+ document.getElementById("1axiAnswer3").innerHTML = "; " + document.getElementById("1axi").value
+}
+};
+if (!checkAnswers("1axii", "1")) {
+if (set1.axii===3) {
+document.getElementById("1axii").value="1";
+document.getElementById("1axii").style.background="#FFFF00"}
+if (set1.axii=== 1) { 
+ document.getElementById("1axiiAnswer1").innerHTML = "; " + document.getElementById("1axii").value 
+ } 
+ else if (set1.axii=== 2) { 
+ document.getElementById("1axiiAnswer2").innerHTML = "; " + document.getElementById("1axii").value 
+ } 
+ else { 
+ document.getElementById("1axiiAnswer3").innerHTML = "; " + document.getElementById("1axii").value 
+ } 
+ } 
+ else { 
+ if (set1.axii=== 0) { 
+ document.getElementById("1axiiAnswer1").innerHTML = "; " + document.getElementById("1axii").value 
+ } 
+ else if (set1.axii=== 1) { 
+ document.getElementById("1axiiAnswer2").innerHTML = "; " + document.getElementById("1axii").value 
+ } 
+ else { 
+ document.getElementById("1axiiAnswer3").innerHTML = "; " + document.getElementById("1axii").value
 }
 };};
 </script>
@@ -454,37 +627,60 @@ time3();
 <td style="border: 2pt black solid"><b>Node Type</b></td>
 </thead>
 <tbody><tr>
-<td style="border: 2pt black solid">number of books Rod owns</td><td style="border: 2pt black solid"><select id="3ai">
+<td style="border: 2pt black solid">number of books Rod owns</td><td style="border: 2pt black solid">
+<select id="3ai">
 <option></option>
-<option>parameter</option>
-<option>accumulator</option>
-<option>function</option></select></td></tr><tr>
-<td style="border: 2pt black solid">number of books Rod buys each week</td><td style="border: 2pt black solid"><select id="3aii">
+<option>p</option>
+<option>a</option>
+<option>r</option>
+<option>a</option>
+<option>m</option>
+<option>e</option>
+<option>t</option>
+<option>e</option>
+<option>r</option></select>
+<select id="3aii">
 <option></option>
-<option>parameter</option>
-<option>accumulator</option>
-<option>function</option></select></td></tr>
+<option>a</option></select></td></tr><tr>
+<td style="border: 2pt black solid">number of books Rod buys each week</td><td style="border: 2pt black solid">
+<select id="3aiii">
+<option></option>
+<option>p</option>
+<option>a</option>
+<option>r</option>
+<option>a</option>
+<option>m</option>
+<option>e</option>
+<option>t</option>
+<option>e</option>
+<option>r</option></select>
+<select id="3aiv">
+<option></option>
+<option>p</option></select></td></tr>
 </tbody>
 </table></p>
 <script type="text/javascript">var set3 = {
 ai:0,
-aii:0,}; 
+aii:0,
+aiii:0,
+aiv:0,}; 
 function cont3() {
 var yestim3 = 0;
-document.getElementById("3Time").innerHTML = tim3;
-checkAnswers("3ai", "accumulator");checkAnswers("3aii", "parameter");
-if (document.getElementById("3ai").value==="" || document.getElementById("3aii").value==="" || 0) {
+checkAnswers("3ai", "accumulator");checkAnswers("3aii", "c");checkAnswers("3aiii", "accumulator");checkAnswers("3aiv", "a");
+if (document.getElementById("3ai").value==="" || document.getElementById("3aii").value==="" || document.getElementById("3aiii").value==="" || document.getElementById("3aiv").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("3ai", "accumulator")) { 
- set3.ai = set3.ai + 1;}if (!checkAnswers("3aii", "parameter")) { 
- set3.aii = set3.aii + 1;}
-if ((checkAnswers("3ai", "accumulator") || set3.ai===3) &&(checkAnswers("3aii", "parameter") || set3.aii===3) &&1) {
+ set3.ai = set3.ai + 1;}if (!checkAnswers("3aii", "c")) { 
+ set3.aii = set3.aii + 1;}if (!checkAnswers("3aiii", "accumulator")) { 
+ set3.aiii = set3.aiii + 1;}if (!checkAnswers("3aiv", "a")) { 
+ set3.aiv = set3.aiv + 1;}
+if ((checkAnswers("3ai", "accumulator") || set3.ai===3) &&(checkAnswers("3aii", "c") || set3.aii===3) &&(checkAnswers("3aiii", "accumulator") || set3.aiii===3) &&(checkAnswers("3aiv", "a") || set3.aiv===3) &&1) {
  document.getElementById("question4").style.display = "";
  document.getElementById("button3").style.display = "none";
 
-document.getElementById("3ai").disabled=true;
 document.getElementById("3aii").disabled=true;
+document.getElementById("3aiv").disabled=true;
 tim4= 0;
 
 function time4() {
@@ -522,9 +718,9 @@ if (set3.ai=== 1) {
  document.getElementById("3aiAnswer3").innerHTML = "; " + document.getElementById("3ai").value
 }
 };
-if (!checkAnswers("3aii", "parameter")) {
+if (!checkAnswers("3aii", "c")) {
 if (set3.aii===3) {
-document.getElementById("3aii").value="parameter";
+document.getElementById("3aii").value="c";
 document.getElementById("3aii").style.background="#FFFF00"}
 if (set3.aii=== 1) { 
  document.getElementById("3aiiAnswer1").innerHTML = "; " + document.getElementById("3aii").value 
@@ -545,6 +741,56 @@ if (set3.aii=== 1) {
  } 
  else { 
  document.getElementById("3aiiAnswer3").innerHTML = "; " + document.getElementById("3aii").value
+}
+};
+if (!checkAnswers("3aiii", "accumulator")) {
+if (set3.aiii===3) {
+document.getElementById("3aiii").value="accumulator";
+document.getElementById("3aiii").style.background="#FFFF00"}
+if (set3.aiii=== 1) { 
+ document.getElementById("3aiiiAnswer1").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else if (set3.aiii=== 2) { 
+ document.getElementById("3aiiiAnswer2").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else { 
+ document.getElementById("3aiiiAnswer3").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ } 
+ else { 
+ if (set3.aiii=== 0) { 
+ document.getElementById("3aiiiAnswer1").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else if (set3.aiii=== 1) { 
+ document.getElementById("3aiiiAnswer2").innerHTML = "; " + document.getElementById("3aiii").value 
+ } 
+ else { 
+ document.getElementById("3aiiiAnswer3").innerHTML = "; " + document.getElementById("3aiii").value
+}
+};
+if (!checkAnswers("3aiv", "a")) {
+if (set3.aiv===3) {
+document.getElementById("3aiv").value="a";
+document.getElementById("3aiv").style.background="#FFFF00"}
+if (set3.aiv=== 1) { 
+ document.getElementById("3aivAnswer1").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ else if (set3.aiv=== 2) { 
+ document.getElementById("3aivAnswer2").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ else { 
+ document.getElementById("3aivAnswer3").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ } 
+ else { 
+ if (set3.aiv=== 0) { 
+ document.getElementById("3aivAnswer1").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ else if (set3.aiv=== 1) { 
+ document.getElementById("3aivAnswer2").innerHTML = "; " + document.getElementById("3aiv").value 
+ } 
+ else { 
+ document.getElementById("3aivAnswer3").innerHTML = "; " + document.getElementById("3aiv").value
 }
 };};
 </script>
@@ -915,59 +1161,59 @@ displayAnswers();
 </thead>
 <tbody>
 <tr>
-<td style="border: 2pt black solid">1a. i.</td>
-<td style="border: 2pt black solid">640</td>
-<td style="border: 2pt black solid"><div id="1aiAnswer1"></div><div id="1aiAnswer2"></div><div id="1aiAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="1aiTries"></div></td>
-<td style="border: 2pt black solid"><div id="1Time"></div></td>
-<tr>
-<tr>
 <td style="border: 2pt black solid">1a. ii.</td>
-<td style="border: 2pt black solid">128</td>
+<td style="border: 2pt black solid">4</td>
 <td style="border: 2pt black solid"><div id="1aiiAnswer1"></div><div id="1aiiAnswer2"></div><div id="1aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aiiTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
-<td style="border: 2pt black solid">1a. iii.</td>
-<td style="border: 2pt black solid">512</td>
-<td style="border: 2pt black solid"><div id="1aiiiAnswer1"></div><div id="1aiiiAnswer2"></div><div id="1aiiiAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="1aiiiTries"></div></td>
-<td style="border: 2pt black solid"></td>
-</tr>
-<tr>
 <td style="border: 2pt black solid">1a. iv.</td>
-<td style="border: 2pt black solid">102</td>
+<td style="border: 2pt black solid">2</td>
 <td style="border: 2pt black solid"><div id="1aivAnswer1"></div><div id="1aivAnswer2"></div><div id="1aivAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aivTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
-<td style="border: 2pt black solid">1a. v.</td>
-<td style="border: 2pt black solid">410</td>
-<td style="border: 2pt black solid"><div id="1avAnswer1"></div><div id="1avAnswer2"></div><div id="1avAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="1avTries"></div></td>
-<td style="border: 2pt black solid"></td>
-</tr>
-<tr>
 <td style="border: 2pt black solid">1a. vi.</td>
-<td style="border: 2pt black solid">81.9</td>
+<td style="border: 2pt black solid">1</td>
 <td style="border: 2pt black solid"><div id="1aviAnswer1"></div><div id="1aviAnswer2"></div><div id="1aviAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="1aviTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 <tr>
-<td style="border: 2pt black solid">3a. i.</td>
-<td style="border: 2pt black solid">accumulator</td>
-<td style="border: 2pt black solid"><div id="3aiAnswer1"></div><div id="3aiAnswer2"></div><div id="3aiAnswer3"></div></td>
-<td style="border: 2pt black solid"><div id="3aiTries"></div></td>
-<td style="border: 2pt black solid"><div id="3Time"></div></td>
+<td style="border: 2pt black solid">1a. viii.</td>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid"><div id="1aviiiAnswer1"></div><div id="1aviiiAnswer2"></div><div id="1aviiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="1aviiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
 <tr>
+<td style="border: 2pt black solid">1a. x.</td>
+<td style="border: 2pt black solid">1</td>
+<td style="border: 2pt black solid"><div id="1axAnswer1"></div><div id="1axAnswer2"></div><div id="1axAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="1axTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">1a. xii.</td>
+<td style="border: 2pt black solid">1</td>
+<td style="border: 2pt black solid"><div id="1axiiAnswer1"></div><div id="1axiiAnswer2"></div><div id="1axiiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="1axiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
 <tr>
 <td style="border: 2pt black solid">3a. ii.</td>
-<td style="border: 2pt black solid">parameter</td>
+<td style="border: 2pt black solid">c</td>
 <td style="border: 2pt black solid"><div id="3aiiAnswer1"></div><div id="3aiiAnswer2"></div><div id="3aiiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="3aiiTries"></div></td>
+<td style="border: 2pt black solid"></td>
+</tr>
+<tr>
+<td style="border: 2pt black solid">3a. iv.</td>
+<td style="border: 2pt black solid">a</td>
+<td style="border: 2pt black solid"><div id="3aivAnswer1"></div><div id="3aivAnswer2"></div><div id="3aivAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="3aivTries"></div></td>
 <td style="border: 2pt black solid"></td>
 </tr>
 </tbody>
@@ -975,13 +1221,13 @@ displayAnswers();
 </div><script type="text/javascript">
 function displayAnswers () {
 document.getElementById("resultsTable").style.display=""
-document.getElementById("1aiTries").innerHTML=set1.ai;
 document.getElementById("1aiiTries").innerHTML=set1.aii;
-document.getElementById("1aiiiTries").innerHTML=set1.aiii;
 document.getElementById("1aivTries").innerHTML=set1.aiv;
-document.getElementById("1avTries").innerHTML=set1.av;
 document.getElementById("1aviTries").innerHTML=set1.avi;
-document.getElementById("3aiTries").innerHTML=set3.ai;
+document.getElementById("1aviiiTries").innerHTML=set1.aviii;
+document.getElementById("1axTries").innerHTML=set1.ax;
+document.getElementById("1axiiTries").innerHTML=set1.axii;
 document.getElementById("3aiiTries").innerHTML=set3.aii;
+document.getElementById("3aivTries").innerHTML=set3.aiv;
 };
 </script></body></html>
