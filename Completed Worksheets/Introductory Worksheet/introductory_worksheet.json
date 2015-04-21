@@ -42,76 +42,88 @@
                                                 [
                                                     "Year 2",
                                                     [
-                                                        [
-                                                            "81.9",
-                                                            "102",
-                                                            "640",
-                                                            "128",
-                                                            "512",
-                                                            "410"
-                                                        ],
-                                                        "640"
+														[	
+															[
+																"81.9",
+																"102",
+																"640",
+																"128",
+																"512",
+																"410"
+															],
+															"640"
+														]	
                                                     ],
                                                     [
-                                                        [
-                                                            "81.9",
-                                                            "102",
-                                                            "640",
-                                                            "128",
-                                                            "512",
-                                                            "410"
-                                                        ],
-                                                        "128"
+                                                       [
+														   [
+																"81.9",
+																"102",
+																"640",
+																"128",
+																"512",
+																"410"
+															],
+															"128"
+														]
                                                     ]
                                                 ],
                                                 [
                                                     "Year 3",
                                                     [
-                                                        [
-                                                            "81.9",
-                                                            "102",
-                                                            "640",
-                                                            "128",
-                                                            "512",
-                                                            "410"
-                                                        ],
-                                                        "512"
+														[	
+															[
+																"81.9",
+																"102",
+																"640",
+																"128",
+																"512",
+																"410"
+															],
+															"512"
+														]	
                                                     ],
                                                     [
-                                                        [
-                                                            "81.9",
-                                                            "102",
-                                                            "640",
-                                                            "128",
-                                                            "512",
-                                                            "410"
-                                                        ],
-                                                        "102"
+														[	
+															[
+																"81.9",
+																"102",
+																"640",
+																"128",
+																"512",
+																"410"
+															],
+															"102"
+														]	
                                                     ]
                                                 ],
                                                 [
                                                     "Year 4",
                                                     [
-                                                        [
-                                                            "81.9",
-                                                            "102",
-                                                            "640",
-                                                            "128",
-                                                            "512",
-                                                            "410"
-                                                        ],
-                                                        "410"
+														[	
+															[
+																"81.9",
+																"102",
+																"640",
+																"128",
+																"512",
+																"410"
+															],
+															"410"
+														]	
                                                     ],
                                                     [
-                                                        [
-                                                            "81.9",
-                                                            "102",
-                                                            "640",
-                                                            "128",
-                                                            "512",
-                                                            "410"
-                                                        ],
-                                                        "81.9"
+														[	
+															[
+																"81.9",
+																"102",
+																"640",
+																"128",
+																"512",
+																"410"
+															],
+															"81.9"
+														]	
                                                     ]
                                                 ]
                                             ]
@@ -203,23 +215,27 @@
                                                 [
                                                     "number of books Rod owns",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "accumulator"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"accumulator"
+														]	
                                                     ]
                                                 ],
                                                 [
                                                     "number of books Rod buys each week",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ]
                                                 ]
                                             ]
@@ -365,7 +381,13 @@
                                         "__Text__": {
                                             "text": "The dodo extinction problem, which was discussed earlier, is an example of a system with an exponential decrease in its main variable.   That is, the amount of decrease in the main variable is proportional to its value.  The corresponding generic model is called &quot;proportional to source.&quot;   Try solving the problem below.   If you move the sliders, is the graph always an exponential curve?"
                                         }
-                                    }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "dodos",
+											"mode": "STUDENT"
+										}
+									}
                                 ]
                             }
                         }

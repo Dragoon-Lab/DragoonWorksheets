@@ -99,24 +99,19 @@ class Table:
 					if cell == "dropdown":
 						cell = input ("Cell: ").split(",")
 						for element in cell:
+							indx = cell.index(element)
 							if element == "dropdown":
 								element = []
 								options = input ("Answers: ").split(",")
 								correct = input ("Right answer: ")
-								for x in A:
-									correct = correct.replace(x,B[A.index(x)])
 								if not correct in options:
 									print("Please choose one of the given answers as the right answer.")
 									correct = input ("Right answer: ")
-									for x in A:
-										correct = correct.replace(x,B[A.index(x)])
 								element.append(options)
 								element.append(correct)
-								print(element)
-								print(cell)
+								cell[indx] = element
 					line2.append(cell)	
 				self.rows.append(line2)
-				print(line2)
 				line = input ("Line: ").split(",")
 			sect.content.append(self)
 		else:
@@ -133,16 +128,10 @@ class Dropdown:
 	def __init__(self,sect):
 		if isinstance (sect,Section):
 			self.options = input ("Answers: ").split(",")
-			for x in A:
-				self.options = self.options.replace(x,B[A.index(x)])
 			self.correct = input ("Right answer: ")
-			for x in A:
-				self.correct = self.correct.replace(x,B[A.index(x)])
 			if not self.correct in self.options:
 				print("Please choose one of the given answers as the right answer.")
 				self.correct = input ("Right answer: ")
-				for x in A:
-					self.correct = self.correct.replace(x,B[A.index(x)])
 			sect.content.append(self)
 		else:#elif isinstance (sect,list):
 			self.options = []
@@ -193,17 +182,11 @@ class Checkbox:
 	def __init__(self,sect):
 		if isinstance (sect,Section):
 			self.options_c = input ("Answers: ").split(",")
-			for x in A:
-				self.options_c = self.options_c.replace(x,B[A.index(x)])
 			self.correct_c = input ("Right answers: ").split(",")
-			for x in A:
-				self.correct_c = self.correct.replace(x,B[A.index(x)])
 			for item in self.correct_c:
 				if not item in self.options_c:
-					print("Please choose one of the given answers as the right answer.")
+					print("Please choose the right answers from the list of possible answers you have already entered.")
 					self.correct = input ("Right answers: ").split(",")
-					for x in A:
-						self.correct_c = self.correct.replace(x,B[A.index(x)])
 			sect.content.append(self)
 		else:
 			self.options_c = []
@@ -246,8 +229,6 @@ class CustomTypeEncoder(json.JSONEncoder):
 
 def CustomTypeDecoder(dct):
 	if type(dct) is dict and len(dct) == 1:
-		#print(dct)
-		#print(type(dct))
 		type_name, value = list(dct.items())[0]
 		type_name = type_name.strip('_')
 		if type_name in TYPES:
@@ -349,11 +330,11 @@ def generateHTMLWorksheet(wks):
 							else:
 								allline = allline + "<td style=\"border: 2pt black solid\">"
 								for piece in drdn:
-									if isinstance(drdn,str):
+									if isinstance(piece,str):
 										allline = allline + piece
 									else:
 										allans = ""
-										rta = piece[1]
+										rta = str(piece[1])
 										for choice in piece[0]:
 											option = "\n<option>" + str(choice) + "</option>"
 											allans = allans + option
@@ -365,20 +346,20 @@ def generateHTMLWorksheet(wks):
 										chkcpl = chkcpl + "document.getElementById(\"" + qno + lno + rno + "\").value===\"\" || "
 										ctr = ctr + "if (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) { \n set" + qno + "." + lno + rno + " = set" + qno + "." + lno + rno + " + 1;}"
 										contif = contif + "(checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\") || set" + qno + "." + lno + rno + "===3) &&"
-										ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) {\nif (set" + qno + "." + lno + rno + "===3) {\ndocument.getElementById(\"" + qno + lno + rno + "\").value=\"" + rta + "\";\ndocument.getElementById(\"" + qno + lno + rno + "\").style.background=\"#FFFF00\"}\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value\n}\n};"
+										ctwrng = ctwrng + "\nif (!checkAnswers(\"" + qno + lno + rno + "\", \"" + rta + "\")) {\nif (set" + qno + "." + lno + rno + "===3) {\ndocument.getElementById(\"" + qno + lno + rno + "\").style.background=\"#FFFF00\";\n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = document.getElementById(\"" + qno + lno + rno + "\").value \n }\nif (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 2) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n } \n else { \n if (set" + qno + "." + lno + rno + "=== 0) { \n document.getElementById(\"" + qno + lno + rno + "Answer1\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else if (set" + qno + "." + lno + rno + "=== 1) { \n document.getElementById(\"" + qno + lno + rno + "Answer2\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value \n } \n else { \n document.getElementById(\"" + qno + lno + rno + "Answer3\").innerHTML = \"; \" + document.getElementById(\"" + qno + lno + rno + "\").value\n}\n};\nif(set" + qno + "." + lno + rno + "===3)\n{document.getElementById(\"" + qno + lno + rno + "\").value=\"" + rta + "\"};"
 										allline = allline + "\n<select id=\"" + qno + lno + rno + "\">\n<option></option>" + allans + "</select>"
+										endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
+										disabl = disabl + "\ndocument.getElementById(\""+ qno + lno + rno +"\").disabled=true;"
+										endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
+										if lno == "a" and rno == "i":
+											endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
+											contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
+										else:
+											endtbl = endtbl + "</td>\n</tr>"
 								allline = allline + "</td>"
-								endtbl = endtbl + "\n<tr>\n<td style=\"border: 2pt black solid\">" + qno + lno + ". " + rno + ".</td>\n<td style=\"border: 2pt black solid\">" + rta + "</td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Answer1\"></div><div id=\"" + qno + lno + rno + "Answer2\"></div><div id=\"" + qno + lno + rno + "Answer3\"></div></td>\n<td style=\"border: 2pt black solid\"><div id=\"" + qno + lno + rno + "Tries\"></div></td>\n<td style=\"border: 2pt black solid\">"
-								disabl = disabl + "\ndocument.getElementById(\""+ qno + lno + rno +"\").disabled=true;"
-								if lno == "a" and rno == "i":
-									endtbl = endtbl + "<div id=\"" + qno + "Time\"></div></td>\n<tr>"
-									contfn = contfn + "\ndocument.getElementById(\"" + qno + "Time\").innerHTML = tim" + qno + ";"
-								else:
-									endtbl = endtbl + "</td>\n</tr>"
-								endfn = endfn + "\ndocument.getElementById(\"" + qno + lno + rno + "Tries\").innerHTML=set" + qno + "." + lno + rno + ";"
 						allline = allline + "</tr>"
 					allbody = allbody + allline
-					worksheet = worksheet + "<table>\n<thead>" + allhead + "\n</thead>\n<tbody>" + allbody + "\n</tbody>\n</table>"#"\n<script type=\"text/javascript\">\nfunction checkTable" + qno + lno + rno + "() {\n" + chktbl + "\n};\n</script>\n<br><br><button id=\"table" + qno + lno + rno + "\" onClick=\"checkTable" + qno + lno + rno + "();\">Check Table</button><br><br>"
+					worksheet = worksheet + "<table>\n<thead>" + allhead + "\n</thead>\n<tbody>" + allbody + "\n</tbody>\n</table>"
 				elif part.__class__.__name__ == "Text":
 					worksheet = worksheet + part.text
 				elif part.__class__.__name__ == "Image":
@@ -438,10 +419,11 @@ def generateHTMLWorksheet(wks):
 ######################
 ## Construct an example:
 	
-#with open("blood_glucose.json","w") as outfile:
-	#json.dump(wk1,outfile,cls = CustomTypeEncoder, indent = 4)
+def generateJSON(wkst,filename)
+	with open(filename,"w") as outfile:
+		json.dump(wkst,outfile,cls = CustomTypeEncoder, indent = 4)
 
-def testload():
-	with open("Completed Worksheets/Introductory Worksheet/introductory_worksheet.json","r") as outfile:
+def load(filename):
+	with open(filename,"r") as outfile:
 		wksht_dct = json.load(outfile)
 		return CustomTypeDecoder(wksht_dct)

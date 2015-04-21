@@ -170,29 +170,16 @@ alert("Please make sure you have entered a username and that your username is be
 <td style="border: 2pt black solid">Year 1</td>
 <td style="border: 2pt black solid">800</td>
 <td style="border: 2pt black solid">160</td></tr><tr>
-<td style="border: 2pt black solid">Year 2</td><td style="border: 2pt black solid"><select id="1ai">
+<td style="border: 2pt black solid">Year 2</td><td style="border: 2pt black solid">
+<select id="1ai">
 <option></option>
 <option>94.72</option>
 <option>118.4</option>
 <option>740</option>
 <option>148</option>
 <option>592</option>
-<option>473.6</option></select></td><td style="border: 2pt black solid"><select id="1aii">
-<option></option>
-<option>94.72</option>
-<option>118.4</option>
-<option>740</option>
-<option>148</option>
-<option>592</option>
-<option>473.6</option></select></td></tr><tr>
-<td style="border: 2pt black solid">Year 3</td><td style="border: 2pt black solid"><select id="1aiii">
-<option></option>
-<option>94.72</option>
-<option>118.4</option>
-<option>740</option>
-<option>148</option>
-<option>592</option>
-<option>473.6</option></select></td><td style="border: 2pt black solid"><select id="1aiv">
+<option>473.6</option></select></td><td style="border: 2pt black solid">
+<select id="1aii">
 <option></option>
 <option>94.72</option>
 <option>118.4</option>
@@ -200,14 +187,33 @@ alert("Please make sure you have entered a username and that your username is be
 <option>148</option>
 <option>592</option>
 <option>473.6</option></select></td></tr><tr>
-<td style="border: 2pt black solid">Year 4</td><td style="border: 2pt black solid"><select id="1av">
+<td style="border: 2pt black solid">Year 3</td><td style="border: 2pt black solid">
+<select id="1aiii">
 <option></option>
 <option>94.72</option>
 <option>118.4</option>
 <option>740</option>
 <option>148</option>
 <option>592</option>
-<option>473.6</option></select></td><td style="border: 2pt black solid"><select id="1avi">
+<option>473.6</option></select></td><td style="border: 2pt black solid">
+<select id="1aiv">
+<option></option>
+<option>94.72</option>
+<option>118.4</option>
+<option>740</option>
+<option>148</option>
+<option>592</option>
+<option>473.6</option></select></td></tr><tr>
+<td style="border: 2pt black solid">Year 4</td><td style="border: 2pt black solid">
+<select id="1av">
+<option></option>
+<option>94.72</option>
+<option>118.4</option>
+<option>740</option>
+<option>148</option>
+<option>592</option>
+<option>473.6</option></select></td><td style="border: 2pt black solid">
+<select id="1avi">
 <option></option>
 <option>94.72</option>
 <option>118.4</option>
@@ -262,8 +268,9 @@ time2();
 
 if (!checkAnswers("1ai", "740")) {
 if (set1.ai===3) {
-document.getElementById("1ai").value="740";
-document.getElementById("1ai").style.background="#FFFF00"}
+document.getElementById("1ai").style.background="#FFFF00";
+ document.getElementById("1aiAnswer3").innerHTML = document.getElementById("1ai").value 
+ }
 if (set1.ai=== 1) { 
  document.getElementById("1aiAnswer1").innerHTML = "; " + document.getElementById("1ai").value 
  } 
@@ -285,10 +292,13 @@ if (set1.ai=== 1) {
  document.getElementById("1aiAnswer3").innerHTML = "; " + document.getElementById("1ai").value
 }
 };
+if(set1.ai===3)
+{document.getElementById("1ai").value="740"};
 if (!checkAnswers("1aii", "148")) {
 if (set1.aii===3) {
-document.getElementById("1aii").value="148";
-document.getElementById("1aii").style.background="#FFFF00"}
+document.getElementById("1aii").style.background="#FFFF00";
+ document.getElementById("1aiiAnswer3").innerHTML = document.getElementById("1aii").value 
+ }
 if (set1.aii=== 1) { 
  document.getElementById("1aiiAnswer1").innerHTML = "; " + document.getElementById("1aii").value 
  } 
@@ -310,10 +320,13 @@ if (set1.aii=== 1) {
  document.getElementById("1aiiAnswer3").innerHTML = "; " + document.getElementById("1aii").value
 }
 };
+if(set1.aii===3)
+{document.getElementById("1aii").value="148"};
 if (!checkAnswers("1aiii", "592")) {
 if (set1.aiii===3) {
-document.getElementById("1aiii").value="592";
-document.getElementById("1aiii").style.background="#FFFF00"}
+document.getElementById("1aiii").style.background="#FFFF00";
+ document.getElementById("1aiiiAnswer3").innerHTML = document.getElementById("1aiii").value 
+ }
 if (set1.aiii=== 1) { 
  document.getElementById("1aiiiAnswer1").innerHTML = "; " + document.getElementById("1aiii").value 
  } 
@@ -335,10 +348,13 @@ if (set1.aiii=== 1) {
  document.getElementById("1aiiiAnswer3").innerHTML = "; " + document.getElementById("1aiii").value
 }
 };
+if(set1.aiii===3)
+{document.getElementById("1aiii").value="592"};
 if (!checkAnswers("1aiv", "118.4")) {
 if (set1.aiv===3) {
-document.getElementById("1aiv").value="118.4";
-document.getElementById("1aiv").style.background="#FFFF00"}
+document.getElementById("1aiv").style.background="#FFFF00";
+ document.getElementById("1aivAnswer3").innerHTML = document.getElementById("1aiv").value 
+ }
 if (set1.aiv=== 1) { 
  document.getElementById("1aivAnswer1").innerHTML = "; " + document.getElementById("1aiv").value 
  } 
@@ -360,10 +376,13 @@ if (set1.aiv=== 1) {
  document.getElementById("1aivAnswer3").innerHTML = "; " + document.getElementById("1aiv").value
 }
 };
+if(set1.aiv===3)
+{document.getElementById("1aiv").value="118.4"};
 if (!checkAnswers("1av", "473.6")) {
 if (set1.av===3) {
-document.getElementById("1av").value="473.6";
-document.getElementById("1av").style.background="#FFFF00"}
+document.getElementById("1av").style.background="#FFFF00";
+ document.getElementById("1avAnswer3").innerHTML = document.getElementById("1av").value 
+ }
 if (set1.av=== 1) { 
  document.getElementById("1avAnswer1").innerHTML = "; " + document.getElementById("1av").value 
  } 
@@ -385,10 +404,13 @@ if (set1.av=== 1) {
  document.getElementById("1avAnswer3").innerHTML = "; " + document.getElementById("1av").value
 }
 };
+if(set1.av===3)
+{document.getElementById("1av").value="473.6"};
 if (!checkAnswers("1avi", "94.72")) {
 if (set1.avi===3) {
-document.getElementById("1avi").value="94.72";
-document.getElementById("1avi").style.background="#FFFF00"}
+document.getElementById("1avi").style.background="#FFFF00";
+ document.getElementById("1aviAnswer3").innerHTML = document.getElementById("1avi").value 
+ }
 if (set1.avi=== 1) { 
  document.getElementById("1aviAnswer1").innerHTML = "; " + document.getElementById("1avi").value 
  } 
@@ -409,15 +431,17 @@ if (set1.avi=== 1) {
  else { 
  document.getElementById("1aviAnswer3").innerHTML = "; " + document.getElementById("1avi").value
 }
-};};
+};
+if(set1.avi===3)
+{document.getElementById("1avi").value="94.72"};};
 </script>
 
 <br><button id="button1" onClick="cont1();">Continue</button>
 <div id="question2" style="display: none">
 <p>It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking Dodo population.  Let&#39;s start by defining our nodes, of which there are 3:<ul><li><i>Death Rate</i> is the percentage of the Dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn&#39;t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i>represents the number of Dodos still alive.  We are given an initial value for this quantity &mdash; 1000 Dodos &mdash; and the number of Dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population &mdash; deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>. </li><li><i>Deaths</i> represents the number of Dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (<i>population</i> * <i>death rate</i>).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>Please open the &quot;Dodo extinction&quot; model in the &quot;Introductory&quot; category of the Dragoon software.  It should look similar to this (the position of the nodes does not matter):</p>
-</p><img src ="Image1/Demo.JPG"/><p>
+<p></p>
 <p>This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes e.g., Parameter nodes are diamonds.  The inside of a Parameter node shows its value.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node shows both its mathematical operation and its <i>initial</i> value.</p><p>If you click on the Table button, you can see the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button displays the same information in graph form (see right figure).</p>
-</p><img src ="Image2/Demo.JPG"/><p>
+<p></p>
 <p>While the Dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.</p><p><b>Problem Worksheet</b></p><p>In these problems, we will be modeling the population of moose and wolves that lived on the Isle Royale.  Wolves preyed on the moose, so their populations were tied together in what is known as a &quot;predator-prey&quot; relationship&mdash;as the number of moose grew, the number of wolves grew in response to having more food available, but then the wolves would eat more moose, causing the moose population to decrease, meaning less food is available for wolves, etc.  This relationship is complicated, so creating a model is necessary for fully understanding the relationship between the two populations.  Let us build up to the final model by making a series of models of simpler systems.  For instance, the first few systems pretend that Isle Royale has only moose on it and no wolves on it.</p>
 <h3></h3>Assume that the moose population on the Isle Royale begins at 20 moose and that 2 moose are born each year.  In the table below, identify what types of nodes would represent this information.<table>
 <thead>
@@ -425,12 +449,14 @@ if (set1.avi=== 1) {
 <td style="border: 2pt black solid"><b>Node Type</b></td>
 </thead>
 <tbody><tr>
-<td style="border: 2pt black solid">moose population</td><td style="border: 2pt black solid"><select id="2ai">
+<td style="border: 2pt black solid">moose population</td><td style="border: 2pt black solid">
+<select id="2ai">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td></tr><tr>
-<td style="border: 2pt black solid">number of moose births per year</td><td style="border: 2pt black solid"><select id="2aii">
+<td style="border: 2pt black solid">number of moose births per year</td><td style="border: 2pt black solid">
+<select id="2aii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
@@ -470,8 +496,9 @@ time3();
 
 if (!checkAnswers("2ai", "parameter")) {
 if (set2.ai===3) {
-document.getElementById("2ai").value="parameter";
-document.getElementById("2ai").style.background="#FFFF00"}
+document.getElementById("2ai").style.background="#FFFF00";
+ document.getElementById("2aiAnswer3").innerHTML = document.getElementById("2ai").value 
+ }
 if (set2.ai=== 1) { 
  document.getElementById("2aiAnswer1").innerHTML = "; " + document.getElementById("2ai").value 
  } 
@@ -493,10 +520,13 @@ if (set2.ai=== 1) {
  document.getElementById("2aiAnswer3").innerHTML = "; " + document.getElementById("2ai").value
 }
 };
+if(set2.ai===3)
+{document.getElementById("2ai").value="parameter"};
 if (!checkAnswers("2aii", "function")) {
 if (set2.aii===3) {
-document.getElementById("2aii").value="function";
-document.getElementById("2aii").style.background="#FFFF00"}
+document.getElementById("2aii").style.background="#FFFF00";
+ document.getElementById("2aiiAnswer3").innerHTML = document.getElementById("2aii").value 
+ }
 if (set2.aii=== 1) { 
  document.getElementById("2aiiAnswer1").innerHTML = "; " + document.getElementById("2aii").value 
  } 
@@ -517,7 +547,9 @@ if (set2.aii=== 1) {
  else { 
  document.getElementById("2aiiAnswer3").innerHTML = "; " + document.getElementById("2aii").value
 }
-};};
+};
+if(set2.aii===3)
+{document.getElementById("2aii").value="function"};};
 </script>
 
 <br><button id="button2" onClick="cont2();">Continue</button>
@@ -528,17 +560,20 @@ if (set2.aii=== 1) {
 <td style="border: 2pt black solid"><b>Node Type</b></td>
 </thead>
 <tbody><tr>
-<td style="border: 2pt black solid">moose population</td><td style="border: 2pt black solid"><select id="3ai">
+<td style="border: 2pt black solid">moose population</td><td style="border: 2pt black solid">
+<select id="3ai">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td></tr><tr>
-<td style="border: 2pt black solid">number of moose births per year</td><td style="border: 2pt black solid"><select id="3aii">
+<td style="border: 2pt black solid">number of moose births per year</td><td style="border: 2pt black solid">
+<select id="3aii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td></tr><tr>
-<td style="border: 2pt black solid">moose birth rate</td><td style="border: 2pt black solid"><select id="3aiii">
+<td style="border: 2pt black solid">moose birth rate</td><td style="border: 2pt black solid">
+<select id="3aiii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
@@ -581,8 +616,9 @@ time4();
 
 if (!checkAnswers("3ai", "accumulator")) {
 if (set3.ai===3) {
-document.getElementById("3ai").value="accumulator";
-document.getElementById("3ai").style.background="#FFFF00"}
+document.getElementById("3ai").style.background="#FFFF00";
+ document.getElementById("3aiAnswer3").innerHTML = document.getElementById("3ai").value 
+ }
 if (set3.ai=== 1) { 
  document.getElementById("3aiAnswer1").innerHTML = "; " + document.getElementById("3ai").value 
  } 
@@ -604,10 +640,13 @@ if (set3.ai=== 1) {
  document.getElementById("3aiAnswer3").innerHTML = "; " + document.getElementById("3ai").value
 }
 };
+if(set3.ai===3)
+{document.getElementById("3ai").value="accumulator"};
 if (!checkAnswers("3aii", "function")) {
 if (set3.aii===3) {
-document.getElementById("3aii").value="function";
-document.getElementById("3aii").style.background="#FFFF00"}
+document.getElementById("3aii").style.background="#FFFF00";
+ document.getElementById("3aiiAnswer3").innerHTML = document.getElementById("3aii").value 
+ }
 if (set3.aii=== 1) { 
  document.getElementById("3aiiAnswer1").innerHTML = "; " + document.getElementById("3aii").value 
  } 
@@ -629,10 +668,13 @@ if (set3.aii=== 1) {
  document.getElementById("3aiiAnswer3").innerHTML = "; " + document.getElementById("3aii").value
 }
 };
+if(set3.aii===3)
+{document.getElementById("3aii").value="function"};
 if (!checkAnswers("3aiii", "parameter")) {
 if (set3.aiii===3) {
-document.getElementById("3aiii").value="parameter";
-document.getElementById("3aiii").style.background="#FFFF00"}
+document.getElementById("3aiii").style.background="#FFFF00";
+ document.getElementById("3aiiiAnswer3").innerHTML = document.getElementById("3aiii").value 
+ }
 if (set3.aiii=== 1) { 
  document.getElementById("3aiiiAnswer1").innerHTML = "; " + document.getElementById("3aiii").value 
  } 
@@ -653,7 +695,9 @@ if (set3.aiii=== 1) {
  else { 
  document.getElementById("3aiiiAnswer3").innerHTML = "; " + document.getElementById("3aiii").value
 }
-};};
+};
+if(set3.aiii===3)
+{document.getElementById("3aiii").value="parameter"};};
 </script>
 
 <br><button id="button3" onClick="cont3();">Continue</button>

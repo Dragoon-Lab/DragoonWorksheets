@@ -170,29 +170,16 @@ alert("Please make sure you have entered a username and that your username is be
 <td style="border: 2pt black solid">Year 1</td>
 <td style="border: 2pt black solid">800</td>
 <td style="border: 2pt black solid">160</td></tr><tr>
-<td style="border: 2pt black solid">Year 2</td><td style="border: 2pt black solid"><select id="1ai">
+<td style="border: 2pt black solid">Year 2</td><td style="border: 2pt black solid">
+<select id="1ai">
 <option></option>
 <option>81.9</option>
 <option>102</option>
 <option>640</option>
 <option>128</option>
 <option>512</option>
-<option>410</option></select></td><td style="border: 2pt black solid"><select id="1aii">
-<option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td></tr><tr>
-<td style="border: 2pt black solid">Year 3</td><td style="border: 2pt black solid"><select id="1aiii">
-<option></option>
-<option>81.9</option>
-<option>102</option>
-<option>640</option>
-<option>128</option>
-<option>512</option>
-<option>410</option></select></td><td style="border: 2pt black solid"><select id="1aiv">
+<option>410</option></select></td><td style="border: 2pt black solid">
+<select id="1aii">
 <option></option>
 <option>81.9</option>
 <option>102</option>
@@ -200,14 +187,33 @@ alert("Please make sure you have entered a username and that your username is be
 <option>128</option>
 <option>512</option>
 <option>410</option></select></td></tr><tr>
-<td style="border: 2pt black solid">Year 4</td><td style="border: 2pt black solid"><select id="1av">
+<td style="border: 2pt black solid">Year 3</td><td style="border: 2pt black solid">
+<select id="1aiii">
 <option></option>
 <option>81.9</option>
 <option>102</option>
 <option>640</option>
 <option>128</option>
 <option>512</option>
-<option>410</option></select></td><td style="border: 2pt black solid"><select id="1avi">
+<option>410</option></select></td><td style="border: 2pt black solid">
+<select id="1aiv">
+<option></option>
+<option>81.9</option>
+<option>102</option>
+<option>640</option>
+<option>128</option>
+<option>512</option>
+<option>410</option></select></td></tr><tr>
+<td style="border: 2pt black solid">Year 4</td><td style="border: 2pt black solid">
+<select id="1av">
+<option></option>
+<option>81.9</option>
+<option>102</option>
+<option>640</option>
+<option>128</option>
+<option>512</option>
+<option>410</option></select></td><td style="border: 2pt black solid">
+<select id="1avi">
 <option></option>
 <option>81.9</option>
 <option>102</option>
@@ -262,8 +268,9 @@ time2();
 
 if (!checkAnswers("1ai", "640")) {
 if (set1.ai===3) {
-document.getElementById("1ai").value="640";
-document.getElementById("1ai").style.background="#FFFF00"}
+document.getElementById("1ai").style.background="#FFFF00";
+ document.getElementById("1aiAnswer3").innerHTML = document.getElementById("1ai").value 
+ }
 if (set1.ai=== 1) { 
  document.getElementById("1aiAnswer1").innerHTML = "; " + document.getElementById("1ai").value 
  } 
@@ -285,10 +292,13 @@ if (set1.ai=== 1) {
  document.getElementById("1aiAnswer3").innerHTML = "; " + document.getElementById("1ai").value
 }
 };
+if(set1.ai===3)
+{document.getElementById("1ai").value="640"};
 if (!checkAnswers("1aii", "128")) {
 if (set1.aii===3) {
-document.getElementById("1aii").value="128";
-document.getElementById("1aii").style.background="#FFFF00"}
+document.getElementById("1aii").style.background="#FFFF00";
+ document.getElementById("1aiiAnswer3").innerHTML = document.getElementById("1aii").value 
+ }
 if (set1.aii=== 1) { 
  document.getElementById("1aiiAnswer1").innerHTML = "; " + document.getElementById("1aii").value 
  } 
@@ -310,10 +320,13 @@ if (set1.aii=== 1) {
  document.getElementById("1aiiAnswer3").innerHTML = "; " + document.getElementById("1aii").value
 }
 };
+if(set1.aii===3)
+{document.getElementById("1aii").value="128"};
 if (!checkAnswers("1aiii", "512")) {
 if (set1.aiii===3) {
-document.getElementById("1aiii").value="512";
-document.getElementById("1aiii").style.background="#FFFF00"}
+document.getElementById("1aiii").style.background="#FFFF00";
+ document.getElementById("1aiiiAnswer3").innerHTML = document.getElementById("1aiii").value 
+ }
 if (set1.aiii=== 1) { 
  document.getElementById("1aiiiAnswer1").innerHTML = "; " + document.getElementById("1aiii").value 
  } 
@@ -335,10 +348,13 @@ if (set1.aiii=== 1) {
  document.getElementById("1aiiiAnswer3").innerHTML = "; " + document.getElementById("1aiii").value
 }
 };
+if(set1.aiii===3)
+{document.getElementById("1aiii").value="512"};
 if (!checkAnswers("1aiv", "102")) {
 if (set1.aiv===3) {
-document.getElementById("1aiv").value="102";
-document.getElementById("1aiv").style.background="#FFFF00"}
+document.getElementById("1aiv").style.background="#FFFF00";
+ document.getElementById("1aivAnswer3").innerHTML = document.getElementById("1aiv").value 
+ }
 if (set1.aiv=== 1) { 
  document.getElementById("1aivAnswer1").innerHTML = "; " + document.getElementById("1aiv").value 
  } 
@@ -360,10 +376,13 @@ if (set1.aiv=== 1) {
  document.getElementById("1aivAnswer3").innerHTML = "; " + document.getElementById("1aiv").value
 }
 };
+if(set1.aiv===3)
+{document.getElementById("1aiv").value="102"};
 if (!checkAnswers("1av", "410")) {
 if (set1.av===3) {
-document.getElementById("1av").value="410";
-document.getElementById("1av").style.background="#FFFF00"}
+document.getElementById("1av").style.background="#FFFF00";
+ document.getElementById("1avAnswer3").innerHTML = document.getElementById("1av").value 
+ }
 if (set1.av=== 1) { 
  document.getElementById("1avAnswer1").innerHTML = "; " + document.getElementById("1av").value 
  } 
@@ -385,10 +404,13 @@ if (set1.av=== 1) {
  document.getElementById("1avAnswer3").innerHTML = "; " + document.getElementById("1av").value
 }
 };
+if(set1.av===3)
+{document.getElementById("1av").value="410"};
 if (!checkAnswers("1avi", "81.9")) {
 if (set1.avi===3) {
-document.getElementById("1avi").value="81.9";
-document.getElementById("1avi").style.background="#FFFF00"}
+document.getElementById("1avi").style.background="#FFFF00";
+ document.getElementById("1aviAnswer3").innerHTML = document.getElementById("1avi").value 
+ }
 if (set1.avi=== 1) { 
  document.getElementById("1aviAnswer1").innerHTML = "; " + document.getElementById("1avi").value 
  } 
@@ -409,7 +431,9 @@ if (set1.avi=== 1) {
  else { 
  document.getElementById("1aviAnswer3").innerHTML = "; " + document.getElementById("1avi").value
 }
-};};
+};
+if(set1.avi===3)
+{document.getElementById("1avi").value="81.9"};};
 </script>
 
 <br><button id="button1" onClick="cont1();">Continue</button>
@@ -454,12 +478,14 @@ time3();
 <td style="border: 2pt black solid"><b>Node Type</b></td>
 </thead>
 <tbody><tr>
-<td style="border: 2pt black solid">number of books Rod owns</td><td style="border: 2pt black solid"><select id="3ai">
+<td style="border: 2pt black solid">number of books Rod owns</td><td style="border: 2pt black solid">
+<select id="3ai">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
 <option>function</option></select></td></tr><tr>
-<td style="border: 2pt black solid">number of books Rod buys each week</td><td style="border: 2pt black solid"><select id="3aii">
+<td style="border: 2pt black solid">number of books Rod buys each week</td><td style="border: 2pt black solid">
+<select id="3aii">
 <option></option>
 <option>parameter</option>
 <option>accumulator</option>
@@ -499,8 +525,9 @@ time4();
 
 if (!checkAnswers("3ai", "accumulator")) {
 if (set3.ai===3) {
-document.getElementById("3ai").value="accumulator";
-document.getElementById("3ai").style.background="#FFFF00"}
+document.getElementById("3ai").style.background="#FFFF00";
+ document.getElementById("3aiAnswer3").innerHTML = document.getElementById("3ai").value 
+ }
 if (set3.ai=== 1) { 
  document.getElementById("3aiAnswer1").innerHTML = "; " + document.getElementById("3ai").value 
  } 
@@ -522,10 +549,13 @@ if (set3.ai=== 1) {
  document.getElementById("3aiAnswer3").innerHTML = "; " + document.getElementById("3ai").value
 }
 };
+if(set3.ai===3)
+{document.getElementById("3ai").value="accumulator"};
 if (!checkAnswers("3aii", "parameter")) {
 if (set3.aii===3) {
-document.getElementById("3aii").value="parameter";
-document.getElementById("3aii").style.background="#FFFF00"}
+document.getElementById("3aii").style.background="#FFFF00";
+ document.getElementById("3aiiAnswer3").innerHTML = document.getElementById("3aii").value 
+ }
 if (set3.aii=== 1) { 
  document.getElementById("3aiiAnswer1").innerHTML = "; " + document.getElementById("3aii").value 
  } 
@@ -546,7 +576,9 @@ if (set3.aii=== 1) {
  else { 
  document.getElementById("3aiiAnswer3").innerHTML = "; " + document.getElementById("3aii").value
 }
-};};
+};
+if(set3.aii===3)
+{document.getElementById("3aii").value="parameter"};};
 </script>
 
 <br><button id="button3" onClick="cont3();">Continue</button>
@@ -654,6 +686,10 @@ time7();
 <br><button id="button6" onClick="cont6();">Continue</button>
 <div id="question7" style="display: none">
 <h3>Exponential change problems</h3>The dodo extinction problem, which was discussed earlier, is an example of a system with an exponential decrease in its main variable.   That is, the amount of decrease in the main variable is proportional to its value.  The corresponding generic model is called &quot;proportional to source.&quot;   Try solving the problem below.   If you move the sliders, is the graph always an exponential curve?</p>
+<input type="hidden" name="problem7" id="problem7" value="dodos">
+<input type="hidden" name="mode7" id="mode7" value="STUDENT">
+<br><button id="dragoonButton7" onClick="openDragoonProblem(7);">Open Dragoon</button>
+<div id="dragoonErrorMessage7" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
 <script type="text/javascript">var set7 = {}; 
 function cont7() {
 var yestim7 = 0;
@@ -662,7 +698,7 @@ if (0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 
-if (1) {
+if (checkCompletion(7) && 1) {
  document.getElementById("question8").style.display = "";
  document.getElementById("button7").style.display = "none";
 

@@ -138,7 +138,7 @@ if ((window.location.href.search("s=") != -1)&&(window.location.href.search("s="
 document.getElementById("user").value = window.location.href.substr((window.location.href.search("u=")+2),((window.location.href.search("&s="))-(window.location.href.search("u=")+2)));
 } else {
 document.getElementById("user").value = window.location.href.substr(window.location.href.search("u=")+2);
-}
+};
 document.getElementById("wkstBody").style.display="";
 document.getElementById("usernameCheck").style.display="none";
 document.getElementById("user").disabled=true;

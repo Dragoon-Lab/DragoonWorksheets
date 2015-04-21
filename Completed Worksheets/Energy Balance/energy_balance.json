@@ -201,24 +201,28 @@
                                                 [
                                                     "energy balance",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ],
                                                     "Small surplus per day; value = 100 calories"
                                                 ],
                                                 [
                                                     "energy stored",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "accumulator"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"accumulator"
+														]	
                                                     ],
                                                     "energy stored in the body is equal to its value yesterday plus energy balance for today; initial value = 345000 calories"
                                                 ]
@@ -252,55 +256,65 @@
                                                 [
                                                     "1",
                                                     [
-                                                        [
-                                                            "345000 + 100",
-                                                            "345100 + 100",
-                                                            "34500 + 34500",
-                                                            "345100 + 200"
-                                                        ],
-                                                        "345000 + 100"
-                                                    ],
+														[	
+															[
+																"345000 + 100",
+																"345100 + 100",
+																"34500 + 34500",
+																"345100 + 200"
+															],
+															"345000 + 100"
+														]
+													],
                                                     [
-                                                        [
-                                                            "345000",
-                                                            "345100",
-                                                            "345200",
-                                                            "345500"
-                                                        ],
-                                                        "345100"
+														[	
+															[
+																"345000",
+																"345100",
+																"345200",
+																"345500"
+															],
+															"345100"
+														]	
                                                     ]
                                                 ],
                                                 [
                                                     "2",
                                                     [
-                                                        [
-                                                            "345100 + 100",
-                                                            "345200 + 100",
-                                                            "345300 + 100",
-                                                            "345400 + 100"
-                                                        ],
-                                                        "345100 + 100"
+														[
+															[
+																"345100 + 100",
+																"345200 + 100",
+																"345300 + 100",
+																"345400 + 100"
+															],
+															"345100 + 100"
+														]
                                                     ],
                                                     [
-                                                        [
-                                                            "345000",
-                                                            "345100",
-                                                            "345200",
-                                                            "345500"
-                                                        ],
-                                                        "345200"
+														[	
+															[
+																"345000",
+																"345100",
+																"345200",
+																"345500"
+															],
+															"345200"
+														]	
                                                     ]
                                                 ],
                                                 [
                                                     "3",
                                                     [
                                                         [
-                                                            "345100 + 100",
-                                                            "345200 + 100",
-                                                            "345300 + 100",
-                                                            "345400 + 100"
-                                                        ],
-                                                        "345200 + 100"
+															[
+																"345100 + 100",
+																"345200 + 100",
+																"345300 + 100",
+																"345400 + 100"
+															],
+															"345200 + 100"
+														]
                                                     ],
                                                     "345300"
                                                 ],
@@ -308,12 +322,14 @@
                                                     "4",
                                                     [
                                                         [
-                                                            "345100 + 100",
-                                                            "345200 + 100",
-                                                            "345300 + 100",
-                                                            "345400 + 100"
-                                                        ],
-                                                        "345300 + 100"
+															[
+																"345100 + 100",
+																"345200 + 100",
+																"345300 + 100",
+																"345400 + 100"
+															],
+															"345300 + 100"
+														]
                                                     ],
                                                     "345400"
                                                 ],
@@ -321,12 +337,14 @@
                                                     "5",
                                                     [
                                                         [
-                                                            "345100 + 100",
-                                                            "345200 + 100",
-                                                            "345300 + 100",
-                                                            "345400 + 100"
-                                                        ],
-                                                        "345400 + 100"
+															[
+																"345100 + 100",
+																"345200 + 100",
+																"345300 + 100",
+																"345400 + 100"
+															],
+															"345400 + 100"
+														]
                                                     ],
                                                     "345500"
                                                 ]
@@ -624,12 +642,14 @@
                                                 [
                                                     "Energy expended",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ],
                                                     "Energy expended daily; initial value = 2100 cal.",
                                                     "N/A"
@@ -643,12 +663,14 @@
                                                 [
                                                     "Energy ingested",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ],
                                                     "Energy ingested daily; initial value = 1989 cal.",
                                                     "N/A"
@@ -656,22 +678,27 @@
                                                 [
                                                     "Energy balance",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "function"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
                                                     ],
                                                     "difference between ingestion and expenditure of energy per day",
                                                     [
-                                                        [
-                                                            "old energy balance",
-                                                            "energy stored",
-                                                            "energy expended",
-                                                            "new energy balance"
-                                                        ],
-                                                        "energy expended"
+														"Energy balance = energy ingested - ",
+														[	
+															[
+																"old energy balance",
+																"energy stored",
+																"energy expended",
+																"new energy balance"
+															],
+															"energy expended"
+														]	
                                                     ]
                                                 ]
                                             ]
@@ -1068,33 +1095,40 @@
                                                 [
                                                     "Weight",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "accumulator"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"accumulator"
+														]	
                                                     ],
                                                     [
-                                                        [
-                                                            "140 lbs",
-                                                            "150 lbs",
-                                                            "125 lbs",
-                                                            "118 lbs"
-                                                        ],
-                                                        "150 lbs"
+                                                        "The weight of the body as it varies day to day; initial value = ",
+														[
+															[
+																"140 lbs",
+																"150 lbs",
+																"125 lbs",
+																"118 lbs"
+															],
+															"150 lbs"
+														]
                                                     ],
                                                     "New weight = old weight + weight change"
                                                 ],
                                                 [
                                                     "Weight change",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "function"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
                                                     ],
                                                     "weight of tissue added or subtracted from storage",
                                                     "weight change = energy balance/calories per pound"
@@ -1120,22 +1154,26 @@
                                                 [
                                                     "Calories per pound",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ],
                                                     "Number of calories stored in a pound of tissue",
                                                     [
-                                                        [
-                                                            "New calories per pound = Old calories per pound + Energy balance",
-                                                            "Calories per pound = weight change/energy balance",
-                                                            "Calories per pound = weight/energy balance",
-                                                            "N/A"
-                                                        ],
-                                                        "N/A"
+														[	
+															[
+																"New calories per pound = Old calories per pound + Energy balance",
+																"Calories per pound = weight change/energy balance",
+																"Calories per pound = weight/energy balance",
+																"N/A"
+															],
+															"N/A"
+														]	
                                                     ]
                                                 ]
                                             ]
@@ -1334,11 +1372,13 @@
                                                     "Physical activity expenditure",
                                                     [
                                                         [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]
                                                     ],
                                                     "energy burned by physical exercise; value = 400 calories",
                                                     "N/A"
@@ -1347,11 +1387,13 @@
                                                     "Resting energy expenditure",
                                                     [
                                                         [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]
                                                     ],
                                                     "energy expended per day by basic body function; value = 1400 calories",
                                                     "N/A"
@@ -1359,12 +1401,14 @@
                                                 [
                                                     "Digestive activity expenditure",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ],
                                                     "energy burned in order to digest food; value = 200 calories",
                                                     "N/A"
@@ -1372,21 +1416,26 @@
                                                 [
                                                     "Energy expended",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "function"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
                                                     ],
                                                     "energy burned by the body in a day",
                                                     [
-                                                        [
-                                                            "physical activity expenditure",
-                                                            "resting energy expenditure",
-                                                            "digestive activity expenditure"
-                                                        ],
-                                                        "digestive activity expenditure"
+														"value = physical activity expenditure + resting energy expenditure + ",
+														[	
+															[
+																"physical activity expenditure",
+																"resting energy expenditure",
+																"digestive activity expenditure"
+															],
+															"digestive activity expenditure"
+														]	
                                                     ]
                                                 ]
                                             ]
@@ -1539,7 +1588,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "The amount of physical activity energy burned per day depends mostly on two factors: how much exercise you do and your resting energy expenditure. The energy spent on exercise is estimated by multiplying the resting energy expenditure by a physical activity factor, which is:<ul><li>0.2 for little or no exercise</li><li>0.375 for light exercise</li><li>0.55 for moderate exercise</li><li>0.75 for hard exercise but not every day</li><li>0.9 for daily hard exercise</li></ul></p><p>Instead of using a parameter for \"physical activity expenditure\" with a value of 400, Joe decides to make it a function whose value is the product of resting energy expenditure and a new node, physical activity level. Joe does little exercise, so he sets the physical activity level as 0.2. However, his model is now set up so that he can easily see the effect of increasing his exercise level. Here\u00e2\u20ac\u2122s his whole model, expressed as a table. Fill in the blanks:"
+                                            "text": "The amount of physical activity energy burned per day depends mostly on two factors: how much exercise you do and your resting energy expenditure. The energy spent on exercise is estimated by multiplying the resting energy expenditure by a physical activity factor, which is:<ul><li>0.2 for little or no exercise</li><li>0.375 for light exercise</li><li>0.55 for moderate exercise</li><li>0.75 for hard exercise but not every day</li><li>0.9 for daily hard exercise</li></ul></p><p>Instead of using a parameter for \"physical activity expenditure\" with a value of 400, Joe decides to make it a function whose value is the product of resting energy expenditure and a new node, physical activity level. Joe does little exercise, so he sets the physical activity level as 0.2. However, his model is now set up so that he can easily see the effect of increasing his exercise level. Here#&39;s his whole model, expressed as a table. Fill in the blanks:"
                                         }
                                     },
                                     {
@@ -1553,7 +1602,7 @@
                                                 [
                                                     "Energy balance",
                                                     "Function",
-                                                    "Energy surplus or deficit daily; value = energy ingested \u00e2\u20ac\u201c energy expended"
+                                                    "Energy surplus or deficit daily; value = energy ingested #mdash; energy expended"
                                                 ],
                                                 [
                                                     "Energy ingested",
@@ -1578,30 +1627,36 @@
                                                 [
                                                     "Physical activity expenditure",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "function"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
                                                     ],
                                                     [
-                                                        [
-                                                            "digestive activity expenditure",
-                                                            "energy balance",
-                                                            "resting energy expenditure",
-                                                            "energy expended"
-                                                        ],
-                                                        "resting energy expenditure"
-                                                    ],
-                                                    [
-                                                        [
-                                                            "physical activity level",
-                                                            "energy expended",
-                                                            "resting energy expenditure",
-                                                            "calories per pound"
-                                                        ],
-                                                        "physical activity level"
+                                                        "energy burned by physical exercise; value = ",
+														[
+															[
+																"digestive activity expenditure",
+																"energy balance",
+																"resting energy expenditure",
+																"energy expended"
+															],
+															"resting energy expenditure"
+														],
+														" * ",
+														[
+															[
+																"physical activity level",
+																"energy expended",
+																"resting energy expenditure",
+																"calories per pound"
+															],
+															"physical activity level"
+														]	
                                                     ]
                                                 ],
                                                 [
@@ -1618,24 +1673,29 @@
                                                     "Energy expended",
                                                     "Function",
                                                     [
-                                                        [
-                                                            "physical activity level",
-                                                            "digestive activity expenditure",
-                                                            "energy balance",
-                                                            "resting energy expenditure"
-                                                        ],
-                                                        "digestive activity expenditure"
+														"energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + ",
+														[	
+															[
+																"physical activity level",
+																"digestive activity expenditure",
+																"energy balance",
+																"resting energy expenditure"
+															],
+															"digestive activity expenditure"
+														]	
                                                     ]
                                                 ],
                                                 [
                                                     "Physical activity level",
                                                     [
                                                         [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]
                                                     ],
                                                     "Amount of physical activity, e.g., 0.2 for little or no exercise, 0.55 for moderate exercise, 0.9 for daily hard exercise"
                                                 ]
@@ -1926,23 +1986,27 @@
                                                     "Physical activity expenditure",
                                                     "Function",
                                                     [
-                                                        [
-                                                            "digestive activity expenditure",
-                                                            "physical activity level",
-                                                            "calories per pound",
-                                                            "resting energy expenditure"
-                                                        ],
-                                                        "resting energy expenditure"
-                                                    ],
-                                                    [
-                                                        [
-                                                            "physical activity level",
-                                                            "calories per pound",
-                                                            "digestive activity expenditure",
-                                                            "weight change"
-                                                        ],
-                                                        "physical activity level"
-                                                    ]
+                                                        "energy burned by physical exercise; value = ",
+														[	
+															[
+																"digestive activity expenditure",
+																"physical activity level",
+																"calories per pound",
+																"resting energy expenditure"
+															],
+															"resting energy expenditure"
+														],
+														" * ",
+														[
+															[
+																"physical activity level",
+																"calories per pound",
+																"digestive activity expenditure",
+																"weight change"
+															],
+															"physical activity level"
+														]
+													]	
                                                 ],
                                                 [
                                                     "Resting energy expenditure",
@@ -1952,43 +2016,52 @@
                                                 [
                                                     "Digestive activity expenditure",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "function"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
                                                     ],
-                                                    [
-                                                        [
-                                                            "energy balance",
-                                                            "energy ingested",
-                                                            "physical activity level",
-                                                            "calories per pound"
-                                                        ],
-                                                        "energy ingested"
-                                                    ],
-                                                    [
-                                                        [
-                                                            "resting energy expenditure",
-                                                            "calories per pound",
-                                                            "digestive energy factor",
-                                                            "energy ingested"
-                                                        ],
-                                                        "digestive energy factor"
-                                                    ]
+													[	
+														"energy burned in order to digest food; value = ",
+														[
+															[
+																"energy balance",
+																"energy ingested",
+																"physical activity level",
+																"calories per pound"
+															],
+															"energy ingested"
+														],
+														" * ",
+														[
+															[
+																"resting energy expenditure",
+																"calories per pound",
+																"digestive energy factor",
+																"energy ingested"
+															],
+															"digestive energy factor"
+														]
+													]	
                                                 ],
                                                 [
                                                     "Energy expended",
                                                     "Function",
                                                     [
-                                                        [
-                                                            "digestive energy factor",
-                                                            "physical activity level",
-                                                            "physical activity expenditure",
-                                                            "digestive activity expenditure"
-                                                        ],
-                                                        "digestive activity expenditure"
+														"energy burned in a day; value = physical activity expenditure + resting energy expenditure + ",
+														[	
+															[
+																"digestive energy factor",
+																"physical activity level",
+																"physical activity expenditure",
+																"digestive activity expenditure"
+															],
+															"digestive activity expenditure"
+														]	
                                                     ]
                                                 ],
                                                 [
@@ -2000,13 +2073,16 @@
                                                     "Digestive energy factor",
                                                     "Parameter",
                                                     [
-                                                        [
-                                                            "0.08",
-                                                            "0.10",
-                                                            "0.12",
-                                                            "0.20"
-                                                        ],
-                                                        "0.10"
+														"The proportion of ingested energy that is required to process it; value = ",
+														[	
+															[
+																"0.08",
+																"0.10",
+																"0.12",
+																"0.20"
+															],
+															"0.10"
+														]	
                                                     ]
                                                 ]
                                             ]
@@ -2341,37 +2417,44 @@
                                                 [
                                                     "Resting energy expenditure",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "function"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
                                                     ],
                                                     [
-                                                        [
-                                                            "weight REE",
-                                                            "calories per pound",
-                                                            "age REE"
-                                                        ],
-                                                        "weight REE"
-                                                    ],
-                                                    [
-                                                        [
-                                                            "weight REE",
-                                                            "age REE",
-                                                            "height REE"
-                                                        ],
-                                                        "age REE"
-                                                    ],
-                                                    [
-                                                        [
-                                                            "weight REE",
-                                                            "age REE",
-                                                            "height REE"
-                                                        ],
-                                                        "height REE"
-                                                    ]
+														"energy expended per day by basic body function; value = ",
+														[
+															[
+																"weight REE",
+																"calories per pound",
+																"age REE"
+															],
+															"weight REE"
+														],
+														" - ",
+														[
+															[
+																"weight REE",
+																"age REE",
+																"height REE"
+															],
+															"age REE"
+														],
+														" + ",
+														[
+															[
+																"weight REE",
+																"age REE",
+																"height REE"
+															],
+															"height REE"
+														]
+													]
                                                 ],
                                                 [
                                                     "Digestive activity expenditure",
@@ -2396,108 +2479,126 @@
                                                 [
                                                     "Weight REE",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "function"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
                                                     ],
                                                     "Contribution of weight to REE; value = weight * weight REE multiplier"
                                                 ],
                                                 [
                                                     "Weight REE multiplier",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ],
                                                     "Amount of REE per pound of weight; value 4.5 calories/pound"
                                                 ],
                                                 [
                                                     "Height REE",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "function"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
                                                     ],
                                                     "Contribution of height to REE; value = height * height REE multiplier"
                                                 ],
                                                 [
                                                     "Height REE multiplier",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ],
                                                     "Amount of REE per inch of height; value = 15.9 calories/inch"
                                                 ],
                                                 [
                                                     "Height",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ],
                                                     "Joe's height in inches; value = 65 inches"
                                                 ],
                                                 [
                                                     "Age REE",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "function"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
                                                     ],
                                                     "Contribution of age to REE; valeue = age * age REE multiplier"
                                                 ],
                                                 [
                                                     "Age REE multiplier",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ],
                                                     "Amount of REE per year of age; value = 5 calories/year"
                                                 ],
                                                 [
                                                     "Age",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ],
                                                     "Joe's age in years; value = 20 years"
                                                 ],
                                                 [
                                                     "Gender REE",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ],
                                                     "Contribution of gender to REE; value = 5 for men and  -161 for women."
                                                 ]

@@ -72,76 +72,88 @@
                                                 [
                                                     "Year 2",
                                                     [
-                                                        [
-                                                            "94.72",
-                                                            "118.4",
-                                                            "740",
-                                                            "148",
-                                                            "592",
-                                                            "473.6"
-                                                        ],
-                                                        "740"
+														[	
+															[
+																"94.72",
+																"118.4",
+																"740",
+																"148",
+																"592",
+																"473.6"
+															],
+															"740"
+														]	
                                                     ],
                                                     [
-                                                        [
-                                                            "94.72",
-                                                            "118.4",
-                                                            "740",
-                                                            "148",
-                                                            "592",
-                                                            "473.6"
-                                                        ],
-                                                        "148"
+														[	
+															[
+																"94.72",
+																"118.4",
+																"740",
+																"148",
+																"592",
+																"473.6"
+															],
+															"148"
+														]	
                                                     ]
                                                 ],
                                                 [
                                                     "Year 3",
                                                     [
                                                         [
-                                                            "94.72",
-                                                            "118.4",
-                                                            "740",
-                                                            "148",
-                                                            "592",
-                                                            "473.6"
-                                                        ],
-                                                        "592"
+															[
+																"94.72",
+																"118.4",
+																"740",
+																"148",
+																"592",
+																"473.6"
+															],
+															"592"
+														]
                                                     ],
                                                     [
-                                                        [
-                                                            "94.72",
-                                                            "118.4",
-                                                            "740",
-                                                            "148",
-                                                            "592",
-                                                            "473.6"
-                                                        ],
-                                                        "118.4"
+														[	
+															[
+																"94.72",
+																"118.4",
+																"740",
+																"148",
+																"592",
+																"473.6"
+															],
+															"118.4"
+														]	
                                                     ]
                                                 ],
                                                 [
                                                     "Year 4",
                                                     [
                                                         [
-                                                            "94.72",
-                                                            "118.4",
-                                                            "740",
-                                                            "148",
-                                                            "592",
-                                                            "473.6"
-                                                        ],
-                                                        "473.6"
+															[
+																"94.72",
+																"118.4",
+																"740",
+																"148",
+																"592",
+																"473.6"
+															],
+															"473.6"
+														]
                                                     ],
                                                     [
                                                         [
-                                                            "94.72",
-                                                            "118.4",
-                                                            "740",
-                                                            "148",
-                                                            "592",
-                                                            "473.6"
-                                                        ],
-                                                        "94.72"
+															[
+																"94.72",
+																"118.4",
+																"740",
+																"148",
+																"592",
+																"473.6"
+															],
+															"94.72"
+														]
                                                     ]
                                                 ]
                                             ]
@@ -180,23 +192,27 @@
                                                 [
                                                     "moose population",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "parameter"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
                                                     ]
                                                 ],
                                                 [
                                                     "number of moose births per year",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "function"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
                                                     ]
                                                 ]
                                             ]
@@ -235,34 +251,40 @@
                                                 [
                                                     "moose population",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "accumulator"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"accumulator"
+														]	
                                                     ]
                                                 ],
                                                 [
                                                     "number of moose births per year",
                                                     [
-                                                        [
-                                                            "parameter",
-                                                            "accumulator",
-                                                            "function"
-                                                        ],
-                                                        "function"
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
                                                     ]
                                                 ],
                                                 [
                                                     "moose birth rate",
 													[
 														[
-															"parameter",
-															"accumulator",
-															"function"
-														],
-														"parameter"
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]
 													]													
                                                 ]
                                             ]
