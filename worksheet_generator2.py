@@ -1,6 +1,5 @@
 import json
-A = ["\u0022","\"","\u0027","'","-","\u2014","^o","/="]
-B = ["&quot;","&quot;","&#39;","&#39;","&#45;","&#45;","&#176;","&#8800"]
+# Classes
 class Worksheet:
 	def __init__(self, filename):
 		self.name = filename
@@ -19,8 +18,6 @@ class LsText:
 		if isinstance(wkst,Worksheet):
 			self.before = input ("Before Question ")
 			self.text = input ("Text: ")
-			for x in A:
-				ltx.text = ltx.text.replace(x,B[A.index(x)])
 			wkst.loose.append(self)
 		else:
 			self.before = wkst
@@ -48,8 +45,6 @@ class Question:
 	def __init__ (self,initializer):
 		if isinstance(initializer,Worksheet):
 			self.sub = input ("Subheading: ")
-			for x in A:
-				self.sub = self.sub.replace(x,B[A.index(x)])
 			self.sections = []
 			initializer.questions.append(self)
 		elif isinstance(initializer,str):
@@ -145,8 +140,6 @@ class Textbox:
 	def __init__(self,sect):
 		if isinstance (sect,Section):
 			self.example = input ("Example right answer: ")
-			for x in A:
-				self.example = self.example.replace(x,B[A.index(x)])
 			sect.content.append(self)
 		else:
 			self.example = sect
@@ -158,8 +151,6 @@ class Text:
 	def __init__ (self,sect):
 		if isinstance (sect,Section):
 			self.text = input ("Text: ")
-			for x in A:
-				self.text = self.text.replace(x,B[A.index(x)])
 			sect.content.append(self)
 		else:#elif isinstance (sect,list):
 			self.text = sect
