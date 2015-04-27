@@ -419,11 +419,11 @@ def generateHTMLWorksheet(wks):
 ######################
 ## Construct an example:
 	
-def generateJSON(wkst,filename)
+def generateJSON(wkst,filename):
 	with open(filename,"w") as outfile:
 		json.dump(wkst,outfile,cls = CustomTypeEncoder, indent = 4)
 
-def load(filename):
+def loadWorksheet(filename):
 	with open(filename,"r") as outfile:
 		wksht_dct = json.load(outfile)
 		return CustomTypeDecoder(wksht_dct)
