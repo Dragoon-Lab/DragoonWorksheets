@@ -25,7 +25,7 @@ The function is called when the user clicks on the "Start Worksheet" button. If 
 
 ###Questions
 
-Each Dragoon HTML worksheet is divided into questions. A student cannot move on to a new question unless every part of the current question is completed properly. Every question is followed by a JavaScript program, which contains, in this order:
+Each Dragoon HTML worksheet is divided into questions. A student cannot move on to a new question unless every part of the current question is completed properly. After the text of each question, there is a JavaScript program, which contains, in this order:
 * A set of variables, one for each problem, that are used to count how many times the student answers it incorrectly
 * A function that is called when the "Continue" button is pressed
   * A reassignment of the variable `yestim[n]` to zero, which stops the timer that was started with the opening of the worksheet or at the end of the last question
