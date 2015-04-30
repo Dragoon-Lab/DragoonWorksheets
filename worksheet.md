@@ -6,14 +6,7 @@ Dragoon HTML Worksheets
 ###Head
 
 At the head of the worksheet, there is a section in JavaScript that contains, in this order:
-*The definition of the function "openDragoonProblem", which is called whenever an "Open Dragoon" button is pressed in the body of the worksheet: The only argument that this function takes is the Dragoon problem's number. This number determines the problem that is opened and its mode. It takes the username from the text box at the top of the worksheet and opens the problem under that username. If a section is mentioned in the worksheet's URL, it uses that section. If there is no section mentioned in the URL, it sets the section to "public-worksheet".
-*The definition of the function "checkAnswers", which turns the background of a given dropdown box green and returns true if the answer is correct and turns it red and returns false if the answer is incorrect
-*The definition of the function "checkTextbox", which turns the background of a given large text box green and returns true if there is any content at all in the box and turns it red and returns false if there is no content
-*The definition of the function "checkbox", which turns the background of a given set of checkboxes green and returns true if the answer is correct and turns it red and returns false if the answerr is incorrect
-*The definition of the function "checkboxCorrection", which changes the answer submitted for a given checkbox to the correct answer
-*The definition of the function "retrieveCheckboxValue", which returns the answer that the student has given for a given checkbox
-*The function "time1", which starts the timer for the first question
-*The definition of the function "checkCompletion", which returns true if a given Dragoon problem is complete
+* The definition of the function "openDragoonProblem", which is called whenever an "Open Dragoon" button is pressed in the body of the worksheet: The only argument that this function takes is the Dragoon problem's number. This number determines the problem that is opened and its mode. It takes the username from the text box at the top of the worksheet and opens the problem under that username. If a section is mentioned in the worksheet's URL, it uses that section. If there is no section mentioned in the URL, it sets the section to "public-worksheet".
 * The definition of the function "openDragoonProblem", which is called whenever an "Open Dragoon" button is pressed in the body of the worksheet
 * The definition of the function "checkAnswers", which turns the background of a given dropdown box green and returns true if the answer is correct and turns it red and returns false if the answer is incorrect
 * The definition of the function "checkTextbox", which turns the background of a given large text box green and returns true if there is any content at all in the box and turns it red and returns false if there is no content
