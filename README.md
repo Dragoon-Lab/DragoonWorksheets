@@ -9,7 +9,7 @@ Edited by Mackenzie
 
 The worksheet generator is divided into two parts. The first part defines the classes for the components of the worksheet, and the second part contains the functions used in storing the worksheet object as a JSON, retrieving the worksheet object from a JSON, and creating a worksheet using the worksheet object. It is a Python file; thus, in order to run it, you first need to download Python, which can be done from [this webpage](https://www.python.org/downloads/). Since the program is written using Python 3, it would be best to download that version. To begin a worksheet, open `worksheet_generator2.py` in the Python IDLE.
 
-Start by creating an instance of the class `Worksheet`. To create an instance of a class, type: [name] = [class](\[arguments\]). For example, typing, `wkst = Worksheet("Intro_Worksheet")` will create an object of class `Worksheet` with the name `wkst` and with `"Intro_Worksheet"` as its only argument. To add contents to the worksheet, create instances of the classes listed below.
+Start by creating an instance of the class `Worksheet`. To create an instance of a class, type: [name] = [class]\([arguments]\). For example, typing, `wkst = Worksheet("Intro_Worksheet")` will create an object of class `Worksheet` with the name `wkst` and with `"Intro_Worksheet"` as its only argument. To add contents to the worksheet, create instances of the classes listed below.
 
 Once the worksheet is complete, convert it into a JSON file using the `generateJSON` function to save it. JSON is a way of storing objects so that both humans and computers can easily read them. This step is not necessary for creating a worksheet, but it allows for editing of the content of the worksheet without creating a worksheet object from scratch.
 
