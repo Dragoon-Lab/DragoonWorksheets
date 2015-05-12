@@ -1,0 +1,627 @@
+{
+    "__Worksheet__": {
+        "loose": [
+            {
+                "__LsText__": {
+                    "before": 1,
+                    "text": "</p><h3>Blood Glucose Homeostasis</h3><p>Today you will learn more about an important concept of physiology: homeostasis. Homeostasis refers to physiological processes that maintain certain conditions in the body at a steady state. For instance, your body temperature tends to stay at 98.6&deg F (37&deg C) because there is a process that keeps your body at that temperature, despite variations in the outside temperature or in how hard you exercise. This process is called a homeostatic process because its function is to keep the body temperature steady.</p><p>Maintaining homeostasis requires that the body continuously monitor its internal conditions. From body temperature to blood pressure to levels of certain nutrients, each physiological condition has a particular set point. <u>A <i><b>set point</b></i> is the physiological value around which the normal range fluctuates. The <b><i>normal range</i></b> is the restricted set of values that is optimally healthful and stable.</u> For example, the set point for normal human body temperature is approximately 37&degC (98.6&degF). Physiological quantities, such as body temperature, tend to fluctuate within a normal range a few degrees above and below that point. Control centers in the brain play roles in regulating physiological quantities and keeping them within the normal range. As the body works to maintain homeostasis, any significant deviation from the normal range will be resisted and homeostasis restored through a process called negative feedback. <u><i><b>Negative feedback</b></i> is a mechanism that prevents a physiological response from going beyond the normal range by reversing the action once the normal range is exceeded.</u> The maintenance of homeostasis by negative feedback goes on throughout the body at all times, and an understanding of negative feedback is thus fundamental to an understanding of human physiology.</p><p>For many purposes in science and medicine, it suffices just to know whether the homeostatic process is functioning properly. This requires knowing how a properly functioning homeostatic process behaves. Then measurements of a person&#39;s physiological quantity (e.g., body temperature) can be compared to the values when the process is properly functioning. For example, we know that when the negative feedback loop for body temperature is properly functioning, the body&#39;s temperature should be close to 98.6&deg F. If the temperature is too high, then the person is sick with a fever. If the temperature is too low, the person has something else wrong with them.</p><p>Sometimes it is important not only to know the steady state value of a quantity, but also how quickly the body reacts to a stimulus that pushes that value out of its normal range. For instance, if a person is immersed in frigid water, how fast does the body react? Measuring the dynamic response of the body as it tries to restore homeostasis can be an important measure of fitness.</p><p>This is where system dynamics modeling becomes important. A system dynamics model can represent how the body behaves when the negative feedback loop is working properly. If the graphs produced by the model do not match the measurements observed of a person, then the researcher or doctor can tell that something is wrong with the person&#39;s negative feedback loop.</p><h3>The Simplest Model of Homeostasis</h3><p>Often, a very simple model suffices. In fact, the simplest model of negative feedback in Dragoon has just three nodes. It&#39;s simple because it assumes that the set point of the homeostatic process is zero.</p><p>Here&#39;s how the model works. If the value of the physiological quantity becomes positive (i.e., greater than zero), then the loop subtracts a little bit from it until the quantity falls to zero. On the other hand, if the value becomes negative, then the loop adding a little bit to the value until it rises back to zero.</p><p>To be more concrete, suppose that if the <b>value > 0</b>, we <b>subtract 10%</b> of the value. On the other hand, if <b>value < 0</b>, then we <b>add 10%</b> of its absolute value. Actually, adding 10% of the absolute value of a negative number is the same thing as subtracting 10% of the value. Thus, we have this very simple rule: <b>If value &#8800 0, then subtract 10% of the value.</b>"
+                }
+            }
+        ],
+        "name": "Blood_Glucose",
+        "questions": [
+            {
+                "__Question__": {
+                    "sub": "",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Please click on the Dragoon button below and complete the problem before answering these questions.</p><p>Open the graph window. The graph for <b>controlled quantity</b> looks blank because the red and green lines are both horizontal lines at zero, and thus right on top of the horizontal axis. Given the parameter values, does this make sense physiologically?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "Yes. When the controlled quantity is at the set point, as it is initially, then it shouldn&#39;t change over time."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Suppose the controlled quantity starts out higher than the set point (zero). This should cause the negative feedback loop to kick into action and try to restore the quantity to zero. In the graph window, set the initial value of <b>controlled value</b> to a positive value. Now describe how the value of <b>controlled quantity</b> changes over time."
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "The value decreases to zero. The decrease is rapid at first then become more gradual."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Now set the initial controlled quantity to -3. You should see a red horizontal line at zero. That is the behavior of the correct model when the parameter values are left alone. The green line shows the behavior of your model when the parameter values have been changed, as has occurred here, where the value of <b>initial controlled quantity</b> has been changed from 0 to -3. Now describe how your model&#39;s value for <b>controlled quantity</b> (the green line) changes over time."
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "It increases rapidly at first, then slows down and gradually approaches zero."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Compare the graphs you have in 1b and 1c, that is, when the initial controlled quantity is positive and when it&#39;s negative by the same amount. How are the graphs similar? How are they different?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "The graphs are the same but reversed. The both approach zero gradually, but one starts above zero and the other starts below zero."
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "Now let&#39;s develop a more general model, where the set point doesn&#39;t have to be zero. In fact, let&#39;s assume the set point is <b>98.6</b>, as if the controlled quantity were body temperature."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "zero-set-point-homeostasis",
+											"mode": "STUDENT"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Please do the Dragoon problem and then answer the questions below.</p><p>Open the graph window. Check only <b>Show controlled quantity</b> and make sure <b>Show change in quantity</b> and <b>Show difference</b> are not checked. The graph for <b>controlled quantity</b> has the red and green lines right on top of each other, perfectly horizontal, at 98.6 on the vertical axis. Given the parameter values, does this make sense physiologically?"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Using the slider, increase the value of <b>initial controlled quantity</b>. The red line is the model&#39;s response when it has the given values for the parameters, so it is a flat line at 98.6 because that&#39;s what the initial value of the controlled quantity is and the system tries to keep it at the level. The green line shows the model&#39;s response when you manipulate the sliders (or make a mistake entering the value of a parameter). As you move the initial value considerably above the set point, how does the graph change and what does this mean?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "As you increase the initial value, it takes longer to bring the controlled variable back to the set point."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Using the same slider again, explore what happens when the controlled quantity starts out with an inital value that is lower than the set point. Describe the curve you see."
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "The curve has the same shape, but it starts from a different numerical value on the vertical axis even though its position on the screen remains the same."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Does it matter whether the controlled quantity starts out above zero or below zero? (You can type values into the box instead of moving the slider.)"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "No, it doesn't matter. Same curve, but starts at the inital value whaterver it is."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "nonzero-set-point-homeostasis",
+											"mode": "STUDENT"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "Two-loop Homeostasis",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "When the regulation of body temperature was discussed in your textbook, the effector actions for lowering body temperature (e.g., sweating) were different from the effector actions for raising body temperature (e.g., shivering). Body temperature is typical of many homeostatic processes in that different effectors are used for lowering the controlled quantity than for raising the controlled quantity.</p><p>Because different bodily mechanisms are used for lowering body temperature than raising it, there are two negative feedback loops in operation. One lowers the body temperature (via sweating, etc.) and the other raises body temperature (via shivering, etc.). Let&#39;s develop a general model of such homeostatic processes, where there are two negative feedback loops&mdash;one for raising the value of the controlled quantity and another for lowering it.</p><p>As you know from your last model, the current value of the controlled quantity is compared to the set point by subtracting the set point from it. Thus, if the controlled quantity is too high, the comparison is positive. If the controlled quantity is too low, the comparison is negative. For the two-loop model, we need to send the positive comparison to one negative feedback loop, and send the negative comparison to another feedback loop. This can be done using a mathematical function, named &ldquomax&rdquo that Dragoon will let you use inside the expression box. When you give function &ldquomax&rdquo 2 or more values as inputs, it will return the maximum value (not absolute value; real value). Thus:<ul><li>max(0,2) returns 2</li><li>max(-2,0) returns 0</li><li>max(1,2,3,4,-2,5) returns 5</li><li>max(temperature1,temperature2) will return the value of temperature2 if temperature1 < temperature2.</li></ul></p><p>On the other hand, if temperature1 = 5 and temperature2 = 3.5 what will it return? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "temperature1",
+                                            "options": [
+                                                "temperature1",
+                                                "temperature2"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><p>The function max can be used to split the comparison value. Suppose that C is our comparison value. Then max(0,C) will return:<ul><li>C if C is positive</li><li>0 if C is negative</li></ul>Similarly, max(0,-C) will return:<ul><li>-C if C is negative</li><li>0 if C is positive</li></ul>Let's try this out. Suppose C = 5.<ul><li>What does max(0,C) return? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "5",
+                                            "options": [
+                                                "5",
+                                                "0",
+                                                "-5"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li><li>What does max(0,-C) return? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "0",
+                                            "options": [
+                                                "5",
+                                                "0",
+                                                "-5"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li></ul>Now suppose that C = -5.<ul><li>What does max(0,C) return? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "0",
+                                            "options": [
+                                                "5",
+                                                "0",
+                                                "-5"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li><li>What does max(0,-C) return? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "5",
+                                            "options": [
+                                                "5",
+                                                "0",
+                                                "-5"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li></ul>Thus, we can use max(0,C) to send C to the negative feedback loop that lowers the value of the controlled quantity, and we can use max(0,-C) to send -C to the negative feedback loop that raises the value of the controlled quantity."
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Click on the table option. Set the initial value of controlled quantity to 118.6. Write the first three values that are input to the accumulator from each of its inputs, and then answer the questions below:<ul><li> Values for <b>change to reduce deficits</b>: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "0,0,0",
+                                            "options": [
+                                                "0,0,0",
+                                                "2.0,1.80,1.62",
+                                                "4.00,3.20,2.56"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li><li>Values for <b>change to reduce surplus</b>: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "2.0,1.80,1.62",
+                                            "options": [
+                                                "0,0,0",
+                                                "2.0,1.80,1.62",
+                                                "4.00,3.20,2.56"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li><li>Which feedback loop is active: the one for reducing a surplus or for reducing a deficit? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "Reducing the surplus",
+                                            "options": [
+                                                "Reducing the surplus",
+                                                "Reducing the deficit"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li></ul>"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "\tIn the same table window, set the initial value of <b>controlled quantity</b> to 78.6. Write the first three values that are input to the accumulator from each of its inputs.<ul><li>Values for <b>change to reduce deficits</b>: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "4.00,3.20,2.56",
+                                            "options": [
+                                                "0,0,0",
+                                                "2.0,1.80,1.62",
+                                                "4.00,3.20,2.56"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li><li>Values for <b>change to reduce surplus</b>: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "0,0,0",
+                                            "options": [
+                                                "0,0,0",
+                                                "2.0,1.80,1.62",
+                                                "4.00,3.20,2.56"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li><li>Which feedback loop is active: the one for reducing a surplus or for reducing a deficit? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "Reducing the deficit",
+                                            "options": [
+                                                "Reducing the surplus",
+                                                "Reducing the deficit"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li></ul>"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "When a feedback loop is not active, then the value of the \"change to reduce...\" node is zero. "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "true",
+                                            "options": [
+                                                "true",
+                                                "false"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Compare the answers to question 3a and 3b. Please explain why the non-zero numbers are twice as large in 3b as they are in 3a."
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "The &ldquoconvergence rate for deficits&rdquo is twice as high as the &ldquoconvergence rate for surplus&rdquo."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "two-loop-homeostasis",
+											"mode": "STUDENT"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "Blood Glucose Homeostasis",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Blood glucose homeostasis is a specific example of a two-loop homeostatic process. Glucose is a simple sugar. Glucose is required for cellular respiration and is the preferred fuel for all body cells. The body derives glucose from the breakdown of the carbohydrate-containing foods and drinks we consume. Glucose is transported from the digestive system to all the other cells in the body by the blood.</p><p>It is important that the level of glucose be kept relatively constant. If it falls too low, the cell respiration will slow and the cells will not have enough energy to function properly&mdashthey will starve. If the glucose levels in the blood are too high, tissue damage can occur.</p><p>However, the supply of glucose from digestion does change. When a person has just eaten, ample glucose enters the blood. When the person has not eaten for many hours, little glucose enters the blood. Similarly, the amount of glucose withdrawn from the blood by cell respiration changes. When the body is exercising heavily, glucose is absorbed rapidly to feed the energy demands of the cells. When the body is sleeping, little glucose is absorbed. When there is an oversupply of glucose, it can be stored by the liver and muscles as glycogen. It can also be stored in the fatty tissue as triglycerides.</p><p>Hormones regulate both the storage and the utilization of glucose. Receptors located in the pancreas sense blood glucose levels, and subsequently the pancreatic cells secrete glucagon or insulin to maintain normal levels. Glucagon and insulin are hormones.</p><p>More specifically, blood glucose is regulated by two negative feedback loops. One reacts to an oversupply of glucose in the blood and causes the body to remove glucose from the blood. The other negative feedback loop reacts to an undersupply of glucose in the blood and causes the body to add glucose to the blood. The loop that removes glucose is controlled by insulin, whereas glucagon controls the loop that adds glucose to the blood. Although there is much more to learn about blood glucose homeostasis, you now know enough to create a simple model of it. In fact, the model is just a specialization of the generic, two-loop model you just constructed.</p><p>Please solve the Dragoon problem below and then answer these questions.</p><p>Suppose the body just digested a candy bar, which was converted rapidly to glucose, and raised initial blood glucose level to 112 mg/dL. That is 20 mg/dL higher than normal. Using either the table or graph, set 112 as the value of <b>initial blood glucose</b> and note at what time the blood glucose level falls to around 100 mg/dL.</p><p>Now suppose that the body only digested half the candy bar, so only half the glucose was added to the blood. That&#39;s only 10 mg/dL above normal. Thus, set 102 as the value of <b>initial blood glucose</b> and note at what time the blood glucose level falls to around 100 mg/dL.</p><p>When the amount of sugar eaten is doubled, the length of time that the blood sugar is moderately above normal (i.e., at 100 mg/dL or more) is "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "quadrupled",
+                                            "options": [
+                                                "unaffected",
+                                                "doubled",
+                                                "tripled",
+                                                "quadrupled"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Using the <b>initial blood glucose</b> slider, compare an initial surplus to an initial deficit of the same size.</p><p>The surplus is removed "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "slower",
+                                            "options": [
+                                                "slower",
+                                                "faster"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " than the deficit because its rate of convergence is "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "smaller",
+                                            "options": [
+                                                "larger",
+                                                "smaller"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " than the convergence rate for removing deficits."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "simple-Blood-glucose-homeostasis",
+											"mode": "STUDENT"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "A More Realistic Model of the Glucose-Insulin Negative Feedback Loop",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Many people have diabetes and it can be a serious, and even fatal, disease. When people have diabetes, the negative feedback loop that reduces blood glucose is damaged. To detect diabetes better and to understand what causes it, mathematical biologists have created many models of the glucose-insulin negative feedback loop. One review of the medical literature found hundreds of models of this system.</p><p>Many of these models are refinements and improvements on a simple model constructed in 1980. It is widely known as the &ldquominimal model&rdquo of the glucose-insulin negative feedback loop. It is used to predict how the body will react to an injection of a small amount of glucose into the blood. As you saw in your previous Dragoon model, the pancreas should detect the oversupply of glucose and release insulin, and the insulin should cause the body to gradually remove the glucose and restore the glucose level to its normal value. The minimal model does an accurate job of predicting exactly how much insulin is released and how fast the glucose returns to normal.</p><p>In the remainder of today&#39;s lesson, you will construct the minimal model in Dragoon and study how it behaves. Unlike the parameter values used in the preceding model of blood glucose homeostasis, these parameter values are realistic and were derived from human data.</p><p>Just like the model you completed earlier, glucose in the blood is represented by an accumulator. However, instead of assuming that insulin concentrations are the same everywhere in the body, the minimal model assumes that the insulin concentration could be different in the blood and in the so-called &ldquoremote tissues&rdquo which are the muscles and other tissues that burn glucose to generate energy or store it as glycogen or triglycerides. These tissues are called &ldquoremote&rdquo because the insulin must travel through the blood to get to them from the pancreas. Thus, the minimal model has two more accumulators, which represent the amount of insulin in the blood and the amount of insulin in the remote tissues.</p><p>Please do the Dragoon problem below and then answer the following questions.</p><p>Take a look at your Dragoon model. There are two negative feedback loops that control blood glucose. One is long and involves insulin. Here is a list of nodes involved. Fill in the blanks.<ol><li>Blood glucose</li><li>Glucose difference</li><li>Insulin from pancreas</li><li>Blood insulin</li><li>"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "Blood insulin difference",
+                                            "options": [
+                                                "Glucose removed via insulin",
+                                                "Blood insulin difference",
+                                                "Glucose removed without insulin"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li><li>Blood insulin to remote</li><li>Remote insulin</li><li>"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "Glucose removed via insulin",
+                                            "options": [
+                                                "Glucose removed via insulin",
+                                                "Blood insulin difference",
+                                                "Glucose removed without insulin"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li><li>And back to blood glucose, thus completing the negative feedback loop.</li></ol>"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "There is a second negative feedback loop, with one missing. Please fill in the blank.<ol><li>Blood glucose</li><li>Glucose difference</li><li>"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "Glucose removed without insulin",
+                                            "options": [
+                                                "Glucose removed via insulin",
+                                                "Blood insulin difference",
+                                                "Glucose removed without insulin"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</li><li>And the blood glucose again, thus completing the negative feedback loop.</li></ol>"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "When a person has Type 2 diabetes, their remote cells do not take up blood insulin as fast as a normal person. Thus, a diabetic&#39;s remote cells burn less glucose than a normal person when the blood has the same amount of insulin as a normal person. Which parameter in the minimal model can be varied to represent the effects of Type 2 diabetes? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "insulin sensitivity",
+                                            "options": [
+                                                "glucose effectiveness",
+                                                "insulin sensitivity",
+                                                "blood insulin set point"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Look carefully at the graph of blood glucose level over time. Does the blood glucose level go a little lower than the set point? Could this explain why you sometimes feel sleepy after a big lunch or dinner? Approximarely when does this occur?</p><p>About "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "50 to 60",
+                                            "options": [
+                                                "40 to 50",
+                                                "50 to 60",
+                                                "60 to 70",
+                                                "70 to 80"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " minutes after the glucose enters the blood."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "glucose-min-model",
+											"mode": "STUDENT"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

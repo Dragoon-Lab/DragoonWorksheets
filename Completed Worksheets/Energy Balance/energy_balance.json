@@ -1,0 +1,2844 @@
+{
+    "__Worksheet__": {
+        "questions": [
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Suppose you are creating a model of the system described in the italicized paragraph below.</p><p><i>You are modeling a population of beavers. There are 20 beavers alive in the first year. Assume that births are the only change in this beaver population (there are no deaths, immigration, or emigration occurring). The number of beaver births each year is 30% of the beaver population.</i></p><p>The \"beaver population\" is an <b>accumulator</b> whose value is calculated by the following expression:</p><p>new beaver population = old beaver population + "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "beaver births",
+                                            "options": [
+                                                "beaver birth rate",
+                                                "beaver population",
+                                                "beaver births",
+                                                "20",
+                                                "30%"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><p>Initial value: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "20",
+                                            "options": [
+                                                "beaver birth rate",
+                                                "beaver population",
+                                                "beaver births",
+                                                "20",
+                                                "30%"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+									{
+                                        "__Text__": {
+                                            "text": "The \"beaver birth rate\" is a parameter whose value is equal to "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "30%",
+                                            "options": [
+                                                "beaver birth rate",
+                                                "beaver population",
+                                                "beaver births",
+                                                "20",
+                                                "30%"
+                                            ]
+                                        }
+                                    }
+								]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "\"Beaver births\" is a function whose value is calculated by the following mathematical expression: </p><p>"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "beaver population",
+                                            "options": [
+                                                "beaver birth rate",
+                                                "beaver population",
+                                                "20",
+                                                "30%"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " x "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "beaver birth rate",
+                                            "options": [
+                                                "beaver birth rate",
+                                                "beaver births",
+                                                "20",
+                                                "30%"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "The number of video games Brandon buys every week is a(n) "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "parameter",
+                                            "options": [
+                                                "parameter",
+                                                "accumulator",
+                                                "function"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " and is equal to "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "2",
+                                            "options": [
+                                                "100",
+                                                "4",
+                                                "2",
+                                                "1"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " games/week."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Assume you are modeling the system decribed below in italics.</p><p><i>Brandon has 100 video games. Each week, he buys two more games.</i></p><p>The number of video games Brandon has each week is the number of video games he had the preceding week plus the number of video games he buys this week. Therefore, the number of video games Brandon has is a(n): "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "accumulator",
+                                            "options": [
+                                                "parameter",
+                                                "accumulator",
+                                                "function"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Fill in the blanks."
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Node Name",
+                                                "Type",
+                                                "Description"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "energy balance",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
+                                                    ],
+                                                    "Small surplus per day; value = 100 calories"
+                                                ],
+                                                [
+                                                    "energy stored",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"accumulator"
+														]	
+                                                    ],
+                                                    "energy stored in the body is equal to its value yesterday plus energy balance for today; initial value = 345000 calories"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "How would Joe measure changes to his energy storage?"
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "time (days)",
+                                                "calculation",
+                                                "energy stored (cal)"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "0",
+                                                    "",
+                                                    "345000"
+                                                ],
+                                                [
+                                                    "1",
+                                                    [
+														[	
+															[
+																"345000 + 100",
+																"345100 + 100",
+																"34500 + 34500",
+																"345100 + 200"
+															],
+															"345000 + 100"
+														]
+													],
+                                                    [
+														[	
+															[
+																"345000",
+																"345100",
+																"345200",
+																"345500"
+															],
+															"345100"
+														]	
+                                                    ]
+                                                ],
+                                                [
+                                                    "2",
+                                                    [
+														[
+															[
+																"345100 + 100",
+																"345200 + 100",
+																"345300 + 100",
+																"345400 + 100"
+															],
+															"345100 + 100"
+														]
+                                                    ],
+                                                    [
+														[	
+															[
+																"345000",
+																"345100",
+																"345200",
+																"345500"
+															],
+															"345200"
+														]	
+                                                    ]
+                                                ],
+                                                [
+                                                    "3",
+                                                    [
+                                                        [
+															[
+																"345100 + 100",
+																"345200 + 100",
+																"345300 + 100",
+																"345400 + 100"
+															],
+															"345200 + 100"
+														]
+                                                    ],
+                                                    "345300"
+                                                ],
+                                                [
+                                                    "4",
+                                                    [
+                                                        [
+															[
+																"345100 + 100",
+																"345200 + 100",
+																"345300 + 100",
+																"345400 + 100"
+															],
+															"345300 + 100"
+														]
+                                                    ],
+                                                    "345400"
+                                                ],
+                                                [
+                                                    "5",
+                                                    [
+                                                        [
+															[
+																"345100 + 100",
+																"345200 + 100",
+																"345300 + 100",
+																"345400 + 100"
+															],
+															"345400 + 100"
+														]
+                                                    ],
+                                                    "345500"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Image__": {
+                                            "image": "energy_balance/energy14"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "Notice that the graph can change with these values. A red line should pop up showing you the author's solution. The value that you have changed by varying the values should be green. When you're done playing with the values, answer the following questions.</p><p>What is the vertical axis on the graph? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "energy stored",
+                                            "options": [
+                                                "time",
+                                                "energy stored"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "What happens to the graph if you change the energy balance from 100 calories to 300 calories? What does this mean?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "The vertical axis scale changes. The highest value goes from about 348000 to about 354000. This means that the energy stored is increasing over time."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "In the graoh window, vary the values of energy balance and initial energy stored by dragging the sliders back and forth along the lines (boxed below) or by typing in different values in the boxes (boxed below).</p><p>What happens to the graph if you change the initial energy stored? Change the value from 345000 calories to 3000 calories. Don't forget to reset energy balance to 100 calories."
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "The vertical axis decreases. The starting value is now 3000 calories instead of 345000. Also, the lines changed from being diagonal to nearly horizontal"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Image__": {
+                                            "image": "energy_balance/energy15"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><p>On what day does energy stored hit 3.46e+5?</p><p>Day "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "5",
+                                            "options": [
+                                                "5",
+                                                "7",
+                                                "15",
+                                                "21"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "On what day does energy stored hit 3.47e+5?</p><p>Day "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "15",
+                                            "options": [
+                                                "5",
+                                                "7",
+                                                "15",
+                                                "21"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "What is the energy stored on Day 9?</p><p>"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "3.46e+5",
+                                            "options": [
+                                                "3.45e+5",
+                                                "3.46e+5",
+                                                "3.47e+5",
+                                                "3.48e+5"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " calories"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "What is the energy stored on Day 0 and on Day 29.5 (the first and last value)?</p><p>Day 0: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "3.45e+5",
+                                            "options": [
+                                                "3.45e+5",
+                                                "3.46e+5",
+                                                "3.47e+5",
+                                                "3.48e+5"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><p>Day 29.5: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "3.48e+5",
+                                            "options": [
+                                                "3.45e+5",
+                                                "3.46e+5",
+                                                "3.47e+5",
+                                                "3.48e+5"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If the energy balance changed from 100 calories to 300 calories, on what day does energy stored hit 3.46e+5 calories?</p><p>Day "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "2",
+                                            "options": [
+                                                "2",
+                                                "5",
+                                                "7",
+                                                "9"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If the initial energy stored changed from 345000 calories to 3000 calories, what is the value on Day 0 and on Day 29.5 (the first and last values)? <i>Don't forget to reset energy balance back to 100 calories.</i> You can reset all sliders to their original values by closing the table window and reopening it using the <b>Table</b> button.</p><p>Day 0: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "3.00e+3",
+                                            "options": [
+                                                "3.00e+3",
+                                                "5.95e+3",
+                                                "3.00e+5",
+                                                "5.95e+5"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><p>Day 29.5: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "5.95e+3",
+                                            "options": [
+                                                "3.00e+3",
+                                                "5.95e+3",
+                                                "3.00e+5",
+                                                "3.95e+5"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "In the table window, scroll to the very bottom and vary the values of energy balance and initial energy storeed, just as you did before with the graph (by dragging the sliders back and forth along the lines or by typing in different values in the boxes).</p><p>Notice how the table may change. When you're done playing with the values, answer the following questions.</p><p>Why are your answers so different for questions 5d & 5f? What does this mean?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "The energy balance stayed the same, meaning the rate of increase stayed the same, but the initial value became much lower in 5f. So the difference between the two numbers is about the same (actually is the same, if not for rounding), but both numbers in 5f are much lower."
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Fill in the blanks"
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Node Name",
+                                                "Node Type",
+                                                "Description",
+                                                "Expression"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Energy expended",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
+                                                    ],
+                                                    "Energy expended daily; initial value = 2100 cal.",
+                                                    "N/A"
+                                                ],
+                                                [
+                                                    "Energy stored",
+                                                    "Accumulator",
+                                                    "Energy stored in the body ; initial value = 34500 cal.",
+                                                    "New energy stored = old energy stored + energy balance"
+                                                ],
+                                                [
+                                                    "Energy ingested",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
+                                                    ],
+                                                    "Energy ingested daily; initial value = 1989 cal.",
+                                                    "N/A"
+                                                ],
+                                                [
+                                                    "Energy balance",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
+                                                    ],
+                                                    "difference between ingestion and expenditure of energy per day",
+                                                    [
+														"Energy balance = energy ingested - ",
+														[	
+															[
+																"old energy balance",
+																"energy stored",
+																"energy expended",
+																"new energy balance"
+															],
+															"energy expended"
+														]	
+                                                    ]
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Click on the Dragoon button below. This is your workspace for the <b>Energy Balance - Level 0</b> problem. Here, you will model different systems and graph them!"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "It doesn't look like much, but that is because you still need to create your nodes."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-0"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": "Dragoon: Energy Balance - Level 0"
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Do the following steps to create a new model for Joe's body.</p><p>If you have not done so already, click the <b>Done</b> button."
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "energy_balance/energy16"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Your current tab should close and you should see this screen again."
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "energy_balance/energy17"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Click on the Dragoon button below. After the problem opens, read the text on the left of the screen. Notice that some nodes have been created for you already."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Start defining/refining your nodes. Click on the <b>Create Node</b> button in the top left corner as you did before, or you can double-click on an already created node in the window. If you have described your nodes properly in the above table, creating nodes should be simple\u2014you have all the information you need right here!"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "As you can see from your table, four nodes are needed. After you have created them, click on the <b>Graph</b> button on the top menu bar. Keep in mind that you cannot graph your model if your nodes aren&#39;t completely defined. Look for nodes that have dotted lines around them.</p><p><b>When you have successfully finished creating your model, the graph window should pop up when you click on the button and then you can answer the following questions.</b>"
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-1"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "In the graph window, check <b>Show energy stored</b> and make sure <b>Show energy balance</b> is not checked, as boxed in the screenshot below."
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "energy_balance/energy18"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><p>Vary the values of energy ingested, energy expended, and initial energy stored. Notice that the graph can change with these values.</p><p>When you&#39;re done playing with the values, close and reopen the graph window to reset the sliders to their original positions, and then answer the following questions.</p><p>What is the unit of the independent variable on the graph?</p><p>"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "days",
+                                            "options": [
+                                                "days",
+                                                "calories"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "What happens to the graph if Joe changes his energy ingested from 1989 calories to 2.11e+3 calories? What does this mean?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "The graph changes from having a negative slope to having a positive slope. This means that Joe&#39;s energy balance changed from a deficit to a surplus of calories."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Close and reopen the graph window to reset the sliders to their original positions. What happens to the graph if Joe changes his energy expended from 2100 to 1980 and what does this mean?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "The graph changes from having a negative slope to having a positive slope. This means that Joe&#39;s energy balance changed from a deficit to a surplus of calories."
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "When you are finished with these problems, close the graphing window and open the table by clicking on the Table button on the top menu bar."
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "In the table window, scroll to the bottom and vary the values of energy balance and initial energy stored. Notice how the table may change.</p><p>When you&#39;re done testing different values for energy expended, energy ingested, and energy stored, close and reopen the table window to reset the sliders to their original positions. Answer the following questions.</p><p>What does the -111 represent in the last column and why doesn&#39;t it change?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "Energy balance (calories), the value of energy ingested \u2013 energy expended. It doesn&#39;t change because energy balance is always a set value of the difference between energy ingested and energy expended."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "On what day does energy stored hit 3.43e+5 calories?</p><p>Day "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "14.00",
+                                            "options": [
+                                                "23.00",
+                                                "22.00",
+                                                "14.00",
+                                                "13.00"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "What is the energy stored value on Day 0 and on Day 999 (the first and last values)?"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><p>Day 0: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "3.45e+5",
+                                            "options": [
+                                                "-111",
+                                                "3.43e+5",
+                                                "3.45e+5",
+                                                "3.34e+5"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><p>Day999: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "3.34e+5",
+                                            "options": [
+                                                "-111",
+                                                "3.43e+5",
+                                                "3.45e+5",
+                                                "3.34e+5"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If the initial energy stored changed from 345000 calories to 3000 calories, what is the value on Day 0 and on Day 999 (the first and last values)?</p><p>Day 0: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "3.00e+3",
+                                            "options": [
+                                                "2.34e+5",
+                                                "3.00e+3",
+                                                "-1.08e+5",
+                                                "3.45e+5"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><p>Day 999: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "-1.08e+5",
+                                            "options": [
+                                                "2.34e+5",
+                                                "3.00e+3",
+                                                "-1.08e+5",
+                                                "3.45e+5"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "<i>Don't forget to reset all the values by closing and reopening the table window to reset the sliders to their original positions.</i></p><p>If Joe expends 3000 calories, but leaves all other values the sme initially, then on <b>Day 30</b> what would his energy stored and energy balance be?</p><p>Energy stored: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "3.15e+5",
+                                            "options": [
+                                                "1.01e+3",
+                                                "3.15e+5",
+                                                "-1.01e+3",
+                                                "-3.15e+5"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "cal</p><p>Energy balance: "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "-1.01e+3",
+                                            "options": [
+                                                 "1.01e+3",
+                                                "3.15e+5",
+                                                "-1.01e+3",
+                                                "-3.15e+5"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "cal"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If you have not done so already, click the <b>Done</b> button. You should see the main window screen of the forum."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Open the Dragoon problem below. After the problem opens, read the text on the left of the screen and then fill in the blanks in the table before creating your nodes."
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Node Name",
+                                                "Node Type",
+                                                "Description",
+                                                "Expression"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Weight",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"accumulator"
+														]	
+                                                    ],
+                                                    [
+                                                        "The weight of the body as it varies day to day; initial value = ",
+														[
+															[
+																"140 lbs",
+																"150 lbs",
+																"125 lbs",
+																"118 lbs"
+															],
+															"150 lbs"
+														]
+                                                    ],
+                                                    "New weight = old weight + weight change"
+                                                ],
+                                                [
+                                                    "Weight change",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
+                                                    ],
+                                                    "weight of tissue added or subtracted from storage",
+                                                    "weight change = energy balance/calories per pound"
+                                                ],
+                                                [
+                                                    "Energy expended",
+                                                    "Parameter",
+                                                    "energy burned by nody each day; inital value = 2100 cal",
+                                                    "N/A"
+                                                ],
+                                                [
+                                                    "Energy balance",
+                                                    "Function",
+                                                    "energy balance in calories",
+                                                    "Energy balance = energy ingested - energy expended"
+                                                ],
+                                                [
+                                                    "Energy ingested",
+                                                    "Parameter",
+                                                    "energy from food each day; initial value = 1989 cal/lbs",
+                                                    "N/A"
+                                                ],
+                                                [
+                                                    "Calories per pound",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
+                                                    ],
+                                                    "Number of calories stored in a pound of tissue",
+                                                    [
+														[	
+															[
+																"New calories per pound = Old calories per pound + Energy balance",
+																"Calories per pound = weight change/energy balance",
+																"Calories per pound = weight/energy balance",
+																"N/A"
+															],
+															"N/A"
+														]	
+                                                    ]
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "When you are done with your model, open the graph window and ensure that only <b>Show weight</b> is checked. Vary the values of the parameters, and check that the graph changes sensibly."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Close and reopen the graph window to reset the sliders to their original positions. You can use the <b>Graph</b> or <b>Table</b> buttons to answer the following questions."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-2"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": "Energy Balance - Level 2"
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If Joe continues his ingesting/expending patterns, in about how many days will Joe weigh about 130 lbs?</p><p>"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "615",
+                                            "options": [
+                                                "415",
+                                                "515",
+                                                "615",
+                                                "715"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " Days"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "What happens to the graph if Joe changes his energy ingested from 1989 calories to 2.11e+3 calories? What does this mean?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "The graph changes from having a negative slope to having a positive slope. This means that Joe is gaining weight because he is ingesting more calories than he is expending."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Uncheck <b>show weight</b> and check either <b>Show energy balance</b> or <b>Show weight change</b>. Why do these graphs NOT show any change over time (i.e., slope = 0)?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "Because both are constant. Their values are always the constant no matter how you change the other values."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "<b>Show energy balance</b> and <b>Show weight change</b> are "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "constant",
+                                            "options": [
+                                                "constant",
+                                                "dynamic"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Vary the ingested values. How many calories can Joe ingest and keep his weight constant? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "2.10e+3",
+                                            "options": [
+                                                "1989",
+                                                "2.10e+3",
+                                                "2.14e+3",
+                                                "2.06e+3"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " Calories"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Write the expression for energy balance. Explain your answer to the previous question in terms of this expression."
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "energy balance = energy ingested \u2013 energy expended. Energy expended = 2100, so if energy ingested = 2100, then energy balance = 0 and thus weight change is zero."
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+										"__Text__": {
+											"text": "Please open the Dragoon problem below and then answer the following questions."
+										}
+									},
+									{
+                                        "__Table__": {
+                                            "header": [
+                                                "Node Name",
+                                                "Type",
+                                                "Description",
+                                                "Expression"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Physical activity expenditure",
+                                                    [
+                                                        [
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]
+                                                    ],
+                                                    "energy burned by physical exercise; value = 400 calories",
+                                                    "N/A"
+                                                ],
+                                                [
+                                                    "Resting energy expenditure",
+                                                    [
+                                                        [
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]
+                                                    ],
+                                                    "energy expended per day by basic body function; value = 1400 calories",
+                                                    "N/A"
+                                                ],
+                                                [
+                                                    "Digestive activity expenditure",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
+                                                    ],
+                                                    "energy burned in order to digest food; value = 200 calories",
+                                                    "N/A"
+                                                ],
+                                                [
+                                                    "Energy expended",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
+                                                    ],
+                                                    "energy burned by the body in a day",
+                                                    [
+														"value = physical activity expenditure + resting energy expenditure + ",
+														[	
+															[
+																"physical activity expenditure",
+																"resting energy expenditure",
+																"digestive activity expenditure"
+															],
+															"digestive activity expenditure"
+														]	
+                                                    ]
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Please open the Dragoon problem below and then answer the following questions.</p><p>What is the value of Energy Expended? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "1400",
+                                            "options": [
+                                                "400",
+                                                "1400",
+                                                "200"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "  calories."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If Joe continues to ingest 1989 calories a day, the graph will have a "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "negative",
+                                            "options": [
+                                                "positive",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " slope."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If Joe ingests 2001 calories a day, his graph will have a "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "negative",
+                                            "options": [
+                                                "positive",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " slope."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-3"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If Joe becomes less active (change physical activity expenditure to 300), then what happens to the graph and what does this mean about his weight?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "The graph changes from having a negative slope to having a positive slope. This means that Joe is gaining weight because he is burning fewer calories."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Increase Joe's physical activity expenditure to 700 calories. About how much energy can he ingest before he gains weight now?</p><p>"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "2.30e+3",
+                                            "options": [
+                                                "2.30e+3",
+                                                "2.35e+3",
+                                                "2.40e+3",
+                                                "2.45e+3"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " calories"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "The amount of physical activity energy burned per day depends mostly on two factors: how much exercise you do and your resting energy expenditure. The energy spent on exercise is estimated by multiplying the resting energy expenditure by a physical activity factor, which is:<ul><li>0.2 for little or no exercise</li><li>0.375 for light exercise</li><li>0.55 for moderate exercise</li><li>0.75 for hard exercise but not every day</li><li>0.9 for daily hard exercise</li></ul></p><p>Instead of using a parameter for \"physical activity expenditure\" with a value of 400, Joe decides to make it a function whose value is the product of resting energy expenditure and a new node, physical activity level. Joe does little exercise, so he sets the physical activity level as 0.2. However, his model is now set up so that he can easily see the effect of increasing his exercise level. Here#&39;s his whole model, expressed as a table. Fill in the blanks:"
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Node Name",
+                                                "Type",
+                                                "Description"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Energy balance",
+                                                    "Function",
+                                                    "Energy surplus or deficit daily; value = energy ingested #mdash; energy expended"
+                                                ],
+                                                [
+                                                    "Energy ingested",
+                                                    "Parameter",
+                                                    "energy ingested daily; value = 1989 calories"
+                                                ],
+                                                [
+                                                    "Weight",
+                                                    "Accumulator",
+                                                    "The weight of the body as it varies day by day. Its new value is its old value + weight change. initial value = 150 lbs"
+                                                ],
+                                                [
+                                                    "Weight change",
+                                                    "Function",
+                                                    "weight of tissue added or subtracted from storage; value = (energy balance)/(calories per pound)"
+                                                ],
+                                                [
+                                                    "Calories per pound",
+                                                    "Parameter",
+                                                    "Number of calories in a pound of tissue; value = 3500 calories/lbs"
+                                                ],
+                                                [
+                                                    "Physical activity expenditure",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
+                                                    ],
+                                                    [
+                                                        "energy burned by physical exercise; value = ",
+														[
+															[
+																"digestive activity expenditure",
+																"energy balance",
+																"resting energy expenditure",
+																"energy expended"
+															],
+															"resting energy expenditure"
+														],
+														" * ",
+														[
+															[
+																"physical activity level",
+																"energy expended",
+																"resting energy expenditure",
+																"calories per pound"
+															],
+															"physical activity level"
+														]	
+                                                    ]
+                                                ],
+                                                [
+                                                    "Resting energy expenditure",
+                                                    "Parameter",
+                                                    "energy expended per day by basic body function; value = 1400 calories"
+                                                ],
+                                                [
+                                                    "Digestive activity expenditure",
+                                                    "Parameter",
+                                                    "energy burned in order to digest food; value = 200 calories"
+                                                ],
+                                                [
+                                                    "Energy expended",
+                                                    "Function",
+                                                    [
+														"energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + ",
+														[	
+															[
+																"physical activity level",
+																"digestive activity expenditure",
+																"energy balance",
+																"resting energy expenditure"
+															],
+															"digestive activity expenditure"
+														]	
+                                                    ]
+                                                ],
+                                                [
+                                                    "Physical activity level",
+                                                    [
+                                                        [
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]
+                                                    ],
+                                                    "Amount of physical activity, e.g., 0.2 for little or no exercise, 0.55 for moderate exercise, 0.9 for daily hard exercise"
+                                                ]
+                                            ]
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-5"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Assuming Joe is sedentary, and his physical exercise level is 0.2, what is his daily energy expenditure? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "1.88e+3 cal",
+                                            "options": [
+                                                "1.88e+3 cal",
+                                                "280 cal",
+                                                "199 cal",
+                                                "110 cal"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If he still ingests 1989 calories a day, does he gain weight or lose weight? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "gain",
+                                            "options": [
+                                                "gain",
+                                                "lose"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "How much, in pounds per day? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "0.03",
+                                            "options": [
+                                                "0.003",
+                                                "0.03",
+                                                "0.3",
+                                                "3"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " pounds per day"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Joe wonders what would happen if he really increased his daily exercise, so that his physical activity level was 0.9. What would this make his daily energy expenditure? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "2860",
+                                            "options": [
+                                                "2860",
+                                                "1400",
+                                                "1260",
+                                                "200"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " calories"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If he continued to eat 1989 calories a day and maintained a physical activity level of 0.9, would he gain or lose weight? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "lose",
+                                            "options": [
+                                                "gain",
+                                                "lose"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "How much, in pounds per day? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "0.25",
+                                            "options": [
+                                                "0.15",
+                                                "0.20",
+                                                "0.30",
+                                                "0.25"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " pounds per day"
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-5"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If Joe&#39;s resting energy expenditure changes, which nodes <b>will</b> be affected by the changes?"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><p>"
+                                        }
+                                    },
+                                    {
+                                        "__Checkbox__": {
+                                            "correct_c": [
+                                                "Energy balance",
+												"Energy expended",
+												"Physical activity expenditure",
+												"Weight",
+												"Weight change"
+                                            ],
+                                            "options_c": [
+                                                "Calories per pound",
+												"Digestive activity expenditure",
+												"Energy balance",
+												"Energy expended",
+												"Energy ingested",
+												"Physical activity expenditure",
+												"Physical activity level",
+												"Weight",
+												"Weight change"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "What is Joe's weight after 999 days if he keeps his current physical activity level?</p><p>"
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "151 lbs",
+                                            "options": [
+                                                "98.6 lbs",
+                                                "-98.6 lbs",
+                                                "151 lbs",
+                                                "181 lbs"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "The more food you eat, the more energy it takes to digest it. The expression \"thermic effect of food\" is used to describe the energy expended by our bodies to consume (bite, chew, and swallow) and process (digest, transport, metabolize, and store) food.</p><p>A factor of 10% is generally used to account for the thermic effect of food. Thus, if you eat 500 calories of food, you will expend 50 calories processing it. However, this is only a rough estimate, because the factor is different for different foods. Processing protein requires the greatest expenditure of energy, with estimates ranging as high as 30%. Dietary fat, on the other hand, is so easily processed and turned into body fat that there is little thermic effect, perhaps only 2% or 3%. The amount of energy required to process carbohydrates falls between that of protein and fat.</p><p>Since we don't know much about Joe's diet, let's just use the default value of 10%. In the table below, which shows the complete model that Joe has developed so far, fill in the blanks to change the node \"digestive activity expenditure\" to be the product of \"energy ingested\" and a parameter \"digestive energy factor\" with the value 0.10."
+                                        }
+                                    },
+									{
+                                        "__Table__": {
+                                            "header": [
+                                                "Node Name",
+                                                "Type",
+                                                "Description"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Energy balance",
+                                                    "Function",
+                                                    "Energy surplus or deficit daily; value = energy ingested - energy expended"
+                                                ],
+                                                [
+                                                    "Energy ingested",
+                                                    "Parameter",
+                                                    "energy ingested daily; value = 1989 calories"
+                                                ],
+                                                [
+                                                    "Weight",
+                                                    "Accumulator",
+                                                    "The weight of the body as it varies day by day. Its new value is its old value + weight change; initial value = 150 lbs"
+                                                ],
+                                                [
+                                                    "Weight change",
+                                                    "Function",
+                                                    "weight of tissue added or subtracted from storage; value = energy balance/calories per pound"
+                                                ],
+                                                [
+                                                    "Calories per pound",
+                                                    "Parameter",
+                                                    "Number of calories in a pound of tissue; value = 3500 calories/lbs"
+                                                ],
+                                                [
+                                                    "Physical activity expenditure",
+                                                    "Function",
+                                                    [
+                                                        "energy burned by physical exercise; value = ",
+														[	
+															[
+																"digestive activity expenditure",
+																"physical activity level",
+																"calories per pound",
+																"resting energy expenditure"
+															],
+															"resting energy expenditure"
+														],
+														" * ",
+														[
+															[
+																"physical activity level",
+																"calories per pound",
+																"digestive activity expenditure",
+																"weight change"
+															],
+															"physical activity level"
+														]
+													]	
+                                                ],
+                                                [
+                                                    "Resting energy expenditure",
+                                                    "Parameter",
+                                                    "energy expended per day by basic body function; value = 1400 calories"
+                                                ],
+                                                [
+                                                    "Digestive activity expenditure",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
+                                                    ],
+													[	
+														"energy burned in order to digest food; value = ",
+														[
+															[
+																"energy balance",
+																"energy ingested",
+																"physical activity level",
+																"calories per pound"
+															],
+															"energy ingested"
+														],
+														" * ",
+														[
+															[
+																"resting energy expenditure",
+																"calories per pound",
+																"digestive energy factor",
+																"energy ingested"
+															],
+															"digestive energy factor"
+														]
+													]	
+                                                ],
+                                                [
+                                                    "Energy expended",
+                                                    "Function",
+                                                    [
+														"energy burned in a day; value = physical activity expenditure + resting energy expenditure + ",
+														[	
+															[
+																"digestive energy factor",
+																"physical activity level",
+																"physical activity expenditure",
+																"digestive activity expenditure"
+															],
+															"digestive activity expenditure"
+														]	
+                                                    ]
+                                                ],
+                                                [
+                                                    "Physical activity level",
+                                                    "Parameter",
+                                                    "Amount of physical activity e.g. 0.2 for little or no exercise; 0.55 for moderate exercise; or 0.9 for daily hard exercise"
+                                                ],
+                                                [
+                                                    "Digestive energy factor",
+                                                    "Parameter",
+                                                    [
+														"The proportion of ingested energy that is required to process it; value = ",
+														[	
+															[
+																"0.08",
+																"0.10",
+																"0.12",
+																"0.20"
+															],
+															"0.10"
+														]	
+                                                    ]
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Joe is still eating 1989 calories a day and still sedentary (physical activity level = 0.2), so what is his digestive activity expenditure per day? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "199 calories",
+                                            "options": [
+                                                "400 calories",
+                                                "199 calories",
+                                                "2080 calories",
+                                                "280 calories"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Now if he doubles his food intake, so his daily ingested energy is 4000 calories, then his digestive activity expenditure is "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "400 calories",
+                                            "options": [
+                                                "400 calories",
+                                                "199 calories",
+                                                "2080 calories",
+                                                "280 calories"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " , which is more than his physical activity expenditure, which is still "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "280 calories",
+                                            "options": [
+                                                "400 calories",
+                                                "199 calories",
+                                                "2080 calories",
+                                                "280 calories"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "What is his total energy expenditure? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "2080 calories",
+                                            "options": [
+                                                "400 calories",
+                                                "199 calories",
+                                                "2080 calories",
+                                                "280 calories"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Does he gain or lose weight? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "gain",
+                                            "options": [
+                                                "gain",
+                                                "lose"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "How much, in pounds per day? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "0.55 pounds per day",
+                                            "options": [
+                                                "0.10 pounds per day",
+                                                "0.25 pounds per day",
+                                                "0.35 pounds per day",
+                                                "0.55 pounds per day"
+                                            ]
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-4"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "We have learned a lot about metabolism. Which of the following is a component of your body&#39;s metabolism?</p><p>"
+                                        }
+                                    },
+									{
+                                        "__Checkbox__": {
+                                            "correct_c": [
+                                                "Thermic effect of food",
+                                                "Resting metabolic rate",
+                                                "Physical activity level"
+                                            ],
+                                            "options_c": [
+                                                "Thermic effect of food",
+                                                "Resting metabolic rate",
+                                                "Physical activity level"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "What is Joe&#39;s weight after 90 days if all the parameters have their original values and are not changed using the sliders? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "153 lbs",
+                                            "options": [
+                                                "143 lbs",
+                                                "147 lbs",
+                                                "153 lbs",
+                                                "157 lbs"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Suppose Joe eats only fast food for 3 months so his digestive energy factor is changed to 0.02. What would be his weight after 90 days? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "157 lbs",
+                                            "options": [
+                                                "143 lbs",
+                                                "147 lbs",
+                                                "153 lbs",
+                                                "157 lbs"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Suppose Joe changes his diet to a high protein diet for 3 months so that his digestive energy factor is changed to 0.3. What would be his weight after 90 days? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "143 lbs",
+                                            "options": [
+                                                "143 lbs",
+                                                "147 lbs",
+                                                "153 lbs",
+                                                "157 lbs"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Suppose Joe continued with his normal diet (digestive factor = 0.1 **make sure to set this value) but he started moderate exercise this week. What is his weight after 30 days? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "147 lbs",
+                                            "options": [
+                                                "143 lbs",
+                                                "147 lbs",
+                                                "153 lbs",
+                                                "157 lbs"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Will Joe lose or gain weight if he has moderate exercise every week and ingests 2500 calories? "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "gain",
+                                            "options": [
+                                                "gain",
+                                                "lose"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "The resting energy expenditure, which is measured when you are doing no exercise and no ingestion of food, includes the energy used for breathing, blood circulation, and many other routine bodily functions. The bigger the body, the more energy these bodily functions require. However, young bodies burn more energy per pound than old bodies. The Mifflin equation, shown below, is the most accurate estimator known so far:<ul><li>REE = 4.5*weight + 15.9*height - 5*age + gender REE</li></ul>where:<ul><li>REE is resting energy expenditure</li><li>gender REE is 5 for men and -161 for women</li><li>weight is in pounds</li><li>height is in inches</li><li>age is in years</li></ul>In Joe's model below, modify the nodw for \"resting energy expenditure\" to implement this equation by filling in the blanks. assume Joe is a 20-year-old, 65-inch-tall male."
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Node Name",
+                                                "Type",
+                                                "Description"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Energy balance",
+                                                    "Function",
+                                                    "Energy surplus or deficit daily; value = energy ingested - energy expended"
+                                                ],
+                                                [
+                                                    "Energy ingested",
+                                                    "Parameter",
+                                                    "energy ingested daily; value = 1989 calories"
+                                                ],
+                                                [
+                                                    "Weight",
+                                                    "Accumulator",
+                                                    "The weight of the body as it varies day by day. Its new value is its old value + weight change; initial value = 150 lbs"
+                                                ],
+                                                [
+                                                    "Weight change",
+                                                    "Function",
+                                                    "weight of tissue added or subtracted from storage; value = energy balance/calories per pound"
+                                                ],
+                                                [
+                                                    "Calories per pound",
+                                                    "Parameter",
+                                                    "Number of calories in a pound of tissue; value = 3500 calories/lbs"
+                                                ],
+                                                [
+                                                    "Physical activity expenditure",
+                                                    "Function",
+                                                    "energy burned by physical exercise; value = resting energy expenditure * physical activity level"
+                                                ],
+                                                [
+                                                    "Resting energy expenditure",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
+                                                    ],
+                                                    [
+														"energy expended per day by basic body function; value = ",
+														[
+															[
+																"weight REE",
+																"calories per pound",
+																"age REE"
+															],
+															"weight REE"
+														],
+														" - ",
+														[
+															[
+																"weight REE",
+																"age REE",
+																"height REE"
+															],
+															"age REE"
+														],
+														" + ",
+														[
+															[
+																"weight REE",
+																"age REE",
+																"height REE"
+															],
+															"height REE"
+														]
+													]
+                                                ],
+                                                [
+                                                    "Digestive activity expenditure",
+                                                    "Function",
+                                                    "energy burned in order to digest food; value = energy ingested * digestive energy factor"
+                                                ],
+                                                [
+                                                    "Energy expended",
+                                                    "Function",
+                                                    "energy burned by the body in a day; value = physical activity expenditure + resting energy expenditure + digestive activity expenditure"
+                                                ],
+                                                [
+                                                    "Physical activity level",
+                                                    "Parameter",
+                                                    "Amount of physical activity; e.g., 0.2 for little or no exercise, 0.55 for moderate exercise, 0.9 for daily hard exercise."
+                                                ],
+                                                [
+                                                    "Digestive energy factor",
+                                                    "Parameter",
+                                                    "The proportion of ingested energy that is required to process it; value = 0.10"
+                                                ],
+                                                [
+                                                    "Weight REE",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
+                                                    ],
+                                                    "Contribution of weight to REE; value = weight * weight REE multiplier"
+                                                ],
+                                                [
+                                                    "Weight REE multiplier",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
+                                                    ],
+                                                    "Amount of REE per pound of weight; value 4.5 calories/pound"
+                                                ],
+                                                [
+                                                    "Height REE",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
+                                                    ],
+                                                    "Contribution of height to REE; value = height * height REE multiplier"
+                                                ],
+                                                [
+                                                    "Height REE multiplier",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
+                                                    ],
+                                                    "Amount of REE per inch of height; value = 15.9 calories/inch"
+                                                ],
+                                                [
+                                                    "Height",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
+                                                    ],
+                                                    "Joe's height in inches; value = 65 inches"
+                                                ],
+                                                [
+                                                    "Age REE",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"function"
+														]	
+                                                    ],
+                                                    "Contribution of age to REE; valeue = age * age REE multiplier"
+                                                ],
+                                                [
+                                                    "Age REE multiplier",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
+                                                    ],
+                                                    "Amount of REE per year of age; value = 5 calories/year"
+                                                ],
+                                                [
+                                                    "Age",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
+                                                    ],
+                                                    "Joe's age in years; value = 20 years"
+                                                ],
+                                                [
+                                                    "Gender REE",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
+                                                    ],
+                                                    "Contribution of gender to REE; value = 5 for men and  -161 for women."
+                                                ]
+                                            ]
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-6"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Suppose Madison was 15 years old when she entered high school. She weighed 120 lbs and was 60 inches tall. She is female, so her gender REE is -161. Use the model to calculate her weight after 1000 days. "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "160 lbs",
+                                            "options": [
+                                                "150 lbs",
+                                                "160 lbs",
+                                                "170 lbs",
+                                                "180 lbs"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Go to the graph and insert Madison&#39;s values from 16a. Now the author&#39;s solution shows Joe&#39;s weight, and the variable solution shows Madison&#39;s.</p><p>Madison&#39;s weight graph is clearly very different than Joe&#39;s weight graph. Everyone has different graphs and experience different challenges when trying to gain or lose weight. As you age, your graphs will change as well. Leave all the values the same, but change Madison&#39;s age to 30. Estimate her weight after 1000 days.</p><p>"
+                                        }
+                                    },
+									{
+                                        "__Dropdown__": {
+                                            "correct": "170-180 lbs",
+                                            "options": [
+                                                "150-160 lbs",
+                                                "160-170 lbs",
+                                                "170-180 lbs",
+                                                "180-190 lbs"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+									{
+										"__Text__": {
+											"text": "Is she gaining weight faster, slower, or about the same OR losing weight? "
+										}
+									},
+									{
+                                        "__Dropdown__": {
+                                            "correct": "faster",
+                                            "options": [
+                                                "faster",
+                                                "slower",
+                                                "same",
+                                                "losing weight"
+                                            ]
+                                        }
+                                    }
+								]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Why?"
+                                        }
+                                    },
+									{
+                                        "__Textbox__": {
+                                            "example": "Madison is gaining weight faster because her metabolism is slowing as she gets older. So although everything is the same as before, she is burning fewer calories, which leads to more weight gain."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-7"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Graph &quotfats proportion of weight change.&quot Notice how high it gets after Day 300. After Day 300, for every pound that Joe gains, "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "almost all",
+                                            "options": [
+                                                "all",
+                                                "almost all",
+                                                "a little",
+                                                "none"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "   goes into fat."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Compare the graphs of weight and lean tissue. Which one is linear? Why is it linear?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "Weight is linear, and this makes sense because Joe gains a half pound a day, which is a linear increase."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "After Day 300, what is the main difference between the graph of the amount of fat and the amount of lean tissue that Joe has?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "Fat is almost linear and lean tissue curving downward and approaching flat."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Uncheck the other graphs and click <b>Show lean tissue change</b> only. What does this graph tell you about lean tissue change?"
+                                        }
+                                    },
+                                    {
+                                        "__Textbox__": {
+                                            "example": "In the beginning, you gain lean tissue at a much greater rate than later on. As time goes on, your change in lean tissue slows."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"mode": "STUDENT",
+											"problem": "Energy-balance-8"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Please describe how you modified the given model in order to incorporate the fact that lean tissue burns much more energy than fat."
+                                        }
+                                    },
+									{
+                                        "__Textbox__": {
+                                            "example": "I changed weight REE so that it was a sum of two other quantities, REE of fat and REE of lean tissue. I made REE of fat be the product of REE per pound and fat. I made REE of lean tissue be the product of REE per pound of lean and lean tissue."
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": ""
+                }
+            }
+        ],
+        "loose": [
+            {
+                "__LsText__": {
+                    "before": 1,
+                    "text": "</p><h1>Modeling Practice (Working with Dragoon)</h1><h3>Key Terms & Concepts</h3><p><b>A parameter</b> represents a fixed quantity that never changes. Parameters are used to represnt constant values.</p><p><i>Example: pi is a <b>parameter</b> because it is always 3.1415.</i></p><p><b>An accumulator</b> represents a quantity that increases or decreases over time based on its previous value and the value of its inputs. These take the form: \"new value = old value + inputs\". It has an initial value that serves as the first \"old value.\"</p><p><i>Example: Population can be an <b>accumulator</b> because its new value is depndent on its old value and its inputs. Current population size = last year's population size + inputs.</i></p><p><b>A function</b> represents a value  that is calculated directly from the values of other quantities, without referencing its previous value. A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value. Thus, a function does not need and does not have a special initial value, whereas an accumulator does.</p><p><i>Example: Suppose you know 20% of the population dies each year, then the number of deaths is a <b>function</b>, namely population * 0.2. Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute it (if it did, it\u00e2\u20ac\u2122d be an <b>accumulator</b>).</i></p><p><b>Scientific Notation</b> is a great way to rewrite very large and very small numbers. For example, <b>345000</b> can be written in scientific notation to be <b>3.45e+5</b> or <b>3.45 x 10<sup>5</sup></b>.</p><p>To do this, move the decimal place from the end of <b>345000</b> to between the first and second number. So, we move the decimal five places to the left between the <b>3</b> and the <b>4</b>. Then we drop the zeros and write <b>e+5</b>, which is an abbreviation for \"exponenet is +5\" or <b>10<sup5</sup></b>. This indicates how many zeros there are.</p><p>Similarly, </b>0.0000000000000000345</b> can be written as <b>3.45e-17</b> or <b>3.45 x 10<sup>-17</sup></b>."
+                }
+            },
+            {
+                "__LsText__": {
+                    "before": 4,
+                    "text": "In your address bar, type in the URL provided by the instructor.</li><li>A screen similar to the following screen should come up. (If it doesn't, double-check that the address is correct before asking the instructor for help.)<img src =\"energy_balance/energy1.JPG\"/></li><li>Type in the username and password printed on your blue ID sheet and click on the <b>Login</b> button. This is boxed below<img src =\"energy_balance/energy2.JPG\"/></li><li>The following screen should come up. this is the main forum window that you will be working with, except that it will say your class period instead of \"Test Forum Class.\"<img src =\"energy_balance/energy3.JPG\"/></li></ol><b>When you see this, you have sucessfully logged onto the forum. Congratulations!</b>"
+                }
+            }
+        ],
+        "name": "Energy_Balance"
+    }
+}

@@ -1,0 +1,568 @@
+{
+    "__Worksheet__": {
+        "loose": [
+			{
+                "__LsText__": {
+                    "text": "<h3><b>Systems Dynamics Modeling with Dragoon: An introduction</b></h3></p><p>Systems Dynamics Modeling is a method of understanding systems (i.e., parts of the world that you are interested in) that change over time (i.e., they are dynamic).  It works by viewing the system as interacting quantities&mdash;called &quot;nodes&quot; in the Dragoon software.  A model is made by defining both nodes and the relationships between them.  In particular, if Node A has an effect on Node B, Node A is considered an &quot;input&quot; of Node B.  Once all the nodes and inputs are defined, the computer can calculate the change in the system over time and graph the results.</p><p><b>Parameters, Accumulators, and Functions</b></p><p>Models in Dragoon are made up of three types of nodes:  Parameters, Accumulators, and Functions.<ul><li>Parameters are the simplest type of node.  A parameter represents a <b>fixed quantity that never changes</b>.  Parameters are used to represent constant values (height of building being 12 m).</li><li>An accumulator represents a <b>quantity that accumulates the values of its inputs over time</b>.  As each input arrives, it changes the value of the accumulator, so inputs represent changes to the accumulator&#39;s value.  At each time step, the inputs are added or subtracted from the current value of the accumulator&mdash;that determines its value at the next time step.</li><li>Functions represent <b>a value that is directly related to the values of its inputs, without regard to its own previous value</b>.  The inputs to functions determine the value of the function.  A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value.</li></ul>Accumulators and functions seem very similar at first, and it can take some practice to determine if a particular quantity should be represented as one or the other.  To determine if a quantity should be an accumulator, ask the question:  &quot;Does this quantity add or subtract new values to itself each time step to find its new value?&quot; If it does, then the quantity is an Accumulator.  If it does not, then the quantity is a Function.  Additionally, Accumulators typically have an initial value associated with them, whereas Functions do not.</p><h3>Example system:</h3><p> Let&#39;s start by modeling a simple system: a population of dodo birds as they were becoming extinct.  Suppose that there were 1000 dodo birds (pronounced &quot;doh doh&quot;) in the population initially and that 20% of the dodo birds died each year.  Thus, the number of deaths in the first year was 1000 * 20% = 200 deaths, leaving 800 dodos alive at the beginning of the second year.  The number of deaths in the second year was 800 * 20% = 160 deaths, leaving 640 dodos alive for the start of the third year. Because the number of dodo birds and the number of deaths change over the years, this is a dynamic system.",
+                    "before": 1
+                }
+            }
+		],
+        "questions": [
+            {
+                "__Question__": {
+                    "sub": "Modeling the system the hard way",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "To make sure you understand the system&#39;s behavior, please fill in the next few years in the table below.</p><p>"
+                                        }
+                                    },
+									{
+                                        "__Table__": {
+                                            "header": [
+                                                "",
+                                                "dodo population at the start of the year",
+                                                "Deaths during the year"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Year 0 (starting values)",
+                                                    "1000",
+                                                    "200"
+                                                ],
+                                                [
+                                                    "Year 1",
+                                                    "800",
+                                                    "160"
+                                                ],
+                                                [
+                                                    "Year 2",
+                                                    [
+														[	
+															[
+																"81.9",
+																"102",
+																"640",
+																"128",
+																"512",
+																"410"
+															],
+															"640"
+														]	
+                                                    ],
+                                                    [
+                                                       [
+														   [
+																"81.9",
+																"102",
+																"640",
+																"128",
+																"512",
+																"410"
+															],
+															"128"
+														]
+                                                    ]
+                                                ],
+                                                [
+                                                    "Year 3",
+                                                    [
+														[	
+															[
+																"81.9",
+																"102",
+																"640",
+																"128",
+																"512",
+																"410"
+															],
+															"512"
+														]	
+                                                    ],
+                                                    [
+														[	
+															[
+																"81.9",
+																"102",
+																"640",
+																"128",
+																"512",
+																"410"
+															],
+															"102"
+														]	
+                                                    ]
+                                                ],
+                                                [
+                                                    "Year 4",
+                                                    [
+														[	
+															[
+																"81.9",
+																"102",
+																"640",
+																"128",
+																"512",
+																"410"
+															],
+															"410"
+														]	
+                                                    ],
+                                                    [
+														[	
+															[
+																"81.9",
+																"102",
+																"640",
+																"128",
+																"512",
+																"410"
+															],
+															"81.9"
+														]	
+                                                    ]
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "Modeling the system the hard way",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking dodo population.  Let&#39;s start by defining our nodes, of which there are 3:<ul><li><i>Death rate</i> is the percentage of the dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn&#39;t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i> represents the number of dodos still alive.  We are given an initial value for this quantity, 1000 dodos, and the number of dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population &#45; deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>.</li><li><i>Deaths</i> represents the number of dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (population * death rate).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>A Dragoon model for this system would look like this:"
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image1"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes.  Parameter nodes are diamonds, and the inside of a Parameter node shows its value.  Function nodes are circles.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node, which is a square, shows its <i>initial</i> value.</p><p>You create such nodes by clicking on a &quot;Create node&quot; button and filling out the form that it pops up.   The form is called the <i>node editor</i>.  You can also click on an existing node to edit it.  Below are snapshots showing the node editor just as each node has been fully defined and the node editor is about to be closed.  See if you can figure out which node editor snapshot goes with which node above."
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image2"
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image3"
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image4"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "Notice that the node editor snapshots look slightly different from each other.  Do the differences make sense to you?</p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button would display the same information in graph form (see right figure)."
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image5"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "While the dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system."
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "Dragoon Problem 1: a linear increase",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "The simplest type of system is one where there is a single quantity that goes up or down by the same constant amount each time step.  For example, consider this system:</p><blockquote>Rod is a bookworm.  He already has 100 books.  Each week, he buys two more books.  Construct a model that shows how many books he has each week.</blockquote>The time step here is a week.  The main quantity here is the number of books that Rod owns.  It starts at 100, and then rises to 102 during week 1, to 104 during week 2, to 106 during week 3, etc. If you were to graph the number of books Rod owns versus the weeks, the graph would be a straight line tilted upward.  That&#39;s why this kind of system is said to exhibit <i>linear growth or linear increase</i>.<p></p>One way to solve such problems is to think about each quantity, decide how it changes, and define a node for it.  Let&#39;s try that method on the bookworm problem.</p><p>The problem has two quantities.  Please decide which type of node is appropriate for each quantity, and select it in the table below:"
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Quantity",
+                                                "Node Type"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "number of books Rod owns",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"accumulator"
+														]	
+                                                    ]
+                                                ],
+                                                [
+                                                    "number of books Rod buys each week",
+                                                    [
+														[	
+															[
+																"parameter",
+																"accumulator",
+																"function"
+															],
+															"parameter"
+														]	
+                                                    ]
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "Dragoon Problem 1: a linear increase",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Hopefully, you decided the number of books Rod owns is an accumulator and the books he buys each week is a parameter.   Now we need to decide about inputs for each node.  A parameter never has inputs, because its value is just a constant (2 in this case).  The accumulator, namely Rod&#39;s books, goes up by 2 each week, so it needs an input whose value is 2.  Thus, the accumulator needs to have the parameter as its input.  The resulting model is:</p>"
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image6"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "<p>Now solve the Dragoon problem below."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "111",
+											"mode": "STUDENT"
+										}
+									},
+                                    {
+                                        "__Text__": {
+                                            "text": "Your model need not look exactly like the one above&#mdash;the positions and colors of the nodes do not affect the calculations of the model.   You can move nodes by dragging on them.</p><p>When you have finished constructing the model, click on the Graph button to see how the main value of &quot;books&quot; changes over time.  Please manipulate the sliders on the right side of the Graph window; do the movements of the graph make sense to you?</p><p>This kind of model is called linear because the graph of the main quantity, books, is a straight line.  Because the main quantity increases, it&#39;s called a linear growth model.</p><p>Now click on the Done button."
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "Generic models",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "In order to model a complicated system, you must decompose it into elementary processes that can each be easily modelled.  In the case of Rod&#39;s books, the system is so simple that there is just one process:  Books changing state from being owned by a bookseller to being owned by Rod, and the key feature of this process is that the amount of change per time step is constant, namely 2 books per week.  A handy format that summarizes this analysis is:<ul><li><i>Process</i>: Buying books</li><li><i>Source</i> of books: Irrelevant to this problem (probably a bookseller</li><li><i>Destination</i> of books: Rod&#39;s book collection</li><li>Number changing</i> per time step: a constant, 2 books, per week</li></ul>Once you have such an analysis, it is straightforward to convert it to a Dragoon model.  In fact, for simple analyses like this, you can look up a generic model in the problem category &quot;Generic changes&quot; and just copy it.  Here is the generic model named &quot;Constant&quot; in that problem category:"
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image7"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "There are numbers and names shown here, but they are just examples.  When you copy the model, you&#39;ll use your own names and numbers.  For the Bookworm problem, we only need part of the model, because the source of Rod&#39;s books isn&#39;t specified or relevant.  Thus, you would copy only the nodes &quot;changing&quot; and &quot;destination.&quot;  Compare the right half of the generic model above to the Bookworm model shown earlier.   See how the copy/change idea works?"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><h3>Dragoon problem 2: A linear decrease</h3><p>Now let&#39;s look at another linear model. Please try solving the Dragoon problem below."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "CPI-2014-ps1-03",
+											"mode": "STUDENT"
+										}
+									},
+                                    {
+                                        "__Text__": {
+                                            "text": "Note that because Jared&#39;s weight is decreasing, a subtraction is required.  When you get around to defining the expression for Jared&#39;s weight, you&#39;ll need to click on the &quot;&mdash;&quot; button first and then select &quot;weight change&quot;   When you get done, you&#39;ll see &quot;new Jared weight = old Jared weight + - weight change.&quot;  The fact that there is a plus sign followed by a minus sign seems odd to some people, but it is actually completely proper math notation.</p><p>When you get done, your model should look something like this:"
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image8"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "You can drag nodes around to make the model easy to understand. Positions don&#39;t affect the computations of the model at all. Also, your colors might be different from the ones shown above. Here&#39;s the code:<ul><li>A dotted border means incomplete. That is, at least one of the entries inside the node has been left blank.</li><li>a red border means something inside the node is still wrong</li><li>A yellow border means that at least one of the entries inside the node was supplied by Dragoon because the user guessed too much</li><li>A gree border means the user got everything right, eventually</li><li>A green interior means the user got everything right on the first try&mdash;congratulations!</li></ul>Notice the minus sign inside the circle near the arrowhead. This indicates that the input is subtracted from the accumulator&#39;s old value. When the minus sign is absent, as it was in the Bookworm model, then the input is added to the accumulator&#39;s value. These details mean that you don&#39;t have to open a node in order to see what expression it has inside it.</p><p>This model is called a <i>linear decay</i> or <i>linear decrease</i> model because the graph of the main quantity is a line and it goes downward."
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "A linear transfer problem",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Now let&#39;s build a third kind of linear model.  Please open the Dragoon problem below.  You can use either the first solution method (figuring out a definition for each node) or the second solution method (copying the appropriate generic model).</p><p>When you have finished constructing the model, be sure to look at the graphs and play with the sliders.  This kind of system exhibits a <i>linear transfer</i> behavior, because it includes both a source and a destination, and the graphs of both quantities are straight lines."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "CPI-2014-ps1-09",
+											"mode": "STUDENT"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "Exponential change problems",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "The dodo extinction problem, which was discussed earlier, is an example of a system with an exponential decrease in its main variable.   That is, the amount of decrease in the main variable is proportional to its value.  The corresponding generic model is called &quot;proportional to source.&quot;   Try solving the problem below.   If you move the sliders, is the graph always an exponential curve?"
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "dodos",
+											"mode": "STUDENT"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "",
+                    "sections": [
+						{
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Try the Dragoon problem below. Notice that this problem requires you to use units (i.e., gallons) whenever it makes sense to do so.  This system exhibits exponential transfer, where the source is governing the rate of change of the system."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "two-barrels",
+											"mode": "STUDENT"
+										}
+									}
+                                ]
+                            }
+                        }
+					]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "",
+                    "sections": [
+						{
+                            "__Section__": {
+                                "content": [
+									{
+                                        "__Text__": {
+                                            "text": "In a system that exhibits exponential growth, the amount of change per time step is a constant proportion of the destination.   The generic model is called &quot;proportional to destination.&quot;   Please try the problem below.  You may be surprised to find that there are more node descriptions than you need."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "109",
+											"mode": "STUDENT"
+										}
+									}
+                                ]
+                            }
+                        }
+					]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "Combining two or more change processes",
+                    "sections": [
+						{
+                            "__Section__": {
+                                "content": [
+									{
+                                        "__Text__": {
+                                            "text": "Please try the Dragoon problem below."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "CPI-2014-ps2-02",
+											"mode": "STUDENT"
+										}
+									}
+                                ]
+                            }
+                        }
+					]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "The Target Node Strategy",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "We have done several problems now, all corresponding to the generic models.  As you can see, copying a generic model can be easier than figuring out the model by considering each quantity individually.  However, sometime the system doesn&#39;t correspond to any generic model.  Then you have no choice and must figure out the model quantity by quantity.</p><p>When systems get complicated, or fail to match a generic model or have extra information that isn&#39;t needed in the model, you can waste a lot of time creating unnecessary nodes.  This can also create a confusing mess.  To avoid creating unnecessary nodes, you may use the <i>Target Node Strategy</i>.  The basic idea is to start with a quantity that you know you will need, namely the quantity that the problem asks you to graph, and make it your &quot;target.&quot;  Create a node for it, and be sure to create the expression it needs.  As a side effect of creating the expression, you will probably get some new nodes created, which appear as triangles.  When you are completely done with the first target node (the border is not dotted), then choose any one of the triangular nodes as your next &quot;target.&quot;  Repeat this process until there are no triangular nodes left.</p><p>Try the Dragoon problem below. You may see a new color, blue, which means that the entry you made is not wrong, but it is premature according to the Target Node Strategy.  You should define it later."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "CPI-2014-ps3-03",
+											"mode": "COACHED"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "Adding ordinary algebraic relationships",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Sometimes it is necessary to include ordinary algebraic relationships in a model.  For instance, the next problem asks you to graph the ratio of two quantities.  Thus, you&#39;ll have to define a function node to represent that ratio, and its expression will have a division in it.</p><p>Please solve the Dragoon problem below. When you get done, look carefully at the node that represents the ratio.  It should reveal its contents by showing a multiplication symbol inside it and one of the inputs will have a division sign near its arrowhead, indicating that its quantity is inverted before being included in the product.   These little details allow you to see all the math in a model without having to open the node editor."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "CPI-2014-ps3-06",
+											"mode": "COACHED"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "More generic models",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Generic models for linear change and exponential change have been introduced, but there are other generic models as well.  For instance, one of them is called &quot;propor. to set point minus destination&quot; in the &quot;generic models&quot; problem category.   This kind of change is also known as &quot;goal seeking&quot; or &quot;homeostasis.&quot;   Try the Dragoon problem below."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "CPI-2014-ps2-07",
+											"mode": "COACHED"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "Simple system for which there are no generic models",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Although generic models, alone or in combination, work for many systems, there are many other systems that cannot be modelled in such a way.  Thus, you will sometimes need to figure out how to solve such problems by considering each quantity and deciding how to model it.  The Target Node Strategy can be a big help.</p><p>Try the Dragoon problem below."
+                                        }
+                                    },
+									{
+										"__Dragoon__": {
+											"problem": "CPI-2014-ps3-08",
+											"mode": "COACHED"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "name": "Introductory_Worksheet"
+    }
+}
