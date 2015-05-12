@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dragoon Worksheet</title>
+<title>Dragoon Workbook</title>
 <script type="text/javascript">
 function
 openDragoonProblem(num){
+if ((window.location.href.search("u=") != -1)) {
+if ((window.location.href.search("s=") != -1)&&(window.location.href.search("s=")>window.location.href.search("u="))) {
+u = window.location.href.substr((window.location.href.search("u=")+2),((window.location.href.search("&s="))-(window.location.href.search("u=")+2)));
+} else {
+u = window.location.href.substr(window.location.href.search("u=")+2);
+}
+} else {
 var u = document.getElementById("user").value;
+}
 var s;
 if ((window.location.href.search("s=") != -1)) {
 s = window.location.href.substr(window.location.href.search("s=")+2)
@@ -130,8 +138,8 @@ return result;
 </head>
 <body>
 <label>Username :</label>&nbsp;<input type="text" name="user" id="user">
-<input type="hidden" name="section" id="section" value="public-worksheet">
-<br><br><button id="usernameCheck" onClick="enterUsername();">Start Worksheet</button><div id="wkstBody" style="display: none">
+<input type="hidden" name="section" id="section" value="public-workbook">
+<br><br><button id="usernameCheck" onClick="enterUsername();">Start Workbook</button><div id="wkstBody" style="display: none">
 <script type="text/javascript">
 if ((window.location.href.search("u=") != -1)) {
 if ((window.location.href.search("s=") != -1)&&(window.location.href.search("s=")>window.location.href.search("u="))) {
@@ -439,11 +447,11 @@ if(set1.avi===3)
 <br><button id="button1" onClick="cont1();">Continue</button>
 <div id="question2" style="display: none">
 <h3>Modeling the system the hard way</h3>It would be tedious to continue calculating this by hand, so let us build a model to represent this dynamic system of a shrinking dodo population.  Let&#39;s start by defining our nodes, of which there are 3:<ul><li><i>Death rate</i> is the percentage of the dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn&#39;t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i> represents the number of dodos still alive.  We are given an initial value for this quantity, 1000 dodos, and the number of dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population &#45; deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>.</li><li><i>Deaths</i> represents the number of dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (population * death rate).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>A Dragoon model for this system would look like this:
-</p><img src ="introductory_worksheet/image1.JPG"/><p>This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes.  Parameter nodes are diamonds, and the inside of a Parameter node shows its value.  Function nodes are circles.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node, which is a square, shows its <i>initial</i> value.</p><p>You create such nodes by clicking on a &quot;Create node&quot; button and filling out the form that it pops up.   The form is called the <i>node editor</i>.  You can also click on an existing node to edit it.  Below are snapshots showing the node editor just as each node has been fully defined and the node editor is about to be closed.  See if you can figure out which node editor snapshot goes with which node above.
-</p><img src ="introductory_worksheet/image2.JPG"/><p>
-</p><img src ="introductory_worksheet/image3.JPG"/><p>
-</p><img src ="introductory_worksheet/image4.JPG"/><p>Notice that the node editor snapshots look slightly different from each other.  Do the differences make sense to you?</p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button would display the same information in graph form (see right figure).
-</p><img src ="introductory_worksheet/image5.JPG"/><p>While the dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.</p>
+</p><img src ="introductory_workbook/image1.JPG"/><p>This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes.  Parameter nodes are diamonds, and the inside of a Parameter node shows its value.  Function nodes are circles.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node, which is a square, shows its <i>initial</i> value.</p><p>You create such nodes by clicking on a &quot;Create node&quot; button and filling out the form that it pops up.   The form is called the <i>node editor</i>.  You can also click on an existing node to edit it.  Below are snapshots showing the node editor just as each node has been fully defined and the node editor is about to be closed.  See if you can figure out which node editor snapshot goes with which node above.
+</p><img src ="introductory_workbook/image2.JPG"/><p>
+</p><img src ="introductory_workbook/image3.JPG"/><p>
+</p><img src ="introductory_workbook/image4.JPG"/><p>Notice that the node editor snapshots look slightly different from each other.  Do the differences make sense to you?</p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button would display the same information in graph form (see right figure).
+</p><img src ="introductory_workbook/image5.JPG"/><p>While the dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.</p>
 <script type="text/javascript">var set2 = {}; 
 function cont2() {
 var yestim2 = 0;
@@ -584,7 +592,7 @@ if(set3.aii===3)
 <br><button id="button3" onClick="cont3();">Continue</button>
 <div id="question4" style="display: none">
 <h3>Dragoon Problem 1: a linear increase</h3>Hopefully, you decided the number of books Rod owns is an accumulator and the books he buys each week is a parameter.   Now we need to decide about inputs for each node.  A parameter never has inputs, because its value is just a constant (2 in this case).  The accumulator, namely Rod&#39;s books, goes up by 2 each week, so it needs an input whose value is 2.  Thus, the accumulator needs to have the parameter as its input.  The resulting model is:</p>
-</p><img src ="introductory_worksheet/image6.JPG"/><p><p>Now solve the Dragoon problem below.</p>
+</p><img src ="introductory_workbook/image6.JPG"/><p><p>Now solve the Dragoon problem below.</p>
 <input type="hidden" name="problem4" id="problem4" value="111">
 <input type="hidden" name="mode4" id="mode4" value="STUDENT">
 <br><button id="dragoonButton4" onClick="openDragoonProblem(4);">Open Dragoon</button>
@@ -618,12 +626,12 @@ time5();
 <br><button id="button4" onClick="cont4();">Continue</button>
 <div id="question5" style="display: none">
 <h3>Generic models</h3>In order to model a complicated system, you must decompose it into elementary processes that can each be easily modelled.  In the case of Rod&#39;s books, the system is so simple that there is just one process:  Books changing state from being owned by a bookseller to being owned by Rod, and the key feature of this process is that the amount of change per time step is constant, namely 2 books per week.  A handy format that summarizes this analysis is:<ul><li><i>Process</i>: Buying books</li><li><i>Source</i> of books: Irrelevant to this problem (probably a bookseller</li><li><i>Destination</i> of books: Rod&#39;s book collection</li><li>Number changing</i> per time step: a constant, 2 books, per week</li></ul>Once you have such an analysis, it is straightforward to convert it to a Dragoon model.  In fact, for simple analyses like this, you can look up a generic model in the problem category &quot;Generic changes&quot; and just copy it.  Here is the generic model named &quot;Constant&quot; in that problem category:
-</p><img src ="introductory_worksheet/image7.JPG"/><p>There are numbers and names shown here, but they are just examples.  When you copy the model, you&#39;ll use your own names and numbers.  For the Bookworm problem, we only need part of the model, because the source of Rod&#39;s books isn&#39;t specified or relevant.  Thus, you would copy only the nodes &quot;changing&quot; and &quot;destination.&quot;  Compare the right half of the generic model above to the Bookworm model shown earlier.   See how the copy/change idea works?</p></p><h3>Dragoon problem 2: A linear decrease</h3><p>Now let&#39;s look at another linear model. Please try solving the Dragoon problem below.</p>
+</p><img src ="introductory_workbook/image7.JPG"/><p>There are numbers and names shown here, but they are just examples.  When you copy the model, you&#39;ll use your own names and numbers.  For the Bookworm problem, we only need part of the model, because the source of Rod&#39;s books isn&#39;t specified or relevant.  Thus, you would copy only the nodes &quot;changing&quot; and &quot;destination.&quot;  Compare the right half of the generic model above to the Bookworm model shown earlier.   See how the copy/change idea works?</p></p><h3>Dragoon problem 2: A linear decrease</h3><p>Now let&#39;s look at another linear model. Please try solving the Dragoon problem below.</p>
 <input type="hidden" name="problem5" id="problem5" value="CPI-2014-ps1-03">
 <input type="hidden" name="mode5" id="mode5" value="STUDENT">
 <br><button id="dragoonButton5" onClick="openDragoonProblem(5);">Open Dragoon</button>
 <div id="dragoonErrorMessage5" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p>Note that because Jared&#39;s weight is decreasing, a subtraction is required.  When you get around to defining the expression for Jared&#39;s weight, you&#39;ll need to click on the &quot;&mdash;&quot; button first and then select &quot;weight change&quot;   When you get done, you&#39;ll see &quot;new Jared weight = old Jared weight + - weight change.&quot;  The fact that there is a plus sign followed by a minus sign seems odd to some people, but it is actually completely proper math notation.</p><p>When you get done, your model should look something like this:
-</p><img src ="introductory_worksheet/image8.JPG"/><p>You can drag nodes around to make the model easy to understand. Positions don&#39;t affect the computations of the model at all. Also, your colors might be different from the ones shown above. Here&#39;s the code:<ul><li>A dotted border means incomplete. That is, at least one of the entries inside the node has been left blank.</li><li>a red border means something inside the node is still wrong</li><li>A yellow border means that at least one of the entries inside the node was supplied by Dragoon because the user guessed too much</li><li>A gree border means the user got everything right, eventually</li><li>A green interior means the user got everything right on the first try&mdash;congratulations!</li></ul>Notice the minus sign inside the circle near the arrowhead. This indicates that the input is subtracted from the accumulator&#39;s old value. When the minus sign is absent, as it was in the Bookworm model, then the input is added to the accumulator&#39;s value. These details mean that you don&#39;t have to open a node in order to see what expression it has inside it.</p><p>This model is called a <i>linear decay</i> or <i>linear decrease</i> model because the graph of the main quantity is a line and it goes downward.</p>
+</p><img src ="introductory_workbook/image8.JPG"/><p>You can drag nodes around to make the model easy to understand. Positions don&#39;t affect the computations of the model at all. Also, your colors might be different from the ones shown above. Here&#39;s the code:<ul><li>A dotted border means incomplete. That is, at least one of the entries inside the node has been left blank.</li><li>a red border means something inside the node is still wrong</li><li>A yellow border means that at least one of the entries inside the node was supplied by Dragoon because the user guessed too much</li><li>A gree border means the user got everything right, eventually</li><li>A green interior means the user got everything right on the first try&mdash;congratulations!</li></ul>Notice the minus sign inside the circle near the arrowhead. This indicates that the input is subtracted from the accumulator&#39;s old value. When the minus sign is absent, as it was in the Bookworm model, then the input is added to the accumulator&#39;s value. These details mean that you don&#39;t have to open a node in order to see what expression it has inside it.</p><p>This model is called a <i>linear decay</i> or <i>linear decrease</i> model because the graph of the main quantity is a line and it goes downward.</p>
 <script type="text/javascript">var set5 = {}; 
 function cont5() {
 var yestim5 = 0;
