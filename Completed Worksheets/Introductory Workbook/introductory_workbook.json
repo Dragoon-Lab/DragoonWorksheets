@@ -1,5 +1,5 @@
 {
-    "__Worksheet__": {
+    "__Workbook__": {
         "loose": [
 			{
                 "__LsText__": {
@@ -149,7 +149,7 @@
                                     },
                                     {
                                         "__Image__": {
-                                            "image": "introductory_worksheet/image1"
+                                            "image": "introductory_workbook/image1"
                                         }
                                     },
                                     {
@@ -159,17 +159,17 @@
                                     },
                                     {
                                         "__Image__": {
-                                            "image": "introductory_worksheet/image2"
+                                            "image": "introductory_workbook/image2"
                                         }
                                     },
                                     {
                                         "__Image__": {
-                                            "image": "introductory_worksheet/image3"
+                                            "image": "introductory_workbook/image3"
                                         }
                                     },
                                     {
                                         "__Image__": {
-                                            "image": "introductory_worksheet/image4"
+                                            "image": "introductory_workbook/image4"
                                         }
                                     },
                                     {
@@ -179,7 +179,7 @@
                                     },
                                     {
                                         "__Image__": {
-                                            "image": "introductory_worksheet/image5"
+                                            "image": "introductory_workbook/image5"
                                         }
                                     },
                                     {
@@ -261,7 +261,7 @@
                                     },
                                     {
                                         "__Image__": {
-                                            "image": "introductory_worksheet/image6"
+                                            "image": "introductory_workbook/image6"
                                         }
                                     },
                                     {
@@ -300,7 +300,7 @@
                                     },
                                     {
                                         "__Image__": {
-                                            "image": "introductory_worksheet/image7"
+                                            "image": "introductory_workbook/image7"
                                         }
                                     },
                                     {
@@ -332,7 +332,7 @@
                                     },
                                     {
                                         "__Image__": {
-                                            "image": "introductory_worksheet/image8"
+                                            "image": "introductory_workbook/image8"
                                         }
                                     },
                                     {
@@ -563,6 +563,6 @@
                 }
             }
         ],
-        "name": "Introductory_Worksheet"
+        "name": "Introductory_workbook"
     }
 }

@@ -1,43 +1,43 @@
-DragoonWorksheets
+DragoonWorkbooks
 =================
 
-Webified versions of Dragoon worksheets
+Webified versions of Dragoon workbooks
 
 Edited by Mackenzie
 
 ###Introduction
 
-The worksheet generator is divided into two parts. The first part defines the classes for the components of the worksheet, and the second part contains the functions used in storing the worksheet object as a JSON, retrieving the worksheet object from a JSON, and creating a worksheet using the worksheet object. It is a Python file; thus, in order to run it, you first need to download Python, which can be done from [this webpage](https://www.python.org/downloads/). Since the program is written using Python 3, it would be best to download that version. To begin a worksheet, open `worksheet_generator2.py` in the Python IDLE.
+The workbook generator is divided into two parts. The first part defines the classes for the components of the workbook, and the second part contains the functions used in storing the workbook object as a JSON, retrieving the workbook object from a JSON, and creating a workbook using the workbook object. It is a Python file; thus, in order to run it, you first need to download Python, which can be done from [this webpage](https://www.python.org/downloads/). Since the program is written using Python 3, it would be best to download that version. To begin a workbook, open `workbook_generator2.py` in the Python IDLE.
 
-Start by creating an instance of the class `Worksheet`. To create an instance of a class, type: [name] = [class]\([arguments]\). For example, typing, `wkst = Worksheet("Intro_Worksheet")` will create an object of class `Worksheet` with the name `wkst` and with `"Intro_Worksheet"` as its only argument. To add contents to the worksheet, create instances of the classes listed below.
+Start by creating an instance of the class `Workbook`. To create an instance of a class, type: [name] = [class]\([arguments]\). For example, typing, `wkst = Workbook("Intro_Workbook")` will create an object of class `Workbook` with the name `wkst` and with `"Intro_Workbook"` as its only argument. To add contents to the workbook, create instances of the classes listed below.
 
-Once the worksheet is complete, convert it into a JSON file using the `generateJSON` function to save it. JSON is a way of storing objects so that both humans and computers can easily read them. This step is not necessary for creating a worksheet, but it allows for editing of the content of the worksheet without creating a worksheet object from scratch.
+Once the workbook is complete, convert it into a JSON file using the `generateJSON` function to save it. JSON is a way of storing objects so that both humans and computers can easily read them. This step is not necessary for creating a workbook, but it allows for editing of the content of the workbook without creating a workbook object from scratch.
 
-From this point, you can generate a [worksheet](worksheet.md) using the `generateHTMLWorksheet` function. If the worksheet object is still open, the function can take its name as an argument. If the worksheet object has been converted to a JSON file, this function can take the function `loadWorksheet` as an argument, where the argument for `loadWorksheet` is the name of the JSON file (including ".json").
+From this point, you can generate a [workbook](workbook.md) using the `generateHTMLWorkbook` function. If the workbook object is still open, the function can take its name as an argument. If the workbook object has been converted to a JSON file, this function can take the function `loadWorkbook` as an argument, where the argument for `loadWorkbook` is the name of the JSON file (including ".json").
 
 ###Classes
 
-**Worksheet**
+**Workbook**
 
-Every worksheet object created by the generator has three parts: a filename, a list of questions, and a list of loose content. The filename is for the HTML file that will eventually be created. It is given to the worksheet object as an argument for the initialization function and must be in quotes. For example, typing, `wkst = Worksheet(“Intro_Worksheet”)` will create a worksheet object called “wkst” with the HTML filename “Intro_Worksheet”. You do not need to end the filename with “.html” because the generator adds that automatically. Every time “wkst” is entered as the argument for the initialization function of an object of class “LsText”, “LsImage”, or “Question”, that object will be appended to one of wkst’s lists.
+Every workbook object created by the generator has three parts: a filename, a list of questions, and a list of loose content. The filename is for the HTML file that will eventually be created. It is given to the workbook object as an argument for the initialization function and must be in quotes. For example, typing, `wkst = Workbook(“Intro_Workbook”)` will create a workbook object called “wkst” with the HTML filename “Intro_Workbook”. You do not need to end the filename with “.html” because the generator adds that automatically. Every time “wkst” is entered as the argument for the initialization function of an object of class “LsText”, “LsImage”, or “Question”, that object will be appended to one of wkst’s lists.
 
 **LsText**
 
-The class “LsText” is for text that is not part of any particular question, for example, introductory text that comes before the first question. Loose text is placed in the document according to the question number, which is the number of the question that the text will precede. Loose elements, both text and pictures, are placed onto the same list, so multiple elements preceding the same question will appear on the document in the order in which they were created. Loose elements will be appended to their worksheets’ “loose” lists.
+The class “LsText” is for text that is not part of any particular question, for example, introductory text that comes before the first question. Loose text is placed in the document according to the question number, which is the number of the question that the text will precede. Loose elements, both text and pictures, are placed onto the same list, so multiple elements preceding the same question will appear on the document in the order in which they were created. Loose elements will be appended to their workbooks’ “loose” lists.
 
-The argument for the initialization function for LsText objects is the name of the worksheet to which it is to be appended. For example, typing, `LsText(wkst)` will create a loose-text object that is appended to wkst’s “loose” list. Upon creating an instance of class “LsText”, you will be prompted for the number of the question it precedes. Enter an integer. Next, you will be prompted for the actual text to be placed before the question. When the worksheet is being generated, this text will be inserted directly into the body of the HTML document, so any tags or coded characters will be displayed on the worksheet as they would be in any HTML document.
+The argument for the initialization function for LsText objects is the name of the workbook to which it is to be appended. For example, typing, `LsText(wkst)` will create a loose-text object that is appended to wkst’s “loose” list. Upon creating an instance of class “LsText”, you will be prompted for the number of the question it precedes. Enter an integer. Next, you will be prompted for the actual text to be placed before the question. When the workbook is being generated, this text will be inserted directly into the body of the HTML document, so any tags or coded characters will be displayed on the workbook as they would be in any HTML document.
 
 **LsImage**
 
-The class “LsImage” is for images that are not part of any particular question, for example, introductory content that comes before the first question. Loose images are placed in the document according to the question numbers, which are the numbers of the questions that the loose images will precede. Loose elements, both text and pictures, are placed onto the same list, so multiple elements preceding the same question will appear on the document in the order in which they were created. Loose elements will be appended to their worksheets’ “loose” lists.
+The class “LsImage” is for images that are not part of any particular question, for example, introductory content that comes before the first question. Loose images are placed in the document according to the question numbers, which are the numbers of the questions that the loose images will precede. Loose elements, both text and pictures, are placed onto the same list, so multiple elements preceding the same question will appear on the document in the order in which they were created. Loose elements will be appended to their workbooks’ “loose” lists.
 
-The argument for the initialization function for LsImage objects is the name of the worksheet to which it is to be appended. For example, typing, `LsImage(wkst)` will create a loose-image object that is appended to wkst’s “loose” list. Upon creating an instance of class “LsImage”, you will be prompted for the number of the question it precedes. Enter an integer. Next, you will be prompted for the file and folder name of the image to be inserted. Enter this information in the same format as the prompt, i.e., the folder name, followed by a slash, followed by the file name.
+The argument for the initialization function for LsImage objects is the name of the workbook to which it is to be appended. For example, typing, `LsImage(wkst)` will create a loose-image object that is appended to wkst’s “loose” list. Upon creating an instance of class “LsImage”, you will be prompted for the number of the question it precedes. Enter an integer. Next, you will be prompted for the file and folder name of the image to be inserted. Enter this information in the same format as the prompt, i.e., the folder name, followed by a slash, followed by the file name.
 
 **Question**
 
-The class “Question” is for the individual questions in the worksheet. At the end of each question, the students’ answers are checked, and the student cannot continue unless the all parts of the question are complete and the answers are correct. Every question has two parts: the subheading and a list of sections.
+The class “Question” is for the individual questions in the workbook. At the end of each question, the students’ answers are checked, and the student cannot continue unless the all parts of the question are complete and the answers are correct. Every question has two parts: the subheading and a list of sections.
 
-The argument for the initialization function for Question objects is the name of the worksheet to which it is being appended. For example, typing, `qs1 = Question(wkst)` will create a question object that is appended to wkst’s “questions” list. Upon creating an instance of class “Question”, you will be prompted for the subheading. This will appear at the top of the question and will be larger than the rest of the text, so keep the subheading short. Entering the name of the question as the argument for the initialization function for a section will append that section to that question’s list.
+The argument for the initialization function for Question objects is the name of the workbook to which it is being appended. For example, typing, `qs1 = Question(wkst)` will create a question object that is appended to wkst’s “questions” list. Upon creating an instance of class “Question”, you will be prompted for the subheading. This will appear at the top of the question and will be larger than the rest of the text, so keep the subheading short. Entering the name of the question as the argument for the initialization function for a section will append that section to that question’s list.
 
 **Section**
 
@@ -45,7 +45,7 @@ Each section will start on a new line, but the elements inside the sections will
 
 **Text**
 
-Each object of class “Text” has only one part, and that is the text itself. The text entered in response to the “Text: ” prompt will not necessarily start on a new line unless it is the first element in a section. However, the text is inserted directly into the worksheet document, so HTML tags and coded characters in the response will ultimately show as they would in any HTML document.
+Each object of class “Text” has only one part, and that is the text itself. The text entered in response to the “Text: ” prompt will not necessarily start on a new line unless it is the first element in a section. However, the text is inserted directly into the workbook document, so HTML tags and coded characters in the response will ultimately show as they would in any HTML document.
 
 **Image**
 
@@ -73,14 +73,14 @@ Each checkbox object has two parts: the list of possible answers and the list of
 
 ###Functions
 
-**generateHTMLWorksheet**
+**generateHTMLWorkbook**
 
-“generateHTMLWorksheet” is a function that takes the name of the worksheet as an argument. It takes all the information you gave about the questions in the worksheet and organizes it into an HTML file with the name given as the argument for the initialization function for the worksheet object. If the object has been converted into a JSON, the function will accept the function “loadWorksheet” as an argument.
+“generateHTMLWorkbook” is a function that takes the name of the workbook as an argument. It takes all the information you gave about the questions in the workbook and organizes it into an HTML file with the name given as the argument for the initialization function for the workbook object. If the object has been converted into a JSON, the function will accept the function “loadWorkbook” as an argument.
 
 **generateJSON**
 
-“generateJSON” is a function that takes the name of the worksheet and the JSON file name as arguments. In this case, the file name does need to end with “.json”. It generates a JSON of the worksheet object named with the filename given.
+“generateJSON” is a function that takes the name of the workbook and the JSON file name as arguments. In this case, the file name does need to end with “.json”. It generates a JSON of the workbook object named with the filename given.
 
-**loadWorksheet**
+**loadWorkbook**
 
-“loadWorksheet” is a function that takes the name of the JSON file as an argument. It loads the worksheet object saved as the JSON file. If you assign a name to it, you can add questions and loose content to the worksheet and then save it again as a new JSON, but you cannot add sections to existing questions or add parts to existing sections because the names of questions and sections are not saved.
+“loadWorkbook” is a function that takes the name of the JSON file as an argument. It loads the workbook object saved as the JSON file. If you assign a name to it, you can add questions and loose content to the workbook and then save it again as a new JSON, but you cannot add sections to existing questions or add parts to existing sections because the names of questions and sections are not saved.

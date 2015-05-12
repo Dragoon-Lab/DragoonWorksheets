@@ -1,5 +1,5 @@
 {
-    "__Worksheet__": {
+    "__Workbook__": {
         "name": "Isle_Royale_Workbook",
         "loose": [
 			{
@@ -19,7 +19,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "Although the wolves arrived on Isle Royale in 1949, the moose arrived much earlier. This worksheet will lead you through the process of developing a model of the moose population when it is unaffected by wolves. Although we have no records of moose population prior to 1949, biologists believe that a small herd migrated to the island around 1900, grew to around 500 and leveled off, so let&#39;s pretend that this is the graph of moose population in the first half of the 20th century:"
+                                            "text": "Although the wolves arrived on Isle Royale in 1949, the moose arrived much earlier. This workbook will lead you through the process of developing a model of the moose population when it is unaffected by wolves. Although we have no records of moose population prior to 1949, biologists believe that a small herd migrated to the island around 1900, grew to around 500 and leveled off, so let&#39;s pretend that this is the graph of moose population in the first half of the 20th century:"
                                         }
                                     },
 									{
