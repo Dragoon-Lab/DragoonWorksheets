@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dragoon Worksheet</title>
+<title>Dragoon Workbook</title>
 <script type="text/javascript">
 function
 openDragoonProblem(num){
+if ((window.location.href.search("u=") != -1)) {
 var u = document.getElementById("user").value;
 var s;
 if ((window.location.href.search("s=") != -1)) {
@@ -130,14 +131,16 @@ return result;
 </head>
 <body>
 <label>Username :</label>&nbsp;<input type="text" name="user" id="user">
-<input type="hidden" name="section" id="section" value="public-worksheet">
-<br><br><button id="usernameCheck" onClick="enterUsername();">Start Worksheet</button><div id="wkstBody" style="display: none">
+<input type="hidden" name="section" id="section" value="public-workbook">
+<br><br><button id="usernameCheck" onClick="enterUsername();">Start Workbook</button><div id="wkstBody" style="display: none">
 <script type="text/javascript">
 if ((window.location.href.search("u=") != -1)) {
 if ((window.location.href.search("s=") != -1)&&(window.location.href.search("s=")>window.location.href.search("u="))) {
 document.getElementById("user").value = window.location.href.substr((window.location.href.search("u=")+2),((window.location.href.search("&s="))-(window.location.href.search("u=")+2)));
+document.getElementById("section").value = window.location.href.substr(window.location.href.search("s=")+2);
 } else {
 document.getElementById("user").value = window.location.href.substr(window.location.href.search("u=")+2);
+document.getElementById("section").value = window.location.href.substr((window.location.href.search("s=")+2),((window.location.href.search("&u="))-(window.location.href.search("s=")+2)));
 };
 document.getElementById("wkstBody").style.display="";
 document.getElementById("usernameCheck").style.display="none";
@@ -145,14 +148,12 @@ document.getElementById("user").disabled=true;
 };
 function enterUsername() {
 if (document.getElementById("user").value!=="" && document.getElementById("user").value.length<=30) {
-document.getElementById("wkstBody").style.display="";
-document.getElementById("usernameCheck").style.display="none";
+document.getElementById("wkstBody").style.display="";document.getElementById("usernameCheck").style.display="none";
 document.getElementById("user").style.background="";
 document.getElementById("user").disabled=true;
 }
 else {
-document.getElementById("user").style.background="#FF3333";
-alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
+document.getElementById("user").style.background="#FF3333";alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
 }
 };
 </script>

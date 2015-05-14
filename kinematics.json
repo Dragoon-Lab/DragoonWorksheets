@@ -1,0 +1,1535 @@
+{
+    "__Workbook__": {
+        "questions": [
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "If all the forces acting on an object are balanced, that object is either at rest or moving at a constant velocity. Velocity determines the displacement over a given unit of time. For example, a velocity of 4 m/s would add four meters to an object&#40;s position every second."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Define the quantities for a model for a ball rolling across a table at a constant velocity of 4 m/s."
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Name",
+                                                "Type",
+                                                "Description"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Position",
+                                                    [
+                                                        [
+                                                            [
+                                                                "Parameter",
+                                                                "Accumulator",
+                                                                "Function"
+                                                            ],
+                                                            "Accumulator"
+                                                        ]
+                                                    ],
+                                                    [
+                                                        "New position = old position + ",
+                                                        [
+                                                            [
+                                                                "position",
+                                                                "velocity",
+                                                                "acceleration",
+                                                                "time"
+                                                            ],
+                                                            "velocity"
+                                                        ],
+                                                        "; initial value = 0 m"
+                                                    ]
+                                                ],
+                                                [
+                                                    "Velocity",
+                                                    [
+                                                        [
+                                                            "Parameter",
+                                                            "Accumulator",
+                                                            "Function"
+                                                        ],
+                                                        "Parameter"
+                                                    ],
+                                                    "The amount that an object is displaced per unit of time; value = 4 m/s"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "In this case, the position is initially "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "zero",
+                                            "options": [
+                                                "positive",
+                                                "zero",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " and "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "increases",
+                                            "options": [
+                                                "increases",
+                                                "decreases"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ", ultimately reaching "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "a positive value",
+                                            "options": [
+                                                "a positive value",
+                                                "zero",
+                                                "a negative value"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ". The velocity is constantly "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "positive",
+                                            "options": [
+                                                "positive",
+                                                "zero",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "."
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": "Constant Velocity"
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Although constant velocities are useful for systems involving balanced forces, we still need a model for systems involving imbalanced forces. If there is a net force on an object, that force will create acceleration. Just as velocity is the change in position over time, acceleration is the change in velocity over time and is also a vector quantity."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Now let's return to the ball from the earlier model, but this time, the ball is falling from rest from a positive 200-meter height with an acceleration of 9.81 m/s/s, or 9.81m/s<sup>2</sup> toward the ground. Assume that the ground is zero."
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Name",
+                                                "Type",
+                                                "Description"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Position",
+                                                    [
+                                                        "Parameter",
+                                                        "Accumulator",
+                                                        "Funciton"
+                                                    ],
+                                                    "New position = old position + velocity; initial value = 200 m"
+                                                ],
+                                                [
+                                                    "Position",
+                                                    [
+                                                        [
+                                                            [
+                                                                "Parameter",
+                                                                "Accumulator",
+                                                                "Function"
+                                                            ],
+                                                            "Accumulator"
+                                                        ]
+                                                    ],
+                                                    "New position = old position + velocity; initial value = 200 m"
+                                                ],
+                                                [
+                                                    "Velocity",
+                                                    [
+                                                        [
+                                                            [
+                                                                "Parameter",
+                                                                "Accumulator",
+                                                                "Function"
+                                                            ],
+                                                            "Accumulator"
+                                                        ]
+                                                    ],
+                                                    "New velocity = old velocity + acceleration; initial value = 0 m/s"
+                                                ],
+                                                [
+                                                    "Acceleration",
+                                                    [
+                                                        "Parameter",
+                                                        "Accumulator",
+                                                        "Function"
+                                                    ],
+                                                    "The change in velocity per unit of time; value = -9.81 m/s<sup>2</sup>"
+                                                ],
+                                                [
+                                                    "Parameter"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "In this case, the position is initially "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "positive",
+                                            "options": [
+                                                "positive",
+                                                "zero",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " and "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "decreases",
+                                            "options": [
+                                                "increases",
+                                                "decreases"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ", ultimately reaching "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "zero",
+                                            "options": [
+                                                "a positive value",
+                                                "zero",
+                                                "a negative value"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ". The velocity is initially "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "zero",
+                                            "options": [
+                                                "positive",
+                                                "zero",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " and "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "decreases",
+                                            "options": [
+                                                "increases",
+                                                "decreases"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ", ultimately reaching "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "a negative value",
+                                            "options": [
+                                                "a positive value",
+                                                "zero",
+                                                "a negative value"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ". The acceleration is constantly "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "negative",
+                                            "options": [
+                                                "positive",
+                                                "zero",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Now try solving the Dragoon problem below."
+                                        }
+                                    },
+                                    {
+                                        "__Dragoon__": {
+                                            "mode": "STUDENT",
+                                            "problem": "Fall-from-building-1"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": "Acceleration"
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "In the previous model, you were supposed to assume that the negative direction was downward, which is not always the case. Down was negative because the ground was at zero and the initial position was positive, but someone could see the same system and determine that the initial position was zero or even negative. All of this depends on how you define your reference frame."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Let&#40;s return to the ball from the previous question. The system remains the same, but this time, we are going to set the ball&#40;s initial position at zero and the ground at a positive value."
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Name",
+                                                "Type",
+                                                "Description"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Position",
+                                                    [
+                                                        [
+                                                            [
+                                                                "Parameter",
+                                                                "Accumulator",
+                                                                "Function"
+                                                            ],
+                                                            "Accumulator"
+                                                        ]
+                                                    ],
+                                                    [
+                                                        "New position = old position + initial velocity; initial value = ",
+                                                        [
+                                                            [
+                                                                "200 m",
+                                                                "0 m",
+                                                                "-200 m"
+                                                            ],
+                                                            "0 m"
+                                                        ]
+                                                    ]
+                                                ],
+                                                [
+                                                    "Velocity",
+                                                    [
+                                                        [
+                                                            [
+                                                                "Parameter",
+                                                                "Accumulator",
+                                                                "Function"
+                                                            ],
+                                                            "Accumulator"
+                                                        ]
+                                                    ],
+                                                    "New velocity = old velocity + acceleration; initial value = 0 m/s"
+                                                ],
+                                                [
+                                                    "Acceleration",
+                                                    [
+                                                        [
+                                                            [
+                                                                "Parameter",
+                                                                "Accumulator",
+                                                                "Function"
+                                                            ],
+                                                            "Parameter"
+                                                        ]
+                                                    ],
+                                                    [
+                                                        "The change in velocity per unit of time; value = ",
+                                                        [
+                                                            [
+                                                                "9.81 m/s<sup>2</sup>",
+                                                                "0",
+                                                                "-9.81 m/s<sup>2</sup>"
+                                                            ],
+                                                            "9.81 m/s<sup>2</sup>"
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "In this case, the position is initially "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "zero",
+                                            "options": [
+                                                "positive",
+                                                "zero",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " and "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "increases",
+                                            "options": [
+                                                "increases",
+                                                "decreases"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ", ultimately reaching "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "a negative value",
+                                            "options": [
+                                                "a positive value",
+                                                "zero",
+                                                "a negative value"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ". The velocity is initially "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "zero",
+                                            "options": [
+                                                "positive",
+                                                "zero",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " and "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "increases",
+                                            "options": [
+                                                "increases",
+                                                "decreases"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ", ultimately reaching "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "a positive value",
+                                            "options": [
+                                                "a positive value",
+                                                "zero",
+                                                "a negative value"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ". The acceleration is constantly "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "positive",
+                                            "options": [
+                                                "positive",
+                                                "zero",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Now try solving the Dragoon problem below."
+                                        }
+                                    },
+                                    {
+                                        "__Dragoon__": {
+                                            "mode": "STUDENT",
+                                            "problem": "Fall-from-building-2"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": "Reference Frames"
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Open the Dragoon problem below. Once you have solved it, open the table in the Dragoon problem and use it to fill out the table below.<br>"
+                                        }
+                                    },
+                                    {
+                                        "__Dragoon__": {
+                                            "mode": "STUDENT",
+                                            "problem": "Fall-from-building-3"
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Time (s)",
+                                                "Position (m)",
+                                                "Displacement over the last second (m)",
+                                                "Velocity (m/s)",
+                                                "Acceleration (m/s<sup>2</sup>)"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "0",
+                                                    [
+                                                        [
+                                                            [
+                                                                "0",
+                                                                "4.41",
+                                                                "14.19",
+                                                                "18.6",
+                                                                "24.1",
+                                                                "33.8",
+                                                                "42.7",
+                                                                "43.5",
+                                                                "76.5",
+                                                                "120"
+                                                            ],
+                                                            "0"
+                                                        ]
+                                                    ],
+                                                    [
+                                                        [
+                                                            [
+                                                                "0",
+                                                                "4.41",
+                                                                "14.19",
+                                                                "18.6",
+                                                                "24.1",
+                                                                "33.8",
+                                                                "42.7",
+                                                                "43.5",
+                                                                "76.5",
+                                                                "120"
+                                                            ],
+                                                            "0"
+                                                        ]
+                                                    ],
+                                                    "0",
+                                                    "9.81"
+                                                ],
+                                                [
+                                                    "1",
+                                                    [
+                                                        [
+                                                            [
+                                                                "0",
+                                                                "4.41",
+                                                                "14.19",
+                                                                "18.6",
+                                                                "24.1",
+                                                                "33.8",
+                                                                "42.7",
+                                                                "43.5",
+                                                                "76.5",
+                                                                "120"
+                                                            ],
+                                                            "4.41"
+                                                        ]
+                                                    ],
+                                                    [
+                                                        [
+                                                            [
+                                                                "0",
+                                                                "4.41",
+                                                                "14.19",
+                                                                "18.6",
+                                                                "24.1",
+                                                                "33.8",
+                                                                "42.7",
+                                                                "43.5",
+                                                                "76.5",
+                                                                "120"
+                                                            ],
+                                                            "4.41"
+                                                        ]
+                                                    ],
+                                                    "9.81",
+                                                    "9.81"
+                                                ],
+                                                [
+                                                    "2",
+                                                    [
+                                                        [
+                                                            [
+                                                                "0",
+                                                                "4.41",
+                                                                "14.19",
+                                                                "18.6",
+                                                                "24.1",
+                                                                "33.8",
+                                                                "42.7",
+                                                                "43.5",
+                                                                "76.5",
+                                                                "120"
+                                                            ],
+                                                            "18.6"
+                                                        ]
+                                                    ],
+                                                    [
+                                                        [
+                                                            [
+                                                                "0",
+                                                                "4.41",
+                                                                "14.19",
+                                                                "18.6",
+                                                                "24.1",
+                                                                "33.8",
+                                                                "42.7",
+                                                                "43.5",
+                                                                "76.5",
+                                                                "120"
+                                                            ],
+                                                            "14.19"
+                                                        ]
+                                                    ],
+                                                    "19.62",
+                                                    "9.81"
+                                                ],
+                                                [
+                                                    "3",
+                                                    [
+                                                        [
+                                                            [
+                                                                "0",
+                                                                "4.41",
+                                                                "14.19",
+                                                                "18.6",
+                                                                "24.1",
+                                                                "33.8",
+                                                                "42.7",
+                                                                "43.5",
+                                                                "76.5",
+                                                                "120"
+                                                            ],
+                                                            "42.7"
+                                                        ]
+                                                    ],
+                                                    [
+                                                        [
+                                                            [
+                                                                "0",
+                                                                "4.41",
+                                                                "14.19",
+                                                                "18.6",
+                                                                "24.1",
+                                                                "33.8",
+                                                                "42.7",
+                                                                "43.5",
+                                                                "76.5",
+                                                                "120"
+                                                            ],
+                                                            "24.1"
+                                                        ]
+                                                    ],
+                                                    "29.43",
+                                                    "9.81"
+                                                ],
+                                                [
+                                                    "4",
+                                                    [
+                                                        [
+                                                            [
+                                                                "0",
+                                                                "4.41",
+                                                                "14.19",
+                                                                "18.6",
+                                                                "24.1",
+                                                                "33.8",
+                                                                "42.7",
+                                                                "43.5",
+                                                                "76.5",
+                                                                "120"
+                                                            ],
+                                                            "76.5"
+                                                        ]
+                                                    ],
+                                                    [
+                                                        [
+                                                            [
+                                                                "0",
+                                                                "4.41",
+                                                                "14.19",
+                                                                "18.6",
+                                                                "24.1",
+                                                                "33.8",
+                                                                "42.7",
+                                                                "43.5",
+                                                                "76.5",
+                                                                "120"
+                                                            ],
+                                                            "33.8"
+                                                        ]
+                                                    ],
+                                                    "39.24",
+                                                    "9.81"
+                                                ],
+                                                [
+                                                    "5",
+                                                    [
+                                                        [
+                                                            [
+                                                                "0",
+                                                                "4.41",
+                                                                "14.19",
+                                                                "18.6",
+                                                                "24.1",
+                                                                "33.8",
+                                                                "42.7",
+                                                                "43.5",
+                                                                "76.5",
+                                                                "120"
+                                                            ],
+                                                            "120"
+                                                        ]
+                                                    ],
+                                                    [
+                                                        [
+                                                            [
+                                                                "0",
+                                                                "4.41",
+                                                                "14.19",
+                                                                "18.6",
+                                                                "24.1",
+                                                                "33.8",
+                                                                "42.7",
+                                                                "43.5",
+                                                                "76.5",
+                                                                "120"
+                                                            ],
+                                                            "43.5"
+                                                        ]
+                                                    ],
+                                                    "49.05",
+                                                    "9.81"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": "Displacement Ratios; Part 1"
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Now try to determine the ratios between the displacement over successive seconds."
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Time (s)",
+                                                "Position (m)",
+                                                "Displacement over the last second (m)",
+                                                " Ratio between the last two displacements"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "1",
+                                                    "4.41",
+                                                    "4.41",
+                                                    ""
+                                                ],
+                                                [
+                                                    "2",
+                                                    "18.6",
+                                                    "14.19",
+                                                    [
+                                                        [
+                                                            [
+                                                                "1:1",
+                                                                "2:1",
+                                                                "3:1",
+                                                                "3:2",
+                                                                "4:1",
+                                                                "4:3",
+                                                                "5:1",
+                                                                "5:2",
+                                                                "5:3",
+                                                                "5:4",
+                                                                "6:1",
+                                                                "6:5",
+                                                                "7:1",
+                                                                "7:2",
+                                                                "7:3",
+                                                                "7:4",
+                                                                "7:5",
+                                                                "7:6",
+                                                                "8:1",
+                                                                "8:3",
+                                                                "8:5",
+                                                                "8:7",
+                                                                "9:1",
+                                                                "9:2",
+                                                                "9:4",
+                                                                "9:5",
+                                                                "9:7",
+                                                                "9:8"
+                                                            ],
+                                                            "3:1"
+                                                        ]
+                                                    ]
+                                                ],
+                                                [
+                                                    "3",
+                                                    "42.7",
+                                                    "24.1",
+                                                    [
+                                                        [
+                                                            [
+                                                                "1:1",
+                                                                "2:1",
+                                                                "3:1",
+                                                                "3:2",
+                                                                "4:1",
+                                                                "4:3",
+                                                                "5:1",
+                                                                "5:2",
+                                                                "5:3",
+                                                                "5:4",
+                                                                "6:1",
+                                                                "6:5",
+                                                                "7:1",
+                                                                "7:2",
+                                                                "7:3",
+                                                                "7:4",
+                                                                "7:5",
+                                                                "7:6",
+                                                                "8:1",
+                                                                "8:3",
+                                                                "8:5",
+                                                                "8:7",
+                                                                "9:1",
+                                                                "9:2",
+                                                                "9:4",
+                                                                "9:5",
+                                                                "9:7",
+                                                                "9:8"
+                                                            ],
+                                                            "5:3"
+                                                        ]
+                                                    ]
+                                                ],
+                                                [
+                                                    "4",
+                                                    "76.5",
+                                                    "33.8",
+                                                    [
+                                                        [
+                                                            [
+                                                                "1:1",
+                                                                "2:1",
+                                                                "3:1",
+                                                                "3:2",
+                                                                "4:1",
+                                                                "4:3",
+                                                                "5:1",
+                                                                "5:2",
+                                                                "5:3",
+                                                                "5:4",
+                                                                "6:1",
+                                                                "6:5",
+                                                                "7:1",
+                                                                "7:2",
+                                                                "7:3",
+                                                                "7:4",
+                                                                "7:5",
+                                                                "7:6",
+                                                                "8:1",
+                                                                "8:3",
+                                                                "8:5",
+                                                                "8:7",
+                                                                "9:1",
+                                                                "9:2",
+                                                                "9:4",
+                                                                "9:5",
+                                                                "9:7",
+                                                                "9:8"
+                                                            ],
+                                                            "7:5"
+                                                        ]
+                                                    ]
+                                                ],
+                                                [
+                                                    "5",
+                                                    "120",
+                                                    "43.5",
+                                                    [
+                                                        [
+                                                            [
+                                                                "1:1",
+                                                                "2:1",
+                                                                "3:1",
+                                                                "3:2",
+                                                                "4:1",
+                                                                "4:3",
+                                                                "5:1",
+                                                                "5:2",
+                                                                "5:3",
+                                                                "5:4",
+                                                                "6:1",
+                                                                "6:5",
+                                                                "7:1",
+                                                                "7:2",
+                                                                "7:3",
+                                                                "7:4",
+                                                                "7:5",
+                                                                "7:6",
+                                                                "8:1",
+                                                                "8:3",
+                                                                "8:5",
+                                                                "8:7",
+                                                                "9:1",
+                                                                "9:2",
+                                                                "9:4",
+                                                                "9:5",
+                                                                "9:7",
+                                                                "9:8"
+                                                            ],
+                                                            "9:7"
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": "Displacement Ratios: Part 2"
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Sometimes, the initial velocity and the acceleration are in different directions. For example, if you throw a ball into the air, its initial velocity will be upward, but it will still be accelerated downward by gravity. Just as an object&#40;s position can start at a positive value and be decreased by velocity until it reaches some negative value, it can start with a positive velocity and be decreased by acceleration until it reaches some negative value."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Imagine that a ball is thrown upward into the air at 10 m/s from the ground. The only force acting on it is gravity, which accelerates the ball toward the ground at 9.81 m/s2. Eventually, the ball returns to the ground. Assume the ground is at zero and that the negative direction is downward."
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Name",
+                                                "Type",
+                                                "Description"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Position",
+                                                    [
+                                                        [
+                                                            [
+                                                                "Parameter",
+                                                                "Accumulator",
+                                                                "Function"
+                                                            ],
+                                                            "Accumulator"
+                                                        ]
+                                                    ],
+                                                    "New position = old position + velocity; initial value = 0 m"
+                                                ],
+                                                [
+                                                    "Velocity",
+                                                    [
+                                                        [
+                                                            [
+                                                                "Parameter",
+                                                                "Accumulator",
+                                                                "Function"
+                                                            ],
+                                                            "Accumulator"
+                                                        ]
+                                                    ],
+                                                    [
+                                                        "New velocity = old velocity + acceleration; initial value = ",
+                                                        [
+                                                            [
+                                                                "10 m/s",
+                                                                "0 m/s",
+                                                                "-10 m/s"
+                                                            ],
+                                                            "10 m/s"
+                                                        ]
+                                                    ]
+                                                ],
+                                                [
+                                                    "Acceleration",
+                                                    [
+                                                        [
+                                                            [
+                                                                "Parameter",
+                                                                "Accumulator",
+                                                                "Function"
+                                                            ],
+                                                            "Parameter"
+                                                        ]
+                                                    ],
+                                                    [
+                                                        "The change in velocity per unit of time; value = ",
+                                                        [
+                                                            [
+                                                                "9.81 m/s<sup>2</sup>",
+                                                                "0 m/s<sup>2</sup>",
+                                                                "-9.81 m/s<sup>2</sup>"
+                                                            ],
+                                                            "-9.81 m/s<sup>2</sup>"
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "In this case, the position is initially "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "zero",
+                                            "options": [
+                                                "positive",
+                                                "zero",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " and "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "increases and then decreases",
+                                            "options": [
+                                                "increases",
+                                                "increases and then decreases",
+                                                "decreases",
+                                                "decreases and then increases"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ", ultimately reaching "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "zero",
+                                            "options": [
+                                                "a positive value",
+                                                "zero",
+                                                "a negative value"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ". The velocity is initially "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "positive",
+                                            "options": [
+                                                "positive",
+                                                "zero",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " and "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "decreases",
+                                            "options": [
+                                                "increases",
+                                                "decreases"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ", ultimately reaching "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "a negative value",
+                                            "options": [
+                                                "a positive value",
+                                                "zero",
+                                                "a negative value"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ". the acceleration is "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "constantly negative",
+                                            "options": [
+                                                "constantly positive",
+                                                "positive and then zero",
+                                                "positive and then negative",
+                                                "constantly zero",
+                                                "zero and then positive",
+                                                "zero and then negative",
+                                                "constantly negative",
+                                                "negative and then positive",
+                                                "negative and then zero"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Now try solving the Dragoon problem below."
+                                        }
+                                    },
+                                    {
+                                        "__Dragoon__": {
+                                            "mode": "STUDENT",
+                                            "problem": "Thrown-stone-1"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": "Velocity and Acceleration in Opposite Directions"
+                }
+            },
+            {
+                "__Question__": {
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Now suppose the ball is thrown from the edge of a 200-meter cliff. The only acceleration experienced by the ball is its acceleration due to gravity. The ground at the top of the cliff is at zero, and the ball is launched upward at 10 m/s. The positive direction is upward."
+                                        }
+                                    },
+                                    {
+                                        "__Table__": {
+                                            "header": [
+                                                "Name",
+                                                "Type",
+                                                "Description"
+                                            ],
+                                            "rows": [
+                                                [
+                                                    "Position",
+                                                    "Accumulator",
+                                                    [
+                                                        "New position = old position + velocity; initial value = ",
+                                                        [
+                                                            [
+                                                                "200 m",
+                                                                "0 m",
+                                                                "-200 m"
+                                                            ],
+                                                            "0 m"
+                                                        ]
+                                                    ]
+                                                ],
+                                                [
+                                                    "Velocity",
+                                                    "Accumulator",
+                                                    [
+                                                        "New velocity = old velocity + acceleration; initial value = ",
+                                                        [
+                                                            [
+                                                                "10 m/s",
+                                                                "0 m/s",
+                                                                "-10 m/s"
+                                                            ],
+                                                            "10 m/s"
+                                                        ]
+                                                    ]
+                                                ],
+                                                [
+                                                    "Acceleration",
+                                                    "Parameter",
+                                                    [
+                                                        "The change in velocity per unit of time; value = ",
+                                                        [
+                                                            [
+                                                                "9.81 m/s<sup>2</sup>",
+                                                                "0 m/s<sup>2</sup>",
+                                                                "-9.81 m/s<sup>2</sup>"
+                                                            ],
+                                                            "-9.81 m/s<sup>2</sup>"
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "In this case, the position is initially "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "zero",
+                                            "options": [
+                                                "positive",
+                                                "zero",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " and "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "increases and then decreases",
+                                            "options": [
+                                                "increases",
+                                                "increases and then decreases",
+                                                "decreases",
+                                                "decreases and then increases"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ", ultimately reaching "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "a negative value",
+                                            "options": [
+                                                "a positive value",
+                                                "zero",
+                                                "a negative value"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ". The velocity is initially "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "positive",
+                                            "options": [
+                                                "positive",
+                                                "zero",
+                                                "negative"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": " and "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "decreases",
+                                            "options": [
+                                                "increases",
+                                                "decreases"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ", ultimately reaching "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "a negative value",
+                                            "options": [
+                                                "a positive value",
+                                                "zero",
+                                                "a negative value"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": ". The acceleration is "
+                                        }
+                                    },
+                                    {
+                                        "__Dropdown__": {
+                                            "correct": "constantly negative",
+                                            "options": [
+                                                "constantly positive",
+                                                "initially positive and decreases",
+                                                "constantly zero",
+                                                "initially zero and increases",
+                                                "initially zero and decreases",
+                                                "constantly negative",
+                                                "initially negative and increases"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "."
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Now try solving the Dragoon problem below."
+                                        }
+                                    },
+                                    {
+                                        "__Dragoon__": {
+                                            "mode": "STUDENT",
+                                            "problem": "Thrown-stone-2"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sub": "Positive Initial Height"
+                }
+            }
+        ],
+        "loose": [
+            {
+                "__LsText__": {
+                    "before": "1",
+                    "text": "</p>\\n<h3>Kinematics</h3>\\n<p>This worksheet is an introduction to kinematics. Kinematics is how we model motion. For example, if we launch a ball into the air at a certain angle to the floor, we can use kinematics to determine when and where the ball will land. Kinematics can tell us the relationships among position, velocity, acceleration, and time. In this worksheet, we will cover movement in one dimension.</p>\\n<p>There are two types of quantities: vectors and scalars. A scalar is not concerned with direction and is therefore always positive. For example, mass is a scalar quantity because an object cannot have negative mass. Distance is another scalar quantity. If you walk forward for 12 meters, backward for 12 meters, or around a circle with a  12-meter circumference, the distance you have traveled will be 12 meters.</p>\\n<p>A vector, on the other hand, does include direction. For example, force is a vector quantity because force can be applied in any direction, including the positive and negative directions. Though distance is a scalar quantity, displacement is a vector quantity, as is position. Displacement is the change in position and equals the difference between an object&#40;s final position and its initial position. Therefore, if you walk around a circle that has a 12-meter circumference, your displacement would equal zero because you would end where you started. If an object started at a positive position and moved toward zero, its displacement would be negative.</p>\\n<p>If you walked around a circle, your velocity would also be negative because velocity is also a vector quantity. Velocity equals displacement divided by time, or the change in position over time. The scalar counterpart of velocity is speed. If you walked around that same 12-meter circle in six seconds, your speed would be 2 m/s, but your average velocity would equal zero for the same reason that your displacement would equal zero."
+                }
+            }
+        ],
+        "name": "Kinematics"
+    }
+}

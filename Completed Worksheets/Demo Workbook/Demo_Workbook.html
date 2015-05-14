@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dragoon Worksheet</title>
+<title>Dragoon Workbook</title>
 <script type="text/javascript">
 function
 openDragoonProblem(num){
+if ((window.location.href.search("u=") != -1)) {
 var u = document.getElementById("user").value;
 var s;
 if ((window.location.href.search("s=") != -1)) {
@@ -130,14 +131,16 @@ return result;
 </head>
 <body>
 <label>Username :</label>&nbsp;<input type="text" name="user" id="user">
-<input type="hidden" name="section" id="section" value="public-worksheet">
-<br><br><button id="usernameCheck" onClick="enterUsername();">Start Worksheet</button><div id="wkstBody" style="display: none">
+<input type="hidden" name="section" id="section" value="public-workbook">
+<br><br><button id="usernameCheck" onClick="enterUsername();">Start Workbook</button><div id="wkstBody" style="display: none">
 <script type="text/javascript">
 if ((window.location.href.search("u=") != -1)) {
 if ((window.location.href.search("s=") != -1)&&(window.location.href.search("s=")>window.location.href.search("u="))) {
 document.getElementById("user").value = window.location.href.substr((window.location.href.search("u=")+2),((window.location.href.search("&s="))-(window.location.href.search("u=")+2)));
+document.getElementById("section").value = window.location.href.substr(window.location.href.search("s=")+2);
 } else {
 document.getElementById("user").value = window.location.href.substr(window.location.href.search("u=")+2);
+document.getElementById("section").value = window.location.href.substr((window.location.href.search("s=")+2),((window.location.href.search("&u="))-(window.location.href.search("s=")+2)));
 };
 document.getElementById("wkstBody").style.display="";
 document.getElementById("usernameCheck").style.display="none";
@@ -145,14 +148,12 @@ document.getElementById("user").disabled=true;
 };
 function enterUsername() {
 if (document.getElementById("user").value!=="" && document.getElementById("user").value.length<=30) {
-document.getElementById("wkstBody").style.display="";
-document.getElementById("usernameCheck").style.display="none";
+document.getElementById("wkstBody").style.display="";document.getElementById("usernameCheck").style.display="none";
 document.getElementById("user").style.background="";
 document.getElementById("user").disabled=true;
 }
 else {
-document.getElementById("user").style.background="#FF3333";
-alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
+document.getElementById("user").style.background="#FF3333";alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
 }
 };
 </script>
@@ -442,7 +443,7 @@ if(set1.avi===3)
 <p></p>
 <p>This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes e.g., Parameter nodes are diamonds.  The inside of a Parameter node shows its value.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node shows both its mathematical operation and its <i>initial</i> value.</p><p>If you click on the Table button, you can see the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button displays the same information in graph form (see right figure).</p>
 <p></p>
-<p>While the Dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.</p><p><b>Problem Worksheet</b></p><p>In these problems, we will be modeling the population of moose and wolves that lived on the Isle Royale.  Wolves preyed on the moose, so their populations were tied together in what is known as a &quot;predator-prey&quot; relationship&mdash;as the number of moose grew, the number of wolves grew in response to having more food available, but then the wolves would eat more moose, causing the moose population to decrease, meaning less food is available for wolves, etc.  This relationship is complicated, so creating a model is necessary for fully understanding the relationship between the two populations.  Let us build up to the final model by making a series of models of simpler systems.  For instance, the first few systems pretend that Isle Royale has only moose on it and no wolves on it.</p>
+<p>While the Dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.</p><p><b>Problem Workbook</b></p><p>In these problems, we will be modeling the population of moose and wolves that lived on the Isle Royale.  Wolves preyed on the moose, so their populations were tied together in what is known as a &quot;predator-prey&quot; relationship&mdash;as the number of moose grew, the number of wolves grew in response to having more food available, but then the wolves would eat more moose, causing the moose population to decrease, meaning less food is available for wolves, etc.  This relationship is complicated, so creating a model is necessary for fully understanding the relationship between the two populations.  Let us build up to the final model by making a series of models of simpler systems.  For instance, the first few systems pretend that Isle Royale has only moose on it and no wolves on it.</p>
 <h3></h3>Assume that the moose population on the Isle Royale begins at 20 moose and that 2 moose are born each year.  In the table below, identify what types of nodes would represent this information.<table>
 <thead>
 <td style="border: 2pt black solid"><b>Quantity</b></td>

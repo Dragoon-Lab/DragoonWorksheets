@@ -6,14 +6,7 @@
 function
 openDragoonProblem(num){
 if ((window.location.href.search("u=") != -1)) {
-if ((window.location.href.search("s=") != -1)&&(window.location.href.search("s=")>window.location.href.search("u="))) {
-u = window.location.href.substr((window.location.href.search("u=")+2),((window.location.href.search("&s="))-(window.location.href.search("u=")+2)));
-} else {
-u = window.location.href.substr(window.location.href.search("u=")+2);
-}
-} else {
 var u = document.getElementById("user").value;
-}
 var s;
 if ((window.location.href.search("s=") != -1)) {
 s = window.location.href.substr(window.location.href.search("s=")+2)
@@ -144,8 +137,10 @@ return result;
 if ((window.location.href.search("u=") != -1)) {
 if ((window.location.href.search("s=") != -1)&&(window.location.href.search("s=")>window.location.href.search("u="))) {
 document.getElementById("user").value = window.location.href.substr((window.location.href.search("u=")+2),((window.location.href.search("&s="))-(window.location.href.search("u=")+2)));
+document.getElementById("section").value = window.location.href.substr(window.location.href.search("s=")+2);
 } else {
 document.getElementById("user").value = window.location.href.substr(window.location.href.search("u=")+2);
+document.getElementById("section").value = window.location.href.substr((window.location.href.search("s=")+2),((window.location.href.search("&u="))-(window.location.href.search("s=")+2)));
 };
 document.getElementById("wkstBody").style.display="";
 document.getElementById("usernameCheck").style.display="none";
@@ -153,14 +148,12 @@ document.getElementById("user").disabled=true;
 };
 function enterUsername() {
 if (document.getElementById("user").value!=="" && document.getElementById("user").value.length<=30) {
-document.getElementById("wkstBody").style.display="";
-document.getElementById("usernameCheck").style.display="none";
+document.getElementById("wkstBody").style.display="";document.getElementById("usernameCheck").style.display="none";
 document.getElementById("user").style.background="";
 document.getElementById("user").disabled=true;
 }
 else {
-document.getElementById("user").style.background="#FF3333";
-alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
+document.getElementById("user").style.background="#FF3333";alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
 }
 };
 </script>
