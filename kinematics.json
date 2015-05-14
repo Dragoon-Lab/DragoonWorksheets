@@ -1088,7 +1088,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "Imagine that a ball is thrown upward into the air at 10 m/s from the ground. The only force acting on it is gravity, which accelerates the ball toward the ground at 9.81 m/s2. Eventually, the ball returns to the ground. Assume the ground is at zero and that the negative direction is downward."
+                                            "text": "Imagine that a ball is thrown upward into the air at 10 m/s from the ground. The only force acting on it is gravity, which accelerates the ball toward the ground at 9.81 m/s<sup>2</sup>. Eventually, the ball returns to the ground. Assume the ground is at zero and that the negative direction is downward."
                                         }
                                     },
                                     {
