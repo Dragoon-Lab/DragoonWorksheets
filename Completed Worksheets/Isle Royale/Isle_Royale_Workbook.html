@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dragoon Worksheet</title>
+<title>Dragoon Workbook</title>
 <script type="text/javascript">
 function
 openDragoonProblem(num){
+if ((window.location.href.search("u=") != -1)) {
 var u = document.getElementById("user").value;
 var s;
 if ((window.location.href.search("s=") != -1)) {
@@ -130,14 +131,16 @@ return result;
 </head>
 <body>
 <label>Username :</label>&nbsp;<input type="text" name="user" id="user">
-<input type="hidden" name="section" id="section" value="public-worksheet">
-<br><br><button id="usernameCheck" onClick="enterUsername();">Start Worksheet</button><div id="wkstBody" style="display: none">
+<input type="hidden" name="section" id="section" value="public-workbook">
+<br><br><button id="usernameCheck" onClick="enterUsername();">Start Workbook</button><div id="wkstBody" style="display: none">
 <script type="text/javascript">
 if ((window.location.href.search("u=") != -1)) {
 if ((window.location.href.search("s=") != -1)&&(window.location.href.search("s=")>window.location.href.search("u="))) {
 document.getElementById("user").value = window.location.href.substr((window.location.href.search("u=")+2),((window.location.href.search("&s="))-(window.location.href.search("u=")+2)));
+document.getElementById("section").value = window.location.href.substr(window.location.href.search("s=")+2);
 } else {
 document.getElementById("user").value = window.location.href.substr(window.location.href.search("u=")+2);
+document.getElementById("section").value = window.location.href.substr((window.location.href.search("s=")+2),((window.location.href.search("&u="))-(window.location.href.search("s=")+2)));
 };
 document.getElementById("wkstBody").style.display="";
 document.getElementById("usernameCheck").style.display="none";
@@ -145,19 +148,17 @@ document.getElementById("user").disabled=true;
 };
 function enterUsername() {
 if (document.getElementById("user").value!=="" && document.getElementById("user").value.length<=30) {
-document.getElementById("wkstBody").style.display="";
-document.getElementById("usernameCheck").style.display="none";
+document.getElementById("wkstBody").style.display="";document.getElementById("usernameCheck").style.display="none";
 document.getElementById("user").style.background="";
 document.getElementById("user").disabled=true;
 }
 else {
-document.getElementById("user").style.background="#FF3333";
-alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
+document.getElementById("user").style.background="#FF3333";alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
 }
 };
 </script>
 <p><h3>Isle Royale Workbook</h3></p>
-<h3></h3>Although the wolves arrived on Isle Royale in 1949, the moose arrived much earlier. This worksheet will lead you through the process of developing a model of the moose population when it is unaffected by wolves. Although we have no records of moose population prior to 1949, biologists believe that a small herd migrated to the island around 1900, grew to around 500 and leveled off, so let&#39;s pretend that this is the graph of moose population in the first half of the 20th century:
+<h3></h3>Although the wolves arrived on Isle Royale in 1949, the moose arrived much earlier. This workbook will lead you through the process of developing a model of the moose population when it is unaffected by wolves. Although we have no records of moose population prior to 1949, biologists believe that a small herd migrated to the island around 1900, grew to around 500 and leveled off, so let&#39;s pretend that this is the graph of moose population in the first half of the 20th century:
 </p><img src ="isle_royale/graph1.JPG"/><p>Let&#39;s start by building a model of the early phase, when the herd was small, food was abundant and hardly any moose died. Here is the target graph, extracted from the one in Figure 1:
 </p><img src ="isle_royale/graph2.JPG"/><p>That is, you should build a model that makes the following assumptions:<ul><li>The population is 20 in the first year (1900).</li><li>Births are the only change in population. Deaths, immigration, and emigration do not occur.</li><li>The number of births each year is... <i>what?</i></li></ul>The third assumption is a problematic. In reality, the number of births is determined by the number of female moose of child-bearing age, their health, and many other factors. However, following Occam&#39;s Razor, we want to start with the simplest assumption and see if it can explain the data. Looking closely at the graph, it appears the moose population increased from 20 to 24 during the first year, and to 28 during the second year, so let&#39;s make the simple assumption that 4 moose are born each year and see if the resulting curve matches the first 20 years of the curve shown in Figure 2.</p><p>Please open the Dragoon problem and create a model for the moose population as described above.</p>
 <input type="hidden" name="problem1" id="problem1" value="isle1">

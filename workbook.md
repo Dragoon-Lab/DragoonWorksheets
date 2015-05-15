@@ -1,13 +1,13 @@
-Dragoon HTML Worksheets
+Dragoon HTML Workbooks
 =======================
 
 ##JavaScript
 
 ###Head
 
-At the head of the worksheet, there is a section in JavaScript that contains, in this order:
-* The definition of the function "openDragoonProblem", which is called whenever an "Open Dragoon" button is pressed in the body of the worksheet: The only argument that this function takes is the Dragoon problem's number. This number determines the problem that is opened and its mode. It takes the username from the text box at the top of the worksheet and opens the problem under that username. If a section is mentioned in the worksheet's URL, it uses that section. If there is no section mentioned in the URL, it sets the section to "public-worksheet".
-* The definition of the function "openDragoonProblem", which is called whenever an "Open Dragoon" button is pressed in the body of the worksheet
+At the head of the workbook, there is a section in JavaScript that contains, in this order:
+* The definition of the function "openDragoonProblem", which is called whenever an "Open Dragoon" button is pressed in the body of the workbook: The only argument that this function takes is the Dragoon problem's number. This number determines the problem that is opened and its mode. It takes the username from the text box at the top of the workbook and opens the problem under that username. If a section is mentioned in the workbook's URL, it uses that section. If there is no section mentioned in the URL, it sets the section to "public-workbook".
+* The definition of the function "openDragoonProblem", which is called whenever an "Open Dragoon" button is pressed in the body of the workbook
 * The definition of the function "checkAnswers", which turns the background of a given dropdown box green and returns true if the answer is correct and turns it red and returns false if the answer is incorrect
 * The definition of the function "checkTextbox", which turns the background of a given large text box green and returns true if there is any content at all in the box and turns it red and returns false if there is no content
 * The definition of the function "checkbox", which turns the background of a given set of checkboxes green and returns true if the answer is correct and turns it red and returns false if the answerr is incorrect
@@ -19,16 +19,16 @@ At the head of the worksheet, there is a section in JavaScript that contains, in
 
 ###Username
 
-After the script at the beginning, there is a text box where the user can enter a username and a button labeled, "Start Worksheet". Beneath that, there is a section in JavaScript that contains an if statement and a function. The if statement takes the username and section from the URL if they are in the URL. It then disables the username field, hides the button, and shows the first question of the worksheet.
+After the script at the beginning, there is a text box where the user can enter a username and a button labeled, "Start Workbook". Beneath that, there is a section in JavaScript that contains an if statement and a function. The if statement takes the username and section from the URL if they are in the URL. It then disables the username field, hides the button, and shows the first question of the workbook.
 
-The function is called when the user clicks on the "Start Worksheet" button. If there is nothing written in the username box, or if the username is longer than thirty characters, when the button is pressed, it sends an alert to remind the user to enter a username between one and thirty characters long and turns the box red. If the username is valid, it disables the username field, hides the button, shows the first question of the worksheet, and returns the box's color to white if it had been red.
+The function is called when the user clicks on the "Start Workbook" button. If there is nothing written in the username box, or if the username is longer than thirty characters, when the button is pressed, it sends an alert to remind the user to enter a username between one and thirty characters long and turns the box red. If the username is valid, it disables the username field, hides the button, shows the first question of the workbook, and returns the box's color to white if it had been red.
 
 ###Questions
 
-Each Dragoon HTML worksheet is divided into questions. A student cannot move on to a new question unless every part of the current question is completed properly. After the text of each question, there is a JavaScript program, which contains, in this order:
+Each Dragoon HTML workbook is divided into questions. A student cannot move on to a new question unless every part of the current question is completed properly. After the text of each question, there is a JavaScript program, which contains, in this order:
 * A set of variables, one for each problem, that are used to count how many times the student answers it incorrectly
 * A function that is called when the "Continue" button is pressed
-  * A reassignment of the variable `yestim[n]` to zero, which stops the timer that was started with the opening of the worksheet or at the end of the last question
+  * A reassignment of the variable `yestim[n]` to zero, which stops the timer that was started with the opening of the workbook or at the end of the last question
   * The assignment of the variable in the end table that records the time to the value of the timer
   * Functions that turn the correct answers green and the incorrect answers red
   * An if statement that sends an alert to the student if one of the answers is not completed
