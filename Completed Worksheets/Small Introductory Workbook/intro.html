@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dragoon Workbook</title>
+<script type="text/javascript">
+function
+openDragoonProblem(num){
+if ((window.location.href.search("u=") != -1)) {
+var u = document.getElementById("user").value;
+}
+var s;
+if ((window.location.href.search("s=") != -1)) {
+s = window.location.href.substr(window.location.href.search("s=")+2)
+} else {
+s = document.getElementById("section").value;
+};
+var problemID = "problem" + num.toString();
+var p = document.getElementById(problemID).value;
+var modeID = "mode" + num.toString();
+var m = document.getElementById(modeID).value;
+var urlString = "http://dragoon.asu.edu/demo/index.html?u="+u+"&m="+m+"&p="+p+"&s="+s;
+window.open(urlString);
+}
+function checkAnswers(inputId, rightAnswer)
+{
+if(document.getElementById(inputId).value===rightAnswer) {
+document.getElementById(inputId).style.background="#66FF33";
+return true;
+}
+else
+{
+document.getElementById(inputId).style.background="#FF3333";
+return false;
+}
+};
+function checkTextbox(inputId) {
+if (!(document.getElementById(inputId).value==="")) {
+document.getElementById(inputId).style.background="#66FF33";
+return true;
+}
+else {
+document.getElementById(inputId).style.background="#FF3333";
+return false;
+}
+};
+
+function checkbox(textId,checkedId,uncheckedId) {
+ck = 0
+unck = 0
+for (i = 0; i<checkedId.length; i++) {
+if (document.getElementById(checkedId[i]).checked) {
+ck = ck + 1;
+}
+};
+for (i = 0; i<uncheckedId.length; i++) {
+if (!(document.getElementById(uncheckedId[i]).checked)) {
+unck = unck + 1;
+}
+};
+if (checkedId.length == ck && uncheckedId.length == unck)
+{
+document.getElementById(textId).style.background="#66FF33";
+return true
+}
+else {
+document.getElementById(textId).style.background="#FF3333";
+return false
+}
+};
+
+function checkboxCorrection(textId,checkedId,uncheckedId) {
+for (i=0; i<checkedId.length; i++) {
+document.getElementById(checkedId[i]).checked = true;
+};
+for (i=0; i<uncheckedId.length; i++) {
+document.getElementById(uncheckedId[i]).checked = false;
+};
+document.getElementById(textId).style.background = "#FFFF00"
+};
+
+function retrieveCheckboxValue(total) {
+response = []
+for (i=0; i<total.length; i++) {
+if
+(document.getElementById (total[i]).checked) {
+response.push(total[i])
+}
+};
+return response
+};
+
+var tim1 = 0;
+function time1 () {
+if (yestim1=1){
+tim1 = tim1 + 1;
+t = setTimeout(function() {time1()},1000);
+}
+};
+var yestim1 = 1;
+time1();
+function checkCompletion(num){
+// id is the id of the continue button or I just need a the number of the question i.e. if its cont1 just send me 1 and it will do
+var u = document.getElementById("user").value;
+var s = document.getElementById("section").value;
+var problemID = "problem" + num.toString();
+var p = document.getElementById(problemID).value.slice(0,30);
+var modeID = "mode" + num.toString();
+var m = document.getElementById(modeID).value;
+var xmlHTTP = new XMLHttpRequest();
+var userObject;
+xmlHTTP.onreadystatechange = function(){
+if(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){
+userObject = JSON.parse(xmlHTTP.responseText);
+}
+}
+var url = "../demo/log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
+//var url = "log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
+xmlHTTP.open("GET", url, false);
+xmlHTTP.send();
+var id = "dragoonErrorMessage" + num.toString();
+var result = false;
+ if(userObject != null){
+result = userObject[0].problemComplete;
+}
+if(result) {
+document.getElementById(id).style.display = "none";
+} else {
+document.getElementById(id).style.display = "";
+}
+return result;
+}</script>
+</head>
+<body>
+<label>Username :</label>&nbsp;<input type="text" name="user" id="user">
+<input type="hidden" name="section" id="section" value="public-workbook">
+<br><br><button id="usernameCheck" onClick="enterUsername();">Start Workbook</button><div id="wkstBody" style="display: none">
+<script type="text/javascript">
+if ((window.location.href.search("u=") != -1)) {
+if ((window.location.href.search("s=") != -1)&&(window.location.href.search("s=")>window.location.href.search("u="))) {
+document.getElementById("user").value = window.location.href.substr((window.location.href.search("u=")+2),((window.location.href.search("&s="))-(window.location.href.search("u=")+2)));
+document.getElementById("section").value = window.location.href.substr(window.location.href.search("s=")+2);
+} else {
+document.getElementById("user").value = window.location.href.substr(window.location.href.search("u=")+2);
+document.getElementById("section").value = window.location.href.substr((window.location.href.search("s=")+2),((window.location.href.search("&u="))-(window.location.href.search("s=")+2)));
+};
+document.getElementById("wkstBody").style.display="";
+document.getElementById("usernameCheck").style.display="none";
+document.getElementById("user").disabled=true;
+};
+function enterUsername() {
+if (document.getElementById("user").value!=="" && document.getElementById("user").value.length<=30) {
+document.getElementById("wkstBody").style.display="";document.getElementById("usernameCheck").style.display="none";
+document.getElementById("user").style.background="";
+document.getElementById("user").disabled=true;
+}
+else {
+document.getElementById("user").style.background="#FF3333";alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
+}
+};
+</script>
+<p><h3><b>Systems Dynamics Modeling with Dragoon: An introduction</b></h3></p><p>Systems Dynamics Modeling is a method of understanding systems (i.e., parts of the world that you are interested in) that change over time (i.e., they are dynamic).  It works by viewing the system as interacting quantities&mdash;called &quot;nodes&quot; in the Dragoon software.  A model is made by defining both nodes and the mathematical relationships between them.  In particular, if Node A has an effect on Node B, Node A is considered an &quot;input&quot; of Node B.  Once all the nodes and inputs are defined, the computer can calculate the change in the system over time and graph the results.</p><p><b>Parameters, Accumulators, and Functions</b></p><p>Models in Dragoon are made up of three types of nodes:  Parameters, Accumulators, and Functions.<ul><li>Parameters are the simplest type of node.  A parameter represents a <b>fixed quantity that never changes</b>.  Parameters are used to represent constant values (height of building being 12 m).</li><li>An accumulator represents a <b>quantity that accumulates the values of its inputs over time</b>.  As each input arrives, it changes the value of the accumulator, so inputs represent changes to the accumulator&#39;s value.  At each time step, the inputs are added or subtracted from the current value of the accumulator&mdash;that determines its value at the next time step.</li><li>Functions represent <b>a value that is directly related to the values of its inputs, without regard to its own previous value</b>.  The inputs to functions determine the value of the function.  A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value.</li></ul>Accumulators and functions seem very similar at first, and it can take some practice to determine if a particular quantity should be represented as one or the other.  To determine if a quantity should be an accumulator, ask the question:  &quot;Does this quantity add or subtract new values to itself each time step to find its new value?&quot; If it does, then the quantity is an Accumulator.  If it does not, then the quantity is a Function.  Additionally, Accumulators typically have an initial value associated with them, whereas Functions do not.</p><h3>Example system:</h3><p> Let&#39;s start by modeling a simple system: a population of dodo birds as they were becoming extinct.  Suppose that there were 1000 dodo birds (pronounced &quot;doh doh&quot;) in the population initially and that 20% of the dodo birds died each year.  Thus, the number of deaths in the first year was 1000 * 20% = 200 deaths, leaving 800 dodos alive at the beginning of the second year.  The number of deaths in the second year was 800 * 20% = 160 deaths, leaving 640 dodos alive for the start of the third year. Because the number of dodo birds and the number of deaths change over the years, this is a dynamic system.</p>
+<h3>Modeling the system without shortcuts</h3></p><h4>Step 1</h4><p>To construct a dragoon, one needs to first envision the dynamic system. To see if you understand the system&#39;s behavior, please choose one of the sequences of pictures that show dodo population changing over the year. Select the option from the dropdown after the images</p><p>Process 1
+</p><img src ="images/dodos-constant.JPG"/><p>Process 2
+</p><img src ="images/dodos.JPG"/><p>Process 3
+</p><img src ="images/dodos-slower.JPG"/><p>Process 4
+</p><img src ="images/dodos-increase.JPG"/><p><select id="1ai">
+<option></option>
+<option>Process 1</option>
+<option>Process 2</option>
+<option>Process 3</option>
+<option>Process 4</option></select></p>
+<script type="text/javascript">var set1 = {
+ai:0,}; 
+function cont1() {
+var yestim1 = 0;
+document.getElementById("1Time").innerHTML = tim1;
+
+checkAnswers("1ai", "Process 2");
+if (document.getElementById("1ai").value==="" || 0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("1ai", "Process 2")) { 
+ set1.ai = set1.ai + 1;}
+if ((checkAnswers("1ai", "Process 2") || set1.ai===3) &&1) {
+ document.getElementById("question2").style.display = "";
+ document.getElementById("button1").style.display = "none";
+
+document.getElementById("1ai").disabled=true;
+tim2= 0;
+
+function time2() {
+if (yestim2){
+tim2 = tim2 + 1;
+t = setTimeout(function() {time2()},1000);
+}
+};
+var yestim2 = 1;
+time2();
+}
+
+if (!checkAnswers("1ai", "Process 2")) {
+if (set1.ai===3) {
+document.getElementById("1ai").style.background="#FFFF00";
+ document.getElementById("1aiAnswer3").innerHTML = document.getElementById("1ai").value 
+ }
+if (set1.ai=== 1) { 
+ document.getElementById("1aiAnswer1").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ else if (set1.ai=== 2) { 
+ document.getElementById("1aiAnswer2").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ else { 
+ document.getElementById("1aiAnswer3").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ } 
+ else { 
+ if (set1.ai=== 0) { 
+ document.getElementById("1aiAnswer1").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ else if (set1.ai=== 1) { 
+ document.getElementById("1aiAnswer2").innerHTML = "; " + document.getElementById("1ai").value 
+ } 
+ else { 
+ document.getElementById("1aiAnswer3").innerHTML = "; " + document.getElementById("1ai").value
+}
+};
+if(set1.ai===3)
+{document.getElementById("1ai").value="Process 2"};};
+</script>
+
+<br><button id="button1" onClick="cont1();">Continue</button>
+<div id="question2" style="display: none">
+<h3></h3><h4>Step 2</h4><p>Now lets think about how the quantites in the model will be quantified. See which table correctly represents how the quantities are changing in the model. Select from dropdown after the tables.</p><p>Table 1<table>
+<thead>
+<td style="border: 2pt black solid"><b>Year</b></td>
+<td style="border: 2pt black solid"><b>Dodo Population</b></td>
+<td style="border: 2pt black solid"><b>Population change (proportion)</b></td>
+<td style="border: 2pt black solid"><b>Population change (counts)</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">1000</td>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">0.0</td></tr><tr>
+<td style="border: 2pt black solid">1</td>
+<td style="border: 2pt black solid">1000</td>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">0.0</td></tr><tr>
+<td style="border: 2pt black solid">2</td>
+<td style="border: 2pt black solid">1000</td>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">0.0</td></tr>
+</tbody>
+</table>Table 2<table>
+<thead>
+<td style="border: 2pt black solid"><b>Year</b></td>
+<td style="border: 2pt black solid"><b>Dodo Population</b></td>
+<td style="border: 2pt black solid"><b>Population change (proportion)</b></td>
+<td style="border: 2pt black solid"><b>Population change (counts)</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">1000</td>
+<td style="border: 2pt black solid">0.2</td>
+<td style="border: 2pt black solid">200</td></tr><tr>
+<td style="border: 2pt black solid">1</td>
+<td style="border: 2pt black solid">800</td>
+<td style="border: 2pt black solid">0.2</td>
+<td style="border: 2pt black solid">160</td></tr><tr>
+<td style="border: 2pt black solid">2</td>
+<td style="border: 2pt black solid">640</td>
+<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"></td></tr>
+</tbody>
+</table>Table 3<table>
+<thead>
+<td style="border: 2pt black solid"><b>Year</b></td>
+<td style="border: 2pt black solid"><b>Dodo Population</b></td>
+<td style="border: 2pt black solid"><b>Population change (proportion)</b></td>
+<td style="border: 2pt black solid"><b>Population change (counts)</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">1000</td>
+<td style="border: 2pt black solid">0.1</td>
+<td style="border: 2pt black solid">100</td></tr><tr>
+<td style="border: 2pt black solid">1</td>
+<td style="border: 2pt black solid">900</td>
+<td style="border: 2pt black solid">0.1</td>
+<td style="border: 2pt black solid">90</td></tr><tr>
+<td style="border: 2pt black solid">2</td>
+<td style="border: 2pt black solid">810</td>
+<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"></td></tr>
+</tbody>
+</table>Table 4.<table>
+<thead>
+<td style="border: 2pt black solid"><b>Year</b></td>
+<td style="border: 2pt black solid"><b>Dodo Population</b></td>
+<td style="border: 2pt black solid"><b>Population change (proportion)</b></td>
+<td style="border: 2pt black solid"><b>Population change (counts)</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">1000</td>
+<td style="border: 2pt black solid">0.2</td>
+<td style="border: 2pt black solid">200</td></tr><tr>
+<td style="border: 2pt black solid">1</td>
+<td style="border: 2pt black solid">1200</td>
+<td style="border: 2pt black solid">0.2</td>
+<td style="border: 2pt black solid">240</td></tr><tr>
+<td style="border: 2pt black solid">2</td>
+<td style="border: 2pt black solid">1440</td>
+<td style="border: 2pt black solid"></td>
+<td style="border: 2pt black solid"></td></tr>
+</tbody>
+</table>Select the correct option from the dropdown.<select id="2ai">
+<option></option>
+<option>Table 1</option>
+<option>Table 2</option>
+<option>Table 3</option>
+<option>Table 4</option></select></p></p>
+<script type="text/javascript">var set2 = {
+ai:0,}; 
+function cont2() {
+var yestim2 = 0;
+document.getElementById("2Time").innerHTML = tim2;
+
+checkAnswers("2ai", "Table 2");
+if (document.getElementById("2ai").value==="" || 0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("2ai", "Table 2")) { 
+ set2.ai = set2.ai + 1;}
+if ((checkAnswers("2ai", "Table 2") || set2.ai===3) &&1) {
+ document.getElementById("question3").style.display = "";
+ document.getElementById("button2").style.display = "none";
+
+document.getElementById("2ai").disabled=true;
+tim3= 0;
+
+function time3() {
+if (yestim3){
+tim3 = tim3 + 1;
+t = setTimeout(function() {time3()},1000);
+}
+};
+var yestim3 = 1;
+time3();
+}
+
+if (!checkAnswers("2ai", "Table 2")) {
+if (set2.ai===3) {
+document.getElementById("2ai").style.background="#FFFF00";
+ document.getElementById("2aiAnswer3").innerHTML = document.getElementById("2ai").value 
+ }
+if (set2.ai=== 1) { 
+ document.getElementById("2aiAnswer1").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ else if (set2.ai=== 2) { 
+ document.getElementById("2aiAnswer2").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ else { 
+ document.getElementById("2aiAnswer3").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ } 
+ else { 
+ if (set2.ai=== 0) { 
+ document.getElementById("2aiAnswer1").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ else if (set2.ai=== 1) { 
+ document.getElementById("2aiAnswer2").innerHTML = "; " + document.getElementById("2ai").value 
+ } 
+ else { 
+ document.getElementById("2aiAnswer3").innerHTML = "; " + document.getElementById("2ai").value
+}
+};
+if(set2.ai===3)
+{document.getElementById("2ai").value="Table 2"};};
+</script>
+
+<br><button id="button2" onClick="cont2();">Continue</button>
+<div id="question3" style="display: none">
+<h3></h3>It would be tedious to create tables like the one you chose, it's way too much arithematic. So let us build a model to represent this dynamic system of a shrinking dodo population.  Let&#39;s start by defining our nodes, of which there are 3:<ul><li><i>Death rate</i> is the percentage of the dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn&#39;t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i> represents the number of dodos still alive.  We are given an initial value for this quantity, 1000 dodos, and the number of dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population &#45; deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>.</li><li><i>Deaths</i> represents the number of dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (population * death rate).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>A Dragoon model for this system would look like this:
+</p><img src ="introductory_worksheet/image1.JPG"/><p>This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes.  Parameter nodes are diamonds, and the inside of a Parameter node shows its value.  Function nodes are circles.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node, which is a square, shows its <i>initial</i> value.</p><p>You create such nodes by clicking on a &quot;Create node&quot; button and filling out the form that pops up.   The form is called the <i>node editor</i>.  You can also click on an existing node to edit it.  Below are snapshots showing the node editor just as each node has been fully defined and the node editor is about to be closed.  See if you can figure out which node editor snapshot goes with which node above.
+</p><img src ="introductory_worksheet/image2.JPG"/><p>
+</p><img src ="introductory_worksheet/image3.JPG"/><p>
+</p><img src ="introductory_worksheet/image4.JPG"/><p>Notice that the node editor snapshots look slightly different from each other.  Do the differences make sense to you?</p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button would display the same information in graph form (see right figure).
+</p><img src ="introductory_worksheet/image5.JPG"/><p>While the dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.<h4>Summary</h4><p>So the general procedure to model a system is:</p><ol><li><i>Envision</i> how the system changes over time. One can imagine them using pictures like the sequence of dodo population pictures you saw earlier.</li><li><i>Quantify</i> the system changes. Imagine a table like the ones you selected earlier, then think of what will be quantities/columns? What arithmetic do you need to do to fill in the table cells?</li><li><i>Construct</i> the Dragoon model.</li><li>Graph the models predictions. Do they match your mental images of the system's change? If not, consider editing your model.</li></ol></p>
+<script type="text/javascript">var set3 = {}; 
+function cont3() {
+var yestim3 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (1) {
+ document.getElementById("question4").style.display = "";
+ document.getElementById("button3").style.display = "none";
+
+tim4= 0;
+
+function time4() {
+if (yestim4){
+tim4 = tim4 + 1;
+t = setTimeout(function() {time4()},1000);
+}
+};
+var yestim4 = 1;
+time4();
+}
+};
+</script>
+
+<br><button id="button3" onClick="cont3();">Continue</button>
+<div id="question4" style="display: none">
+<h3>Dragoon Problem 1:</h3>The simplest type of system is one where there is a single quantity that goes up or down by the same constant amount each time step.  For example, consider this system:</p><blockquote>Rod is a bookworm.  He already has 100 books.  Each week, he buys two more books.  Construct a model that shows how many books he has each week.</blockquote>The time step here is a week. One way to solve such problems is to think about each quantity, decide how it changes, and define a node for it. Let&#39;s try that method on the bookworm problem.</p><p>The problem has two quantities. We will try to first envision the model. Select which image fits the process described above, from the dropdown below.Process 1
+</p><img src ="images/books-constant.JPG"/><p>Process 2
+</p><img src ="images/books-faster.JPG"/><p>Process 3
+</p><img src ="images/books-increase.JPG"/><p>Process 4
+</p><img src ="images/books.JPG"/><p><select id="4ai">
+<option></option>
+<option>Process 1</option>
+<option>Process 2</option>
+<option>Process 3</option>
+<option>Process 4</option></select></p>
+<script type="text/javascript">var set4 = {
+ai:0,}; 
+function cont4() {
+var yestim4 = 0;
+document.getElementById("4Time").innerHTML = tim4;
+
+checkAnswers("4ai", "Process 4");
+if (document.getElementById("4ai").value==="" || 0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("4ai", "Process 4")) { 
+ set4.ai = set4.ai + 1;}
+if ((checkAnswers("4ai", "Process 4") || set4.ai===3) &&1) {
+ document.getElementById("question5").style.display = "";
+ document.getElementById("button4").style.display = "none";
+
+document.getElementById("4ai").disabled=true;
+tim5= 0;
+
+function time5() {
+if (yestim5){
+tim5 = tim5 + 1;
+t = setTimeout(function() {time5()},1000);
+}
+};
+var yestim5 = 1;
+time5();
+}
+
+if (!checkAnswers("4ai", "Process 4")) {
+if (set4.ai===3) {
+document.getElementById("4ai").style.background="#FFFF00";
+ document.getElementById("4aiAnswer3").innerHTML = document.getElementById("4ai").value 
+ }
+if (set4.ai=== 1) { 
+ document.getElementById("4aiAnswer1").innerHTML = "; " + document.getElementById("4ai").value 
+ } 
+ else if (set4.ai=== 2) { 
+ document.getElementById("4aiAnswer2").innerHTML = "; " + document.getElementById("4ai").value 
+ } 
+ else { 
+ document.getElementById("4aiAnswer3").innerHTML = "; " + document.getElementById("4ai").value 
+ } 
+ } 
+ else { 
+ if (set4.ai=== 0) { 
+ document.getElementById("4aiAnswer1").innerHTML = "; " + document.getElementById("4ai").value 
+ } 
+ else if (set4.ai=== 1) { 
+ document.getElementById("4aiAnswer2").innerHTML = "; " + document.getElementById("4ai").value 
+ } 
+ else { 
+ document.getElementById("4aiAnswer3").innerHTML = "; " + document.getElementById("4ai").value
+}
+};
+if(set4.ai===3)
+{document.getElementById("4ai").value="Process 4"};};
+</script>
+
+<br><button id="button4" onClick="cont4();">Continue</button>
+<div id="question5" style="display: none">
+<h3></h3><p><b>Step 2</b> Now, lets figure out the table that correctly quantifies the model.</p><p>Table 1:<table>
+<thead>
+<td style="border: 2pt black solid"><b>Weeks</b></td>
+<td style="border: 2pt black solid"><b>Books</b></td>
+<td style="border: 2pt black solid"><b>Books change (counts)</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">100</td>
+<td style="border: 2pt black solid">0</td></tr><tr>
+<td style="border: 2pt black solid">1</td>
+<td style="border: 2pt black solid">100</td>
+<td style="border: 2pt black solid">0</td></tr><tr>
+<td style="border: 2pt black solid">2</td>
+<td style="border: 2pt black solid">100</td>
+<td style="border: 2pt black solid">0</td></tr>
+</tbody>
+</table>Table 2<table>
+<thead>
+<td style="border: 2pt black solid"><b>Weeks</b></td>
+<td style="border: 2pt black solid"><b>Books</b></td>
+<td style="border: 2pt black solid"><b>Books change (counts)</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">100</td>
+<td style="border: 2pt black solid">2</td></tr><tr>
+<td style="border: 2pt black solid">1</td>
+<td style="border: 2pt black solid">102</td>
+<td style="border: 2pt black solid">2</td></tr><tr>
+<td style="border: 2pt black solid">2</td>
+<td style="border: 2pt black solid">104</td>
+<td style="border: 2pt black solid">2</td></tr>
+</tbody>
+</table>Table 3<table>
+<thead>
+<td style="border: 2pt black solid"><b>Weeks</b></td>
+<td style="border: 2pt black solid"><b>Books</b></td>
+<td style="border: 2pt black solid"><b>Books change (counts)</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">100</td>
+<td style="border: 2pt black solid">4</td></tr><tr>
+<td style="border: 2pt black solid">1</td>
+<td style="border: 2pt black solid">104</td>
+<td style="border: 2pt black solid">4</td></tr><tr>
+<td style="border: 2pt black solid">2</td>
+<td style="border: 2pt black solid">108</td>
+<td style="border: 2pt black solid">4</td></tr>
+</tbody>
+</table>Table 4<table>
+<thead>
+<td style="border: 2pt black solid"><b>Weeks</b></td>
+<td style="border: 2pt black solid"><b>Books</b></td>
+<td style="border: 2pt black solid"><b>Books change (counts)</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">100</td>
+<td style="border: 2pt black solid">2</td></tr><tr>
+<td style="border: 2pt black solid">1</td>
+<td style="border: 2pt black solid">98</td>
+<td style="border: 2pt black solid">2</td></tr><tr>
+<td style="border: 2pt black solid">2</td>
+<td style="border: 2pt black solid">96</td>
+<td style="border: 2pt black solid">2</td></tr>
+</tbody>
+</table><select id="5ai">
+<option></option>
+<option>Table 1</option>
+<option>Table 2</option>
+<option>Table 3</option>
+<option>Table 4</option></select></p>
+<script type="text/javascript">var set5 = {
+ai:0,}; 
+function cont5() {
+var yestim5 = 0;
+document.getElementById("5Time").innerHTML = tim5;
+
+checkAnswers("5ai", "Table 2");
+if (document.getElementById("5ai").value==="" || 0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("5ai", "Table 2")) { 
+ set5.ai = set5.ai + 1;}
+if ((checkAnswers("5ai", "Table 2") || set5.ai===3) &&1) {
+ document.getElementById("question6").style.display = "";
+ document.getElementById("button5").style.display = "none";
+
+document.getElementById("5ai").disabled=true;
+tim6= 0;
+
+function time6() {
+if (yestim6){
+tim6 = tim6 + 1;
+t = setTimeout(function() {time6()},1000);
+}
+};
+var yestim6 = 1;
+time6();
+}
+
+if (!checkAnswers("5ai", "Table 2")) {
+if (set5.ai===3) {
+document.getElementById("5ai").style.background="#FFFF00";
+ document.getElementById("5aiAnswer3").innerHTML = document.getElementById("5ai").value 
+ }
+if (set5.ai=== 1) { 
+ document.getElementById("5aiAnswer1").innerHTML = "; " + document.getElementById("5ai").value 
+ } 
+ else if (set5.ai=== 2) { 
+ document.getElementById("5aiAnswer2").innerHTML = "; " + document.getElementById("5ai").value 
+ } 
+ else { 
+ document.getElementById("5aiAnswer3").innerHTML = "; " + document.getElementById("5ai").value 
+ } 
+ } 
+ else { 
+ if (set5.ai=== 0) { 
+ document.getElementById("5aiAnswer1").innerHTML = "; " + document.getElementById("5ai").value 
+ } 
+ else if (set5.ai=== 1) { 
+ document.getElementById("5aiAnswer2").innerHTML = "; " + document.getElementById("5ai").value 
+ } 
+ else { 
+ document.getElementById("5aiAnswer3").innerHTML = "; " + document.getElementById("5ai").value
+}
+};
+if(set5.ai===3)
+{document.getElementById("5ai").value="Table 2"};};
+</script>
+
+<br><button id="button5" onClick="cont5();">Continue</button>
+<div id="question6" style="display: none">
+<h3></h3><p><b>Step 3</b></p> is about thinking how the dragoon model for the process will look like. From the images below pick the appropriate model using dropdown after the images.Model 1
+</p><img src ="images/model-books-200.JPG"/><p>Model 2
+</p><img src ="images/model-books-faster.JPG"/><p>Model 3
+</p><img src ="images/model-books.JPG"/><p>Model 4
+</p><img src ="images/model-books-decrease.JPG"/><p><select id="6ai">
+<option></option>
+<option>Model 1</option>
+<option>Model 2</option>
+<option>Model 3</option>
+<option>Model 4</option></select></p>
+<script type="text/javascript">var set6 = {
+ai:0,}; 
+function cont6() {
+var yestim6 = 0;
+document.getElementById("6Time").innerHTML = tim6;
+
+checkAnswers("6ai", "Model 3");
+if (document.getElementById("6ai").value==="" || 0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("6ai", "Model 3")) { 
+ set6.ai = set6.ai + 1;}
+if ((checkAnswers("6ai", "Model 3") || set6.ai===3) &&1) {
+ document.getElementById("question7").style.display = "";
+ document.getElementById("button6").style.display = "none";
+
+document.getElementById("6ai").disabled=true;
+tim7= 0;
+
+function time7() {
+if (yestim7){
+tim7 = tim7 + 1;
+t = setTimeout(function() {time7()},1000);
+}
+};
+var yestim7 = 1;
+time7();
+}
+
+if (!checkAnswers("6ai", "Model 3")) {
+if (set6.ai===3) {
+document.getElementById("6ai").style.background="#FFFF00";
+ document.getElementById("6aiAnswer3").innerHTML = document.getElementById("6ai").value 
+ }
+if (set6.ai=== 1) { 
+ document.getElementById("6aiAnswer1").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ else if (set6.ai=== 2) { 
+ document.getElementById("6aiAnswer2").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ else { 
+ document.getElementById("6aiAnswer3").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ } 
+ else { 
+ if (set6.ai=== 0) { 
+ document.getElementById("6aiAnswer1").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ else if (set6.ai=== 1) { 
+ document.getElementById("6aiAnswer2").innerHTML = "; " + document.getElementById("6ai").value 
+ } 
+ else { 
+ document.getElementById("6aiAnswer3").innerHTML = "; " + document.getElementById("6ai").value
+}
+};
+if(set6.ai===3)
+{document.getElementById("6ai").value="Model 3"};};
+</script>
+
+<br><button id="button6" onClick="cont6();">Continue</button>
+<div id="question7" style="display: none">
+<h3></h3>Its time to make your first Dragoon Model. Do not forget to check the graph at the end of the model.</p>
+<input type="hidden" name="problem7" id="problem7" value="111">
+<input type="hidden" name="mode7" id="mode7" value="STUDENT">
+<br><button id="dragoonButton7" onClick="openDragoonProblem(7);">Open Dragoon</button>
+<div id="dragoonErrorMessage7" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p>Your model need not look exactly like the one above&#mdash;the positions and colors of the nodes do not affect the calculations of the model.   You can move nodes by dragging on them.</p><p>When you have finished constructing the model, click on the Graph button to see how the main value of &quot;books&quot; changes over time.  Please manipulate the sliders on the right side of the Graph window; do the movements of the graph make sense to you?</p><p>This kind of model is called linear because the graph of the main quantity, books, is a straight line.  Because the main quantity increases, it&#39;s called a linear growth model.</p><p>Now click on the Done button.</p>
+<script type="text/javascript">var set7 = {}; 
+function cont7() {
+var yestim7 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(7) && 1) {
+ document.getElementById("question8").style.display = "";
+ document.getElementById("button7").style.display = "none";
+
+tim8= 0;
+
+function time8() {
+if (yestim8){
+tim8 = tim8 + 1;
+t = setTimeout(function() {time8()},1000);
+}
+};
+var yestim8 = 1;
+time8();
+}
+};
+</script>
+
+<br><button id="button7" onClick="cont7();">Continue</button>
+<div id="question8" style="display: none">
+<h3>Dragoon Problem:</h3>Consider the process:</p><blockquote><p>In 1859, Thomas Austin released 24 rabbits onto his property in Australia. Despite various attempts at eradicating the rabbits, the population grew at an average rate of 0.3 per year over the next 60 years. The rabbits eventually occupied most of the continent of Australia. Model the rabbit population growth where -</p><p>The first quantity in this model is the population or number of rabbits in the population. Initially, there are 24 rabbits, but the number increases with time. The new population each year is its present value plus the net growth (number of rabbits born minus deaths). The net growth is equal to the product of the population and the growth rate. The growth rate has a fixed value of 0.3 per year.</p></blockquote><p><b>Step 1</b> will be the same as earlier that is to envision the model. Please select the pictorial representation that matches the model above.</p><p>Process 1
+</p><img src ="images/rabbits-constant.png.JPG"/><p>Process 2
+</p><img src ="images/rabbits.png.JPG"/><p>Process 3
+</p><img src ="images/rabbits-decrease.png.JPG"/><p>Process 4
+</p><img src ="images/rabbits-faster.png.JPG"/><p><select id="8ai">
+<option></option>
+<option>Process 1</option>
+<option>Process 2</option>
+<option>Process 3</option>
+<option>Process 4</option></select></p></p>
+<script type="text/javascript">var set8 = {
+ai:0,}; 
+function cont8() {
+var yestim8 = 0;
+document.getElementById("8Time").innerHTML = tim8;
+
+checkAnswers("8ai", "Process 2");
+if (document.getElementById("8ai").value==="" || 0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("8ai", "Process 2")) { 
+ set8.ai = set8.ai + 1;}
+if ((checkAnswers("8ai", "Process 2") || set8.ai===3) &&1) {
+ document.getElementById("question9").style.display = "";
+ document.getElementById("button8").style.display = "none";
+
+document.getElementById("8ai").disabled=true;
+tim9= 0;
+
+function time9() {
+if (yestim9){
+tim9 = tim9 + 1;
+t = setTimeout(function() {time9()},1000);
+}
+};
+var yestim9 = 1;
+time9();
+}
+
+if (!checkAnswers("8ai", "Process 2")) {
+if (set8.ai===3) {
+document.getElementById("8ai").style.background="#FFFF00";
+ document.getElementById("8aiAnswer3").innerHTML = document.getElementById("8ai").value 
+ }
+if (set8.ai=== 1) { 
+ document.getElementById("8aiAnswer1").innerHTML = "; " + document.getElementById("8ai").value 
+ } 
+ else if (set8.ai=== 2) { 
+ document.getElementById("8aiAnswer2").innerHTML = "; " + document.getElementById("8ai").value 
+ } 
+ else { 
+ document.getElementById("8aiAnswer3").innerHTML = "; " + document.getElementById("8ai").value 
+ } 
+ } 
+ else { 
+ if (set8.ai=== 0) { 
+ document.getElementById("8aiAnswer1").innerHTML = "; " + document.getElementById("8ai").value 
+ } 
+ else if (set8.ai=== 1) { 
+ document.getElementById("8aiAnswer2").innerHTML = "; " + document.getElementById("8ai").value 
+ } 
+ else { 
+ document.getElementById("8aiAnswer3").innerHTML = "; " + document.getElementById("8ai").value
+}
+};
+if(set8.ai===3)
+{document.getElementById("8ai").value="Process 2"};};
+</script>
+
+<br><button id="button8" onClick="cont8();">Continue</button>
+<div id="question9" style="display: none">
+<h3></h3><p><b>Step 2</b> Now, lets figure out the table that correctly quantifies the model.</p><p>Table 1:<table>
+<thead>
+<td style="border: 2pt black solid"><b>Year</b></td>
+<td style="border: 2pt black solid"><b>Rabbits</b></td>
+<td style="border: 2pt black solid"><b>Rabbits change (proportion)</b></td>
+<td style="border: 2pt black solid"><b>Rabbits change (counts)</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">1859</td>
+<td style="border: 2pt black solid">24</td>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">0</td></tr><tr>
+<td style="border: 2pt black solid">1860</td>
+<td style="border: 2pt black solid">24</td>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">0</td></tr><tr>
+<td style="border: 2pt black solid">1861</td>
+<td style="border: 2pt black solid">24</td>
+<td style="border: 2pt black solid">0</td>
+<td style="border: 2pt black solid">0</td></tr>
+</tbody>
+</table>Table 2<table>
+<thead>
+<td style="border: 2pt black solid"><b>Year</b></td>
+<td style="border: 2pt black solid"><b>Rabbits</b></td>
+<td style="border: 2pt black solid"><b>Rabbits change (proportion)</b></td>
+<td style="border: 2pt black solid"><b>Rabbits change (counts)</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">1859</td>
+<td style="border: 2pt black solid">24</td>
+<td style="border: 2pt black solid">0.3</td>
+<td style="border: 2pt black solid">7.2</td></tr><tr>
+<td style="border: 2pt black solid">1860</td>
+<td style="border: 2pt black solid">16.8</td>
+<td style="border: 2pt black solid">0.3</td>
+<td style="border: 2pt black solid">5.04</td></tr><tr>
+<td style="border: 2pt black solid">1861</td>
+<td style="border: 2pt black solid">11.76</td>
+<td style="border: 2pt black solid">0.3</td>
+<td style="border: 2pt black solid">3.53</td></tr>
+</tbody>
+</table>Table 3<table>
+<thead>
+<td style="border: 2pt black solid"><b>Year</b></td>
+<td style="border: 2pt black solid"><b>Rabbits</b></td>
+<td style="border: 2pt black solid"><b>Rabbits change (proportion)</b></td>
+<td style="border: 2pt black solid"><b>Rabbits change (counts)</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">1859</td>
+<td style="border: 2pt black solid">24</td>
+<td style="border: 2pt black solid">0.6</td>
+<td style="border: 2pt black solid">14.4</td></tr><tr>
+<td style="border: 2pt black solid">1860</td>
+<td style="border: 2pt black solid">38.4</td>
+<td style="border: 2pt black solid">0.6</td>
+<td style="border: 2pt black solid">23.04</td></tr><tr>
+<td style="border: 2pt black solid">1861</td>
+<td style="border: 2pt black solid">61.44</td>
+<td style="border: 2pt black solid">0.6</td>
+<td style="border: 2pt black solid">36.87</td></tr>
+</tbody>
+</table>Table 4<table>
+<thead>
+<td style="border: 2pt black solid"><b>Year</b></td>
+<td style="border: 2pt black solid"><b>Rabbits</b></td>
+<td style="border: 2pt black solid"><b>Rabbits change (proportion)</b></td>
+<td style="border: 2pt black solid"><b>Rabbits change (counts)</b></td>
+</thead>
+<tbody><tr>
+<td style="border: 2pt black solid">1859</td>
+<td style="border: 2pt black solid">24</td>
+<td style="border: 2pt black solid">0.3</td>
+<td style="border: 2pt black solid">7.2</td></tr><tr>
+<td style="border: 2pt black solid">1860</td>
+<td style="border: 2pt black solid">31.2</td>
+<td style="border: 2pt black solid">0.3</td>
+<td style="border: 2pt black solid">9.36</td></tr><tr>
+<td style="border: 2pt black solid">1861</td>
+<td style="border: 2pt black solid">40.56</td>
+<td style="border: 2pt black solid">0.3</td>
+<td style="border: 2pt black solid">12.17</td></tr>
+</tbody>
+</table><select id="9ai">
+<option></option>
+<option>Table 1</option>
+<option>Table 2</option>
+<option>Table 3</option>
+<option>Table 4</option></select></p>
+<script type="text/javascript">var set9 = {
+ai:0,}; 
+function cont9() {
+var yestim9 = 0;
+document.getElementById("9Time").innerHTML = tim9;
+
+checkAnswers("9ai", "Table 4");
+if (document.getElementById("9ai").value==="" || 0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("9ai", "Table 4")) { 
+ set9.ai = set9.ai + 1;}
+if ((checkAnswers("9ai", "Table 4") || set9.ai===3) &&1) {
+ document.getElementById("question10").style.display = "";
+ document.getElementById("button9").style.display = "none";
+
+document.getElementById("9ai").disabled=true;
+tim10= 0;
+
+function time10() {
+if (yestim10){
+tim10 = tim10 + 1;
+t = setTimeout(function() {time10()},1000);
+}
+};
+var yestim10 = 1;
+time10();
+}
+
+if (!checkAnswers("9ai", "Table 4")) {
+if (set9.ai===3) {
+document.getElementById("9ai").style.background="#FFFF00";
+ document.getElementById("9aiAnswer3").innerHTML = document.getElementById("9ai").value 
+ }
+if (set9.ai=== 1) { 
+ document.getElementById("9aiAnswer1").innerHTML = "; " + document.getElementById("9ai").value 
+ } 
+ else if (set9.ai=== 2) { 
+ document.getElementById("9aiAnswer2").innerHTML = "; " + document.getElementById("9ai").value 
+ } 
+ else { 
+ document.getElementById("9aiAnswer3").innerHTML = "; " + document.getElementById("9ai").value 
+ } 
+ } 
+ else { 
+ if (set9.ai=== 0) { 
+ document.getElementById("9aiAnswer1").innerHTML = "; " + document.getElementById("9ai").value 
+ } 
+ else if (set9.ai=== 1) { 
+ document.getElementById("9aiAnswer2").innerHTML = "; " + document.getElementById("9ai").value 
+ } 
+ else { 
+ document.getElementById("9aiAnswer3").innerHTML = "; " + document.getElementById("9ai").value
+}
+};
+if(set9.ai===3)
+{document.getElementById("9ai").value="Table 4"};};
+</script>
+
+<br><button id="button9" onClick="cont9();">Continue</button>
+<div id="question10" style="display: none">
+<h3></h3><p><b>Step 3</b></p>: From the images below pick the Dragoon model which correctly defines the process in the above text.Model 1
+</p><img src ="images/model-rabbits-wrong-usage.JPG"/><p>Model 2
+</p><img src ="images/model-rabbits-decrease.JPG"/><p>Model 3
+</p><img src ="images/model-rabbits-parameters.JPG"/><p>Model 4
+</p><img src ="images/model-rabbits.JPG"/><p><select id="10ai">
+<option></option>
+<option>Model 1</option>
+<option>Model 2</option>
+<option>Model 3</option>
+<option>Model 4</option></select></p>
+<script type="text/javascript">var set10 = {
+ai:0,}; 
+function cont10() {
+var yestim10 = 0;
+document.getElementById("10Time").innerHTML = tim10;
+
+checkAnswers("10ai", "Model 3");
+if (document.getElementById("10ai").value==="" || 0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+if (!checkAnswers("10ai", "Model 3")) { 
+ set10.ai = set10.ai + 1;}
+if ((checkAnswers("10ai", "Model 3") || set10.ai===3) &&1) {
+ document.getElementById("question11").style.display = "";
+ document.getElementById("button10").style.display = "none";
+
+document.getElementById("10ai").disabled=true;
+tim11= 0;
+
+function time11() {
+if (yestim11){
+tim11 = tim11 + 1;
+t = setTimeout(function() {time11()},1000);
+}
+};
+var yestim11 = 1;
+time11();
+}
+
+if (!checkAnswers("10ai", "Model 3")) {
+if (set10.ai===3) {
+document.getElementById("10ai").style.background="#FFFF00";
+ document.getElementById("10aiAnswer3").innerHTML = document.getElementById("10ai").value 
+ }
+if (set10.ai=== 1) { 
+ document.getElementById("10aiAnswer1").innerHTML = "; " + document.getElementById("10ai").value 
+ } 
+ else if (set10.ai=== 2) { 
+ document.getElementById("10aiAnswer2").innerHTML = "; " + document.getElementById("10ai").value 
+ } 
+ else { 
+ document.getElementById("10aiAnswer3").innerHTML = "; " + document.getElementById("10ai").value 
+ } 
+ } 
+ else { 
+ if (set10.ai=== 0) { 
+ document.getElementById("10aiAnswer1").innerHTML = "; " + document.getElementById("10ai").value 
+ } 
+ else if (set10.ai=== 1) { 
+ document.getElementById("10aiAnswer2").innerHTML = "; " + document.getElementById("10ai").value 
+ } 
+ else { 
+ document.getElementById("10aiAnswer3").innerHTML = "; " + document.getElementById("10ai").value
+}
+};
+if(set10.ai===3)
+{document.getElementById("10ai").value="Model 3"};};
+</script>
+
+<br><button id="button10" onClick="cont10();">Continue</button>
+<div id="question11" style="display: none">
+<h3></h3>Its time to make your first Dragoon Model. Do not forget to check the graph at the end of the model.</p>
+<input type="hidden" name="problem11" id="problem11" value="rabbits">
+<input type="hidden" name="mode11" id="mode11" value="STUDENT">
+<br><button id="dragoonButton11" onClick="openDragoonProblem(11);">Open Dragoon</button>
+<div id="dragoonErrorMessage11" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p>After completeing the model</p>
+<script type="text/javascript">var set11 = {}; 
+function cont11() {
+var yestim11 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(11) && 1) {
+ document.getElementById("question12").style.display = "";
+ document.getElementById("button11").style.display = "none";
+
+displayAnswers();
+}
+};
+</script>
+
+<br><button id="button11" onClick="cont11();">Continue</button>
+<div id="question12" style="display: none">
+</div></div></div></div></div></div></div></div></div></div></div></div><div id="resultsTable" style="display:none">
+<table>
+<thead>
+<td style="border: 2pt black solid">Question</td>
+<td style="border: 2pt black solid">Correct Answer</td>
+<td style="border: 2pt black solid">Student Answers</td>
+<td style="border: 2pt black solid">Number of Wrong Tries</td>
+<td style="border: 2pt black solid">Time for Entire Question (s)</td>
+</thead>
+<tbody>
+<tr>
+<td style="border: 2pt black solid">1a. i.</td>
+<td style="border: 2pt black solid">Process 2</td>
+<td style="border: 2pt black solid"><div id="1aiAnswer1"></div><div id="1aiAnswer2"></div><div id="1aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="1aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="1Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">2a. i.</td>
+<td style="border: 2pt black solid">Table 2</td>
+<td style="border: 2pt black solid"><div id="2aiAnswer1"></div><div id="2aiAnswer2"></div><div id="2aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="2aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="2Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">4a. i.</td>
+<td style="border: 2pt black solid">Process 4</td>
+<td style="border: 2pt black solid"><div id="4aiAnswer1"></div><div id="4aiAnswer2"></div><div id="4aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="4aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="4Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">5a. i.</td>
+<td style="border: 2pt black solid">Table 2</td>
+<td style="border: 2pt black solid"><div id="5aiAnswer1"></div><div id="5aiAnswer2"></div><div id="5aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="5aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="5Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">6a. i.</td>
+<td style="border: 2pt black solid">Model 3</td>
+<td style="border: 2pt black solid"><div id="6aiAnswer1"></div><div id="6aiAnswer2"></div><div id="6aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="6aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="6Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">8a. i.</td>
+<td style="border: 2pt black solid">Process 2</td>
+<td style="border: 2pt black solid"><div id="8aiAnswer1"></div><div id="8aiAnswer2"></div><div id="8aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="8aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="8Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">9a. i.</td>
+<td style="border: 2pt black solid">Table 4</td>
+<td style="border: 2pt black solid"><div id="9aiAnswer1"></div><div id="9aiAnswer2"></div><div id="9aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="9aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="9Time"></div></td>
+<tr>
+<tr>
+<td style="border: 2pt black solid">10a. i.</td>
+<td style="border: 2pt black solid">Model 3</td>
+<td style="border: 2pt black solid"><div id="10aiAnswer1"></div><div id="10aiAnswer2"></div><div id="10aiAnswer3"></div></td>
+<td style="border: 2pt black solid"><div id="10aiTries"></div></td>
+<td style="border: 2pt black solid"><div id="10Time"></div></td>
+<tr>
+</tbody>
+</table>
+</div><script type="text/javascript">
+function displayAnswers () {
+document.getElementById("resultsTable").style.display=""
+document.getElementById("1aiTries").innerHTML=set1.ai;
+document.getElementById("2aiTries").innerHTML=set2.ai;
+document.getElementById("4aiTries").innerHTML=set4.ai;
+document.getElementById("5aiTries").innerHTML=set5.ai;
+document.getElementById("6aiTries").innerHTML=set6.ai;
+document.getElementById("8aiTries").innerHTML=set8.ai;
+document.getElementById("9aiTries").innerHTML=set9.ai;
+document.getElementById("10aiTries").innerHTML=set10.ai;
+};
+</script></body></html>

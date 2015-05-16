@@ -1,0 +1,964 @@
+{
+    "__Workbook__": {
+        "loose": [
+			{
+                "__LsText__": {
+                    "text": "<h3><b>Systems Dynamics Modeling with Dragoon: An introduction</b></h3></p><p>Systems Dynamics Modeling is a method of understanding systems (i.e., parts of the world that you are interested in) that change over time (i.e., they are dynamic).  It works by viewing the system as interacting quantities&mdash;called &quot;nodes&quot; in the Dragoon software.  A model is made by defining both nodes and the mathematical relationships between them.  In particular, if Node A has an effect on Node B, Node A is considered an &quot;input&quot; of Node B.  Once all the nodes and inputs are defined, the computer can calculate the change in the system over time and graph the results.</p><p><b>Parameters, Accumulators, and Functions</b></p><p>Models in Dragoon are made up of three types of nodes:  Parameters, Accumulators, and Functions.<ul><li>Parameters are the simplest type of node.  A parameter represents a <b>fixed quantity that never changes</b>.  Parameters are used to represent constant values (height of building being 12 m).</li><li>An accumulator represents a <b>quantity that accumulates the values of its inputs over time</b>.  As each input arrives, it changes the value of the accumulator, so inputs represent changes to the accumulator&#39;s value.  At each time step, the inputs are added or subtracted from the current value of the accumulator&mdash;that determines its value at the next time step.</li><li>Functions represent <b>a value that is directly related to the values of its inputs, without regard to its own previous value</b>.  The inputs to functions determine the value of the function.  A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value.</li></ul>Accumulators and functions seem very similar at first, and it can take some practice to determine if a particular quantity should be represented as one or the other.  To determine if a quantity should be an accumulator, ask the question:  &quot;Does this quantity add or subtract new values to itself each time step to find its new value?&quot; If it does, then the quantity is an Accumulator.  If it does not, then the quantity is a Function.  Additionally, Accumulators typically have an initial value associated with them, whereas Functions do not.</p><h3>Example system:</h3><p> Let&#39;s start by modeling a simple system: a population of dodo birds as they were becoming extinct.  Suppose that there were 1000 dodo birds (pronounced &quot;doh doh&quot;) in the population initially and that 20% of the dodo birds died each year.  Thus, the number of deaths in the first year was 1000 * 20% = 200 deaths, leaving 800 dodos alive at the beginning of the second year.  The number of deaths in the second year was 800 * 20% = 160 deaths, leaving 640 dodos alive for the start of the third year. Because the number of dodo birds and the number of deaths change over the years, this is a dynamic system.",
+                    "before": 1
+                }
+            }
+		],
+        "questions": [
+            {
+                "__Question__": {
+                    "sub": "Modeling the system without shortcuts",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "</p><h4>Step 1</h4><p>To construct a dragoon, one needs to first envision the dynamic system. To see if you understand the system&#39;s behavior, please choose one of the sequences of pictures that show dodo population changing over the year. Select the option from the dropdown after the images</p><p>"
+                                        }
+                                    },
+									{
+										"__Text__": {
+											"text": "Process 1"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/dodos-constant"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Process 2"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/dodos"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Process 3"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/dodos-slower"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Process 4"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/dodos-increase"
+										}
+									},
+									{
+                                        "__Dropdown__":{
+											"correct": "Process 2",
+											"options":[
+												"Process 1",
+												"Process 2",
+												"Process 3",
+												"Process 4"
+											]
+										}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+			{
+				"__Question__": {
+					"sub": "",
+					"sections": [
+						{
+							"__Section__": {
+								"content": [
+									{
+										"__Text__": {
+											"text": "<h4>Step 2</h4><p>Now lets think about how the quantites in the model will be quantified. See which table correctly represents how the quantities are changing in the model. Select from dropdown after the tables.</p><p>Table 1"
+										}
+									},
+									{ 
+										"__Table__": {
+											"header":[
+												"Year",
+												"Dodo Population",
+												"Population change (proportion)",
+												"Population change (counts)"
+											],
+											"rows":[[
+												"0",
+												"1000",
+												"0",
+												"0.0"
+											],
+											[
+												"1",
+												"1000",
+												"0",
+												"0.0"
+											],
+											[
+												"2",
+												"1000",
+												"0",
+												"0.0"
+											]
+											]
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Table 2"
+										}
+									},
+									{ 
+										"__Table__": {
+											"header":[
+												"Year",
+												"Dodo Population",
+												"Population change (proportion)",
+												"Population change (counts)"
+											],
+											"rows":[[
+												"0",
+												"1000",
+												"0.2",
+												"200"
+											],
+											[
+												"1",
+												"800",
+												"0.2",
+												"160"
+											],
+											[
+												"2",
+												"640",
+												"",
+												""
+											]
+											]
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Table 3"
+										}
+									},
+									{ 
+										"__Table__": {
+											"header":[
+												"Year",
+												"Dodo Population",
+												"Population change (proportion)",
+												"Population change (counts)"
+											],
+											"rows":[[
+												"0",
+												"1000",
+												"0.1",
+												"100"
+											],
+											[
+												"1",
+												"900",
+												"0.1",
+												"90"
+											],
+											[
+												"2",
+												"810",
+												"",
+												""
+											]
+											]
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Table 4."
+										}
+									},
+									{ 
+										"__Table__": {
+											"header":[
+												"Year",
+												"Dodo Population",
+												"Population change (proportion)",
+												"Population change (counts)"
+											],
+											"rows":[[
+												"0",
+												"1000",
+												"0.2",
+												"200"
+											],
+											[
+												"1",
+												"1200",
+												"0.2",
+												"240"
+											],
+											[
+												"2",
+												"1440",
+												"",
+												""
+											]
+											]
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Select the correct option from the dropdown."
+										}
+									},
+									{
+										"__Dropdown__":{												
+											"correct": "Table 2",
+											"options": [
+												"Table 1",
+												"Table 2",
+												"Table 3",
+												"Table 4"
+											]
+										}
+									},
+									{
+										"__Text__": {
+											"text":"</p>"
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+            {
+                "__Question__": {
+					"sub": "",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "It would be tedious to create tables like the one you chose, it's way too much arithematic. So let us build a model to represent this dynamic system of a shrinking dodo population.  Let&#39;s start by defining our nodes, of which there are 3:<ul><li><i>Death rate</i> is the percentage of the dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn&#39;t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i> represents the number of dodos still alive.  We are given an initial value for this quantity, 1000 dodos, and the number of dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population &#45; deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>.</li><li><i>Deaths</i> represents the number of dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (population * death rate).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>A Dragoon model for this system would look like this:"
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image1"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes.  Parameter nodes are diamonds, and the inside of a Parameter node shows its value.  Function nodes are circles.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node, which is a square, shows its <i>initial</i> value.</p><p>You create such nodes by clicking on a &quot;Create node&quot; button and filling out the form that pops up.   The form is called the <i>node editor</i>.  You can also click on an existing node to edit it.  Below are snapshots showing the node editor just as each node has been fully defined and the node editor is about to be closed.  See if you can figure out which node editor snapshot goes with which node above."
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image2"
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image3"
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image4"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "Notice that the node editor snapshots look slightly different from each other.  Do the differences make sense to you?</p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button would display the same information in graph form (see right figure)."
+                                        }
+                                    },
+                                    {
+                                        "__Image__": {
+                                            "image": "introductory_worksheet/image5"
+                                        }
+                                    },
+                                    {
+                                        "__Text__": {
+                                            "text": "While the dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system."
+                                        }
+                                    },
+									{
+										"__Text__": {
+											"text": "<h4>Summary</h4><p>So the general procedure to model a system is:</p><ol><li><i>Envision</i> how the system changes over time. One can imagine them using pictures like the sequence of dodo population pictures you saw earlier.</li><li><i>Quantify</i> the system changes. Imagine a table like the ones you selected earlier, then think of what will be quantities/columns? What arithmetic do you need to do to fill in the table cells?</li><li><i>Construct</i> the Dragoon model.</li><li>Graph the models predictions. Do they match your mental images of the system's change? If not, consider editing your model.</li></ol>"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            			{
+                "__Question__": {
+                    "sub": "Dragoon Problem 1:",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "The simplest type of system is one where there is a single quantity that goes up or down by the same constant amount each time step.  For example, consider this system:</p><blockquote>Rod is a bookworm.  He already has 100 books.  Each week, he buys two more books.  Construct a model that shows how many books he has each week.</blockquote>The time step here is a week. One way to solve such problems is to think about each quantity, decide how it changes, and define a node for it. Let&#39;s try that method on the bookworm problem.</p><p>The problem has two quantities. We will try to first envision the model. Select which image fits the process described above, from the dropdown below."
+                                        }
+                                    },
+									{
+										"__Text__": {
+											"text": "Process 1"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/books-constant"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Process 2"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/books-faster"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Process 3"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/books-increase"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Process 4"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/books"
+										}
+									},
+									{
+                                        "__Dropdown__":{
+											"correct": "Process 4",
+											"options":[
+												"Process 1",
+												"Process 2",
+												"Process 3",
+												"Process 4"
+											]
+										}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "<p><b>Step 2</b> Now, lets figure out the table that correctly quantifies the model.</p><p>Table 1:"
+                                        }
+                                    },
+									{ 
+										"__Table__": {
+											"header":[
+												"Weeks",
+												"Books",
+												"Books change (counts)"
+											],
+											"rows":[[
+												"0",
+												"100",
+												"0"
+											],
+											[
+												"1",
+												"100",
+												"0"
+											],
+											[
+												"2",
+												"100",
+												"0"
+											]
+											]
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Table 2"
+										}
+									},
+									{ 
+										"__Table__": {
+											"header":[
+												"Weeks",
+												"Books",
+												"Books change (counts)"
+											],
+											"rows":[[
+												"0",
+												"100",
+												"2"
+											],
+											[
+												"1",
+												"102",
+												"2"
+											],
+											[
+												"2",
+												"104",
+												"2"
+											]
+											]
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Table 3"
+										}
+									},
+									{ 
+										"__Table__": {
+											"header":[
+												"Weeks",
+												"Books",
+												"Books change (counts)"
+											],
+											"rows":[[
+												"0",
+												"100",
+												"4"
+											],
+											[
+												"1",
+												"104",
+												"4"
+											],
+											[
+												"2",
+												"108",
+												"4"
+											]
+											]
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Table 4"
+										}
+									},
+									{ 
+										"__Table__": {
+											"header":[
+												"Weeks",
+												"Books",
+												"Books change (counts)"
+											],
+											"rows":[[
+												"0",
+												"100",
+												"2"
+											],
+											[
+												"1",
+												"98",
+												"2"
+											],
+											[
+												"2",
+												"96",
+												"2"
+											]
+											]
+										}
+									},
+									{
+                                        "__Dropdown__":{
+											"correct": "Table 2",
+											"options":[
+												"Table 1",
+												"Table 2",
+												"Table 3",
+												"Table 4"
+											]
+										}
+                                    }
+								]
+                            }
+                        }
+                    ]
+                }
+            },
+			{
+				"__Question__": {
+					"sub": "",
+					"sections": [
+						{
+							"__Section__": {
+								"content":[
+									{
+										"__Text__": {
+											"text": "<p><b>Step 3</b></p> is about thinking how the dragoon model for the process will look like. From the images below pick the appropriate model using dropdown after the images."
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Model 1"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/model-books-200"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Model 2"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/model-books-faster"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Model 3"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/model-books"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Model 4"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/model-books-decrease"
+										}
+									},
+									{
+                                        "__Dropdown__":{
+											"correct": "Model 3",
+											"options":[
+												"Model 1",
+												"Model 2",
+												"Model 3",
+												"Model 4"
+											]
+										}
+                                    }
+								]
+							}
+						}
+					]
+				}
+			},
+			{
+				"__Question__": {
+					"sub": "",
+					"sections": [
+						{
+							"__Section__": {
+								"content": [
+									{
+										"__Text__":{
+											"text": "Its time to make your first Dragoon Model. Do not forget to check the graph at the end of the model."
+										}
+									},
+									{
+										"__Dragoon__": {
+											"problem": "111",
+											"mode": "STUDENT"
+										}
+									},
+                                    {
+                                        "__Text__": {
+                                            "text": "Your model need not look exactly like the one above&#mdash;the positions and colors of the nodes do not affect the calculations of the model.   You can move nodes by dragging on them.</p><p>When you have finished constructing the model, click on the Graph button to see how the main value of &quot;books&quot; changes over time.  Please manipulate the sliders on the right side of the Graph window; do the movements of the graph make sense to you?</p><p>This kind of model is called linear because the graph of the main quantity, books, is a straight line.  Because the main quantity increases, it&#39;s called a linear growth model.</p><p>Now click on the Done button."
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+			{
+                "__Question__": {
+                    "sub": "Dragoon Problem:",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "Consider the process:</p><blockquote><p>In 1859, Thomas Austin released 24 rabbits onto his property in Australia. Despite various attempts at eradicating the rabbits, the population grew at an average rate of 0.3 per year over the next 60 years. The rabbits eventually occupied most of the continent of Australia. Model the rabbit population growth where -</p><p>The first quantity in this model is the population or number of rabbits in the population. Initially, there are 24 rabbits, but the number increases with time. The new population each year is its present value plus the net growth (number of rabbits born minus deaths). The net growth is equal to the product of the population and the growth rate. The growth rate has a fixed value of 0.3 per year.</p></blockquote><p><b>Step 1</b> will be the same as earlier that is to envision the model. Please select the pictorial representation that matches the model above.</p><p>"
+                                        }
+                                    },
+									{
+										"__Text__": {
+											"text": "Process 1"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/rabbits-constant.png"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Process 2"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/rabbits.png"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Process 3"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/rabbits-decrease.png"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Process 4"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/rabbits-faster.png"
+										}
+									},
+									{
+                                        "__Dropdown__":{
+											"correct": "Process 2",
+											"options":[
+												"Process 1",
+												"Process 2",
+												"Process 3",
+												"Process 4"
+											]
+										}
+                                    },
+									{
+										"__Text__": {
+											"text": "</p>"
+										}
+									}
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "__Question__": {
+                    "sub": "",
+                    "sections": [
+                        {
+                            "__Section__": {
+                                "content": [
+                                    {
+                                        "__Text__": {
+                                            "text": "<p><b>Step 2</b> Now, lets figure out the table that correctly quantifies the model.</p><p>Table 1:"
+                                        }
+                                    },
+									{ 
+										"__Table__": {
+											"header":[
+												"Year",
+												"Rabbits",
+												"Rabbits change (proportion)",
+												"Rabbits change (counts)"
+											],
+											"rows":[[
+												"1859",
+												"24",
+												"0",
+												"0"
+											],
+											[
+												"1860",
+												"24",
+												"0",
+												"0"
+											],
+											[
+												"1861",
+												"24",
+												"0",
+												"0"
+											]
+											]
+										}
+									},
+									
+									{
+										"__Text__": {
+											"text": "Table 2"
+										}
+									},
+									{ 
+										"__Table__": {
+											"header":[
+												"Year",
+												"Rabbits",
+												"Rabbits change (proportion)",
+												"Rabbits change (counts)"
+											],
+											"rows":[
+												[
+													"1859",
+													"24",
+													"0.3",
+													"7.2"
+												],
+												[
+													"1860",
+													"16.8",
+													"0.3",
+													"5.04"
+												],
+												[
+													"1861",
+													"11.76",
+													"0.3",
+													"3.53"
+												]
+											]
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Table 3"
+										}
+									},
+									{ 
+										"__Table__": {
+											"header":[
+												"Year",
+												"Rabbits",
+												"Rabbits change (proportion)",
+												"Rabbits change (counts)"
+											],
+											"rows":[
+												[
+													"1859",
+													"24",
+													"0.6",
+													"14.4"
+												],
+												[
+													"1860",
+													"38.4",
+													"0.6",
+													"23.04"
+												],
+												[
+													"1861",
+													"61.44",
+													"0.6",
+													"36.87"
+												]
+											]
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Table 4"
+										}
+									},
+									{ 
+										"__Table__": {
+											"header":[
+												"Year",
+												"Rabbits",
+												"Rabbits change (proportion)",
+												"Rabbits change (counts)"
+											],
+											"rows":[[
+												"1859",
+												"24",
+												"0.3",
+												"7.2"
+											],
+											[
+												"1860",
+												"31.2",
+												"0.3",
+												"9.36"
+											],
+											[
+												"1861",
+												"40.56",
+												"0.3",
+												"12.17"
+											]
+											]
+										}
+									},
+									{
+                                        "__Dropdown__":{
+											"correct": "Table 4",
+											"options":[
+												"Table 1",
+												"Table 2",
+												"Table 3",
+												"Table 4"
+											]
+										}
+                                    }
+								]
+                            }
+                        }
+                    ]
+                }
+            },
+			{
+				"__Question__": {
+					"sub": "",
+					"sections": [
+						{
+							"__Section__": {
+								"content":[
+									{
+										"__Text__": {
+											"text": "<p><b>Step 3</b></p>: From the images below pick the Dragoon model which correctly defines the process in the above text."
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Model 1"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/model-rabbits-wrong-usage"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Model 2"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/model-rabbits-decrease"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Model 3"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/model-rabbits-parameters"
+										}
+									},
+									{
+										"__Text__": {
+											"text": "Model 4"
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/model-rabbits"
+										}
+									},
+									{
+                                        "__Dropdown__":{
+											"correct": "Model 3",
+											"options":[
+												"Model 1",
+												"Model 2",
+												"Model 3",
+												"Model 4"
+											]
+										}
+                                    }
+
+								]
+							}
+						}
+					]
+				}
+			},
+			{
+				"__Question__": {
+					"sub": "",
+					"sections": [
+						{
+							"__Section__": {
+								"content": [
+									{
+										"__Text__":{
+											"text": "Its time to make your first Dragoon Model. Do not forget to check the graph at the end of the model."
+										}
+									},
+									{
+										"__Dragoon__": {
+											"problem": "rabbits",
+											"mode": "STUDENT"
+										}
+									},
+                                    {
+                                        "__Text__": {
+                                            "text": "After completeing the model"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }            
+        ],
+        "name": "intro"
+    }
+}
