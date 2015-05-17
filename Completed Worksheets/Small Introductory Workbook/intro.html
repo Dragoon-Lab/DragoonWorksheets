@@ -19,6 +19,56 @@ var m = document.getElementById(modeID).value;
 var urlString = "http://dragoon.asu.edu/demo/index.html?u="+u+"&m="+m+"&p="+p+"&s="+s;
 window.open(urlString);
 }
+var hints = {
+	"1ai": {
+		"Process 1": "Number of dodos are constant.",
+		"Process 2": "Your answer is correct.",
+		"Process 3": "The proportion change is less than the factor shown in the problem text.",
+		"Process 4": "Dodos in population is increasing and not decreasing."
+	},
+	"2ai": {
+		"Table 1": "Dodos population is not changing",
+		"Table 2": "Your answer is correct",
+		"Table 3": "The proportion change is 0.1 where as problem text says that it is 0.2",
+		"Table 4": "Dodos in population is increasing"
+	},
+	"4ai": {
+		"Process 1": "Books owned by Rod are constant",
+		"Process 2": "Books are \"increasing\" by count of 4 every week",
+		"Process 3": "Books are \"decreasing\"  by count of 2 every week",
+		"Process 4": "Your answer is correct"
+	},
+	"5ai": {
+		"Table 1": "Number of books in the books column is constant",
+		"Table 2": "Your answer is correct",
+		"Table 3": "Books are \"increasing\" by the count of 4 every week",
+		"Table 4": "Books are \"decreasing\" by the count of 2 every week"
+	},
+	"6ai": {
+		"Model 1": "Initial value of books is set to a higher value of 200",
+		"Model 2": "Weekly bought books has higher value that is 4",
+		"Model 3": "Your answer is correct",
+		"Model 4": "The model shows that books are \"decreasing\" by 2 per week. This can be confirmed by the negative sign with the accumulator"
+	},
+	"8ai": {
+		"Process 1": "The number of rabbits are constant",
+		"Process 2": "Your answer is correct",
+		"Process 3": "The number of rabbits are decreasing",
+		"Process 4": "The number of rabbits are increasing at a faster proportion"
+	},
+	"9ai": {
+		"Table 1": "The number of rabbits are constant",
+		"Table 2": "The number of rabbits are decreasing as shown in the column \"Rabbits\"",
+		"Table 3": "Rabbits change proportion is set to 0.6 instead of 0.3",
+		"Table 4": "Your answer is correct"
+	},
+	"10ai": {
+		"Model 1": "Your answer is correct",
+		"Model 2": "Rabbits population is decreasing as represented by the negative sign with the accumulator",
+		"Model 3": "Population is set to be a parameter which remains constant and thus the answer is incorrect",
+		"Model 4": "net growth is set to an accumulator and population is set to a function. This means that net growth is increasing every instance and population is not getting accrued over time."
+	}
+};
 function checkAnswers(inputId, rightAnswer)
 {
 if(document.getElementById(inputId).value===rightAnswer) {
@@ -166,7 +216,7 @@ document.getElementById("user").style.background="#FF3333";alert("Please make su
 <option>Process 1</option>
 <option>Process 2</option>
 <option>Process 3</option>
-<option>Process 4</option></select></p></p>
+<option>Process 4</option></select></p><div id="hint-1ai" style = "color:red"></div>
 <script type="text/javascript">var set1 = {
 ai:0,}; 
 function cont1() {
@@ -178,7 +228,10 @@ if (document.getElementById("1ai").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("1ai", "Process 2")) { 
- set1.ai = set1.ai + 1;}
+ set1.ai = set1.ai + 1;
+	var answer = document.getElementById("1ai").value;
+	document.getElementById("hint-1ai").innerHTML = hints["1ai"][answer];
+}
 if ((checkAnswers("1ai", "Process 2") || set1.ai===3) &&1) {
  document.getElementById("question2").style.display = "";
  document.getElementById("button1").style.display = "none";
@@ -317,7 +370,7 @@ if(set1.ai===3)
 <option>Table 1</option>
 <option>Table 2</option>
 <option>Table 3</option>
-<option>Table 4</option></select></p></p>
+<option>Table 4</option></select></p></p><div id="hint-2ai" style = "color:red"></div>
 <script type="text/javascript">var set2 = {
 ai:0,}; 
 function cont2() {
@@ -329,7 +382,10 @@ if (document.getElementById("2ai").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("2ai", "Table 2")) { 
- set2.ai = set2.ai + 1;}
+ set2.ai = set2.ai + 1;
+	var answer = document.getElementById("2ai").value;
+    document.getElementById("hint-2ai").innerHTML = hints["2ai"][answer];
+}
 if ((checkAnswers("2ai", "Table 2") || set2.ai===3) &&1) {
  document.getElementById("question3").style.display = "";
  document.getElementById("button2").style.display = "none";
@@ -422,7 +478,7 @@ time4();
 <option>Process 1</option>
 <option>Process 2</option>
 <option>Process 3</option>
-<option>Process 4</option></select></p></p>
+<option>Process 4</option></select></p></p><div id="hint-4ai" style = "color:red"></div>
 <script type="text/javascript">var set4 = {
 ai:0,}; 
 function cont4() {
@@ -434,7 +490,10 @@ if (document.getElementById("4ai").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("4ai", "Process 4")) { 
- set4.ai = set4.ai + 1;}
+ set4.ai = set4.ai + 1;
+	var answer = document.getElementById("4ai").value;
+    document.getElementById("hint-4ai").innerHTML = hints["4ai"][answer];
+}
 if ((checkAnswers("4ai", "Process 4") || set4.ai===3) &&1) {
  document.getElementById("question5").style.display = "";
  document.getElementById("button4").style.display = "none";
@@ -557,7 +616,7 @@ if(set4.ai===3)
 <option>Table 1</option>
 <option>Table 2</option>
 <option>Table 3</option>
-<option>Table 4</option></select></p></p>
+<option>Table 4</option></select></p></p><div id="hint-5ai" style = "color:red"></div>
 <script type="text/javascript">var set5 = {
 ai:0,}; 
 function cont5() {
@@ -569,7 +628,10 @@ if (document.getElementById("5ai").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("5ai", "Table 2")) { 
- set5.ai = set5.ai + 1;}
+ set5.ai = set5.ai + 1;
+	var answer = document.getElementById("5ai").value;
+    document.getElementById("hint-5ai").innerHTML = hints["5ai"][answer];
+}
 if ((checkAnswers("5ai", "Table 2") || set5.ai===3) &&1) {
  document.getElementById("question6").style.display = "";
  document.getElementById("button5").style.display = "none";
@@ -628,7 +690,7 @@ if(set5.ai===3)
 <option>Model 1</option>
 <option>Model 2</option>
 <option>Model 3</option>
-<option>Model 4</option></select></p></p>
+<option>Model 4</option></select></p></p><div id="hint-6ai" style = "color:red"></div>
 <script type="text/javascript">var set6 = {
 ai:0,}; 
 function cont6() {
@@ -640,7 +702,10 @@ if (document.getElementById("6ai").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("6ai", "Model 3")) { 
- set6.ai = set6.ai + 1;}
+ set6.ai = set6.ai + 1;
+	var answer = document.getElementById("6ai").value;
+    document.getElementById("hint-6ai").innerHTML = hints["6ai"][answer];
+}
 if ((checkAnswers("6ai", "Model 3") || set6.ai===3) &&1) {
  document.getElementById("question7").style.display = "";
  document.getElementById("button6").style.display = "none";
@@ -694,7 +759,7 @@ if(set6.ai===3)
 <input type="hidden" name="problem7" id="problem7" value="111">
 <input type="hidden" name="mode7" id="mode7" value="STUDENT">
 <br><button id="dragoonButton7" onClick="openDragoonProblem(7);">Open Dragoon</button>
-<div id="dragoonErrorMessage7" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p>Your model need not look exactly like the one above&#mdash;the positions and colors of the nodes do not affect the calculations of the model.   You can move nodes by dragging on them.</p><p>When you have finished constructing the model, click on the Graph button to see how the main value of &quot;books&quot; changes over time.  Please manipulate the sliders on the right side of the Graph window; do the movements of the graph make sense to you?</p><p>This kind of model is called linear because the graph of the main quantity, books, is a straight line.  Because the main quantity increases, it&#39;s called a linear growth model.</p><p>Now click on the Done button.</p>
+<div id="dragoonErrorMessage7" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p>Your model need not look exactly like the one above&mdash;the positions and colors of the nodes do not affect the calculations of the model.   You can move nodes by dragging on them.</p><p>When you have finished constructing the model, click on the Graph button to see how the main value of &quot;books&quot; changes over time.  Please manipulate the sliders on the right side of the Graph window; do the movements of the graph make sense to you?</p><p>This kind of model is called linear because the graph of the main quantity, books, is a straight line.  Because the main quantity increases, it&#39;s called a linear growth model.</p><p>Now click on the Done button.</p>
 <script type="text/javascript">var set7 = {}; 
 function cont7() {
 var yestim7 = 0;
@@ -732,7 +797,7 @@ time8();
 <option>Process 1</option>
 <option>Process 2</option>
 <option>Process 3</option>
-<option>Process 4</option></select></p></p>
+<option>Process 4</option></select></p></p><div id="hint-8ai" style = "color:red"></div>
 <script type="text/javascript">var set8 = {
 ai:0,}; 
 function cont8() {
@@ -744,7 +809,9 @@ if (document.getElementById("8ai").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("8ai", "Process 2")) { 
- set8.ai = set8.ai + 1;}
+ set8.ai = set8.ai + 1;
+	var answer = document.getElementById("8ai").value;
+    document.getElementById("hint-8ai").innerHTML = hints["8ai"][answer];}
 if ((checkAnswers("8ai", "Process 2") || set8.ai===3) &&1) {
  document.getElementById("question9").style.display = "";
  document.getElementById("button8").style.display = "none";
@@ -883,7 +950,7 @@ if(set8.ai===3)
 <option>Table 1</option>
 <option>Table 2</option>
 <option>Table 3</option>
-<option>Table 4</option></select></p></p>
+<option>Table 4</option></select></p></p><div id="hint-9ai" style = "color:red"></div>
 <script type="text/javascript">var set9 = {
 ai:0,}; 
 function cont9() {
@@ -895,7 +962,9 @@ if (document.getElementById("9ai").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("9ai", "Table 4")) { 
- set9.ai = set9.ai + 1;}
+ set9.ai = set9.ai + 1;
+	var answer = document.getElementById("9ai").value;
+    document.getElementById("hint-9ai").innerHTML = hints["9ai"][answer];}
 if ((checkAnswers("9ai", "Table 4") || set9.ai===3) &&1) {
  document.getElementById("question10").style.display = "";
  document.getElementById("button9").style.display = "none";
@@ -954,7 +1023,7 @@ if(set9.ai===3)
 <option>Model 1</option>
 <option>Model 2</option>
 <option>Model 3</option>
-<option>Model 4</option></select></p></p>
+<option>Model 4</option></select></p></p><div id="hint-10ai" style = "color:red"></div>
 <script type="text/javascript">var set10 = {
 ai:0,}; 
 function cont10() {
@@ -966,7 +1035,9 @@ if (document.getElementById("10ai").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
 if (!checkAnswers("10ai", "Model 1")) { 
- set10.ai = set10.ai + 1;}
+ set10.ai = set10.ai + 1;
+	var answer = document.getElementById("10ai").value;
+    document.getElementById("hint-10ai").innerHTML = hints["10ai"][answer];}
 if ((checkAnswers("10ai", "Model 1") || set10.ai===3) &&1) {
  document.getElementById("question11").style.display = "";
  document.getElementById("button10").style.display = "none";
@@ -1110,7 +1181,7 @@ displayAnswers();
 </table>
 </div><script type="text/javascript">
 function displayAnswers () {
-document.getElementById("resultsTable").style.display=""
+document.getElementById("resultsTable").style.display="";
 document.getElementById("1aiTries").innerHTML=set1.ai;
 document.getElementById("2aiTries").innerHTML=set2.ai;
 document.getElementById("4aiTries").innerHTML=set4.ai;
