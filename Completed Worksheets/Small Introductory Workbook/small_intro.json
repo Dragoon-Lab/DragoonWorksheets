@@ -681,7 +681,7 @@
 									},
 									{
 										"__Image__": {
-											"image": "images/rabbits-constant.png"
+											"image": "images/rabbits-constant"
 										}
 									},
 									{
@@ -691,7 +691,7 @@
 									},
 									{
 										"__Image__": {
-											"image": "images/rabbits.png"
+											"image": "images/rabbits"
 										}
 									},
 									{
@@ -701,7 +701,7 @@
 									},
 									{
 										"__Image__": {
-											"image": "images/rabbits-decrease.png"
+											"image": "images/rabbits-decrease"
 										}
 									},
 									{
@@ -711,7 +711,7 @@
 									},
 									{
 										"__Image__": {
-											"image": "images/rabbits-faster.png"
+											"image": "images/rabbits-faster"
 										}
 									},
 									{
