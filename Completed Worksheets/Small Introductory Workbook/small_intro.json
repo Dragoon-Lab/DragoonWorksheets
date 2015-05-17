@@ -933,7 +933,7 @@
 									},
 									{
 										"__Image__": {
-											"image": "images/model-rabbits-wrong-usage"
+											"image": "images/model-rabbits"
 										}
 									},
 									{
@@ -963,7 +963,7 @@
 									},
 									{
 										"__Image__": {
-											"image": "images/model-rabbits"
+											"image": "images/model-rabbits-wrong-usage"
 										}
 									},
 									{
@@ -973,7 +973,7 @@
 									},
 									{
                                         "__Dropdown__":{
-											"correct": "Model 3",
+											"correct": "Model 1",
 											"options":[
 												"Model 1",
 												"Model 2",
@@ -1002,7 +1002,7 @@
 								"content": [
 									{
 										"__Text__":{
-											"text": "Its time to make your first Dragoon Model. Do not forget to check the graph at the end of the model."
+											"text": "Its time to make the Dragoon Model for Rabbits problem. Do not forget to check the graph after you think you have finished the problem, to check your solution."
 										}
 									},
 									{
@@ -1013,7 +1013,7 @@
 									},
                                     {
                                         "__Text__": {
-                                            "text": "After completeing the model"
+                                            "text": "After completeing the model hit Continue button to finish the workbook."
                                         }
                                     }
                                 ]

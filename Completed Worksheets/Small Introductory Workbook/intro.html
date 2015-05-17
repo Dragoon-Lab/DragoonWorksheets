@@ -111,7 +111,7 @@ if(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){
 userObject = JSON.parse(xmlHTTP.responseText);
 }
 }
-var url = "../demo/log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
+var url = "../../demo/log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
 //var url = "log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
 xmlHTTP.open("GET", url, false);
 xmlHTTP.send();
@@ -946,10 +946,10 @@ if(set9.ai===3)
 <br><button id="button9" onClick="cont9();">Continue</button>
 <div id="question10" style="display: none">
 <h3></h3><p><b>Step 3</b></p>: From the images below pick the Dragoon model which correctly defines the process in the above text.Model 1
-</p><img src ="images/model-rabbits-wrong-usage.JPG"/><p>Model 2
+</p><img src ="images/model-rabbits.JPG"/><p>Model 2
 </p><img src ="images/model-rabbits-decrease.JPG"/><p>Model 3
 </p><img src ="images/model-rabbits-parameters.JPG"/><p>Model 4
-</p><img src ="images/model-rabbits.JPG"/><p></p><p>Select the correct model from the dropdown - <select id="10ai">
+</p><img src ="images/model-rabbits-wrong-usage.JPG"/><p></p><p>Select the correct model from the dropdown - <select id="10ai">
 <option></option>
 <option>Model 1</option>
 <option>Model 2</option>
@@ -961,13 +961,13 @@ function cont10() {
 var yestim10 = 0;
 document.getElementById("10Time").innerHTML = tim10;
 
-checkAnswers("10ai", "Model 3");
+checkAnswers("10ai", "Model 1");
 if (document.getElementById("10ai").value==="" || 0) {
  alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
 }
-if (!checkAnswers("10ai", "Model 3")) { 
+if (!checkAnswers("10ai", "Model 1")) { 
  set10.ai = set10.ai + 1;}
-if ((checkAnswers("10ai", "Model 3") || set10.ai===3) &&1) {
+if ((checkAnswers("10ai", "Model 1") || set10.ai===3) &&1) {
  document.getElementById("question11").style.display = "";
  document.getElementById("button10").style.display = "none";
 
@@ -984,7 +984,7 @@ var yestim11 = 1;
 time11();
 }
 
-if (!checkAnswers("10ai", "Model 3")) {
+if (!checkAnswers("10ai", "Model 1")) {
 if (set10.ai===3) {
 document.getElementById("10ai").style.background="#FFFF00";
  document.getElementById("10aiAnswer3").innerHTML = document.getElementById("10ai").value 
@@ -1011,16 +1011,16 @@ if (set10.ai=== 1) {
 }
 };
 if(set10.ai===3)
-{document.getElementById("10ai").value="Model 3"};};
+{document.getElementById("10ai").value="Model 1"};};
 </script>
 
 <br><button id="button10" onClick="cont10();">Continue</button>
 <div id="question11" style="display: none">
-<h3></h3>Its time to make your first Dragoon Model. Do not forget to check the graph at the end of the model.</p>
+<h3></h3>Its time to make the Dragoon Model for Rabbits problem. Do not forget to check the graph after you think you have finished the problem, to check your solution.</p>
 <input type="hidden" name="problem11" id="problem11" value="rabbits">
 <input type="hidden" name="mode11" id="mode11" value="STUDENT">
 <br><button id="dragoonButton11" onClick="openDragoonProblem(11);">Open Dragoon</button>
-<div id="dragoonErrorMessage11" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p>After completeing the model</p>
+<div id="dragoonErrorMessage11" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p>After completeing the model hit Continue button to finish the workbook.</p>
 <script type="text/javascript">var set11 = {}; 
 function cont11() {
 var yestim11 = 0;
@@ -1101,7 +1101,7 @@ displayAnswers();
 <tr>
 <tr>
 <td style="border: 2pt black solid">10a. i.</td>
-<td style="border: 2pt black solid">Model 3</td>
+<td style="border: 2pt black solid">Model 1</td>
 <td style="border: 2pt black solid"><div id="10aiAnswer1"></div><div id="10aiAnswer2"></div><div id="10aiAnswer3"></div></td>
 <td style="border: 2pt black solid"><div id="10aiTries"></div></td>
 <td style="border: 2pt black solid"><div id="10Time"></div></td>

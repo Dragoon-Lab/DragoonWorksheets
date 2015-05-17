@@ -111,7 +111,7 @@ if(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){
 userObject = JSON.parse(xmlHTTP.responseText);
 }
 }
-var url = "../demo/log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
+var url = "../../demo/log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
 //var url = "log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
 xmlHTTP.open("GET", url, false);
 xmlHTTP.send();
