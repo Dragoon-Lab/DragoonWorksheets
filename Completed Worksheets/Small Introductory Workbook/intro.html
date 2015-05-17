@@ -233,6 +233,9 @@ if (!checkAnswers("1ai", "Process 2")) {
 	document.getElementById("hint-1ai").innerHTML = hints["1ai"][answer];
 }
 if ((checkAnswers("1ai", "Process 2") || set1.ai===3) &&1) {
+	if(checkAnswers("1ai", "Process 2")){
+		document.getElementById("hint-1ai").innerHTML = "";
+	}
  document.getElementById("question2").style.display = "";
  document.getElementById("button1").style.display = "none";
 
@@ -387,7 +390,10 @@ if (!checkAnswers("2ai", "Table 2")) {
     document.getElementById("hint-2ai").innerHTML = hints["2ai"][answer];
 }
 if ((checkAnswers("2ai", "Table 2") || set2.ai===3) &&1) {
- document.getElementById("question3").style.display = "";
+ 	if(checkAnswers("2ai", "Table 2")){
+		document.getElementById("hint-2ai").innerHTML = "";
+	}
+	document.getElementById("question3").style.display = "";
  document.getElementById("button2").style.display = "none";
 
 document.getElementById("2ai").disabled=true;
@@ -495,7 +501,10 @@ if (!checkAnswers("4ai", "Process 4")) {
     document.getElementById("hint-4ai").innerHTML = hints["4ai"][answer];
 }
 if ((checkAnswers("4ai", "Process 4") || set4.ai===3) &&1) {
- document.getElementById("question5").style.display = "";
+ 	if(checkAnswers("4ai", "Process 4")){
+		document.getElementById("hint-4ai").innerHTML = "";
+	}
+	document.getElementById("question5").style.display = "";
  document.getElementById("button4").style.display = "none";
 
 document.getElementById("4ai").disabled=true;
@@ -633,7 +642,10 @@ if (!checkAnswers("5ai", "Table 2")) {
     document.getElementById("hint-5ai").innerHTML = hints["5ai"][answer];
 }
 if ((checkAnswers("5ai", "Table 2") || set5.ai===3) &&1) {
- document.getElementById("question6").style.display = "";
+ 	if(checkAnswers("5ai", "Table 2")){
+		document.getElementById("hint-5ai").innerHTML = "";
+	}
+	document.getElementById("question6").style.display = "";
  document.getElementById("button5").style.display = "none";
 
 document.getElementById("5ai").disabled=true;
@@ -707,7 +719,10 @@ if (!checkAnswers("6ai", "Model 3")) {
     document.getElementById("hint-6ai").innerHTML = hints["6ai"][answer];
 }
 if ((checkAnswers("6ai", "Model 3") || set6.ai===3) &&1) {
- document.getElementById("question7").style.display = "";
+ 	if(checkAnswers("6ai", "Model 3")){
+		document.getElementById("hint-6ai").innerHTML = "";
+	}
+	document.getElementById("question7").style.display = "";
  document.getElementById("button6").style.display = "none";
 
 document.getElementById("6ai").disabled=true;
@@ -813,7 +828,10 @@ if (!checkAnswers("8ai", "Process 2")) {
 	var answer = document.getElementById("8ai").value;
     document.getElementById("hint-8ai").innerHTML = hints["8ai"][answer];}
 if ((checkAnswers("8ai", "Process 2") || set8.ai===3) &&1) {
- document.getElementById("question9").style.display = "";
+	if(checkAnswers("8ai", "Process 2")){
+		document.getElementById("hint-8ai").innerHTML = "";
+	}
+	document.getElementById("question9").style.display = "";
  document.getElementById("button8").style.display = "none";
 
 document.getElementById("8ai").disabled=true;
@@ -966,7 +984,10 @@ if (!checkAnswers("9ai", "Table 4")) {
 	var answer = document.getElementById("9ai").value;
     document.getElementById("hint-9ai").innerHTML = hints["9ai"][answer];}
 if ((checkAnswers("9ai", "Table 4") || set9.ai===3) &&1) {
- document.getElementById("question10").style.display = "";
+ 	if(checkAnswers("9ai", "Table 4")){
+		document.getElementById("hint-9ai").innerHTML = "";
+	}
+	document.getElementById("question10").style.display = "";
  document.getElementById("button9").style.display = "none";
 
 document.getElementById("9ai").disabled=true;
@@ -1039,7 +1060,10 @@ if (!checkAnswers("10ai", "Model 1")) {
 	var answer = document.getElementById("10ai").value;
     document.getElementById("hint-10ai").innerHTML = hints["10ai"][answer];}
 if ((checkAnswers("10ai", "Model 1") || set10.ai===3) &&1) {
- document.getElementById("question11").style.display = "";
+ 	if(checkAnswers("10ai", "Model 1")){
+		document.getElementById("hint-10ai").innerHTML = "";
+	}
+	document.getElementById("question11").style.display = "";
  document.getElementById("button10").style.display = "none";
 
 document.getElementById("10ai").disabled=true;
