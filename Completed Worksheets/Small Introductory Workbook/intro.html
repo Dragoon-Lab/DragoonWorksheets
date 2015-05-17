@@ -163,12 +163,12 @@ document.getElementById("user").style.background="#FF3333";alert("Please make su
 </p><img src ="images/dodos-constant.JPG"/><p>Process 2
 </p><img src ="images/dodos.JPG"/><p>Process 3
 </p><img src ="images/dodos-slower.JPG"/><p>Process 4
-</p><img src ="images/dodos-increase.JPG"/><p><select id="1ai">
+</p><img src ="images/dodos-increase.JPG"/><p></p><p>Select the correct option from the dropdown - <select id="1ai">
 <option></option>
 <option>Process 1</option>
 <option>Process 2</option>
 <option>Process 3</option>
-<option>Process 4</option></select></p>
+<option>Process 4</option></select></p></p>
 <script type="text/javascript">var set1 = {
 ai:0,}; 
 function cont1() {
@@ -314,7 +314,7 @@ if(set1.ai===3)
 <td style="border: 2pt black solid"></td>
 <td style="border: 2pt black solid"></td></tr>
 </tbody>
-</table>Select the correct option from the dropdown.<select id="2ai">
+</table></p><p>Select the correct option from the dropdown - <select id="2ai">
 <option></option>
 <option>Table 1</option>
 <option>Table 2</option>
@@ -382,11 +382,11 @@ if(set2.ai===3)
 <br><button id="button2" onClick="cont2();">Continue</button>
 <div id="question3" style="display: none">
 <h3></h3>It would be tedious to create tables like the one you chose, it's way too much arithematic. So let us build a model to represent this dynamic system of a shrinking dodo population.  Let&#39;s start by defining our nodes, of which there are 3:<ul><li><i>Death rate</i> is the percentage of the dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn&#39;t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i> represents the number of dodos still alive.  We are given an initial value for this quantity, 1000 dodos, and the number of dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population &#45; deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>.</li><li><i>Deaths</i> represents the number of dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (population * death rate).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>A Dragoon model for this system would look like this:
-</p><img src ="introductory_worksheet/image1.JPG"/><p>This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes.  Parameter nodes are diamonds, and the inside of a Parameter node shows its value.  Function nodes are circles.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node, which is a square, shows its <i>initial</i> value.</p><p>You create such nodes by clicking on a &quot;Create node&quot; button and filling out the form that pops up.   The form is called the <i>node editor</i>.  You can also click on an existing node to edit it.  Below are snapshots showing the node editor just as each node has been fully defined and the node editor is about to be closed.  See if you can figure out which node editor snapshot goes with which node above.
-</p><img src ="introductory_worksheet/image2.JPG"/><p>
-</p><img src ="introductory_worksheet/image3.JPG"/><p>
-</p><img src ="introductory_worksheet/image4.JPG"/><p>Notice that the node editor snapshots look slightly different from each other.  Do the differences make sense to you?</p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button would display the same information in graph form (see right figure).
-</p><img src ="introductory_worksheet/image5.JPG"/><p>While the dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.<h4>Summary</h4><p>So the general procedure to model a system is:</p><ol><li><i>Envision</i> how the system changes over time. One can imagine them using pictures like the sequence of dodo population pictures you saw earlier.</li><li><i>Quantify</i> the system changes. Imagine a table like the ones you selected earlier, then think of what will be quantities/columns? What arithmetic do you need to do to fill in the table cells?</li><li><i>Construct</i> the Dragoon model.</li><li>Graph the models predictions. Do they match your mental images of the system's change? If not, consider editing your model.</li></ol></p>
+</p><img src ="introductory_workbook/image1.JPG"/><p>This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes.  Parameter nodes are diamonds, and the inside of a Parameter node shows its value.  Function nodes are circles.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node, which is a square, shows its <i>initial</i> value.</p><p>You create such nodes by clicking on a &quot;Create node&quot; button and filling out the form that pops up.   The form is called the <i>node editor</i>.  You can also click on an existing node to edit it.  Below are snapshots showing the node editor just as each node has been fully defined and the node editor is about to be closed.  See if you can figure out which node editor snapshot goes with which node above.
+</p><img src ="introductory_workbook/image2.JPG"/><p>
+</p><img src ="introductory_workbook/image3.JPG"/><p>
+</p><img src ="introductory_workbook/image4.JPG"/><p>Notice that the node editor snapshots look slightly different from each other.  Do the differences make sense to you?</p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button would display the same information in graph form (see right figure).
+</p><img src ="introductory_workbook/image5.JPG"/><p>While the dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.<h4>Summary</h4><p>So the general procedure to model a system is:</p><ol><li><i>Envision</i> how the system changes over time. One can imagine them using pictures like the sequence of dodo population pictures you saw earlier.</li><li><i>Quantify</i> the system changes. Imagine a table like the ones you selected earlier, then think of what will be quantities/columns? What arithmetic do you need to do to fill in the table cells?</li><li><i>Construct</i> the Dragoon model.</li><li>Graph the models predictions. Do they match your mental images of the system's change? If not, consider editing your model.</li></ol></p>
 <script type="text/javascript">var set3 = {}; 
 function cont3() {
 var yestim3 = 0;
@@ -418,13 +418,13 @@ time4();
 <h3>Dragoon Problem 1:</h3>The simplest type of system is one where there is a single quantity that goes up or down by the same constant amount each time step.  For example, consider this system:</p><blockquote>Rod is a bookworm.  He already has 100 books.  Each week, he buys two more books.  Construct a model that shows how many books he has each week.</blockquote>The time step here is a week. One way to solve such problems is to think about each quantity, decide how it changes, and define a node for it. Let&#39;s try that method on the bookworm problem.</p><p>The problem has two quantities. We will try to first envision the model. Select which image fits the process described above, from the dropdown below.Process 1
 </p><img src ="images/books-constant.JPG"/><p>Process 2
 </p><img src ="images/books-faster.JPG"/><p>Process 3
-</p><img src ="images/books-increase.JPG"/><p>Process 4
-</p><img src ="images/books.JPG"/><p><select id="4ai">
+</p><img src ="images/books-decrease.JPG"/><p>Process 4
+</p><img src ="images/books.JPG"/><p></p><p>Select the correct image from the dropdown - <select id="4ai">
 <option></option>
 <option>Process 1</option>
 <option>Process 2</option>
 <option>Process 3</option>
-<option>Process 4</option></select></p>
+<option>Process 4</option></select></p></p>
 <script type="text/javascript">var set4 = {
 ai:0,}; 
 function cont4() {
@@ -554,12 +554,12 @@ if(set4.ai===3)
 <td style="border: 2pt black solid">96</td>
 <td style="border: 2pt black solid">2</td></tr>
 </tbody>
-</table><select id="5ai">
+</table></p><p>Select the correct table from the dropdown - <select id="5ai">
 <option></option>
 <option>Table 1</option>
 <option>Table 2</option>
 <option>Table 3</option>
-<option>Table 4</option></select></p>
+<option>Table 4</option></select></p></p>
 <script type="text/javascript">var set5 = {
 ai:0,}; 
 function cont5() {
@@ -625,12 +625,12 @@ if(set5.ai===3)
 </p><img src ="images/model-books-200.JPG"/><p>Model 2
 </p><img src ="images/model-books-faster.JPG"/><p>Model 3
 </p><img src ="images/model-books.JPG"/><p>Model 4
-</p><img src ="images/model-books-decrease.JPG"/><p><select id="6ai">
+</p><img src ="images/model-books-decrease.JPG"/><p></p><p>Select the correct model from the dropdown - <select id="6ai">
 <option></option>
 <option>Model 1</option>
 <option>Model 2</option>
 <option>Model 3</option>
-<option>Model 4</option></select></p>
+<option>Model 4</option></select></p></p>
 <script type="text/javascript">var set6 = {
 ai:0,}; 
 function cont6() {
@@ -729,7 +729,7 @@ time8();
 </p><img src ="images/rabbits-constant.png.JPG"/><p>Process 2
 </p><img src ="images/rabbits.png.JPG"/><p>Process 3
 </p><img src ="images/rabbits-decrease.png.JPG"/><p>Process 4
-</p><img src ="images/rabbits-faster.png.JPG"/><p><select id="8ai">
+</p><img src ="images/rabbits-faster.png.JPG"/><p></p><p>Select the correct image from the dropdown - <select id="8ai">
 <option></option>
 <option>Process 1</option>
 <option>Process 2</option>
@@ -880,12 +880,12 @@ if(set8.ai===3)
 <td style="border: 2pt black solid">0.3</td>
 <td style="border: 2pt black solid">12.17</td></tr>
 </tbody>
-</table><select id="9ai">
+</table></p><p>Select the correct table from the dropdown - <select id="9ai">
 <option></option>
 <option>Table 1</option>
 <option>Table 2</option>
 <option>Table 3</option>
-<option>Table 4</option></select></p>
+<option>Table 4</option></select></p></p>
 <script type="text/javascript">var set9 = {
 ai:0,}; 
 function cont9() {
@@ -951,12 +951,12 @@ if(set9.ai===3)
 </p><img src ="images/model-rabbits-wrong-usage.JPG"/><p>Model 2
 </p><img src ="images/model-rabbits-decrease.JPG"/><p>Model 3
 </p><img src ="images/model-rabbits-parameters.JPG"/><p>Model 4
-</p><img src ="images/model-rabbits.JPG"/><p><select id="10ai">
+</p><img src ="images/model-rabbits.JPG"/><p></p><p>Select the correct model from the dropdown - <select id="10ai">
 <option></option>
 <option>Model 1</option>
 <option>Model 2</option>
 <option>Model 3</option>
-<option>Model 4</option></select></p>
+<option>Model 4</option></select></p></p>
 <script type="text/javascript">var set10 = {
 ai:0,}; 
 function cont10() {
