@@ -3,7 +3,7 @@
         "loose": [
 			{
                 "__LsText__": {
-						"text": "<h3>Generic Models</h3><h4>Motivation</h4><p>Going through simpler models and following the steps of <ol><li>envisioning</li><li>quantifying</li><li>constructing</li><li>testing (via Graphs and Tables)</li></ol> is very tedious. To construct models for the complicated scenarios, these steps become time consuming and mathematically overwhelming. So, to further ones' learning they need to break the complicated processes to elementary models. These elementary models are called <i>template models</i>. These templates interact through nodes to create more complicated dynamic systems.  Lets go through them now.</p>",
+						"text": "<h3>Generic Models</h3><h4>Motivation</h4><p>Going through simpler models and following the steps of <ol><li>envisioning</li><li>quantifying</li><li>constructing</li><li>testing (via Graphs and Tables)</li></ol> is very tedious. To construct models for the complicated systems. Thus, you need to break a complicated process into several elementary ones, such that each elementary process fits a generic <i>template model</i>. This workbook teaches you how to do this.</p>",
 					"before": 1
                 }
             }
@@ -18,9 +18,14 @@
                                 "content": [
                                     {
                                         "__Text__": {
-										"text": "<h4>Introduction</h4><p>Dynamic models show us how value is changing from one quantity to another. This process is called <i>transfer</i>. To give a general names to these quantities: <ol><li>Source: the quantity which decreases.</li><li>Destination: quantity which increases</li><li>Changing: the factor by which the quantity is changing.</li></ol>If the values are linearly, that is if the source is decreasing by at a pace and destination is increasing by a constant factor of source then the transfer process is called linear. Similarly if the transfer is proportional to the source or destination then it is called exponential. In this exponential process if the system is trying to achieve a set point, then the process is called homeostasis. To summarize, the whole transfer process is always between two quantities, and the changing factor defines what kind of process it is.</p><p>Now you will solve some Dragoon Problems where you will see such template models working.</p><h4>Instructions</h4><p>Every problem has some idea attached to it, which will be in the form of lessons learned. Once you think you have completed the problem then you should check the graph. It gives a feedback whether the model you have constructed matches the authored model or not. If it does, then as soon as you will close the graph you will see that a Lessons Learned window will pop up. This window will try to help you understand the process that you were creating as per the templates explained above. You might have realized uptill now that <ul><li>Dodos population was <b>exponential decay</b> process<li>Rod's bookworm problem was a <b>linear growth</b> process</li><li>Rabbits population was <b>exponential growth</b> process</li></ul>. Did you realize what was the difference in decay and growth processes.</p><p>Without further adieu, lets get down to analysis of templates interacting together to form bigger models.</p>"
+											"text": "<h4>Introduction</h4><p>The simplest template model focuses on how one quantity changes. The most common such processes are: <ul><li><b>linear growth</b>: the quantity <i>increases</i> by a <i>constant</i> amount after each time step. For example, Rod&#39;s book collection was increasing by a constant amount.</li><li><b>exponential growth</b>: The quantity <i>increases</i> and the increases is a <i>constant proportion</i> (like 20% or 0.2) of the quantity. For example, Rabbit&#39;s population was growing by a proportion of 0.3 times the population quantity.</li><li><b>exponential decay</b>: the quantity <i>decreases</i> and the decrease is a <i>constant proportion</i>. Foe example, the dodo population was decreasing by a proportion of 20% or 0.2 every year.</li></ul></p>"
                                         }
-                                    }
+                                    },
+									{
+										"__Text__": {
+											"text": "<h4>Instructions</h4><p>This work book will give you a sequence of problems to help you learn how to decompose complex problems combinations of these simple template models. Please click continue, when you are ready to work on these problems."
+										}
+									}
                                 ]
                             }
                         }
@@ -46,16 +51,16 @@
                     ]
                 }
             },
-            {
+			{
                 "__Question__": {
                     "sub": "Dragoon Problem 2:",
                     "sections": [
                         {
                             "__Section__": {
                                 "content": [
-									{
-										"__Dragoon__":{
-											"problem": "CPI-2014-ps1-06",
+                                    {
+										"__Dragoon__": {
+											"problem": "CPI-2014-ps2-01",
 											"mode": "STUDENT"
 										}
 									}
@@ -72,19 +77,19 @@
                         {
                             "__Section__": {
                                 "content": [
-                                    {
+									{
 										"__Dragoon__":{
-											"problem": "CPI-2014-ps1-10",
+											"problem": "CPI-2014-ps1-06",
 											"mode": "STUDENT"
 										}
-                                    }
+									}
                                 ]
                             }
                         }
                     ]
                 }
             },
-            {
+           {
                 "__Question__": {
                     "sub": "Dragoon Problem 4:",
                     "sections": [
@@ -149,17 +154,18 @@
                             "__Section__": {
                                 "content": [
                                     {
-										"__Dragoon__": {
-											"problem": "CPI-2014-ps3-03",
+										"__Dragoon__":{
+											"problem": "CPI-2014-ps4-02",
 											"mode": "STUDENT"
 										}
-									}
+                                    }
                                 ]
                             }
                         }
                     ]
                 }
             },
+ 
 			{
                 "__Question__": {
                     "sub": "Dragoon Problem 8:",
@@ -169,7 +175,7 @@
                                 "content": [
                                     {
 										"__Dragoon__": {
-											"problem": "CPI-2014-ps3-07",
+											"problem": "CPI-2014-ps3-03",
 											"mode": "STUDENT"
 										}
 									}
@@ -188,7 +194,7 @@
                                 "content": [
                                     {
 										"__Dragoon__": {
-											"problem": "CPI-2014-ps4-05",
+											"problem": "CPI-2014-ps3-07",
 											"mode": "STUDENT"
 										}
 									}

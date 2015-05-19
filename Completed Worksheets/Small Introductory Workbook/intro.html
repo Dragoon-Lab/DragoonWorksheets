@@ -18,8 +18,7 @@ var modeID = "mode" + num.toString();
 var m = document.getElementById(modeID).value;
 var urlString = "http://dragoon.asu.edu/demo/index.html?u="+u+"&m="+m+"&p="+p+"&s="+s;
 window.open(urlString);
-}
-var hints = {
+}\var hints = {
 	"1ai": {
 		"Process 1": "Number of dodos are constant.",
 		"Process 2": "Your answer is correct.",
@@ -207,7 +206,7 @@ document.getElementById("user").style.background="#FF3333";alert("Please make su
 };
 </script>
 <p><h3><b>Systems Dynamics Modeling with Dragoon: An introduction</b></h3></p><p>Systems Dynamics Modeling is a method of understanding systems (i.e., parts of the world that you are interested in) that change over time (i.e., they are dynamic).  It works by viewing the system as interacting quantities&mdash;called &quot;nodes&quot; in the Dragoon software.  A model is made by defining both nodes and the mathematical relationships between them.  In particular, if Node A has an effect on Node B, Node A is considered an &quot;input&quot; of Node B.  Once all the nodes and inputs are defined, the computer can calculate the change in the system over time and graph the results.</p><p><b>Parameters, Accumulators, and Functions</b></p><p>Models in Dragoon are made up of three types of nodes:  Parameters, Accumulators, and Functions.<ul><li>Parameters are the simplest type of node.  A parameter represents a <b>fixed quantity that never changes</b>.  Parameters are used to represent constant values (height of building being 12 m).</li><li>An accumulator represents a <b>quantity that accumulates the values of its inputs over time</b>.  As each input arrives, it changes the value of the accumulator, so inputs represent changes to the accumulator&#39;s value.  At each time step, the inputs are added or subtracted from the current value of the accumulator&mdash;that determines its value at the next time step.</li><li>Functions represent <b>a value that is directly related to the values of its inputs, without regard to its own previous value</b>.  The inputs to functions determine the value of the function.  A function differs from an accumulator in that it does not need to know its previous value in order to determine its next value.</li></ul>Accumulators and functions seem very similar at first, and it can take some practice to determine if a particular quantity should be represented as one or the other.  To determine if a quantity should be an accumulator, ask the question:  &quot;Does this quantity add or subtract new values to itself each time step to find its new value?&quot; If it does, then the quantity is an Accumulator.  If it does not, then the quantity is a Function.  Additionally, Accumulators typically have an initial value associated with them, whereas Functions do not.</p><h3>Example system:</h3><p> Let&#39;s start by modeling a simple system: a population of dodo birds as they were becoming extinct.  Suppose that there were 1000 dodo birds (pronounced &quot;doh doh&quot;) in the population initially and that 20% of the dodo birds died each year.  Thus, the number of deaths in the first year was 1000 * 20% = 200 deaths, leaving 800 dodos alive at the beginning of the second year.  The number of deaths in the second year was 800 * 20% = 160 deaths, leaving 640 dodos alive for the start of the third year. Because the number of dodo birds and the number of deaths change over the years, this is a dynamic system.</p>
-<h3>Modeling the system without shortcuts</h3></p><h4>Step 1</h4><p>To construct a dragoon, one needs to first envision the dynamic system. To see if you understand the system&#39;s behavior, please choose one of the sequences of pictures that show dodo population changing over the year. Select the option from the dropdown after the images</p><p>Process 1
+<h3>Modeling the system without shortcuts</h3></p><h4>Step 1</h4><p>To construct a Dragoon model, one needs to first envision the dynamic system. To see if you understand the system&#39;s behavior, please choose one of the sequences of pictures that show dodo population changing over the year. Don&#39;t worry about the fact that there are 1000 dodos in the population but only 50 dodo pictures. Try to figure out the pattern and select the correct option from the dropdown after the images</p><p>Process 1
 </p><img src ="images/dodos-constant.JPG"/><p>Process 2
 </p><img src ="images/dodos.JPG"/><p>Process 3
 </p><img src ="images/dodos-slower.JPG"/><p>Process 4
@@ -216,7 +215,7 @@ document.getElementById("user").style.background="#FF3333";alert("Please make su
 <option>Process 1</option>
 <option>Process 2</option>
 <option>Process 3</option>
-<option>Process 4</option></select></p><div id="hint-1ai" style = "color:red"></div>
+<option>Process 4</option></select></p></p><div id="hint-1ai" style = "color:red"></div>
 <script type="text/javascript">var set1 = {
 ai:0,}; 
 function cont1() {
@@ -390,10 +389,10 @@ if (!checkAnswers("2ai", "Table 2")) {
     document.getElementById("hint-2ai").innerHTML = hints["2ai"][answer];
 }
 if ((checkAnswers("2ai", "Table 2") || set2.ai===3) &&1) {
- 	if(checkAnswers("2ai", "Table 2")){
+	if(checkAnswers("2ai", "Table 2")){
 		document.getElementById("hint-2ai").innerHTML = "";
 	}
-	document.getElementById("question3").style.display = "";
+ document.getElementById("question3").style.display = "";
  document.getElementById("button2").style.display = "none";
 
 document.getElementById("2ai").disabled=true;
@@ -441,11 +440,11 @@ if(set2.ai===3)
 
 <br><button id="button2" onClick="cont2();">Continue</button>
 <div id="question3" style="display: none">
-<h3></h3>It would be tedious to create tables like the one you chose, it's way too much arithematic. So let us build a model to represent this dynamic system of a shrinking dodo population.  Let&#39;s start by defining our nodes, of which there are 3:<ul><li><i>Death rate</i> is the percentage of the dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn&#39;t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i> represents the number of dodos still alive.  We are given an initial value for this quantity, 1000 dodos, and the number of dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population &#45; deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>.</li><li><i>Deaths</i> represents the number of dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (population * death rate).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>A Dragoon model for this system would look like this:
+<h3></h3>It would be tedious to create tables like the one you chose; it&#39;s way too much arithematic. So let us build a model to represent this dynamic system of a shrinking dodo population.  Let&#39;s start by defining our nodes, of which there are 3:<ul><li><i>Death rate</i> is the percentage of the dodo population that dies each year.  This is given to us as a constant value of 20% each year, so it is a <b>Parameter</b>.  Because Dragoon doesn&#39;t understand percentages, the value of <i>death rate</i> is 0.2.</li><li><i>Population</i> represents the number of dodos still alive.  We are given an initial value for this quantity, 1000 dodos, and the number of dodos alive at the end of each year is dependent on the number alive in the previous year (new population = old population &#45; deaths).  Thus we know the <i>population</i> node is an <b>Accumulator</b>.</li><li><i>Deaths</i> represents the number of dodos that die in a given year.  This is a quantity that is completely determined by the value of two other inputs (population * death rate).  Note that the number of deaths each year does not require knowledge of the deaths of the previous year to compute; this means the <i>deaths</i> node is a <b>Function</b>.</li></ul>A Dragoon model for this system would look like this:
 </p><img src ="introductory_workbook/image1.JPG"/><p>This model has the Parameter, Accumulator, and Function nodes discussed above.  Different types of nodes have different shapes.  Parameter nodes are diamonds, and the inside of a Parameter node shows its value.  Function nodes are circles.  The inside of a Function node shows the mathematical operation that combines its input.  The inside of an Accumulator node, which is a square, shows its <i>initial</i> value.</p><p>You create such nodes by clicking on a &quot;Create node&quot; button and filling out the form that pops up.   The form is called the <i>node editor</i>.  You can also click on an existing node to edit it.  Below are snapshots showing the node editor just as each node has been fully defined and the node editor is about to be closed.  See if you can figure out which node editor snapshot goes with which node above.
 </p><img src ="introductory_workbook/image2.JPG"/><p>
 </p><img src ="introductory_workbook/image3.JPG"/><p>
-</p><img src ="introductory_workbook/image4.JPG"/><p>Notice that the node editor snapshots look slightly different from each other.  Do the differences make sense to you?</p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to your work by hand (see left figure, below); the Graph button would display the same information in graph form (see right figure).
+</p><img src ="introductory_workbook/image4.JPG"/><p>Notice that the node editor snapshots look slightly different from each other.  Do the differences make sense to you?</p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to the table you correctly selected earlier (see left figure, below); the Graph button would display the same information in graph form (see right figure).
 </p><img src ="introductory_workbook/image5.JPG"/><p>While the dodos extinction system is simple, other systems may be much more complex.  Their predictions would be exceptionally difficult to compute by hand, but by constructing a Dragoon model, we can have Dragoon calculate the predictions which makes it much easier to understand the system.<h4>Summary</h4><p>So the general procedure to model a system is:</p><ol><li><i>Envision</i> how the system changes over time. One can imagine them using pictures like the sequence of dodo population pictures you saw earlier.</li><li><i>Quantify</i> the system changes. Imagine a table like the ones you selected earlier, then think of what will be quantities/columns? What arithmetic do you need to do to fill in the table cells?</li><li><i>Construct</i> the Dragoon model.</li><li>Graph the models predictions. Do they match your mental images of the system's change? If not, consider editing your model.</li></ol></p>
 <script type="text/javascript">var set3 = {}; 
 function cont3() {
@@ -501,10 +500,10 @@ if (!checkAnswers("4ai", "Process 4")) {
     document.getElementById("hint-4ai").innerHTML = hints["4ai"][answer];
 }
 if ((checkAnswers("4ai", "Process 4") || set4.ai===3) &&1) {
- 	if(checkAnswers("4ai", "Process 4")){
+	if(checkAnswers("4ai", "Process 4")){
 		document.getElementById("hint-4ai").innerHTML = "";
 	}
-	document.getElementById("question5").style.display = "";
+ document.getElementById("question5").style.display = "";
  document.getElementById("button4").style.display = "none";
 
 document.getElementById("4ai").disabled=true;
@@ -642,10 +641,10 @@ if (!checkAnswers("5ai", "Table 2")) {
     document.getElementById("hint-5ai").innerHTML = hints["5ai"][answer];
 }
 if ((checkAnswers("5ai", "Table 2") || set5.ai===3) &&1) {
- 	if(checkAnswers("5ai", "Table 2")){
+	if(checkAnswers("5ai", "Table 2")){
 		document.getElementById("hint-5ai").innerHTML = "";
 	}
-	document.getElementById("question6").style.display = "";
+ document.getElementById("question6").style.display = "";
  document.getElementById("button5").style.display = "none";
 
 document.getElementById("5ai").disabled=true;
@@ -719,10 +718,10 @@ if (!checkAnswers("6ai", "Model 3")) {
     document.getElementById("hint-6ai").innerHTML = hints["6ai"][answer];
 }
 if ((checkAnswers("6ai", "Model 3") || set6.ai===3) &&1) {
- 	if(checkAnswers("6ai", "Model 3")){
+	if(checkAnswers("6ai", "Model 3")){
 		document.getElementById("hint-6ai").innerHTML = "";
 	}
-	document.getElementById("question7").style.display = "";
+ document.getElementById("question7").style.display = "";
  document.getElementById("button6").style.display = "none";
 
 document.getElementById("6ai").disabled=true;
@@ -774,7 +773,7 @@ if(set6.ai===3)
 <input type="hidden" name="problem7" id="problem7" value="111">
 <input type="hidden" name="mode7" id="mode7" value="STUDENT">
 <br><button id="dragoonButton7" onClick="openDragoonProblem(7);">Open Dragoon</button>
-<div id="dragoonErrorMessage7" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p>Your model need not look exactly like the one above&mdash;the positions and colors of the nodes do not affect the calculations of the model.   You can move nodes by dragging on them.</p><p>When you have finished constructing the model, click on the Graph button to see how the main value of &quot;books&quot; changes over time.  Please manipulate the sliders on the right side of the Graph window; do the movements of the graph make sense to you?</p><p>This kind of model is called linear because the graph of the main quantity, books, is a straight line.  Because the main quantity increases, it&#39;s called a linear growth model.</p><p>Now click on the Done button.</p>
+<div id="dragoonErrorMessage7" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p>Your model need not look exactly like the one above. The positions and colors of the nodes do not affect the calculations of the model.   You can move nodes by dragging on them.</p><p>When you have finished constructing the model, click on the Graph button to see how the main value of &quot;books&quot; changes over time.  Please manipulate the sliders on the right side of the Graph window; do the movements of the graph make sense to you?</p><p>This kind of model is called linear because the graph of the main quantity, books, is a straight line.  Because the main quantity increases, it&#39;s called a linear growth model.</p><p>Now click on the Done button.</p>
 <script type="text/javascript">var set7 = {}; 
 function cont7() {
 var yestim7 = 0;
@@ -803,7 +802,7 @@ time8();
 
 <br><button id="button7" onClick="cont7();">Continue</button>
 <div id="question8" style="display: none">
-<h3>Dragoon Problem:</h3>Consider the process:</p><blockquote><p>In 1859, Thomas Austin released 24 rabbits onto his property in Australia. Despite various attempts at eradicating the rabbits, the population grew at an average rate of 0.3 per year over the next 60 years. The rabbits eventually occupied most of the continent of Australia. Model the rabbit population growth where -</p><p>The first quantity in this model is the population or number of rabbits in the population. Initially, there are 24 rabbits, but the number increases with time. The new population each year is its present value plus the net growth (number of rabbits born minus deaths). The net growth is equal to the product of the population and the growth rate. The growth rate has a fixed value of 0.3 per year.</p></blockquote><p><b>Step 1</b> will be the same as earlier that is to envision the model. Please select the pictorial representation that matches the model above.</p><p>Process 1
+<h3>Dragoon Problem:</h3>Consider the process:</p><blockquote><p>In 1859, Thomas Austin released 24 rabbits onto his property in Australia. Despite various attempts at eradicating the rabbits, the population grew at an average rate of 30% (0.3) per year over the next 60 years. The rabbits eventually occupied most of the continent of Australia. Model the rabbit population growth where -</p><p>The first quantity in this model is the population or number of rabbits in the population. Initially, there are 24 rabbits, but the number increases with time. The new population each year is its present value plus the net growth (number of rabbits born minus deaths). The net growth is equal to the product of the population and the growth rate. The growth rate has a fixed value of 30% per year.</p></blockquote><p><b>Step 1</b> will be the same as earlier that is to envision the model. Please select the pictorial representation that matches the model above.</p><p>Process 1
 </p><img src ="images/rabbits-constant.JPG"/><p>Process 2
 </p><img src ="images/rabbits.JPG"/><p>Process 3
 </p><img src ="images/rabbits-decrease.JPG"/><p>Process 4
@@ -826,12 +825,13 @@ if (document.getElementById("8ai").value==="" || 0) {
 if (!checkAnswers("8ai", "Process 2")) { 
  set8.ai = set8.ai + 1;
 	var answer = document.getElementById("8ai").value;
-    document.getElementById("hint-8ai").innerHTML = hints["8ai"][answer];}
+    document.getElementById("hint-8ai").innerHTML = hints["8ai"][answer];
+}
 if ((checkAnswers("8ai", "Process 2") || set8.ai===3) &&1) {
 	if(checkAnswers("8ai", "Process 2")){
 		document.getElementById("hint-8ai").innerHTML = "";
 	}
-	document.getElementById("question9").style.display = "";
+ document.getElementById("question9").style.display = "";
  document.getElementById("button8").style.display = "none";
 
 document.getElementById("8ai").disabled=true;
@@ -984,10 +984,10 @@ if (!checkAnswers("9ai", "Table 4")) {
 	var answer = document.getElementById("9ai").value;
     document.getElementById("hint-9ai").innerHTML = hints["9ai"][answer];}
 if ((checkAnswers("9ai", "Table 4") || set9.ai===3) &&1) {
- 	if(checkAnswers("9ai", "Table 4")){
+	if(checkAnswers("9ai", "Table 4")){
 		document.getElementById("hint-9ai").innerHTML = "";
 	}
-	document.getElementById("question10").style.display = "";
+ document.getElementById("question10").style.display = "";
  document.getElementById("button9").style.display = "none";
 
 document.getElementById("9ai").disabled=true;
@@ -1057,13 +1057,13 @@ if (document.getElementById("10ai").value==="" || 0) {
 }
 if (!checkAnswers("10ai", "Model 1")) { 
  set10.ai = set10.ai + 1;
-	var answer = document.getElementById("10ai").value;
+var answer = document.getElementById("10ai").value;
     document.getElementById("hint-10ai").innerHTML = hints["10ai"][answer];}
 if ((checkAnswers("10ai", "Model 1") || set10.ai===3) &&1) {
- 	if(checkAnswers("10ai", "Model 1")){
+	if(checkAnswers("10ai", "Model 1")){
 		document.getElementById("hint-10ai").innerHTML = "";
 	}
-	document.getElementById("question11").style.display = "";
+ document.getElementById("question11").style.display = "";
  document.getElementById("button10").style.display = "none";
 
 document.getElementById("10ai").disabled=true;
@@ -1205,7 +1205,7 @@ displayAnswers();
 </table>
 </div><script type="text/javascript">
 function displayAnswers () {
-document.getElementById("resultsTable").style.display="";
+document.getElementById("resultsTable").style.display=""
 document.getElementById("1aiTries").innerHTML=set1.ai;
 document.getElementById("2aiTries").innerHTML=set2.ai;
 document.getElementById("4aiTries").innerHTML=set4.ai;
