@@ -18,7 +18,7 @@
                                 "content": [
                                     {
                                         "__Text__": {
-                                            "text": "</p><h4>Step 1</h4><p>To construct a Dragoon model, one needs to first envision the dynamic system. To see if you understand the system&#39;s behavior, please choose one of the sequences of pictures that show dodo population changing over the year. Don&#39;t worry about the fact that there are 1000 dodos in the population but only 50 dodo pictures. Try to figure out the pattern and select the correct option from the dropdown after the images</p><p>"
+                                            "text": "</p><h4>Step 1</h4><p>To construct a Dragoon model, one needs to first envision the dynamic system. To see if you understand the system&#39;s behavior, please choose one of the sequences of pictures that show dodo population changing over the year. Don&#39;t worry about the fact that there are 1000 dodos in the population but only 50 dodos (Year 0) in the pictures. Try to figure out the pattern and select the correct option from the dropdown after the images</p><p>"
                                         }
                                     },
 									{
