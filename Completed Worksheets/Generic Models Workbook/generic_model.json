@@ -18,9 +18,44 @@
                                 "content": [
                                     {
                                         "__Text__": {
-											"text": "<h4>Introduction</h4><p>The simplest template model focuses on how one quantity changes. The most common such processes are: <ul><li><b>linear growth</b>: the quantity <i>increases</i> by a <i>constant</i> amount after each time step. For example, Rod&#39;s book collection was increasing by a constant amount.</li><li><b>exponential growth</b>: The quantity <i>increases</i> and the increases is a <i>constant proportion</i> (like 20% or 0.2) of the quantity. For example, Rabbit&#39;s population was growing by a proportion of 0.3 times the population quantity.</li><li><b>exponential decay</b>: the quantity <i>decreases</i> and the decrease is a <i>constant proportion</i>. Foe example, the dodo population was decreasing by a proportion of 20% or 0.2 every year.</li></ul></p>"
+											"text": "<h4>Introduction</h4><p>The simplest template model focuses on how one quantity changes. The most common such processes are: <ul><li><b>linear change</b>: the quantity <i>increases or decreases</i> by a <i>constant</i> amount after each time step. For example, Rod&#39;s book collection was increasing by a constant amount. You can see the linear growth (first image) and decay (second image) models in the image below."
+											}
+									},
+									{
+										"__Image__": {
+											"image": "images/linear_growth" 
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/linear_decay" 
+										}
+									},
+									{
+										"__Text__": {
+											"text": "</li><li><b>exponential growth</b>: The quantity <i>increases</i> and the increases is a <i>constant proportion</i> (like 20% or 0.2) of the quantity. For example, Rabbit&#39;s population was growing by a proportion of 0.3 times the population quantity. As you can see the image below quantity Destination is growing by a factor of 0.2 after every unit of time."
+										}
+									},
+									{
+										"__Image__": {
+											"image": "images/exponential_growth"
+										}
+									},
+									{
+										"__Text__": {
+											"text":	"</li><li><b>exponential decay</b>: the quantity <i>decreases</i> and the decrease is a <i>constant proportion</i>. Foe example, the dodo population was decreasing by a proportion of 20% or 0.2 every year. The image below shows the model where quantity Source is decreasing by a factor of 0.2."
                                         }
                                     },
+									{
+										"__Image__": {
+											"image": "images/exponential_decay"
+										}
+									},
+									{
+										"__Text__": {
+											"text":	"</li></ul></p>"
+										}
+									},
 									{
 										"__Text__": {
 											"text": "<h4>Instructions</h4><p>This work book will give you a sequence of problems to help you learn how to decompose complex problems combinations of these simple template models. <ul><li>Some problems have extra nodes which are not required while constructing the model. So, be extra careful in such cases.</li><li>Don&#39;t forget to check the graph and understand how the values change for the template models.</li><li>Some problems also have lessons learned which will help you understand dynamic systems modelling. You can check them using a button in the top menu, which will get enabled once you have checked the graph for the problem.</li></ul> Please click continue, when you are ready to work on these problems."
