@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dragoon Workbook</title>
+<script type="text/javascript">
+function
+openDragoonProblem(num){
+var u = document.getElementById("user").value;
+var s;
+if ((window.location.href.search("s=") != -1)) {
+s = window.location.href.substr(window.location.href.search("s=")+2)
+} else {
+s = document.getElementById("section").value;
+};
+var problemID = "problem" + num.toString();
+var p = document.getElementById(problemID).value;
+var modeID = "mode" + num.toString();
+var m = document.getElementById(modeID).value;
+var urlString = "http://dragoon.asu.edu/demo/index.html?u="+u+"&m="+m+"&p="+p+"&s="+s;
+window.open(urlString);
+}
+function checkAnswers(inputId, rightAnswer)
+{
+if(document.getElementById(inputId).value===rightAnswer) {
+document.getElementById(inputId).style.background="#66FF33";
+return true;
+}
+else
+{
+document.getElementById(inputId).style.background="#FF3333";
+return false;
+}
+};
+function checkTextbox(inputId) {
+if (!(document.getElementById(inputId).value==="")) {
+document.getElementById(inputId).style.background="#66FF33";
+return true;
+}
+else {
+document.getElementById(inputId).style.background="#FF3333";
+return false;
+}
+};
+
+function checkbox(textId,checkedId,uncheckedId) {
+ck = 0
+unck = 0
+for (i = 0; i<checkedId.length; i++) {
+if (document.getElementById(checkedId[i]).checked) {
+ck = ck + 1;
+}
+};
+for (i = 0; i<uncheckedId.length; i++) {
+if (!(document.getElementById(uncheckedId[i]).checked)) {
+unck = unck + 1;
+}
+};
+if (checkedId.length == ck && uncheckedId.length == unck)
+{
+document.getElementById(textId).style.background="#66FF33";
+return true
+}
+else {
+document.getElementById(textId).style.background="#FF3333";
+return false
+}
+};
+
+function checkboxCorrection(textId,checkedId,uncheckedId) {
+for (i=0; i<checkedId.length; i++) {
+document.getElementById(checkedId[i]).checked = true;
+};
+for (i=0; i<uncheckedId.length; i++) {
+document.getElementById(uncheckedId[i]).checked = false;
+};
+document.getElementById(textId).style.background = "#FFFF00"
+};
+
+function retrieveCheckboxValue(total) {
+response = []
+for (i=0; i<total.length; i++) {
+if
+(document.getElementById (total[i]).checked) {
+response.push(total[i])
+}
+};
+return response
+};
+
+var tim1 = 0;
+function time1 () {
+if (yestim1=1){
+tim1 = tim1 + 1;
+t = setTimeout(function() {time1()},1000);
+}
+};
+var yestim1 = 1;
+time1();
+function checkCompletion(num){
+// id is the id of the continue button or I just need a the number of the question i.e. if its cont1 just send me 1 and it will do
+return true;
+var u = document.getElementById("user").value;
+var s = document.getElementById("section").value;
+var problemID = "problem" + num.toString();
+var p = document.getElementById(problemID).value.slice(0,30);
+var modeID = "mode" + num.toString();
+var m = document.getElementById(modeID).value;
+var xmlHTTP = new XMLHttpRequest();
+var userObject;
+xmlHTTP.onreadystatechange = function(){
+if(xmlHTTP.readyState == 4 && xmlHTTP.status == 200){
+userObject = JSON.parse(xmlHTTP.responseText);
+}
+}
+var url = "../../demo/log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
+//var url = "log/dashboard_js.php?m="+m+"&u="+u+"&s="+s+"&p="+p;
+xmlHTTP.open("GET", url, false);
+xmlHTTP.send();
+var id = "dragoonErrorMessage" + num.toString();
+var result = false;
+ if(userObject != null){
+result = userObject[0].problemComplete;
+}
+if(result) {
+document.getElementById(id).style.display = "none";
+} else {
+document.getElementById(id).style.display = "";
+}
+}</script>
+</head>
+<body>
+<label>Username :</label>&nbsp;<input type="text" name="user" id="user">
+<input type="hidden" name="section" id="section" value="public-workbook">
+<br><br><button id="usernameCheck" onClick="enterUsername();">Start Workbook</button><div id="wkstBody" style="display: none">
+<script type="text/javascript">
+if ((window.location.href.search("u=") != -1)) {
+if ((window.location.href.search("s=") != -1)&&(window.location.href.search("s=")>window.location.href.search("u="))) {
+document.getElementById("user").value = window.location.href.substr((window.location.href.search("u=")+2),((window.location.href.search("&s="))-(window.location.href.search("u=")+2)));
+document.getElementById("section").value = window.location.href.substr(window.location.href.search("s=")+2);
+} else {
+document.getElementById("user").value = window.location.href.substr(window.location.href.search("u=")+2);
+document.getElementById("section").value = window.location.href.substr((window.location.href.search("s=")+2),((window.location.href.search("&u="))-(window.location.href.search("s=")+2)));
+};
+document.getElementById("wkstBody").style.display="";
+document.getElementById("usernameCheck").style.display="none";
+document.getElementById("user").disabled=true;
+};
+function enterUsername() {
+if (document.getElementById("user").value!=="" && document.getElementById("user").value.length<=30) {
+document.getElementById("wkstBody").style.display="";document.getElementById("usernameCheck").style.display="none";
+document.getElementById("user").style.background="";
+document.getElementById("user").disabled=true;
+}
+else {
+document.getElementById("user").style.background="#FF3333";alert("Please make sure you have entered a username and that your username is between 1 and 30 characters long.");
+}
+};
+</script>
+<p><h3>Generic Models</h3><h4>Motivation</h4><p>Going through simpler models and following the steps of <ol><li>envisioning</li><li>quantifying</li><li>constructing</li><li>testing (via Graphs and Tables)</li></ol> is very tedious. To construct models for the complicated systems. Thus, you need to break a complicated process into several elementary ones, such that each elementary process fits a generic <i>template model</i>. This workbook teaches you how to do this.</p></p>
+<h3></h3><h4>Introduction</h4><p>The simplest template model focuses on how one quantity changes. The most common such processes are: <ul><li><b>linear change</b>: the quantity <i>increases or decreases</i> by a <i>constant</i> amount after each time step. For example, Rod&#39;s book collection was increasing by a constant amount. You can see the linear growth (first image) and decay (second image) models in the image below.
+</p><img src ="images/linear_growth.JPG"/><p>
+</p><img src ="images/linear_decay.JPG"/><p></li><li><b>exponential growth</b>: The quantity <i>increases</i> and the increases is a <i>constant proportion</i> (like 20% or 0.2) of the quantity. For example, Rabbit&#39;s population was growing by a proportion of 0.3 times the population quantity. As you can see the image below quantity Destination is growing by a factor of 0.2 after every unit of time.
+</p><img src ="images/exponential_growth.JPG"/><p></li><li><b>exponential decay</b>: the quantity <i>decreases</i> and the decrease is a <i>constant proportion</i>. Foe example, the dodo population was decreasing by a proportion of 20% or 0.2 every year. The image below shows the model where quantity Source is decreasing by a factor of 0.2.
+</p><img src ="images/exponential_decay.JPG"/><p></li></ul></p><h4>Instructions</h4><p>This work book will give you a sequence of problems to help you learn how to decompose complex problems combinations of these simple template models. <ul><li>Some problems have extra nodes which are not required while constructing the model. So, be extra careful in such cases.</li><li>Don&#39;t forget to check the graph and understand how the values change for the template models.</li><li>Every Problems has <i>Hints</i> button at the top which will provide you some hints for constructing the model. There is no feedback given other than those hints. Once you think you have completed the problems, just come back here and hit Continue.</li></ul> Please click continue, when you are ready to work on these problems.</p>
+<script type="text/javascript">var set1 = {}; 
+function cont1() {
+var yestim1 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (1) {
+ document.getElementById("question2").style.display = "";
+ document.getElementById("button1").style.display = "none";
+
+tim2= 0;
+
+function time2() {
+if (yestim2){
+tim2 = tim2 + 1;
+t = setTimeout(function() {time2()},1000);
+}
+};
+var yestim2 = 1;
+time2();
+}
+};
+</script>
+
+<br><button id="button1" onClick="cont1();">Continue</button>
+<div id="question2" style="display: none">
+<h3>Dragoon problem 1:</h3></p>
+<input type="hidden" name="problem2" id="problem2" value="CPI-2014-ps1-05">
+<input type="hidden" name="mode2" id="mode2" value="EDITOR">
+<br><button id="dragoonButton2" onClick="openDragoonProblem(2);">Open Dragoon</button>
+<div id="dragoonErrorMessage2" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
+<script type="text/javascript">var set2 = {}; 
+function cont2() {
+var yestim2 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(2) && 1) {
+ document.getElementById("question3").style.display = "";
+ document.getElementById("button2").style.display = "none";
+
+tim3= 0;
+
+function time3() {
+if (yestim3){
+tim3 = tim3 + 1;
+t = setTimeout(function() {time3()},1000);
+}
+};
+var yestim3 = 1;
+time3();
+}
+};
+</script>
+
+<br><button id="button2" onClick="cont2();">Continue</button>
+<div id="question3" style="display: none">
+<h3>Dragoon Problem 2:</h3></p>
+<input type="hidden" name="problem3" id="problem3" value="CPI-2014-ps2-01">
+<input type="hidden" name="mode3" id="mode3" value="EDITOR">
+<br><button id="dragoonButton3" onClick="openDragoonProblem(3);">Open Dragoon</button>
+<div id="dragoonErrorMessage3" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
+<script type="text/javascript">var set3 = {}; 
+function cont3() {
+var yestim3 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(3) && 1) {
+ document.getElementById("question4").style.display = "";
+ document.getElementById("button3").style.display = "none";
+
+tim4= 0;
+
+function time4() {
+if (yestim4){
+tim4 = tim4 + 1;
+t = setTimeout(function() {time4()},1000);
+}
+};
+var yestim4 = 1;
+time4();
+}
+};
+</script>
+
+<br><button id="button3" onClick="cont3();">Continue</button>
+<div id="question4" style="display: none">
+<h3>Dragoon Problem 3:</h3></p>
+<input type="hidden" name="problem4" id="problem4" value="CPI-2014-ps1-06">
+<input type="hidden" name="mode4" id="mode4" value="EDITOR">
+<br><button id="dragoonButton4" onClick="openDragoonProblem(4);">Open Dragoon</button>
+<div id="dragoonErrorMessage4" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
+<script type="text/javascript">var set4 = {}; 
+function cont4() {
+var yestim4 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(4) && 1) {
+ document.getElementById("question5").style.display = "";
+ document.getElementById("button4").style.display = "none";
+
+tim5= 0;
+
+function time5() {
+if (yestim5){
+tim5 = tim5 + 1;
+t = setTimeout(function() {time5()},1000);
+}
+};
+var yestim5 = 1;
+time5();
+}
+};
+</script>
+
+<br><button id="button4" onClick="cont4();">Continue</button>
+<div id="question5" style="display: none">
+<h3>Dragoon Problem 4:</h3></p>
+<input type="hidden" name="problem5" id="problem5" value="CPI-2014-ps1-07">
+<input type="hidden" name="mode5" id="mode5" value="EDITOR">
+<br><button id="dragoonButton5" onClick="openDragoonProblem(5);">Open Dragoon</button>
+<div id="dragoonErrorMessage5" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
+<script type="text/javascript">var set5 = {}; 
+function cont5() {
+var yestim5 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(5) && 1) {
+ document.getElementById("question6").style.display = "";
+ document.getElementById("button5").style.display = "none";
+
+tim6= 0;
+
+function time6() {
+if (yestim6){
+tim6 = tim6 + 1;
+t = setTimeout(function() {time6()},1000);
+}
+};
+var yestim6 = 1;
+time6();
+}
+};
+</script>
+
+<br><button id="button5" onClick="cont5();">Continue</button>
+<div id="question6" style="display: none">
+<h3>Dragoon Problem 5:</h3></p>
+<input type="hidden" name="problem6" id="problem6" value="CPI-2014-ps2-02">
+<input type="hidden" name="mode6" id="mode6" value="EDITOR">
+<br><button id="dragoonButton6" onClick="openDragoonProblem(6);">Open Dragoon</button>
+<div id="dragoonErrorMessage6" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
+<script type="text/javascript">var set6 = {}; 
+function cont6() {
+var yestim6 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(6) && 1) {
+ document.getElementById("question7").style.display = "";
+ document.getElementById("button6").style.display = "none";
+
+tim7= 0;
+
+function time7() {
+if (yestim7){
+tim7 = tim7 + 1;
+t = setTimeout(function() {time7()},1000);
+}
+};
+var yestim7 = 1;
+time7();
+}
+};
+</script>
+
+<br><button id="button6" onClick="cont6();">Continue</button>
+<div id="question7" style="display: none">
+<h3>Dragoon Problem 6:</h3></p>
+<input type="hidden" name="problem7" id="problem7" value="CPI-2014-ps2-04">
+<input type="hidden" name="mode7" id="mode7" value="EDITOR">
+<br><button id="dragoonButton7" onClick="openDragoonProblem(7);">Open Dragoon</button>
+<div id="dragoonErrorMessage7" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
+<script type="text/javascript">var set7 = {}; 
+function cont7() {
+var yestim7 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(7) && 1) {
+ document.getElementById("question8").style.display = "";
+ document.getElementById("button7").style.display = "none";
+
+tim8= 0;
+
+function time8() {
+if (yestim8){
+tim8 = tim8 + 1;
+t = setTimeout(function() {time8()},1000);
+}
+};
+var yestim8 = 1;
+time8();
+}
+};
+</script>
+
+<br><button id="button7" onClick="cont7();">Continue</button>
+<div id="question8" style="display: none">
+<h3>Dragoon Problem 7:</h3></p>
+<input type="hidden" name="problem8" id="problem8" value="CPI-2014-ps4-02">
+<input type="hidden" name="mode8" id="mode8" value="EDITOR">
+<br><button id="dragoonButton8" onClick="openDragoonProblem(8);">Open Dragoon</button>
+<div id="dragoonErrorMessage8" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
+<script type="text/javascript">var set8 = {}; 
+function cont8() {
+var yestim8 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(8) && 1) {
+ document.getElementById("question9").style.display = "";
+ document.getElementById("button8").style.display = "none";
+
+tim9= 0;
+
+function time9() {
+if (yestim9){
+tim9 = tim9 + 1;
+t = setTimeout(function() {time9()},1000);
+}
+};
+var yestim9 = 1;
+time9();
+}
+};
+</script>
+
+<br><button id="button8" onClick="cont8();">Continue</button>
+<div id="question9" style="display: none">
+<h3>Dragoon Problem 8:</h3></p>
+<input type="hidden" name="problem9" id="problem9" value="CPI-2014-ps3-03">
+<input type="hidden" name="mode9" id="mode9" value="EDITOR">
+<br><button id="dragoonButton9" onClick="openDragoonProblem(9);">Open Dragoon</button>
+<div id="dragoonErrorMessage9" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
+<script type="text/javascript">var set9 = {}; 
+function cont9() {
+var yestim9 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(9) && 1) {
+ document.getElementById("question10").style.display = "";
+ document.getElementById("button9").style.display = "none";
+
+tim10= 0;
+
+function time10() {
+if (yestim10){
+tim10 = tim10 + 1;
+t = setTimeout(function() {time10()},1000);
+}
+};
+var yestim10 = 1;
+time10();
+}
+};
+</script>
+
+<br><button id="button9" onClick="cont9();">Continue</button>
+<div id="question10" style="display: none">
+<h3>Dragoon Problem 9:</h3></p>
+<input type="hidden" name="problem10" id="problem10" value="CPI-2014-ps3-07">
+<input type="hidden" name="mode10" id="mode10" value="EDITOR">
+<br><button id="dragoonButton10" onClick="openDragoonProblem(10);">Open Dragoon</button>
+<div id="dragoonErrorMessage10" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
+<script type="text/javascript">var set10 = {}; 
+function cont10() {
+var yestim10 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(10) && 1) {
+ document.getElementById("question11").style.display = "";
+ document.getElementById("button10").style.display = "none";
+
+tim11= 0;
+
+function time11() {
+if (yestim11){
+tim11 = tim11 + 1;
+t = setTimeout(function() {time11()},1000);
+}
+};
+var yestim11 = 1;
+time11();
+}
+};
+</script>
+
+<br><button id="button10" onClick="cont10();">Continue</button>
+<div id="question11" style="display: none">
+<h3>Dragoon Problem 10:</h3></p>
+<input type="hidden" name="problem11" id="problem11" value="CPI-2014-ps5-04">
+<input type="hidden" name="mode11" id="mode11" value="EDITOR">
+<br><button id="dragoonButton11" onClick="openDragoonProblem(11);">Open Dragoon</button>
+<div id="dragoonErrorMessage11" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
+<script type="text/javascript">var set11 = {}; 
+function cont11() {
+var yestim11 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(11) && 1) {
+ document.getElementById("question12").style.display = "";
+ document.getElementById("button11").style.display = "none";
+
+tim12= 0;
+
+function time12() {
+if (yestim12){
+tim12 = tim12 + 1;
+t = setTimeout(function() {time12()},1000);
+}
+};
+var yestim12 = 1;
+time12();
+}
+};
+</script>
+
+<br><button id="button11" onClick="cont11();">Continue</button>
+<div id="question12" style="display: none">
+<h3>Dragoon Problem 11:</h3>This is a test problem, which means that you will not see any feedback whether your actions are correct or not.</p>
+<input type="hidden" name="problem12" id="problem12" value="CPI-2014-exam-q2">
+<input type="hidden" name="mode12" id="mode12" value="TEST">
+<br><button id="dragoonButton12" onClick="openDragoonProblem(12);">Open Dragoon</button>
+<div id="dragoonErrorMessage12" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p>After completing the model hit continue to finish the worksheet.</p>
+<script type="text/javascript">var set12 = {}; 
+function cont12() {
+var yestim12 = 0;
+
+if (0) {
+ alert("It appears you have left at least one of these fields blank. Please remedy this immediately.");
+}
+
+if (checkCompletion(12) && 1) {
+ document.getElementById("question13").style.display = "";
+ document.getElementById("button12").style.display = "none";
+
+displayAnswers();
+}
+};
+</script>
+
+<br><button id="button12" onClick="cont12();">Continue</button>
+<div id="question13" style="display: none">
+</div></div></div></div></div></div></div></div></div></div></div></div></div><div id="resultsTable" style="display:none">
+<table>
+<thead>
+<td style="border: 2pt black solid">Question</td>
+<td style="border: 2pt black solid">Correct Answer</td>
+<td style="border: 2pt black solid">Student Answers</td>
+<td style="border: 2pt black solid">Number of Wrong Tries</td>
+<td style="border: 2pt black solid">Time for Entire Question (s)</td>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div><script type="text/javascript">
+function displayAnswers () {
+document.getElementById("resultsTable").style.display=""
+};
+</script></body></html>
