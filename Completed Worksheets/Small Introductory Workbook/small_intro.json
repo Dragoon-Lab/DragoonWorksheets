@@ -1002,7 +1002,7 @@
 								"content": [
 									{
 										"__Text__":{
-											"text": "Its time to make the Dragoon Model for Rabbits problem. Do not forget to check the graph after you think you have finished the problem, to check your solution."
+											"text": "Its time to make the Dragoon Model for Rabbits problem. You will see that the problem has some extra nodes, which are not needed to construct the model. Just be careful of those extra nodes. Dragoon will show you a message if you contruct those nodes. Do not forget to check the graph after you think you have finished the problem, to check your solution."
 										}
 									},
 									{
