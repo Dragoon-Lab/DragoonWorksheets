@@ -24,12 +24,16 @@ var problemID = "problem" + num.toString();
 var modeID = "mode" + num.toString();
 
 if(document.getElementById(problemID).value == ""){
+if(problems.length > 1){
 var seconds = new Date().getTime();
 //var modeIndex = seconds%modes.length;
 var probIndex = seconds%problems.length;
 
 document.getElementById(problemID).value = problems[probIndex];
 //document.getElementById(modeID).value = modes[modeIndex];
+} else {
+	document.getElementById(problemID).value = problems[0];
+}
 }
 problems.splice(probIndex, 1);
 

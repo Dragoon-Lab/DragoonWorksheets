@@ -297,7 +297,7 @@
                                     },
                                     {
                                         "__Text__": {
-                                            "text": "Notice that the node editor snapshots look slightly different from each other.  Do the differences make sense to you?</p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to the table you correctly selected earlier (see left figure, below); the Graph button would display the same information in graph form (see right figure)."
+                                            "text": "Notice that the node editor snapshots look slightly different from each other. If you look closely to node editor for Dodos population, in equation you will see a <b>- sign in front of deaths</b>. This is so because, population is <i>decreasing by number of deaths every year. Do the differences make sense to you? </p><p>If you could click on the Table button, you would see that the software calculates the declining population identically to the table you correctly selected earlier (see left figure, below); the Graph button would display the same information in graph form (see right figure)."
                                         }
                                     },
                                     {
@@ -1007,7 +1007,7 @@
 									},
 									{
 										"__Dragoon__": {
-											"problem": "rabbits",
+											"problem": "rabbits-sum15",
 											"mode": "STUDENT"
 										}
 									},
