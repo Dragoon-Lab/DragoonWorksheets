@@ -10,13 +10,10 @@ var problems = [
 	"retirement-sum15",
 	"CPI-2014-ps2-02",
 	"CPI-2014-ps2-04",
-	"CPI-2014-ps4-02",
 	"CPI-2014-ps3-03",
-	"CPI-2014-ps3-07",
-	"CPI-2014-ps5-04"
 ];
 
-var modes = ["STUDENT", "EDITOR"];
+//var modes = ["STUDENT", "EDITOR"];
 
 function
 openDragoonProblem(num){
@@ -28,15 +25,12 @@ var modeID = "mode" + num.toString();
 
 if(document.getElementById(problemID).value == ""){
 var seconds = new Date().getTime();
-console.log(seconds)
-var modeIndex = seconds%modes.length;
+//var modeIndex = seconds%modes.length;
 var probIndex = seconds%problems.length;
-console.log(modeIndex, " ", probIndex);
 
 document.getElementById(problemID).value = problems[probIndex];
-document.getElementById(modeID).value = modes[modeIndex];
+//document.getElementById(modeID).value = modes[modeIndex];
 }
-
 problems.splice(probIndex, 1);
 
 if ((window.location.href.search("s=") != -1)) {
@@ -226,7 +220,7 @@ time2();
 <div id="question2" style="display: none">
 <h3>Dragoon problem 1:</h3></p>
 <input type="hidden" name="problem2" id="problem2" value="">
-<input type="hidden" name="mode2" id="mode2" value="">
+<input type="hidden" name="mode2" id="mode2" value="STUDENT">
 <br><button id="dragoonButton2" onClick="openDragoonProblem(2);">Open Dragoon</button>
 <div id="dragoonErrorMessage2" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
 <script type="text/javascript">var set2 = {}; 
@@ -259,7 +253,7 @@ time3();
 <div id="question3" style="display: none">
 <h3>Dragoon Problem 2:</h3></p>
 <input type="hidden" name="problem3" id="problem3" value="">
-<input type="hidden" name="mode3" id="mode3" value="">
+<input type="hidden" name="mode3" id="mode3" value="STUDENT">
 <br><button id="dragoonButton3" onClick="openDragoonProblem(3);">Open Dragoon</button>
 <div id="dragoonErrorMessage3" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
 <script type="text/javascript">var set3 = {}; 
@@ -292,7 +286,7 @@ time4();
 <div id="question4" style="display: none">
 <h3>Dragoon Problem 3:</h3></p>
 <input type="hidden" name="problem4" id="problem4" value="">
-<input type="hidden" name="mode4" id="mode4" value="">
+<input type="hidden" name="mode4" id="mode4" value="STUDENT">
 <br><button id="dragoonButton4" onClick="openDragoonProblem(4);">Open Dragoon</button>
 <div id="dragoonErrorMessage4" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
 <script type="text/javascript">var set4 = {}; 
@@ -325,7 +319,7 @@ time5();
 <div id="question5" style="display: none">
 <h3>Dragoon Problem 4:</h3></p>
 <input type="hidden" name="problem5" id="problem5" value="">
-<input type="hidden" name="mode5" id="mode5" value="">
+<input type="hidden" name="mode5" id="mode5" value="STUDENT">
 <br><button id="dragoonButton5" onClick="openDragoonProblem(5);">Open Dragoon</button>
 <div id="dragoonErrorMessage5" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
 <script type="text/javascript">var set5 = {}; 
@@ -358,7 +352,7 @@ time6();
 <div id="question6" style="display: none">
 <h3>Dragoon Problem 5:</h3></p>
 <input type="hidden" name="problem6" id="problem6" value="">
-<input type="hidden" name="mode6" id="mode6" value="">
+<input type="hidden" name="mode6" id="mode6" value="STUDENT">
 <br><button id="dragoonButton6" onClick="openDragoonProblem(6);">Open Dragoon</button>
 <div id="dragoonErrorMessage6" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
 <script type="text/javascript">var set6 = {}; 
@@ -391,7 +385,7 @@ time7();
 <div id="question7" style="display: none">
 <h3>Dragoon Problem 6:</h3></p>
 <input type="hidden" name="problem7" id="problem7" value="">
-<input type="hidden" name="mode7" id="mode7" value="">
+<input type="hidden" name="mode7" id="mode7" value="STUDENT">
 <br><button id="dragoonButton7" onClick="openDragoonProblem(7);">Open Dragoon</button>
 <div id="dragoonErrorMessage7" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
 <script type="text/javascript">var set7 = {}; 
@@ -424,7 +418,7 @@ time8();
 <div id="question8" style="display: none">
 <h3>Dragoon Problem 7:</h3></p>
 <input type="hidden" name="problem8" id="problem8" value="">
-<input type="hidden" name="mode8" id="mode8" value="">
+<input type="hidden" name="mode8" id="mode8" value="STUDENT">
 <br><button id="dragoonButton8" onClick="openDragoonProblem(8);">Open Dragoon</button>
 <div id="dragoonErrorMessage8" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
 <script type="text/javascript">var set8 = {}; 
@@ -456,8 +450,8 @@ time9();
 <br><button id="button8" onClick="cont8();">Continue</button>
 <div id="question9" style="display: none">
 <h3>Dragoon Problem 8:</h3></p>
-<input type="hidden" name="problem9" id="problem9" value="">
-<input type="hidden" name="mode9" id="mode9" value="">
+<input type="hidden" name="problem9" id="problem9" value="CPI-2014-ps4-02">
+<input type="hidden" name="mode9" id="mode9" value="STUDENT">
 <br><button id="dragoonButton9" onClick="openDragoonProblem(9);">Open Dragoon</button>
 <div id="dragoonErrorMessage9" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
 <script type="text/javascript">var set9 = {}; 
@@ -489,8 +483,8 @@ time10();
 <br><button id="button9" onClick="cont9();">Continue</button>
 <div id="question10" style="display: none">
 <h3>Dragoon Problem 9:</h3></p>
-<input type="hidden" name="problem10" id="problem10" value="">
-<input type="hidden" name="mode10" id="mode10" value="">
+<input type="hidden" name="problem10" id="problem10" value="CPI-2014-ps3-07">
+<input type="hidden" name="mode10" id="mode10" value="STUDENT">
 <br><button id="dragoonButton10" onClick="openDragoonProblem(10);">Open Dragoon</button>
 <div id="dragoonErrorMessage10" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
 <script type="text/javascript">var set10 = {}; 
@@ -522,8 +516,8 @@ time11();
 <br><button id="button10" onClick="cont10();">Continue</button>
 <div id="question11" style="display: none">
 <h3>Dragoon Problem 10:</h3></p>
-<input type="hidden" name="problem11" id="problem11" value="">
-<input type="hidden" name="mode11" id="mode11" value="">
+<input type="hidden" name="problem11" id="problem11" value="CPI-2014-ps5-04">
+<input type="hidden" name="mode11" id="mode11" value="STUDENT">
 <br><button id="dragoonButton11" onClick="openDragoonProblem(11);">Open Dragoon</button>
 <div id="dragoonErrorMessage11" style="color:red;display:none"><p>Your Dragoon problem is incomplete!  Please make sure your nodes are finished (i.e. have solid borders) and that you can view the model's graph and table of values.</p></div><p></p>
 <script type="text/javascript">var set11 = {}; 
